@@ -3174,7 +3174,7 @@ rule ("MERCY go back, told you") {
     conditions {
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Mercy);
-        Distance Between(Event Player, Vector(0, 0, 0)) >= 60;
+        Magnitude Of(Event Player) >= 60;
     }
     actions {
         Small Message(Event Player, Custom String("go back"));
@@ -3713,7 +3713,7 @@ rule ("ROADHOG in the hole") {
         Roadhog;
     }
     conditions {
-        Distance Between(Position Of(Event Player), Vector(0, 0, 0)) <= Global.roadhogHoleRadius;
+        Magnitude Of(Position Of(Event Player)) <= Global.roadhogHoleRadius;
         (Event Player).roadhogYanked == False;
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Roadhog);
@@ -3731,7 +3731,7 @@ rule ("ROADHOG out of the hole") {
         Roadhog;
     }
     conditions {
-        Distance Between(Position Of(Event Player), Vector(0, 0, 0)) > Global.roadhogHoleRadius;
+        Magnitude Of(Position Of(Event Player)) > Global.roadhogHoleRadius;
         (Event Player).roadhogYanked == False;
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Roadhog);
@@ -4353,7 +4353,7 @@ rule ("SYM invisibility ON") {
     conditions {
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Symmetra);
-        Distance Between(Position Of(Event Player), Vector(0, 0, 0)) <= 2;
+        Magnitude Of(Position Of(Event Player)) <= 2;
     }
     actions {
         "getAllPlayers().exclude(eventPlayer).setInvisibility(Invis.ALL)"
@@ -4370,7 +4370,7 @@ rule ("SYM invisibility OFF") {
     conditions {
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Symmetra);
-        Distance Between(Position Of(Event Player), Vector(0, 0, 0)) > 2;
+        Magnitude Of(Position Of(Event Player)) > 2;
     }
     actions {
         Wait(0.064, Ignore Condition);
@@ -4609,7 +4609,7 @@ rule ("SYM in") {
     }
     conditions {
         Distance Between(Position Of(Event Player), Value In Array(Global.symColorsPositions, Global.symColorSelected)) <= 5;
-        Distance Between(Position Of(Event Player), Vector(0, 0, 0)) > 5;
+        Magnitude Of(Position Of(Event Player)) > 5;
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Symmetra);
         Array Contains(Global.playersStartOfTheRound, Event Player) == True;
@@ -4690,7 +4690,7 @@ rule ("SYM position corrector") {
         Is Game In Progress == True;
         Global.heroOfTheRound == Hero(Symmetra);
         Global.symPhase == Custom String("decidingOnAColor");
-        Distance Between(Event Player, Vector(0, 0, 0)) > 1;
+        Magnitude Of(Event Player) > 1;
     }
     actions {
         Teleport(Event Player, Vector(0, 0, 0));

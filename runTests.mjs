@@ -175,7 +175,7 @@ for (let inputFile of decompilerFilesFiltered) {
     const resultFilePath = decompilerExpectedResultsFolder + inputFile.replace(".txt", ".opy");
 
     if (!existsSync(resultFilePath)) {
-        console.log(`No expected output for ${inputFile}, writing decompile result to ${decompilerExpectedResultsFolder + inputFile}`);
+        console.log(`No expected output for ${inputFile}, writing decompile result to ${decompilerExpectedResultsFolder + inputFile.replace(".txt", ".opy")}`);
         writeFileSync(resultFilePath, decompileResult);
         continue;
     }

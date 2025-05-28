@@ -212,6 +212,10 @@ subroutine baseUpgradeFail 3
 subroutine checkUpgradeAvailability 4
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Initialize global variables":
     practiceRangeTranslations = ["Practice Range", "Campo de Treinamento"]
     powerLevelColors = [Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.AQUA, Color.AQUA, Color.AQUA, Color.BLUE, Color.PURPLE, Color.RED, Color.ORANGE, rgb(20, 20, 20)]

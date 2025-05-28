@@ -363,7 +363,7 @@ rule ("loop") {
         Set Status(Global.nipman, Null, Frozen, 99999);
         Wait Until(Compare(Global.objProg, >=, Global.objGoal), 99999);
         "for i in range(len(getPlayers(Team.2))):\nif getPlayersInSlot(i, Team.2) != nipman:\ndestroyDummy(Team.2, i)\nwait()\nnipman.setStatusEffect(null, Status.STUNNED, 0.5)"
-        Play Effect(All Players(All Teams), Sombra EMP Explosion Effect, Color(Team 1), Multiply(Forward, 18), 100);
+        Play Effect(All Players(All Teams), Sombra EMP Explosion Effect, Color(Team 1), Vector(0, 0, 18), 100);
         Play Effect(All Players(All Teams), Ana Biotic Grenade Explosion Sound, Color(Team 1), Local Player, 200);
         Big Message(All Players(All Teams), Custom String("objective complete! mauga is vulnerable!"));
         Wait(0.016, Ignore Condition);
@@ -381,7 +381,7 @@ rule ("Subroutine mobsInit") {
         Set Global Variable(mobs, Empty Array);
         For Global Variable(i, 0, 10, 1);
             "createDummy(enemies[i%len(enemies)], Team.2, -1, Vector.DOWN, Vector.BACKWARD)\ncan't split enemy heroes bc skin limit\ndo not put this above skybox in case enemies aren't killed"
-            Create Dummy Bot(Value In Array(Global.enemies, Modulo(Global.roundNo, Count Of(Global.enemies))), Team 2, -1, Multiply(40, Up), Backward);
+            Create Dummy Bot(Value In Array(Global.enemies, Modulo(Global.roundNo, Count Of(Global.enemies))), Team 2, -1, Vector(0, 40, 0), Backward);
             Modify Global Variable(mobs, Append To Array, Last Created Entity);
             Wait(0.112, Ignore Condition);
             "mobs.last().startFacing(directionTowards(mobs[evalOnce(i)].getEyePosition(), mobs[evalOnce(i)].mobTarget), 500, Relativity.TO_WORLD, FacingReeval.DIRECTION_AND_TURN_RATE)"
@@ -744,11 +744,11 @@ rule ("grab") {
             Set Global Variable(grabRightPlayer, Random Value In Array(Filtered Array(All Living Players(Team 1), Compare(X Component Of(Position Of(Current Array Element)), <, 0))));
             "attack"
             If(Entity Exists(Global.grabLeftPlayer));
-                Set Global Variable(grabLeftPlayer, Add(Position Of(Global.grabLeftPlayer), Multiply(Up, 0.5)));
+                Set Global Variable(grabLeftPlayer, Add(Position Of(Global.grabLeftPlayer), Vector(0, 0.5, 0)));
                 Chase Global Variable Over Time(grabLeft, Global.grabLeftPlayer, 4, None);
             End;
             If(And(Entity Exists(Global.grabRightPlayer), Compare(Global.grabLeftPlayer, !=, Global.grabRightPlayer)));
-                Set Global Variable(grabRightPlayer, Add(Position Of(Global.grabRightPlayer), Multiply(Up, 0.5)));
+                Set Global Variable(grabRightPlayer, Add(Position Of(Global.grabRightPlayer), Vector(0, 0.5, 0)));
                 Chase Global Variable Over Time(grabRight, Global.grabRightPlayer, 4, None);
             End;
             Wait(4, Ignore Condition);
@@ -846,7 +846,7 @@ rule ("milk wall + collision") {
                 Play Effect(All Players(All Teams), Sombra Translocator Reappear Sound, Color(Team 2), Global.wallPos, 800);
                 Wait(Multiply(Subtract(3, Global.wallI), 0.16), Ignore Condition);
             End;
-            Chase Global Variable Over Time(wallPos, Add(Global.wallPos, Multiply(90, Backward)), 3.5, None);
+            Chase Global Variable Over Time(wallPos, Add(Global.wallPos, Vector(0, 0, -90)), 3.5, None);
             "collision"
             For Global Variable(wallI, 0, 25, 1);
                 Wait(0.096, Ignore Condition);
@@ -878,10 +878,10 @@ rule ("rain") {
     }
     actions {
         Wait(0.224, Ignore Condition);
-        Create Effect(All Players(All Teams), Cloud, Color(Gray), Multiply(Up, 30), 40, Visible To);
+        Create Effect(All Players(All Teams), Cloud, Color(Gray), Vector(0, 30, 0), 40, Visible To);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
         For Global Variable(rainVar, 0, 5, 1);
-            Create Effect(All Players(All Teams), Light Shaft, Color(Purple), Add(Vector(Multiply(Multiply(Sine From Radians(Divide(Total Time Elapsed, 3)), 20), Evaluate Once(Subtract(Multiply(Modulo(Global.rainVar, 2), 2), 1))), 0, Evaluate Once(Subtract(16, Multiply(8, Global.rainVar)))), Multiply(Down, 18)), 4, Visible To Position and Radius);
+            Create Effect(All Players(All Teams), Light Shaft, Color(Purple), Add(Vector(Multiply(Multiply(Sine From Radians(Divide(Total Time Elapsed, 3)), 20), Evaluate Once(Subtract(Multiply(Modulo(Global.rainVar, 2), 2), 1))), 0, Evaluate Once(Subtract(16, Multiply(8, Global.rainVar)))), Vector(0, -18, 0)), 4, Visible To Position and Radius);
             Modify Global Variable(threatFx, Append To Array, Last Created Entity);
             Create Effect(All Players(All Teams), Ring, Color(Team 2), Vector(Multiply(Multiply(Sine From Radians(Divide(Total Time Elapsed, 3)), 20), Evaluate Once(Subtract(Multiply(Modulo(Global.rainVar, 2), 2), 1))), 0, Evaluate Once(Subtract(16, Multiply(8, Global.rainVar)))), 4, Visible To Position and Radius);
             Modify Global Variable(threatFx, Append To Array, Last Created Entity);
@@ -890,7 +890,7 @@ rule ("rain") {
             For Global Variable(rainVar, 0, 5, 1);
                 Create Projectile(Echo Sticky Bomb, Null, If-Then-Else(Compare(Modulo(Global.rainVar, 2), ==, 0), (Global.nipman).cacheA, (Global.nipman).cacheB), Direction Towards(Eye Position(Global.nipman), Vector(Random Real(-10, 10), 30, Random Real(-15, 19))), To World, Damage, Team 1, 1, 1, 0, Brigitte Whip Shot Heal Area Effect, Brigitte Whip Shot Heal Area Sound, 0.05, 30, 1, 0, 0, -5);
                 Wait(0.048, Ignore Condition);
-                Create Projectile(Mei Icicle, Null, Add(Add(Vector(Multiply(Multiply(Sine From Radians(Divide(Total Time Elapsed, 3)), 20), Evaluate Once(Subtract(Multiply(Modulo(Global.rainVar, 2), 2), 1))), 0, Evaluate Once(Subtract(16, Multiply(8, Global.rainVar)))), Multiply(Up, 30)), Vector(Random Real(-0.5, 0.5), 0, Random Real(-0.5, 0.5))), Down, To World, Damage, Team 1, 25, 1, 3.2, Brigitte Repair Pack Impact Effect, Brigitte Whip Shot Heal Area Sound, 0.07, 200, 1, 3, 0, 0);
+                Create Projectile(Mei Icicle, Null, Add(Add(Vector(Multiply(Multiply(Sine From Radians(Divide(Total Time Elapsed, 3)), 20), Evaluate Once(Subtract(Multiply(Modulo(Global.rainVar, 2), 2), 1))), 0, Evaluate Once(Subtract(16, Multiply(8, Global.rainVar)))), Vector(0, 30, 0)), Vector(Random Real(-0.5, 0.5), 0, Random Real(-0.5, 0.5))), Down, To World, Damage, Team 1, 25, 1, 3.2, Brigitte Repair Pack Impact Effect, Brigitte Whip Shot Heal Area Sound, 0.07, 200, 1, 3, 0, 0);
             End;
         End;
     }
@@ -918,9 +918,9 @@ rule ("twister") {
         End;
         Create Effect(All Players(All Teams), Ring, Color(Team 2), Global.twisterPos, 5, Visible To Position and Radius);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
-        Create Effect(All Players(All Teams), Cloud, Color(Gray), Add(Global.twisterPos, Multiply(24, Up)), 30, Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Cloud, Color(Gray), Add(Global.twisterPos, Vector(0, 24, 0)), 30, Visible To Position and Radius);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
-        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.twisterPos, Multiply(7, Down)), Down, 1, Visible To Position Direction and Size);
+        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.twisterPos, Vector(0, -7, 0)), Down, 1, Visible To Position Direction and Size);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
         Set Global Variable(twisterPos, Multiply((Global.nipman).cacheA, Vector(1, 0, 1)));
         Chase Global Variable At Rate(twisterPos, Multiply(Position Of(First Of(Sorted Array(Filtered Array(All Living Players(Team 1), Has Spawned(Current Array Element)), Distance Between(Current Array Element, Global.twisterPos)))), Vector(1, 0, 1)), 1.6, Destination and Rate);
@@ -1025,16 +1025,16 @@ rule ("laser") {
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
         Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, (Global.nipman).cacheB, Global.area2, Color(Team 2), Visible To Position and Radius);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
-        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.area1, Multiply(4, Down)), Down, 0.55, Visible To Position Direction and Size);
+        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.area1, Vector(0, -4, 0)), Down, 0.55, Visible To Position Direction and Size);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
-        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.area2, Multiply(4, Down)), Down, 0.55, Visible To Position Direction and Size);
+        Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.area2, Vector(0, -4, 0)), Down, 0.55, Visible To Position Direction and Size);
         Modify Global Variable(threatFx, Append To Array, Last Created Entity);
         Chase Global Variable At Rate(area1, Multiply(Position Of(First Of(Sorted Array(Filtered Array(All Living Players(Team 1), Has Spawned(Current Array Element)), Distance Between(Current Array Element, Global.area1)))), Vector(1, 0, 1)), 0.8, Destination and Rate);
         Chase Global Variable At Rate(area2, Multiply(Position Of(First Of(Sorted Array(Filtered Array(All Living Players(Team 1), Has Spawned(Current Array Element)), Distance Between(Current Array Element, Global.area2)))), Vector(1, 0, 1)), 0.8, Destination and Rate);
         While(Compare(Global.obj, !=, -1));
-            Create Projectile(Ramattra Ravenous Vortex Sphere, Global.nipman, Add(Global.area1, Multiply(0.5, Up)), Down, To World, Damage, Team 1, 20, 1, 3, Zarya Particle Cannon Explosion Effect, Orisa Halt Implosion Sound, 0, Total Time Elapsed, 10, 55, 0, 0);
+            Create Projectile(Ramattra Ravenous Vortex Sphere, Global.nipman, Add(Global.area1, Vector(0, 0.5, 0)), Down, To World, Damage, Team 1, 20, 1, 3, Zarya Particle Cannon Explosion Effect, Orisa Halt Implosion Sound, 0, Total Time Elapsed, 10, 55, 0, 0);
             Wait(0.08, Ignore Condition);
-            Create Projectile(Ramattra Ravenous Vortex Sphere, Global.nipman, Add(Global.area2, Multiply(0.5, Up)), Down, To World, Damage, Team 1, 20, 1, 3, Zarya Particle Cannon Explosion Effect, Orisa Halt Implosion Sound, 0, Total Time Elapsed, 3, 55, 0, 0);
+            Create Projectile(Ramattra Ravenous Vortex Sphere, Global.nipman, Add(Global.area2, Vector(0, 0.5, 0)), Down, To World, Damage, Team 1, 20, 1, 3, Zarya Particle Cannon Explosion Effect, Orisa Halt Implosion Sound, 0, Total Time Elapsed, 3, 55, 0, 0);
             Wait(0.8, Ignore Condition);
         End;
     }
@@ -1067,8 +1067,8 @@ rule ("discharge") {
         Set Status(Global.threatLactaters, Null, Phased Out, 9999);
         Set Invisible(Global.threatLactaters, All);
         Start Holding Button(Global.threatLactaters, Button(Primary Fire));
-        Start Facing((Event Player).botA, Add(Add(Multiply(Evaluate Once(Direction Towards(Multiply((Event Player).cacheA, Vector(1, 0, 1)), Multiply(Left, 20))), Sine From Radians(Multiply(Total Time Elapsed, 33))), Multiply(Multiply(0.5, Up), Add(Sine From Radians(Multiply(Total Time Elapsed, 47)), 0.5))), Facing Direction Of(Event Player)), 9999, To World, Direction and Turn Rate);
-        Start Facing((Event Player).botB, Add(Add(Multiply(Evaluate Once(Direction Towards(Multiply((Event Player).cacheB, Vector(1, 0, 1)), Multiply(Left, 20))), Sine From Radians(Multiply(Total Time Elapsed, 33))), Multiply(Multiply(0.5, Up), Add(Sine From Radians(Multiply(Total Time Elapsed, 47)), 0.5))), Facing Direction Of(Event Player)), 9999, To World, Direction and Turn Rate);
+        Start Facing((Event Player).botA, Add(Add(Multiply(Evaluate Once(Direction Towards(Multiply((Event Player).cacheA, Vector(1, 0, 1)), Vector(20, 0, 0))), Sine From Radians(Multiply(Total Time Elapsed, 33))), Multiply(Vector(0, 0.5, 0), Add(Sine From Radians(Multiply(Total Time Elapsed, 47)), 0.5))), Facing Direction Of(Event Player)), 9999, To World, Direction and Turn Rate);
+        Start Facing((Event Player).botB, Add(Add(Multiply(Evaluate Once(Direction Towards(Multiply((Event Player).cacheB, Vector(1, 0, 1)), Vector(20, 0, 0))), Sine From Radians(Multiply(Total Time Elapsed, 33))), Multiply(Vector(0, 0.5, 0), Add(Sine From Radians(Multiply(Total Time Elapsed, 47)), 0.5))), Facing Direction Of(Event Player)), 9999, To World, Direction and Turn Rate);
         "eventPlayer.botB.startFacing(worldVector(vect(sin(getTotalTimeElapsed() * 33)*0.45, sin(getTotalTimeElapsed() * 47)*0.32 - 0.09, -1), eventPlayer, Transform.ROTATION) + eventPlayer.getFacingDirection() * 3, 50, Relativity.TO_WORLD, FacingReeval.DIRECTION_A"
         Wait(0.36, Ignore Condition);
         Start Modifying Hero Voice Lines(Global.threatLactaters, Add(1, Multiply(0.5, Sine From Radians(Multiply(Total Time Elapsed, 2)))), True);
@@ -1174,8 +1174,8 @@ rule ("nuke") {
                 End;
                 Abort;
             End;
-            Create Projectile(Pharah Rocket, Global.nipman, (Global.nipman).cacheA, Direction Towards((Global.nipman).cacheA, Add(Global.missilePos, Multiply(Up, 2))), To World, Heal, Team 1, 0, 0, 0, DVa Self Destruct Explosion Effect, DVa Self Destruct Explosion Sound, 1, 100, 0.5, 70, 0, 0);
-            Create Projectile(Pharah Rocket, Global.nipman, (Global.nipman).cacheB, Direction Towards((Global.nipman).cacheB, Add(Global.missilePos, Multiply(Up, 2))), To World, Heal, Team 1, 0, 0, 0, DVa Self Destruct Explosion Effect, DVa Self Destruct Explosion Sound, 1, 100, 0.5, 70, 0, 0);
+            Create Projectile(Pharah Rocket, Global.nipman, (Global.nipman).cacheA, Direction Towards((Global.nipman).cacheA, Add(Global.missilePos, Vector(0, 2, 0))), To World, Heal, Team 1, 0, 0, 0, DVa Self Destruct Explosion Effect, DVa Self Destruct Explosion Sound, 1, 100, 0.5, 70, 0, 0);
+            Create Projectile(Pharah Rocket, Global.nipman, (Global.nipman).cacheB, Direction Towards((Global.nipman).cacheB, Add(Global.missilePos, Vector(0, 2, 0))), To World, Heal, Team 1, 0, 0, 0, DVa Self Destruct Explosion Effect, DVa Self Destruct Explosion Sound, 1, 100, 0.5, 70, 0, 0);
             Wait(Multiply(0.012, Distance Between((Global.nipman).cacheA, Global.missilePos)), Ignore Condition);
             "playEffect(getAllPlayers(), DynamicEffect.HANZO_SONIC_ARROW_INITIAL_PULSE, Color.TEAM_2, missilePos, 1)\nplayEffect(getAllPlayers(), DynamicEffect.LUCIO_SOUND_BARRIER_CAST, Color.TEAM_2, missilePos, 1)"
             Play Effect(All Players(All Teams), DVa Self Destruct Explosion Effect, Color(Team 2), Global.missilePos, 1);
@@ -1184,15 +1184,15 @@ rule ("nuke") {
             Set Global Variable(missileFx, Empty Array);
             Set Global Variable(missileTemp, Total Time Elapsed);
             Wait(0.016, Ignore Condition);
-            Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.missilePos, Multiply(Down, 10)), Up, 0.8, Visible To);
+            Create Projectile Effect(All Players(All Teams), Zarya Particle Cannon, Null, Add(Global.missilePos, Vector(0, -10, 0)), Up, 0.8, Visible To);
             Modify Global Variable(missileFx, Append To Array, Last Created Entity);
             Create Effect(All Players(All Teams), Ring, Color(Team 2), Global.missilePos, 9, Visible To);
             Modify Global Variable(missileFx, Append To Array, Last Created Entity);
             Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, Global.missilePos, Add(Global.missilePos, Multiply(Min(16, Multiply(20, Subtract(Total Time Elapsed, Global.missileTemp))), Up)), Color(Team 2), Visible To Position and Radius);
             Modify Global Variable(missileFx, Append To Array, Last Created Entity);
-            Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, Add(Global.missilePos, Multiply(Up, 12)), Add(Add(Global.missilePos, Multiply(Up, 12)), Multiply(Min(4, Max(0.01, Multiply(20, Subtract(Subtract(Total Time Elapsed, Global.missileTemp), 0.6)))), Left)), Color(Team 2), Visible To Position and Radius);
+            Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, Add(Global.missilePos, Vector(0, 12, 0)), Add(Add(Global.missilePos, Vector(0, 12, 0)), Multiply(Min(4, Max(0.01, Multiply(20, Subtract(Subtract(Total Time Elapsed, Global.missileTemp), 0.6)))), Left)), Color(Team 2), Visible To Position and Radius);
             Modify Global Variable(missileFx, Append To Array, Last Created Entity);
-            Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, Add(Global.missilePos, Multiply(Up, 12)), Add(Add(Global.missilePos, Multiply(Up, 12)), Multiply(Min(4, Max(0.01, Multiply(20, Subtract(Subtract(Total Time Elapsed, Global.missileTemp), 0.6)))), Right)), Color(Team 2), Visible To Position and Radius);
+            Create Beam Effect(All Players(All Teams), Omnic Slicer Beam, Add(Global.missilePos, Vector(0, 12, 0)), Add(Add(Global.missilePos, Vector(0, 12, 0)), Multiply(Min(4, Max(0.01, Multiply(20, Subtract(Subtract(Total Time Elapsed, Global.missileTemp), 0.6)))), Right)), Color(Team 2), Visible To Position and Radius);
             Modify Global Variable(missileFx, Append To Array, Last Created Entity);
             "start damage while eva anim plays"
             For Global Variable(missileTemp, 0, 20, 1);
@@ -1482,7 +1482,7 @@ rule ("more maugas") {
             Set Player Variable(Value In Array(Global.objPos, Global.iMores), cacheB, World Vector Of(Vector(-2.055, 20.67, 6.99), Value In Array(Global.objPos, Global.iMores), Rotation And Translation));
             Start Forcing Dummy Bot Name(Value In Array(Global.objPos, Global.iMores), Custom String("mauga jr."));
             "WHY IS IT 400. IT SHOULD BE 100 BUT THAT MAKES IT WRONG evalOnce(objPos[iMores]).getNormalizedHealth() * 400"
-            Create Progress Bar In-World Text(All Players(All Teams), Multiply(Divide(Health(Evaluate Once(Value In Array(Global.objPos, Global.iMores))), Evaluate Once(Round To Integer(Max Health(Value In Array(Global.objPos, Global.iMores)), Up))), 100), Custom String("{0} / {1} HP", Round To Integer(Health(Evaluate Once(Value In Array(Global.objPos, Global.iMores))), Up), Evaluate Once(Round To Integer(Max Health(Value In Array(Global.objPos, Global.iMores)), Up))), Add(Eye Position(Value In Array(Global.objPos, Global.iMores)), Multiply(Up, 2)), 1, Do Not Clip, Color(Red), Color(White), Visible To and Values, Default Visibility);
+            Create Progress Bar In-World Text(All Players(All Teams), Multiply(Divide(Health(Evaluate Once(Value In Array(Global.objPos, Global.iMores))), Evaluate Once(Round To Integer(Max Health(Value In Array(Global.objPos, Global.iMores)), Up))), 100), Custom String("{0} / {1} HP", Round To Integer(Health(Evaluate Once(Value In Array(Global.objPos, Global.iMores))), Up), Evaluate Once(Round To Integer(Max Health(Value In Array(Global.objPos, Global.iMores)), Up))), Add(Eye Position(Value In Array(Global.objPos, Global.iMores)), Vector(0, 2, 0)), 1, Do Not Clip, Color(Red), Color(White), Visible To and Values, Default Visibility);
             Set Player Variable(Value In Array(Global.objPos, Global.iMores), cacheC, Last Text ID);
         End;
         Wait(0.8, Ignore Condition);
@@ -1503,7 +1503,7 @@ rule ("miniboss") {
     actions {
         "hero must be same as mobs for skin limit"
         Wait(0.64, Ignore Condition);
-        Create Dummy Bot(Value In Array(Global.enemies, Modulo(Global.roundNo, Count Of(Global.enemies))), Team 2, -1, Multiply(Up, 50), Backward);
+        Create Dummy Bot(Value In Array(Global.enemies, Modulo(Global.roundNo, Count Of(Global.enemies))), Team 2, -1, Vector(0, 50, 0), Backward);
         Set Global Variable(objPos, Last Created Entity);
         Set Knockback Received(Global.objPos, 10);
         Set Move Speed(Global.objPos, 40);

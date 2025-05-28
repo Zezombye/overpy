@@ -4,6 +4,7 @@ variables {
         1: B
         2: C
         3: D
+        4: E
         23: X
         24: Y
         25: Z
@@ -88,10 +89,18 @@ rule ("index") {
     }
     actions {
         Set Global Variable(A, Index Of Array Value(Global.B, 3));
-        Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B, Global.C), Global.B));
+        "[A,B].index(B)"
+        Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B), Global.B));
+        "-1"
+        Set Global Variable(A, -1);
         "2"
-        Set Global Variable(A, Index Of Array Value(Array(1, 2, 3), 3));
-        Set Global Variable(A, Index Of Array Value(Array(Global.A, Global.B, Global.C), 3));
+        Set Global Variable(A, 2);
+        "should not be optimized"
+        Set Global Variable(A, Index Of Array Value(Array(1, 2, Global.B, 3), 3));
+        "-1"
+        Set Global Variable(A, -1);
+        "should not be optimized"
+        Set Global Variable(A, Index Of Array Value(Array(1, 2, 3, Global.B), 123));
     }
 }
 
@@ -116,6 +125,58 @@ rule ("slice") {
     }
 }
 
+rule ("in") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "true"
+        Set Global Variable(A, True);
+        "true"
+        Set Global Variable(A, True);
+        "false"
+        Set Global Variable(A, False);
+        "false"
+        Set Global Variable(A, False);
+        "123 == B"
+        Set Global Variable(A, Compare(123, ==, Global.B));
+    }
+}
+
+rule ("exclude") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Remove From Array(Global.B, 3));
+        "should not be optimized"
+        Set Global Variable(A, Remove From Array(Array(Global.B, Global.C, Global.D), Global.C));
+        "[1,3]"
+        Set Global Variable(A, Array(1, 3));
+        "[1,D].exclude(2)"
+        Set Global Variable(A, Remove From Array(Array(1, Global.D), 2));
+        "[2]"
+        Set Global Variable(A, Array(2));
+        "[2,3].exclude([D])"
+        Set Global Variable(A, Remove From Array(Array(2, 3), Array(Global.D)));
+    }
+}
+
+rule ("concat") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Append To Array(Global.B, 2));
+        "[B,C,123]"
+        Set Global Variable(A, Array(Global.B, Global.C, 123));
+        "should not be optimized"
+        Set Global Variable(A, Append To Array(Array(Global.B, Global.C), Global.A));
+        "[B,C,D,E]"
+        Set Global Variable(A, Array(Global.B, Global.C, Global.D, Global.E));
+    }
+}
+
 rule ("other array functions") {
     event {
         Ongoing - Global;
@@ -131,9 +192,6 @@ rule ("other array functions") {
         Modify Global Variable(A, Remove From Array By Index, 1);
         Modify Global Variable(A, Append To Array, 3);
         Modify Global Variable(A, Remove From Array By Value, 3);
-        Set Global Variable(A, Append To Array(Global.B, 2));
-        Set Global Variable(A, Index Of Array Value(Global.B, 3));
-        Set Global Variable(A, Remove From Array(Global.B, 3));
         "Z,Y,X"
         Set Global Variable(A, Array(Global.Z, Global.Y, Global.X));
         Set Global Variable(A, Sorted Array(Global.B, Multiply(-1, Current Array Index)));

@@ -542,6 +542,10 @@ subroutine Cancel_Momentum 33
 #!extension spawnMoreDummyBots
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Mod by LemonAid#11644, Original mode by Shingen#21859":
     disableInspector()
 

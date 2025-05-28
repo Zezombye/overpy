@@ -18,7 +18,7 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, isDefinitelyFalsy, Ast, astParsingFunctions } from "../../utils/ast";
+import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, isDefinitelyFalsy, Ast, astParsingFunctions, astIsLiteral, getAstForTrue } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
 astParsingFunctions.__inequals__ = function (content) {
@@ -31,6 +31,11 @@ astParsingFunctions.__inequals__ = function (content) {
         //A != A -> true
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return getAstForFalse();
+        }
+
+        //literal != literal -> true (we already checked if they are equal)
+        if (astIsLiteral(content.args[0]) && astIsLiteral(content.args[1])) {
+            return getAstForTrue();
         }
 
         //A != falsy -> A if A is bool or if bool is expected

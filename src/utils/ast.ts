@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { astMacros, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw } from "../globalVars";
+import { astMacros, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw, optimizeStrict } from "../globalVars";
 import { error, functionNameToString } from "./logging";
 import { Argument, FileStackMember, Type } from "../types";
 import { isTypeSuitable } from "./types";
@@ -188,6 +188,7 @@ export function isDefinitelyFalsy(content: Ast) {
         return true;
     }
     //Test for null vector: vect(0,0,0)
+    //This makes some optimizations bug out
     /*if (content.name === "vect") {
         return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
     }*/
@@ -199,6 +200,10 @@ export function isDefinitelyFalsy(content: Ast) {
     if (content.name === "__array__") {
         return isDefinitelyFalsy(content.args[0]);
     }
+    //Test for empty string
+    if ((content.name === "__customString__" || content.name === "__localizedString__") && content.args[0].name === "") {
+        return true;
+    }
     return false;
 }
 
@@ -208,7 +213,7 @@ export function isDefinitelyTruthy(content: Ast): boolean {
     if (content.name === "true") {
         return true;
     }
-    //Test for null vector: vect(0,0,0)
+    //Test for non-null vector
     if (content.name === "vect") {
         return isDefinitelyTruthy(content.args[0]) || isDefinitelyTruthy(content.args[1]) || isDefinitelyTruthy(content.args[2]);
     }
@@ -220,6 +225,15 @@ export function isDefinitelyTruthy(content: Ast): boolean {
     if (content.name === "__array__") {
         return isDefinitelyTruthy(content.args[0]);
     }
+    //Test for built-in enums
+    if (["__hero__", "__map__", "__gamemode__", "__team__", "__button__", "__color__"].includes(content.name)) {
+        return true;
+    }
+    //Test for non-empty string. Note: the string could technically not be empty, but only have formatters that could be empty
+    if (content.name === "__customString__" || content.name === "__localizedString__") {
+        return content.args[0].name !== "" && !content.args[0].name.match(/^(\{[012]\}){1,3}$/);
+    }
+
     return false;
 }
 
@@ -279,6 +293,45 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
     }
 
     return false;
+}
+
+//See globalvars.ts for the definition of "literal".
+export function astIsLiteral(ast: Ast) {
+    //Check for literally literals
+    if (typeof ast.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(ast.type)) {
+        if (["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral", "StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral"].concat(Object.keys(constantValues)).includes(ast.type)) {
+            return true;
+        }
+    }
+
+    //Skip internal types, those are not literals
+    if (["Type", "Label", "DictKey"].includes(ast.type as string)) {
+        return false;
+    }
+
+    if (!(ast.name in funcKw)) {
+        error("Unknown function name '"+ast.name+"'");
+    }
+    if (!funcKw[ast.name].isLiteral) {
+        //Custom strings with no formatters are considered literals
+        //...unless they're not. Eg in Turkish, the "am" string is censored. Owware compares "am" to "**" to check if the censor is active.
+        //This is so niche that I'm putting it behind optimizeStrict.
+        if (ast.name === "__customString__" && !stringAstContainsFormatters(ast) && !optimizeStrict) {
+            return true;
+        }
+        return false;
+    }
+    if (ast.args.some((arg) => !astIsLiteral(arg))) {
+        return false;
+    }
+    return true;
+}
+
+export function stringAstContainsFormatters(ast: Ast) {
+    if (ast.name !== "__customString__") {
+        error("Expected a custom string literal for stringAstContainsFormatters, but got "+functionNameToString(ast));
+    }
+    return ast.args[0].name.match(/\{[012]\}/) !== null;
 }
 
 //Used to replace currentArrayElement with currentArrayElement[0] to fix the simultaneous mapping+filtering bug.

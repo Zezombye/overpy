@@ -170,6 +170,10 @@ subroutine mobsInit 0
 #!extension explosionSounds
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Initialize global variables":
     objDescs = ["collect pages", "defeat the mini maugas", "slay enemies", "slay the miniboss", "capture the point"]
     objWeights = [0.05, 0.2, 0.275, 0.275, 0.2]

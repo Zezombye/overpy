@@ -1,4 +1,5 @@
 #!optimizeForSize
+#!optimizeStrict
 
 rule "comparison":
     A = B == C
@@ -6,6 +7,8 @@ rule "comparison":
     A = B == B #true
     A = B == 0 #not B
     A = isGameInProgress() == true #isGameInProgress()
+    A = Hero.ANA == Map.KINGS_ROW #false
+    A = Hero.ANA == "azer{}".format(A) #should not be optimized
 
     A = B != C
     A = 1 != 0 #true
@@ -13,6 +16,8 @@ rule "comparison":
     A = B != 0
     A = not(B != 0) #not B
     A = isGameInProgress() != true #not isGameInProgress()
+    A = Hero.ANA != Map.KINGS_ROW #true
+    A = Hero.ANA != "azer{}".format(A) #should not be optimized
 
     A = B >= C
     A = 1 >= 0 #true
@@ -32,13 +37,17 @@ rule "comparison":
 
 rule "add":
     A = B+C
-    A = B+0 #B
+    A = B+0 #B+0
     A = B+B #B*2
     A = 1+2 #3
-    A = B+vect(0,0,0) #B
-    A = vect(0,0,0)+B #B
+    A = B+vect(0,0,0) #B+vect(0,0,0)
+    A = vect(0,0,0)+B #vect(0,0,0)+B
     A = vect(B,C,D)+vect(1,2,3)
     A = vect(1,2,3)+vect(4,5,6) #vect(5,7,9)
+    A = vect(0,0,0) #left + right
+    A = vect(0,1,0) #up
+    B = Vector.LEFT + Vector.DOWN + Vector.BACKWARD #vect(1, -1, -1)
+    C = Vector.RIGHT + Vector.UP + Vector.FORWARD #vect(-1, 1, 1)
 
 rule "subtract":
     A = B-C
@@ -69,7 +78,7 @@ rule "negate":
 
 rule "multiply":
     A = B*C
-    A = B*1 #B
+    A = B*1 #B*1
     A = B*B #B**2
     A = B*0 #B*0
     A = len(B)*0 #0
@@ -80,9 +89,9 @@ rule "multiply":
 
 rule "divide":
     A = B/C
-    A = B/1 #B
-    A = B/0 #0
-    A = 0/B #0
+    A = B/1 #B/1
+    A = B/0 #B/0
+    A = 0/B #0/B
     A = 1/2 #0.5
     A = -3/B
     A = vect(3,3,3)/vect(1,2,3) #vect(3,1.5,1)
@@ -130,17 +139,19 @@ rule "assignment":
 
 rule "and":
     A = A and B
-    A = B and true #B
-    A = B and false #false
+    A = B and true #B and true
+    A = B and false #B and false
     A = B and B #B
-    A = B and not B #false
+    A = B and not B #B and not B
+    A = not B and not C #not (B or C)
 
 rule "or":
     A = A or B
     A = B or B #B
-    A = A or true #true
-    A = B or false #B
-    A = B or not B #true
+    A = A or true #A or true
+    A = B or false #B or false
+    A = B or not B #B or not B
+    A = not B or not C #not (B and C)
 
 rule "not":
     A = not B

@@ -18,13 +18,17 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
+import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.sqrt = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
             //Use ||0 to return 0 in case of NaN (if the number is negative)
             return getAstForNumber(Math.sqrt(content.args[0].args[0].numValue) || 0);
+        }
+        if (content.args[0].name === "dotProduct" && areAstsAlwaysEqual(content.args[0].args[0], content.args[0].args[1])) {
+            //sqrt(dotProduct(A, A)) -> magnitude(A)
+            return new Ast("magnitude", [content.args[0].args[0]]);
         }
     }
 

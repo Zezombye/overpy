@@ -227,8 +227,38 @@ function astToWs(content: Ast): string {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
 
+    if (content.name === "vect") {
+        //Check that before size optimizations as otherwise we check vect(false, true, false)
+        if (enableOptimization) {
+            //Check for each of the 6 vector constants
+            if (content.args[0].name === "__number__" && content.args[1].name === "__number__" && content.args[2].name === "__number__") {
+                let x = content.args[0].args[0].numValue;
+                let y = content.args[1].args[0].numValue;
+                let z = content.args[2].args[0].numValue;
+                if (x === 1 && y === 0 && z === 0) {
+                    return astToWs(new Ast("Vector.LEFT"));
+                }
+                if (x === -1 && y === 0 && z === 0) {
+                    return astToWs(new Ast("Vector.RIGHT"));
+                }
+                if (x === 0 && y === 1 && z === 0) {
+                    return astToWs(new Ast("Vector.UP"));
+                }
+                if (x === 0 && y === -1 && z === 0) {
+                    return astToWs(new Ast("Vector.DOWN"));
+                }
+                if (x === 0 && y === 0 && z === 1) {
+                    return astToWs(new Ast("Vector.FORWARD"));
+                }
+                if (x === 0 && y === 0 && z === -1) {
+                    return astToWs(new Ast("Vector.BACKWARD"));
+                }
+            }
+        }
+    }
+
     if (enableOptimization && optimizeForSize) {
-        //Replace 0 by false/null, 1 by true, and null vector by null
+        //Replace 0 by false/null, 1 by true, and null vector by null or left+right
         for (var i = 0; i < content.args.length; i++) {
             let argInfo = content.name === "__array__" ? funcKw[content.name].args?.[0] : funcKw[content.name].args?.[i];
             if (argInfo === undefined) {
@@ -250,8 +280,12 @@ function astToWs(content: Ast): string {
                         }
                     }
                 }
-            } else if (argInfo.canReplaceNullVectorByNull && content.args[i].name === "vect" && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0 && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0 && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
-                content.args[i] = getAstForNull();
+            } else if (content.args[i].name === "vect" && content.args[i].args[0].name === "__number__" && content.args[i].args[0].args[0].numValue === 0 && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0 && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
+                if (argInfo.canReplaceNullVectorByNull) {
+                    content.args[i] = getAstForNull();
+                } else {
+                    content.args[i] = new Ast("__add__", [new Ast("Vector.LEFT"), new Ast("Vector.RIGHT")]);
+                }
             } else if (replacementForTeam1 !== "" && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
                 content.args[i] = new Ast(replacementForTeam1);
             }
@@ -404,10 +438,6 @@ function astToWs(content: Ast): string {
     } else if (content.name === "__playerVar__") {
         incrementNbElements();
         return "(" + astToWs(content.args[0]) + ")." + astToWs(content.args[1]);
-    } else if (content.name === "__team__") {
-        content.name = content.args[0].name;
-        content.args = [];
-        content.type = "TeamLiteral";
     } else if (content.name === "ceil") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
@@ -508,6 +538,9 @@ function astToWs(content: Ast): string {
         }
         newName = "__stopChasing" + newName + "__";
         content.name = newName;
+    } else if (content.name === "__team__") {
+        incrementNbElements();
+        return astToWs(content.args[0]);
     }
 
     if (content.type === undefined) {
@@ -582,8 +615,6 @@ function astToWs(content: Ast): string {
         // nbElements++;
         // nbElements -= 2; //remove elements because of number literals
         decrementNbElements();
-    } else if (content.type === "TeamLiteral") {
-        incrementNbElements();
     }
 
     return result;

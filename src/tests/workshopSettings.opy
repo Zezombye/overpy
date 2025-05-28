@@ -30,3 +30,6 @@ rule "workshop settings":
 
     #texture test
     A = createWorkshopSetting(enum["<txC00000000008E02>"], "<txC00000000008E02>", "<txC00000000008E02>", 0)
+
+    #char workaround
+    A = createWorkshopSettingEnum("!\"#$%&'()*+,-./:\n;<=>?[\\]^_`{|}~", "{test special chars:}", 1, ["{test special chars:}", "owo"])

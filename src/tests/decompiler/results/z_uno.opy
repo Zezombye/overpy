@@ -173,6 +173,10 @@ subroutine InitMapPositionForAll 36
 subroutine UpdateColorCheat 37
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "[Game settings]":
     #The amount of time in seconds a player has to complete their turn. To disable the time limit, set this variable to 0.
     SETTING_TURN_TIME_LIMIT = createWorkshopSettingInt("General settings", "Turn time limit", 30, 0, 120)

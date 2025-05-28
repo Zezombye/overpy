@@ -330,6 +330,10 @@ subroutine ZenAim 5
 subroutine BotHeroList 6
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Workshop Settings":
     disableInspector()
     Dva = createWorkshopSettingBool("6. Tank heroes", "Dva", false, 3)

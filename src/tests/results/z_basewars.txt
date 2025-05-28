@@ -609,7 +609,7 @@ rule ("GAME WIN CONDITION") {
         Destroy All Icons;
         Destroy All Dummy Bots;
         Wait(0.016, Ignore Condition);
-        Set Global Variable At Index(gameScorePositions, 0, Ray Cast Hit Position(Add(Global.gameEndCamera, Multiply(Forward, 2)), Subtract(Add(Global.gameEndCamera, Multiply(Forward, 2)), Vector(0, 10, 0)), Empty Array, Empty Array, False));
+        Set Global Variable At Index(gameScorePositions, 0, Ray Cast Hit Position(Add(Global.gameEndCamera, Vector(0, 0, 2)), Subtract(Add(Global.gameEndCamera, Vector(0, 0, 2)), Vector(0, 10, 0)), Empty Array, Empty Array, False));
         "createDummy(random.choice(getAllHeroes()), Team.ALL, -1, gameScorePositions[0], Vector.BACKWARD)\ngameWinner = getLastCreatedEntity()"
         Set Facing(Global.gameWinner, Backward, To World);
         Teleport(Global.gameWinner, First Of(Global.gameScorePositions));
@@ -620,7 +620,7 @@ rule ("GAME WIN CONDITION") {
         Set Global Variable At Index(gameScorePositions, 1, 1.5);
         Set Global Variable(gameEndCamera, Add(First Of(Global.gameScorePositions), Vector(Multiply(Value In Array(Global.gameScorePositions, 1), -1), Value In Array(Global.gameScorePositions, 1), Multiply(Value In Array(Global.gameScorePositions, 1), -2))));
         Set Facing(Global.gameWinner, Direction Towards(Eye Position(Global.gameWinner), Global.gameEndCamera), To World);
-        Set Global Variable At Index(gameScorePositions, 2, Add(First Of(Global.gameScorePositions), Vector(Multiply(Value In Array(Global.gameScorePositions, 1), -1.5), Multiply(Value In Array(Global.gameScorePositions, 1), 0.06), Multiply(Value In Array(Global.gameScorePositions, 1), 0))));
+        Set Global Variable At Index(gameScorePositions, 2, Add(First Of(Global.gameScorePositions), Vector(Multiply(Value In Array(Global.gameScorePositions, 1), -1.5), Multiply(Value In Array(Global.gameScorePositions, 1), 0.06), 0)));
         Set Global Variable At Index(gameScorePositions, 3, Add(Value In Array(Global.gameScorePositions, 2), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.075), 0)));
         Create In-World Text(All Players(All Teams), Custom String("{0}\n ", Value In Array(Array(Custom String("Winner"), Custom String("Vencedor")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Update Every Frame(Add(Eye Position(Global.gameWinner), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.55), 0))), 2, Do Not Clip, Visible To Position and String, Color(Orange), Default Visibility);
         Create In-World Text(All Players(All Teams), Custom String(" \n{0}", Global.gameWinner), Update Every Frame(Add(Eye Position(Global.gameWinner), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.55), 0))), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
@@ -839,10 +839,10 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(31, -5, -29.75));
             Set Global Variable(mapExtension1Xyz, Vector(65.5, 14, 38));
             Set Global Variable(mapExtension1Rotation, -0.5);
-            If(Not(Workshop Setting Toggle(Custom String("      　"), Custom String("Hanamura 1st point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("      　　"), Custom String("Hanamura 1st point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String("      　"), Custom String("Hanamura pre-choke"), False, 1));
+            If(Workshop Setting Toggle(Custom String("      　　"), Custom String("Hanamura pre-choke"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
         Else If(Compare(Current Map, ==, Map(Havana)));
@@ -862,16 +862,16 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension3Origin, Vector(-18.25, 4, -36));
             Set Global Variable(mapExtension3Xyz, Vector(64.75, 13, 70.25));
             Set Global Variable(mapExtension3Rotation, 0);
-            If(Not(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 2nd point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 1st point"), False, 1));
+            If(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 1st point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
-            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 3rd point"), False, 2));
+            If(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 3rd point"), False, 2));
                 Modify Global Variable(availableMapExtensions, Append To Array, 2);
             End;
-            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana secret area"), False, 3));
+            If(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana secret area"), False, 3));
                 Modify Global Variable(availableMapExtensions, Append To Array, 3);
             End;
         Else If(Or(Compare(Current Map, ==, Map(Hollywood)), Compare(Current Map, ==, Map(Hollywood Halloween))));
@@ -888,13 +888,13 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension2Origin, Vector(-41.5, 2, -18.75));
             Set Global Variable(mapExtension2Xyz, Vector(70.5, 15.25, 94.25));
             Set Global Variable(mapExtension2Rotation, -25.75);
-            If(Not(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 2nd point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 3rd point"), False, 1));
+            If(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 3rd point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
-            If(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 1st point"), False, 2));
+            If(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 1st point"), False, 2));
                 Modify Global Variable(availableMapExtensions, Append To Array, 2);
             End;
         Else If(Compare(Current Map, ==, Map(Horizon Lunar Colony)));
@@ -934,13 +934,13 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension2Origin, Vector(-29.5, 4, -7.75));
             Set Global Variable(mapExtension2Xyz, Vector(45.25, 15.75, 73.5));
             Set Global Variable(mapExtension2Rotation, -101);
-            If(Not(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row 2nd point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row 1st point"), False, 1));
+            If(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row 1st point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
-            If(And(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row secret area (not available on winter)"), False, 2), Compare(Current Map, ==, Map(King's Row))));
+            If(And(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row secret area (not available on winter)"), False, 2), Compare(Current Map, ==, Map(King's Row))));
                 Modify Global Variable(availableMapExtensions, Append To Array, 2);
             End;
         Else If(Or(Compare(Current Map, ==, Map(Lijiang Control Center)), Compare(Current Map, ==, Map(Lijiang Control Center Lunar New Year))));
@@ -989,10 +989,10 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(31.75, 8, -48.5));
             Set Global Variable(mapExtension1Xyz, Vector(42.5, 14.5, 115));
             Set Global Variable(mapExtension1Rotation, -137);
-            If(Not(Workshop Setting Toggle(Custom String("  　"), Custom String("Paris 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("  　　"), Custom String("Paris 2nd point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String("  　"), Custom String("Paris 1st point"), False, 1));
+            If(Workshop Setting Toggle(Custom String("  　　"), Custom String("Paris 1st point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
         Else If(Compare(Current Map, ==, Map(Petra)));
@@ -1007,10 +1007,10 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(-67.5, 4, 46.25));
             Set Global Variable(mapExtension1Xyz, Vector(51.5, 15, 101.5));
             Set Global Variable(mapExtension1Rotation, -224);
-            If(Not(Workshop Setting Toggle(Custom String(" 　"), Custom String("Route 66 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String(" 　　"), Custom String("Route 66 2nd point (default)"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
-            If(Workshop Setting Toggle(Custom String(" 　"), Custom String("Route 66 3rd point"), False, 1));
+            If(Workshop Setting Toggle(Custom String(" 　　"), Custom String("Route 66 3rd point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
         Else If(Compare(Current Map, ==, Map(Temple of Anubis)));
@@ -1799,16 +1799,16 @@ rule ("player kill") {
         Set Global Variable At Index(bountyArrayMoney, Slot Of(Victim), (Victim).statsMoney);
         If(Compare((Victim).statsMoney, <=, 25));
             Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
-            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Subtract(Position Of(Victim), Up), 0.5);
         Else If(And(Compare((Victim).statsMoney, >, 25), Compare((Victim).statsMoney, <=, 250)));
             Create Effect(All Players(All Teams), Orb, Color(Turquoise), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
-            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Turquoise), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Turquoise), Subtract(Position Of(Victim), Up), 0.5);
         Else If(And(Compare((Victim).statsMoney, >, 250), Compare((Victim).statsMoney, <=, 750)));
             Create Effect(All Players(All Teams), Orb, Color(Blue), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
-            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Subtract(Position Of(Victim), Up), 0.5);
         Else;
             Create Effect(All Players(All Teams), Orb, Color(Purple), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
-            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Purple), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Purple), Subtract(Position Of(Victim), Up), 0.5);
         End;
         Set Global Variable At Index(bountyArrayEffects, Slot Of(Victim), Last Created Entity);
         Set Player Variable(Victim, statsMoney, 0);
@@ -1938,7 +1938,7 @@ rule ("UPGRADE BUY HERO") {
             //lbl_0:
             Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
             Set Player Variable(Event Player, oldHeroHealth, Multiply(Normalized Health(Event Player), 100));
-            Set Facing(Event Player, Vector(0, 1, 0), To Player);
+            Set Facing(Event Player, Up, To Player);
             Teleport(Event Player, Vector(0, 10000, 0));
             Set Gravity(Event Player, 0);
             Wait(0.25, Ignore Condition);
@@ -1961,7 +1961,7 @@ rule ("UPGRADE BUY HERO TELEPORT") {
         Has Spawned(Event Player) == True;
     }
     actions {
-        Abort If(Or(Not((Event Player).isInitialized), Not((Event Player).hasBase)));
+        Abort If(Not(And((Event Player).isInitialized, (Event Player).hasBase)));
         Teleport(Event Player, (Event Player).playerBaseLocation);
         Set Player Variable(Event Player, isInBase, True);
         Set Player Variable(Event Player, playerObjectInBase, Event Player);
@@ -2158,7 +2158,7 @@ rule ("show upgrade menu") {
         (Event Player).isInBase != False;
         (Event Player).showUpgradeText == Null;
         "@Condition dotProduct(directionTowards(eventPlayer.getEyePosition(), eventPlayer.playerBaseLocation), eventPlayer.getFacingDirection()) >= 0.99"
-        Distance Between(Vector(0, 0, 0), Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) <= Global.baseUpgradeSphereActualSize;
+        Magnitude Of(Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) <= Global.baseUpgradeSphereActualSize;
     }
     actions {
         Set Player Variable(Event Player, isUpgradeInputOnCooldown, True);
@@ -2180,7 +2180,7 @@ rule ("hide upgrade menu") {
     }
     conditions {
         (Event Player).showUpgradeText != False;
-        Distance Between(Vector(0, 0, 0), Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) > Global.baseUpgradeSphereActualSize;
+        Magnitude Of(Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) > Global.baseUpgradeSphereActualSize;
     }
     actions {
         Set Player Variable(Event Player, showUpgradeText, False);

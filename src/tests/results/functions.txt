@@ -75,7 +75,7 @@ rule ("vectors") {
         "D"
         Set Global Variable(A, Global.D);
         "Vector.UP"
-        Set Global Variable(A, Vector(False, True, False));
+        Set Global Variable(A, Up);
     }
 }
 

@@ -1,3 +1,6 @@
+#needed for the "am" == "**" comparison
+#!optimizeStrict
+
 settings {
     "main": {
         "description": "OWWare - WarioWare Microgaming!\n▶ YZNNN ◀ English · Français · Deutsch\n        Español · Русский · Português\n◆ Discord: discord.gg/95AVMPN (ALL CAPS)\n◆ More details: workshop.codes/owware\n \n80가지 미니게임 • 80个小游戏 • ミニゲーム\n▶ AZAZ1 ◀ English · 한국어 · 中文 · にほんご\n \n◆ Made by Bonkorn#1122 (v2.1)",
@@ -331,12 +334,12 @@ rule "":
 
 rule "This code has been obfuscated to prevent any unauthorized modifications.":
     @Delimiter
-    
+
 
 
 rule "The source code is only provided as per request on Discord.":
     @Delimiter
-    
+
 
 
 rule "":
@@ -665,7 +668,7 @@ rule "":
 
 def IlIIIIIllIll():
     @Name ""
-    
+
     lIIIIIlllIlI.append("Don't Move!#Don't Stop Moving!#Kill an Enemy!#Don't hurt an Enemy!#Simon says: Move!#Someone says: Move!#Get on a Platform!".split(lIllIlllIlll))
     lIIIIIlllIlI.append("Get on the Platform!#Kill an Enemy!#Don't hurt an Enemy!#Touch the Sky!#Knock off an Enemy!#Sumo Wrestling!".split(lIllIlllIlll))
     lIIIIIlllIlI.append("Avoid the Kamikaze(s)!#1 dash 1 kill!#Goomba Stomp!#Emote to Kill!#Enter a Door!#What is the Color?#What is the Text?".split(lIllIlllIlll))
@@ -684,7 +687,7 @@ def IlIIIIIllIll():
 
 def llIIIIIIllII():
     @Name ""
-    
+
     lIIlIlllllII.append("Ne bougez pas !#N'arrêtez pas de courir !#Tuez un ennemi !#Ne blessez pas d'ennemi !#Jacques a dit : Bougez !".split(lIllIlllIlll))
     lIIlIlllllII.append("Quelqu'un a dit : Bougez !#Allez sur une plateforme !#Allez sur la plateforme !#Ne bougez pas !#N'arrêtez pas de courir !".split(lIllIlllIlll))
     lIIlIlllllII.append("Touchez le ciel !#Éjectez un ennemi !#Combat de sumo !#Évitez le(s) kamikaze(s) !#1 Dash 1 mort !#Goomba'plati !".split(lIllIlllIlll))
@@ -707,7 +710,7 @@ def llIIIIIIllII():
 
 def IllIIIIllIll():
     @Name ""
-    
+
     IIllIIIlIIlI.append("Nicht bewegen!#Nicht aufhören zu laufen!#Töte einen Gegner!#Verletze keinen Gegner!#Simon sagt: Beweg dich!".split(lIllIlllIlll))
     IIllIIIlIIlI.append("Jemand sagt: Beweg dich!#Auf eine Plattform gehen!#Auf die Plattform gehen!#Töte einen Gegner!#Verletze keinen Gegner!".split(lIllIlllIlll))
     IIllIIIlIIlI.append("Berühre den Himmel!#Einen Gegner ausschalten!#Sumo Ringen!#Weiche den Kamikaze aus!#1 Schlag 1 töten!#Gumba-Stampfen!".split(lIllIlllIlll))
@@ -728,7 +731,7 @@ def IllIIIIllIll():
 
 def llllIIIIlIIl():
     @Name ""
-    
+
     IIlIlIIllIll.append("No te muevas!#No dejes de correr!#Mata a un enemigo!#No dañes a un enemigo!#Simon dice: Muévete!#Alguien dice: Muévete!".split(lIllIlllIlll))
     IIlIlIIllIll.append("Ponte en una plataforma!#Ponte en la plataforma!#Mata a un enemigo!#No dañes a un enemigo!#Toca el cielo!#Empuja a un enemigo!".split(lIllIlllIlll))
     IIlIlIIllIll.append("Competición de Sumo!#Escapa de los Kamikazes!#1 dash 1 eliminación!#Machaca Goomba!#Haz un gesto para eliminar!".split(lIllIlllIlll))
@@ -749,7 +752,7 @@ def llllIIIIlIIl():
 
 def lIllIIlIlIIl():
     @Name ""
-    
+
     IIlIlllllIll.append("¡No te muevas!#¡No dejes de correr!#¡Mata a un enemigo!#¡No lastimes al enemigo!#¡Simon dice: Muévete!#¡Alguien dice: Muévete!".split(lIllIlllIlll))
     IIlIlllllIll.append("¡Ponte en una plataforma!#¡Ponte en la plataforma!#¡Mata a un enemigo!#¡No lastimes al enemigo!#¡Alcanza el cielo!".split(lIllIlllIlll))
     IIlIlllllIll.append("¡Empuja al enemigo!#¡Lucha Sumo!#¡Evita los Kamikazes!#¡1 Dash 1 Muerte!#¡Destroza Goomba!#¡Haz gestos para matar!".split(lIllIlllIlll))
@@ -771,7 +774,7 @@ def lIllIIlIlIIl():
 
 def IIlIIllIIlll():
     @Name ""
-    
+
     IlIIlllIlIll.append("Не двигайся!#Не останавливайся!#Убей врага!#Не бей врага!#Двигайся!#Двигатель!#Дойди до платформы!#Дойди до платформы!".split(lIllIlllIlll))
     IlIIlllIlIll.append("Убей врага!#Не бей врага!#Коснись неба!#Столкни врага!#Сумо рестлинг!#Берегись камикадзе!#1 рывок — 1 труп!#Гумба-топотун!".split(lIllIlllIlll))
     IlIIlllIlIll.append("Убийственные эмоции!#Пройди через дверь!#Что это за цвет?#Что это за текст?#Увернись от падающих бомб!#Дойди до конца!".split(lIllIlllIlll))
@@ -791,7 +794,7 @@ def IIlIIllIIlll():
 
 def llllllIllllI():
     @Name ""
-    
+
     IllIIIIIIlll.append("Não se mova!#Não pare de correr!#Mate um inimigo!#Não machuque um inimigo!#Mestre mandou: Mova!#Alguem mandou: Mova!".split(lIllIlllIlll))
     IllIIIIIIlll.append("Suba em uma plataforma!#Suba na plataforma!#Não se mova!#Não pare de correr!#Toque o céu!#Empurre um inimigo para fora!".split(lIllIlllIlll))
     IllIIIIIIlll.append("Luta de Sumô!#Evite o(s) kamikaze(s)!#1 dash 1 morte!#Pisada Goomba!#Emote para matar!#Entre numa porta!#Qual é a cor?".split(lIllIlllIlll))
@@ -809,7 +812,7 @@ def llllllIllllI():
 
 def IlIllllIlIlI():
     @Name ""
-    
+
     eventPlayer.lllIIIIlllll = "{0} Discord: discord.gg/95AVMPN (ALL CAPS)#{0} Discord: discord.gg/95AVMPN (TOUT EN MAJ\zU\zS\zCULES)".format(abilityIconString(Hero.DVA, Button.ULTIMATE)).split(lIllIlllIlll)
     eventPlayer.lllIIIIlllll.append("{0} Discord: discord.gg/95AVMPN (ALLES GROßGESCHRIEBEN)#{0} Discord: discord.gg/95AVMPN (TODAS LAS MAYÚSCULAS)".format(abilityIconString(Hero.DVA, Button.ULTIMATE)).split(lIllIlllIlll))
     eventPlayer.lllIIIIlllll.append("{0} Discord: discord.gg/95AVMPN (TODAS LAS MAYÚSCULAS)#{0} Discord: discord.gg/95AVMPN (все заглавные буквы)".format(abilityIconString(Hero.DVA, Button.ULTIMATE)).split(lIllIlllIlll))
@@ -845,7 +848,7 @@ def IlIllllIlIlI():
 
 def lIIlIllIlIll():
     @Name ""
-    
+
     hudSubheader(IlIlllIIllIl, eventPlayer.llllIlIIIlll[localPlayer.IllIIllIllII], HudPosition.RIGHT, -13, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     wait()
     hudText(IlIlllIIllIl if localPlayer.IllIIllIllII else [], " YZNNN ", "English\u2028· Français · Deutsch\nEspañol · Русский · Português\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028\u2028", null, HudPosition.RIGHT, -12, Color.WHITE, Color.WHITE, null, HudReeval.VISIBILITY)
@@ -902,7 +905,7 @@ def lIIlIllIlIll():
 
 def lIllIllllIll():
     @Name ""
-    
+
     eventPlayer.llllIIIIlIIl = " Microgame # Mini-jeu # Mikrospiel # Microjuego # Microjuego # Мини-игра # Minijogo ".split(lIllIlllIlll)
     eventPlayer.lIllIIlIlIIl = " Boss Stage # Boss Stage # Boss-Phase # Fase de Jefe # Ronda de Jefe # Босс-раунд # Fase do boss ".split(lIllIlllIlll)
     eventPlayer.IIlIIllIIlll = " · Time Left: # · Temps restant : # · Verbleibende Zeit: # · Tiempo restante: # · Tiempo restante: # · Осталось времени: ".split(lIllIlllIlll)
@@ -953,7 +956,7 @@ def lIllIllllIll():
 
 def lIlIIIIlIlll():
     @Name ""
-    
+
     eventPlayer.IlIllIlIIllI[2] = "And don't bump into each other!"
     eventPlayer.IlIllIlIIllI[11] = "{0} Perform jumps to reach the sky!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IlIllIlIIllI[16] = "Jump on {0} head!".format(heroIcon(Hero.ROADHOG))
@@ -999,7 +1002,7 @@ def lIlIIIIlIlll():
 
 def lIlIllIlIlIl():
     @Name ""
-    
+
     eventPlayer.llIllIllIlll[2] = "Et ne vous cognez pass !"
     eventPlayer.llIllIllIlll[11] = "Propulsez-vous en utilisant vos\n{0} pour toucher le ciel !".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.llIllIllIlll[16] = "Sautez sur la tête d'un {0} !".format(heroIcon(Hero.ROADHOG))
@@ -1046,7 +1049,7 @@ def lIlIllIlIlIl():
 
 def IlIIlllIlllI():
     @Name ""
-    
+
     eventPlayer.lIIlIIlIIlII[2] = "Und stoßen Sie nicht aneinander!"
     eventPlayer.lIIlIIlIIlII[11] = "Bewerkstellige Sprünge, indem du {0} verwendest,\num den Himmel zu erreichen!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.lIIlIIlIIlII[16] = "Mache einen Kopfsprung auf {0}!".format(heroIcon(Hero.ROADHOG))
@@ -1093,7 +1096,7 @@ def IlIIlllIlllI():
 
 def IlIllIlIlIll():
     @Name ""
-    
+
     eventPlayer.lIllllIIIllI[2] = "Y no choques con el enemigo!"
     eventPlayer.lIllllIIIllI[11] = "Salta con tus de {0} para llegar al cielo!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.lIllllIIIllI[16] = "Salta en la cabeza de {0}!".format(heroIcon(Hero.ROADHOG))
@@ -1141,7 +1144,7 @@ def IlIllIlIlIll():
 
 def IllIIllllIII():
     @Name ""
-    
+
     eventPlayer.IlIlllIIllIl[2] = "¡Y no choques con el enemigo!"
     eventPlayer.IlIlllIIllIl[11] = "¡Salta usando {0} para llegar al cielo!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IlIlllIIllIl[16] = "¡Salta en la cabeza de {0}!".format(heroIcon(Hero.ROADHOG))
@@ -1189,7 +1192,7 @@ def IllIIllllIII():
 
 def IllIlIllIlIl():
     @Name ""
-    
+
     eventPlayer.llIlllIlllII[2] = "И не врезайся во врагов!"
     eventPlayer.llIlllIlllII[11] = "Прыгай на {0}, чтобы дотянуться до неба!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.llIlllIlllII[16] = "Запрыгни на голову {0}!".format(heroIcon(Hero.ROADHOG))
@@ -1236,7 +1239,7 @@ def IllIlIllIlIl():
 
 def IIIIllllIIIl():
     @Name ""
-    
+
     eventPlayer.lIllIlIIIIIl[2] = "E não colida com os inimigos!"
     eventPlayer.lIllIlIIIIIl[11] = "Pule usando {0} para alcançar o céu!".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.lIllIlIIIIIl[16] = "Pule na cabeça de um {0}!".format(heroIcon(Hero.ROADHOG))
@@ -1281,7 +1284,7 @@ def IIIIllllIIIl():
 
 def IIIlIIllIlll():
     @Name ""
-    
+
     eventPlayer.IlllIlIllIlI[11] = "{0} no cooldown".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IlllIlIllIlI.append("{0} cooldown: 1 sec".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IlllIlIllIlI[14] = "{0} available".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1318,7 +1321,7 @@ def IIIlIIllIlll():
 
 def lIIIlIllllll():
     @Name ""
-    
+
     eventPlayer.IllllIIIIIII[11] = "Pas de cooldown pour {0}".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IllllIIIIIII.append("Cooldown d' {0} : 1 sec".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IllllIIIIIII[14] = "{0} est utilisable".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1355,7 +1358,7 @@ def lIIIlIllllll():
 
 def lIlIIIlIIllI():
     @Name ""
-    
+
     eventPlayer.IIlIllIlIllI[11] = "Keine Abklingzeiten für {0}".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IIlIllIlIllI.append("{0} Abklingzeit: 1 Sekunden".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IIlIllIlIllI[14] = "{0} ist verfügbar".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1392,7 +1395,7 @@ def lIlIIIlIIllI():
 
 def lllIllIIllIl():
     @Name ""
-    
+
     eventPlayer.IlIIIIIlIlll[11] = "No hay tiempo de reutilización para la {0}".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IlIIIIIlIlll.append("Tiempo de reutilización de {0}: 1 segundos".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IlIIIIIlIlll[14] = "Se permite el {0}".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1430,7 +1433,7 @@ def lllIllIIllIl():
 
 def IllllIIIIlIl():
     @Name ""
-    
+
     eventPlayer.lIllIlIIIIlI[11] = "No hay tiempo de reutilización para {0}".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.lIllIlIIIIlI.append("Tiempo de reutilización de {0}: 1 Segundos".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.lIllIlIIIIlI[14] = "{0} disponible".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1467,7 +1470,7 @@ def IllllIIIIlIl():
 
 def IlllIlllIIIl():
     @Name ""
-    
+
     eventPlayer.IlllIIIIlIIl[11] = "{0} восстанавливается мгновенно".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IlllIIIIlIIl.append("Восстановление {0}: 1 сек".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IlllIIIIlIIl[14] = "{0} доступен".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1504,7 +1507,7 @@ def IlllIlllIIIl():
 
 def llIIllllIIll():
     @Name ""
-    
+
     eventPlayer.IIllIlllIIIl[11] = "Sem cooldown para {0}".format(abilityIconString(Hero.JUNKRAT, Button.ABILITY_1))
     eventPlayer.IIllIlllIIIl.append("Cooldown de {0}: 1 segundos".format(abilityIconString(Hero.LUCIO, Button.SECONDARY_FIRE)))
     eventPlayer.IIllIlllIIIl[14] = "{0} disponível".format(abilityIconString(Hero.SOLDIER, Button.ABILITY_1))
@@ -1538,7 +1541,7 @@ def llIIllllIIll():
 
 def lllIIIIlllll():
     @Name ""
-    
+
     eventPlayer.lIIlllIllIlI = " Disable special mode for next match # Don't Score! # Single Player! # Slow Motion! # Gotta Go Fast! ".split(lIllIlllIlll)
     eventPlayer.IIllIIllIllI = " Désactiver le Mode spécial pour le prochain match # Ne marquez pas ! # Mode solo ! # Au ralenti ! # Gotta Go Fast ! ".split(lIllIlllIlll)
     eventPlayer.IlllIlIlIllI = " Deaktiviere Spezialmodus für die kommende Spiel # Nicht treffen! # Einzelspieler! # Langsame Bewegung! ".split(lIllIlllIlll)
@@ -1569,7 +1572,7 @@ def lllIIIIlllll():
 
 def llllIlIIIlll():
     @Name ""
-    
+
     eventPlayer.lllIllIIllIl = " {0} Force Microgame\n       Force Boss Stage\n       Force Special Mode\n       Skip Boss Stage\n{1}".format(iconString(Icon.ARROW_RIGHT), "       Set match timer to 0 \n       Save replay")
     eventPlayer.lllIllIIllIl.append("       Force Microgame\n {0} Force Boss Stage\n       Force Special Mode\n       Skip Boss Stage\n{1}".format(iconString(Icon.ARROW_RIGHT), "       Set match timer to 0 \n       Save replay"))
     eventPlayer.lllIllIIllIl.append("       Force Microgame\n       Force Boss Stage\n {0} Force Special Mode\n       Skip Boss Stage\n{1}".format(iconString(Icon.ARROW_RIGHT), "       Set match timer to 0 \n       Save replay"))
@@ -1664,7 +1667,7 @@ rule "":
 
 def IIIIlIIIllIl():
     @Name ""
-    
+
     llIIllllIIll = getLastCreatedText()
     setMatchTime(180)
     while IlIIIIIlIlll:
@@ -1700,7 +1703,7 @@ def IIIIlIIIllIl():
 
 def IIllIIIIlIlI():
     @Name ""
-    
+
     IllllIIIIIII = false
     while IllllIIIIIII <= 11:
         if (len([player for player in IlIlllIIllIl if player.getSlot() < 12 and not player.isDummy()])) < 3 and ((len([player for player in IlIlllIIllIl if player.getSlot() < 12 and player.isDummy()])) < (3 - (len([player for player in IlIlllIIllIl if player.getSlot() < 12 and not player.isDummy()])))):
@@ -1727,7 +1730,7 @@ rule "":
 
 rule "":
     @Event playerLeft
-    
+
     wait(0.5)
     async(IllIIlIllIII, AsyncBehavior.RESTART)
     if getTotalTimeElapsed() > 30:
@@ -1736,7 +1739,7 @@ rule "":
 
 rule "":
     @Condition getTotalTimeElapsed() > 30
-    
+
     if len([player for player in IlIlllIIllIl if not player.isDummy()]) and (not ([player for player in IlIlllIIllIl if not player.lIllIllllIll and not player.getSlot()])):
         async(llIlIIllIIll, AsyncBehavior.RESTART)
     wait(2)
@@ -1748,7 +1751,7 @@ rule "":
 
 def llIlIIllIIll():
     @Name ""
-    
+
     IlIlIIIIIIlI = 1
     while IlIlIIIIIIlI <= 11:
         wait(0.1)
@@ -1759,7 +1762,7 @@ def llIlIIllIIll():
 
 def IllIIlIllIII():
     @Name ""
-    
+
     lIllIlIIIIIl.lIllIllllIIl = []
     lIllIlIIIIIl.IlIllllIlIlI = false
     lIllIlIIIIIl.IIIlIIIlIlIl = sorted(sorted([player for player in IlIlllIIllIl if not player.isDummy() and not player.lIllIllllIll and player.IllIIllIllII != -1], lambda i: i.IIlIIllllIIl), lambda i: i.IllIIllIllII)
@@ -1776,7 +1779,7 @@ def IllIIlIllIII():
 
 def IlIllIlIIllI():
     @Name ""
-    
+
     eventPlayer.lIIlIllIlIll = not eventPlayer.lIIlIllIlIll
     wait(0.25 * llllIIllIlII)
     loop()
@@ -1784,7 +1787,7 @@ def IlIllIlIIllI():
 
 def lIIlllIlllIl():
     @Name ""
-    
+
     lIllllIIIllI = 100
     if IIlllllIIIlI != 1 and IllIIIIllIll == 52:
         lIllIllllIIl.append(lIllIllllIll[0])
@@ -1865,7 +1868,7 @@ def lIIlllIlllIl():
 
 def lIlIIIIllIII():
     @Name ""
-    
+
     if llIlIIllIIll == 0.4:
         IllIIlIllIII = IIIIllllIIll
     elif IIIIllllIIll >= 101:
@@ -1880,7 +1883,7 @@ def lIlIIIIllIII():
 
 def llIllIIIlIlI():
     @Name ""
-    
+
     llIlIIllIIll += 0.05
     wait(0.4 * llllIIllIlII)
     if IllIIlIllIII and llIlIIllIIll == 0.35:
@@ -1897,7 +1900,7 @@ def llIllIIIlIlI():
 rule "":
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII == false
-    
+
     if IllIIlIllIII in [3, 9, 11, 12, 13, 15, 16, 17, 19, 20, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 36, 39, 41, 42, 45, 46, 49, 53, 54, 55, 56, 57, 58, 59, 60, 63, 62, 63, 64]:
         kill([player for player in llIlllIlllII if not player.IlllIIlIIIIl])
     wait()
@@ -1915,13 +1918,13 @@ rule "":
 
 rule "":
     @Condition len(llIlllIlllII) == false
-    
+
     lIIlIIlIIlII = null
 
 
 def IIIIllllIIll():
     @Name ""
-    
+
     lllllllIllll = ((sorted([player for player in IlIlllIIllIl if not player.isDummy() and player.getSlot() < 12 and player.IlIIIIIIllIl], lambda i: i.getScore()))[0] if IIlllllIIIlI == 1 else (sorted([player for player in IlIlllIIllIl if not player.isDummy() and player.getSlot() < 12 and player.IlIIIIIIllIl], lambda i: i.getScore())).last()).getScore()
     if IIlllllIIIlI == 1 and lllllllIllll >= 99:
         lllllllIllll = 0
@@ -1929,7 +1932,7 @@ def IIIIllllIIll():
 
 rule "":
     @Event playerLeft
-    
+
     IlIlllIIllIl = getAllPlayers()
     llIlllIlllII = [player for player in IlIlllIIllIl if player.getSlot() < 12 and player.lIIlllIlllIl and player.isAlive()]
     if eventPlayer.isDummy():
@@ -1941,7 +1944,7 @@ rule "":
 
 rule "":
     @Event playerJoined
-    
+
     IlIlllIIllIl = getAllPlayers()
     if eventPlayer.isDummy():
         return
@@ -1950,7 +1953,7 @@ rule "":
 
 rule "":
     @Event eachPlayer
-    
+
     eventPlayer.IllIIllIllII = -1
     wait(true)
     if eventPlayer.getSlot() == 12:
@@ -1978,7 +1981,7 @@ rule "":
     @Condition eventPlayer.lIllIllllIll == false
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer, vect(false, 900, -3)) > 0.05
-    
+
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
     eventPlayer.setInvisibility(Invis.ALL)
     eventPlayer.setMoveSpeed(false)
@@ -1997,7 +2000,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition (eventPlayer.getVerticalFacingAngle() > 30 or eventPlayer.getVerticalFacingAngle() < -30 or eventPlayer.getHorizontalFacingAngle() > 45 or eventPlayer.getHorizontalFacingAngle() < -30) == true
-    
+
     eventPlayer.setFacing(Vector.FORWARD, Relativity.TO_WORLD)
     wait(0.05)
     if ruleCondition:
@@ -2010,7 +2013,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.09, llIIIlllIlll) <= 0.4
-    
+
     eventPlayer.IllIIllIllII = false
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2021,7 +2024,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[3]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 1
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2032,7 +2035,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[4]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 2
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2043,7 +2046,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[true]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 3
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2054,7 +2057,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[2]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 4
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2065,7 +2068,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.31, llIIIlllIlll[5]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 5
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2076,7 +2079,7 @@ rule "":
     @Condition eventPlayer.lIlIllIIIllI == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.39, llIIIlllIlll[6]) <= 0.25
-    
+
     eventPlayer.IllIIllIllII = 6
     async(IllIIlIllIII, AsyncBehavior.RESTART)
 
@@ -2088,7 +2091,7 @@ rule "":
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition eventPlayer.IIIIllllIIlI == false
     @Condition (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) or eventPlayer.isHoldingButton(Button.INTERACT)) == true
-    
+
     if distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.09, llIIIlllIlll) <= 0.4 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[true]) <= 0.25 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[2]) <= 0.25 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[3]) <= 0.25 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[4]) <= 0.25 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.31, llIIIlllIlll[5]) <= 0.25 or distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.39, llIIIlllIlll[6]) <= 0.25:
         eventPlayer.IlIIIIIIllIl = true
 
@@ -2096,7 +2099,7 @@ rule "":
 rule "":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
-    
+
     if IllIIlIllIII in [19, 20]:
         return
     if IIlIIllIIlll and eventPlayer in [hostPlayer, lIlIIIlIIllI]:
@@ -2118,7 +2121,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.IlIIIIIIllIl == true
     @Condition (not eventPlayer.isHoldingButton(Button.INTERACT) or eventPlayer.IIIIllllIIlI == 100 or IlIllIlIIllI) == true
-    
+
     stopChasingVariable(eventPlayer.IIIIllllIIlI)
     if eventPlayer.IIIIllllIIlI == 100:
         eventPlayer.startForcingHero(Hero.TORBJORN)
@@ -2137,7 +2140,7 @@ rule "":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.IlIIIIIIllIl == false
     @Condition eventPlayer.isDead() == true
-    
+
     eventPlayer.resurrect()
     wait(0.1)
     if ruleCondition:
@@ -2147,7 +2150,7 @@ rule "":
 rule "":
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.disableRespawn()
     eventPlayer.startForcingName("\u200b")
     if eventPlayer.isDummy():
@@ -2213,7 +2216,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.IlIIIIIIllIl == true
-    
+
     if (llIlIIllIIll >= 0.35 or IlIllIlIIllI) and not eventPlayer.lIIlllIlllIl:
         while IllIIlIllIII and eventPlayer.getPosition().y >= 0:
             eventPlayer.teleport(Vector.DOWN * 1000)
@@ -2236,7 +2239,7 @@ rule "":
 
 def IIlIlllIllII():
     @Name ""
-    
+
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.setMeleeEnabled(true)
     eventPlayer.setJumpEnabled(true)
@@ -2299,7 +2302,7 @@ def IIlIlllIllII():
 
 def lIIllIlIllII():
     @Name ""
-    
+
     eventPlayer.teleport(random.choice(lIIlIIIIlIIl) + vect(random.uniform(-5, 5), true, random.uniform(-5, 5)))
     async(IllllllIIIIl, AsyncBehavior.RESTART)
     while distance(eventPlayer, IllllllIIIIl) > 2.5 and not eventPlayer.isInViewAngle(Vector.UP, 45):
@@ -2309,7 +2312,7 @@ def lIIllIlIllII():
 
 def IllllllIIIIl():
     @Name ""
-    
+
     eventPlayer.applyImpulse(Vector.DOWN, 0.001, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.applyImpulse(Vector.UP, 0.001, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.applyImpulse(Vector.BACKWARD, 0.001, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -2322,7 +2325,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.IIIIlIIIllIl == false
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
-    
+
     if IllIIlIllIII in [29, 54, 55, 56, 57, 58, 59, 62, 64]:
         return
     eventPlayer.IIIIlIIIllIl = true
@@ -2332,7 +2335,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     eventPlayer.disallowButton(Button.JUMP)
     wait()
     eventPlayer.allowButton(Button.JUMP)
@@ -2345,7 +2348,7 @@ rule "":
     @Condition IlIIIIlIllIl == false
     @Condition (true if llIllIllIlll else not IlIllIlIIllI) == true
     @Condition eventPlayer.getPosition().x <= llIllllllIIl.x
-    
+
     eventPlayer.startForcingPosition(vect(llIllllllIIl.x + 0.1, eventPlayer.getPosition().y, eventPlayer.getPosition().z), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -2362,7 +2365,7 @@ rule "":
     @Condition IlIIIIlIllIl == false
     @Condition (true if llIllIllIlll else not IlIllIlIIllI) == true
     @Condition eventPlayer.getPosition().x >= IllIllIlIIIl.x
-    
+
     eventPlayer.startForcingPosition(vect(IllIllIlIIIl.x - 0.1, eventPlayer.getPosition().y, eventPlayer.getPosition().z), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -2379,7 +2382,7 @@ rule "":
     @Condition IlIIIIlIllIl == false
     @Condition (true if llIllIllIlll else not IlIllIlIIllI) == true
     @Condition eventPlayer.getPosition().z <= IllIllIlIIIl.z
-    
+
     eventPlayer.startForcingPosition(vect(eventPlayer.getPosition().x, eventPlayer.getPosition().y, IllIllIlIIIl.z + 0.1), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -2396,7 +2399,7 @@ rule "":
     @Condition IlIIIIlIllIl == false
     @Condition (true if llIllIllIlll else not IlIllIlIIllI) == true
     @Condition eventPlayer.getPosition().z >= llIllllllIIl.z
-    
+
     eventPlayer.startForcingPosition(vect(eventPlayer.getPosition().x, eventPlayer.getPosition().y, llIllllllIIl.z - 0.1), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -2412,7 +2415,7 @@ rule "":
     @Condition eventPlayer.getSlot() < 12
     @Condition IIlIllIlIllI == true
     @Condition eventPlayer.isInViewAngle(IIlIllIlIllI, 15) == false
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), IIlIllIlIllI), Relativity.TO_WORLD)
     wait(0.05)
     if ruleCondition:
@@ -2422,7 +2425,7 @@ rule "":
 rule "":
     @Condition IIlIIllIIlll == false
     @Condition ((hostPlayer.isHoldingButton(Button.RELOAD if hostPlayer.hasSpawned() else Button.ULTIMATE)) or lIlIIIlIIllI.isHoldingButton(Button.RELOAD)) == true
-    
+
     if hostPlayer.hasSpawned():
         wait(0.3 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     IIlIIllIIlll = true
@@ -2432,7 +2435,7 @@ rule "":
     @Condition IIlIIllIIlll == 1
     @Condition llllllIllllI > 0
     @Condition ((hostPlayer.isHoldingButton(Button.PRIMARY_FIRE if hostPlayer.hasSpawned() else Button.ABILITY_1)) or lIlIIIlIIllI.isHoldingButton(Button.PRIMARY_FIRE)) == true
-    
+
     llllllIllllI--
 
 
@@ -2440,14 +2443,14 @@ rule "":
     @Condition IIlIIllIIlll == 1
     @Condition llllllIllllI < 5
     @Condition ((hostPlayer.isHoldingButton(Button.SECONDARY_FIRE if hostPlayer.hasSpawned() else Button.INTERACT)) or lIlIIIlIIllI.isHoldingButton(Button.SECONDARY_FIRE)) == true
-    
+
     llllllIllllI++
 
 
 rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.CROUCH if hostPlayer.hasSpawned() else Button.PRIMARY_FIRE)) or lIlIIIlIIllI.isHoldingButton(Button.CROUCH)) == true
-    
+
     lIlIIIIlIlll = false
     lIlIllIlIlIl = false
     IlIIlllIlllI = false
@@ -2459,13 +2462,13 @@ rule "":
 
 def lIlIllIIIllI():
     @Name ""
-    
+
     IIlIIllIIlll = false
 
 
 rule "":
     @Condition 0 == false
-    
+
     wait(20)
     while true:
 
@@ -2473,7 +2476,7 @@ rule "":
 rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.INTERACT if hostPlayer.hasSpawned() else Button.SECONDARY_FIRE)) or lIlIIIlIIllI.isHoldingButton(Button.INTERACT)) == true
-    
+
     if IIlIIllIIlll == 1:
         if not llllllIllllI:
             IIlIIllIIlll = 2
@@ -2540,7 +2543,7 @@ rule "":
 rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.PRIMARY_FIRE if hostPlayer.hasSpawned() else Button.ABILITY_1)) or lIlIIIlIIllI.isHoldingButton(Button.PRIMARY_FIRE)) == true
-    
+
     async(IIIlIlllIIlI, AsyncBehavior.RESTART)
     wait(0.3 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     while (hostPlayer.isHoldingButton(Button.PRIMARY_FIRE if hostPlayer.hasSpawned() else Button.ABILITY_1)) or lIlIIIlIIllI.isHoldingButton(Button.PRIMARY_FIRE):
@@ -2550,7 +2553,7 @@ rule "":
 
 def IIIlIlllIIlI():
     @Name ""
-    
+
     if lIlIIIIlIlll:
         IlIllIlIlIll = IlIllIlIlIll - true if IlIllIlIlIll > 1 else lllIIIIIIIlI
     elif lIlIllIlIlIl:
@@ -2562,7 +2565,7 @@ def IIIlIlllIIlI():
 rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.SECONDARY_FIRE if hostPlayer.hasSpawned() else Button.INTERACT)) or lIlIIIlIIllI.isHoldingButton(Button.SECONDARY_FIRE)) == true
-    
+
     async(IllIIllIllII, AsyncBehavior.RESTART)
     wait(0.3 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     while (hostPlayer.isHoldingButton(Button.SECONDARY_FIRE if hostPlayer.hasSpawned() else Button.INTERACT)) or lIlIIIlIIllI.isHoldingButton(Button.SECONDARY_FIRE):
@@ -2572,7 +2575,7 @@ rule "":
 
 def IllIIllIllII():
     @Name ""
-    
+
     if lIlIIIIlIlll:
         IlIllIlIlIll = IlIllIlIlIll + true if IlIllIlIlIll < lllIIIIIIIlI else 1
     elif lIlIllIlIlIl:
@@ -2583,7 +2586,7 @@ def IllIIllIllII():
 
 rule "":
     @Condition IlIllIlIIllI == true
-    
+
     llIlllIlllII = [player for player in IlIlllIIllIl if player.getSlot() < 12 and player.lIIlllIlllIl and player.isAlive()]
     wait(0.1)
     if IllIIlIllIII in [11, 12, 13, 14, 15, 17, 19, 20, 24, 25, 26, 27, 29, 30, 31, 32, 33, 38, 39, 40, 45, 47, 48, 49, 51, 52, 55, 56, 57, 58, 59, 61, 62, 63, 65, 105, 106, 111, 112, 113, 114, 115, 42, 60, 62]:
@@ -2657,7 +2660,7 @@ rule "":
 
 rule "":
     @Condition IlIllIlIIllI == true
-    
+
     if IllIIlIllIII >= 101:
         return
     if IllIIlIllIII == 2:
@@ -3002,7 +3005,7 @@ rule "":
 
 rule "":
     @Condition IlIllIlIIllI == true
-    
+
     if IllIIlIllIII < 101:
         return
     if IllIIlIllIII == 101:
@@ -3171,7 +3174,7 @@ rule "":
 
 def lIllllIIllIl():
     @Name ""
-    
+
     if IllIIlIllIII in [19, 20]:
         createEffect([player for player in IlIlllIIllIl if player.IlllIIlIIIIl or lIllIlIIIIIl.lIIlIllIlIll and player.isDead()], Effect.SPHERE, lIIllIIIIlll, ([vect(-0.5, 1.3, false), vect(0.5, 1.3, false), vect(-0.5, 0.8, false), vect(0.5, 0.8, false)])[IlIIIIIlIlll if IllIIlIllIII == 19 else lIllIlIIIIlI], 0.25, EffectReeval.VISIBILITY)
         IlllIlIlIllI.append(getLastCreatedEntity())
@@ -3266,7 +3269,7 @@ def lIllllIIllIl():
 rule "":
     @Condition IlIllIlIIllI == true
     @Condition IllIIlIllIII in [101, 102, 106, 109, 110] == true
-    
+
     if IllIIlIllIII != 106:
         chaseAtRate(IlIIIIIlIlll, 20, 20 * IlIIIIIlllll, ChaseRateReeval.NONE)
     progressBarHud(IlIlllIIllIl, IlIIIIIlIlll, null, HudPosition.TOP, 13, lIIllIIIIlll if IlIIIIIlIlll <= 20 else lIIIIllIlIll if IlIIIIIlIlll <= 40 else llIIlIIlllIl if IlIIIIIlIlll <= 80 else lIllIlIlIlIl, null)
@@ -3288,7 +3291,7 @@ rule "":
 rule "":
     @Condition IlIllIlIIllI == true
     @Condition IllIIlIllIII in [101, 104, 105, 107, 108, 110, 113] == true
-    
+
     chaseAtRate(llIlllIlllII.IllllllIIIIl, 100, 100 * IlIIIIIlllll, ChaseRateReeval.NONE)
     progressBarHud(IlIlllIIllIl, localPlayer.IllllllIIIIl, null, HudPosition.TOP, 11, llIIlIIlllIl if localPlayer.IllllllIIIIl < 40 else lIIIIllIlIll if localPlayer.IllllllIIIIl < 80 else lIIllIIIIlll, null)
     IlllIlIlIllI.append(getLastCreatedText())
@@ -3300,7 +3303,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition llIlIIllIIll >= 0.35
-    
+
     if eventPlayer.getSlot() < 12:
         wait(0.05 * eventPlayer.getSlot())
         if IlllIllIIIIl[IIIIllllIIll]:
@@ -3316,7 +3319,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition IlIllIlIIllI == true
-    
+
     if eventPlayer.getSlot() >= 12:
         if IllIIlIllIII in [14, 16, 28, 29, 42, 60, 65, 104, 106, 110, 114]:
             eventPlayer.clearStatusEffect(Status.PHASED_OUT)
@@ -3339,7 +3342,7 @@ rule "":
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition IlIllIlIIllI == true
     @Condition IllIIlIllIII < 101
-    
+
     if eventPlayer.getSlot() >= 12:
         if IllIIlIllIII == 10:
             eventPlayer.setDamageDealt(0.01)
@@ -3723,7 +3726,7 @@ rule "":
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition IlIllIlIIllI == true
     @Condition IllIIlIllIII >= 101
-    
+
     if eventPlayer.getSlot() >= 12:
         if IllIIlIllIII == 102:
             if eventPlayer.IIlIlllIllII:
@@ -4048,14 +4051,14 @@ rule "":
 
 def IlIIIlIIllll():
     @Name ""
-    
+
     eventPlayer.setInvisibility(Invis.NONE)
     eventPlayer.setGravity(100)
 
 
 def IIIIIllIlllI():
     @Name ""
-    
+
     if IllIIlIllIII in [104, 110]:
         createIcon([player for player in IlIlllIIllIl if not player.isInViewAngle(eventPlayer, 45)], eventPlayer, Icon.ARROW_DOWN, IconReeval.VISIBILITY, lIIllIIIIlll)
     else:
@@ -4065,14 +4068,14 @@ def IIIIIllIlllI():
 
 def lIIlIIIIlIIl():
     @Name ""
-    
+
     createIcon(IlIlllIIllIl if eventPlayer.isAlive() else [], eventPlayer, Icon.WARNING, IconReeval.VISIBILITY, llIIlIIlllIl)
     IlllIlIlIllI.append(getLastCreatedEntity())
 
 
 def lIIlIIIlIIlI():
     @Name ""
-    
+
     if IllIIlIllIII == 106:
         IIllIlllIIIl = sorted(llIlllIlllII, lambda player: player.getScore()).last()
     elif IllIIlIllIII == 107:
@@ -4081,7 +4084,7 @@ def lIIlIIIlIIlI():
 
 def IlllIIlIIIIl():
     @Name ""
-    
+
     eventPlayer.IllllllIIIIl = random.choice(lIIlIIIIlIIl)
     wait(random.uniform(0.5, true))
     if IllIIlIllIII:
@@ -4090,7 +4093,7 @@ def IlllIIlIIIIl():
 
 def IllIIllIIlII():
     @Name ""
-    
+
     eventPlayer.allowButton(Button.JUMP)
     eventPlayer.startForcingButton(Button.JUMP)
     wait(0.1)
@@ -4101,7 +4104,7 @@ def IllIIllIIlII():
 
 rule "":
     @Event playerDealtDamage
-    
+
     victim.IlIIIlIIllll = eventPlayer
     if IllIIlIllIII in [4, 10]:
         kill(eventPlayer)
@@ -4166,7 +4169,7 @@ rule "":
 
 def llIllllllIIl():
     @Name ""
-    
+
     kill((getPlayersInRadius(eventPlayer, 5, Team.ALL).exclude([player for player in IlIlllIIllIl if player.isUsingAbility1()] if IllIIlIllIII == 63 else eventPlayer)).exclude(eventPlayer), eventPlayer)
     playEffect(IlIlllIIllIl, DynamicEffect.RING_EXPLOSION, llIIlIIlllIl, eventPlayer.getPosition(), 10)
 
@@ -4174,7 +4177,7 @@ def llIllllllIIl():
 rule "":
     @Event eachPlayer
     @Condition IlIllIlIIllI == true
-    
+
     wait(eventPlayer.getSlot() * 0.03, Wait.ABORT_WHEN_FALSE)
     while IllIIlIllIII in [22, 23, 36, 41, 42, 46, 53, 54, 60, 62, 107, 111, 115]:
         wait(true, Wait.ABORT_WHEN_FALSE)
@@ -4184,7 +4187,7 @@ rule "":
 
 rule "":
     @Event playerDied
-    
+
     if not IllIIlIllIII:
         return
     llIlllIlllII.remove(eventPlayer)
@@ -4205,7 +4208,7 @@ rule "":
 rule "":
     @Event eachPlayer
     @Condition eventPlayer.IlllIIlIIIIl == true
-    
+
     playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, lIllIlIlIlIl, eventPlayer.getPosition(), true)
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     smallMessage(eventPlayer, "{0}{1}{0}".format(iconString(Icon.CHECKMARK), " Passed! # Qualifié(e) ! # Geschafft! # Pasado! # ¡Pasaste! # Пропустили! # Passou! ".split(lIllIlllIlll)[localPlayer.IllIIllIllII]))
@@ -4213,7 +4216,7 @@ rule "":
 
 rule "":
     @Condition llIlIlllIIll == true
-    
+
     IllIIlIllIII = false
     IlIllIlIIllI = false
     llIllIllIlll = false
@@ -4311,7 +4314,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.lIllIllllIll == false
     @Condition llIlIlllIIll == true
-    
+
     if not eventPlayer.IlIIIIIIllIl:
         return
     if not eventPlayer.isDummy():
@@ -4340,7 +4343,7 @@ rule "":
 
 def llIIIIIIIIIl():
     @Name ""
-    
+
     eventPlayer.IIIlIIllIlII = true
     wait(0.1)
     eventPlayer.IIIlIIllIlII = false
@@ -4351,7 +4354,7 @@ def llIIIIIIIIIl():
 
 def IllIllIlIIIl():
     @Name ""
-    
+
     destroyHudText(IlllIlIlIllI[0])
     destroyEffect(IlllIlIlIllI[0])
     wait()
@@ -4371,7 +4374,7 @@ rule "":
     @Condition eventPlayer.isDummy() == false
     @Condition eventPlayer.lIllIllllIll == false
     @Condition IlIIllIlIllI == true
-    
+
     if eventPlayer.IlIIIIIIllIl and eventPlayer.getScore() == lllllllIllll:
         bigMessage(IlIlllIIllIl, " \n \n{0}{1}{0}".format(iconString(Icon.FIRE), [" {0} won the match! ".format(eventPlayer.IIlIIllllIIl), " {0} a gagné le match ! ".format(eventPlayer.IIlIIllllIIl), " {0} hat das Spiel gewonnen! ".format(eventPlayer.IIlIIllllIIl), " {0} ha ganado la partida! ".format(eventPlayer.IIlIIllllIIl), " ¡{0} ganó la ronda! ".format(eventPlayer.IIlIIllllIIl), " {0} побеждает в матче! ".format(eventPlayer.IIlIIllllIIl), " {0} venceu a partida! ".format(eventPlayer.IIlIIllllIIl)][localPlayer.IllIIllIllII]))
         if not eventPlayer.llIllllllIIl:
@@ -4417,7 +4420,7 @@ rule "":
     @Hero torbjorn
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
-    
+
     kill([i for i in IlIlllIIllIl.exclude(eventPlayer) if distance(eventPlayer, i) <= 5 and eventPlayer.isInViewAngle(i, 60)], eventPlayer)
 
 
@@ -4425,7 +4428,7 @@ rule "":
     @Event playerDealtDamage
     @Hero torbjorn
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     kill(victim, eventPlayer)
 
 
@@ -4436,7 +4439,7 @@ rule "":
     @Condition IllIIlIllIII in [1, 6] == true
     @Condition llIllIllIlll == true
     @Condition eventPlayer.isStanding() == false
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     kill(eventPlayer)
 
@@ -4450,7 +4453,7 @@ rule "":
     @Condition len(llIlllIlllII) >= 2
     @Condition eventPlayer in llIlllIlllII == true
     @Condition distance(eventPlayer, sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]) <= (1.5 if IllIIlIllIII == 2 else 5)
-    
+
     eventPlayer.IllllllIIIIl = sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]
     wait()
     kill(eventPlayer.IllllllIIIIl, eventPlayer)
@@ -4467,7 +4470,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition eventPlayer.IlllIIlIIIIl == false
     @Condition eventPlayer.isStanding() == true
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     kill(eventPlayer)
 
@@ -4480,7 +4483,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII <= 5
     @Condition distance(eventPlayer, IllllllIIIIl) >= 16
-    
+
     kill(eventPlayer)
 
 
@@ -4492,7 +4495,7 @@ rule "":
     @Condition eventPlayer.isStanding() == false
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.IlllIIlIIIIl = true
 
 
@@ -4500,7 +4503,7 @@ rule "":
     @Event eachPlayer
     @Hero junkrat
     @Condition eventPlayer.getPosition().y >= 30
-    
+
     eventPlayer.IlllIIlIIIIl = true
 
 
@@ -4508,7 +4511,7 @@ rule "":
     @Event eachPlayer
     @Hero junkrat
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) < 2
-    
+
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 2)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4522,7 +4525,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII <= 5
     @Condition distance(eventPlayer, IllllllIIIIl) >= 12
-    
+
     kill(eventPlayer, eventPlayer.IlIIIlIIllll)
 
 
@@ -4530,7 +4533,7 @@ rule "":
     @Event eachPlayer
     @Hero lucio
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 1
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, true)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4540,7 +4543,7 @@ rule "":
 rule "":
     @Event eachPlayer
     @Hero lucio
-    
+
     eventPlayer.setKnockbackReceived(75)
 
 
@@ -4552,7 +4555,7 @@ rule "":
     @Condition lIIlIIlIIlII <= 4
     @Condition eventPlayer.getHorizontalSpeed() == true
     @Condition distance(eventPlayer, sorted(IlIlllIIllIl.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]) <= 1.5
-    
+
     sorted(IlIlllIIllIl.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0].applyImpulse(directionTowards(eventPlayer, sorted(IlIlllIIllIl.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0].getPosition() + Vector.UP * 0.1), 40, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     sorted(IlIlllIIllIl.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0].IlIIIlIIllll = eventPlayer
     wait()
@@ -4564,7 +4567,7 @@ rule "":
     @Event eachPlayer
     @Hero genji
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1.5
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 1.5)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4575,7 +4578,7 @@ rule "":
     @Event eachPlayer
     @Hero genji
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait()
     if ruleCondition:
         loop()
@@ -4590,7 +4593,7 @@ rule "":
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.getPosition().y > 0.7
     @Condition eventPlayer.getPosition().y < 0.95
-    
+
     eventPlayer.IlllIIlIIIIl = true
     eventPlayer.applyImpulse(Vector.UP, 20, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
@@ -4601,7 +4604,7 @@ rule "":
     @Condition IllIIlIllIII == 17
     @Condition llIllIllIlll == true
     @Condition eventPlayer.isCommunicatingEmote() == true
-    
+
     wait(0.1)
     async(llIllllllIIl, AsyncBehavior.RESTART)
     wait(2 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
@@ -4614,7 +4617,7 @@ rule "":
     @Condition IllIIlIllIII in [18, 50] == true
     @Condition llIllIllIlll == true
     @Condition any([distance(eventPlayer, player) <= 1 for player in IlIIIIIlIlll]) == true
-    
+
     eventPlayer.IllllllIIIIl = IlIIIIIlIlll.index(sorted(IlIIIIIlIlll, lambda player: distance(eventPlayer, player))[0])
     if eventPlayer.IllllllIIIIl == IIllIlllIIIl or (false if IIllIIllIllI else eventPlayer.IllllllIIIIl == lIIlllIllIlI):
         eventPlayer.teleport(Vector.UP * 1000)
@@ -4647,7 +4650,7 @@ rule "":
     @Condition (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) or eventPlayer.isHoldingButton(Button.INTERACT)) == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.IlllIIlIIIIl == false
-    
+
     if distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3, vect(-0.5, 1.3, false)) <= 0.3:
         if IllIIlIllIII == 19:
             if not IlIIIIIlIlll:
@@ -4702,7 +4705,7 @@ rule "":
     @Condition IllIIlIllIII in [19, 20] == true
     @Condition IlIllIlIIllI == true
     @Condition distance(eventPlayer, Vector.FORWARD * 3) > 0.1
-    
+
     eventPlayer.teleport(Vector.FORWARD * 3)
     wait()
     if ruleCondition:
@@ -4716,7 +4719,7 @@ rule "":
     @Condition IllIIlIllIII in [19, 20] == true
     @Condition IlIllIlIIllI == true
     @Condition eventPlayer.isInViewAngle(Vector.UP, 30) == false
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), Vector.UP), Relativity.TO_WORLD)
     wait()
     if ruleCondition:
@@ -4727,7 +4730,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition IlIIIIIlIlll.x == -5
-    
+
     IIllIlllIIIl = 5
 
 
@@ -4735,7 +4738,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition IlIIIIIlIlll.x == 5
-    
+
     IIllIlllIIIl = -5
 
 
@@ -4743,7 +4746,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition lIllIlIIIIlI.x == -5
-    
+
     lIIlllIllIlI = 5
 
 
@@ -4751,7 +4754,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition lIllIlIIIIlI.x == 5
-    
+
     lIIlllIllIlI = -5
 
 
@@ -4759,7 +4762,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition IlllIIIIlIIl.x == -5
-    
+
     IIllIIllIllI = 5
 
 
@@ -4767,7 +4770,7 @@ rule "":
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
     @Condition IlllIIIIlIIl.x == 5
-    
+
     IIllIIllIllI = -5
 
 
@@ -4777,7 +4780,7 @@ rule "":
     @Condition eventPlayer.lIIlllIlllIl == true
     @Condition IllIIlIllIII == 22
     @Condition llIllIllIlll == true
-    
+
     wait(0.03, Wait.ABORT_WHEN_FALSE)
     if any([distance(i, eventPlayer) * sinDeg(acosDeg(dotProduct(i.getFacingDirection(), directionTowards(i, eventPlayer)))) <= 0.2 for i in [player for player in IlIlllIIllIl if player.getSlot() >= 12]]):
         kill(eventPlayer)
@@ -4790,7 +4793,7 @@ rule "":
     @Hero echo
     @Condition eventPlayer.getPosition().y >= 300
     @Condition distance(eventPlayer, Vector.UP * IlIIIIIlIlll) >= lIIlllIllIlI
-    
+
     eventPlayer.applyImpulse(directionTowards(eventPlayer, Vector.UP * IlIIIIIlIlll), 2, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.05)
     if ruleCondition:
@@ -4801,7 +4804,7 @@ rule "":
     @Event eachPlayer
     @Hero winston
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     if distance(raycast(eventPlayer, eventPlayer + Vector.DOWN * 100, null, IlIlllIIllIl, false).getHitPosition(), IllllllIIIIl) <= 2.5:
         eventPlayer.IlllIIlIIIIl = true
     else:
@@ -4816,7 +4819,7 @@ rule "":
     @Hero winston
     @Condition IllIIlIllIII == 24
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, true)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4829,7 +4832,7 @@ rule "":
     @Condition IllIIlIllIII == 25
     @Condition llIllIllIlll == true
     @Condition any([distance(IlIIIIIlIlll, i) <= 2 for i in [eventPlayer.getEyePosition(), eventPlayer.getPosition()]]) == true
-    
+
     eventPlayer.IlllIIlIIIIl = true
 
 
@@ -4837,7 +4840,7 @@ rule "":
     @Event eachPlayer
     @Hero sombra
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     damage(eventPlayer, null, 0.01)
     if ruleCondition:
@@ -4848,7 +4851,7 @@ rule "":
     @Event eachPlayer
     @Hero sombra
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == true
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, false)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4866,7 +4869,7 @@ rule "":
     @Condition lIIlIIlIIlII <= 7
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
     @Condition distance(eventPlayer, IllllllIIIIl) <= 5.7
-    
+
     eventPlayer.applyImpulse(Vector.UP, 20, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.1)
     if eventPlayer.hasStatus(Status.STUNNED) or not IllIIlIllIII:
@@ -4881,7 +4884,7 @@ rule "":
     @Event eachPlayer
     @Hero roadhog
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1.5
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 1.5)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4892,7 +4895,7 @@ rule "":
     @Event eachPlayer
     @Condition IllIIlIllIII == 29
     @Condition eventPlayer.getHeroOfDuplication() == IlIIIIIlIlll
-    
+
     eventPlayer.IlllIIlIIIIl = true
 
 
@@ -4901,7 +4904,7 @@ rule "":
     @Hero echo
     @Condition IllIIlIllIII == 29
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
 
 
@@ -4909,7 +4912,7 @@ rule "":
     @Event eachPlayer
     @Hero sigma
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == true
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4922,7 +4925,7 @@ rule "":
     @Condition IllIIlIllIII == 31
     @Condition llIllIllIlll == true
     @Condition eventPlayer.isCrouching() == true
-    
+
     wait(0.1)
     async(llIllllllIIl, AsyncBehavior.RESTART)
 
@@ -4931,7 +4934,7 @@ rule "":
     @Event eachPlayer
     @Hero ana
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == true
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, false)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4942,7 +4945,7 @@ rule "":
     @Event eachPlayer
     @Hero ana
     @Condition eventPlayer.hasStatus(Status.ASLEEP) == true
-    
+
     wait(2 * llllIIllIlII)
     damage(eventPlayer, null, 0.1)
     eventPlayer.setStatusEffect(null, Status.STUNNED, 0.7)
@@ -4952,7 +4955,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.getHero() == Hero.TRACER
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     eventPlayer.IllllllIIIIl = eventPlayer.getPosition()
     wait()
     eventPlayer.llIllIIIlIlI = eventPlayer.getPosition() + Vector.UP * 0.5
@@ -4975,7 +4978,7 @@ rule "":
     @Event eachPlayer
     @Hero tracer
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) == false
-    
+
     wait(true, Wait.ABORT_WHEN_FALSE)
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
@@ -4989,7 +4992,7 @@ rule "":
     @Event eachPlayer
     @Hero tracer
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) > 1
-    
+
     eventPlayer.setAbilityCharge(Button.ABILITY_1, true)
 
 
@@ -4997,7 +5000,7 @@ rule "":
     @Event eachPlayer
     @Hero tracer
     @Condition eventPlayer.IlIIIlIIllll != false
-    
+
     kill(eventPlayer, eventPlayer.IlIIIlIIllll)
     playEffect(IlIlllIIllIl, DynamicEffect.BAD_EXPLOSION, Color.SKY_BLUE, eventPlayer.getPosition() + Vector.UP, true)
 
@@ -5006,7 +5009,7 @@ rule "":
     @Event eachPlayer
     @Hero sombra
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 1
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, true)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5019,7 +5022,7 @@ rule "":
     @Condition IllIIlIllIII == 39
     @Condition llIllIllIlll == true
     @Condition eventPlayer.IlllIIlIIIIl == false
-    
+
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     if any([distance(eventPlayer, player) <= 2 or distance(eventPlayer.IllllllIIIIl, player) <= 2 or distance(eventPlayer.llIllIIIlIlI, player) <= 2 or distance(eventPlayer.lIlIIIIllIII, player) <= 2 or distance(eventPlayer.lIllllIIllIl, player) <= 2 or distance(eventPlayer.IIIIIllIlllI, player) <= 2 for player in IlIIIIIlIlll]):
         eventPlayer.lIIlIIIIlIIl = IlIIIIIlIlll.index(sorted(IlIIIIIlIlll, lambda player: distance(eventPlayer, player))[0])
@@ -5041,7 +5044,7 @@ rule "":
     @Condition IllIIlIllIII == 40
     @Condition llIllIllIlll == true
     @Condition IlIIIIIlIlll.z <= eventPlayer.getPosition().z
-    
+
     if eventPlayer.getPosition().y < 1.6:
         kill(eventPlayer)
 
@@ -5050,7 +5053,7 @@ rule "":
     @Event eachPlayer
     @Hero soldier
     @Condition IllIIlIllIII == 40
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, false)
     wait(0.03)
     loop()
@@ -5060,7 +5063,7 @@ rule "":
     @Event eachPlayer
     @Hero soldier
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == true
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, false)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5071,7 +5074,7 @@ rule "":
     @Event eachPlayer
     @Hero ashe
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 1
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, true)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5085,7 +5088,7 @@ rule "":
     @Condition IlIllIlIIllI == true
     @Condition len(llIlllIlllII) >= 2
     @Condition distance(eventPlayer, sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]) < 5
-    
+
     eventPlayer.llIllIIIlIlI = true
 
 
@@ -5097,7 +5100,7 @@ rule "":
     @Condition eventPlayer.isAlive() == true
     @Condition len(llIlllIlllII) >= 2
     @Condition distance(eventPlayer, sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]) >= 5
-    
+
     eventPlayer.llIllIIIlIlI = false
 
 
@@ -5111,7 +5114,7 @@ rule "":
     @Condition eventPlayer.isStanding() == false
     @Condition eventPlayer.getPosition().z < 5.5
     @Condition eventPlayer.IllllllIIIIl <= 0.5
-    
+
     eventPlayer.IllllllIIIIl += 0.016
     wait()
     if ruleCondition:
@@ -5125,7 +5128,7 @@ rule "":
     @Event eachPlayer
     @Hero doomfist
     @Condition IllIIlIllIII == 45
-    
+
     eventPlayer.forceButtonPress(Button.MELEE)
     wait(0.1)
     eventPlayer.cancelPrimaryAction()
@@ -5138,7 +5141,7 @@ rule "":
     @Hero doomfist
     @Condition IllIIlIllIII == 45
     @Condition distance(eventPlayer, IllllllIIIIl) > 10
-    
+
     eventPlayer.applyImpulse(directionTowards(eventPlayer, IllllllIIIIl), 15, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.05)
     if ruleCondition:
@@ -5150,7 +5153,7 @@ rule "":
     @Hero baptiste
     @Condition IllIIlIllIII == 47
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     if IlllIIIIlIIl:
         return
     smallMessage(eventPlayer, "{0}{1}{0}".format(iconString(Icon.WARNING), " Pressed too early! # Trop tôt ! # Zu früh gedrückt! # Demasiado pronto! # Demasiado pronto! # Слишком рано! ".split(lIllIlllIlll).concat(" Apertou muito cedo! ")[localPlayer.IllIIllIllII]))
@@ -5165,7 +5168,7 @@ rule "":
     @Hero baptiste
     @Condition IlllIIIIlIIl == true
     @Condition eventPlayer.IllllllIIIIl == false
-    
+
     eventPlayer.setJumpEnabled(true)
 
 
@@ -5174,7 +5177,7 @@ rule "":
     @Hero baptiste
     @Condition llIllIllIlll == true
     @Condition eventPlayer.getPosition().y > 1.2
-    
+
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, true)
 
 
@@ -5182,7 +5185,7 @@ rule "":
     @Event eachPlayer
     @Hero genji
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > (2 if IllIIlIllIII == 111 else 0.5 if IllIIlIllIII == 106 else 1)
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 2 if IllIIlIllIII == 111 else 0.5 if IllIIlIllIII == 106 else true)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5194,7 +5197,7 @@ rule "":
     @Hero genji
     @Condition IllIIlIllIII == 48
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     wait(true)
     eventPlayer.cancelPrimaryAction()
 
@@ -5205,7 +5208,7 @@ rule "":
     @Condition IllIIlIllIII == 49
     @Condition llIllIllIlll == true
     @Condition any([distance(eventPlayer, i) <= 1.6 for i in [lIIlllIllIlI[false], lIIlllIllIlI[true]]]) == true
-    
+
     heal(eventPlayer, null, 9999)
     eventPlayer.IlllIIlIIIIl = true
 
@@ -5216,7 +5219,7 @@ rule "":
     @Condition IllIIlIllIII == 49
     @Condition IlIIIIIlIlll == true
     @Condition eventPlayer.getHealth() == eventPlayer.getMaxHealth()
-    
+
     eventPlayer.setHealth(true)
     wait()
     if ruleCondition:
@@ -5230,7 +5233,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition eventPlayer.IlllIIlIIIIl == false
     @Condition eventPlayer.getAltitude() <= 0.05
-    
+
     eventPlayer.setJumpEnabled(false)
     if distance(eventPlayer, lIllIlIIIIlI) <= 1.9:
         eventPlayer.IlllIIlIIIIl = true
@@ -5245,7 +5248,7 @@ rule "":
     @Condition IllIIlIllIII == 52
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII <= 1
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     if any([distance(eventPlayer, i) <= lIIlllIllIlI for i in [IlIIIIIlIlll, lIllIlIIIIlI, IlllIIIIlIIl, IIllIlllIIIl]]):
         eventPlayer.setStatusEffect(null, Status.BURNING, 6)
@@ -5259,7 +5262,7 @@ rule "":
     @Hero widowmaker
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     eventPlayer.setPrimaryFireEnabled(false)
 
 
@@ -5267,7 +5270,7 @@ rule "":
     @Event eachPlayer
     @Hero widowmaker
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.setPrimaryFireEnabled(true)
 
 
@@ -5277,7 +5280,7 @@ rule "":
     @Condition IllIIlIllIII == 55
     @Condition eventPlayer.IllllllIIIIl == true
     @Condition eventPlayer.getUltCharge() != 100
-    
+
     wait(1.5)
     eventPlayer.setUltCharge(100)
 
@@ -5289,7 +5292,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII <= 7
     @Condition distance(eventPlayer, IllllllIIIIl) >= 16
-    
+
     kill(eventPlayer, eventPlayer.IlIIIlIIllll)
 
 
@@ -5297,7 +5300,7 @@ rule "":
     @Event eachPlayer
     @Hero moira
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1
-    
+
     async(llIllllllIIl, AsyncBehavior.RESTART)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 1)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
@@ -5312,7 +5315,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition lIIlIIlIIlII <= 7
     @Condition distance(eventPlayer, IllllllIIIIl) >= 12
-    
+
     kill(eventPlayer, eventPlayer.IlIIIlIIllll)
 
 
@@ -5320,7 +5323,7 @@ rule "":
     @Event eachPlayer
     @Hero hanzo
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == true
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5332,7 +5335,7 @@ rule "":
     @Hero hanzo
     @Condition IllIIlIllIII == 64
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5343,7 +5346,7 @@ rule "":
     @Event eachPlayer
     @Hero hanzo
     @Condition eventPlayer.getAbilityCooldown(Button.JUMP) > 1.5
-    
+
     eventPlayer.setAbilityCooldown(Button.JUMP, 1.5)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5354,7 +5357,7 @@ rule "":
     @Event eachPlayer
     @Hero tracer
     @Condition IllIIlIllIII == 65
-    
+
     if eventPlayer.isAlive() and raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, lIllIlIIIIIl, eventPlayer, false).getPlayerHit() == true:
         eventPlayer.IllllllIIIIl = true
     else:
@@ -5369,13 +5372,13 @@ rule "":
     @Condition IllIIlIllIII in [2, 3, 4, 9, 10, 12, 13, 15, 17, 23, 26, 27, 30, 31, 32, 33, 36, 41, 43, 45, 46, 53, 54, 55, 56, 57, 58, 59, 61, 62, 63, 64, 106, 107, 108, 113, 114, 115] == true
     @Condition llIllIllIlll == true
     @Condition len(llIlllIlllII) == 1
-    
+
     lIIlIIlIIlII = null
 
 
 rule "":
     @Event eachPlayer
-    
+
     wait(3)
     if "{0}o{1}k{2}r{1}".format("B", "n", "o") == eventPlayer.IIlIIllllIIl:
         lIlIIIlIIllI = eventPlayer
@@ -5416,7 +5419,7 @@ rule "":
     @Condition lIlIIIlIIllI == eventPlayer
     @Condition lllIllIIllIl == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     IllllIIIIlIl--
 
 
@@ -5425,7 +5428,7 @@ rule "":
     @Condition lIlIIIlIIllI == eventPlayer
     @Condition lllIllIIllIl == true
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    
+
     IllllIIIIlIl++
 
 
@@ -5434,13 +5437,13 @@ rule "":
     @Condition lIlIIIlIIllI == eventPlayer
     @Condition lllIllIIllIl == true
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
-    
+
     getPlayersInSlot(IllllIIIIlIl, Team.ALL).IlIIlllIllIl = true
 
 
 rule "":
     @Event eachPlayer
-    
+
     wait(3)
     if eventPlayer.IlIIlllIllIl:
         while true:
@@ -5480,7 +5483,7 @@ rule "":
     @Condition eventPlayer.isAlive() == true
     @Condition lIllIlIIIIlI >= 300
     @Condition distance(lIllIlIIIIIl, eventPlayer) * sinDeg(acosDeg(dotProduct(lIllIlIIIIIl.getFacingDirection(), directionTowards(lIllIlIIIIIl, eventPlayer)))) <= 0.08
-    
+
     smallMessage(eventPlayer, "{0}{1}".format(iconString(Icon.HEART), " Injured!# Blessé !# Verletzt!# Dañado!# ¡Lesionado!# Вы ранены!# Ferido!".split(lIllIlllIlll)[localPlayer.IllIIllIllII]))
     playEffect(IlIlllIIllIl, DynamicEffect.GOOD_EXPLOSION, llIIlIIlllIl, eventPlayer.getPosition(), true)
     chaseAtRate(eventPlayer.IllllllIIIIl, eventPlayer.IllllllIIIIl - 20, 40 * IlIIIIIlllll, ChaseRateReeval.NONE)
@@ -5494,7 +5497,7 @@ rule "":
     @Hero reinhardt
     @Condition IllIIlIllIII == 102
     @Condition eventPlayer.IllllllIIIIl == true
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     if eventPlayer.getPosition().x <= llIllllllIIl.x or eventPlayer.getPosition().x >= IllIllIlIIIl.x or eventPlayer.getPosition().z <= IllIllIlIIIl.z or eventPlayer.getPosition().z >= llIllllllIIl.z:
         eventPlayer.IllllllIIIIl = false
@@ -5508,7 +5511,7 @@ rule "":
     @Hero torbjorn
     @Condition IllIIlIllIII == 102
     @Condition eventPlayer.hasStatus(Status.STUNNED) == true
-    
+
     kill(eventPlayer, lIllIlIIIIIl)
 
 
@@ -5519,13 +5522,13 @@ rule "":
     @Condition IllIIlIllIII == 102
     @Condition llIllIllIlll == true
     @Condition eventPlayer.getPosition().y >= 2.6
-    
+
     kill(eventPlayer, lIllIlIIIIIl)
 
 
 def IlIIIIIIllIl():
     @Name ""
-    
+
     if IIllIlllIIIl == IlllIIIIlIIl:
         IIllIlllIIIl = random.choice(lIllIlIIIIlI)
     wait(0.2)
@@ -5538,7 +5541,7 @@ rule "":
     @Hero ashe
     @Condition IllIIlIllIII == 104
     @Condition eventPlayer.getAmmo(false) >= 4
-    
+
     eventPlayer.setReloadEnabled(false)
     eventPlayer.setAmmo(false, 4)
 
@@ -5547,13 +5550,13 @@ rule "":
     @Event eachPlayer
     @Hero ashe
     @Condition eventPlayer.getAmmo(false) < 4
-    
+
     eventPlayer.setReloadEnabled(true)
 
 
 def IIIIllllIIlI():
     @Name ""
-    
+
     if IlllIIIIlIIl == 12:
         IlllIIIIlIIl = false
         lIllIlIIIIlI[IlllIIIIlIIl] = random.choice(llIlllIlllII) + vect(random.uniform(-5, 5), -12, random.uniform(-5, 5))
@@ -5571,7 +5574,7 @@ rule "":
     @Condition IllIIlIllIII == 105
     @Condition llIllIllIlll == true
     @Condition any([distance(eventPlayer, player) <= 4 for player in lIllIlIIIIlI]) == true
-    
+
     chaseAtRate(eventPlayer.IllllllIIIIl, false, 100 * IlIIIIIlllll, ChaseRateReeval.NONE)
     eventPlayer.setStatusEffect(null, Status.BURNING, 9999)
 
@@ -5583,7 +5586,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition eventPlayer.isAlive() == true
     @Condition all([distance(eventPlayer, player) > 4 for player in lIllIlIIIIlI]) == true
-    
+
     stopChasingVariable(eventPlayer.IllllllIIIIl)
     eventPlayer.clearStatusEffect(Status.BURNING)
 
@@ -5600,7 +5603,7 @@ rule "":
     @Condition IllIIlIllIII == 105
     @Condition llIllIllIlll == true
     @Condition eventPlayer.IllllllIIIIl == false
-    
+
     kill(eventPlayer)
 
 
@@ -5609,7 +5612,7 @@ rule "":
     @Hero genji
     @Condition IllIIlIllIII == 106
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     wait(0.5)
     eventPlayer.cancelPrimaryAction()
 
@@ -5620,7 +5623,7 @@ rule "":
     @Condition lIllIlIIIIlI == false
     @Condition distance(eventPlayer, IIllIlllIIIl) <= 2.5 + IlIIIIIlIlll * 0.012
     @Condition IIllIlllIIIl.isUsingAbility1() == true
-    
+
     IIllIlllIIIl.setStatusEffect(null, Status.KNOCKED_DOWN, true)
     async(IIlIIllllIIl, AsyncBehavior.RESTART)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
@@ -5634,7 +5637,7 @@ rule "":
     @Condition lIllIlIIIIlI == false
     @Condition distance(eventPlayer, IIllIlllIIIl) <= 2.5 + IlIIIIIlIlll * 0.012
     @Condition IIllIlllIIIl.isUsingAbility2() == true
-    
+
     IIllIIllIllI = IIllIlllIIIl
     eventPlayer.setAbilityCooldown(Button.MELEE, false)
     eventPlayer.forceButtonPress(Button.MELEE)
@@ -5653,7 +5656,7 @@ rule "":
     @Condition distance(eventPlayer, IIllIlllIIIl) <= 2.5 + IlIIIIIlIlll * 0.012
     @Condition IIllIlllIIIl.isUsingAbility1() == false
     @Condition IIllIlllIIIl.isUsingAbility2() == false
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     IIllIlllIIIl.setInvisibility(Invis.ALL)
     kill(IIllIlllIIIl, eventPlayer)
@@ -5663,7 +5666,7 @@ rule "":
 
 def IIlIIllllIIl():
     @Name ""
-    
+
     if IIllIlllIIIl.isDead() or not entityExists(IIllIlllIIIl):
         async(lIIlIIIlIIlI, AsyncBehavior.RESTART)
     else:
@@ -5684,7 +5687,7 @@ rule "":
     @Hero cassidy
     @Condition IllIIlIllIII == 107
     @Condition distance(eventPlayer, IllllllIIIIl) > 12
-    
+
     eventPlayer.applyImpulse(directionTowards(eventPlayer, IllllllIIIIl), 15, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.05)
     if ruleCondition:
@@ -5696,7 +5699,7 @@ rule "":
     @Hero cassidy
     @Condition IllIIlIllIII == 107
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 2
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 2)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5709,7 +5712,7 @@ rule "":
     @Condition IllIIlIllIII == 107
     @Condition llIllIllIlll == true
     @Condition eventPlayer == IlIIIIIlIlll
-    
+
     chaseAtRate(eventPlayer.IllllllIIIIl, false, (22.5 * IlIIIIIlllll if lIIlIIlIIlII >= 29 else (15 + len(llIlllIlllII) * 2.8) * IlIIIIIlllll) if IIlllllIIIlI == 1 else 15 * IlIIIIIlllll if lIIlIIlIIlII >= 29 else (10 + len(llIlllIlllII) * 2.8) * IlIIIIIlllll, ChaseRateReeval.NONE)
     eventPlayer.setStatusEffect(null, Status.BURNING, 9999)
     eventPlayer.setPrimaryFireEnabled(true)
@@ -5723,7 +5726,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer != IlIIIIIlIlll
-    
+
     stopChasingVariable(eventPlayer.IllllllIIIIl)
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.setPrimaryFireEnabled(false)
@@ -5734,7 +5737,7 @@ rule "":
     @Condition IllIIlIllIII == 107
     @Condition llIllIllIlll == true
     @Condition (IlIIIIIlIlll.isDead() or not entityExists(IlIIIIIlIlll)) == true
-    
+
     async(lIIlIIIlIIlI, AsyncBehavior.RESTART)
 
 
@@ -5745,13 +5748,13 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition eventPlayer == IlIIIIIlIlll
     @Condition eventPlayer.IllllllIIIIl == false
-    
+
     kill(eventPlayer)
 
 
 def lllIIIIIIIlI():
     @Name ""
-    
+
     while not IIllIlllIIIl and len(lllIIllIIlIl) == true:
         wait(0.05)
     IIllIlllIIIl.append(vect(lIllIlIIIIlI, -5.2, IlllIIIIlIIl))
@@ -5772,7 +5775,7 @@ rule "":
     @Event eachPlayer
     @Condition eventPlayer.getHero() == Hero.BRIGITTE
     @Condition (eventPlayer.isFiringPrimaryFire() or eventPlayer.isUsingAbility1()) == true
-    
+
     if eventPlayer.isFiringPrimaryFire():
         wait(0.1, Wait.ABORT_WHEN_FALSE)
         eventPlayer.lIllllIIllIl = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, null, null, false).getHitPosition()
@@ -5800,7 +5803,7 @@ rule "":
     @Event eachPlayer
     @Hero brigitte
     @Condition llIllIllIlll == true
-    
+
     wait(0.05 * eventPlayer.getSlot())
     while IllIIlIllIII:
         if eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1:
@@ -5821,7 +5824,7 @@ rule "":
 
 def lIIllIlIIIlI():
     @Name ""
-    
+
     destroyEffect(lllIIllIIlIl[0])
     wait(0.03)
     del lllIIllIIlIl[false]
@@ -5836,7 +5839,7 @@ rule "":
     @Condition IllIIlIllIII == 109
     @Condition llIllIllIlll == true
     @Condition (distance(eventPlayer, sorted(getPlayersOnHero(Hero.WRECKING_BALL, Team.ALL), lambda player: distance(eventPlayer, player))[0]) <= 1.3 if eventPlayer.getPosition().x <= -2.3 or eventPlayer.getPosition().x >= 2.3 else distance(eventPlayer, sorted(getPlayersOnHero(Hero.WRECKING_BALL, Team.ALL), lambda player: distance(eventPlayer, player))[0]) <= 0.9) == true
-    
+
     kill(eventPlayer, lIllIlIIIIIl)
 
 
@@ -5847,7 +5850,7 @@ rule "":
     @Condition IllIIlIllIII == 109
     @Condition llIllIllIlll == true
     @Condition eventPlayer.getPosition().x <= -2.5
-    
+
     eventPlayer.startForcingPosition(vect(-2.4, eventPlayer.getPosition().y, eventPlayer.getPosition().z), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -5862,7 +5865,7 @@ rule "":
     @Condition IllIIlIllIII == 109
     @Condition llIllIllIlll == true
     @Condition eventPlayer.getPosition().x >= 2.5
-    
+
     eventPlayer.startForcingPosition(vect(2.4, eventPlayer.getPosition().y, eventPlayer.getPosition().z), false)
     wait()
     eventPlayer.stopForcingPosition()
@@ -5874,7 +5877,7 @@ rule "":
     @Condition IllIIlIllIII == 110
     @Condition llIllIllIlll == true
     @Condition lIllIlIIIIlI.x == -10
-    
+
     IlllIIIIlIIl = 10
 
 
@@ -5882,7 +5885,7 @@ rule "":
     @Condition IllIIlIllIII == 110
     @Condition llIllIllIlll == true
     @Condition lIllIlIIIIlI.x == 10
-    
+
     IlllIIIIlIIl = -10
 
 
@@ -5890,7 +5893,7 @@ rule "":
     @Condition IllIIlIllIII == 110
     @Condition llIllIllIlll == true
     @Condition IIllIlllIIIl.x == -10
-    
+
     lIIlllIllIlI = 10
 
 
@@ -5898,7 +5901,7 @@ rule "":
     @Condition IllIIlIllIII == 110
     @Condition llIllIllIlll == true
     @Condition IIllIlllIIIl.x == 10
-    
+
     lIIlllIllIlI = -10
 
 
@@ -5907,7 +5910,7 @@ rule "":
     @Hero genji
     @Condition IllIIlIllIII == 111
     @Condition distance(eventPlayer, IllllllIIIIl) <= 2.5
-    
+
     eventPlayer.applyImpulse(directionTowards(IllllllIIIIl, eventPlayer), 20, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
@@ -5919,7 +5922,7 @@ rule "":
     @Hero pharah
     @Condition IllIIlIllIII == 111
     @Condition distance(eventPlayer.IllllllIIIIl, eventPlayer.llIllIIIlIlI) > true
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycast(eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7, eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.5)) / 18)))) / 18)), null, eventPlayer, true).getHitPosition()), 1000)
 
 
@@ -5928,7 +5931,7 @@ rule "":
     @Hero pharah
     @Condition IllIIlIllIII == 111
     @Condition eventPlayer.isFiringPrimaryFire() == true
-    
+
     eventPlayer.llIllIIIlIlI = eventPlayer.IllllllIIIIl.getPosition()
     wait(0.9)
     if ruleCondition:
@@ -5940,13 +5943,13 @@ rule "":
     @Hero pharah
     @Condition IllIIlIllIII == 111
     @Condition distance(eventPlayer.IllllllIIIIl, eventPlayer.llIllIIIlIlI) <= true
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7), 1000)
 
 
 def IIIlIIIlIlIl():
     @Name ""
-    
+
     eventPlayer.IllllllIIIIl = true
     eventPlayer.llIllIIIlIlI = true
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
@@ -5966,7 +5969,7 @@ rule "":
     @Condition eventPlayer.IllllllIIIIl == false
     @Condition eventPlayer.llIllIIIlIlI == false
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     if not IlIIIIIlIlll:
         async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
     else:
@@ -5982,7 +5985,7 @@ rule "":
     @Condition eventPlayer.IllllllIIIIl == false
     @Condition eventPlayer.llIllIIIlIlI == false
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
-    
+
     if IlIIIIIlIlll == 1:
         async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
     else:
@@ -5998,7 +6001,7 @@ rule "":
     @Condition eventPlayer.IllllllIIIIl == false
     @Condition eventPlayer.llIllIIIlIlI == false
     @Condition eventPlayer.isFiringPrimaryFire() == true
-    
+
     if IlIIIIIlIlll == 2:
         async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
         wait(0.2)
@@ -6017,7 +6020,7 @@ rule "":
     @Condition eventPlayer.IllllllIIIIl == false
     @Condition eventPlayer.llIllIIIlIlI == false
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
-    
+
     if IlIIIIIlIlll == 3:
         async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
     else:
@@ -6033,7 +6036,7 @@ rule "":
     @Condition eventPlayer.IllllllIIIIl == false
     @Condition eventPlayer.llIllIIIlIlI == false
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
-    
+
     if IlIIIIIlIlll == 4:
         async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
     else:
@@ -6045,7 +6048,7 @@ rule "":
     @Hero dva
     @Condition IllIIlIllIII == 113
     @Condition distance(eventPlayer, Vector.UP * 490) > 64
-    
+
     eventPlayer.applyImpulse(directionTowards(eventPlayer, Vector.UP * 490), eventPlayer.getSpeed(), Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
@@ -6058,7 +6061,7 @@ rule "":
     @Condition IllIIlIllIII == 113
     @Condition llIllIllIlll == true
     @Condition eventPlayer.IllllllIIIIl <= 0
-    
+
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 2)
     kill(eventPlayer, eventPlayer.IlIIIlIIllll)
 
@@ -6066,7 +6069,7 @@ rule "":
 rule "":
     @Event eachPlayer
     @Hero dva
-    
+
     wait(0.1)
     if eventPlayer.isInAlternateForm():
         kill(eventPlayer, eventPlayer.IlIIIlIIllll)
@@ -6079,7 +6082,7 @@ rule "":
     @Hero dva
     @Condition IllIIlIllIII == 113
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.03)
@@ -6092,7 +6095,7 @@ rule "":
     @Hero dva
     @Condition IllIIlIllIII == 113
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, false)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(0.03)
@@ -6105,7 +6108,7 @@ rule "":
     @Hero dva
     @Condition IllIIlIllIII == 113
     @Condition llIllIllIlll == true
-    
+
     wait(0.1)
     if distance(eventPlayer, sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0]) <= 3 and eventPlayer.isInViewAngle(sorted(llIlllIlllII.exclude(eventPlayer), lambda i: distance(eventPlayer, i))[0], 45):
         eventPlayer.applyImpulse(directionTowards(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * true, eventPlayer.getEyePosition()), eventPlayer.getSpeed() * 9, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -6118,7 +6121,7 @@ rule "":
     @Condition IllIIlIllIII == 114
     @Condition IlIllIlIIllI == true
     @Condition distance(eventPlayer, IllllllIIIIl) > 14
-    
+
     eventPlayer.applyImpulse(directionTowards(eventPlayer, IllllllIIIIl), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
@@ -6130,7 +6133,7 @@ rule "":
     @Hero wreckingBall
     @Condition IllIIlIllIII == 114
     @Condition llIllIllIlll == true
-    
+
     eventPlayer.setKnockbackReceived(80)
     while IllIIlIllIII:
         if eventPlayer.IIlIlllIllII:
@@ -6155,13 +6158,13 @@ rule "":
     @Event playerTookDamage
     @Hero wreckingBall
     @Condition IllIIlIllIII == 114
-    
+
     eventPlayer.llIllIIIlIlI = sorted(llIlllIlllII.exclude(attacker), lambda i: angleBetweenVectors(attacker.getFacingDirection(), directionTowards(attacker, i)))[0]
 
 
 def lIllIllllIIl():
     @Name ""
-    
+
     lIllIlIIIIlI = vect(random.uniform(-12, 12), false, random.uniform(-12, 12))
     wait(0.05)
     if IllIIlIllIII and any([distance(lIllIlIIIIlI, player) <= 6 for player in IlIIIIIlIlll]):
@@ -6176,7 +6179,7 @@ rule "":
     @Condition eventPlayer.llIllIIIlIlI < 100
     @Condition any([distance(eventPlayer, player) <= 1.5 for player in IlIIIIIlIlll]) == true
     @Condition eventPlayer.isCrouching() == true
-    
+
     eventPlayer.setMoveSpeed(false)
     eventPlayer.setJumpEnabled(false)
     chaseAtRate(eventPlayer.llIllIIIlIlI, 100, 100 * IlIIIIIlllll, ChaseRateReeval.NONE)
@@ -6187,7 +6190,7 @@ rule "":
     @Hero mei
     @Condition IllIIlIllIII == 115
     @Condition (all([distance(eventPlayer, player) >= 1.5 for player in IlIIIIIlIlll]) or not eventPlayer.isCrouching() or eventPlayer.llIllIIIlIlI == 100 or eventPlayer.isDead()) == true
-    
+
     stopChasingVariable(eventPlayer.llIllIIIlIlI)
     eventPlayer.setMoveSpeed(150 if IIlllllIIIlI == 4 else 100)
     eventPlayer.setJumpEnabled(true)
@@ -6207,7 +6210,7 @@ rule "":
     @Hero mei
     @Condition IllIIlIllIII == 115
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(0.4)
     eventPlayer.IllllllIIIIl = false
     if eventPlayer.isAlive():
@@ -6218,7 +6221,7 @@ rule "":
     @Event eachPlayer
     @Hero mei
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 4
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 4)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -6231,13 +6234,13 @@ rule "":
     @Condition IllIIlIllIII == 115
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
 
 
 def IIIlIIllIlII():
     @Name ""
-    
+
     llIIIllllIIl = false
     async(IlIIlllIllIl, AsyncBehavior.RESTART)
     llIllIIIlIlI()
@@ -6262,7 +6265,7 @@ def IIIlIIllIlII():
 
 def IlIIlllIllIl():
     @Name ""
-    
+
     if lIIIlIllllll:
         IIlllllIIIlI = lIIIlIllllll
         lIIIlIllllll = false
@@ -6279,7 +6282,7 @@ rule "":
     @Condition eventPlayer.hasSpawned() == true
     @Condition IIlllllIIIlI == true
     @Condition llIIIllllIIl == true
-    
+
     if eventPlayer.getSlot() < 12:
         smallMessage(eventPlayer, "{0}{1}{2}{0}".format(iconString(Icon.FIRE), " Special Mode: # Mode spécial : # Spezial-Modus: # Modo especial: # Modo especial: # Особый режим: # Modo especial: ".split(lIllIlllIlll)[localPlayer.IllIIllIllII], [lIllIlIIIIIl.lIIlllIllIlI[IIlllllIIIlI], lIllIlIIIIIl.IIllIIllIllI[IIlllllIIIlI], lIllIlIIIIIl.IlllIlIlIllI[IIlllllIIIlI], lIllIlIIIIIl.lIlllllIIIII[IIlllllIIIlI], lIllIlIIIIIl.lllIIllIIlIl[IIlllllIIIlI], lIllIlIIIIIl.IlIIIIlIllIl[IIlllllIIIlI], lIllIlIIIIIl.llIlIlllIIll[IIlllllIIIlI]][localPlayer.IllIIllIllII]))
         if eventPlayer.IlIIIIIIllIl and IIlllllIIIlI == 2:
@@ -6288,5 +6291,3 @@ rule "":
             eventPlayer.setMoveSpeed(150)
     if IIlllllIIIlI == 3:
         eventPlayer.startModifyingVoicelinePitch(0.85, false)
-
-

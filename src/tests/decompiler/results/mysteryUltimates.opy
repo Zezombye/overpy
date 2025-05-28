@@ -93,6 +93,10 @@ subroutine PreparingUltEventHandler_Activat 15
 subroutine PreparingUltEventHandler_Casting 16
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Initial Global":
     SHOULD_RESET_HEROES_ON_DESPAWN = true
     FORCE_NON_NATIVE_ULTIMATE = createWorkshopSettingBool("Mystery Ultimates", "Force Random Ultimate To Be Non-Native", true)

@@ -85,3 +85,6 @@ rule "1 to true":
 
 rule "null vector to null":
     createDummy(Hero.ANA, Team.2, A, vect(0,0,0), vect(0,0,0))
+
+rule "other optimizations":
+    A = vect(0,0,0) #left + right

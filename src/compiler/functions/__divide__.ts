@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
+import { enableOptimization, NUMBER_LIMIT, optimizeStrict } from "../../globalVars";
 import { getAstForNumber, getAstFor0, Ast, astParsingFunctions } from "../../utils/ast";
 import { warn, functionNameToString, typeToString } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
@@ -38,15 +38,20 @@ astParsingFunctions.__divide__ = function (content) {
             }
         }
 
-        //A/1 -> A
-        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
-            return content.args[0];
+        if (!optimizeStrict) {
+            //A/1 -> A
+            //Non-strict optimization, as it could be used to cast to number.
+            if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
+                return content.args[0];
+            }
+
+            //A/0 = 0/A = 0
+            //Could also be used on a vector, in which case it should return vect(0,0,0) instead.
+            if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
+                return getAstFor0();
+            }
         }
 
-        //A/0 = 0/A = 0
-        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
-            return getAstFor0();
-        }
 
         //Check if both arguments are vectors containing numbers.
         if (content.args[0].name === "vect" && content.args[1].name === "vect") {

@@ -379,13 +379,13 @@ rule ("") {
         Set Global Variable(llllIlIIIlll, 1);
         Wait(0.016, Ignore Condition);
         Set Global Variable(IIIIlIIIllIl, Vector(-8, False, 8));
-        Set Global Variable(lIIlllIlllIl, Multiply(Forward, 8));
+        Set Global Variable(lIIlllIlllIl, Vector(0, 0, 8));
         Set Global Variable(IIlIlllIllII, Vector(8, False, 8));
-        Set Global Variable(lIIllIlIllII, Multiply(Right, 8));
+        Set Global Variable(lIIllIlIllII, Vector(-8, 0, 0));
         Set Global Variable(IllllllIIIIl, Multiply(Up, False));
-        Set Global Variable(llIllIIIlIlI, Multiply(Left, 8));
+        Set Global Variable(llIllIIIlIlI, Vector(8, 0, 0));
         Set Global Variable(lIlIIIIllIII, Vector(-8, False, -8));
-        Set Global Variable(lIllllIIllIl, Multiply(Backward, 8));
+        Set Global Variable(lIllllIIllIl, Vector(0, 0, -8));
         Set Global Variable(IIIIIllIlllI, Vector(8, False, -8));
         Set Global Variable(lIIlIIIlIIlI, Vector(-16, 0.7, -16));
         Set Global Variable(llIllllllIIl, Vector(-16, 0.7, 16));
@@ -400,10 +400,10 @@ rule ("") {
         Modify Global Variable(lIIlIIIIlIIl, Append To Array, Global.lIlIIIIllIII);
         Modify Global Variable(lIIlIIIIlIIl, Append To Array, Global.lIllllIIllIl);
         Modify Global Variable(lIIlIIIIlIIl, Append To Array, Global.IIIIIllIlllI);
-        Set Global Variable(IlllIIlIIIIl, Multiply(Forward, 8));
-        Modify Global Variable(IlllIIlIIIIl, Append To Array, Multiply(Backward, 8));
-        Modify Global Variable(IlllIIlIIIIl, Append To Array, Multiply(Left, 8));
-        Modify Global Variable(IlllIIlIIIIl, Append To Array, Multiply(Right, 8));
+        Set Global Variable(IlllIIlIIIIl, Vector(0, 0, 8));
+        Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(0, 0, -8));
+        Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(8, 0, 0));
+        Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(-8, 0, 0));
         Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(-8, False, 2.666));
         Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(-8, False, -2.666));
         Modify Global Variable(IlllIIlIIIIl, Append To Array, Vector(8, False, -2.666));
@@ -420,10 +420,10 @@ rule ("") {
         Modify Global Variable(IlIIIlIIllll, Append To Array, Global.lIlIIIIllIII);
         Modify Global Variable(IlIIIlIIllll, Append To Array, Global.lIllllIIllIl);
         Modify Global Variable(IlIIIlIIllll, Append To Array, Global.IIIIIllIlllI);
-        Set Global Variable(IllIIllIIlII, Multiply(Forward, 16));
-        Modify Global Variable(IllIIllIIlII, Append To Array, Multiply(Backward, 16));
-        Modify Global Variable(IllIIllIIlII, Append To Array, Multiply(Left, 16));
-        Modify Global Variable(IllIIllIIlII, Append To Array, Multiply(Right, 16));
+        Set Global Variable(IllIIllIIlII, Vector(0, 0, 16));
+        Modify Global Variable(IllIIllIIlII, Append To Array, Vector(0, 0, -16));
+        Modify Global Variable(IllIIllIIlII, Append To Array, Vector(16, 0, 0));
+        Modify Global Variable(IllIIllIIlII, Append To Array, Vector(-16, 0, 0));
         Modify Global Variable(IllIIllIIlII, Append To Array, Vector(-16, False, 5.333));
         Modify Global Variable(IllIIllIIlII, Append To Array, Vector(-16, False, -5.333));
         Modify Global Variable(IllIIllIIlII, Append To Array, Vector(16, False, -5.333));
@@ -600,10 +600,10 @@ rule ("") {
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.lIIlIIIlIIlI, Global.IllIllIlIIIl, Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.llIllllllIIl, Global.IIIlIIllIlII, Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.IllIllIlIIIl, Global.IIIlIIllIlII, Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Multiply(Up, 0.5)), Add(Global.llIllllllIIl, Multiply(Up, 0.5)), Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Multiply(Up, 0.5)), Add(Global.IllIllIlIIIl, Multiply(Up, 0.5)), Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.llIllllllIIl, Multiply(Up, 0.5)), Add(Global.IIIlIIllIlII, Multiply(Up, 0.5)), Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.IllIllIlIIIl, Multiply(Up, 0.5)), Add(Global.IIIlIIllIlII, Multiply(Up, 0.5)), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Vector(0, 0.5, 0)), Add(Global.llIllllllIIl, Vector(0, 0.5, 0)), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Vector(0, 0.5, 0)), Add(Global.IllIllIlIIIl, Vector(0, 0.5, 0)), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.llIllllllIIl, Vector(0, 0.5, 0)), Add(Global.IIIlIIllIlII, Vector(0, 0.5, 0)), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.IllIllIlIIIl, Vector(0, 0.5, 0)), Add(Global.IIIlIIllIlII, Vector(0, 0.5, 0)), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Up), Add(Global.llIllllllIIl, Up), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.lIIlIIIlIIlI, Up), Add(Global.IllIllIlIIIl, Up), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Add(Global.llIllllllIIl, Up), Add(Global.IIIlIIllIlII, Up), Color(White), Visible To Position and Radius);
@@ -656,7 +656,7 @@ rule ("") {
             Wait(0.1, Ignore Condition);
         End;
         Wait(3, Ignore Condition);
-        Set Global Variable(llIIIlllIlll, Multiply(Up, 900.25));
+        Set Global Variable(llIIIlllIlll, Vector(0, 900.25, 0));
         Modify Global Variable(llIIIlllIlll, Append To Array, Vector(-0.8, 900.85, False));
         Modify Global Variable(llIIIlllIlll, Append To Array, Vector(-0.8, 900.25, False));
         Modify Global Variable(llIIIlllIlll, Append To Array, Vector(0.8, 900.85, False));
@@ -664,25 +664,25 @@ rule ("") {
         Modify Global Variable(llIIIlllIlll, Append To Array, Vector(1.4, 900.85, False));
         Modify Global Variable(llIIIlllIlll, Append To Array, Vector(1.4, 900.25, False));
         Set Global Variable(lIllllIIIlIl, String Split(Custom String("English#Français#Deutsch#Español de España#Español de México#Русский#Português"), Global.lIllIlllIlll));
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Value In Array(Append To Array(String Split(Custom String("Click to join the game#Cliquez pour rejoindre le jeu#Klicken Sie, um dem Spiel beizutreten#Haz clic para unirte al juego"), Global.lIllIlllIlll), String Split(Custom String("Haz clic para unirte al juego#Нажмите, чтобы присоединиться к игре#Clique para entrar no jogo"), Global.lIllIlllIlll)), (Local Player).IllIIllIllII), Multiply(Up, 901.25), 3, Do Not Clip, Visible To and String, Color(White), Default Visibility);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Append To Array(String Split(Custom String("Select your Language#Sélectionnez votre langue#Wählen Sie Ihre Sprache#Seleccione su idioma#Seleccione su idioma"), Global.lIllIlllIlll), String Split(Custom String("Выберите свой язык#Selecione seu idioma"), Global.lIllIlllIlll)), (Local Player).IllIIllIllII), Multiply(Up, 901.25), 3, Do Not Clip, Visible To and String, Color(White), Default Visibility);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Custom String("{0} {1} {0}", Icon String(Checkmark), Value In Array(Global.lIllllIIIlIl, (Local Player).IllIIllIllII)), Multiply(Up, 900.15), 1.2, Do Not Clip, Visible To and String, Color(White), Default Visibility);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Custom String("{0}{1}{2}", Value In Array((Global.lIllIlIIIIIl).IllIlIllIlIl, (Local Player).IllIIllIllII), If-Then-Else(Has Spawned(Local Player), Input Binding String(Button(Interact)), Custom String("INTERACT")), Value In Array((Global.lIllIlIIIIIl).IIIIllllIIIl, (Local Player).IllIIllIllII)), Multiply(Up, 900), 1.2, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Value In Array(Append To Array(String Split(Custom String("Click to join the game#Cliquez pour rejoindre le jeu#Klicken Sie, um dem Spiel beizutreten#Haz clic para unirte al juego"), Global.lIllIlllIlll), String Split(Custom String("Haz clic para unirte al juego#Нажмите, чтобы присоединиться к игре#Clique para entrar no jogo"), Global.lIllIlllIlll)), (Local Player).IllIIllIllII), Vector(0, 901.25, 0), 3, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Append To Array(String Split(Custom String("Select your Language#Sélectionnez votre langue#Wählen Sie Ihre Sprache#Seleccione su idioma#Seleccione su idioma"), Global.lIllIlllIlll), String Split(Custom String("Выберите свой язык#Selecione seu idioma"), Global.lIllIlllIlll)), (Local Player).IllIIllIllII), Vector(0, 901.25, 0), 3, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Custom String("{0} {1} {0}", Icon String(Checkmark), Value In Array(Global.lIllllIIIlIl, (Local Player).IllIIllIllII)), Vector(0, 900.15, 0), 1.2, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, Not((Current Array Element).lIlIllIIIllI)), Custom String("{0}{1}{2}", Value In Array((Global.lIllIlIIIIIl).IllIlIllIlIl, (Local Player).IllIIllIllII), If-Then-Else(Has Spawned(Local Player), Input Binding String(Button(Interact)), Custom String("INTERACT")), Value In Array((Global.lIllIlIIIIIl).IIIIllllIIIl, (Local Player).IllIIllIllII)), Vector(0, 900, 0), 1.2, Do Not Clip, Visible To and String, Color(White), Default Visibility);
         Wait(True, Ignore Condition);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.09)), Global.llIIIlllIlll), <=, 0.4)), Color(Green), Color(Sky Blue)), Global.llIIIlllIlll, 0.4, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Global.lIllllIIIlIl, Add(Global.llIIIlllIlll, Multiply(Down, 0.05)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Global.lIllllIIIlIl, Add(Global.llIIIlllIlll, Vector(0, -0.05, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.11)), Value In Array(Global.llIIIlllIlll, True)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, True), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Custom String(" \n \n \nEspañol\nde España"), Add(Value In Array(Global.llIIIlllIlll, True), Multiply(Down, 0.05)), 1.3, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Custom String(" \n \n \nEspañol\nde España"), Add(Value In Array(Global.llIIIlllIlll, True), Vector(0, -0.05, 0)), 1.3, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.19)), Value In Array(Global.llIIIlllIlll, 2)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, 2), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Custom String(" \n \n \nEspañol\nde México"), Add(Value In Array(Global.llIIIlllIlll, 2), Multiply(Down, 0.05)), 1.3, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Custom String(" \n \n \nEspañol\nde México"), Add(Value In Array(Global.llIIIlllIlll, 2), Vector(0, -0.05, 0)), 1.3, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.11)), Value In Array(Global.llIIIlllIlll, 3)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, 3), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, True), Add(Value In Array(Global.llIIIlllIlll, 3), Multiply(Down, 0.05)), 1.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, True), Add(Value In Array(Global.llIIIlllIlll, 3), Vector(0, -0.05, 0)), 1.5, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.19)), Value In Array(Global.llIIIlllIlll, 4)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, 4), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 2), Add(Value In Array(Global.llIIIlllIlll, 4), Multiply(Down, 0.05)), 1.6, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 2), Add(Value In Array(Global.llIIIlllIlll, 4), Vector(0, -0.05, 0)), 1.6, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.31)), Value In Array(Global.llIIIlllIlll, 5)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, 5), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 5), Add(Value In Array(Global.llIIIlllIlll, 5), Multiply(Down, 0.05)), 1.6, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 5), Add(Value In Array(Global.llIIIlllIlll, 5), Vector(0, -0.05, 0)), 1.6, Do Not Clip, Visible To, Color(White), Default Visibility);
         Create Effect(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Sphere, If-Then-Else(And(Has Spawned(Local Player), Compare(Distance Between(Add(Eye Position(Local Player), Multiply(Facing Direction Of(Local Player), 3.39)), Value In Array(Global.llIIIlllIlll, 6)), <=, 0.25)), Color(Green), Color(Sky Blue)), Value In Array(Global.llIIIlllIlll, 6), 0.25, Visible To and Color);
-        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 6), Add(Value In Array(Global.llIIIlllIlll, 6), Multiply(Down, 0.05)), 1.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+        Create In-World Text(Filtered Array(Global.IlIlllIIllIl, And((Current Array Element).lIlIllIIIllI, Not((Current Array Element).IlIIIIIIllIl))), Value In Array(Global.lIllllIIIlIl, 6), Add(Value In Array(Global.llIIIlllIlll, 6), Vector(0, -0.05, 0)), 1.5, Do Not Clip, Visible To, Color(White), Default Visibility);
     }
 }
 
@@ -1920,7 +1920,7 @@ rule ("") {
         Total Time Elapsed > 30;
     }
     actions {
-        If(And(Count Of(Filtered Array(Global.IlIlllIIllIl, Not(Is Dummy Bot(Current Array Element)))), Not(Filtered Array(Global.IlIlllIIllIl, And(Not((Current Array Element).lIllIllllIll), Not(Slot Of(Current Array Element)))))));
+        If(And(Count Of(Filtered Array(Global.IlIlllIIllIl, Not(Is Dummy Bot(Current Array Element)))), Not(Filtered Array(Global.IlIlllIIllIl, Not(Or((Current Array Element).lIllIllllIll, Slot Of(Current Array Element)))))));
             Start Rule(llIlIIllIIll, Restart Rule);
         End;
         Wait(2, Ignore Condition);
@@ -1956,7 +1956,7 @@ rule ("") {
     actions {
         Set Player Variable(Global.lIllIlIIIIIl, lIllIllllIIl, Empty Array);
         Set Player Variable(Global.lIllIlIIIIIl, IlIllllIlIlI, False);
-        Set Player Variable(Global.lIllIlIIIIIl, IIIlIIIlIlIl, Sorted Array(Sorted Array(Filtered Array(Global.IlIlllIIllIl, And(And(Not(Is Dummy Bot(Current Array Element)), Not((Current Array Element).lIllIllllIll)), Compare((Current Array Element).IllIIllIllII, !=, -1))), (Current Array Element).IIlIIllllIIl), (Current Array Element).IllIIllIllII));
+        Set Player Variable(Global.lIllIlIIIIIl, IIIlIIIlIlIl, Sorted Array(Sorted Array(Filtered Array(Global.IlIlllIIllIl, And(Not(Or(Is Dummy Bot(Current Array Element), (Current Array Element).lIllIllllIll)), Compare((Current Array Element).IllIIllIllII, !=, -1))), (Current Array Element).IIlIIllllIIl), (Current Array Element).IllIIllIllII));
         While(Compare((Global.lIllIlIIIIIl).IlIllllIlIlI, <, 12));
             If(Value In Array((Global.lIllIlIIIIIl).IIIlIIIlIlIl, (Global.lIllIlIIIIIl).IlIllllIlIlI));
                 Modify Player Variable(Global.lIllIlIIIIIl, lIllIllllIIl, Append To Array, Custom String("{0} - {1}{2}", Value In Array(Global.lIllllIIIlIl, (Value In Array((Global.lIllIlIIIIIl).IIIlIIIlIlIl, (Global.lIllIlIIIIIl).IlIllllIlIlI)).IllIIllIllII), Value In Array((Global.lIllIlIIIIIl).IIIlIIIlIlIl, (Global.lIllIlIIIIIl).IlIllllIlIlI), If-Then-Else(Compare((Global.lIllIlIIIIIl).IlIllllIlIlI, !=, 5), Custom String("\n"), Global.IIIIIllllIlI)));
@@ -2067,7 +2067,7 @@ rule ("") {
         Set Global Variable(IlIllIlIIllI, True);
         Set Player Variable(Global.IlIlllIIllIl, IllIllIlIIIl, If-Then-Else(Compare(Global.IIIIllllIIll, >=, 101), Global.lIIlIIlIIlII, 99));
         If(Compare(Global.IIlllllIIIlI, ==, 1));
-            Modify Player Score(Filtered Array(Global.IlIlllIIllIl, And(And(Not((Current Array Element).lIllIllllIll), Not((Current Array Element).IlIIIIIIllIl)), Compare(Score Of(Current Array Element), <, Add(Global.lllllllIllll, 3)))), If-Then-Else(Compare(Global.IIIIllllIIll, >=, 101), 2, True));
+            Modify Player Score(Filtered Array(Global.IlIlllIIllIl, And(Not(Or((Current Array Element).lIllIllllIll, (Current Array Element).IlIIIIIIllIl)), Compare(Score Of(Current Array Element), <, Add(Global.lllllllIllll, 3)))), If-Then-Else(Compare(Global.IIIIllllIIll, >=, 101), 2, True));
         End;
         Wait(True, Ignore Condition);
         Set Global Variable(llIllIllIlll, True);
@@ -2520,7 +2520,7 @@ rule ("") {
             If(Compare(Custom String("{0}", Event Player), ==, Custom String("​")));
                 Set Gravity(Event Player, False);
                 Set Invisible(Event Player, All);
-                Teleport(Event Player, Multiply(Up, 800));
+                Teleport(Event Player, Vector(0, 800, 0));
                 Start Rule(IllllllIIIIl, Restart Rule);
                 Set Player Variable(Event Player, IllIIllIllII, False);
                 Set Player Variable(Event Player, lIllIllllIll, True);
@@ -2543,7 +2543,7 @@ rule ("") {
             End;
             Start Facing(Event Player, Forward, 9999, To World, None);
             Start Rule(IllIIlIllIII, Restart Rule);
-            While(And(And(Not(Is Button Held(Event Player, Button(Primary Fire))), Not(Is Button Held(Event Player, Button(Secondary Fire)))), Not(Is Button Held(Event Player, Button(Interact)))));
+            While(Not(Or(Or(Is Button Held(Event Player, Button(Primary Fire)), Is Button Held(Event Player, Button(Secondary Fire))), Is Button Held(Event Player, Button(Interact)))));
                 Wait(0.03, Ignore Condition);
             End;
             Stop Facing(Event Player);
@@ -2577,7 +2577,7 @@ rule ("") {
     actions {
         If(And(Or(Compare(Global.llIlIIllIIll, >=, 0.35), Global.IlIllIlIIllI), Not((Event Player).lIIlllIlllIl)));
             While(And(Global.IllIIlIllIII, Compare(Y Component Of(Position Of(Event Player)), >=, 0)));
-                Teleport(Event Player, Multiply(Down, 1000));
+                Teleport(Event Player, Vector(0, -1000, 0));
                 Wait(0.05, Ignore Condition);
             End;
             Wait(0.5, Ignore Condition);
@@ -2621,7 +2621,7 @@ rule ("") {
             Set Status(Event Player, Null, Phased Out, 9999);
             Set Invisible(Event Player, All);
             Set Gravity(Event Player, False);
-            Teleport(Event Player, Multiply(Down, 10));
+            Teleport(Event Player, Vector(0, -10, 0));
             Stop Throttle In Direction(Event Player);
             Stop Forcing Throttle(Event Player);
             Wait(0.1, Ignore Condition);
@@ -2636,7 +2636,7 @@ rule ("") {
             Set Projectile Gravity(Event Player, 100);
             Stop Accelerating(Event Player);
             Stop Scaling Player(Event Player);
-            Teleport(Event Player, Multiply(Down, 10));
+            Teleport(Event Player, Vector(0, -10, 0));
         Else;
             Clear Status(Event Player, Phased Out);
             Set Secondary Fire Enabled(Event Player, False);
@@ -3271,7 +3271,7 @@ rule ("") {
             Set Global Variable(IIllIlllIIIl, String Split(Custom String("Blue#Bleue#Blau#Azul#Azul#Синий#Azul"), Global.lIllIlllIlll));
             Set Global Variable(lIIlllIllIlI, String Split(Custom String("Yellow#Jaune#Gelb#Amarillo#Amarillo#Желтый#Amarelo"), Global.lIllIlllIlll));
             Set Global Variable(IIllIIllIllI, String Split(Custom String("Green#Verte#Grün#Verde#Verde#Зеленый#Verde"), Global.lIllIlllIlll));
-            Teleport(Global.llIlllIlllII, Multiply(Forward, 3));
+            Teleport(Global.llIlllIlllII, Vector(0, 0, 3));
             Wait(0.5, Ignore Condition);
             Create Effect(Global.IlIlllIIllIl, Sphere, Color(White), Vector(-0.5, 1.3, False), 0.2, Visible To);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
@@ -3289,7 +3289,7 @@ rule ("") {
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
             Create In-World Text(Global.IlIlllIIllIl, Value In Array(Global.IIllIIllIllI, (Local Player).IllIIllIllII), Vector(0.5, 0.75, False), 2, Do Not Clip, Visible To and String, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Value In Array(Array(Value In Array(Global.IlllIIIIlIIl, (Local Player).IllIIllIllII), Value In Array(Global.IIllIlllIIIl, (Local Player).IllIIllIllII), Value In Array(Global.lIIlllIllIlI, (Local Player).IllIIllIllII), Value In Array(Global.IIllIIllIllI, (Local Player).IllIIllIllII)), Global.lIllIlIIIIlI), Multiply(Up, 1.5), 3, Do Not Clip, Visible To and String, Value In Array(Array(Global.llIIlIIlllIl, Global.lIlIlIlIllIl, Global.lIIIIllIlIll, Global.lIIllIIIIlll), Global.IlIIIIIlIlll), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Value In Array(Array(Value In Array(Global.IlllIIIIlIIl, (Local Player).IllIIllIllII), Value In Array(Global.IIllIlllIIIl, (Local Player).IllIIllIllII), Value In Array(Global.lIIlllIllIlI, (Local Player).IllIIllIllII), Value In Array(Global.IIllIIllIllI, (Local Player).IllIIllIllII)), Global.lIllIlIIIIlI), Vector(0, 1.5, 0), 3, Do Not Clip, Visible To and String, Value In Array(Array(Global.llIIlIIlllIl, Global.lIlIlIlIllIl, Global.lIIIIllIlIll, Global.lIIllIIIIlll), Global.IlIIIIIlIlll), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
             Wait(Multiply(0.1, Global.llllIIllIlII), Abort When False);
             Start Rule(lIllllIIllIl, Restart Rule);
@@ -3297,7 +3297,7 @@ rule ("") {
             Create Effect(Global.IlIlllIIllIl, Light Shaft, Color(White), False, 18, Visible To);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Wait(0.5, Ignore Condition);
-            Set Global Variable(IIlIllIlIllI, Multiply(Up, 20));
+            Set Global Variable(IIlIllIlIllI, Vector(0, 20, 0));
         Else If(Array Contains(Array(23, 46), Global.IllIIlIllIII));
             Wait(0.2, Ignore Condition);
             Create Effect(Global.IlIlllIIllIl, Light Shaft, Global.llllIIIllIlI, Multiply(Up, Global.IlIIIIIlIlll), 24, Visible To Position and Radius);
@@ -3309,7 +3309,7 @@ rule ("") {
                 Chase Global Variable At Rate(IlIIIIIlIlll, 360, 3.8, None);
             End;
             Wait(0.3, Ignore Condition);
-            Set Global Variable(IIlIllIlIllI, Multiply(Up, 500));
+            Set Global Variable(IIlIllIlIllI, Vector(0, 500, 0));
             Abort If(Compare(Global.IllIIlIllIII, !=, 46));
             Wait(0.45, Ignore Condition);
             Set Ability 1 Enabled(Global.llIlllIlllII, True);
@@ -3335,7 +3335,7 @@ rule ("") {
         Else If(Compare(Global.IllIIlIllIII, ==, 25));
             Wait(0.5, Ignore Condition);
             Set Global Variable(IlIIIIIlIlll, Vector(Random Real(-12, 12), 8, Random Real(-12, 12)));
-            Create Icon(Global.IlIlllIIllIl, Add(Global.IlIIIIIlIlll, Multiply(Up, 2)), Arrow: Down, Visible To, Global.lIIllIIIIlll, True);
+            Create Icon(Global.IlIlllIIllIl, Add(Global.IlIIIIIlIlll, Vector(0, 2, 0)), Arrow: Down, Visible To, Global.lIIllIIIIlll, True);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Start Rule(lIllllIIllIl, Restart Rule);
         Else If(Compare(Global.IllIIlIllIII, ==, 26));
@@ -3345,10 +3345,10 @@ rule ("") {
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Start Rule(lIllllIIllIl, Restart Rule);
         Else If(Compare(Global.IllIIlIllIII, ==, 35));
-            Set Global Variable(IlIIIIIlIlll, Multiply(Forward, 8));
+            Set Global Variable(IlIIIIIlIlll, Vector(0, 0, 8));
             Modify Global Variable(IlIIIIIlIlll, Append To Array, Vector(-8, False, 4));
             Modify Global Variable(IlIIIIIlIlll, Append To Array, Vector(-8, False, -4));
-            Modify Global Variable(IlIIIIIlIlll, Append To Array, Multiply(Backward, 8));
+            Modify Global Variable(IlIIIIIlIlll, Append To Array, Vector(0, 0, -8));
             Modify Global Variable(IlIIIIIlIlll, Append To Array, Vector(8, False, -4));
             Modify Global Variable(IlIIIIIlIlll, Append To Array, Vector(8, False, 4));
             Set Global Variable(lIllIlIIIIlI, Random Integer(False, 5));
@@ -3390,7 +3390,7 @@ rule ("") {
         Else If(Compare(Global.IllIIlIllIII, ==, 40));
             Set Global Variable(IlIIIIIlIlll, Vector(False, 0.8, 12));
             Wait(0.5, Ignore Condition);
-            Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Add(Global.IlIIIIIlIlll, Multiply(Left, 5)), Add(Global.IlIIIIIlIlll, Multiply(Right, 5)), Color(Team 2), Visible To Position and Radius);
+            Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Add(Global.IlIIIIIlIlll, Vector(5, 0, 0)), Add(Global.IlIIIIIlIlll, Vector(-5, 0, 0)), Color(Team 2), Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Add(Global.IlIIIIIlIlll, Vector(5, 0.8, False)), Add(Global.IlIIIIIlIlll, Vector(-5, 0.8, False)), Color(Team 2), Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
@@ -3454,21 +3454,21 @@ rule ("") {
             Set Global Variable(IlllIIIIlIIl, Random Value In Array(Remove From Array(Global.IlIIIIIlIlll, Global.lIllIlIIIIlI)));
             Set Global Variable(IIllIlllIIIl, Randomized Array(Remove From Array((Global.lIllIlIIIIIl).llIIIIIIIIIl, Hero(Soldier: 76))));
             Set Global Variable(lIIlllIllIlI, Randomized Array(Global.IlIIIlIIllll));
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Global.lIllIlIIIIlI), Add(Global.lIIlllIllIlI, Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Global.lIllIlIIIIlI), Add(Global.lIIlllIllIlI, Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
             Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Global.IlllIIIIlIIl), Add(Value In Array(Global.lIIlllIllIlI, True), Vector(False, 0.5, False)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Global.IIllIlllIIIl), Add(Value In Array(Global.lIIlllIllIlI, 2), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Global.IIllIlllIIIl), Add(Value In Array(Global.lIIlllIllIlI, 2), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, True)), Add(Value In Array(Global.lIIlllIllIlI, 3), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, True)), Add(Value In Array(Global.lIIlllIllIlI, 3), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 2)), Add(Value In Array(Global.lIIlllIllIlI, 4), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 2)), Add(Value In Array(Global.lIIlllIllIlI, 4), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 3)), Add(Value In Array(Global.lIIlllIllIlI, 5), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 3)), Add(Value In Array(Global.lIIlllIllIlI, 5), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 4)), Add(Value In Array(Global.lIIlllIllIlI, 6), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Value In Array(Global.IIllIlllIIIl, 4)), Add(Value In Array(Global.lIIlllIllIlI, 6), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
-            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Last Of(Global.IIllIlllIIIl)), Add(Last Of(Global.lIIlllIllIlI), Multiply(Up, 0.5)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
+            Create In-World Text(Global.IlIlllIIllIl, Hero Icon String(Last Of(Global.IIllIlllIIIl)), Add(Last Of(Global.lIIlllIllIlI), Vector(0, 0.5, 0)), 2.5, Do Not Clip, Visible To, Color(White), Default Visibility);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Text ID);
             Wait(1.5, Ignore Condition);
             Set Global Variable(IlIIIIIlIlll, False);
@@ -3495,10 +3495,10 @@ rule ("") {
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Create Effect(Global.IlIlllIIllIl, Sphere, Global.llIIlIIlllIl, Global.IIllIlllIIIl, Global.lIIlllIllIlI, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-            Chase Global Variable At Rate(IlIIIIIlIlll, Add(Global.IIIIlIIIllIl, Multiply(Down, 1000)), Multiply(6.57, Global.IlIIIIIlllll), None);
-            Chase Global Variable At Rate(lIllIlIIIIlI, Add(Global.IIlIlllIllII, Multiply(Down, 1000)), Multiply(6.57, Global.IlIIIIIlllll), None);
-            Chase Global Variable At Rate(IlllIIIIlIIl, Add(Global.lIlIIIIllIII, Multiply(Down, 1000)), Multiply(6.57, Global.IlIIIIIlllll), None);
-            Chase Global Variable At Rate(IIllIlllIIIl, Add(Global.IIIIIllIlllI, Multiply(Down, 1000)), Multiply(6.57, Global.IlIIIIIlllll), None);
+            Chase Global Variable At Rate(IlIIIIIlIlll, Add(Global.IIIIlIIIllIl, Vector(0, -1000, 0)), Multiply(6.57, Global.IlIIIIIlllll), None);
+            Chase Global Variable At Rate(lIllIlIIIIlI, Add(Global.IIlIlllIllII, Vector(0, -1000, 0)), Multiply(6.57, Global.IlIIIIIlllll), None);
+            Chase Global Variable At Rate(IlllIIIIlIIl, Add(Global.lIlIIIIllIII, Vector(0, -1000, 0)), Multiply(6.57, Global.IlIIIIIlllll), None);
+            Chase Global Variable At Rate(IIllIlllIIIl, Add(Global.IIIIIllIlllI, Vector(0, -1000, 0)), Multiply(6.57, Global.IlIIIIIlllll), None);
             Chase Global Variable At Rate(lIIlllIllIlI, 100, Multiply(6.95, Global.IlIIIIIlllll), None);
         Else If(Array Contains(Array(54, 58), Global.IllIIlIllIII));
             Set Move Speed(Global.llIlllIlllII, False);
@@ -3526,7 +3526,7 @@ rule ("") {
         If(Compare(Global.IllIIlIllIII, ==, 101));
             Set Global Variable(lIllIlIIIIlI, 90);
             Set Global Variable(IlllIIIIlIIl, Global.IllllllIIIIl);
-            Set Facing(Global.lIllIlIIIIIl, Multiply(Backward, 100), To World);
+            Set Facing(Global.lIllIlIIIIIl, Vector(0, 0, -100), To World);
             Wait(0.5, Ignore Condition);
             Set Global Variable(IIlIllIlIllI, Vector(False, 35, 1000));
             Create Beam Effect(Global.IlIlllIIllIl, Torbjörn Turret Sight Beam, Vector(Update Every Frame(X Component Of(Global.IlllIIIIlIIl)), Update Every Frame(Y Component Of(Global.IlllIIIIlIIl)), Add(Update Every Frame(Z Component Of(Global.IlllIIIIlIIl)), 12)), Vector(Update Every Frame(X Component Of(Global.IlllIIIIlIIl)), Update Every Frame(Y Component Of(Global.IlllIIIIlIIl)), Add(Update Every Frame(Z Component Of(Global.IlllIIIIlIIl)), -12)), Color(Team 2), Visible To Position and Radius);
@@ -3537,7 +3537,7 @@ rule ("") {
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Wait(0.5, Ignore Condition);
             Chase Global Variable At Rate(lIllIlIIIIlI, 12000, Add(40, Divide(Multiply(85, Global.IlIIIIIlIlll), 20)), Destination and Rate);
-            Chase Global Variable At Rate(IlllIIIIlIIl, Add(Multiply(Up, 8), Multiply(Direction From Angles(-90, Global.lIllIlIIIIlI), 7.9)), 12000, Destination and Rate);
+            Chase Global Variable At Rate(IlllIIIIlIIl, Add(Vector(0, 8, 0), Multiply(Direction From Angles(-90, Global.lIllIlIIIIlI), 7.9)), 12000, Destination and Rate);
             Start Forcing Player Position(Global.lIllIlIIIIIl, Add(Global.IlllIIIIlIIl, Vector(False, -1, 100)), True);
             While(And(Global.IllIIlIllIII, Compare(Global.IlIIIIIlIlll, !=, 100)));
                 Wait(Multiply(5, Global.llllIIllIlII), Abort When False);
@@ -3584,7 +3584,7 @@ rule ("") {
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Chase Global Variable At Rate(IlIIIIIlIlll, 360, 3.8, None);
             Wait(0.3, Ignore Condition);
-            Set Global Variable(IIlIllIlIllI, Multiply(Up, 500));
+            Set Global Variable(IIlIllIlIllI, Vector(0, 500, 0));
             While(Compare(Global.IlllIIIIlIIl, !=, 12));
                 Create Effect(If-Then-Else(Value In Array(Global.lIllIlIIIIlI, Evaluate Once(Global.IlllIIIIlIIl)), Global.IlIlllIIllIl, Empty Array), Sphere, Global.llIIlIIlllIl, Value In Array(Global.lIllIlIIIIlI, Evaluate Once(Global.IlllIIIIlIIl)), 4, Visible To Position and Radius);
                 Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
@@ -3625,7 +3625,7 @@ rule ("") {
             Set Global Variable(IlllIIIIlIIl, Global.lIllIlIIIIlI);
             Start Rule(lllIIIIIIIlI, Restart Rule);
             Wait(0.6, Ignore Condition);
-            Set Global Variable(IIlIllIlIllI, Multiply(Up, 20));
+            Set Global Variable(IIlIllIlIllI, Vector(0, 20, 0));
             Wait(0.4, Ignore Condition);
             Set Knockback Received(Global.llIlllIlllII, False);
         Else If(Compare(Global.IllIIlIllIII, ==, 109));
@@ -3641,9 +3641,9 @@ rule ("") {
             Set Global Variable(llIllllllIIl, Vector(-2.5, 0.7, 7));
             Set Global Variable(IllIllIlIIIl, Vector(2.5, 0.7, -7));
             Set Global Variable(IIIlIIllIlII, Vector(2.5, 0.7, 7));
-            Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.IlllIIIIlIIl, Add(Global.IlllIIIIlIIl, Multiply(Backward, 14)), Color(White), Visible To);
+            Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.IlllIIIIlIIl, Add(Global.IlllIIIIlIIl, Vector(0, 0, -14)), Color(White), Visible To);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-            Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.IIllIlllIIIl, Add(Global.IIllIlllIIIl, Multiply(Backward, 14)), Color(White), Visible To);
+            Create Beam Effect(Global.IlIlllIIllIl, Grapple Beam, Global.IIllIlllIIIl, Add(Global.IIllIlllIIIl, Vector(0, 0, -14)), Color(White), Visible To);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Wait(True, Ignore Condition);
             While(And(Global.IllIIlIllIII, Compare(Global.IlIIIIIlIlll, !=, 100)));
@@ -3655,10 +3655,10 @@ rule ("") {
             End;
         Else If(Compare(Global.IllIIlIllIII, ==, 113));
             Start Rule(lIllllIIllIl, Restart Rule);
-            Modify Global Variable(lIllIlIIIIlI, Append To Array, Multiply(Forward, 60));
-            Modify Global Variable(lIllIlIIIIlI, Append To Array, Multiply(Backward, 60));
-            Modify Global Variable(lIllIlIIIIlI, Append To Array, Multiply(Left, 60));
-            Modify Global Variable(lIllIlIIIIlI, Append To Array, Multiply(Right, 60));
+            Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(0, 0, 60));
+            Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(0, 0, -60));
+            Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(60, 0, 0));
+            Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(-60, 0, 0));
             Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(-60, False, 20));
             Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(-60, False, -20));
             Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(60, False, -20));
@@ -3668,7 +3668,7 @@ rule ("") {
             Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(30, False, -50));
             Modify Global Variable(lIllIlIIIIlI, Append To Array, Vector(30, False, 50));
             Wait(0.5, Ignore Condition);
-            Set Global Variable(IIlIllIlIllI, Multiply(Up, 500));
+            Set Global Variable(IIlIllIlIllI, Vector(0, 500, 0));
             Set Move Speed(Global.llIlllIlllII, If-Then-Else(Compare(Global.IIlllllIIIlI, ==, 4), 75, 50));
         Else If(Compare(Global.IllIIlIllIII, ==, 114));
             Create Effect(Global.IlIlllIIllIl, Sphere, Color(White), False, 14, Visible To);
@@ -3766,16 +3766,16 @@ rule ("") {
             Create Effect(Global.IlIlllIIllIl, Ring, Global.IIIIIlIlllIl, Last Of(Global.lIllIlIIIIlI), 2.3, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
         Else If(Compare(Global.IllIIlIllIII, ==, 106));
-            Create Effect(Remove From Array(Global.IlIlllIIllIl, Global.IIllIlllIIIl), Sphere, Global.lIIllIIIIlll, Update Every Frame(Add(Global.lIllIlIIIIIl, Multiply(Up, 1.2))), 0.65, Visible To Position and Radius);
+            Create Effect(Remove From Array(Global.IlIlllIIllIl, Global.IIllIlllIIIl), Sphere, Global.lIIllIIIIlll, Update Every Frame(Add(Global.lIllIlIIIIIl, Vector(0, 1.2, 0))), 0.65, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-            Create Effect(Remove From Array(Global.IlIlllIIllIl, Global.IIllIlllIIIl), Good Aura, Global.lIIllIIIIlll, Update Every Frame(Add(Global.lIllIlIIIIIl, Multiply(Up, 1.2))), 0.65, Visible To Position and Radius);
+            Create Effect(Remove From Array(Global.IlIlllIIllIl, Global.IIllIlllIIIl), Good Aura, Global.lIIllIIIIlll, Update Every Frame(Add(Global.lIllIlIIIIIl, Vector(0, 1.2, 0))), 0.65, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-            Create Effect(Global.IIllIlllIIIl, Sphere, Global.llIIlIIlllIl, Update Every Frame(Add(Global.lIllIlIIIIIl, Multiply(Up, 1.2))), 0.65, Visible To Position and Radius);
+            Create Effect(Global.IIllIlllIIIl, Sphere, Global.llIIlIIlllIl, Update Every Frame(Add(Global.lIllIlIIIIIl, Vector(0, 1.2, 0))), 0.65, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-            Create Effect(Global.IIllIlllIIIl, Good Aura, Global.llIIlIIlllIl, Update Every Frame(Add(Global.lIllIlIIIIIl, Multiply(Up, 1.2))), 0.65, Visible To Position and Radius);
+            Create Effect(Global.IIllIlllIIIl, Good Aura, Global.llIIlIIlllIl, Update Every Frame(Add(Global.lIllIlIIIIIl, Vector(0, 1.2, 0))), 0.65, Visible To Position and Radius);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
         Else If(Compare(Global.IllIIlIllIII, ==, 113));
-            Create Effect(Global.IlIlllIIllIl, Sphere, Global.lIlIlIlIllIl, Multiply(Up, 490), 64, Visible To);
+            Create Effect(Global.IlIlllIIllIl, Sphere, Global.lIlIlIlIllIl, Vector(0, 490, 0), 64, Visible To);
             Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
         Else If(Compare(Global.IllIIlIllIII, ==, 115));
             Create Effect(Global.IlIlllIIllIl, Sphere, Color(Sky Blue), Vector(-10, -198.8, 10), 200, Visible To);
@@ -3911,7 +3911,7 @@ rule ("") {
             If(Compare(Global.IllIIlIllIII, ==, 10));
                 Set Damage Dealt(Event Player, 0.01);
                 Teleport(Event Player, Global.IllllllIIIIl);
-                Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).IllllllIIIIl), Multiply(Down, 0.4))), 1000, To World, Direction and Turn Rate);
+                Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).IllllllIIIIl), Vector(0, -0.4, 0))), 1000, To World, Direction and Turn Rate);
                 Wait(0.3, Ignore Condition);
                 If((Event Player).lIIllIlIllII);
                     Wait(0.2, Ignore Condition);
@@ -4024,7 +4024,7 @@ rule ("") {
                     End;
                     Start Forcing Player Position(Event Player, Global.IlllIIIIlIIl, True);
                 End;
-                Set Facing(Event Player, Multiply(Down, 100), To World);
+                Set Facing(Event Player, Vector(0, -100, 0), To World);
                 Wait(0.88, Ignore Condition);
                 If((Event Player).IIlIlllIllII);
                     Chase Global Variable At Rate(IlIIIIIlIlll, Vector(Global.IIllIlllIIIl, 6, 0.5), 8, Destination and Rate);
@@ -4033,11 +4033,11 @@ rule ("") {
                 End;
                 Set Move Speed(Global.llIlllIlllII, If-Then-Else(Compare(Global.IIlllllIIIlI, ==, 4), 150, 100));
                 Wait(0.02, Ignore Condition);
-                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.IlIIIIIlIlll, Add(Global.IlIIIIIlIlll, Multiply(Down, 8)), Color(Team 2), Visible To Position and Radius);
+                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.IlIIIIIlIlll, Add(Global.IlIIIIIlIlll, Vector(0, -8, 0)), Color(Team 2), Visible To Position and Radius);
                 Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.lIllIlIIIIlI, Add(Global.lIllIlIIIIlI, Multiply(Down, 8)), Color(Team 2), Visible To Position and Radius);
+                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.lIllIlIIIIlI, Add(Global.lIllIlIIIIlI, Vector(0, -8, 0)), Color(Team 2), Visible To Position and Radius);
                 Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
-                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.IlllIIIIlIIl, Add(Global.IlllIIIIlIIl, Multiply(Down, 8)), Color(Team 2), Visible To Position and Radius);
+                Create Beam Effect(Global.IlIlllIIllIl, Omnic Slicer Beam, Global.IlllIIIIlIIl, Add(Global.IlllIIIIlIIl, Vector(0, -8, 0)), Color(Team 2), Visible To Position and Radius);
                 Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
             Else If(Array Contains(Array(28, 65), Global.IllIIlIllIII));
                 If(Compare(Global.IllIIlIllIII, ==, 65));
@@ -4135,9 +4135,9 @@ rule ("") {
                     Start Holding Button(Event Player, Button(Secondary Fire));
                     Start Forcing Throttle(Event Player, False, True, False, True, 0.8, True);
                     If((Event Player).lIIllIlIllII);
-                        Teleport(Event Player, Multiply(Forward, 2.5));
+                        Teleport(Event Player, Vector(0, 0, 2.5));
                     Else;
-                        Teleport(Event Player, Multiply(Backward, 2.5));
+                        Teleport(Event Player, Vector(0, 0, -2.5));
                     End;
                 End;
             Else If(Compare(Global.IllIIlIllIII, ==, 42));
@@ -4196,7 +4196,7 @@ rule ("") {
                     Press Button(Event Player, Button(Ultimate));
                 End;
             Else If(Compare(Global.IllIIlIllIII, ==, 52));
-                Teleport(Event Player, Multiply(Up, 10));
+                Teleport(Event Player, Vector(0, 10, 0));
                 Start Facing(Event Player, Direction Towards(Eye Position(Event Player), (Event Player).IllllllIIIIl), 1000, To World, Direction and Turn Rate);
                 If((Event Player).IIlIlllIllII);
                     Set Global Variable(IIllIIllIllI, Array(Vector(-6.5, False, 6.5), Vector(6.5, False, 6.5), Vector(-6.5, False, -6.5), Vector(6.5, False, -6.5)));
@@ -4245,8 +4245,8 @@ rule ("") {
                 Set Ultimate Ability Enabled(Event Player, True);
                 If(Compare(Global.IllIIlIllIII, ==, 54));
                     Wait(0.5, Ignore Condition);
-                    Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Multiply(Down, 5)), To World);
-                    Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Multiply(Down, 5)), 1000, To World, None);
+                    Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Vector(0, -5, 0)), To World);
+                    Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Vector(0, -5, 0)), 1000, To World, None);
                     Wait(0.2, Ignore Condition);
                     Start Forcing Player Position(Event Player, Value In Array(Global.IllIIllIIlII, Slot Of(Event Player)), False);
                     Wait(0.3, Ignore Condition);
@@ -4281,11 +4281,11 @@ rule ("") {
                     Start Forcing Player To Be Hero(Event Player, Hero(Torbjörn));
                 End;
             Else If(Array Contains(Array(33, 39), Global.IllIIlIllIII));
-                Set Player Variable(Event Player, IllllllIIIIl, Multiply(Down, 1000));
-                Set Player Variable(Event Player, llIllIIIlIlI, Multiply(Down, 1000));
-                Set Player Variable(Event Player, lIlIIIIllIII, Multiply(Down, 1000));
-                Set Player Variable(Event Player, lIllllIIllIl, Multiply(Down, 1000));
-                Set Player Variable(Event Player, IIIIIllIlllI, Multiply(Down, 1000));
+                Set Player Variable(Event Player, IllllllIIIIl, Vector(0, -1000, 0));
+                Set Player Variable(Event Player, llIllIIIlIlI, Vector(0, -1000, 0));
+                Set Player Variable(Event Player, lIlIIIIllIII, Vector(0, -1000, 0));
+                Set Player Variable(Event Player, lIllllIIllIl, Vector(0, -1000, 0));
+                Set Player Variable(Event Player, IIIIIllIlllI, Vector(0, -1000, 0));
             Else If(Compare(Global.IllIIlIllIII, ==, 35));
                 Wait(0.4, Ignore Condition);
                 Start Forcing Player Position(Event Player, Value In Array(Global.lIIlllIllIlI, Slot Of(Event Player)), False);
@@ -4426,7 +4426,7 @@ rule ("") {
                         Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
                     End;
                     Start Holding Button(Event Player, Button(Secondary Fire));
-                    Set Facing(Event Player, Multiply(Forward, 100), To World);
+                    Set Facing(Event Player, Vector(0, 0, 100), To World);
                     Wait(True, Ignore Condition);
                     Start Rule(IlIIIlIIllll, Restart Rule);
                     Start Rule(IIIIIllIlllI, Restart Rule);
@@ -4477,7 +4477,7 @@ rule ("") {
                 End;
             Else If(Compare(Global.IllIIlIllIII, ==, 109));
                 Start Holding Button(Event Player, Button(Ability 1));
-                Set Facing(Event Player, Multiply(Backward, 100), To World);
+                Set Facing(Event Player, Vector(0, 0, -100), To World);
                 Wait(True, Ignore Condition);
                 Start Rule(IlIIIlIIllll, Restart Rule);
                 Start Forcing Throttle(Event Player, True, True, False, True, False, True);
@@ -4538,7 +4538,7 @@ rule ("") {
                 Teleport(Event Player, Vector(False, False, If-Then-Else((Event Player).IIlIlllIllII, 0.5, -0.5)));
                 Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Vector(False, True, If-Then-Else((Event Player).IIlIlllIllII, 100, -100))), 1000, To World, Direction and Turn Rate);
                 If((Event Player).IIlIlllIllII);
-                    Create Icon(Global.IlIlllIIllIl, Multiply(Up, 1.7), Arrow: Down, Visible To, Global.lIIllIIIIlll, True);
+                    Create Icon(Global.IlIlllIIllIl, Vector(0, 1.7, 0), Arrow: Down, Visible To, Global.lIIllIIIIlll, True);
                     Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
                     Create Effect(Global.IlIlllIIllIl, Ring, Global.lIIllIIIIlll, False, 2.5, Visible To);
                     Modify Global Variable(IlllIlIlIllI, Append To Array, Last Created Entity);
@@ -4638,7 +4638,7 @@ rule ("") {
             Else If(Array Contains(Array(107, 108), Global.IllIIlIllIII));
                 If(Compare(Global.IllIIlIllIII, ==, 108));
                     Wait(0.4, Ignore Condition);
-                    Teleport(Event Player, Add(Value In Array(Global.IlllIIlIIIIl, Slot Of(Event Player)), Multiply(Up, 20)));
+                    Teleport(Event Player, Add(Value In Array(Global.IlllIIlIIIIl, Slot Of(Event Player)), Vector(0, 20, 0)));
                 End;
                 Wait(Add(0.4, Multiply(0.05, Slot Of(Event Player))), Ignore Condition);
                 Create Progress Bar In-World Text(If-Then-Else(Is Alive(Event Player), Remove From Array(Global.IlIlllIIllIl, Event Player), Empty Array), (Event Player).IllllllIIIIl, Null, Add(Event Player, Up), 0.1, Do Not Clip, If-Then-Else(Compare((Event Player).IllllllIIIIl, >=, 80), Global.lIIllIIIIlll, If-Then-Else(Compare((Event Player).IllllllIIIIl, >=, 40), Global.lIIIIllIlIll, Global.llIIlIIlllIl)), Null, Visible To Position Values and Color, Default Visibility);
@@ -4647,7 +4647,7 @@ rule ("") {
                     Start Rule(IllIIllIIlII, Restart Rule);
                 End;
                 Wait(0.4, Ignore Condition);
-                Start Forcing Player Position(Event Player, Add(Value In Array(If-Then-Else(Compare(Global.IllIIlIllIII, ==, 113), Global.lIllIlIIIIlI, Global.IlllIIlIIIIl), Slot Of(Event Player)), Multiply(Up, 500)), False);
+                Start Forcing Player Position(Event Player, Add(Value In Array(If-Then-Else(Compare(Global.IllIIlIllIII, ==, 113), Global.lIllIlIIIIlI, Global.IlllIIlIIIIl), Slot Of(Event Player)), Vector(0, 500, 0)), False);
                 If(Compare(Global.IllIIlIllIII, ==, 113));
                     Set Gravity(Event Player, False);
                     Wait(Add(0.6, Multiply(0.05, Slot Of(Event Player))), Ignore Condition);
@@ -4660,7 +4660,7 @@ rule ("") {
                 Stop Chasing Player Variable(Event Player, IllllllIIIIl);
             Else If(Compare(Global.IllIIlIllIII, ==, 109));
                 Wait(0.65, Ignore Condition);
-                Start Forcing Player Position(Event Player, Multiply(Backward, 6.5), False);
+                Start Forcing Player Position(Event Player, Vector(0, 0, -6.5), False);
                 Wait(0.05, Ignore Condition);
                 Stop Forcing Player Position(Event Player);
                 Start Facing(Event Player, Forward, 1000, To World, None);
@@ -4791,7 +4791,7 @@ rule ("") {
         Else If(Compare(Global.IllIIlIllIII, ==, 55));
             Kill(Victim, Event Player);
         Else If(Compare(Global.IllIIlIllIII, ==, 56));
-            Apply Impulse(Victim, Direction Towards(Event Player, Add(Position Of(Victim), Multiply(Up, 0.3))), 30, To World, Cancel Contrary Motion);
+            Apply Impulse(Victim, Direction Towards(Event Player, Add(Position Of(Victim), Vector(0, 0.3, 0))), 30, To World, Cancel Contrary Motion);
         Else If(Compare(Global.IllIIlIllIII, ==, 60));
             If(Compare(Hero Of(Victim), ==, Global.IlIIIIIlIlll));
                 Set Player Variable(Event Player, IlllIIlIIIIl, True);
@@ -4806,7 +4806,7 @@ rule ("") {
                 Kill(Event Player, Null);
             End;
         Else If(Compare(Global.IllIIlIllIII, ==, 64));
-            Apply Impulse(Victim, Direction Towards(Event Player, Add(Position Of(Victim), Multiply(Up, 0.3))), 30, To World, Cancel Contrary Motion);
+            Apply Impulse(Victim, Direction Towards(Event Player, Add(Position Of(Victim), Vector(0, 0.3, 0))), 30, To World, Cancel Contrary Motion);
         Else If(Array Contains(Array(104, 110), Global.IllIIlIllIII));
             If(Event Was Critical Hit);
                 Chase Player Variable At Rate(Event Player, IllllllIIIIl, Add((Event Player).IllllllIIIIl, 40), Multiply(200, Global.IlIIIIIlllll), None);
@@ -4821,7 +4821,7 @@ rule ("") {
         Else If(Compare(Global.IllIIlIllIII, ==, 107));
             Set Global Variable(IlIIIIIlIlll, Victim);
         Else If(And(Compare(Global.IllIIlIllIII, ==, 108), Compare(Event Ability, ==, Button(Ability 1))));
-            Set Player Variable(Event Player, lIIlIIIIlIIl, Ray Cast Hit Position(Victim, Add(Victim, Multiply(Down, 5)), Null, Global.IlIlllIIllIl, False));
+            Set Player Variable(Event Player, lIIlIIIIlIIl, Ray Cast Hit Position(Victim, Add(Victim, Vector(0, -5, 0)), Null, Global.IlIlllIIllIl, False));
         Else If(And(Compare(Global.IllIIlIllIII, ==, 113), Compare(Victim, !=, Event Player)));
             Modify Player Variable(Victim, IllllllIIIIl, Subtract, Multiply(3, Global.IlIIIIIlllll));
             If(And(And(Compare((Event Player).IllllllIIIIl, <, 100), (Event Player).IllllllIIIIl), Not(Is In Alternate Form(Event Player))));
@@ -5357,7 +5357,7 @@ rule ("") {
         Distance Between(Event Player, First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element)))) <= 1.5;
     }
     actions {
-        Apply Impulse(First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element))), Direction Towards(Event Player, Add(Position Of(First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element)))), Multiply(Up, 0.1))), 40, To World, Cancel Contrary Motion);
+        Apply Impulse(First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element))), Direction Towards(Event Player, Add(Position Of(First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element)))), Vector(0, 0.1, 0))), 40, To World, Cancel Contrary Motion);
         Set Player Variable(First Of(Sorted Array(Remove From Array(Global.IlIlllIIllIl, Event Player), Distance Between(Event Player, Current Array Element))), IlIIIlIIllll, Event Player);
         Wait(0.016, Ignore Condition);
         Loop If Condition Is True;
@@ -5448,7 +5448,7 @@ rule ("") {
     actions {
         Set Player Variable(Event Player, IllllllIIIIl, Index Of Array Value(Global.IlIIIIIlIlll, First Of(Sorted Array(Global.IlIIIIIlIlll, Distance Between(Event Player, Current Array Element)))));
         If(Or(Compare((Event Player).IllllllIIIIl, ==, Global.IIllIlllIIIl), If-Then-Else(Global.IIllIIllIllI, False, Compare((Event Player).IllllllIIIIl, ==, Global.lIIlllIllIlI))));
-            Teleport(Event Player, Multiply(Up, 1000));
+            Teleport(Event Player, Vector(0, 1000, 0));
             Set Gravity(Event Player, False);
             Start Rule(IllllllIIIIl, Restart Rule);
             If(Compare((Event Player).IllllllIIIIl, ==, Global.lIIlllIllIlI));
@@ -5458,7 +5458,7 @@ rule ("") {
             End;
         Else;
             Set Player Variable(Event Player, llIllIIIlIlI, 0);
-            Teleport(Event Player, Multiply(Down, 1000));
+            Teleport(Event Player, Vector(0, -1000, 0));
         End;
         Abort If(Global.IIllIIllIllI);
         Small Message(Event Player, Custom String("{0}{1}{2}", Value In Array(String Split(Custom String("You get #Vous gagnez #Du erhälst #Ganas #Consigues #Вы получили #Você ganha "), Global.lIllIlllIlll), (Local Player).IllIIllIllII), (Event Player).llIllIIIlIlI, Value In Array(String Split(Custom String(" score!# point(s)# Punkte!# puntos!# puntos!# очков!# pontos!"), Global.lIllIlllIlll), (Local Player).IllIIllIllII)));
@@ -5555,10 +5555,10 @@ rule ("") {
         (Event Player).lIIlllIlllIl == True;
         Array Contains(Array(19, 20), Global.IllIIlIllIII) == True;
         Global.IlIllIlIIllI == True;
-        Distance Between(Event Player, Multiply(Forward, 3)) > 0.1;
+        Distance Between(Event Player, Vector(0, 0, 3)) > 0.1;
     }
     actions {
-        Teleport(Event Player, Multiply(Forward, 3));
+        Teleport(Event Player, Vector(0, 0, 3));
         Wait(0.016, Ignore Condition);
         Loop If Condition Is True;
     }
@@ -5714,7 +5714,7 @@ rule ("") {
         Is Using Ability 2(Event Player) == True;
     }
     actions {
-        If(Compare(Distance Between(Ray Cast Hit Position(Event Player, Add(Event Player, Multiply(Down, 100)), Null, Global.IlIlllIIllIl, False), Global.IllllllIIIIl), <=, 2.5));
+        If(Compare(Distance Between(Ray Cast Hit Position(Event Player, Add(Event Player, Vector(0, -100, 0)), Null, Global.IlIlllIIllIl, False), Global.IllllllIIIIl), <=, 2.5));
             Set Player Variable(Event Player, IlllIIlIIIIl, True);
         Else;
             Start Rule(IllllllIIIIl, Restart Rule);
@@ -5940,14 +5940,14 @@ rule ("") {
     actions {
         Set Player Variable(Event Player, IllllllIIIIl, Position Of(Event Player));
         Wait(0.016, Ignore Condition);
-        Set Player Variable(Event Player, llIllIIIlIlI, Add(Position Of(Event Player), Multiply(Up, 0.5)));
-        Set Player Variable(Event Player, lIlIIIIllIII, Add(Position Of(Event Player), Multiply(Up, 0.5)));
-        Set Player Variable(Event Player, lIllllIIllIl, Add(Position Of(Event Player), Multiply(Up, 0.5)));
+        Set Player Variable(Event Player, llIllIIIlIlI, Add(Position Of(Event Player), Vector(0, 0.5, 0)));
+        Set Player Variable(Event Player, lIlIIIIllIII, Add(Position Of(Event Player), Vector(0, 0.5, 0)));
+        Set Player Variable(Event Player, lIllllIIllIl, Add(Position Of(Event Player), Vector(0, 0.5, 0)));
         Chase Player Variable At Rate(Event Player, llIllIIIlIlI, (Event Player).IllllllIIIIl, 121, None);
         Chase Player Variable At Rate(Event Player, lIlIIIIllIII, (Event Player).IllllllIIIIl, 243, None);
         Chase Player Variable At Rate(Event Player, lIllllIIllIl, (Event Player).IllllllIIIIl, 364, None);
         Wait(0.016, Ignore Condition);
-        Set Player Variable(Event Player, IIIIIllIlllI, Add(Position Of(Event Player), Multiply(Up, 0.5)));
+        Set Player Variable(Event Player, IIIIIllIlllI, Add(Position Of(Event Player), Vector(0, 0.5, 0)));
         Stop Chasing Player Variable(Event Player, llIllIIIlIlI);
         Stop Chasing Player Variable(Event Player, lIlIIIIllIII);
         Stop Chasing Player Variable(Event Player, lIllllIIllIl);
@@ -7518,10 +7518,10 @@ rule ("") {
     }
     conditions {
         Global.IllIIlIllIII == 113;
-        Distance Between(Event Player, Multiply(Up, 490)) > 64;
+        Distance Between(Event Player, Vector(0, 490, 0)) > 64;
     }
     actions {
-        Apply Impulse(Event Player, Direction Towards(Event Player, Multiply(Up, 490)), Speed Of(Event Player), To World, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Direction Towards(Event Player, Vector(0, 490, 0)), Speed Of(Event Player), To World, Cancel Contrary Motion);
         Wait(0.016, Ignore Condition);
         Loop If Condition Is True;
     }

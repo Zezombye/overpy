@@ -325,6 +325,10 @@ subroutine lIlIIIIlIlll 119
 #!extension spawnMoreDummyBots
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "":
     disableInspector()
 

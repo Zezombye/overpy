@@ -661,7 +661,7 @@ rule ("Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Cre
         Disable Built-In Game Mode Announcer;
         Set Global Variable(progress_bar_strings, Array(Custom String("□□□□□"), Custom String("▣□□□□"), Custom String("■□□□□"), Custom String("■▣□□□"), Custom String("■■□□□"), Custom String("■■▣□□"), Custom String("■■■□□"), Custom String("■■■▣□"), Custom String("■■■■□"), Custom String("■■■■▣"), Custom String("■■■■■")));
         Set Global Variable(char_string, Custom String("0123456789!?#$%"));
-        Set Global Variable(aim_offset, Multiply(0.5, Down));
+        Set Global Variable(aim_offset, Vector(0, -0.5, 0));
         Set Global Variable At Index(mutators_list, 20, Null);
         Set Global Variable(mutators_list, Mapped Array(Global.mutators_list, Current Array Index));
         Set Global Variable At Index(gmut_list, 4, Null);
@@ -762,21 +762,21 @@ rule ("Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Cre
         Set Match Time(0);
         "Workaround: Need to reduce Slots because of spectator bug"
         If(Compare(Number Of Slots(Team 1), <=, 8));
-            Create Dummy Bot(Hero(Ana), Team 2, Global.gamemode, Multiply(1000, Down), Forward);
+            Create Dummy Bot(Hero(Ana), Team 2, Global.gamemode, Vector(0, -1000, 0), Forward);
             If(Compare(Number Of Slots(Team 1), <=, 8));
-                Create Dummy Bot(Hero(Roadhog), Team 2, 3, Multiply(1000, Down), Forward);
+                Create Dummy Bot(Hero(Roadhog), Team 2, 3, Vector(0, -1000, 0), Forward);
             End;
             If(Compare(Number Of Slots(Team 1), <=, 5));
-                Create Dummy Bot(Hero(Cassidy), Team 2, 4, Multiply(1000, Down), Forward);
+                Create Dummy Bot(Hero(Cassidy), Team 2, 4, Vector(0, -1000, 0), Forward);
             End;
             If(Compare(Number Of Slots(Team 1), <=, 6));
-                Create Dummy Bot(Hero(Cassidy), Team 2, 5, Multiply(1000, Down), Forward);
+                Create Dummy Bot(Hero(Cassidy), Team 2, 5, Vector(0, -1000, 0), Forward);
             End;
-            Create Dummy Bot(Hero(Soldier: 76), Team 2, 6, Multiply(1000, Down), Forward);
-            Create Dummy Bot(Hero(Soldier: 76), Team 2, 7, Multiply(1000, Down), Forward);
-            Create Dummy Bot(Hero(Soldier: 76), Team 2, 8, Multiply(1000, Down), Forward);
-            Create Dummy Bot(Hero(Soldier: 76), Team 2, 9, Multiply(1000, Down), Forward);
-            Create Dummy Bot(Hero(Soldier: 76), Team 2, 10, Multiply(1000, Down), Forward);
+            Create Dummy Bot(Hero(Soldier: 76), Team 2, 6, Vector(0, -1000, 0), Forward);
+            Create Dummy Bot(Hero(Soldier: 76), Team 2, 7, Vector(0, -1000, 0), Forward);
+            Create Dummy Bot(Hero(Soldier: 76), Team 2, 8, Vector(0, -1000, 0), Forward);
+            Create Dummy Bot(Hero(Soldier: 76), Team 2, 9, Vector(0, -1000, 0), Forward);
+            Create Dummy Bot(Hero(Soldier: 76), Team 2, 10, Vector(0, -1000, 0), Forward);
         End;
         Set Global Variable(is_gmut_enabled, True);
         Wait(2, Ignore Condition);
@@ -841,7 +841,7 @@ rule ("Subroutine (Set Map CG): Set Spawns, Nodes, Edges, Distance Matrix, Abili
         Set Global Variable(player_spawn_facing, Forward);
         Set Global Variable(ability_shop_pos, Vector(182.587, 8.998, 105.229));
         Set Global Variable At Index(buy_menu_left_up_forward, 2, Forward);
-        Set Global Variable(buy_menu_cam_pos, Multiply(900, Up));
+        Set Global Variable(buy_menu_cam_pos, Vector(0, 900, 0));
     }
 }
 
@@ -1505,10 +1505,10 @@ rule ("Subroutine: Buy Active Ability") {
             Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Baptiste Immortality Field Protected Effect, Color(Team 1), Event Player, 1, Visible To);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
         Else If(Compare(Global.temp_1, ==, 5));
-            Set Player Variable(Event Player, active_ab_var, Multiply(1000, Down));
-            Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Sky Blue), Add((Event Player).active_ab_var, Multiply(2, Up)), 10, Visible To Position and Radius);
+            Set Player Variable(Event Player, active_ab_var, Vector(0, -1000, 0));
+            Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Sky Blue), Add((Event Player).active_ab_var, Vector(0, 2, 0)), 10, Visible To Position and Radius);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
-            Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Sky Blue), Add((Event Player).active_ab_var, Multiply(2, Down)), 10, Visible To Position and Radius);
+            Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Sky Blue), Add((Event Player).active_ab_var, Vector(0, -2, 0)), 10, Visible To Position and Radius);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
             Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Ring, Color(Sky Blue), Add((Event Player).active_ab_var, Down), 10, Visible To Position and Radius);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
@@ -1516,7 +1516,7 @@ rule ("Subroutine: Buy Active Ability") {
             Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Heal Target Active Effect, Color(Team 1), Event Player, 1, Visible To);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
         Else If(Compare(Global.temp_1, ==, 7));
-            Set Player Variable(Event Player, active_ab_var, Multiply(1000, Down));
+            Set Player Variable(Event Player, active_ab_var, Vector(0, -1000, 0));
             Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Yellow), Add((Event Player).active_ab_var, Up), 8, Visible To Position and Radius);
             Modify Player Variable(Event Player, active_ab_effect_list, Append To Array, Last Created Entity);
             Create Effect(If-Then-Else(Compare((Event Player).active_ab_cooldown, <, 0), All Players(All Teams), Empty Array), Cloud, Color(Yellow), Add((Event Player).active_ab_var, Down), 8, Visible To Position and Radius);
@@ -2113,7 +2113,7 @@ rule ("Team 1 Button: Hold Reload, Change Hero, Set Last Position (1), Last Eye 
         Clear Status(Event Player, Unkillable);
         Kill(Event Player, Null);
         "Lower values might cause the player to fall through the map when respawning"
-        Teleport(Event Player, Multiply(100, Down));
+        Teleport(Event Player, Vector(0, -100, 0));
         Wait(0.1, Ignore Condition);
         Set Player Variable(Event Player, is_invisible, 2);
         Wait Until(Is Alive(Event Player), 99999);
@@ -2264,7 +2264,7 @@ rule ("Team 1: Revive, Check Player in Radius, Unset Is Downed") {
         Add((Event Player).downed_start_t, 1) < Total Time Elapsed;
     }
     actions {
-        Set Player Variable(Event Player, revivers, Filtered Array(Global.combatants, And(And(And(And(Not((Current Array Element).downed_start_t), Not(Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Event Player, Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Position Of(Event Player)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Event Player)), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Or(And(Compare(Hero Of(Current Array Element), ==, Hero(Mei)), Is Using Ability 1(Current Array Element)), Is In Line of Sight(Event Player, Current Array Element, Barriers Do Not Block LOS)))));
+        Set Player Variable(Event Player, revivers, Filtered Array(Global.combatants, And(And(And(Not(Or((Current Array Element).downed_start_t, Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Event Player, Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Position Of(Event Player)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Event Player)), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Or(And(Compare(Hero Of(Current Array Element), ==, Hero(Mei)), Is Using Ability 1(Current Array Element)), Is In Line of Sight(Event Player, Current Array Element, Barriers Do Not Block LOS)))));
         If(Count Of((Event Player).revivers));
             Set Player Variable(Event Player, is_revive_slow, Is True For All((Event Player).revivers, Or(Or((Current Array Element).active_ab_is_cloaked, Has Status(Current Array Element, Invincible)), Has Status(Current Array Element, Phased Out))));
             Modify Player Variable(Event Player, revive_timer, Add, Multiply(Multiply(If-Then-Else(Or(Global.is_hard_mode_enabled, Global.is_apocalyptic), 0.667, 1), If-Then-Else((Event Player).perk_golden_hour, 2, 1)), If-Then-Else((Event Player).is_revive_slow, 2.5, 5)));
@@ -2376,9 +2376,9 @@ rule ("Team 1: Calculate Eye Offset") {
     }
     actions {
         If(And(Compare(Hero Of(Event Player), ==, Hero(Mei)), Is Using Ability 1(Event Player)));
-            Set Player Variable(Event Player, eye_offset, Multiply(1.2, Up));
+            Set Player Variable(Event Player, eye_offset, Vector(0, 1.2, 0));
         Else If(Or(Or(Has Status(Event Player, Knocked Down), Has Status(Event Player, Asleep)), Is Communicating Any Emote(Event Player)));
-            Set Player Variable(Event Player, eye_offset, Subtract(Add(Position Of(Event Player), Multiply(0.25, Up)), Eye Position(Event Player)));
+            Set Player Variable(Event Player, eye_offset, Subtract(Add(Position Of(Event Player), Vector(0, 0.25, 0)), Eye Position(Event Player)));
         Else;
             Set Player Variable(Event Player, eye_offset, Global.aim_offset);
         End;
@@ -2459,7 +2459,7 @@ rule ("Team 1 Button: Hold or double tap Melee, Use active Ability") {
             Set Player Variable(Event Player, active_ab_is_frenzied, False);
             Set Player Variable(Event Player, active_ab_cooldown, 30);
         Else If(Compare((Event Player).active_ab_number, ==, 5));
-            Set Player Variable(Event Player, active_ab_var, Add(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(2, Down)), Null, Null, False), Multiply(2, Up)));
+            Set Player Variable(Event Player, active_ab_var, Add(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Vector(0, -2, 0)), Null, Null, False), Vector(0, 2, 0)));
             For Player Variable(Event Player, active_ab_cooldown, -10, 0, 0.5);
                 Set Player Variable(Filtered Array(Global.combatants, And(Compare(Distance Between(Eye Position(Current Array Element), Vector(X Component Of((Event Player).active_ab_var), Y Component Of(Eye Position(Current Array Element)), Z Component Of((Event Player).active_ab_var))), <=, 10), Compare(Absolute Value(Subtract(Y Component Of(Eye Position(Current Array Element)), Y Component Of((Event Player).active_ab_var))), <=, 5))), active_ab_is_smoked, True);
                 Wait(0.5, Ignore Condition);
@@ -2481,7 +2481,7 @@ rule ("Team 1 Button: Hold or double tap Melee, Use active Ability") {
             Play Effect(All Players(All Teams), Good Explosion, Color(White), (Event Player).active_ab_var, 8);
             Play Effect(All Players(All Teams), Explosion Sound, Color(White), (Event Player).active_ab_var, 200);
             For Player Variable(Event Player, active_ab_cooldown, -6, 0, 1);
-                Set Global Variable(temp_1, Filtered Array(All Living Players(Team 2), And(And(Not(Has Status(Current Array Element, Phased Out)), Not(Has Status(Current Array Element, Stunned))), Compare(Distance Between((Event Player).active_ab_var, Eye Position(Current Array Element)), <=, 8))));
+                Set Global Variable(temp_1, Filtered Array(All Living Players(Team 2), And(Not(Or(Has Status(Current Array Element, Phased Out), Has Status(Current Array Element, Stunned))), Compare(Distance Between((Event Player).active_ab_var, Eye Position(Current Array Element)), <=, 8))));
                 Start Damage Over Time(Global.temp_1, Event Player, 2, 40);
                 For Global Variable(temp_2, 0, Count Of(Global.temp_1), 1);
                     Set Player Variable(Value In Array(Global.temp_1, Global.temp_2), gmut_fortified_bypass_end_t, Max(Total Time Elapsed, (Value In Array(Global.temp_1, Global.temp_2)).gmut_fortified_bypass_end_t));
@@ -2491,12 +2491,12 @@ rule ("Team 1 Button: Hold or double tap Melee, Use active Ability") {
             End;
             Set Player Variable(Event Player, active_ab_cooldown, 35);
         Else If(Compare((Event Player).active_ab_number, ==, 8));
-            Set Global Variable(temp_1, Last Of(Sorted Array(Filtered Array(All Living Players(Team 2), And(And(And(Not(Has Status(Current Array Element, Phased Out)), Not((Current Array Element).iv_is_portal)), Is In View Angle(Event Player, Current Array Element, 45)), Is In Line of Sight(Eye Position(Event Player), Eye Position(Current Array Element), Barriers Do Not Block LOS))), Dot Product(Facing Direction Of(Event Player), Direction Towards(Eye Position(Event Player), Current Array Element)))));
+            Set Global Variable(temp_1, Last Of(Sorted Array(Filtered Array(All Living Players(Team 2), And(And(Not(Or(Has Status(Current Array Element, Phased Out), (Current Array Element).iv_is_portal)), Is In View Angle(Event Player, Current Array Element, 45)), Is In Line of Sight(Eye Position(Event Player), Eye Position(Current Array Element), Barriers Do Not Block LOS))), Dot Product(Facing Direction Of(Event Player), Direction Towards(Eye Position(Event Player), Current Array Element)))));
             If(Global.temp_1);
                 Set Status(Global.temp_1, Event Player, Hacked, 5);
                 Modify Player Variable(Event Player, active_ab_var, Append To Array, Global.temp_1);
                 For Global Variable(temp_2, 4, 1, -1);
-                    Set Global Variable(temp_1, First Of(Sorted Array(Filtered Array(Remove From Array(All Living Players(Team 2), (Event Player).active_ab_var), And(And(Not(Has Status(Current Array Element, Phased Out)), Not((Current Array Element).iv_is_portal)), Is In Line of Sight(Global.temp_1, Current Array Element, Barriers Do Not Block LOS))), Distance Between(Global.temp_1, Current Array Element))));
+                    Set Global Variable(temp_1, First Of(Sorted Array(Filtered Array(Remove From Array(All Living Players(Team 2), (Event Player).active_ab_var), And(Not(Or(Has Status(Current Array Element, Phased Out), (Current Array Element).iv_is_portal)), Is In Line of Sight(Global.temp_1, Current Array Element, Barriers Do Not Block LOS))), Distance Between(Global.temp_1, Current Array Element))));
                     If(Global.temp_1);
                         Set Status(Global.temp_1, Event Player, Hacked, Global.temp_2);
                         Modify Player Variable(Event Player, active_ab_var, Append To Array, Global.temp_1);
@@ -3157,9 +3157,9 @@ rule ("IV Team 1 Moira: Biotic Grasp on Portal Simulation") {
         Is Firing Secondary(Event Player) == True;
     }
     actions {
-        If(And(Compare(Distance Between(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up))), <=, 20), Is In Line of Sight(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), Barriers Do Not Block LOS)));
+        If(And(Compare(Distance Between(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0))), <=, 20), Is In Line of Sight(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), Barriers Do Not Block LOS)));
             "If Facing ray intersects sphere"
-            If(Compare(Distance Between(Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), Add(Eye Position(Event Player), Multiply(Max(0, Dot Product(Facing Direction Of(Event Player), Vector Towards(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up))))), Facing Direction Of(Event Player)))), <=, 0.85));
+            If(Compare(Distance Between(Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), Add(Eye Position(Event Player), Multiply(Max(0, Dot Product(Facing Direction Of(Event Player), Vector Towards(Eye Position(Event Player), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0))))), Facing Direction Of(Event Player)))), <=, 0.85));
                 Damage(Players In Slot(0, Team 2), Event Player, 9.6);
             End;
         End;
@@ -3273,7 +3273,7 @@ rule ("Subroutine: Teleport to free Spawn") {
         If(And(And(Compare(Global.gamemode, ==, 0), Or(Compare((Event Player).base_tier, ==, -1), Compare(Global.special_spawns_count, >, 0))), Not((Event Player).is_alive)));
             Set Player Variable(Event Player, is_nav_reachable_node, False);
             If(And(Compare((Event Player).base_tier, ==, -1), Compare(Global.objective_phase_number, ==, 0)));
-                Teleport(Event Player, Multiply(100, Up));
+                Teleport(Event Player, Vector(0, 100, 0));
             Else;
                 Teleport(Event Player, Add(Global.iv_dom_objective_pos, Up));
             End;
@@ -3316,7 +3316,7 @@ rule ("Subroutine: Find WP near Nav (find a walkable position near the Nav and c
             Set Player Variable(Event Player, nav_pos, Global.temp_1);
         Else;
             "If original destination is not walkable"
-            If(Compare(Distance Between(Add((Event Player).nav_pos, Up), Ray Cast Hit Position(Add((Event Player).nav_pos, Up), Add((Event Player).nav_pos, Multiply(2, Down)), Null, Null, False)), >=, 3));
+            If(Compare(Distance Between(Add((Event Player).nav_pos, Up), Ray Cast Hit Position(Add((Event Player).nav_pos, Up), Add((Event Player).nav_pos, Vector(0, -2, 0)), Null, Null, False)), >=, 3));
                 "Ranged bots stand still"
                 If(Or(Or(Global.is_load_limit_reached, (Event Player).is_ranged), Compare(Distance Between(Event Player, (Event Player).target), <, 2)));
                     Set Player Variable(Event Player, nav_pos, Position Of(Event Player));
@@ -3325,7 +3325,7 @@ rule ("Subroutine: Find WP near Nav (find a walkable position near the Nav and c
                     Set Player Variable(Event Player, nav_pos, Add(Position Of(Event Player), Multiply(Min(3.5, Subtract(Distance Between(Event Player, (Event Player).target), 2)), Direction Towards(Event Player, (Event Player).target))));
                     If(Is On Ground(Event Player));
                         "Check if destination is not walkable"
-                        If(Compare(Distance Between(Add((Event Player).nav_pos, Up), Ray Cast Hit Position(Add((Event Player).nav_pos, Up), Add((Event Player).nav_pos, Multiply(2, Down)), Null, Null, False)), >=, 3));
+                        If(Compare(Distance Between(Add((Event Player).nav_pos, Up), Ray Cast Hit Position(Add((Event Player).nav_pos, Up), Add((Event Player).nav_pos, Vector(0, -2, 0)), Null, Null, False)), >=, 3));
                             Set Player Variable(Event Player, nav_pos, Position Of(Event Player));
                             Modify Player Variable(Event Player, is_using_combat_pathfinding, Subtract, 1);
                             Abort;
@@ -3338,7 +3338,7 @@ rule ("Subroutine: Find WP near Nav (find a walkable position near the Nav and c
         If(Is On Ground(Event Player));
             Set Global Variable(temp_1, Add(Add(Position Of(Event Player), Multiply(1.75, Direction Towards(Event Player, (Event Player).nav_pos))), Up));
             "If bot is near a ledge"
-            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(3, Down)), Null, Null, False)), >=, 3));
+            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -3, 0)), Null, Null, False)), >=, 3));
                 Set Player Variable(Event Player, nav_pos, Position Of(Event Player));
                 If(Not((Event Player).is_ranged));
                     Modify Player Variable(Event Player, is_using_combat_pathfinding, Subtract, 1);
@@ -3361,13 +3361,13 @@ rule ("Subroutine: Check Drop (Avoid dropping too low)") {
             Abort;
         End;
         Set Global Variable(temp_1, Add(Add(Position Of(Event Player), Multiply(1.75, Direction Towards(Event Player, Vector(X Component Of((Event Player).nav_pos), Y Component Of(Position Of(Event Player)), Z Component Of((Event Player).nav_pos))))), Up));
-        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(30, Down)), Null, Null, False)), >=, Add(Subtract(Y Component Of(Global.temp_1), Y Component Of(Position Of((Event Player).target))), 5)));
+        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -30, 0)), Null, Null, False)), >=, Add(Subtract(Y Component Of(Global.temp_1), Y Component Of(Position Of((Event Player).target))), 5)));
             Set Player Variable(Event Player, nav_pos, Position Of(Event Player));
             Modify Player Variable(Event Player, is_using_combat_pathfinding, Subtract, 1);
             Abort;
         End;
         Set Global Variable(temp_1, Add(Add(Position Of(Event Player), Multiply(3.5, Direction Towards(Event Player, Vector(X Component Of((Event Player).nav_pos), Y Component Of(Position Of(Event Player)), Z Component Of((Event Player).nav_pos))))), Up));
-        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(30, Down)), Null, Null, False)), >=, Add(Subtract(Y Component Of(Global.temp_1), Y Component Of(Position Of((Event Player).target))), 5)));
+        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -30, 0)), Null, Null, False)), >=, Add(Subtract(Y Component Of(Global.temp_1), Y Component Of(Position Of((Event Player).target))), 5)));
             Set Player Variable(Event Player, nav_pos, Position Of(Event Player));
             Modify Player Variable(Event Player, is_using_combat_pathfinding, Subtract, 1);
             Abort;
@@ -3406,7 +3406,7 @@ rule ("Subroutine: Find Chase Target") {
     }
     actions {
         Abort If((Event Player).is_ignoring_other_targets);
-        Set Player Variable(Event Player, target, First Of(Sorted Array(Filtered Array(Global.combatants, And(And(Not((Current Array Element).downed_start_t), Not((Current Array Element).active_ab_is_cloaked)), Not(And((Current Array Element).is_invisible, Compare(Distance Between(Event Player, Current Array Element), >, 2.4))))), Distance Between(Event Player, Current Array Element))));
+        Set Player Variable(Event Player, target, First Of(Sorted Array(Filtered Array(Global.combatants, Not(Or(Or((Current Array Element).downed_start_t, (Current Array Element).active_ab_is_cloaked), And((Current Array Element).is_invisible, Compare(Distance Between(Event Player, Current Array Element), >, 2.4))))), Distance Between(Event Player, Current Array Element))));
     }
 }
 
@@ -4123,7 +4123,7 @@ rule ("Team 2: Find Target") {
             If((Event Player).is_ignoring_other_targets);
                 Set Global Variable(temp_1, If-Then-Else(And(And(And(And(((Event Player).target).is_combatant, Not(((Event Player).target).downed_start_t)), Not(((Event Player).target).active_ab_is_cloaked)), Not(And(((Event Player).target).is_invisible, Compare(Distance Between(Event Player, (Event Player).target), >, 2.4)))), Is In Line of Sight(Eye Position(Event Player), Add(Eye Position((Event Player).target), ((Event Player).target).eye_offset), Barriers Do Not Block LOS)), (Event Player).target, Null));
             Else;
-                Set Global Variable(temp_1, First Of(Sorted Array(Filtered Array(Global.combatants, And(And(And(Not((Current Array Element).downed_start_t), Not((Current Array Element).active_ab_is_cloaked)), Not(And((Current Array Element).is_invisible, Compare(Distance Between(Event Player, Current Array Element), >, 2.4)))), Is In Line of Sight(Eye Position(Event Player), Add(Eye Position(Current Array Element), (Current Array Element).eye_offset), Barriers Do Not Block LOS))), Add(Add(Add(Add(Multiply(Multiply(Value In Array(Array(1, 0.25, 2, 4), (Current Array Element).ab_priority), If-Then-Else(Compare(Current Array Element, ==, (Event Player).target), 0.25, 1)), Distance Between(Event Player, Current Array Element)), If-Then-Else(And(Not((Event Player).is_ranged), (Current Array Element).is_flying), 500, 0)), If-Then-Else(Has Status(Current Array Element, Asleep), 1000, 0)), If-Then-Else(Or(Has Status(Current Array Element, Invincible), Has Status(Current Array Element, Phased Out)), 2000, 0)), If-Then-Else((Current Array Element).active_ab_is_frenzied, -5000, 0)))));
+                Set Global Variable(temp_1, First Of(Sorted Array(Filtered Array(Global.combatants, And(Not(Or(Or((Current Array Element).downed_start_t, (Current Array Element).active_ab_is_cloaked), And((Current Array Element).is_invisible, Compare(Distance Between(Event Player, Current Array Element), >, 2.4)))), Is In Line of Sight(Eye Position(Event Player), Add(Eye Position(Current Array Element), (Current Array Element).eye_offset), Barriers Do Not Block LOS))), Add(Add(Add(Add(Multiply(Multiply(Value In Array(Array(1, 0.25, 2, 4), (Current Array Element).ab_priority), If-Then-Else(Compare(Current Array Element, ==, (Event Player).target), 0.25, 1)), Distance Between(Event Player, Current Array Element)), If-Then-Else(And(Not((Event Player).is_ranged), (Current Array Element).is_flying), 500, 0)), If-Then-Else(Has Status(Current Array Element, Asleep), 1000, 0)), If-Then-Else(Or(Has Status(Current Array Element, Invincible), Has Status(Current Array Element, Phased Out)), 2000, 0)), If-Then-Else((Current Array Element).active_ab_is_frenzied, -5000, 0)))));
             End;
             If(Global.temp_1);
                 Set Player Variable(Event Player, is_target_in_los, 5);
@@ -4877,7 +4877,7 @@ rule ("Team 2 Cassidy: Combat Roll") {
         Abort If(Not((Event Player).is_using_combat_pathfinding));
         Abort If(Compare(Random Integer(1, 100), >, 30));
         Set Global Variable(temp_1, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(6, World Vector Of(If-Then-Else(Compare(Throttle Of(Event Player), ==, Vector(False, False, False)), Forward, Throttle Of(Event Player)), Event Player, Rotation))), Null, Null, False));
-        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(5, Down)), Null, Null, False)), <, 5));
+        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -5, 0)), Null, Null, False)), <, 5));
             Press Button(Event Player, Button(Ability 1));
             Wait(10, Ignore Condition);
         Else;
@@ -5735,7 +5735,7 @@ rule ("Team 2 Reaper: Wraith Form, Force Position") {
         Press Button(Event Player, Button(Ability 1));
         If(Is Using Ability 1(Event Player));
             Set Player Variable(Event Player, ab_wraith_pos, Position Of(Event Player));
-            Chase Player Variable At Rate(Event Player, ab_wraith_pos, Add(Position Of((Event Player).target), Multiply(0.5, Up)), 15, Destination and Rate);
+            Chase Player Variable At Rate(Event Player, ab_wraith_pos, Add(Position Of((Event Player).target), Vector(0, 0.5, 0)), 15, Destination and Rate);
             Start Forcing Player Position(Event Player, (Event Player).ab_wraith_pos, True);
             Disable Movement Collision With Environment(Event Player, True);
             Set Player Variable(Event Player, is_wraith, True);
@@ -5762,7 +5762,7 @@ rule ("Team 2 Reaper: Cancel Wraith Form, Stop Forcing Position") {
         Is In Line of Sight((Event Player).target, Position Of(Event Player), Barriers Do Not Block LOS) == True;
     }
     actions {
-        If(Compare(Distance Between(Event Player, Ray Cast Hit Position(Event Player, Add(Event Player, Multiply(5, Down)), Null, Null, False)), >=, 5));
+        If(Compare(Distance Between(Event Player, Ray Cast Hit Position(Event Player, Add(Event Player, Vector(0, -5, 0)), Null, Null, False)), >=, 5));
             Wait(0.15, Ignore Condition);
             Abort If(Not((Event Player).is_wraith));
         End;
@@ -5785,7 +5785,7 @@ rule ("Team 2 Reaper: Wraith Form Timed out / Target left / Target is invisible,
     }
     conditions {
         (Event Player).is_wraith == True;
-        Or(Or(Not(Is Using Ability 1(Event Player)), Not(((Event Player).target).is_combatant)), ((Event Player).target).active_ab_is_cloaked) == True;
+        Or(Not(And(Is Using Ability 1(Event Player), ((Event Player).target).is_combatant)), ((Event Player).target).active_ab_is_cloaked) == True;
     }
     actions {
         Stop Chasing Player Variable(Event Player, ab_wraith_pos);
@@ -6280,7 +6280,7 @@ rule ("Team 2 Tracer: Blink") {
     actions {
         If(And(Not(Global.is_load_limit_reached), Ability Charge(Event Player, Button(Ability 1))));
             Set Global Variable(temp_1, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(7.5, World Vector Of(If-Then-Else(Compare(Throttle Of(Event Player), ==, Vector(False, False, False)), Forward, Throttle Of(Event Player)), Event Player, Rotation))), Null, Null, False));
-            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(5, Down)), Null, Null, False)), <, 5));
+            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -5, 0)), Null, Null, False)), <, 5));
                 Press Button(Event Player, Button(Ability 1));
             End;
         End;
@@ -6417,7 +6417,7 @@ rule ("Team 2 Genji: Swift Strike") {
     actions {
         If(Not(Global.is_load_limit_reached));
             Set Global Variable(temp_1, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(15, Facing Direction Of(Event Player))), Null, Null, False));
-            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(20, Down)), Null, Null, False)), <, 20));
+            If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -20, 0)), Null, Null, False)), <, 20));
                 Press Button(Event Player, Button(Ability 1));
                 Wait(2, Ignore Condition);
             End;
@@ -6491,7 +6491,7 @@ rule ("Team 2 Hanzo: Lunge") {
         Press Button(Event Player, Button(Jump));
         Wait(0.4, Ignore Condition);
         Set Global Variable(temp_1, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(7.85, World Vector Of(If-Then-Else(Compare(Throttle Of(Event Player), ==, Vector(False, False, False)), Forward, Throttle Of(Event Player)), Event Player, Rotation))), Null, Null, False));
-        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Multiply(5, Down)), Null, Null, False)), <, 5));
+        If(Compare(Distance Between(Global.temp_1, Ray Cast Hit Position(Global.temp_1, Add(Global.temp_1, Vector(0, -5, 0)), Null, Null, False)), <, 5));
             Press Button(Event Player, Button(Jump));
             Wait(5.5, Ignore Condition);
         Else;
@@ -6891,11 +6891,11 @@ rule ("IV Team 2 Slot 0: Create Portal Entities") {
     }
     actions {
         Create Progress Bar HUD Text(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Multiply(200, Normalized Health(Event Player)), Global.objective_progress), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom String("Destroy the Portal"), Custom String("Portal closing")), Top, -97, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), If-Then-Else(Compare(Global.special_spawns_count, >, 0), Color(Blue), Custom Color(Max(200, Subtract(255, Multiply(Subtract(Total Time Elapsed, (Event Player).ab_var_2), 165))), Max(0, Subtract(255, Multiply(Subtract(Total Time Elapsed, (Event Player).ab_var_2), 765))), Max(19, Subtract(255, Multiply(Subtract(Total Time Elapsed, (Event Player).ab_var_2), 708))), 255)), Color(Yellow)), Color(White), Visible To Values and Color, Default Visibility);
-        Create Icon(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Add(Global.iv_dom_objective_pos, Multiply(2, Up)), Exclamation Mark, Visible To and Position, Color(Yellow), True);
-        Create In-World Text(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom String("Destroy the Portal"), Custom String("Portal closing")), Add(Global.iv_dom_objective_pos, Multiply(1.7, Up)), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
-        Create Effect(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Sphere, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Color(Red), Color(Yellow)), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), Add(0.85, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), 0, Multiply(0.3, Sine From Radians(Multiply(6, Total Time Elapsed))))), Visible To Position Radius and Color);
-        Create Effect(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Bad Aura, Color(Red), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), 1, Visible To Position and Radius);
-        Create Effect(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Or(Compare((Event Player).ab_var_2, >=, Total Time Elapsed), Compare(Global.special_spawns_count, >, 0))), All Players(All Teams), Empty Array), Light Shaft, Color(White), Subtract(Global.iv_dom_objective_pos, Multiply(2, Up)), 1, Visible To Position and Radius);
+        Create Icon(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Add(Global.iv_dom_objective_pos, Vector(0, 2, 0)), Exclamation Mark, Visible To and Position, Color(Yellow), True);
+        Create In-World Text(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom String("Destroy the Portal"), Custom String("Portal closing")), Add(Global.iv_dom_objective_pos, Vector(0, 1.7, 0)), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
+        Create Effect(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Sphere, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Color(Red), Color(Yellow)), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), Add(0.85, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), 0, Multiply(0.3, Sine From Radians(Multiply(6, Total Time Elapsed))))), Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Bad Aura, Color(Red), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), 1, Visible To Position and Radius);
+        Create Effect(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Or(Compare((Event Player).ab_var_2, >=, Total Time Elapsed), Compare(Global.special_spawns_count, >, 0))), All Players(All Teams), Empty Array), Light Shaft, Color(White), Subtract(Global.iv_dom_objective_pos, Vector(0, 2, 0)), 1, Visible To Position and Radius);
     }
 }
 
@@ -6959,7 +6959,7 @@ rule ("IV Subroutine: Defend Portal") {
             Press Button(Event Player, Button(Ability 1));
         End;
         Play Effect(All Players(All Teams), Explosion Sound, Color(White), Event Player, 200);
-        Play Effect(All Players(All Teams), Bad Explosion, If-Then-Else(And(Compare(Global.temp_1, ==, 5), Compare(Global.wave_number, >=, 7)), Color(Purple), Color(Red)), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), 10);
+        Play Effect(All Players(All Teams), Bad Explosion, If-Then-Else(And(Compare(Global.temp_1, ==, 5), Compare(Global.wave_number, >=, 7)), Color(Purple), Color(Red)), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), 10);
     }
 }
 
@@ -6983,13 +6983,13 @@ rule ("IV Team 2 Torbjörn: Health reaches Breakpoint, Is Dead -> Portal Closing
         Set Global Variable(objective_phase_number, 2);
         Call Subroutine(iv_defend_portal);
         Call Subroutine(upgrade_health_and_healing);
-        Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Add(Global.iv_dom_objective_pos, Multiply(1.11, Up)), 10);
+        Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Add(Global.iv_dom_objective_pos, Vector(0, 1.11, 0)), 10);
         Play Effect(All Players(All Teams), Explosion Sound, Color(White), Event Player, 200);
         Big Message(All Players(All Teams), Custom String("Portal is closing! Gained bonus health"));
         Stop Forcing Player Position(Event Player);
         Enable Movement Collision With Environment(Event Player);
         Wait(0.25, Ignore Condition);
-        Teleport(Event Player, Multiply(1000, Down));
+        Teleport(Event Player, Vector(0, -1000, 0));
         Set Invisible(Event Player, None);
     }
 }
@@ -7047,8 +7047,8 @@ rule ("HVT Team 2 Slot 1: Create HVT Entities") {
         Create Progress Bar HUD Text(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Multiply(100, Normalized Health(Event Player)), Divide(If-Then-Else((Event Player).downed_start_t, Global.objective_progress, (Event Player).revive_timer), 1.5)), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom String("Subdue the High Value Target"), If-Then-Else((Event Player).downed_start_t, If-Then-Else(Array Contains((Event Player).revivers, Local Player), Custom String("Capturing..."), Custom String("Capture the High Value Target")), Custom String("High Value Target is being revived"))), Top, -97, If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom Color(Max(200, Subtract(255, Multiply(Subtract(Total Time Elapsed, Global.hvt_call_reinforcements_end_t), 165))), Max(0, Subtract(255, Multiply(Subtract(Total Time Elapsed, Global.hvt_call_reinforcements_end_t), 765))), Max(19, Subtract(255, Multiply(Subtract(Total Time Elapsed, Global.hvt_call_reinforcements_end_t), 708))), 255), If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(Blue)), Color(Red))), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Color(Blue), If-Then-Else((Event Player).downed_start_t, Color(Blue), Color(Yellow))), Visible To Values and Color, Default Visibility);
         Create Icon(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), Event Player, Exclamation Mark, Visible To, Color(Yellow), True);
         Create In-World Text(If-Then-Else(Or(Compare(Global.objective_phase_number, ==, 1), Compare(Global.objective_phase_number, ==, 2)), All Players(All Teams), Empty Array), If-Then-Else(Compare(Global.hvt_call_reinforcements_end_t, >=, Total Time Elapsed), Custom String("Calling Reinforcements"), If-Then-Else(Compare(Global.objective_phase_number, ==, 1), Custom String("Subdue Target"), Custom String("Capture Target"))), Event Player, 1.5, Do Not Clip, Visible To and String, Color(Yellow), Default Visibility);
-        Create Effect(If-Then-Else(Compare(Global.objective_phase_number, ==, 2), All Players(All Teams), Empty Array), Ring, If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(White)), Color(Red)), Add(Position Of(Event Player), Multiply(0.65, Up)), 10, Visible To Position Radius and Color);
-        Create Effect(If-Then-Else(Compare(Global.objective_phase_number, ==, 2), All Players(All Teams), Empty Array), Ring, If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(White)), Color(Red)), Add(Position Of(Event Player), Multiply(0.65, Down)), 10, Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(Compare(Global.objective_phase_number, ==, 2), All Players(All Teams), Empty Array), Ring, If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(White)), Color(Red)), Add(Position Of(Event Player), Vector(0, 0.65, 0)), 10, Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(Compare(Global.objective_phase_number, ==, 2), All Players(All Teams), Empty Array), Ring, If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(White)), Color(Red)), Add(Position Of(Event Player), Vector(0, -0.65, 0)), 10, Visible To Position Radius and Color);
         Create Effect(If-Then-Else(Compare(Global.objective_phase_number, ==, 2), All Players(All Teams), Empty Array), Ring, If-Then-Else((Event Player).downed_start_t, If-Then-Else(Compare((Event Player).downed_start_t, ==, 2), Color(Green), Color(White)), Color(Red)), Position Of(Event Player), Multiply(Compare(Modulo(Total Time Elapsed, 1.333), <, 0.666), Modulo(Multiply(15, Total Time Elapsed), 10)), Visible To Position Radius and Color);
         Create Effect(If-Then-Else(Compare(Global.hvt_call_reinforcements_end_t, >=, Total Time Elapsed), All Players(All Teams), Empty Array), Light Shaft, Color(White), Update Every Frame(Position Of(Event Player)), 1, Visible To Position and Radius);
     }
@@ -7090,7 +7090,7 @@ rule ("HVT Team 2 Slot 1: Subdued, check Player in Radius") {
         Global.objective_phase_number == 2;
     }
     actions {
-        Set Player Variable(Event Player, revivers, Filtered Array(Global.combatants, And(And(And(And(Not((Current Array Element).downed_start_t), Not(Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Event Player, Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Position Of(Event Player)), Z Component Of(Position Of(Current Array Element)))), <=, 10)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Event Player)), Y Component Of(Position Of(Current Array Element)))), <=, 5)), Is In Line of Sight(Event Player, Current Array Element, Barriers Do Not Block LOS))));
+        Set Player Variable(Event Player, revivers, Filtered Array(Global.combatants, And(And(And(Not(Or((Current Array Element).downed_start_t, Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Event Player, Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Position Of(Event Player)), Z Component Of(Position Of(Current Array Element)))), <=, 10)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Event Player)), Y Component Of(Position Of(Current Array Element)))), <=, 5)), Is In Line of Sight(Event Player, Current Array Element, Barriers Do Not Block LOS))));
         If(Count Of((Event Player).revivers));
             Set Player Variable(Event Player, downed_start_t, 2);
             Modify Global Variable(objective_progress, Add, 1.5);
@@ -7108,7 +7108,7 @@ rule ("HVT Team 2 Slot 1: Subdued, check Player in Radius") {
             Clear Status(Event Player, Invincible);
             Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Position Of(Event Player), 1);
             Play Effect(All Players(All Teams), Explosion Sound, Color(White), Position Of(Event Player), 200);
-            Teleport(Event Player, Multiply(1000, Down));
+            Teleport(Event Player, Vector(0, -1000, 0));
             Call Subroutine(start_kill_remaining_phase);
             Set Global Variable(objective_progress, False);
         Else If(Compare((Event Player).revive_timer, >=, 150));
@@ -7189,10 +7189,10 @@ rule ("DOM Team 2 Slot 2: Create Guard and Control Point Entities") {
         Create Progress Bar HUD Text(If-Then-Else(Compare(Global.objective_phase_number, ==, 1), All Players(All Teams), Empty Array), If-Then-Else(Array Contains(Global.dom_point_A_contesters, Local Player), First Of(Global.objective_progress), If-Then-Else(Array Contains(Global.dom_point_B_contesters, Local Player), Value In Array(Global.objective_progress, 1), Multiply(0.25, Add(Add(Multiply(100, Add(If-Then-Else((Players In Slot(2, Color(Team 2))).is_living_boss, Subtract(1, Normalized Health(Players In Slot(2, Team 2))), 1), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Subtract(1, Normalized Health(Players In Slot(3, Team 2))), 1))), First Of(Global.objective_progress)), Value In Array(Global.objective_progress, 1))))), If-Then-Else(Array Contains(Global.dom_point_A_contesters, Local Player), If-Then-Else((Players In Slot(2, Color(Team 2))).is_living_boss, Custom String("Kill the Guard to unlock this point"), Custom String("Capturing...")), If-Then-Else(Array Contains(Global.dom_point_B_contesters, Local Player), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Custom String("Kill the Guard to unlock the point"), Custom String("Capturing...")), If-Then-Else(Is True For Any(All Players(Team 2), (Current Array Element).is_living_boss), Custom String("Kill the guards and capture the points"), Custom String("Capture the points")))), Top, -97, If-Then-Else(Or(Array Contains(Global.dom_point_A_contesters, Local Player), Array Contains(Global.dom_point_B_contesters, Local Player)), Color(Green), Color(Blue)), If-Then-Else(Or(And(Array Contains(Global.dom_point_A_contesters, Local Player), (Players In Slot(2, Team 2)).is_living_boss), And(Array Contains(Global.dom_point_B_contesters, Local Player), (Players In Slot(3, Team 2)).is_living_boss)), Color(Yellow), Color(Blue)), Visible To Values and Color, Default Visibility);
         Create Effect(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(First Of(Global.objective_progress), <, 100)), All Players(All Teams), Empty Array), Ring, If-Then-Else((Players In Slot(2, Team 2)).is_living_boss, Color(Red), If-Then-Else(Count Of(Global.dom_point_A_contesters), Color(Green), Color(White))), First Of(Global.iv_dom_objective_pos), 3, Visible To Position Radius and Color);
         Create Effect(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(Value In Array(Global.objective_progress, 1), <, 100)), All Players(All Teams), Empty Array), Ring, If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Color(Red), If-Then-Else(Count Of(Global.dom_point_B_contesters), Color(Green), Color(White))), Value In Array(Global.iv_dom_objective_pos, 1), 3, Visible To Position Radius and Color);
-        Create Icon(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(First Of(Global.objective_progress), <, 100)), All Players(All Teams), Empty Array), Add(First Of(Global.iv_dom_objective_pos), Multiply(2, Up)), Exclamation Mark, Visible To Position and Color, If-Then-Else((Players In Slot(2, Color(Team 2))).is_living_boss, Color(Orange), Color(Yellow)), True);
-        Create Icon(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(Value In Array(Global.objective_progress, 1), <, 100)), All Players(All Teams), Empty Array), Add(Value In Array(Global.iv_dom_objective_pos, 1), Multiply(2, Up)), Exclamation Mark, Visible To Position and Color, If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Color(Orange), Color(Yellow)), True);
-        Create In-World Text(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(First Of(Global.objective_progress), <, 100)), All Players(All Teams), Empty Array), If-Then-Else((Players In Slot(2, Team 2)).is_living_boss, Custom String("Kill Guard"), Custom String("Capture point")), If-Then-Else((Players In Slot(2, Team 2)).is_living_boss, Players In Slot(2, Team 2), Add(First Of(Global.iv_dom_objective_pos), Multiply(1.7, Up))), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
-        Create In-World Text(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(Value In Array(Global.objective_progress, 1), <, 100)), All Players(All Teams), Empty Array), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Custom String("Kill Guard"), Custom String("Capture point")), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Players In Slot(3, Team 2), Add(Value In Array(Global.iv_dom_objective_pos, 1), Multiply(1.7, Up))), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
+        Create Icon(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(First Of(Global.objective_progress), <, 100)), All Players(All Teams), Empty Array), Add(First Of(Global.iv_dom_objective_pos), Vector(0, 2, 0)), Exclamation Mark, Visible To Position and Color, If-Then-Else((Players In Slot(2, Color(Team 2))).is_living_boss, Color(Orange), Color(Yellow)), True);
+        Create Icon(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(Value In Array(Global.objective_progress, 1), <, 100)), All Players(All Teams), Empty Array), Add(Value In Array(Global.iv_dom_objective_pos, 1), Vector(0, 2, 0)), Exclamation Mark, Visible To Position and Color, If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Color(Orange), Color(Yellow)), True);
+        Create In-World Text(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(First Of(Global.objective_progress), <, 100)), All Players(All Teams), Empty Array), If-Then-Else((Players In Slot(2, Team 2)).is_living_boss, Custom String("Kill Guard"), Custom String("Capture point")), If-Then-Else((Players In Slot(2, Team 2)).is_living_boss, Players In Slot(2, Team 2), Add(First Of(Global.iv_dom_objective_pos), Vector(0, 1.7, 0))), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
+        Create In-World Text(If-Then-Else(And(Compare(Global.objective_phase_number, ==, 1), Compare(Value In Array(Global.objective_progress, 1), <, 100)), All Players(All Teams), Empty Array), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Custom String("Kill Guard"), Custom String("Capture point")), If-Then-Else((Players In Slot(3, Team 2)).is_living_boss, Players In Slot(3, Team 2), Add(Value In Array(Global.iv_dom_objective_pos, 1), Vector(0, 1.7, 0))), 1.5, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
     }
 }
 
@@ -7207,7 +7207,7 @@ rule ("DOM Team 2 Slot 2: Contest Control Point A") {
         First Of(Global.objective_progress) < 100;
     }
     actions {
-        Set Global Variable(dom_point_A_contesters, Filtered Array(Global.combatants, And(And(And(And(Not((Current Array Element).downed_start_t), Not(Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(First Of(Global.iv_dom_objective_pos), Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(First Of(Global.iv_dom_objective_pos)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(First Of(Global.iv_dom_objective_pos))), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Is In Line of Sight(Add(First Of(Global.iv_dom_objective_pos), Up), Current Array Element, Barriers Do Not Block LOS))));
+        Set Global Variable(dom_point_A_contesters, Filtered Array(Global.combatants, And(And(And(Not(Or((Current Array Element).downed_start_t, Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(First Of(Global.iv_dom_objective_pos), Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(First Of(Global.iv_dom_objective_pos)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(First Of(Global.iv_dom_objective_pos))), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Is In Line of Sight(Add(First Of(Global.iv_dom_objective_pos), Up), Current Array Element, Barriers Do Not Block LOS))));
         If(And(Not((Players In Slot(2, Team 2)).is_living_boss), Count Of(Global.dom_point_A_contesters)));
             Modify Global Variable At Index(objective_progress, 0, Add, 2);
             Wait(0.25, Ignore Condition);
@@ -7245,7 +7245,7 @@ rule ("DOM Team 2 Slot 2: Contest Control Point B") {
         Value In Array(Global.objective_progress, 1) < 100;
     }
     actions {
-        Set Global Variable(dom_point_B_contesters, Filtered Array(Global.combatants, And(And(And(And(Not((Current Array Element).downed_start_t), Not(Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Value In Array(Global.iv_dom_objective_pos, 1), Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Value In Array(Global.iv_dom_objective_pos, 1)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Value In Array(Global.iv_dom_objective_pos, 1))), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Is In Line of Sight(Add(Value In Array(Global.iv_dom_objective_pos, 1), Up), Current Array Element, Barriers Do Not Block LOS))));
+        Set Global Variable(dom_point_B_contesters, Filtered Array(Global.combatants, And(And(And(Not(Or((Current Array Element).downed_start_t, Modulo((Current Array Element).is_invisible, 3))), Compare(Distance Between(Value In Array(Global.iv_dom_objective_pos, 1), Vector(X Component Of(Position Of(Current Array Element)), Y Component Of(Value In Array(Global.iv_dom_objective_pos, 1)), Z Component Of(Position Of(Current Array Element)))), <=, 3)), Compare(Absolute Value(Subtract(Y Component Of(Position Of(Value In Array(Global.iv_dom_objective_pos, 1))), Y Component Of(Position Of(Current Array Element)))), <=, 3)), Is In Line of Sight(Add(Value In Array(Global.iv_dom_objective_pos, 1), Up), Current Array Element, Barriers Do Not Block LOS))));
         If(And(Not((Players In Slot(3, Team 2)).is_living_boss), Count Of(Global.dom_point_B_contesters)));
             Modify Global Variable At Index(objective_progress, 1, Add, 2);
             Wait(0.25, Ignore Condition);
@@ -8019,7 +8019,7 @@ rule ("Sigma: Accretion Disk") {
     actions {
         Set Projectile Speed(Event Player, 150);
         Set Projectile Gravity(Event Player, 0);
-        Wait Until(Or(Not((Event Player).Talent1), Not(Is Using Ability 2(Event Player))), 5);
+        Wait Until(Not(And((Event Player).Talent1, Is Using Ability 2(Event Player))), 5);
         Set Projectile Speed(Event Player, 100);
         Set Projectile Gravity(Event Player, 100);
     }
@@ -8396,7 +8396,7 @@ rule ("Mercy: Wings of Grand") {
         If(Compare(Speed Of(Event Player), >, 10));
             Damage(Filtered Array(Players Within Radius(Event Player, 4, Team 2, Surfaces), Not(Has Status(Current Array Element, Knocked Down))), Event Player, 35);
             Set Status(Players Within Radius(Event Player, 4, Team 2, Surfaces), Event Player, Knocked Down, 0.8);
-            Apply Impulse(Players Within Radius(Event Player, 4, Team 2, Surfaces), Add(Add(Normalize(Velocity Of(Event Player)), Direction Towards(Event Player, Throttle Of(Event Player))), Multiply(Up, 1.1)), 7.5, To World, Cancel Contrary Motion);
+            Apply Impulse(Players Within Radius(Event Player, 4, Team 2, Surfaces), Add(Add(Normalize(Velocity Of(Event Player)), Direction Towards(Event Player, Throttle Of(Event Player))), Vector(0, 1.1, 0)), 7.5, To World, Cancel Contrary Motion);
             Play Effect(All Players(All Teams), Bad Explosion, Color(Yellow), Position Of(Event Player), 0.15);
         End;
         Wait(0.25, Ignore Condition);
@@ -8590,8 +8590,8 @@ rule ("[Hanzo] Arrow Rain ") {
     }
     actions {
         For Player Variable(Event Player, i, 0, 2, 1);
-            Create Projectile(Mei Icicle, Event Player, Add(Eye Position(Event Player), Multiply(Down, 0.5)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-2, 2)), Add(Vertical Facing Angle Of(Event Player), Random Real(-2, 2))), To World, Damage, Team 2, 70, 2, 0, Bad Explosion, Explosion Sound, 0, 110, 5, 0, 1, 5);
-            Create Projectile(Mei Icicle, Event Player, Add(Eye Position(Event Player), Multiply(Down, 0.5)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-2, 2)), Add(Vertical Facing Angle Of(Event Player), Random Real(-2, 2))), To World, Damage, Team 2, 70, 2, 0, Bad Explosion, Explosion Sound, 0, 110, 5, 0, 1, 5);
+            Create Projectile(Mei Icicle, Event Player, Add(Eye Position(Event Player), Vector(0, -0.5, 0)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-2, 2)), Add(Vertical Facing Angle Of(Event Player), Random Real(-2, 2))), To World, Damage, Team 2, 70, 2, 0, Bad Explosion, Explosion Sound, 0, 110, 5, 0, 1, 5);
+            Create Projectile(Mei Icicle, Event Player, Add(Eye Position(Event Player), Vector(0, -0.5, 0)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-2, 2)), Add(Vertical Facing Angle Of(Event Player), Random Real(-2, 2))), To World, Damage, Team 2, 70, 2, 0, Bad Explosion, Explosion Sound, 0, 110, 5, 0, 1, 5);
         End;
     }
 }
@@ -8714,8 +8714,8 @@ rule ("[Lucio] Chord Cadence burstfire") {
     }
     actions {
         For Player Variable(Event Player, i, 0, 4, 1);
-            Create Projectile(Lucio Sonic Amplifier, Event Player, Add(Eye Position(Event Player), Multiply(Down, 0.5)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-1, 1)), Add(Vertical Facing Angle Of(Event Player), Random Real(-1, 1))), To World, Damage, Opposite Team Of(Team Of(Event Player)), 20, 2, 0, Bad Explosion, Explosion Sound, 0, 50, 5, 0, 0, 0);
-            Create Projectile(Lucio Sonic Amplifier, Event Player, Add(Eye Position(Event Player), Multiply(Down, 0.5)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-1, 1)), Add(Vertical Facing Angle Of(Event Player), Random Real(-1, 1))), To World, Damage, Opposite Team Of(Team Of(Event Player)), 20, 2, 0, Bad Explosion, Explosion Sound, 0, 50, 5, 0, 0, 0);
+            Create Projectile(Lucio Sonic Amplifier, Event Player, Add(Eye Position(Event Player), Vector(0, -0.5, 0)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-1, 1)), Add(Vertical Facing Angle Of(Event Player), Random Real(-1, 1))), To World, Damage, Opposite Team Of(Team Of(Event Player)), 20, 2, 0, Bad Explosion, Explosion Sound, 0, 50, 5, 0, 0, 0);
+            Create Projectile(Lucio Sonic Amplifier, Event Player, Add(Eye Position(Event Player), Vector(0, -0.5, 0)), Direction From Angles(Add(Horizontal Facing Angle Of(Event Player), Random Real(-1, 1)), Add(Vertical Facing Angle Of(Event Player), Random Real(-1, 1))), To World, Damage, Opposite Team Of(Team Of(Event Player)), 20, 2, 0, Bad Explosion, Explosion Sound, 0, 50, 5, 0, 0, 0);
             If(Not(Is Firing Primary(Event Player)));
                 Break;
             End;
@@ -8982,7 +8982,7 @@ rule ("Roadhog: Chainsnap") {
     }
     actions {
         Modify Player Variable(Event Player, Damage_Dealt, Add, 400);
-        Wait Until(Or(Not((Event Player).Talent2), Not(Is Using Ability 1(Event Player))), 99999);
+        Wait Until(Not(And((Event Player).Talent2, Is Using Ability 1(Event Player))), 99999);
         Modify Player Variable(Event Player, Damage_Dealt, Subtract, 400);
         Wait(0.1, Ignore Condition);
         Loop If Condition Is True;
@@ -9039,7 +9039,7 @@ rule ("[Moira] Catalyst - ") {
         Modify Player Variable(Event Player, Damage_Dealt, Add, 300);
         Modify Player Variable(Event Player, healing_dealt_percent, Add, 300);
         Modify Player Variable(Event Player, Move_Speed, Subtract, 40);
-        Wait Until(Or(Or(Not(Is Button Held(Event Player, Button(Primary Fire))), Not((Event Player).Talent2)), Not(Is Using Ultimate(Event Player))), 8);
+        Wait Until(Not(And(And(Is Button Held(Event Player, Button(Primary Fire)), (Event Player).Talent2), Is Using Ultimate(Event Player))), 8);
         Modify Player Variable(Event Player, Damage_Dealt, Subtract, 300);
         Modify Player Variable(Event Player, Move_Speed, Add, 40);
         Modify Player Variable(Event Player, healing_dealt_percent, Subtract, 300);
@@ -9690,7 +9690,7 @@ rule ("Ramattra: Vile Dominance") {
     actions {
         Modify Player Variable(Event Player, Move_Speed, Add, 30);
         Set Player Variable(Event Player, Ability_Active, True);
-        Wait Until(Or(And(Not(Is Using Ability 1(Event Player)), Not(Is Using Ultimate(Event Player))), Not((Event Player).Talent1)), 9999);
+        Wait Until(Not(And(Or(Is Using Ability 1(Event Player), Is Using Ultimate(Event Player)), (Event Player).Talent1)), 9999);
         Modify Player Variable(Event Player, Move_Speed, Subtract, 30);
         Set Player Variable(Event Player, Ability_Active, False);
     }

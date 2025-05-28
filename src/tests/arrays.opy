@@ -34,9 +34,12 @@ rule "mapped array":
 
 rule "index":
     A = B.index(3)
-    A = [A,B,C].index(B)
-    A = [1,2,3].index(3) #2
-    A = [A,B,C].index(3)
+    A = [A,B,C].index(B) #[A,B].index(B)
+    A = [].index(B) #-1
+    A = [1,2,3,B].index(3) #2
+    A = [1,2,B,3].index(3) #should not be optimized
+    A = [1,2,3].index(123) #-1
+    A = [1,2,3,B].index(123) #should not be optimized
 
 rule "slice":
     A = B.slice(1,3)
@@ -46,6 +49,27 @@ rule "slice":
     A = [1,2,3,4,5].slice(5, 2) #[]
     A = [1,2,3,4,5].slice(-2, 3) #[1]
     A = [1,2,3,4,5].slice(0.4, 2.5) #[1,2,3]
+
+rule "in":
+    A = 123 in [432, C, 123, B] #true
+    A = B in [432, C, 123, B] #true
+    A = B in [] #false
+    A = 123 in [432, 643, 124] #false
+    A = 123 in [432, 643, B, 124] #123 == B
+
+rule "exclude":
+    A = B.exclude(3)
+    A = [B,C,D].exclude(C) #should not be optimized
+    A = [1,2,3].exclude(2) #[1,3]
+    A = [1,2,D].exclude(2) #[1,D].exclude(2)
+    A = [1,2,3].exclude([1,3]) #[2]
+    A = [1,2,3].exclude([1,D]) #[2,3].exclude([D])
+
+rule "concat":
+    A = B.concat(2)
+    A = [B,C].concat(123) # [B,C,123]
+    A = [B,C].concat(A) #should not be optimized
+    A = [B,C].concat([D,E]) # [B,C,D,E]
 
 rule "other array functions":
     A = all([player.A == 2 for player in getAllPlayers()])
@@ -58,9 +82,6 @@ rule "other array functions":
     del A[1]
     A.append(3)
     A.remove(3)
-    A = B.concat(2)
-    A = B.index(3)
-    A = B.exclude(3)
     A = [X,Y,Z].reverse() #Z,Y,X
     A = B.reverse()
 

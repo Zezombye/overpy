@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
+import { enableOptimization, NUMBER_LIMIT, optimizeStrict } from "../../globalVars";
 import { getAstForNumber, getAstFor0, areAstsAlwaysEqual, Ast, getAstFor2, astParsingFunctions } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
@@ -32,15 +32,18 @@ astParsingFunctions.__multiply__ = function (content) {
         }
 
         //If one of the arguments is 1, return the other argument.
-        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 1) {
-            return content.args[1];
-        }
-        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
-            return content.args[0];
+        //Non-strict optimization, as it could be used to cast to number.
+        if (!optimizeStrict) {
+            if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 1) {
+                return content.args[1];
+            }
+            if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
+                return content.args[0];
+            }
         }
 
-        //A*0 = 0*A = 0, but only if the other argument is definitely a number
-        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0 && isTypeSuitable("float", content.args[1].type, false)) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0 && isTypeSuitable("float", content.args[0].type, false))) {
+        //A*0 = 0*A = 0, but only if the other argument is definitely a number, or non-strict optimization is enabled
+        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0 && (isTypeSuitable("float", content.args[1].type, false) || !optimizeStrict)) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0 && (isTypeSuitable("float", content.args[0].type, false) || !optimizeStrict))) {
             return getAstFor0();
         }
 

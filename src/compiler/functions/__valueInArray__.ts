@@ -40,14 +40,28 @@ astParsingFunctions.__valueInArray__ = function (content) {
             dictKeys = dictKeys.filter(x => x.name !== "__default__");
             //Reorder dict values to put default first
             dictValues = [dictValues[defaultIndex]].concat(dictValues.filter((_, i) => i !== defaultIndex));
-            return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", dictKeys), index])])]);
+            return astParsingFunctions.__valueInArray__(new Ast("__valueInArray__", [
+                new Ast("__array__", dictValues),
+                astParsingFunctions.__add__(new Ast("__add__", [
+                    getAstFor1(),
+                    astParsingFunctions[".index"](new Ast(".index", [new Ast("__array__", dictKeys), index]))
+                ]))
+            ]));
         } else {
-            return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast(".index", [new Ast("__array__", dictKeys), index])]);
+            return astParsingFunctions.__valueInArray__(new Ast("__valueInArray__", [
+                new Ast("__array__", dictValues),
+                astParsingFunctions[".index"](new Ast(".index", [new Ast("__array__", dictKeys), index]))
+            ]));
         }
     }
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
-        error("Cannot access the negative index '" + content.args[1].args[0].numValue + "' of an array");
+        //This can also occur if a dictionary is accessed with a literal that isn't in the dictionary
+        //It's been a while since [-1] was used instead of .last(), so no need to throw an error
+        //error("Cannot access the negative index '" + content.args[1].args[0].numValue + "' of an array");
+        if (enableOptimization) {
+            return getAstForNull();
+        }
     }
 
     if (enableOptimization) {

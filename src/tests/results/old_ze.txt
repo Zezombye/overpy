@@ -176,7 +176,7 @@ rule ("blizz world") {
         Modify Global Variable(S, Append To Array, Vector(10, 4, 25));
         Modify Global Variable(S, Append To Array, Vector(12, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(14, 6, 15));
-        Modify Global Variable(S, Append To Array, Vector(False, False, False));
+        Modify Global Variable(S, Append To Array, Add(Left, Right));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(2.97, -4.65, -85.64));
         Modify Global Variable(L, Append To Array, Vector(-12.371, -4.201, -57.627));
@@ -273,7 +273,7 @@ rule ("eichenwalde") {
         Modify Global Variable(S, Append To Array, Vector(11, 6, 15));
         Modify Global Variable(S, Append To Array, Vector(17, 6, 20));
         Modify Global Variable(S, Append To Array, Vector(19, 6, 20));
-        Modify Global Variable(S, Append To Array, Vector(False, False, False));
+        Modify Global Variable(S, Append To Array, Add(Left, Right));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(-11.842, 1.351, -9.35));
         Modify Global Variable(L, Append To Array, Vector(-7.643, 3.377, -28.96));
@@ -362,7 +362,7 @@ rule ("oasis city center") {
         Modify Global Variable(S, Append To Array, Vector(12, 4, 20));
         Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
         Modify Global Variable(S, Append To Array, Vector(False, False, 15));
-        Modify Global Variable(S, Append To Array, Vector(False, False, False));
+        Modify Global Variable(S, Append To Array, Add(Left, Right));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
         Modify Global Variable(L, Append To Array, Vector(211.228, 2.351, 181.767));
@@ -562,7 +562,7 @@ rule ("walls kb effect") {
     actions {
         Skip If(Compare(Y Component Of(Position Of(Event Player)), <, Subtract(Y Component Of(Value In Array(Global.A, (Event Player).J)), 4)), 5);
         Skip If(Compare(Distance Between(Vector(X Component Of(Position Of(Event Player)), False, Z Component Of(Position Of(Event Player))), Vector(X Component Of(Value In Array(Global.A, (Event Player).J)), False, Z Component Of(Value In Array(Global.A, (Event Player).J)))), >, 4.5), 4);
-        Apply Impulse(Event Player, Vector(False, True, False), 1, To Player, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Up, 1, To Player, Cancel Contrary Motion);
         Apply Impulse(Event Player, Vector(X Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player))), False, Z Component Of(Vector Towards(Value In Array(Global.A, (Event Player).J), Position Of(Event Player)))), Add(2.5, Multiply(Horizontal Speed Of(Event Player), 1.5)), To World, Cancel Contrary Motion);
         Skip(True);
         Apply Impulse(Event Player, Divide(Velocity Of(Event Player), Vector(Absolute Value(X Component Of(Velocity Of(Event Player))), Absolute Value(Y Component Of(Velocity Of(Event Player))), Absolute Value(Z Component Of(Velocity Of(Event Player))))), -10, To World, Cancel Contrary Motion);
@@ -585,7 +585,7 @@ rule ("use tp") {
         All;
     }
     conditions {
-        Array Contains(Players Within Radius(Subtract(Value In Array(Global.B, Global.N), Vector(False, True, False)), 2, All Teams, Off), Event Player) == True;
+        Array Contains(Players Within Radius(Subtract(Value In Array(Global.B, Global.N), Up), 2, All Teams, Off), Event Player) == True;
     }
     actions {
         Teleport(Event Player, Value In Array(Global.C, Global.N));
@@ -761,7 +761,7 @@ rule ("humans and zombies can hurt each other + kb") {
     }
     actions {
         Skip If(Compare(Random Integer(True, 4), !=, 1), True);
-        Apply Impulse(Victim, Vector(False, True, False), 1.5, To Player, Cancel Contrary Motion);
+        Apply Impulse(Victim, Up, 1.5, To Player, Cancel Contrary Motion);
         //lbl_0:
         Apply Impulse(Victim, Divide(Vector Towards(Position Of(Attacker), Position Of(Victim)), Vector(Absolute Value(X Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))), False, Absolute Value(Z Component Of(Vector Towards(Position Of(Attacker), Position Of(Victim)))))), Multiply(Event Damage, 1.05), To World, Cancel Contrary Motion);
     }

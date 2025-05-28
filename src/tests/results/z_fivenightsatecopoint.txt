@@ -338,7 +338,7 @@ rule ("[G] Main Setup") {
     }
     actions {
         "REIN"
-        Create Dummy Bot(Hero(Reinhardt), Team 1, 1, Vector(0, 200, 0), Vector(-1, 0, 0));
+        Create Dummy Bot(Hero(Reinhardt), Team 1, 1, Vector(0, 200, 0), Right);
         Start Forcing Player Position(Players In Slot(1, Team 1), Vector(0, 200, 0), False);
         Set Invisible(Players In Slot(1, Team 1), All);
         "STUFF"
@@ -599,7 +599,7 @@ rule ("[G] Cams Setup") {
     }
     actions {
         Set Global Variable(CamPositions, Array(Null, Vector(1.367, 9.276, -54.926), Vector(-5.5, 10, -27), Vector(-10.08, 9.75, -8.96), Vector(20.45, 3.38, 1.08), Vector(18, 7.1, -6.6), Vector(21.7, 11.51, -8.91), Vector(-3.8, 10.4, 52.8)));
-        Set Global Variable(CamLookAts, Array(Null, Vector(-0.97, -0.1, 0.2), Vector(-0.7, -0.25, -0.7), Vector(-0.4, -0.3, 0.87), Vector(1, 0, 0), Vector(0, -0.3, -1), Vector(0.6, -0.15, 0.79), Vector(-0.18, -0.78, 0.6)));
+        Set Global Variable(CamLookAts, Array(Null, Vector(-0.97, -0.1, 0.2), Vector(-0.7, -0.25, -0.7), Vector(-0.4, -0.3, 0.87), Left, Vector(0, -0.3, -1), Vector(0.6, -0.15, 0.79), Vector(-0.18, -0.78, 0.6)));
         Set Global Variable(InteractCams, Vector(0.55, 8.4, -22.2));
         Set Global Variable(CurrentCam, 0);
         Set Global Variable(LastCam, 1);
@@ -1221,7 +1221,7 @@ rule ("[G] Bastion Setup") {
         Global.NightNumber != 5;
     }
     actions {
-        Create Dummy Bot(Hero(Bastion), Team 2, 0, Vector(-12.74, 7, -49.92), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Bastion), Team 2, 0, Vector(-12.74, 7, -49.92), Left);
         Set Global Variable(Bastion, Players In Slot(0, Team 2));
         Start Scaling Player(Global.Bastion, 1.3, False);
         Start Modifying Hero Voice Lines(Global.Bastion, 1.5, True);
@@ -1307,7 +1307,7 @@ rule ("[G] Bastion Phase 0") {
         Wait Until(Compare(Global.CurrentCam, !=, 1), 99999);
         Abort If(Compare(Global.BastionPhase, !=, 0));
         Teleport(Global.Bastion, Vector(-12.74, 7, -49.92));
-        Set Facing(Global.Bastion, Vector(1, 0, 0), To World);
+        Set Facing(Global.Bastion, Left, To World);
         Set Player Variable(Global.Bastion, HasMoved, True);
     }
 }
@@ -1340,7 +1340,7 @@ rule ("[G] Bastion Phase 2") {
         Global.BastionPhase == 2;
     }
     actions {
-        Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.08, 8.1, -40.48), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.08, 8.1, -40.48), 75)))), 99999);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 1), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.08, 8.1, -40.48), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(6.08, 8.1, -40.48), 75)))), 99999);
         Abort If(Compare(Global.BastionPhase, !=, 2));
         Teleport(Global.Bastion, Vector(6.59, 8.01, -45.94));
         Set Facing(Global.Bastion, Vector(-0.6, 0, 0.8), To World);
@@ -1358,14 +1358,14 @@ rule ("[G] Bastion Phase 3") {
         Global.BastionPhase == 3;
     }
     actions {
-        Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
+        Wait Until(Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
         Abort If(Compare(Global.BastionPhase, !=, 3));
         Teleport(Global.Bastion, Vector(3.39, 7.06, -31.06));
         Set Facing(Global.Bastion, Vector(-0.71, 0, 0.71), To World);
         Wait(Subtract(6, Divide(Global.BastionAI, 10)), Ignore Condition);
         Wait Until(Not(Global.CurrentCam), 8);
         If(Global.ClosedLeftDoor);
-            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
             If(Global.ClosedLeftDoor);
                 Set Global Variable(BastionPhase, If-Then-Else(Compare(Random Integer(1, 100), <=, Global.BastionAI), Random Value In Array(Array(-1, 1)), 0));
             Else;
@@ -1424,14 +1424,14 @@ rule ("[G] Bastion Phase -3") {
         Global.BastionPhase == -3;
     }
     actions {
-        Wait Until(And(And(Compare(Global.CurrentCam, !=, 2), Global.OrisaMeter), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
+        Wait Until(And(And(Compare(Global.CurrentCam, !=, 2), Global.OrisaMeter), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
         Abort If(Compare(Global.BastionPhase, !=, -3));
         Teleport(Global.Bastion, Vector(-4.38, 7.04, -23.22));
         Set Facing(Global.Bastion, Vector(0.71, 0, -0.71), To World);
         Wait(Subtract(6, Divide(Global.BastionAI, 10)), Ignore Condition);
         Wait Until(Not(Global.CurrentCam), 8);
         If(Global.ClosedRightDoor);
-            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
             If(Global.ClosedRightDoor);
                 Set Global Variable(BastionPhase, If-Then-Else(Compare(Random Integer(1, 100), <=, Global.BastionAI), Random Value In Array(Array(-1, 1)), 0));
             Else;
@@ -1459,7 +1459,7 @@ rule ("[G] Echo Setup") {
     }
     actions {
         Wait(0.25, Ignore Condition);
-        Create Dummy Bot(Hero(Echo), Team 2, 2, Vector(28.62, 3, 2.9), Vector(0, 0, 1));
+        Create Dummy Bot(Hero(Echo), Team 2, 2, Vector(28.62, 3, 2.9), Forward);
         Set Global Variable(Echo, Players In Slot(2, Team 2));
         Start Scaling Player(Global.Echo, 1.2, False);
         Wait Until(Is Game In Progress, 99999);
@@ -1547,7 +1547,7 @@ rule ("[G] Echo Phase 0") {
         Wait Until(Compare(Global.CurrentCam, !=, 4), 99999);
         Abort If(Compare(Global.EchoPhase, !=, 0));
         Teleport(Global.Echo, Vector(28.62, 3, 2.9));
-        Set Facing(Global.Echo, Vector(0, 0, 1), To World);
+        Set Facing(Global.Echo, Forward, To World);
         Set Player Variable(Global.Echo, HasMoved, True);
     }
 }
@@ -1565,7 +1565,7 @@ rule ("[G] Echo Phase 1") {
         Wait Until(Compare(Global.CurrentCam, !=, 4), 99999);
         Abort If(Compare(Global.EchoPhase, !=, 1));
         Teleport(Global.Echo, Vector(22.4, 3, 2.57));
-        Set Facing(Global.Echo, Vector(-1, 0, 0), To World);
+        Set Facing(Global.Echo, Right, To World);
         Set Player Variable(Global.Echo, HasMoved, True);
     }
 }
@@ -1598,7 +1598,7 @@ rule ("[G] Echo Phase 3") {
         Global.EchoPhase == 3;
     }
     actions {
-        Wait Until(And(Compare(Global.CurrentCam, !=, 5), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(16.39, 7.02, -14.72), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(16.39, 7.02, -14.72), 75)))), 99999);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 5), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(16.39, 7.02, -14.72), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(16.39, 7.02, -14.72), 75)))), 99999);
         Abort If(Compare(Global.EchoPhase, !=, 3));
         Teleport(Global.Echo, Vector(17.18, 6.02, -13.96));
         Set Facing(Global.Echo, Vector(-0.86, 0.1, -0.5), To World);
@@ -1652,7 +1652,7 @@ rule ("[G] Echo Phase -3") {
         Global.EchoPhase == -3;
     }
     actions {
-        Wait Until(And(Compare(Global.CurrentCam, !=, 6), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(14.55, 13.1, -20.3), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(14.55, 13.1, -20.3), 75)))), 99999);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 6), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(14.55, 13.1, -20.3), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(14.55, 13.1, -20.3), 75)))), 99999);
         Abort If(Compare(Global.EchoPhase, !=, -3));
         Teleport(Global.Echo, Vector(15.5, 11.81, -21));
         Set Facing(Global.Echo, Vector(-0.9, -0.5, -0.05), To World);
@@ -1670,14 +1670,14 @@ rule ("[G] Echo Phase 4 and -4") {
         Or(Compare(Global.EchoPhase, ==, 4), Compare(Global.EchoPhase, ==, -4)) == True;
     }
     actions {
-        Wait Until(And(And(Compare(Global.CurrentCam, !=, 4), Compare(Global.CurrentCam, !=, 6)), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
+        Wait Until(And(And(Compare(Global.CurrentCam, !=, 4), Compare(Global.CurrentCam, !=, 6)), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
         Abort If(And(Compare(Global.EchoPhase, !=, 4), Compare(Global.EchoPhase, !=, -4)));
         Teleport(Global.Echo, Vector(6.74, 7.02, -19.94));
         Set Facing(Global.Echo, Vector(-0.71, 0.1, -0.71), To World);
         Wait(Subtract(6, Divide(Global.EchoAI, 10)), Ignore Condition);
         Wait Until(Not(Global.CurrentCam), 5);
         If(Global.ClosedFrontDoor);
-            Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Echo), 75))), 99999);
+            Wait Until(Not(And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Echo), 75))), 99999);
             If(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS)));
                 Wait(Random Real(1, 3), Ignore Condition);
                 Loop If(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS));
@@ -1708,7 +1708,7 @@ rule ("[G] Orisa Setup") {
     }
     actions {
         Wait(0.5, Ignore Condition);
-        Create Dummy Bot(Hero(Orisa), Team 2, 1, Vector(-10.7, 8.52, -0.37), Vector(-1, 0, 0));
+        Create Dummy Bot(Hero(Orisa), Team 2, 1, Vector(-10.7, 8.52, -0.37), Right);
         Set Global Variable(Orisa, Players In Slot(1, Team 2));
         Start Scaling Player(Global.Orisa, 1.35, False);
         Wait Until(Is Game In Progress, 99999);
@@ -1766,8 +1766,8 @@ rule ("[G] Orisa Progression") {
         Set Facing(Global.Orisa, Direction Towards(Eye Position(Global.Orisa), Value In Array(Global.CamPositions, 3)), To World);
         Wait Until(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 23)), 99999);
         Teleport(Global.Orisa, Vector(-10.36, 7, -8.25));
-        Set Facing(Global.Orisa, Vector(-1, 0, 0), To World);
-        Wait Until(And(And(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 0)), Compare(Global.BastionPhase, !=, 3)), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-15.57, 7.42, -11.65), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-15.57, 7.42, -11.65), 75)))), 99999);
+        Set Facing(Global.Orisa, Right, To World);
+        Wait Until(And(And(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 0)), Compare(Global.BastionPhase, !=, 3)), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(-15.57, 7.42, -11.65), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(-15.57, 7.42, -11.65), 75)))), 99999);
         Teleport(Global.Orisa, Vector(-15.57, 6.42, -11.65));
         Set Facing(Global.Orisa, Vector(0.68, 0, -0.73), To World);
         Wait Until(Not(Global.CurrentCam), 5);
@@ -1776,7 +1776,7 @@ rule ("[G] Orisa Progression") {
         If(Global.ClosedRightDoor);
             Set Status(Global.Orisa, Global.Player_, Stunned, 1);
             Stop Throttle In Direction(Global.Orisa);
-            Wait Until(And(Compare(Global.CurrentCam, !=, 3), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Orisa), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Orisa), 75)))), 99999);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 3), Not(And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Orisa), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Orisa), 75)))), 99999);
             If(Global.ClosedRightDoor);
                 Teleport(Global.Orisa, Vector(-10.7, 8.52, -0.37));
                 Set Facing(Global.Orisa, Direction Towards(Eye Position(Global.Orisa), Value In Array(Global.CamPositions, 3)), To World);
@@ -1996,7 +1996,7 @@ rule ("[G] Zen Setup") {
     }
     actions {
         Wait(1, Ignore Condition);
-        Create Dummy Bot(Hero(Zenyatta), Team 2, 4, Vector(2, 7.4, 22.4), Vector(1, 0, 0));
+        Create Dummy Bot(Hero(Zenyatta), Team 2, 4, Vector(2, 7.4, 22.4), Left);
         Set Global Variable(Zen, Players In Slot(4, Team 2));
         Start Scaling Player(Global.Zen, 1.35, False);
         Set Global Variable(ZenPositions, Array(Vector(-1.92, 7, -54.26), Vector(-9.09, 7.23, -30.7), Vector(-10.11, 8.51, -1.69), Vector(28.2, 3, 1.2), Vector(18, 4.9, -9.52), Vector(23.9, 9, -5.63), Vector(-4.23, 7, 54.36)));
@@ -2300,7 +2300,7 @@ rule ("[G] Night 6 Part 2") {
         Wait Until(Compare(Distance Between(Position Of(Global.Player_), Vector(-7.83, 7.02, -2.91)), <=, 1.5), 20);
         If(Compare(Distance Between(Position Of(Global.Player_), Vector(-7.83, 7.02, -2.91)), <=, 1.55));
             Set Invisible(Global.Player_, All);
-            Start Camera(Global.Player_, Evaluate Once(Add(Eye Position(Global.Player_), Multiply(Up, 2))), Vector(-7.83, 7.02, -2.91), 0);
+            Start Camera(Global.Player_, Evaluate Once(Add(Eye Position(Global.Player_), Vector(0, 2, 0))), Vector(-7.83, 7.02, -2.91), 0);
             Destroy All Effects;
             Enable Built-In Game Mode Music;
             Declare Team Victory(Team 1);
@@ -2372,12 +2372,12 @@ rule ("[SR] Zen at Doors") {
     actions {
         Set Global Variable(ZenDoorNumber, Random Integer(1, 3));
         If(Compare(Global.ZenDoorNumber, ==, 1));
-            Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
+            Wait Until(Not(And(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
             Teleport(Global.Zen, Vector(3.39, 7.06, -31.06));
             Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
             Wait Until(Not(Global.CurrentCam), 4);
             If(Global.ClosedLeftDoor);
-                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+                Wait Until(Not(Or(Global.CurrentCam, And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
                 If(Global.ClosedLeftDoor);
                     Set Global Variable(ZenDoorNumber, 0);
                 Else;
@@ -2387,12 +2387,12 @@ rule ("[SR] Zen at Doors") {
                 Call Subroutine(ZenJumpscare);
             End;
         Else If(Compare(Global.ZenDoorNumber, ==, 2));
-            Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
+            Wait Until(Not(Or(Global.CurrentCam, And(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
             Teleport(Global.Zen, Vector(-4.38, 7.04, -23.22));
             Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
             Wait Until(Not(Global.CurrentCam), 4);
             If(Global.ClosedRightDoor);
-                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
+                Wait Until(Not(Or(Global.CurrentCam, And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
                 If(Global.ClosedRightDoor);
                     Set Global Variable(ZenDoorNumber, 0);
                 Else;
@@ -2402,12 +2402,12 @@ rule ("[SR] Zen at Doors") {
                 Call Subroutine(ZenJumpscare);
             End;
         Else If(Compare(Global.ZenDoorNumber, ==, 3));
-            Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
+            Wait Until(Not(Or(Global.CurrentCam, And(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
             Teleport(Global.Zen, Vector(6.74, 7.02, -19.94));
             Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
             Wait Until(Not(Global.CurrentCam), 4);
             If(Global.ClosedFrontDoor);
-                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
+                Wait Until(Not(Or(Global.CurrentCam, And(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS), Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
                 If(Global.ClosedFrontDoor);
                     Set Global Variable(ZenDoorNumber, 0);
                 Else;

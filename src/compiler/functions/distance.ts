@@ -18,12 +18,21 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
+import { Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.distance = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
             return getAstForNumber(Math.sqrt(Math.pow(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue, 2) + Math.pow(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue, 2) + Math.pow(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue, 2)));
+        }
+
+        //distance(vect(0,0,0), A) -> magnitude(A)
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[0].args[0].args[0].numValue === 0 && content.args[0].args[1].args[0].numValue === 0 && content.args[0].args[2].args[0].numValue === 0) {
+            return new Ast("magnitude", [content.args[1]]);
+        }
+        //distance(A, vect(0,0,0)) -> magnitude(A)
+        if (content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__" && content.args[1].args[0].args[0].numValue === 0 && content.args[1].args[1].args[0].numValue === 0 && content.args[1].args[2].args[0].numValue === 0) {
+            return new Ast("magnitude", [content.args[0]]);
         }
     }
 

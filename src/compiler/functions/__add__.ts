@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars.js";
+import { enableOptimization, NUMBER_LIMIT, optimizeStrict } from "../../globalVars.js";
 import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2, astParsingFunctions } from "../../utils/ast.js";
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
 import { isTypeSuitable } from "../../utils/types.js";
@@ -40,19 +40,24 @@ astParsingFunctions.__add__ = function (content) {
         }
 
         //If one of the arguments is 0, return the other argument.
-        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
-            return content.args[1];
-        }
-        if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
-            return content.args[0];
+        //Non-strict optimization, as it could be used to cast to number.
+        if (!optimizeStrict) {
+            if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
+                return content.args[1];
+            }
+            if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                return content.args[0];
+            }
         }
 
         //If one of the argument is vect(0,0,0), return the other argument.
-        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[0].args[0].numValue === 0 && content.args[0].args[1].name === "__number__" && content.args[0].args[1].args[0].numValue === 0 && content.args[0].args[2].name === "__number__" && content.args[0].args[2].args[0].numValue === 0) {
-            return content.args[1];
-        }
-        if (content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[0].args[0].numValue === 0 && content.args[1].args[1].name === "__number__" && content.args[1].args[1].args[0].numValue === 0 && content.args[1].args[2].name === "__number__" && content.args[1].args[2].args[0].numValue === 0) {
-            return content.args[0];
+        if (!optimizeStrict) {
+            if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[0].args[0].numValue === 0 && content.args[0].args[1].name === "__number__" && content.args[0].args[1].args[0].numValue === 0 && content.args[0].args[2].name === "__number__" && content.args[0].args[2].args[0].numValue === 0) {
+                return content.args[1];
+            }
+            if (content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[0].args[0].numValue === 0 && content.args[1].args[1].name === "__number__" && content.args[1].args[1].args[0].numValue === 0 && content.args[1].args[2].name === "__number__" && content.args[1].args[2].args[0].numValue === 0) {
+                return content.args[0];
+            }
         }
 
         //A+A -> 2*A

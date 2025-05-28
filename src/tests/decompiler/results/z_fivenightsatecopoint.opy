@@ -148,6 +148,10 @@ subroutine ZenMove 12
 #!extension playMoreEffects
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "[WS] Settings":
     NightNumber = createWorkshopSettingEnum("GENERAL", "NIGHT NUMBER", 0, ["NIGHT 1", "NIGHT 2", "NIGHT 3", "NIGHT 4", "NIGHT 5", "NIGHT 6", "CUSTOM NIGHT"])
     AutoRestart = createWorkshopSettingBool("GENERAL", "AUTO-RESTART ON DEATH", false, 1)

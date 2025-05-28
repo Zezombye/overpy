@@ -9,9 +9,9 @@ rule "dicts":
     A = {
         Hero.PHARAH: 2,
         Hero.BRIGITTE: 3,
-    }[1]
+    }[1] #null
 
     A = {
         Hero.PHARAH: 2,
         Hero.BRIGITTE: 3,
-    }[3]
+    }[Hero.PHARAH] #2

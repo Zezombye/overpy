@@ -80,3 +80,19 @@ string")
 
     A = "[{1}] LEAVE EDIT MODE\n{2} CREATE BOT\n{3} GRAB BOT\n[{4}] REMOVE BOT\n[{0}] + [{4}] REMOVE ALL BOTS\n[{5}] PLACE RESET MARKER\n[{0}] + [{5}] REMOVE RESET MARKER\n[{6}] INCREASE PLACEMENT DISTANCE\n[{0}] + [{6}] DECREASE PLACEMENT DISTANCE".format(A,B,C,D,E,F, G)
     A =  "{1} CREATE BOT {2}\n{3} GRAB BOT\n[{4}] REMOVE BOT\n[{0}] + [{4}] REMOVE ALL BOTS\n[{4}] PLACE RESET MARKER\n[{0}] + [{4}] REMOVE RESET MARKER\n[{5}] INCREASE PLACEMENT DISTANCE\n[{0}] + [{5}] DECREASE PLACEMENT DISTANCE".format(A,B,C,D,E,F)
+
+
+rule "optimizations":
+    A = strLen("owo") #3
+    A = strLen("owo{}".format(A))
+    A = strContains("owo", "wo") #true
+    A = strContains("owo{}".format(A), "uwu")
+    A = "owo".replace("o", "u") #uwu
+    A = "owo".replace("o", "u{}".format(A))
+    B = "abcdef".charAt(3) #"d"
+    C = "abcdef".charAt(6) #""
+    D = "abcdef".charAt(-1) #"a"
+    E = "abcdef".substring(3, 9999) #"def"
+    F = "abcdef".substring(-1, 4) #"abcd"
+    G = "abcdef".substring(2, -1) #""
+    A = "ab|cd|ef".split("|") # should not be optimized

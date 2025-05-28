@@ -18,32 +18,29 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { Ast, astParsingFunctions } from "../../utils/ast";
+import { Ast, astParsingFunctions, getAstFor0, getAstFor1, getAstForMinus1 } from "../../utils/ast";
 
 astParsingFunctions.vect = function (content) {
-    if (enableOptimization) {
-        //Check for each of the 6 vector constants
-        if (content.args[0].name === "__number__" && content.args[1].name === "__number__" && content.args[2].name === "__number__") {
-            if (content.args[0].numValue === 1 && content.args[1].numValue === 0 && content.args[2].numValue === 0) {
-                return new Ast("Vector.LEFT");
-            }
-            if (content.args[0].numValue === -1 && content.args[1].numValue === 0 && content.args[2].numValue === 0) {
-                return new Ast("Vector.RIGHT");
-            }
-            if (content.args[0].numValue === 0 && content.args[1].numValue === 1 && content.args[2].numValue === 0) {
-                return new Ast("Vector.UP");
-            }
-            if (content.args[0].numValue === 0 && content.args[1].numValue === -1 && content.args[2].numValue === 0) {
-                return new Ast("Vector.DOWN");
-            }
-            if (content.args[0].numValue === 0 && content.args[1].numValue === 0 && content.args[2].numValue === 1) {
-                return new Ast("Vector.FORWARD");
-            }
-            if (content.args[0].numValue === 0 && content.args[1].numValue === 0 && content.args[2].numValue === -1) {
-                return new Ast("Vector.BACKWARD");
-            }
-        }
-    }
 
     return content;
+};
+
+//Unoptimize so that we can then do optimizations on eg Vector.LEFT*2
+astParsingFunctions["Vector.LEFT"] = function(content) {
+    return new Ast("vect", [getAstFor1(), getAstFor0(), getAstFor0()]);
+};
+astParsingFunctions["Vector.RIGHT"] = function(content) {
+    return new Ast("vect", [getAstForMinus1(), getAstFor0(), getAstFor0()]);
+};
+astParsingFunctions["Vector.UP"] = function(content) {
+    return new Ast("vect", [getAstFor0(), getAstFor1(), getAstFor0()]);
+};
+astParsingFunctions["Vector.DOWN"] = function(content) {
+    return new Ast("vect", [getAstFor0(), getAstForMinus1(), getAstFor0()]);
+};
+astParsingFunctions["Vector.FORWARD"] = function(content) {
+    return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor1()]);
+};
+astParsingFunctions["Vector.BACKWARD"] = function(content) {
+    return new Ast("vect", [getAstFor0(), getAstFor0(), getAstForMinus1()]);
 };

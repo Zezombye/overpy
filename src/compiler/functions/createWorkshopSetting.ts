@@ -19,7 +19,7 @@
 
 import { fileStack, workshopSettingWhitespace, workshopSettingNames, setFileStack, funcKw } from "../../globalVars";
 import { Ast, getAstForMinusInfinity, getAstForInfinity, getAstFor0, astParsingFunctions } from "../../utils/ast";
-import { error, getTypeCheckFailedMessage, functionNameToString } from "../../utils/logging";
+import { error, getTypeCheckFailedMessage, functionNameToString, warn } from "../../utils/logging";
 import { getUtf8Length } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
 
@@ -45,9 +45,6 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
     var settingDefault = content.args[3];
     var sortOrder = content.args[4];
     var result = null;
-
-    settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
-    settingName = createSuitableWorkshopSettingString(settingName, true);
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
@@ -81,7 +78,7 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
                 settingDefault,
                 new Ast(
                     "__array__",
-                    settingType.args.map((x: Ast) => createSuitableWorkshopSettingString(x, false)),
+                    settingType.args,
                 ),
                 sortOrder,
             ]);
@@ -101,6 +98,27 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
     return result;
 };
 
+//Check the other workshop setting functions here to not have 5 redundant files
+astParsingFunctions.createWorkshopSettingBool = astParsingFunctions.createWorkshopSettingEnum = astParsingFunctions.createWorkshopSettingFloat = astParsingFunctions.createWorkshopSettingInt = astParsingFunctions.createWorkshopSettingHero = function (content) {
+    content.args[0] = createSuitableWorkshopSettingString(content.args[0], false);
+    content.args[1] = createSuitableWorkshopSettingString(content.args[1], true);
+    if (content.name === "createWorkshopSettingEnum") {
+        if (content.args[3].name !== "__array__") {
+            error("Expected an array for argument 3 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[3]) + "'");
+        }
+        for (var i = 0; i < content.args[3].args.length; i++) {
+            content.args[3].args[i] = createSuitableWorkshopSettingString(content.args[3].args[i], false);
+        }
+        if (content.args[2].name !== "__number__") {
+            error("Expected a number literal for argument 2 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[2]) + "'");
+        }
+        if (content.args[2].args[0].numValue !== 0) {
+            warn("w_workshop_setting_enum_default", "Default value for workshop setting enum should be 0, as otherwise the first option is not selectable via the UI.");
+        }
+    }
+    return content;
+};
+
 function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
     setFileStack(str.fileStack);
     if (str.name !== "__customString__") {
@@ -115,11 +133,16 @@ function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
 
+    //Replace disallowed workshop setting chars
+    str.args[0].name = str.args[0].name.replace(":", "\u{E003A}").replace("{", "\u{E007B}").replace("}", "\u{E007D}");
+
     if (isName) {
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
-        for (var i = 0; i < workshopSettingWhitespace.length && workshopSettingNames.includes(settingName); i++) {
-            settingName = str.args[0].name + workshopSettingWhitespace[i];
+        if (workshopSettingNames.includes(settingName)) {
+            for (var i = 0; i < workshopSettingWhitespace.length && workshopSettingNames.includes(settingName); i++) {
+                settingName = str.args[0].name + workshopSettingWhitespace[i];
+            }
         }
         str.args[0].name = settingName;
         workshopSettingNames.push(str.args[0].name);

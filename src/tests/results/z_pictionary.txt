@@ -1485,7 +1485,7 @@ rule ("Crossing Red Line") {
         Global.Drawer != Event Player;
     }
     actions {
-        Apply Impulse(Event Player, Vector(-1, 0, 0), 10, To World, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Right, 10, To World, Cancel Contrary Motion);
         Wait(0.016, Ignore Condition);
         Loop If Condition Is True;
     }

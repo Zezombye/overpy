@@ -437,6 +437,10 @@ subroutine symTheColorIsSelectedTrigger 3
 subroutine symScoring 4
 
 
+#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
 rule "Is in setup {GLOBAL}":
     @Condition isInSetup() == true
     

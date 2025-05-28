@@ -31,6 +31,8 @@ rule ("workshop settings") {
         Set Global Variable(A, Workshop Setting Combo(Custom String("enum"), Custom String("enum"), 2, Array(Custom String("a"), Custom String("Β"), Custom String("ｃ")), 0));
         "texture test"
         Set Global Variable(A, Workshop Setting Combo(Custom String("<txC00000000008E02>"), Custom String("<txC00000000008E02>"), 0, Array(Custom String("<txC00000000008E02>")), 0));
+        "char workaround"
+        Set Global Variable(A, Workshop Setting Combo(Custom String("!\"#$%&'()*+,-./󠀺\n;<=>?[\\]^_`󠁻|󠁽~"), Custom String("󠁻test special chars󠀺󠁽"), 1, Array(Custom String("󠁻test special chars󠀺󠁽"), Custom String("owo")), 0));
     }
 }
 

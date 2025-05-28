@@ -49,7 +49,7 @@ rule ("0 to false") {
         Set Global Variable(A, Random Integer(False, Global.B));
         Set Global Variable(A, Random Integer(Global.B, False));
         Set Global Variable(A, Subtract(False, Global.B));
-        Set Global Variable(A, Vector(False, False, False));
+        Set Global Variable(A, Add(Left, Right));
         Chase Global Variable At Rate(A, False, False, None);
         Chase Global Variable Over Time(A, False, False, None);
         Chase Player Variable At Rate(Global.B, A, False, False, None);
@@ -116,6 +116,16 @@ rule ("null vector to null") {
     }
     actions {
         Create Dummy Bot(Hero(Ana), Team 2, Global.A, Null, Null);
+    }
+}
+
+rule ("other optimizations") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "left + right"
+        Set Global Variable(A, Add(Left, Right));
     }
 }
 

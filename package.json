@@ -199,7 +199,6 @@
         "package": "npm run check-types && npm run lint && npm run test && node esbuild.js --production && node generateJsonSchema.mjs",
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . -w --outDir out",
-        "pretest": "npm run compile-standalone",
         "check-types": "tsc --noEmit",
         "lint": "npx eslint src --ext ts",
         "test": "node esbuild.standalone.js && node runTests.mjs",

@@ -374,7 +374,7 @@ rule ("global init") {
         End;
         Set Global Variable(spawn_line, Vector Towards(First Of(Global.spawn_corners), Last Of(Global.spawn_corners)));
         Pause Match Time;
-        Create HUD Text(Filtered Array(All Players(All Teams), And(And(Not(Global.objective_complete), Not(Global.no_hud)), Not((Current Array Element).shop))), Custom String(" {0}   OBJECTIVE: {1}   {0}", Global.newline, Global.objective), Null, Null, Top, False, Custom Color(Global.obj_color_r, Global.obj_color_g, Global.obj_color_b, 255), Null, Null, Visible To String and Color, Default Visibility);
+        Create HUD Text(Filtered Array(All Players(All Teams), Not(Or(Or(Global.objective_complete, Global.no_hud), (Current Array Element).shop))), Custom String(" {0}   OBJECTIVE: {1}   {0}", Global.newline, Global.objective), Null, Null, Top, False, Custom Color(Global.obj_color_r, Global.obj_color_g, Global.obj_color_b, 255), Null, Null, Visible To String and Color, Default Visibility);
         Set Global Variable(objective, Custom String("Wait for players to assemble."));
         Start Rule(obj_color, Restart Rule);
         Create Effect(All Players(All Teams), Ring, Color(Aqua), Global.skip_cutscene_pos, 2, Visible To Position and Radius);
@@ -630,7 +630,7 @@ rule ("main dialogue subr") {
         Set Global Variable(line_number, Null);
         For Global Variable(i_vocal, 0, Count Of(Global.active_dialogue_list), True);
             Set Global Variable(main_speaker, First Of(Value In Array(Global.active_dialogue_list, Global.line_number)));
-            If(Not(Array Contains(Array(20), Global.phase)));
+            If(Not(Compare(Global.phase, ==, 20)));
                 Start Forcing Player To Be Hero(Global.dialogue_bot, If-Then-Else(Global.ana_spawn_fix, Hero(Ana), Global.main_speaker));
             End;
             Set Global Variable(vocalisation, True);
@@ -849,7 +849,7 @@ rule ("spawn doors") {
     actions {
         Set Global Variable(spawn_doors, Array(Vector(-12.054, 2.313, -6.509), Vector(-25.135, 2.279, -0.134), Vector(-0.763, 7.237, 0.767)));
         For Global Variable(i_vocal, 0, Count Of(Global.spawn_doors), True);
-            Create In-World Text(Filtered Array(All Players(All Teams), Or(Not(Global.phase), (Current Array Element).egg)), Custom String("Ø"), Add(Value In Array(Global.spawn_doors, Evaluate Once(Global.i_vocal)), Multiply(Down, 0.7)), 4, Clip Against Surfaces, Visible To, Color(Red), Default Visibility);
+            Create In-World Text(Filtered Array(All Players(All Teams), Or(Not(Global.phase), (Current Array Element).egg)), Custom String("Ø"), Add(Value In Array(Global.spawn_doors, Evaluate Once(Global.i_vocal)), Vector(0, -0.7, 0)), 4, Clip Against Surfaces, Visible To, Color(Red), Default Visibility);
             Modify Global Variable(spawn_door_effects, Append To Array, Last Text ID);
         End;
     }
@@ -896,7 +896,7 @@ rule ("player downed") {
             Modify Player Variable(Event Player, extra_lives_used, Add, 1);
             Set Global Variable(_tempAttributes, Event Player);
         Else;
-            If(Compare(Count Of(Filtered Array(All Living Players(Team 2), And(Not(Is Dummy Bot(Current Array Element)), Not((Current Array Element).is_downed)))), >, False));
+            If(Compare(Count Of(Filtered Array(All Living Players(Team 2), Not(Or(Is Dummy Bot(Current Array Element), (Current Array Element).is_downed)))), >, False));
                 Set Player Variable(Event Player, pos_cache, Add(Nearest Walkable Position(Event Player), Multiply(Direction From Angles(Horizontal Angle From Direction(Direction Towards(Event Player, Nearest Walkable Position(Event Player))), -10), 2)));
                 If(Event Was Environment);
                     Resurrect(Event Player);
@@ -947,7 +947,7 @@ rule ("player reviving 2") {
         (Event Player).is_downed == True;
     }
     actions {
-        Set Player Variable(Event Player, rezzing_players, Filtered Array(All Living Players(Team 2), And(And(And(Not(Is Dummy Bot(Current Array Element)), Not((Current Array Element).is_downed)), Is In Line of Sight(Eye Position(Event Player), Eye Position(Current Array Element), Barriers Do Not Block LOS)), Compare(Distance Between(Event Player, Current Array Element), <, 5))));
+        Set Player Variable(Event Player, rezzing_players, Filtered Array(All Living Players(Team 2), And(And(Not(Or(Is Dummy Bot(Current Array Element), (Current Array Element).is_downed)), Is In Line of Sight(Eye Position(Event Player), Eye Position(Current Array Element), Barriers Do Not Block LOS)), Compare(Distance Between(Event Player, Current Array Element), <, 5))));
         Wait(Global.wait, Ignore Condition);
         Loop If Condition Is True;
     }
@@ -1302,7 +1302,7 @@ rule ("destroy bound effects subr") {
         End;
         If(Compare(Global.phase, <, 10));
             For Global Variable(i5, 0, 3, True);
-                Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i5))), Add(Last Of(Global.boundary_corners), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i5))), Color(Gray), Visible To);
+                Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i5))), Add(Last Of(Global.boundary_corners), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i5))), Color(Gray), Visible To);
                 Wait(0.1, Ignore Condition);
             End;
             Create Beam Effect(All Players(All Teams), Good Beam, Vector(90.319, 20.596, -62.974), Vector(88.386, 23.292, -62.407), Color(Gray), Visible To);
@@ -1630,8 +1630,8 @@ rule ("shop leave") {
             If(Compare(Hero Of(Event Player), ==, Hero(Reaper)));
                 If(Array Contains((Event Player).scrolls_equip, 2));
                     Set Player Variable(Event Player, scythe_swing, -1);
-                    Create Beam Effect(If-Then-Else(Is Meleeing(Event Player), All Players(All Teams), Empty Array), Grapple Beam, World Vector Of(Multiply(Up, 1.2), Event Player, Rotation And Translation), Add(World Vector Of(Multiply(Up, 1.2), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees((Event Player).scythe_angle), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees((Event Player).scythe_angle), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Team 1, Visible To Position and Radius);
-                    Create Beam Effect(If-Then-Else(Is Meleeing(Event Player), All Players(All Teams), Empty Array), Omnic Slicer Beam, Add(World Vector Of(Multiply(Up, 1.2), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees((Event Player).scythe_angle), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees((Event Player).scythe_angle), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Add(World Vector Of(Multiply(Up, 1.2), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees(Add((Event Player).scythe_angle, 55)), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees(Add((Event Player).scythe_angle, 55)), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Team 1, Visible To Position and Radius);
+                    Create Beam Effect(If-Then-Else(Is Meleeing(Event Player), All Players(All Teams), Empty Array), Grapple Beam, World Vector Of(Vector(0, 1.2, 0), Event Player, Rotation And Translation), Add(World Vector Of(Vector(0, 1.2, 0), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees((Event Player).scythe_angle), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees((Event Player).scythe_angle), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Team 1, Visible To Position and Radius);
+                    Create Beam Effect(If-Then-Else(Is Meleeing(Event Player), All Players(All Teams), Empty Array), Omnic Slicer Beam, Add(World Vector Of(Vector(0, 1.2, 0), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees((Event Player).scythe_angle), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees((Event Player).scythe_angle), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Add(World Vector Of(Vector(0, 1.2, 0), Event Player, Rotation And Translation), Multiply(Add(Multiply(Sine From Degrees(Add((Event Player).scythe_angle, 55)), Facing Direction Of(Event Player)), Multiply(Cosine From Degrees(Add((Event Player).scythe_angle, 55)), World Vector Of(Vector(-1, Multiply(0.3, (Event Player).scythe_swing), False), Event Player, Rotation))), (Event Player).scythe_length)), Team 1, Visible To Position and Radius);
                     Set Player Variable At Index(Event Player, create_scroll, 2, True);
     }
 }
@@ -1798,7 +1798,7 @@ rule ("enemy throttle") {
         If(Or(Array Contains(Array(2, 3, 5), (Event Player).enemy_ID), And(Array Contains(Array(21, 23, 24, 25), (Event Player).enemy_ID), Compare(Ability Cooldown(Event Player, Button(Secondary Fire)), <=, False))));
             If(Array Contains(Array(3, 23), (Event Player).enemy_ID));
                 Start Throttle In Direction(Event Player, Add(Multiply(Direction Towards(Event Player, (Event Player).target), If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), >, 16), 1, If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), <, 14), -1, Null))), Multiply(World Vector Of(Left, Event Player, Rotation), (Event Player).strafe)), (Event Player).throttle_mag, To World, Replace existing throttle, Direction and Magnitude);
-            Else If(Array Contains(Array(24), (Event Player).enemy_ID));
+            Else If(Compare((Event Player).enemy_ID, ==, 24));
                 Start Throttle In Direction(Event Player, Add(Multiply(Direction Towards(Event Player, (Event Player).target), If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), >, 8), 1, If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), <, 6), -1, Null))), Multiply(World Vector Of(Left, Event Player, Rotation), (Event Player).strafe)), (Event Player).throttle_mag, To World, Replace existing throttle, Direction and Magnitude);
             Else;
                 Start Throttle In Direction(Event Player, Add(Multiply(Direction Towards(Event Player, (Event Player).target), If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), >, 10), 1, If-Then-Else(Compare(Distance Between(Event Player, (Event Player).target), <, 8), -1, Null))), Multiply(World Vector Of(Left, Event Player, Rotation), (Event Player).strafe)), (Event Player).throttle_mag, To World, Replace existing throttle, Direction and Magnitude);
@@ -1864,7 +1864,7 @@ rule ("k/sp/sk/over/overoverkillager attack") {
                 Chase Player Variable At Rate(Event Player, real, False, True, None);
                 Wait(1.7, Ignore Condition);
             End;
-            Press Button(Event Player, If-Then-Else(Or(Array Contains(Array(8), (Event Player).enemy_ID), And(Compare((Event Player).enemy_ID, ==, 9), Compare(Distance Between(Event Player, (Event Player).target), <, 7))), Button(Secondary Fire), Button(Primary Fire)));
+            Press Button(Event Player, If-Then-Else(Or(Compare((Event Player).enemy_ID, ==, 8), And(Compare((Event Player).enemy_ID, ==, 9), Compare(Distance Between(Event Player, (Event Player).target), <, 7))), Button(Secondary Fire), Button(Primary Fire)));
             Wait(If-Then-Else(Compare((Event Player).enemy_ID, ==, 5), Random Real(1, 2), Random Real(If-Then-Else(Array Contains(Array(8, 9), (Event Player).enemy_ID), 1.1, 0.6), 1.5)), Ignore Condition);
         End;
         Wait(Global.wait, Ignore Condition);
@@ -1959,7 +1959,7 @@ rule ("gri/chi/chernobyllager explode") {
             Else If(Compare((Event Player).enemy_ID, ==, 6));
                 Set Status(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Null, Frozen, 3);
             End;
-            Apply Impulse(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Add(Direction Towards(Event Player, Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i))), Multiply(Up, 0.7)), If-Then-Else(Compare((Event Player).enemy_ID, ==, 10), 20, 14), To World, Cancel Contrary Motion);
+            Apply Impulse(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Add(Direction Towards(Event Player, Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i))), Vector(0, 0.7, 0)), If-Then-Else(Compare((Event Player).enemy_ID, ==, 10), 20, 14), To World, Cancel Contrary Motion);
             Set Player Variable(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), took_knockback, 1);
             Chase Player Variable At Rate(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), took_knockback, False, True, Destination and Rate);
         End;
@@ -2125,7 +2125,7 @@ rule ("(royal/life) guard attack (shielded)") {
         If(Is In Line of Sight(Eye Position(Event Player), Eye Position((Event Player).target), Barriers Do Not Block LOS));
             Press Button(Event Player, Button(Ability 1));
         End;
-        Wait(If-Then-Else(Array Contains(Array(23), (Event Player).enemy_ID), Random Real(3, 6), Random Real(1.5, 2.5)), Ignore Condition);
+        Wait(If-Then-Else(Compare((Event Player).enemy_ID, ==, 23), Random Real(3, 6), Random Real(1.5, 2.5)), Ignore Condition);
         Loop If Condition Is True;
     }
 }
@@ -2161,7 +2161,7 @@ rule ("brig no shield") {
         Brigitte;
     }
     conditions {
-        Array Contains(Array(24), (Event Player).enemy_ID) == False;
+        Compare((Event Player).enemy_ID, ==, 24) == False;
         Ability Cooldown(Event Player, Button(Secondary Fire)) > False;
     }
     actions {
@@ -3005,7 +3005,7 @@ rule ("out of bounds visuals 1") {
     actions {
         Wait(True, Ignore Condition);
         For Global Variable(i3, 0, 11, True);
-            Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i3))), Add(Last Of(Global.boundary_corners), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i3))), Color(Black), Visible To);
+            Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i3))), Add(Last Of(Global.boundary_corners), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i3))), Color(Black), Visible To);
             Modify Global Variable(boundary_effects, Append To Array, Last Created Entity);
             Wait(False, Ignore Condition);
         End;
@@ -3023,7 +3023,7 @@ rule ("out of bounds phase <?") {
         Is Dummy Bot(Event Player) == False;
     }
     actions {
-        Apply Impulse(Event Player, Add(Normalize(Cross Product(Global.boundary_line, Up)), Multiply(Up, 0.3)), 5, To World, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Add(Normalize(Cross Product(Global.boundary_line, Up)), Vector(0, 0.3, 0)), 5, To World, Cancel Contrary Motion);
         Wait(False, Ignore Condition);
         Loop If Condition Is True;
     }
@@ -3075,7 +3075,7 @@ rule ("boundaries 2") {
         Set Global Variable(boundary_corners_2, If-Then-Else(Compare(Global.phase, ==, 2), Array(Vector(40.846, 5, -38.417), Vector(-12.812, 5, -38.358)), If-Then-Else(Compare(Global.phase, ==, 10), Array(Vector(42.805, 6, -44.411), Vector(21.056, 6, -97.984)), Array(Vector(67.648, 8, -57.147), Vector(53.494, 8, -112.111)))));
         Set Global Variable(boundary_line_2, Vector Towards(First Of(Global.boundary_corners_2), Last Of(Global.boundary_corners_2)));
         For Global Variable(i3, 0, If-Then-Else(Compare(Global.phase, ==, 13), 12, 10), True);
-            Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners_2), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i3))), Add(Last Of(Global.boundary_corners_2), Multiply(Multiply(Up, 1.5), Evaluate Once(Global.i3))), Color(Black), Visible To);
+            Create Beam Effect(All Players(All Teams), Good Beam, Add(First Of(Global.boundary_corners_2), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i3))), Add(Last Of(Global.boundary_corners_2), Multiply(Vector(0, 1.5, 0), Evaluate Once(Global.i3))), Color(Black), Visible To);
             If(Compare(Global.phase, ==, 13));
                 Modify Global Variable(boundary_effects_2, Append To Array, Last Created Entity);
             Else;
@@ -3099,7 +3099,7 @@ rule ("out of bounds phase x != 9") {
         Y Component Of(Cross Product(Direction Towards(First Of(Global.boundary_corners_2), Vector(X Component Of(Position Of(Event Player)), False, Z Component Of(Position Of(Event Player)))), Global.boundary_line_2)) < False;
     }
     actions {
-        Apply Impulse(Event Player, Add(Normalize(Cross Product(Global.boundary_line_2, Up)), Multiply(Up, 0.3)), 5, To World, Cancel Contrary Motion);
+        Apply Impulse(Event Player, Add(Normalize(Cross Product(Global.boundary_line_2, Up)), Vector(0, 0.3, 0)), 5, To World, Cancel Contrary Motion);
         Wait(False, Ignore Condition);
         Loop If Condition Is True;
     }
@@ -3387,7 +3387,7 @@ rule ("seventh cutscene") {
         For Global Variable(i3, 0, 6, True);
             Create Effect(All Players(All Teams), Sphere, Color(Red), Value In Array(Global.dragon_blood_actual_spawn, Evaluate Once(Global.i3)), 0.2, Visible To Position and Radius);
             Modify Global Variable(dragon_blood_effects, Append To Array, Last Created Entity);
-            Create Beam Effect(All Players(All Teams), Moira Coalescence Beam, Value In Array(Global.dragon_blood_actual_spawn, Evaluate Once(Global.i3)), Add(Value In Array(Global.dragon_blood_actual_spawn, Evaluate Once(Global.i3)), Multiply(Up, 0.001)), Team 1, Visible To Position and Radius);
+            Create Beam Effect(All Players(All Teams), Moira Coalescence Beam, Value In Array(Global.dragon_blood_actual_spawn, Evaluate Once(Global.i3)), Add(Value In Array(Global.dragon_blood_actual_spawn, Evaluate Once(Global.i3)), Vector(0, 0.001, 0)), Team 1, Visible To Position and Radius);
             Modify Global Variable(dragon_blood_effects, Append To Array, Last Created Entity);
             Wait(False, Ignore Condition);
         End;
@@ -3717,7 +3717,7 @@ rule ("cowboy init") {
         Set Player Variable(Event Player, damage_received, Subtract(130, Multiply(15, Global.difficulty)));
         Set Damage Dealt(Event Player, (Event Player).damage_dealt);
         Set Damage Received(Event Player, (Event Player).damage_received);
-        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Add(Eye Position((Event Player).target), Multiply(Down, 0.5)), Vector(Random Real(-0.8, 0.8), False, Random Real(-0.8, 0.8)))), 1000, To World, Direction and Turn Rate);
+        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Add(Eye Position((Event Player).target), Vector(0, -0.5, 0)), Vector(Random Real(-0.8, 0.8), False, Random Real(-0.8, 0.8)))), 1000, To World, Direction and Turn Rate);
         Create Dummy Bot(Hero(Ashe), Team 1, -1, Position Of(Event Player), Facing Direction Of(Event Player));
         Set Player Variable(Last Created Entity, boss_ID, 2.1);
         Set Player Variable(Event Player, boss_pet, Last Created Entity);
@@ -3894,7 +3894,7 @@ rule ("cowboy dead cutscene") {
         Set Global Variable(merchant, Last Created Entity);
         Wait(5, Ignore Condition);
         Set Global Variable(objective_pos, Vector(84.923, 14.448, -100.295));
-        Set Global Variable(pentagram_pos, Add(Ray Cast Hit Position(Vector(77.842, 13.935, -98.146), Add(Vector(77.842, 13.935, -98.146), Down), Null, Null, True), Multiply(Down, 0.1)));
+        Set Global Variable(pentagram_pos, Add(Ray Cast Hit Position(Vector(77.842, 13.935, -98.146), Vector(77.842, 12.935, -98.146), Null, Null, True), Vector(0, -0.1, 0)));
     }
 }
 
@@ -3942,7 +3942,7 @@ rule ("summoner intro cutscene") {
         Chase Global Variable At Rate(pentagram_radius, 3, 0.316, Destination and Rate);
         Create Effect(All Players(All Teams), Sigma Gravitic Flux Target Sound, Team 1, Global.pentagram_pos, Multiply(Global.pentagram_radius, 66.666), Visible To Position and Radius);
         Set Global Variable(pentagram_effects, Last Created Entity);
-        Create Effect(All Players(All Teams), Ring, Color(Red), Add(Global.pentagram_pos, Multiply(Up, 0.001)), Add(Global.pentagram_radius, 0.1), Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Ring, Color(Red), Add(Global.pentagram_pos, Vector(0, 0.001, 0)), Add(Global.pentagram_radius, 0.1), Visible To Position and Radius);
         Modify Global Variable(pentagram_effects, Append To Array, Last Created Entity);
         For Global Variable(i4, 0, 5, True);
             Wait(1.5, Ignore Condition);
@@ -3999,17 +3999,17 @@ rule ("summoner intro cutscene") {
         Wait(0.2, Ignore Condition);
         Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Orange), Global.pentagram_pos, 2);
         Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Add(Global.pentagram_pos, Up), 14);
-        Create Beam Effect(All Players(All Teams), Moira Coalescence Beam, Global.pentagram_pos, Add(Global.pentagram_pos, Multiply(Up, 70)), Team 1, Visible To);
+        Create Beam Effect(All Players(All Teams), Moira Coalescence Beam, Global.pentagram_pos, Add(Global.pentagram_pos, Vector(0, 70, 0)), Team 1, Visible To);
         Modify Global Variable(summoner_effects, Append To Array, Last Created Entity);
         Create Effect(All Players(All Teams), Wrecking Ball Piledriver Fire Sound, Team 1, Global.pentagram_pos, 100, Visible To);
         Modify Global Variable(summoner_effects, Append To Array, Last Created Entity);
-        Create Progress Bar In-World Text(All Players(All Teams), Global.door_health, Custom String("{0} Castle Door's Health", Ability Icon String(Hero(Brigitte), Button(Secondary Fire))), Add(Global.door, Multiply(Up, 8)), 1, Do Not Clip, Color(White), Color(White), Visible To and Values, Default Visibility);
+        Create Progress Bar In-World Text(All Players(All Teams), Global.door_health, Custom String("{0} Castle Door's Health", Ability Icon String(Hero(Brigitte), Button(Secondary Fire))), Add(Global.door, Vector(0, 8, 0)), 1, Do Not Clip, Color(White), Color(White), Visible To and Values, Default Visibility);
         Modify Global Variable(summoner_effects, Append To Array, Last Text ID);
-        Create Progress Bar In-World Text(All Players(All Teams), Global.summoner_power, Custom String("{0} Summoner's Power", Ability Icon String(Hero(Moira), Button(Ultimate))), Add(Global.pentagram_pos, Multiply(Up, 4)), 1, Do Not Clip, Color(Orange), Color(Orange), Visible To and Values, Default Visibility);
+        Create Progress Bar In-World Text(All Players(All Teams), Global.summoner_power, Custom String("{0} Summoner's Power", Ability Icon String(Hero(Moira), Button(Ultimate))), Add(Global.pentagram_pos, Vector(0, 4, 0)), 1, Do Not Clip, Color(Orange), Color(Orange), Visible To and Values, Default Visibility);
         Modify Global Variable(summoner_effects, Append To Array, Last Text ID);
         Destroy Dummy Bot(Team 2, 6);
         For Global Variable(i5, 1, 6, True);
-            Create In-World Text(All Players(All Teams), Char In String(Global.summoner_chars, Round To Integer(Modulo(Add(Multiply(Total Time Elapsed, 10), Evaluate Once(Global.i5)), String Length(Global.summoner_chars)), Down)), Add(Add(Global.pentagram_pos, Multiply(Multiply(Up, 0.6), Evaluate Once(Global.i5))), Multiply(Direction From Angles(Multiply(Multiply(If-Then-Else(Compare(Modulo(Evaluate Once(Global.i5), 2), ==, Null), 1, -1), Subtract(Total Time Elapsed, Evaluate Once(Total Time Elapsed))), Evaluate Once(Random Real(180, 500))), 0), Evaluate Once(Random Real(2, 4)))), Evaluate Once(Random Real(1.5, 2)), Clip Against Surfaces, Visible To Position and String, Color(Orange), Default Visibility);
+            Create In-World Text(All Players(All Teams), Char In String(Global.summoner_chars, Round To Integer(Modulo(Add(Multiply(Total Time Elapsed, 10), Evaluate Once(Global.i5)), String Length(Global.summoner_chars)), Down)), Add(Add(Global.pentagram_pos, Multiply(Vector(0, 0.6, 0), Evaluate Once(Global.i5))), Multiply(Direction From Angles(Multiply(Multiply(If-Then-Else(Compare(Modulo(Evaluate Once(Global.i5), 2), ==, Null), 1, -1), Subtract(Total Time Elapsed, Evaluate Once(Total Time Elapsed))), Evaluate Once(Random Real(180, 500))), 0), Evaluate Once(Random Real(2, 4)))), Evaluate Once(Random Real(1.5, 2)), Clip Against Surfaces, Visible To Position and String, Color(Orange), Default Visibility);
             Modify Global Variable(summoner_effects, Append To Array, Last Text ID);
             Wait(0.1, Ignore Condition);
         End;
@@ -4103,7 +4103,7 @@ rule ("zomnic explode") {
         Set Player Variable(Event Player, grillager_victims, Filtered Array(Players Within Radius(Event Player, 5, Team 1, Surfaces), (Current Array Element).enemy_ID));
         For Player Variable(Event Player, i, 0, Count Of((Event Player).grillager_victims), True);
             Damage(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Event Player, Multiply(40, Subtract(6, Distance Between(Event Player, Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i))))));
-            Apply Impulse(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Add(Direction Towards(Event Player, Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i))), Multiply(Up, 0.7)), 20, To World, Cancel Contrary Motion);
+            Apply Impulse(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), Add(Direction Towards(Event Player, Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i))), Vector(0, 0.7, 0)), 20, To World, Cancel Contrary Motion);
             Set Player Variable(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), took_knockback, 1);
             Chase Player Variable At Rate(Value In Array((Event Player).grillager_victims, Evaluate Once((Event Player).i)), took_knockback, False, True, Destination and Rate);
         End;
@@ -4417,7 +4417,7 @@ rule ("ana init") {
         Create Effect(All Players(All Teams), Cloud, Color(Violet), (Event Player).gas_pos, (Event Player).gas_radius, Position and Radius);
         Create Effect(All Players(All Teams), Ring, Color(Violet), (Event Player).gas_pos, (Event Player).gas_radius, Position and Radius);
         Start Forcing Player Position(Event Player, Vector(89.137, 20, -63.627), False);
-        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), If-Then-Else(Compare((Event Player).attack, >, False), Ray Cast Hit Position(Eye Position((Event Player).target), Add(Eye Position((Event Player).target), Multiply(Down, 10)), Null, Null, True), Eye Position((Event Player).target))), 1000, To World, Direction and Turn Rate);
+        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), If-Then-Else(Compare((Event Player).attack, >, False), Ray Cast Hit Position(Eye Position((Event Player).target), Add(Eye Position((Event Player).target), Vector(0, -10, 0)), Null, Null, True), Eye Position((Event Player).target))), 1000, To World, Direction and Turn Rate);
     }
 }
 
@@ -4681,11 +4681,11 @@ rule ("door 0 health - ana dies cutscene") {
         Modify Global Variable(real_total, Add, 100);
         Play Effect(All Players(All Teams), Doomfist Meteor Strike Impact Sound, Team 1, Global.door, 200);
         Play Effect(All Players(All Teams), Sigma Accretion Impact Sound, Team 1, Global.door, 200);
-        Play Effect(All Players(All Teams), Ring Explosion, Color(Orange), Add(Global.door, Multiply(Up, 4)), 30);
-        Play Effect(All Players(All Teams), Junkrat RIP Tire Explosion Effect, Team 1, Add(Global.door, Multiply(Up, 4)), 1);
+        Play Effect(All Players(All Teams), Ring Explosion, Color(Orange), Add(Global.door, Vector(0, 4, 0)), 30);
+        Play Effect(All Players(All Teams), Junkrat RIP Tire Explosion Effect, Team 1, Add(Global.door, Vector(0, 4, 0)), 1);
         Play Effect(All Players(All Teams), Doomfist Meteor Strike Impact Effect, Team 1, Global.door, 1);
-        Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Add(Global.door, Multiply(Up, 4)), 20);
-        Create Effect(All Players(All Teams), Bad Aura, Color(Gray), Add(Global.door, Multiply(Up, 4)), 8, None);
+        Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Add(Global.door, Vector(0, 4, 0)), 20);
+        Create Effect(All Players(All Teams), Bad Aura, Color(Gray), Add(Global.door, Vector(0, 4, 0)), 8, None);
         Kill(Remove From Array(All Players(Team 1), Global.dialogue_bot), Null);
         Destroy All Progress Bar In-World Text;
         Kill(Filtered Array(Players On Hero(Hero(Zenyatta), Team 2), Compare((Current Array Element).zomnic, ==, 1)), Null);
@@ -4783,7 +4783,7 @@ rule ("shop ui setup") {
         "page 1"
         Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 1)), Custom String("{0}Potions {1}", If-Then-Else((Local Player).shop_selection, Custom String(""), Custom String("▶ ")), Icon String(Poison 2)), Add(Add(Last Of(Global.shop_campos), Multiply(Global.shop_left, 1.5)), Multiply(Multiply(Up, Sine From Degrees(Global.shop_angle)), If-Then-Else((Local Player).shop_selection, False, 0.1))), 3, Do Not Clip, Visible To Position and String, Color(Purple), Default Visibility);
         Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 1)), Custom String("{0}Scrolls {1}", If-Then-Else(Compare((Local Player).shop_selection, ==, 1), Custom String("▶ "), Custom String("")), Icon String(Spiral)), Add(Add(Last Of(Global.shop_campos), Multiply(Global.shop_left, -1.5)), Multiply(Multiply(Up, If-Then-Else(Compare((Local Player).shop_selection, ==, 1), 0.1, False)), Sine From Degrees(Global.shop_angle))), 3, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
-        Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 1)), Custom String("Come forth and browse my alchemical goods, {0}Or gaze upon my collection of forbidden academia.", Global.newline), Add(Last Of(Global.shop_campos), Multiply(Down, 1.5)), 1.5, Do Not Clip, Visible To Position and String, Value In Array(Global.t2_hero_colours, 6), Default Visibility);
+        Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 1)), Custom String("Come forth and browse my alchemical goods, {0}Or gaze upon my collection of forbidden academia.", Global.newline), Add(Last Of(Global.shop_campos), Vector(0, -1.5, 0)), 1.5, Do Not Clip, Visible To Position and String, Value In Array(Global.t2_hero_colours, 6), Default Visibility);
         "page 2"
         For Player Variable(Event Player, i, 0, 5, True);
             Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 2)), Custom String("{0}Potion of {1}", If-Then-Else(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), Custom String("▶ "), Custom String("")), Value In Array(Array(Custom String("Vengeance {0}", Icon String(Skull)), Custom String("Salvation {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), Custom String("Endurance {0}", Ability Icon String(Hero(Baptiste), Button(Ability 1))), Custom String("Frenzy {0}", Ability Icon String(Hero(Moira), Button(Ability 1))), Custom String("More Gun {0}", Ability Icon String(Hero(Cassidy), Button(Primary Fire)))), Evaluate Once((Event Player).i))), Add(Add(Add(Last Of(Global.shop_campos), Multiply(Up, Subtract(True, Multiply(0.3, Evaluate Once((Event Player).i))))), Multiply(Global.shop_left, If-Then-Else(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), 1.4, 1.5))), Multiply(Multiply(Global.shop_left, Sine From Degrees(Global.shop_angle)), If-Then-Else(And(And(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), Compare(Value In Array((Local Player).potions, Evaluate Once((Event Player).i)), <, Value In Array((Local Player).potions_max, Evaluate Once((Event Player).i)))), Compare((Local Player).euros, >, Value In Array(Global.potions_price, Evaluate Once((Event Player).i)))), 0.1, False))), 1.5, Do Not Clip, Visible To Position String and Color, If-Then-Else(And(Compare(Value In Array((Local Player).potions, Evaluate Once((Event Player).i)), <, Value In Array((Local Player).potions_max, Evaluate Once((Event Player).i))), Compare((Local Player).euros, >=, Value In Array(Global.potions_price, Evaluate Once((Event Player).i)))), Value In Array(Array(Color(Red), Color(Yellow), Color(Green), Color(Aqua), Color(Blue)), Evaluate Once((Event Player).i)), Color(Gray)), Default Visibility);
@@ -4793,7 +4793,7 @@ rule ("shop ui setup") {
             Wait(False, Ignore Condition);
             Modify Player Variable(Event Player, i, Subtract, 5);
         End;
-        Create In-World Text(Filtered Array(All Players(All Teams), And(Compare((Current Array Element).shop, ==, 2), Compare((Current Array Element).shop_selection, !=, 69))), Custom String("{0} - STOCK: {1} - PRICE: €{2}", Custom String("{0}{1}{2}", Value In Array(Array(Custom String("Indulge in your destructive lust for revenge."), Custom String("Not the holy kind. More akin to dumpster-diving salvation."), Custom String("Pain is but an illusion. Free your soul from it."), Custom String("Let the hysteria take over your feeble limbs."), Custom String("It’s just a glass bottle full of bullets."), Custom String("Expand your mind. Unlock your repressed potential."), Custom String("Brewed with the fangs of a powerful ancient deity."), Custom String("The dragon’s fire consumes all."), Custom String("Death is merely a temporary illness."), Custom String(" ")), (Local Player).shop_selection), Global.newline, Value In Array(Array(Custom String("Increases damage dealt by 5%."), Custom String("Increases healing dealt by 5%."), Custom String("Increases maximum health by 20HP."), Custom String("Increases movement speed by 5%."), Custom String("Increases ammo clip by 20%."), Custom String("Decreases ability cooldowns by 1 second."), Custom String("Converts 5% of damage to health (Does not stack with Salvation)."), Custom String("Adds a 5% chance to light enemies on fire per attack."), Custom String("On your next death, you will immediately revive."), Custom String("A refreshing, hydrating drink.")), (Local Player).shop_selection)), Subtract(Value In Array((Local Player).potions_max, (Local Player).shop_selection), Value In Array((Local Player).potions, (Local Player).shop_selection)), Value In Array(Global.potions_price, (Local Player).shop_selection)), Add(Last Of(Global.shop_campos), Multiply(Down, 1.5)), 1.5, Do Not Clip, Visible To Position String and Color, If-Then-Else(And(Compare(Subtract(Value In Array((Local Player).potions_max, (Local Player).shop_selection), Value In Array((Local Player).potions, (Local Player).shop_selection)), >, False), Compare((Local Player).euros, >=, Value In Array(Global.potions_price, (Local Player).shop_selection))), Value In Array(Array(Color(Red), Color(Yellow), Color(Green), Color(Aqua), Color(Blue), Color(Purple), Color(Rose), Color(Orange), Custom Color(112, 179, 134, 255), Color(White)), (Local Player).shop_selection), Color(Gray)), Default Visibility);
+        Create In-World Text(Filtered Array(All Players(All Teams), And(Compare((Current Array Element).shop, ==, 2), Compare((Current Array Element).shop_selection, !=, 69))), Custom String("{0} - STOCK: {1} - PRICE: €{2}", Custom String("{0}{1}{2}", Value In Array(Array(Custom String("Indulge in your destructive lust for revenge."), Custom String("Not the holy kind. More akin to dumpster-diving salvation."), Custom String("Pain is but an illusion. Free your soul from it."), Custom String("Let the hysteria take over your feeble limbs."), Custom String("It’s just a glass bottle full of bullets."), Custom String("Expand your mind. Unlock your repressed potential."), Custom String("Brewed with the fangs of a powerful ancient deity."), Custom String("The dragon’s fire consumes all."), Custom String("Death is merely a temporary illness."), Custom String(" ")), (Local Player).shop_selection), Global.newline, Value In Array(Array(Custom String("Increases damage dealt by 5%."), Custom String("Increases healing dealt by 5%."), Custom String("Increases maximum health by 20HP."), Custom String("Increases movement speed by 5%."), Custom String("Increases ammo clip by 20%."), Custom String("Decreases ability cooldowns by 1 second."), Custom String("Converts 5% of damage to health (Does not stack with Salvation)."), Custom String("Adds a 5% chance to light enemies on fire per attack."), Custom String("On your next death, you will immediately revive."), Custom String("A refreshing, hydrating drink.")), (Local Player).shop_selection)), Subtract(Value In Array((Local Player).potions_max, (Local Player).shop_selection), Value In Array((Local Player).potions, (Local Player).shop_selection)), Value In Array(Global.potions_price, (Local Player).shop_selection)), Add(Last Of(Global.shop_campos), Vector(0, -1.5, 0)), 1.5, Do Not Clip, Visible To Position String and Color, If-Then-Else(And(Compare(Subtract(Value In Array((Local Player).potions_max, (Local Player).shop_selection), Value In Array((Local Player).potions, (Local Player).shop_selection)), >, False), Compare((Local Player).euros, >=, Value In Array(Global.potions_price, (Local Player).shop_selection))), Value In Array(Array(Color(Red), Color(Yellow), Color(Green), Color(Aqua), Color(Blue), Color(Purple), Color(Rose), Color(Orange), Custom Color(112, 179, 134, 255), Color(White)), (Local Player).shop_selection), Color(Gray)), Default Visibility);
         For Player Variable(Event Player, i, 0, 3, True);
             Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).shop, ==, 3)), Custom String("{0}{1}", If-Then-Else(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), Custom String("▶ "), Custom String("")), If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, Evaluate Once((Event Player).i))), Value In Array(Value In Array(Array(String Split(Custom String("Chaos Magic/Mystic Transfusion/Bewitching Grasp/Flying Broomstick/Undying Servitude/Hex Mania"), Custom String("/")), String Split(Custom String("Junkenstein's Revenge/Superconductive/Discharged/Shocking Surprise/Faraday Trap/Zombardier"), Custom String("/")), String Split(Custom String("Evil Stitched To Evil/It's Alive!/Recycling/Chain Reaction/Monstrous Roar/Beware; For I Am Fearless"), Custom String("/")), String Split(Custom String("Reap What You Sow/Marked For Death/The Reaper's Scythe/Vengeful Ghost/Jumpscare/Dance With The Reaper"), Custom String("/"))), Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), Value In Array((Local Player).scrolls_random, Evaluate Once((Event Player).i))), Custom String("Mysterious Scroll"))), Add(Add(Add(Last Of(Global.shop_campos), Multiply(Up, Subtract(0.4, Multiply(0.3, Evaluate Once((Event Player).i))))), Multiply(Global.shop_left, If-Then-Else(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), 1.4, 1.5))), Multiply(Multiply(Global.shop_left, Sine From Degrees(Global.shop_angle)), If-Then-Else(And(And(Compare((Local Player).shop_selection, ==, Evaluate Once((Event Player).i)), Not(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, Evaluate Once((Event Player).i))))), Compare((Local Player).real, >, 99)), 0.1, False))), 1.8, Do Not Clip, Visible To Position String and Color, If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, Evaluate Once((Event Player).i))), Value In Array(Global.t2_hero_colours, Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), If-Then-Else(Compare((Local Player).real, >, 99), Color(White), Color(Gray))), Default Visibility);
             Wait(False, Ignore Condition);
@@ -4802,7 +4802,7 @@ rule ("shop ui setup") {
             Wait(False, Ignore Condition);
             Modify Player Variable(Event Player, i, Subtract, 3);
         End;
-        Create In-World Text(Filtered Array(All Players(All Teams), And(Compare((Current Array Element).shop, ==, 3), Compare((Current Array Element).shop_selection, !=, 69))), If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Value In Array(Value In Array(Array(Array(Custom String("Heal yourself for 50% damage your heal target takes and 50%\ndamage they deal. Your health regen is drastically reduced."), Custom String("Press ''{0}'' while healing a player to instantly heal\nthem for 100HP, sacrificing 60HP of your own.", Input Binding String(Button(Reload))), Custom String("Replaces Damage Boost with a beam that locks\nonto enemies and drains their health."), Custom String("Guardian Angel now damages and\nknocks back enemies in your path."), Custom String("Replaces Resurrect. Casts a spell on a living teammate that\nmakes them invulnerable to all damage for 8 seconds."), Custom String("Upon activating Valkyrie, all enemies in a 30 meter radius go\ninsane for 8 seconds, becoming hacked and confused.")), Array(Custom String("When downed, repeatedly release Total Mayhem\nbombs at your corpse every second."), Custom String("When under 66.6% health, nearby enemies\ntake electric damage over time."), Custom String("Every killing blow causes the victim to discharge\nelectricity, damaging nearby enemies and stunning them."), Custom String("Concussion Mine and Riptire\nnow also electrify enemies, stunning them."), Custom String("When an enemy is caught in your Steel Trap, they start\nelectrifying nearby enemies, damaging and rooting them."), Custom String("Upon activating Riptire, a zombardier is summoned\nthat fights for you for 20 seconds.")), Array(Custom String("Every killing blow grants you +100 unrecoverable HP."), Custom String("Become nanoboosted for 10 seconds whenever\nyou revive. Allies revive you twice as quickly."), Custom String("When crouching, deal 2× damage,\nbut every shot takes 100HP from you."), Custom String("Successfully landing a hook sets its cooldown to 1 second,\nhowever missing a hook sets its cooldown to 12 seconds."), Custom String("Replaces Take A Breather with a roar that heals you and\ngrants 60% damage reduction for 5 seconds. All enemies\nimmediately ta{0}", Custom String("rget you.")), Custom String("Whole Hog now deals zero knockback.\n2× movement speed while Whole Hog is active.")), Array(Custom String("Every killing blow refreshes\none of your cooldowns."), Custom String("Shoot an enemy to mark them, making them\nvisible through walls and take 1.25× damage.\nYou can only mark one enemy at a time."), Custom String("Gain 2× melee range and 2.5× melee damage."), Custom String("While in Wraith Form, nearby enemies\ntake damage over time."), Custom String("Upon exiting Shadow Step, all nearby\nenemies become frozen in fear."), Custom String("While using Death Blossom, you become\ninvincible and move 3× as fast."))), Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Custom String("Unlock this scroll to attain unique, mysterious powers. - PRICE: R$100")), Add(Last Of(Global.shop_campos), Multiply(Down, 1.5)), 1.5, Do Not Clip, Visible To Position String and Color, If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Value In Array(Global.t2_hero_colours, Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), If-Then-Else(Compare((Local Player).real, >, 99), Color(White), Color(Gray))), Default Visibility);
+        Create In-World Text(Filtered Array(All Players(All Teams), And(Compare((Current Array Element).shop, ==, 3), Compare((Current Array Element).shop_selection, !=, 69))), If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Value In Array(Value In Array(Array(Array(Custom String("Heal yourself for 50% damage your heal target takes and 50%\ndamage they deal. Your health regen is drastically reduced."), Custom String("Press ''{0}'' while healing a player to instantly heal\nthem for 100HP, sacrificing 60HP of your own.", Input Binding String(Button(Reload))), Custom String("Replaces Damage Boost with a beam that locks\nonto enemies and drains their health."), Custom String("Guardian Angel now damages and\nknocks back enemies in your path."), Custom String("Replaces Resurrect. Casts a spell on a living teammate that\nmakes them invulnerable to all damage for 8 seconds."), Custom String("Upon activating Valkyrie, all enemies in a 30 meter radius go\ninsane for 8 seconds, becoming hacked and confused.")), Array(Custom String("When downed, repeatedly release Total Mayhem\nbombs at your corpse every second."), Custom String("When under 66.6% health, nearby enemies\ntake electric damage over time."), Custom String("Every killing blow causes the victim to discharge\nelectricity, damaging nearby enemies and stunning them."), Custom String("Concussion Mine and Riptire\nnow also electrify enemies, stunning them."), Custom String("When an enemy is caught in your Steel Trap, they start\nelectrifying nearby enemies, damaging and rooting them."), Custom String("Upon activating Riptire, a zombardier is summoned\nthat fights for you for 20 seconds.")), Array(Custom String("Every killing blow grants you +100 unrecoverable HP."), Custom String("Become nanoboosted for 10 seconds whenever\nyou revive. Allies revive you twice as quickly."), Custom String("When crouching, deal 2× damage,\nbut every shot takes 100HP from you."), Custom String("Successfully landing a hook sets its cooldown to 1 second,\nhowever missing a hook sets its cooldown to 12 seconds."), Custom String("Replaces Take A Breather with a roar that heals you and\ngrants 60% damage reduction for 5 seconds. All enemies\nimmediately ta{0}", Custom String("rget you.")), Custom String("Whole Hog now deals zero knockback.\n2× movement speed while Whole Hog is active.")), Array(Custom String("Every killing blow refreshes\none of your cooldowns."), Custom String("Shoot an enemy to mark them, making them\nvisible through walls and take 1.25× damage.\nYou can only mark one enemy at a time."), Custom String("Gain 2× melee range and 2.5× melee damage."), Custom String("While in Wraith Form, nearby enemies\ntake damage over time."), Custom String("Upon exiting Shadow Step, all nearby\nenemies become frozen in fear."), Custom String("While using Death Blossom, you become\ninvincible and move 3× as fast."))), Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Custom String("Unlock this scroll to attain unique, mysterious powers. - PRICE: R$100")), Add(Last Of(Global.shop_campos), Vector(0, -1.5, 0)), 1.5, Do Not Clip, Visible To Position String and Color, If-Then-Else(Array Contains((Local Player).scrolls_equip, Value In Array((Local Player).scrolls_random, (Local Player).shop_selection)), Value In Array(Global.t2_hero_colours, Index Of Array Value(Global.t2_heroes_array, Hero Of(Local Player))), If-Then-Else(Compare((Local Player).real, >, 99), Color(White), Color(Gray))), Default Visibility);
     }
 }
 
@@ -4827,7 +4827,7 @@ rule ("zomnic init") {
         Set Player Variable(Event Player, zomnic_dest, If-Then-Else((Event Player).zomnic_top, Vector(67.27, 12.72, -70.64), Global.door));
         Set Player Variable(Event Player, throttle_mag, True);
         Set Player Variable(Event Player, start_pathfind, True);
-        Set Player Variable(Event Player, boss_target_location, Add(Global.pentagram_pos, Multiply(Up, 20)));
+        Set Player Variable(Event Player, boss_target_location, Add(Global.pentagram_pos, Vector(0, 20, 0)));
         Set Player Variable(Event Player, boss_target_location_2, Position Of(Event Player));
         Chase Player Variable Over Time(Event Player, boss_target_location, (Event Player).boss_target_location_2, 1.3, None);
         Create Beam Effect(All Players(All Teams), Winston Tesla Cannon Beam, (Event Player).boss_target_location_2, (Event Player).boss_target_location, Team 1, Visible To Position and Radius);
@@ -4974,7 +4974,7 @@ rule ("bot stuck too long tp") {
         If(Is Alive((Event Player).target));
             If(Not(((Event Player).target).zomnic));
                 If(Not(Is In Line of Sight(Event Player, (Event Player).target, Barriers Do Not Block LOS)));
-                    Teleport(Event Player, Nearest Walkable Position(World Vector Of(Multiply(Backward, 10), (Event Player).target, Rotation And Translation)));
+                    Teleport(Event Player, Nearest Walkable Position(World Vector Of(Vector(0, 0, -10), (Event Player).target, Rotation And Translation)));
                 End;
             End;
         End;
@@ -5015,7 +5015,7 @@ rule ("enemy init") {
             Set Weapon(Event Player, If-Then-Else(Array Contains(Array(1, 4, 6, 7), (Event Player).enemy_ID), 2, 1));
             Set Player Variable(Event Player, damage_dealt, Add(25, Multiply(15, Global.difficulty)));
             If(Compare((Event Player).enemy_ID, ==, 2));
-                Start Facing(Event Player, Add(Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).target), Multiply(Down, 0.5))), Vector(Random Real(-0.1, 0.1), False, Random Real(-0.1, 0.1))), 1000, To World, Direction and Turn Rate);
+                Start Facing(Event Player, Add(Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).target), Vector(0, -0.5, 0))), Vector(Random Real(-0.1, 0.1), False, Random Real(-0.1, 0.1))), 1000, To World, Direction and Turn Rate);
                 Set Player Variable(Event Player, damage_dealt, Add(10, Multiply(8, Global.difficulty)));
             Else If(Compare((Event Player).enemy_ID, ==, 3));
                 Set Player Variable(Event Player, speed, 60);
@@ -5802,7 +5802,7 @@ rule ("boss special attack followup") {
                 End;
                 Set Damage Dealt(Event Player, (Event Player).damage_dealt);
                 Set Player Variable(Event Player, attack, False);
-                Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Add(Eye Position((Event Player).target), Multiply(Down, 0.5)), Vector(Random Real(-0.8, 0.8), False, Random Real(-0.8, 0.8)))), 1000, To World, Direction and Turn Rate);
+                Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Add(Eye Position((Event Player).target), Vector(0, -0.5, 0)), Vector(Random Real(-0.8, 0.8), False, Random Real(-0.8, 0.8)))), 1000, To World, Direction and Turn Rate);
                 Set Player Variable At Index(Event Player, pos_cache, True, Random Value In Array(Remove From Array(Global.cowboy_tp_array, (Event Player).pos_cache)));
                 Call Subroutine(cowboy_tp);
             End;
@@ -6090,7 +6090,7 @@ rule ("all player init") {
                     Set Player Variable(Event Player, avoid_enviro, True);
                     Set Player Variable(Event Player, random, Facing Direction Of(Event Player));
                     Start Throttle In Direction(Event Player, (Event Player).random, 1, To World, Replace existing throttle, Direction and Magnitude);
-                    Start Facing(Event Player, Add(Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).target), Multiply(Down, 0.5))), Vector(Random Real(-0.1, 0.1), False, Random Real(-0.1, 0.1))), 1000, To World, Direction and Turn Rate);
+                    Start Facing(Event Player, Add(Direction Towards(Eye Position(Event Player), Add(Eye Position((Event Player).target), Vector(0, -0.5, 0))), Vector(Random Real(-0.1, 0.1), False, Random Real(-0.1, 0.1))), 1000, To World, Direction and Turn Rate);
                     Chase Player Variable At Rate(Event Player, real, Ultimate Charge Percent(Event Player), 1000, Destination and Rate);
                     Create Progress Bar In-World Text(All Players(All Teams), (Event Player).real, Custom String("{0} Ultimate Charge", Ability Icon String(Hero(Lúcio), Button(Ultimate))), Event Player, 0.4, Do Not Clip, Custom Color(110, 255, 84, 255), Custom Color(110, 255, 84, 255), Visible To and Values, Default Visibility);
                     Wait(False, Ignore Condition);
@@ -6121,7 +6121,7 @@ rule ("all player init") {
                         Set Projectile Gravity(Event Player, 30);
                         Disable Movement Collision With Environment(Event Player, True);
                         Start Modifying Hero Voice Lines(Event Player, 0.6, True);
-                        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Position Of((Global.boss).target), Multiply(Down, 0.1))), 1000, To World, Direction and Turn Rate);
+                        Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Add(Position Of((Global.boss).target), Vector(0, -0.1, 0))), 1000, To World, Direction and Turn Rate);
                     Else If(Compare((Event Player).boss_ID, ==, 4.1));
                         Start Forcing Dummy Bot Name(Event Player, Custom String("The Lord of Adlersbrunn"));
                         Set Max Health(Event Player, Absolute Value(2500));
@@ -6178,7 +6178,7 @@ rule ("all player init") {
                     Stop Camera(All Players(All Teams));
                     Wait Until(Global.shop_open, 99999);
                     Create Effect(All Players(All Teams), Ring, Color(Purple), Add(World Vector Of(Up, Event Player, Rotation And Translation), Multiply(Evaluate Once(Facing Direction Of(Event Player)), 0.2)), 3, Visible To Position and Radius);
-                    Create In-World Text(Filtered Array(Players Within Radius(Event Player, 3, All Teams, Surfaces), And(Not((Current Array Element).is_downed), Not((Current Array Element).shop))), Custom String("Press ''{0}'' to shop", Input Binding String(Button(Interact))), World Vector Of(Multiply(Up, 1.5), Event Player, Rotation And Translation), 2, Do Not Clip, Visible To Position and String, Color(Purple), Default Visibility);
+                    Create In-World Text(Filtered Array(Players Within Radius(Event Player, 3, All Teams, Surfaces), Not(Or((Current Array Element).is_downed, (Current Array Element).shop))), Custom String("Press ''{0}'' to shop", Input Binding String(Button(Interact))), World Vector Of(Vector(0, 1.5, 0), Event Player, Rotation And Translation), 2, Do Not Clip, Visible To Position and String, Color(Purple), Default Visibility);
                     Create Dummy Bot(Hero(Moira), Team 1, -1, Add(Last Of(Global.shop_campos), Down), Direction Towards(Last Of(Global.shop_campos), First Of(Global.shop_campos)));
                     Set Player Variable(Event Player, attack, Last Created Entity);
                     Start Forcing Dummy Bot Name((Event Player).attack, Custom String("The Merchant"));
@@ -6560,7 +6560,7 @@ rule ("mercy flying broomstick") {
             If(Compare(Distance Between(Event Player, Global.mercy), <, 5));
                 Abort If(Has Status(Event Player, Phased Out));
                 Damage(Event Player, Global.mercy, 40);
-                Apply Impulse(Event Player, Add(Add(Normalize(Velocity Of(Global.mercy)), Direction Towards(Global.mercy, Event Player)), Multiply(Up, 1.2)), 20, To World, Cancel Contrary Motion);
+                Apply Impulse(Event Player, Add(Add(Normalize(Velocity Of(Global.mercy)), Direction Towards(Global.mercy, Event Player)), Vector(0, 1.2, 0)), 20, To World, Cancel Contrary Motion);
                 Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Sound, Team 1, Event Player, 200);
                 Play Effect(All Players(All Teams), Doomfist Rising Uppercut Impact Effect, Team 1, Event Player, 1);
                 Set Player Variable(Event Player, broomsticked, True);
@@ -7207,7 +7207,7 @@ rule ("dialogue chan") {
     }
     conditions {
         Global.phase > Null;
-        Or(Not(Entity Exists(Global.dialogue_bot)), Not(Global.dialogue_bot)) == True;
+        And(Entity Exists(Global.dialogue_bot), Global.dialogue_bot) == False;
     }
     actions {
         Create Dummy Bot(Hero(Reinhardt), Team 1, False, Global._extendedGlobalCollection, Up);
