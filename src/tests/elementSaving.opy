@@ -40,7 +40,7 @@ rule "0 to false":
     chase(B.A, 0, rate=0, ChaseReeval.NONE)
     chase(B.A, 0, duration=0, ChaseReeval.NONE)
     createDummy(Hero.ANA, Team.2, 0, B, C)
-    hudHeader(getAllPlayers(), "", HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
+    hudHeader(getAllPlayers(), "123", HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
     for A in range(0,0,0):
     for B.A in range(0,0,0):
     A[0] = B
@@ -76,7 +76,7 @@ rule "1 to true":
     chase(B.A, 1, rate=1, ChaseReeval.NONE)
     chase(B.A, 1, duration=1, ChaseReeval.NONE)
     createDummy(Hero.ANA, Team.2, 1, B, C)
-    hudHeader(getAllPlayers(), "", HudPosition.LEFT, 1, Color.WHITE, HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
+    hudHeader(getAllPlayers(), "123", HudPosition.LEFT, 1, Color.WHITE, HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
     for A in range(1,1,1):
     for B.A in range(1,1,1):
     A[1] = B

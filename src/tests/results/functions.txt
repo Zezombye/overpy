@@ -43,6 +43,8 @@ rule ("function") {
         Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Eye Position(Global.A))))));
         Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Eye Position(Global.A))))));
         Set Global Variable(A, Compare(Angle Between Vectors(Global.B, Random Value In Array(Global.C)), <=, Arcsine In Degrees(Divide(Random Value In Array(Global.E), Distance Between(Global.B, Global.D)))));
+        "Color.YELLOW"
+        Set Global Variable(A, Color(Yellow));
     }
 }
 
@@ -51,9 +53,9 @@ rule ("beams") {
         Ongoing - Global;
     }
     actions {
-        Create Beam Effect(Global.A, Grapple Beam, Global.B, Global.C, Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.A, Grapple Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
-        Create Beam Effect(Global.A, Grapple Beam, Vector(Global.Z, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
+        Create Beam Effect(Global.A, Grapple Beam, Global.B, Global.C, Null, Visible To Position and Radius);
+        Create Beam Effect(Global.A, Grapple Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Null, Visible To Position and Radius);
+        Create Beam Effect(Global.A, Grapple Beam, Vector(Global.Z, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Null, Visible To Position and Radius);
         Create Beam Effect(Global.A, Good Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Good Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);
         Create Beam Effect(Global.A, Bad Beam, Vector(Global.A, Global.B, Global.C), Vector(Global.A, Global.D, Global.C), Color(White), Visible To Position and Radius);

@@ -1294,7 +1294,7 @@ rule ("Trash") {
         Wait(0.02, Ignore Condition);
         Call Subroutine(Pictionary);
         Set Global Variable(NumOfEffects, 0);
-        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 255), Default Visibility);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
         Set Global Variable(WordText, Last Created Entity);
     }
 }
@@ -1320,7 +1320,7 @@ rule ("Drawer Select Word 0") {
         Wait(0.05, Ignore Condition);
         Call Subroutine(Keyboard);
         Call Subroutine(Pictionary);
-        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 255), Default Visibility);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
         Set Global Variable(WordText, Last Created Entity);
         Wait(0.25, Ignore Condition);
         Set Global Variable(ChoosingWord, True);

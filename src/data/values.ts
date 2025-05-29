@@ -7405,8 +7405,9 @@ export const valueFuncKw: Record<string, Value> =
                 "default": 255
             }
         ],
-        "canBePutInBoolean": false,
+        "canBePutInBoolean": true,
         "isConstant": true,
+        "isLiteral": true,
         "return": "Color",
         "guid": "000000011DA2",
         "en-US": "Custom Color",

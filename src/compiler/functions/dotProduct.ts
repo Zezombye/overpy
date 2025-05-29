@@ -18,13 +18,14 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
+import { astParsingFunctions, getAstForNumber, numValue } from "../../utils/ast";
 
 astParsingFunctions.dotProduct = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
-            //dot product(A,B) = A.x*B.x + A.y+B.y + A.z+B.z
-            return getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue + content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue + content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue);
+        if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
+            let [x1, y1, z1] = content.args[0].args.map(arg => numValue(arg) as number);
+            let [x2, y2, z2] = content.args[1].args.map(arg => numValue(arg) as number);
+            return getAstForNumber(x1 * x2 + y1 * y2 + z1 * z2);
         }
     }
 

@@ -248,6 +248,8 @@ rule ("assignment") {
         Set Player Variable At Index(Event Player, A, False, Global.B);
         Modify Global Variable(A, Add, Global.B);
         Modify Player Variable(Event Player, A, Add, Global.B);
+        "pass"
+        Modify Global Variable(A, Add, False);
         Modify Global Variable(A, Subtract, Global.B);
         Modify Global Variable(A, Multiply, Global.B);
         Modify Global Variable(A, Divide, Global.B);
@@ -351,6 +353,8 @@ rule ("handling random values") {
         Ongoing - Global;
     }
     actions {
+        "pass"
+        Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Add, False);
         Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Add, True);
         Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Max, Global.B);
     }

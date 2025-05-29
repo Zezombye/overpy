@@ -1060,7 +1060,7 @@ rule ("GLOBAL create Nano-Nuke Bastion") {
         Set Status(Global.NanoNukeBot, Null, Phased Out, 9999);
         Set Gravity(Global.NanoNukeBot, 0);
         Start Modifying Hero Voice Lines(Global.NanoNukeBot, 0.5, False);
-        Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         "for petra floor breaking"
         Start Scaling Player(Global.NanoNukeBot, 0.2, False);
     }
@@ -1078,7 +1078,7 @@ rule ("PETRA break floor over time") {
         For Global Variable(PetraPunches, 0, 50, 1);
             Wait(3, Ignore Condition);
             "for spectators joining during the match"
-            Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+            Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
             Teleport(Global.NanoNukeBot, Random Value In Array(Array(Vector(-4, -11, 12), Vector(9.5, -11, 11.3), Vector(8.2, -11, 6.5), Vector(-3.3, -11, 6.5))));
             Start Holding Button(Global.NanoNukeBot, Button(Melee));
             Wait(0.016, Ignore Condition);
@@ -1097,7 +1097,7 @@ rule ("Death plane exploit loop") {
     actions {
         Wait(10, Ignore Condition);
         Set Environment Credit Player(Global.OutOfBoundBot, Global.OutOfBoundBot);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Loop;
     }
 }
@@ -1113,7 +1113,7 @@ rule ("Death plane HAMMOND CHATEAU") {
     actions {
         Create Dummy Bot(Hero(Wrecking Ball), All Teams, 11, Vector(200, 200, 80), Forward);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("giant cheese eater"));
         "OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
@@ -1144,7 +1144,7 @@ rule ("Death plane HAMMOND HOLLYWOOD") {
     actions {
         Create Dummy Bot(Hero(Wrecking Ball), All Teams, 11, Vector(200, 200, 80), Forward);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("giant cheese eater"));
         "OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
@@ -1175,7 +1175,7 @@ rule ("Death plane SIGMA BLACK FOREST") {
     actions {
         Create Dummy Bot(Hero(Sigma), All Teams, 11, Vector(1000, 1000, 1000), Forward);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Bigma"));
         "OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
@@ -1205,7 +1205,7 @@ disabled rule ("Mei ECOPOINT") {
     actions {
         Create Dummy Bot(Hero(Mei), All Teams, 11, Vector(26, 9.5, 0), Right);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Ice Cube"));
         Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
@@ -1229,7 +1229,7 @@ rule ("Kiriko Kanezaka") {
     actions {
         Create Dummy Bot(Hero(Kiriko), All Teams, 11, Vector(-11.5, 10.8, 16.9), Right);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Kiricat"));
         Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
@@ -1254,7 +1254,7 @@ rule ("Junkrat Petra") {
     actions {
         Create Dummy Bot(Hero(Junkrat), All Teams, 11, Vector(-17.94, 0.24, 17.11), Left);
         Set Global Variable(OutOfBoundBot, Last Created Entity);
-        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Set Player Score(Global.OutOfBoundBot, -69);
         Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Gold Hoarder"));
         Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
@@ -2392,7 +2392,7 @@ rule ("Nuclear victory") {
         Set Status(Global.NanoNukeBot, Null, Phased Out, 9999);
         Set Gravity(Global.NanoNukeBot, 0);
         Start Modifying Hero Voice Lines(Global.NanoNukeBot, 0.5, False);
-        Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Color(Red), Default);
+        Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), Not((Local Player).IsPlayer)), False, Null, Default);
         Wait(2, Ignore Condition);
         "Winner cam"
         Destroy All In-World Text;
@@ -2516,7 +2516,7 @@ rule ("Sleep Dart victory") {
         If(Compare((Victim).OofDistance, >=, Global.LONGSHOT_DISTANCE));
             Set Global Variable(LongshotWin, Not(Global.LongshotWin));
         End;
-        Start Forcing Player Outlines(Remove From Array(All Players(All Teams), Global.Winner), All Players(All Teams), False, Color(Red), Occluded);
+        Start Forcing Player Outlines(Remove From Array(All Players(All Teams), Global.Winner), All Players(All Teams), False, Null, Occluded);
         Create Effect(All Players(All Teams), Soldier: 76 Sprinting Effect, Color(White), Victim, 1, Position and Radius);
         Set Status(All Players(All Teams), Null, Invincible, 999);
         Set Status(All Players(All Teams), Null, Rooted, 999);

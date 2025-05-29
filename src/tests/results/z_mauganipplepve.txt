@@ -207,7 +207,7 @@ rule ("init") {
     }
     actions {
         "print(len(getPlayers(Team.2)))\nhudText(hostPlayer, iconString(Icon.EYE), \"eye position\", localPlayer.getEyePosition(), HudPosition.LEFT, 0, Color.SKY_BLUE, Color.SKY_BLUE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)"
-        Create HUD Text(All Players(All Teams), Null, Custom String("peak: {0} | average: {1}", Server Load Peak, Server Load Average), Custom String("server load: {0}\n", Server Load), Right, -2, Color(Orange), Color(Gray), Color(Gray), Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Null, Custom String("peak: {0} | average: {1}", Server Load Peak, Server Load Average), Custom String("server load: {0}\n", Server Load), Right, -2, Null, Color(Gray), Color(Gray), Visible To and String, Visible Always);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("use code DS2MD for the latest version"), Right, -1, Null, Null, Color(White), Visible To, Default Visibility);
         Disable Inspector Recording;
         Set Global Variable(obj, -1);
@@ -255,7 +255,7 @@ rule ("init") {
         "objective huds. get max hp is ****ing broken for mauga. and tank passive bonus doesn't even let him heal to there"
         Create Progress Bar HUD Text(If-Then-Else(Compare(Global.obj, ==, -1), All Players(All Teams), Empty Array), Divide(Multiply(100, Health(Global.nipman)), 57500), Custom String("{0} {1} / 57500 hp", Hero Icon String(Hero(Mauga)), Round To Integer(Health(Global.nipman), Up)), Top, 1, Color(Team 2), Color(White), Visible To Values and Color, Default Visibility);
         Create Progress Bar HUD Text(If-Then-Else(Compare(Global.obj, !=, -1), All Players(All Teams), Empty Array), Multiply(Divide(Global.objProg, Global.objGoal), 100), Custom String("objective: {0}! {1} / {2}", Value In Array(Global.objDescs, Global.obj), Global.objProg, Global.objGoal), Top, 1, If-Then-Else(Compare(Global.obj, ==, 3), Color(Team 2), Color(Team 1)), Color(White), Visible To Values and Color, Default Visibility);
-        Create HUD Text(If-Then-Else(Compare(Global.obj, !=, -1), All Players(All Teams), Empty Array), Custom String("　threats: {0}　", Global.threatText), Custom String(""), Custom String(" \n "), Top, 0, Color(Orange), Color(Gray), Color(Gray), Visible To String and Color, Default Visibility);
+        Create HUD Text(If-Then-Else(Compare(Global.obj, !=, -1), All Players(All Teams), Empty Array), Custom String("　threats: {0}　", Global.threatText), Null, Custom String(" \n "), Top, 0, Color(Orange), Null, Color(Gray), Visible To String and Color, Default Visibility);
         Set Player Variable(Global.nipman, cacheA, Vector(2.93, 8.04, 26.15));
         Set Player Variable(Global.nipman, cacheB, Vector(-7.19, 8, 30.27));
         Set Match Time(5);

@@ -711,7 +711,7 @@ rule ("Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Cre
         Create HUD Text(If-Then-Else(Is True For Any(Players On Hero(Hero(Soldier: 76), Color(Team 2)), And((Current Array Element).ab_var_1, Compare((Current Array Element).target, ==, Local Player))), Local Player, Empty Array), Custom String("{0} Locked on!", Ability Icon String(Hero(Soldier: 76), Button(Ultimate))), Null, Null, Top, -49, Custom Color(Add(245, Multiply(10, Sine From Radians(Multiply(4, Total Time Elapsed)))), Add(205, Multiply(50, Sine From Radians(Multiply(4, Total Time Elapsed)))), Multiply(200, Sine From Radians(Multiply(4, Total Time Elapsed))), 255), Null, Null, Visible To and Color, Default Visibility);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"), Top, -1, Null, Null, Color(White), Visible To, Default Visibility);
         Create HUD Text(All Players(Team 2), Custom String("Server Load: {0}, Average: {1}, Peak: {2}", Server Load, Server Load Average, Server Load Peak), Null, Null, Left, -110, If-Then-Else(Global.is_waiting_to_remove_bot, Color(Yellow), Color(White)), Null, Null, Visible To String and Color, Default Visibility);
-        Create HUD Text(Empty Array, Null, Custom String("Mod by Lemonaid:\nChateau Guillard: KFVAY\nKanezaka: H4H7K\nDorado: NNNS6\nEichenwalde: MH9DN\nHollywood: K3235\nMalevento: 8GRV8\\Rout"), Custom String("____\nCredits to:\n Shingen\n SgtMoody\nDevelopful\n"), Left, -1000, Color(White), Color(Lime Green), Color(Green), Visible To, Visible Always);
+        Create HUD Text(Empty Array, Null, Custom String("Mod by Lemonaid:\nChateau Guillard: KFVAY\nKanezaka: H4H7K\nDorado: NNNS6\nEichenwalde: MH9DN\nHollywood: K3235\nMalevento: 8GRV8\\Rout"), Custom String("____\nCredits to:\n Shingen\n SgtMoody\nDevelopful\n"), Left, -1000, Null, Color(Lime Green), Color(Green), Visible To, Visible Always);
         "Create Sombra Stealth Timer IWT"
         Create Progress Bar In-World Text(If-Then-Else(And(Compare(Hero Of(Local Player), ==, Hero(Sombra)), (Local Player).is_invisible), Local Player, Empty Array), (Local Player).sombra_stealth_timer, Custom String("Invisible"), Update Every Frame(Add(Eye Position(Local Player), Multiply(100, Direction From Angles(Horizontal Facing Angle Of(Local Player), Add(Vertical Facing Angle Of(Local Player), 13.5))))), 1.2, Do Not Clip, Color(Purple), Color(White), Visible To Position and Values, Default Visibility);
         Set Global Variable(money_amount, 1400);
@@ -3436,7 +3436,7 @@ rule ("Team 2: Bot Init") {
         Set Player Variable(Event Player, ab_bought_abilities_string, Custom String(""));
         "Workaround: Create Boss Health Bars"
         If(Or(Compare(Slot Of(Event Player), ==, 0), And(Compare(Global.gamemode, ==, 2), Compare(Slot Of(Event Player), <=, 3))));
-            Create Progress Bar In-World Text(If-Then-Else(And(Not((Event Player).iv_is_portal), (Event Player).is_living_boss), All Players(All Teams), Empty Array), Multiply(100, Normalized Health(Event Player)), Custom String(""), Event Player, 0.5, Clip Against Surfaces, Color(Red), Color(Blue), Visible To and Values, Default Visibility);
+            Create Progress Bar In-World Text(If-Then-Else(And(Not((Event Player).iv_is_portal), (Event Player).is_living_boss), All Players(All Teams), Empty Array), Multiply(100, Normalized Health(Event Player)), Custom String(""), Event Player, 0.5, Clip Against Surfaces, Color(Red), Null, Visible To and Values, Default Visibility);
     }
 }
 
@@ -4980,7 +4980,7 @@ rule ("Team 1: Smoke Screen") {
         (Event Player).downed_start_t == False;
     }
     actions {
-        Start Forcing Player Outlines(All Players(All Teams), Event Player, False, Color(White), Default);
+        Start Forcing Player Outlines(All Players(All Teams), Event Player, False, Null, Default);
         Wait Until(Is Dead(Event Player), 4);
         Stop Forcing Player Outlines(All Players(All Teams), Event Player);
         Set Player Variable(Event Player, Smoked_Screen, False);

@@ -18,7 +18,7 @@
 "use strict";
 
 import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, Ast, astParsingFunctions } from "../../utils/ast";
+import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, Ast, astParsingFunctions, numValue } from "../../utils/ast";
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
 
@@ -56,17 +56,8 @@ astParsingFunctions.__subtract__ = function (content) {
         }
 
         //Check if both arguments are vectors containing numbers.
-        if (content.args[0].name === "vect" && content.args[1].name === "vect") {
-            var canBeOptimized = true;
-            for (var i = 0; i < 3; i++) {
-                if (content.args[0].args[i].name !== "__number__" || content.args[1].args[i].name !== "__number__") {
-                    canBeOptimized = false;
-                    break;
-                }
-            }
-            if (canBeOptimized) {
-                return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue)]);
-            }
+        if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
+            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue)]);
         }
     }
 

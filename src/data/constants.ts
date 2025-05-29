@@ -920,9 +920,9 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "GREEN": {
             "guid": "00000000B93A",
-            "red": 200,
-            "green": 0,
-            "blue": 19,
+            "red": 69,
+            "green": 255,
+            "blue": 87,
             "en-US": "Green",
             "es-MX": "Verde",
             "fr-FR": "Vert",
@@ -1027,6 +1027,24 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "red": 255,
             "green": 112,
             "blue": 122,
+            "onlyInOverpy": true,
+        },
+        "LIGHT_PURPLE": {
+            "red": 210,
+            "green": 127,
+            "blue": 243,
+            "onlyInOverpy": true,
+        },
+        "LIGHT_VIOLET": {
+            "red": 203,
+            "green": 135,
+            "blue": 255,
+            "onlyInOverpy": true,
+        },
+        "LIGHT_GRAY": {
+            "red": 168,
+            "green": 168,
+            "blue": 168,
             "onlyInOverpy": true,
         },
         "ROSE": {

@@ -18,8 +18,8 @@
 "use strict";
 
 import { constantValues } from "../../data/constants";
-import { activatedExtensions } from "../../globalVars";
-import { astParsingFunctions } from "../../utils/ast";
+import { activatedExtensions, enableOptimization } from "../../globalVars";
+import { astParsingFunctions, getAstForNull } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.createBeam = function (content) {
@@ -28,6 +28,11 @@ astParsingFunctions.createBeam = function (content) {
     }
     if (constantValues[content.args[1].type as string][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type as string][content.args[1].name].extension ?? error("Check for workshop extension while creating beam failed"))) {
         error("You must activate the extension '" + constantValues[content.args[1].type as string][content.args[1].name].extension + "' to use '" + content.args[1].type + "." + content.args[1].name + "'", content.args[1].fileStack);
+    }
+    if (enableOptimization) {
+        if (content.args[1].name === "GRAPPLE") {
+            content.args[4] = getAstForNull();
+        }
     }
 
     return content;

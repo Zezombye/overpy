@@ -204,6 +204,8 @@ export function isDefinitelyFalsy(content: Ast) {
     if ((content.name === "__customString__" || content.name === "__localizedString__") && content.args[0].name === "") {
         return true;
     }
+    //The rgb function is falsy with any values, but given it is probably a bug, I am not putting it here in case it randomly breaks in the future.
+
     return false;
 }
 
@@ -334,6 +336,14 @@ export function stringAstContainsFormatters(ast: Ast) {
     return ast.args[0].name.match(/\{[012]\}/) !== null;
 }
 
+//Shorthand to get the number value of a number literal, used in many optimizations
+export function numValue(ast: Ast): number | null {
+    if (ast.name !== "__number__") {
+        return null;
+    }
+    return ast.args[0].numValue;
+}
+
 //Used to replace currentArrayElement with currentArrayElement[0] to fix the simultaneous mapping+filtering bug.
 //Also used for macro args.
 export function replaceFunctionInAst(ast: Ast, functionName: string, newAst: Ast) {
@@ -428,6 +438,9 @@ export function getAstForEmptyArray() {
 }
 export function getAstForNullVector() {
     return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor0()]);
+}
+export function getAstForVector(x: number, y: number, z: number) {
+    return new Ast("vect", [getAstForNumber(x), getAstForNumber(y), getAstForNumber(z)]);
 }
 export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");

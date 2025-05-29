@@ -457,7 +457,7 @@ rule ("lIIlllllIlIlllIllIIIlIIlll") {
         Set Global Variable(IlllllIIlIIllIlIlIIIlIlIlI, Custom Color(255, 127, 0, 255));
         Set Global Variable At Index(IIlIlllIlIIIIllIIlIlIlIlll, 0, Array(Color(Yellow), Color(White), Custom Color(30, 255, 0, 255), Custom Color(0, 112, 221, 255), Custom Color(163, 53, 238, 255), Custom Color(255, 128, 0, 255), Global.IIllllIlIIlIIIllIllIIIIlII, Custom Color(0, 204, 255, 255), Custom Color(165, 146, 99, 255)));
         Set Global Variable At Index(IIlIlllIlIIIIllIIlIlIlIlll, 1, Array(Color(White), Color(Yellow), Color(White), Color(Orange), Color(Red), Color(Aqua), Color(Blue), Color(Sky Blue)));
-        Set Global Variable At Index(IIlIlllIlIIIIllIIlIlIlIlll, 2, Array(Color(White), Custom Color(39, 170, 255, 255), Global.IlllllIIlIIllIlIlIIIlIlIlI, Global.IIllllIlIIlIIIllIllIIIIlII));
+        Set Global Variable At Index(IIlIlllIlIIIIllIIlIlIlIlll, 2, Array(Color(White), Color(Blue), Global.IlllllIIlIIllIlIlIIIlIlIlI, Global.IIllllIlIIlIIIllIllIIIIlII));
         If(Value In Array(Global.IlllIlllllIIllIlIlIIlIllll, 7));
             Set Global Variable At Index(IIlIlllIlIIIIllIIlIlIlIlll, 3, Array(Custom Color(255, 255, 255, 127), Custom Color(39, 170, 255, 191), Global.IlllllIIlIIllIlIlIIIlIlIlI, Global.IIllllIlIIlIIIllIllIIIIlII));
         End;

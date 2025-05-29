@@ -504,7 +504,7 @@ rule ("Is in setup {GLOBAL}") {
         Modify Global Variable(heroList, Append To Array, Hero(Winston));
         Modify Global Variable(heroList, Append To Array, Hero(Zenyatta));
         Create HUD Text(All Players(All Teams), Custom String("CODE: {0}", Global.islandPartyCode), If-Then-Else(Compare(Global.islandPartyCode, ==, Custom String("W468T")), Custom String(""), Custom String("SPECIAL EDITION")), Global.islandPartySpecialEdition, Left, -998.5, Color(White), Color(Sky Blue), Color(White), Visible To and String, Default Visibility);
-        Create HUD Text(All Players(All Teams), Null, Custom String(" "), Custom String("Island Party - Heroes Minigames v3.1.1-23"), Left, -998, Color(White), Color(White), Color(Orange), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Custom String(" "), Custom String("Island Party - Heroes Minigames v3.1.1-23"), Left, -998, Null, Color(White), Color(Orange), Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("Play rounds of {0}/23 classic and new games as minigames", Count Of(Global.heroList)), Left, -997, Null, Null, Color(White), Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("Join discord.io/IslandParty and {0}", Value In Array(Global.discordSubtringArray, Modulo(Global.roundNumber, 3))), Left, -996, Null, Null, Color(White), Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("Find all my codes in: jokaes.github.io"), Left, -995.5, Null, Null, Color(White), Visible To and String, Default Visibility);

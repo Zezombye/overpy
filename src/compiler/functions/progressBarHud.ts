@@ -17,12 +17,22 @@
 
 "use strict";
 
-import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces, getAstForNull, isDefinitelyFalsy } from "../../utils/ast";
 
 astParsingFunctions.progressBarHud = function (content) {
     if (content.args[4].name === "ACTUALLY_LEFT") {
         if (content.args[2].name !== "null") {
             content.args[2] = new Ast(".format", [getAstForCustomString("{}{}"), content.args[2], getAstForFucktonOfSpaces()]);
+        }
+    }
+    if (enableOptimization) {
+        //Set color to null if empty progress bar or empty text
+        if (isDefinitelyFalsy(content.args[1])) {
+            content.args[5] = getAstForNull();
+        }
+        if (isDefinitelyFalsy(content.args[2])) {
+            content.args[6] = getAstForNull();
         }
     }
     return content;

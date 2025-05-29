@@ -55,7 +55,7 @@ rule ("0 to false") {
         Chase Player Variable At Rate(Global.B, A, False, False, None);
         Chase Player Variable Over Time(Global.B, A, False, False, None);
         Create Dummy Bot(Hero(Ana), Team 2, False, Global.B, Global.C);
-        Create HUD Text(All Players(All Teams), Custom String(""), Null, Null, Left, False, Color(White), Null, Null, Visible To, Visible Always);
+        Create HUD Text(All Players(All Teams), Custom String("123"), Null, Null, Left, False, Color(White), Null, Null, Visible To, Visible Always);
         For Global Variable(A, 0, False, False);
         End;
         For Player Variable(Global.B, A, 0, False, False);
@@ -99,7 +99,7 @@ rule ("1 to true") {
         Chase Player Variable At Rate(Global.B, A, True, True, None);
         Chase Player Variable Over Time(Global.B, A, True, True, None);
         Create Dummy Bot(Hero(Ana), Team 2, True, Global.B, Global.C);
-        Create HUD Text(All Players(All Teams), Custom String(""), Null, Null, Left, True, Color(White), Null, Null, Visible To, Visible Always);
+        Create HUD Text(All Players(All Teams), Custom String("123"), Null, Null, Left, True, Color(White), Null, Null, Visible To, Visible Always);
         For Global Variable(A, 1, True, True);
         End;
         For Player Variable(Global.B, A, 1, True, True);
