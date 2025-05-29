@@ -18,7 +18,7 @@
 "use strict";
 import { Token } from "../compiler/tokenizer";
 import { DEBUG_MODE, encounteredWarnings, fileStack, globallySuppressedWarningTypes, hiddenWarnings, setFileStack, suppressedWarningTypes } from "../globalVars";
-import { CompilationDiagnostic, FileStackMember, Type } from "../types";
+import { CompilationDiagnostic, FileStackMember, ScriptFileStackMember, Type } from "../types";
 import { Ast } from "./ast";
 import { tabLevel } from "./other";
 import { escapeString } from "./strings";
@@ -231,4 +231,19 @@ export function displayFileStack(fileStack: FileStackMember[] | undefined): stri
         }*/
     }
     return result;
+}
+
+export function getInternalFileStack(): FileStackMember[] {
+    return [
+        {
+            name: "<internal>",
+            startLine: null,
+            startCol: null,
+            endCol: null,
+            endLine: null,
+            remainingChars: 99999999999, //does not matter
+            staticMember: true,
+            fileStackMemberType: "normal",
+        } as ScriptFileStackMember,
+    ];
 }

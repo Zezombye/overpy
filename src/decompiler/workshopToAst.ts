@@ -23,7 +23,7 @@ import { valueFuncKw } from "../data/values";
 import { currentArrayElementName, currentArrayIndexName, resetDecompilerGotos, resetNbTabs, wsFuncKw, constantKw, funcKw } from "../globalVars";
 import { Ast, getAstForNumber, getAstForNull } from "../utils/ast";
 import { getBracketPositions, splitInstructions, getPrefixString, splitStrOnDelimiter, getArgs, getOperatorInStr } from "../utils/decompilation";
-import { error, debug } from "../utils/logging";
+import { error, debug, getInternalFileStack } from "../utils/logging";
 import { isNumber } from "../utils/other";
 import { unescapeString } from "../utils/strings";
 import { tows, topy } from "../utils/translation";
@@ -90,7 +90,7 @@ export function decompileRuleToAst(content: string): Ast {
                 if (eventInst.length !== 2) {
                     error("Malformed subroutine event");
                 }
-                var subroutineName = translateSubroutineToPy(eventInst[1].trim());
+                var subroutineName = translateSubroutineToPy(eventInst[1].trim(), getInternalFileStack());
                 ruleAttributes.subroutineName = subroutineName;
             } else {
                 if (eventInst.length > 1) {
@@ -289,9 +289,9 @@ export function decompile(content: string): Ast {
             }
         }
         if (dotOperands[0] === tows("__global__", valueFuncKw)) {
-            return new Ast("__globalVar__", [new Ast(translateVarToPy(dotOperands[1], true), [], [], "GlobalVariable")]);
+            return new Ast("__globalVar__", [new Ast(translateVarToPy(dotOperands[1], true, getInternalFileStack()), [], [], "GlobalVariable")]);
         } else {
-            return new Ast("__playerVar__", [decompile(dotOperands[0]), new Ast(translateVarToPy(dotOperands[1], false), [], [], "PlayerVariable")]);
+            return new Ast("__playerVar__", [decompile(dotOperands[0]), new Ast(translateVarToPy(dotOperands[1], false, getInternalFileStack()), [], [], "PlayerVariable")]);
         }
     }
 
@@ -365,16 +365,16 @@ export function decompile(content: string): Ast {
     //Special functions
 
     if (name === "__modifyGlobalVariable__") {
-        return new Ast("__modifyVar__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]), new Ast(topy(args[1], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[2])]);
+        return new Ast("__modifyVar__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true, getInternalFileStack()), [], [], "GlobalVariable")]), new Ast(topy(args[1], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[2])]);
     }
     if (name === "__modifyGlobalVariableAtIndex__") {
-        return new Ast("__modifyVar__", [new Ast("__valueInArray__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]), decompile(args[1])]), new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[3])]);
+        return new Ast("__modifyVar__", [new Ast("__valueInArray__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true, getInternalFileStack()), [], [], "GlobalVariable")]), decompile(args[1])]), new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[3])]);
     }
     if (name === "__modifyPlayerVariable__") {
-        return new Ast("__modifyVar__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable")]), new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[3])]);
+        return new Ast("__modifyVar__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false, getInternalFileStack()), [], [], "PlayerVariable")]), new Ast(topy(args[2], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[3])]);
     }
     if (name === "__modifyPlayerVariableAtIndex__") {
-        return new Ast("__modifyVar__", [new Ast("__valueInArray__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable")]), decompile(args[2])]), new Ast(topy(args[3], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[4])]);
+        return new Ast("__modifyVar__", [new Ast("__valueInArray__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false, getInternalFileStack()), [], [], "PlayerVariable")]), decompile(args[2])]), new Ast(topy(args[3], constantValues["__Operation__"]), [], [], "__Operation__"), decompile(args[4])]);
     }
     if (name === "__compare__") {
         var funcToOpMapping = {
@@ -391,10 +391,10 @@ export function decompile(content: string): Ast {
         return new Ast(funcToOpMapping[args[1] as keyof typeof funcToOpMapping], [decompile(args[0]), decompile(args[2])]);
     }
     if (name === "__forGlobalVariable__") {
-        return new Ast("__for__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true), [], [], "GlobalVariable")]), decompile(args[1]), decompile(args[2]), decompile(args[3])]);
+        return new Ast("__for__", [new Ast("__globalVar__", [new Ast(translateVarToPy(args[0], true, getInternalFileStack()), [], [], "GlobalVariable")]), decompile(args[1]), decompile(args[2]), decompile(args[3])]);
     }
     if (name === "__forPlayerVariable__") {
-        return new Ast("__for__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false), [], [], "PlayerVariable")]), decompile(args[2]), decompile(args[3]), decompile(args[4])]);
+        return new Ast("__for__", [new Ast("__playerVar__", [decompile(args[0]), new Ast(translateVarToPy(args[1], false, getInternalFileStack()), [], [], "PlayerVariable")]), decompile(args[2]), decompile(args[3]), decompile(args[4])]);
     }
     if (name === "__round__") {
         return new Ast("__round__", [decompile(args[0]), new Ast(topy(args[1], constantValues.__Rounding__), [], [], "__Rounding__")]);
@@ -443,11 +443,11 @@ export function decompile(content: string): Ast {
             if (wsFuncKw[name].args?.[i].type in constantValues) {
                 astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args?.[i].type]), [], [], wsFuncKw[name].args?.[i].type));
             } else if (wsFuncKw[name].args?.[i].type === "GlobalVariable") {
-                astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
+                astArgs.push(new Ast(translateVarToPy(args[i], true, getInternalFileStack()), [], [], "GlobalVariable"));
             } else if (wsFuncKw[name].args?.[i].type === "PlayerVariable") {
-                astArgs.push(new Ast(translateVarToPy(args[i], false), [], [], "PlayerVariable"));
+                astArgs.push(new Ast(translateVarToPy(args[i], false, getInternalFileStack()), [], [], "PlayerVariable"));
             } else if (wsFuncKw[name].args?.[i].type === "Subroutine") {
-                astArgs.push(new Ast(translateSubroutineToPy(args[i]), [], [], "Subroutine"));
+                astArgs.push(new Ast(translateSubroutineToPy(args[i], getInternalFileStack()), [], [], "Subroutine"));
             } else {
                 astArgs.push(decompile(args[i]));
             }

@@ -20,6 +20,7 @@ type OWLanguage = `${ow_languages}`;
 export type Variable = {
     name: string;
     index: number;
+    fileStack: FileStackMember[];
     isChased?: boolean;
     isUsedInForLoop?: boolean;
     isUsedInRuleCondition?: boolean;
@@ -27,6 +28,7 @@ export type Variable = {
 
 export type Subroutine = {
     name: string;
+    fileStack: FileStackMember[];
     index: number;
     isFromDefStatement: boolean;
 };

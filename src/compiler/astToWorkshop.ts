@@ -61,7 +61,7 @@ export function astRulesToWs(rules: Ast[]) {
             result += tabLevel(2) + tows(rule.ruleAttributes.eventPlayer, eventPlayerKw) + ";\n";
         }
         if (rule.ruleAttributes.subroutineName) {
-            result += tabLevel(2) + translateSubroutineToWs(rule.ruleAttributes.subroutineName) + ";\n";
+            result += tabLevel(2) + translateSubroutineToWs(rule.ruleAttributes.subroutineName, rule.fileStack) + ";\n";
         }
         result += tabLevel(1) + "}\n";
 
@@ -204,13 +204,13 @@ function astToWs(content: Ast): string {
 
     if (content.type === "GlobalVariable") {
         incrementNbElements();
-        return translateVarToWs(content.name, true);
+        return translateVarToWs(content.name, true, content.fileStack);
     } else if (content.type === "PlayerVariable") {
         incrementNbElements();
-        return translateVarToWs(content.name, false);
+        return translateVarToWs(content.name, false, content.fileStack);
     } else if (content.type === "Subroutine") {
         incrementNbElements();
-        return translateSubroutineToWs(content.name);
+        return translateSubroutineToWs(content.name, content.fileStack);
     } else if (typeof content.type === "string" && content.type === "CustomStringLiteral") {
         incrementNbElements();
         return escapeString(content.name, true);

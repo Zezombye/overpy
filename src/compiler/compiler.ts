@@ -26,7 +26,7 @@ import { ruleKw, customGameSettingsKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
 import { Ast, getAstForFalse, getAstForNull } from "../utils/ast";
 import { getFilePaths, getFileContent } from "file_utils";
-import { astToString, warn, error } from "../utils/logging";
+import { astToString, warn, error, getInternalFileStack } from "../utils/logging";
 import { tows } from "../utils/translation";
 import { parseAstRules } from "./astParser";
 import { astRulesToWs } from "./astToWorkshop";
@@ -167,14 +167,14 @@ export async function compile(
 
         if (usePlayerVarForTranslations) {
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
-            addVariable("__languageIndex__", false, -1, tokenize("1.1")[0].tokens);
+            addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize("1.1")[0].tokens);
         } else {
-            addVariable("__overpyTranslationHelper__", true, -1, tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
+            addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         }
     }
 
     if (enableTagsSetup) {
-        addVariable("__holygrail__", true, -1);
+        addVariable("__holygrail__", true, -1, getInternalFileStack());
     }
 
     if (translationLanguages.length > 0) {
@@ -304,18 +304,7 @@ function compileRules(astRules: Ast[]) {
 
     var compiledRules = astRulesToWs(parsedAstRules).join("");
 
-    setFileStack([
-        {
-            name: "<internal>",
-            startLine: null,
-            startCol: null,
-            endCol: null,
-            endLine: null,
-            remainingChars: 99999999999, //does not matter
-            staticMember: true,
-            fileStackMemberType: "normal",
-        } as ScriptFileStackMember,
-    ]);
+    setFileStack(getInternalFileStack());
 
     var result = compiledCustomGameSettings;
     if (!excludeVariablesInCompilation) {
@@ -381,22 +370,22 @@ function generateVariablesField() {
         for (let variable of varList) {
             //check name
             if (!/[A-Za-z_]\w*/.test(variable.name)) {
-                error("Unauthorized name for " + varType + " variable: '" + variable.name + "'");
+                error("Unauthorized name for " + varType + " variable: '" + variable.name + "'", variable.fileStack);
             }
             //check duplication
             if (varNames.includes(variable.name)) {
-                error("Duplicate declaration of " + varType + " variable '" + variable.name + "'");
+                error("Duplicate declaration of " + varType + " variable '" + variable.name + "'", variable.fileStack);
             }
 
             if (outputVariables[variable.index] !== undefined) {
-                error("Duplicate use of index " + variable.index + " for " + varType + " variables '" + variable.name + "' and '" + outputVariables[variable.index] + "'");
+                error("Duplicate use of index " + variable.index + " for " + varType + " variables '" + variable.name + "' and '" + outputVariables[variable.index] + "'", variable.fileStack[variable.fileStack.length - 1].startCol !== null ? variable.fileStack : outputVariables[variable.index].fileStack);
             }
             varNames.push(variable.name);
             if (variable.index === -1) {
                 unassignedVariables.push(variable.name);
             } else {
                 if (variable.index >= 128 || variable.index < 0) {
-                    error("Invalid index '" + variable.index + "' for " + varType + " variable '" + variable.name + "', must be from 0 to 127");
+                    error("Invalid index '" + variable.index + "' for " + varType + " variable '" + variable.name + "', must be from 0 to 127", variable.fileStack);
                 }
                 outputVariables[variable.index] = variable.name;
             }

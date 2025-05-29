@@ -22,9 +22,10 @@ import { astConstants, defaultSubroutineNames, defaultVarNames, globalInitDirect
 import { Token } from "../compiler/tokenizer";
 import { Ast } from "./ast";
 import { error } from "./logging";
+import { FileStackMember } from "../types";
 
 /** Translates a subroutine name from Overwatch to its OverPy version */
-export function translateSubroutineToPy(content: string): string {
+export function translateSubroutineToPy(content: string, fileStack: FileStackMember[]): string {
     content = content.trim();
     content = translateNameToAvoidKeywords(content, "subroutine");
 
@@ -33,13 +34,13 @@ export function translateSubroutineToPy(content: string): string {
     }
     if (defaultSubroutineNames.includes(content)) {
         //Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
-        addSubroutine(content, defaultSubroutineNames.indexOf(content));
+        addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
         return content;
     }
     error("Unknown subroutine '" + content + "'");
 }
 
-export function translateSubroutineToWs(content: string): string {
+export function translateSubroutineToWs(content: string, fileStack: FileStackMember[]): string {
     for (var i = 0; i < subroutines.length; i++) {
         if (subroutines[i].name === content) {
             return content;
@@ -49,19 +50,20 @@ export function translateSubroutineToWs(content: string): string {
     if (defaultSubroutineNames.includes(content)) {
         //Add the subroutine as it doesn't already exist (else it would've been caught by the for)
         //However, only do this if it is a default subroutine name
-        addSubroutine(content, defaultSubroutineNames.indexOf(content));
+        addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
         return content;
     }
     error("Undeclared subroutine '" + content + "'");
 }
 
-export function addSubroutine(content: string, index: number | null, isFromDefStatement = false) {
+export function addSubroutine(content: string, index: number | null, fileStack: FileStackMember[], isFromDefStatement = false) {
     if (reservedSubroutineNames.includes(content)) {
         error("Subroutine name '" + content + "' is a built-in function or keyword");
     }
     subroutines.push({
         name: content,
         index: index ?? subroutines.length,
+        fileStack: fileStack,
         isFromDefStatement: isFromDefStatement,
     });
 }
@@ -78,7 +80,7 @@ export function translateNameToAvoidKeywords(initialName: string, nameType: stri
     return initialName;
 }
 
-export function translateVarToPy(content: string, isGlobalVariable: boolean) {
+export function translateVarToPy(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
     content = content.trim();
     content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
 
@@ -87,14 +89,14 @@ export function translateVarToPy(content: string, isGlobalVariable: boolean) {
         return content;
     } else if (defaultVarNames.includes(content)) {
         //Add the variable as it doesn't already exist (else it would've been caught by the first if)
-        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
         return content;
     } else {
         error("Unknown variable '" + content + "'");
     }
 }
 
-export function translateVarToWs(content: string, isGlobalVariable: boolean) {
+export function translateVarToWs(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
     var varArray = isGlobalVariable ? globalVariables : playerVariables;
     for (var i = 0; i < varArray.length; i++) {
         if (varArray[i].name === content) {
@@ -104,14 +106,14 @@ export function translateVarToWs(content: string, isGlobalVariable: boolean) {
     if (defaultVarNames.includes(content)) {
         //Add the variable as it doesn't already exist (else it would've been caught by the for)
         //However, only do this if it is a default variable name
-        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
+        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
         return content;
     }
     error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + content + "'");
 }
 
 //Adds a variable to the global/player variable arrays.
-export function addVariable(content: string, isGlobalVariable: boolean, index: number, initValue: Token[] | null = null) {
+export function addVariable(content: string, isGlobalVariable: boolean, index: number, fileStack: FileStackMember[], initValue: Token[] | null = null) {
     if ((isGlobalVariable ? "" : ".")+content in astConstants) {
         error("Variable name '" + content + "' is already declared as a macro");
     }
@@ -121,6 +123,7 @@ export function addVariable(content: string, isGlobalVariable: boolean, index: n
     if (isGlobalVariable) {
         globalVariables.push({
             name: content,
+            fileStack: fileStack,
             index: index,
         });
         if (initValue) {
@@ -129,6 +132,7 @@ export function addVariable(content: string, isGlobalVariable: boolean, index: n
     } else {
         playerVariables.push({
             name: content,
+            fileStack: fileStack,
             index: index,
         });
         if (initValue) {

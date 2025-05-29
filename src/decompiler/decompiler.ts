@@ -26,7 +26,7 @@ import { resetGlobalVariables, globalVariables, defaultVarNames, playerVariables
 import { OWLanguage, Overwatch2Heroes } from "../types.d";
 import { Ast } from "../utils/ast";
 import { decompileCustomGameSettingsDict, getBracketPositions } from "../utils/decompilation";
-import { astToString, debug, error } from "../utils/logging";
+import { astToString, debug, error, getInternalFileStack } from "../utils/logging";
 import { isNumber } from "../utils/other";
 import { topy, tows } from "../utils/translation";
 import { addVariable, translateNameToAvoidKeywords, addSubroutine } from "../utils/varNames";
@@ -434,7 +434,7 @@ function decompileVarNames(content: string) {
                 if (elems.length !== 2) {
                     error("Could not parse variables field: too many elements on '" + varNames[i] + "'");
                 }
-                addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
+                addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex, getInternalFileStack());
                 if (!isNaN(+elems[1])) {
                     currentVarIndex = +elems[1];
                 } else {
@@ -450,7 +450,7 @@ function decompileVarNames(content: string) {
                 if (!isNaN(+varNames[i])) {
                     currentVarIndex = +varNames[i];
                 } else if (i === varNames.length - 1) {
-                    addVariable(translateNameToAvoidKeywords(varNames[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
+                    addVariable(translateNameToAvoidKeywords(varNames[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex, getInternalFileStack());
                 } else {
                     error("Could not parse variables field");
                 }
@@ -475,6 +475,6 @@ function decompileSubroutines(content: string) {
         if (isNaN(index)) {
             error("Index '" + index + "' in subroutines field should be a number");
         }
-        addSubroutine(translateNameToAvoidKeywords(subName, "subroutine"), index);
+        addSubroutine(translateNameToAvoidKeywords(subName, "subroutine"), index, getInternalFileStack());
     }
 }

@@ -23,7 +23,7 @@ import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
-import { debug, error, functionNameToString, getFileStackRange, warn } from "../utils/logging";
+import { debug, error, functionNameToString, getFileStackRange, getInternalFileStack, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
 import { applyCasedStringModifier, escapeString, getUtf8Length, unescapeString } from "../utils/strings";
 import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
@@ -74,7 +74,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
         if (currentLine.tokens.length === 0) {
             error("Received an empty line");
         }
-        setFileStack(currentLine.tokens[0].fileStack);
+        setFileStack(getFileStackRange(currentLine.tokens));
 
         if (currentLine.tokens[0].text.startsWith("#")) {
             currentComments.push(currentLine.tokens[0].text.substring(1));
@@ -111,11 +111,11 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             }
 
             if (currentLine.tokens[0].text === "globalvar") {
-                addVariable(currentLine.tokens[1].text, true, index, initDirective);
+                addVariable(currentLine.tokens[1].text, true, index, getFileStackRange(currentLine.tokens), initDirective);
             } else if (currentLine.tokens[0].text === "playervar") {
-                addVariable(currentLine.tokens[1].text, false, index, initDirective);
+                addVariable(currentLine.tokens[1].text, false, index, getFileStackRange(currentLine.tokens), initDirective);
             } else {
-                addSubroutine(currentLine.tokens[1].text, index, false);
+                addSubroutine(currentLine.tokens[1].text, index, getFileStackRange(currentLine.tokens), false);
             }
             currentComments = [];
             continue;
@@ -147,13 +147,13 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             let value = parse(currentLine.tokens.slice(class_ ? 5 : 3));
             resetAstMacroLocalVariables();
             if ((class_ ? reservedMemberNames : reservedNames).includes(name.replace(".", ""))) {
-                error("Macro name '" + name + "' is a reserved word");
+                error("Macro name '" + name + "' is a reserved word", currentLine.tokens[1].fileStack);
             }
             if (name in astConstants) {
-                error("Macro '" + name + "' already exists");
+                error("Macro '" + name + "' already exists", currentLine.tokens[1].fileStack);
             }
             if (isVarName(name.replace(".", ""), (class_ ? false : true))) {
-                error("Macro '" + name + "' is already a " + (class_ ? "player" : "global")+" variable");
+                error("Macro '" + name + "' is already a " + (class_ ? "player" : "global")+" variable", currentLine.tokens[1].fileStack);
             }
             astConstants[name] = {
                 name: name,
@@ -268,14 +268,14 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     for (var subroutine of subroutines) {
                         if (subroutine.name === instructionRuleAttributes.subroutineName) {
                             if (subroutine.isFromDefStatement) {
-                                error("Duplicate definition of subroutine '" + instructionRuleAttributes.subroutineName + "'");
+                                error("Duplicate definition of subroutine '" + instructionRuleAttributes.subroutineName + "'", lineMembers[0][1].fileStack);
                             } else {
                                 break;
                             }
                         }
                     }
                 } else {
-                    addSubroutine(instructionRuleAttributes.subroutineName, null, true);
+                    addSubroutine(instructionRuleAttributes.subroutineName, null, lineMembers[0][1].fileStack, true);
                 }
             }
 
@@ -425,10 +425,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     }
                     if (argTokens.length === 1) {
                         if (argTokens[0].text === "self" && !class_) {
-                            error("Cannot use 'self' in a non-class macro");
+                            error("Cannot use 'self' in a non-class macro", argTokens[0].fileStack);
                         }
                         if (argTokens[0].text === "self" && argTokensIdx !== "0") {
-                            error("The 'self' argument must be the first argument in a class macro");
+                            error("The 'self' argument must be the first argument in a class macro", argTokens[0].fileStack);
                         }
                         macroArgs.push({
                             name: argTokens[0].text,
@@ -436,10 +436,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                         });
                     } else {
                         if (argTokens[1].text !== "=") {
-                            error("Malformed macro argument '"+argTokens[0].text+"'");
+                            error("Malformed macro argument '"+argTokens[0].text+"'", argTokens[0].fileStack);
                         }
                         if (argTokens[0].text === "self") {
-                            error("Cannot assign default value to 'self'");
+                            error("Cannot assign default value to 'self'", argTokens[0].fileStack);
                         }
                         macroArgs.push({
                             name: argTokens[0].text,
@@ -455,6 +455,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
                 astMacroLocalVariables.push(...macroArgs.map(x => x.name));
                 let macroLines = parseLines(childrenLines);
+                setFileStack(getFileStackRange(currentLine.tokens));
                 if (macroLines.length === 0) {
                     error("Macro '" + name + "' cannot be empty (use 'pass' for a no-op macro)");
                 }
@@ -465,10 +466,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
                 //Do not use args as signature (to allow macro overloading), it would make the code too complex and is unnecessary with default values
                 if (name in astMacros) {
-                    error("Macro '" + name + "' already exists");
+                    error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
                 }
                 if (name in funcKw) {
-                    error("Macro '" + name + "' is already a built-in function");
+                    error("Macro '" + name + "' is already a built-in function", lineMembers[0][1].fileStack);
                 }
 
                 astMacros[name] = {
@@ -1381,7 +1382,7 @@ function parseMember(object: Token[], member: Token[]) {
             } else if (object[0].text === "Texture") {
                 setEnableTagsSetup(true);
                 if (!isVarName("__holygrail__", true)) {
-                    addVariable("__holygrail__", true, -1);
+                    addVariable("__holygrail__", true, -1, getInternalFileStack());
                 }
                 if (name in opyTextures) {
                     return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")])]);
