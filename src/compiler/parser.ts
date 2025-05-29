@@ -23,7 +23,7 @@ import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
-import { debug, error, functionNameToString, warn } from "../utils/logging";
+import { debug, error, functionNameToString, getFileStackRange, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
 import { applyCasedStringModifier, escapeString, getUtf8Length, unescapeString } from "../utils/strings";
 import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
@@ -35,6 +35,7 @@ import { opyTextures } from "../data/opy/textures";
 import { parseOpyMacro } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
 import { parseAst } from "./astParser";
+import { get } from "http";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -641,7 +642,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Handle the "del" directive.
     if (content[0].text === "del") {
         let result = new Ast("__del__", [parse(content.slice(1))]);
-        result.fileStack = content[0].fileStack;
+        result.fileStack = getFileStackRange(content);
         return result;
     }
 
@@ -663,7 +664,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 error("Expected a label or 'loc+XXX' after 'goto'");
             }
             let result = new Ast("__skip__", [parse(content.slice(3))]);
-            result.fileStack = content[0].fileStack;
+            result.fileStack = getFileStackRange(content);
             return result;
         }
     }
@@ -676,12 +677,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Check for ++/--.
     if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
         var op1 = parse(content.slice(0, content.length - 2));
-        setFileStack(content[0].fileStack);
+        setFileStack(getFileStackRange(content));
         return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])]);
     }
     if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
         var op1 = parse(content.slice(0, content.length - 2));
-        setFileStack(content[0].fileStack);
+        setFileStack(getFileStackRange(content));
         return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])]);
     }
 
@@ -712,7 +713,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         if (operator === "=") {
             let result = new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
-            result.fileStack = content[0].fileStack;
+            result.fileStack = getFileStackRange(content);
             return result;
         } else if (operator === "if") {
             //"true if condition else false"
@@ -725,16 +726,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             var falseExpr = parse(elseOperands[1]);
             var condition = parse(elseOperands[0]);
 
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
         } else if (["or", "and"].includes(operator)) {
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast("__" + operator + "__", [op1, op2]);
         } else if (operator === "not") {
             var op1 = parse(operands[1]);
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast("__not__", [op1]);
         } else if (operator === "in") {
             var isNotInOperator = false;
@@ -744,7 +745,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             }
             var value = parse(operands[0]);
             var array = parse(operands[1]);
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             if (isNotInOperator) {
                 return new Ast("__not__", [new Ast("__arrayContains__", [array, value])]);
             } else {
@@ -761,7 +762,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "<": "__lessThan__",
                 ">": "__greaterThan__",
             };
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
             //Actually de-optimize so we can keep the logic in one place.
@@ -782,7 +783,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             const opName = opToFuncMapping[operator as keyof typeof opToFuncMapping];
             const value = parse(operands[1]);
 
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
             if (!areAstsAlwaysEqual(variable, variable)) {
                 // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
@@ -801,17 +802,17 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     return parse(operands[1]);
                 } else {
                     let result = new Ast("__negate__", [parse(operands[1])]);
-                    result.fileStack = content[0].fileStack;
+                    result.fileStack = getFileStackRange(content);
                     return result;
                 }
             } else {
                 if (operator === "+") {
                     let result = new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
-                    result.fileStack = content[0].fileStack;
+                    result.fileStack = getFileStackRange(content);
                     return result;
                 } else {
                     let result = new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
-                    result.fileStack = content[0].fileStack;
+                    result.fileStack = getFileStackRange(content);
                     return result;
                 }
             }
@@ -824,7 +825,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             };
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         }
         error("Unhandled operator " + operator);
@@ -840,7 +841,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         } else {
             var array = parse(content.slice(0, bracketPos[bracketPos.length - 2]));
             var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
-            setFileStack(content[0].fileStack);
+            setFileStack(getFileStackRange(content));
             return new Ast("__valueInArray__", [array, value]);
         }
     }
@@ -1094,7 +1095,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             context = unescapeString(args[0][0].text, true);
         }
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
-        setFileStack(content[0].fileStack);
+        setFileStack(getFileStackRange(content));
         if (translationTarget.type === "CustomStringLiteral") {
             return getTranslatedString(translationTarget.name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
@@ -1118,7 +1119,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
 
         let result = new Ast("async", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
-        result.fileStack = content[0].fileStack;
+        result.fileStack = getFileStackRange(content);
         return result;
     }
 
@@ -1143,7 +1144,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
 
         let result = new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
-        result.fileStack = content[0].fileStack;
+        result.fileStack = getFileStackRange(content);
         return result;
     }
 
@@ -1170,7 +1171,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             }
 
             let result = new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
-            result.fileStack = content[0].fileStack;
+            result.fileStack = getFileStackRange(content);
             return result;
         } else {
             error("Function 'raycast' takes 5 arguments, received " + args.length);
@@ -1226,7 +1227,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         } else {
             astArgs.push(new Ast("__currentArrayElement__"));
         }
-        setFileStack(content[0].fileStack);
+        setFileStack(getFileStackRange(content));
         return new Ast("sorted", astArgs);
     }
 
@@ -1239,7 +1240,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
 
         let result = new Ast("__createWorkshopSetting__", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
-        result.fileStack = content[0].fileStack;
+        result.fileStack = getFileStackRange(content);
         return result;
     }
 
@@ -1282,7 +1283,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         name,
         parseArgs(name, args),
     );
-    astResult.fileStack = content[0].fileStack;
+    astResult.fileStack = getFileStackRange(content);
     if (name === "debug") {
         astResult.tokenArgsStr = dispTokens(content.slice(2, content.length - 1), true);
     }
@@ -1314,7 +1315,7 @@ function parseMember(object: Token[], member: Token[]) {
     if (args === null) {
         if (["x", "y", "z"].includes(name)) {
             let result = new Ast(`__${name}ComponentOf__`, [parse(object)]);
-            result.fileStack = member[0].fileStack;
+            result.fileStack = getFileStackRange(object.concat(...member));
             return result;
         }
 
@@ -1400,7 +1401,7 @@ function parseMember(object: Token[], member: Token[]) {
             if ("." + name in astConstants) {
                 let result = astConstants["." + name].value.clone();
                 result = replaceFunctionInAst(result, "$self", parse(object));
-                result.fileStack = member[0].fileStack;
+                result.fileStack = getFileStackRange(object.concat(...member));
                 return result;
             }
         }
@@ -1410,7 +1411,7 @@ function parseMember(object: Token[], member: Token[]) {
             error("Unknown member '" + name + "' of '" + dispTokens(object) + "'");
         }
         let result = new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
-        result.fileStack = member[0].fileStack;
+        result.fileStack = getFileStackRange(object.concat(...member));
         return result;
     } else {
         if (object[0].text === "random" && object.length === 1) {
@@ -1419,14 +1420,14 @@ function parseMember(object: Token[], member: Token[]) {
                     error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
                 }
                 let result = new Ast("random." + name, [parse(args[0]), parse(args[1])]);
-                result.fileStack = member[0].fileStack;
+                result.fileStack = getFileStackRange(object.concat(...member));
                 return result;
             } else if (name === "shuffle" || name === "choice") {
                 if (args.length !== 1) {
                     error("Function 'random." + name + "' takes 1 argument, received " + args.length);
                 }
                 let result = new Ast("random." + name, [parse(args[0])]);
-                result.fileStack = member[0].fileStack;
+                result.fileStack = getFileStackRange(object.concat(...member));
                 return result;
             } else {
                 error("Unhandled member 'random." + name + "'");
@@ -1449,7 +1450,7 @@ function parseMember(object: Token[], member: Token[]) {
                 name = functionAliases[name];
             }
             let result = new Ast("." + name, parseArgs("."+name, [object].concat(args)));
-            result.fileStack = member[0].fileStack;
+            result.fileStack = getFileStackRange(object.concat(...member));
             return result;
         }
     }

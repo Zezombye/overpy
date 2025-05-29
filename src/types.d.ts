@@ -152,16 +152,14 @@ export type Type = string[] | string | { [key: string]: string | Type[] };
 /**
  * Represents one layer of the file stack.
  * This is used to keep track of the current file and line number when an error occurs.
- *
- * @param name The file name.
- * @param currentLineNb The current line number.
- * @param currentColNb The current column number.
  */
 export type BaseNormalFileStackMember = {
     name: string;
     path?: string;
-    currentLineNb: number;
-    currentColNb: number;
+    startLine: number | null; //startLine/startCol is set to null when filestack is internal
+    startCol: number | null;
+    endCol: number | null; //endCol/endLine is only for tokens and not for files. Set it to null when filestack is used for files
+    endLine: number | null;
 };
 
 export type ScriptFileStackMember = BaseNormalFileStackMember & {

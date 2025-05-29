@@ -96,8 +96,10 @@ export async function compile(
     setFileStack([
         {
             name: mainFileName || "<main>",
-            currentLineNb: 1,
-            currentColNb: 1,
+            startLine: 1,
+            startCol: 1,
+            endCol: null,
+            endLine: null,
             remainingChars: 99999999999, //does not matter
             staticMember: true,
             fileStackMemberType: "normal",
@@ -110,8 +112,10 @@ export async function compile(
     setFileStack([
         {
             name: "<internal>",
-            currentLineNb: 1,
-            currentColNb: 1,
+            startLine: 1,
+            startCol: 1,
+            endCol: null,
+            endLine: null,
             remainingChars: 99999999999, //does not matter
             staticMember: true,
             fileStackMemberType: "normal",
@@ -185,8 +189,10 @@ export async function compile(
     setFileStack([
         {
             name: "<internal>",
-            currentLineNb: 1,
-            currentColNb: 1,
+            startLine: 1,
+            startCol: 1,
+            endCol: null,
+            endLine: null,
             remainingChars: 99999999999, //does not matter
             staticMember: true,
             fileStackMemberType: "normal",
@@ -301,8 +307,10 @@ function compileRules(astRules: Ast[]) {
     setFileStack([
         {
             name: "<internal>",
-            currentLineNb: 1,
-            currentColNb: 1,
+            startLine: null,
+            startCol: null,
+            endCol: null,
+            endLine: null,
             remainingChars: 99999999999, //does not matter
             staticMember: true,
             fileStackMemberType: "normal",

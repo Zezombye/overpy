@@ -60,6 +60,8 @@ export class Token {
     constructor(text: string, fileStack: FileStackMember[]) {
         this.text = text;
         this.fileStack = fileStack;
+        this.fileStack[this.fileStack.length - 1].endCol = this.fileStack[this.fileStack.length-1].startCol as number + this.text.split("\n")[this.text.split("\n").length-1].length;
+        this.fileStack[this.fileStack.length - 1].endLine = this.fileStack[this.fileStack.length-1].startLine as number + this.text.split("\n").length - 1;
     }
 
     toString() {
@@ -115,8 +117,10 @@ export function tokenize(content: string): LogicalLine[] {
             callNbChars,
             callCols,
             callLines,
-            currentLineNb: startingLine,
-            currentColNb: startingCol,
+            startLine: startingLine,
+            startCol: startingCol,
+            endLine: null,
+            endCol: null,
             staticMember: false,
         });
     }
@@ -139,8 +143,8 @@ export function tokenize(content: string): LogicalLine[] {
                 if (currentFile.remainingChars === 0) {
                     let nextFile = fileStack[fileStack.length - 2];
                     //debug("macro lines = "+macroLines+", macro cols = "+macroCols);
-                    nextFile.currentLineNb += currentFile.callLines;
-                    nextFile.currentColNb += currentFile.callLines - 1;
+                    (nextFile.startLine as number) += currentFile.callLines;
+                    (nextFile.startCol as number) += currentFile.callLines - 1;
                     if (!nextFile.staticMember) {
                         (nextFile as MacroFileStackMember).remainingChars -= currentFile.callNbChars;
                     }
@@ -148,10 +152,10 @@ export function tokenize(content: string): LogicalLine[] {
                 }
             }
 
-            currentFile.currentColNb++;
+            (currentFile.startCol as number)++;
             if (content[i + j] === "\n") {
-                currentFile.currentLineNb++;
-                currentFile.currentColNb = 1;
+                (currentFile.startLine as number)++;
+                currentFile.startCol = 1;
             }
         }
         i += amount;
@@ -367,8 +371,10 @@ export function tokenize(content: string): LogicalLine[] {
                     fileStack.push({
                         name: getFilenameFromPath(path),
                         path: path,
-                        currentLineNb: 1,
-                        currentColNb: 1,
+                        startLine: 1,
+                        startCol: 1,
+                        endLine: null,
+                        endCol: null,
                         remainingChars: 99999999999, //does not matter
                         staticMember: true,
                         fileStackMemberType: "normal",
@@ -483,7 +489,7 @@ export function tokenize(content: string): LogicalLine[] {
                             error("Replacement is undefined");
                         }
 
-                        addFile(replacement.length, text.length, macroCols, macroLines, macros[k].name, macros[k].startingCol, (macros[k].fileStack[macros[k].fileStack.length - 1] as BaseNormalFileStackMember).currentLineNb);
+                        addFile(replacement.length, text.length, macroCols, macroLines, macros[k].name, macros[k].startingCol, (macros[k].fileStack[macros[k].fileStack.length - 1] as BaseNormalFileStackMember).startLine as number);
 
                         //debug("Text: "+text);
                         //debug("Replacement: "+replacement);
@@ -578,8 +584,10 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
                         lineNb -= builtInJsFunctionsNbLines;
                         fileStack.push({
                             name: name,
-                            currentLineNb: lineNb,
-                            currentColNb: colNb,
+                            startLine: lineNb,
+                            startCol: colNb,
+                            endLine: null,
+                            endCol: null,
                             staticMember: true,
                         });
                     }

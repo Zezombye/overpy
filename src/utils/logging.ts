@@ -16,6 +16,7 @@
  */
 
 "use strict";
+import { Token } from "../compiler/tokenizer";
 import { DEBUG_MODE, encounteredWarnings, fileStack, globallySuppressedWarningTypes, hiddenWarnings, setFileStack, suppressedWarningTypes } from "../globalVars";
 import { CompilationDiagnostic, FileStackMember, Type } from "../types";
 import { Ast } from "./ast";
@@ -45,15 +46,7 @@ export function error(str: string, fileStackOverride?: FileStackMember[]): never
     //var error = "ERROR: ";
     var err = "";
     err += str;
-    if (fileStack) {
-        if (fileStack.length !== 0) {
-            for (var file of fileStack.toReversed()) {
-                err += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
-            }
-        }
-    } else {
-        err += "\n    | <no filestack>";
-    }
+    err += displayFileStack(fileStack);
 
     throw new OpyError(err, [...fileStack]);
 }
@@ -61,15 +54,7 @@ export function error(str: string, fileStackOverride?: FileStackMember[]): never
 export function warn(warnType: string, message: string, fileStackOverride?: FileStackMember[]) {
     let warning = message + " (" + warnType + ")";
     let fileStack_ = fileStackOverride || fileStack;
-    if (fileStack_) {
-        if (fileStack_.length !== 0) {
-            for (var file of fileStack_.toReversed()) {
-                warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
-            }
-        }
-    } else {
-        warning += "\n    | <no filestack>";
-    }
+    warning += displayFileStack(fileStack_);
 
     if (suppressedWarningTypes.includes(warnType) || globallySuppressedWarningTypes.includes(warnType) || warnType === "w_type_check") {
         hiddenWarnings.push(warning);
@@ -215,6 +200,35 @@ export function astToString(ast: Ast, nbTabs = 0) {
         for (var child of ast.children) {
             result += tabLevel(nbTabs + 1) + astToString(child, nbTabs + 1) + "\n";
         }
+    }
+    return result;
+}
+
+export function getFileStackRange(tokens: Token[]): FileStackMember[] {
+    if (tokens.length === 0) {
+        error("Cannot get file stack range from an empty array of tokens, please report to Zezombye");
+    }
+    let result = tokens[0].fileStack;
+    let lastTokenFilestack = tokens[tokens.length - 1].fileStack[tokens[tokens.length - 1].fileStack.length - 1];
+    result[result.length - 1].endLine = lastTokenFilestack.endLine;
+    result[result.length - 1].endCol = lastTokenFilestack.endCol;
+    return result;
+}
+
+export function displayFileStack(fileStack: FileStackMember[] | undefined): string {
+    if (!fileStack || fileStack.length === 0) {
+        return "\n    | <no filestack>";
+    }
+    let result = "";
+    for (const file of fileStack.toReversed()) {
+        result += `\n    | `;
+        if (file.startLine !== null && file.startCol !== null) {
+            result += `line ${file.startLine}, col ${file.startCol}, `;
+        }
+        result += `at ${file.name}`;
+        /*if (file.endLine !== null && file.endCol !== null) {
+            result += ` - line ${file.endLine}, col ${file.endCol}`;
+        }*/
     }
     return result;
 }

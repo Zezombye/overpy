@@ -323,14 +323,19 @@ async function applyCompilationDiagnostics(diagnostics: vscode.DiagnosticCollect
         // Use `fileInfo.path` if is is provided. Trigger document is
         // extracted with `rootPath` and `fileInfo.name`.
         const fullPath = fileInfo.path ?? rootPath + fileInfo.name;
-    
+
         // Add the file to the diagnostics map.
         if (!apply.has(fullPath)) {
             apply.set(fullPath, []);
         }
 
-        const startPos = new vscode.Position(fileInfo.currentLineNb - 1, fileInfo.currentColNb);
-        const range = new vscode.Range(startPos, startPos);
+        if (fileInfo.startLine === null || fileInfo.startCol === null) {
+            continue;
+        }
+
+        const startPos = new vscode.Position(fileInfo.startLine - 1, fileInfo.startCol - 1);
+        const endPos = fileInfo.endLine !== null && fileInfo.endCol !== null ? new vscode.Position(fileInfo.endLine - 1, fileInfo.endCol - 1) : startPos;
+        const range = new vscode.Range(startPos, endPos);
 
         apply.get(fullPath)?.push({
             message: item.message,

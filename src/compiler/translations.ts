@@ -99,7 +99,7 @@ export function getTranslatedString(str: string, context: string | null, fileSta
 
     for (let i = fileStack.length - 1; i >= 0; i--) {
         if (fileStack[i].name.endsWith(".opy")) {
-            lineNb = fileStack[i].currentLineNb;
+            lineNb = fileStack[i].startLine;
             fileName = fileStack[i].name.replaceAll(/\\/g, "/").split("/").pop();
             break;
         }
