@@ -29,6 +29,10 @@ astParsingFunctions.__add__ = function (content) {
         warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
         //return content;
     }
+    //The w_type_check warning is suppressed for now, so throw another warning if the user is attempting to concatenate strings with "+".
+    if (isTypeSuitable("String", content.args[0].type) || isTypeSuitable("String", content.args[1].type)) {
+        warn("w_string_concat", "The '+' operator cannot be used to concatenate strings. Use the .format() function or f-strings.");
+    }
 
     if (enableOptimization) {
         //If both arguments are numbers, return their addition.

@@ -480,6 +480,8 @@ String modifiers are placed just before the string, such as `w"fullwidth string"
 - The `t` string modifier specifies that the string should be included in translations (see [translations](#translations).)
 - The `f` string modifier allows using inline formatters instead of the `.format()` function, such as `f"You have {eventPlayer.money} money and deal {eventPlayer.damage} damage"`. A formatter cannot have a "}" or the same quote as the source string inside it.
 
+In case of string concatenation, string modifiers can only be used on the first string, and will apply to the whole string: `f"string" "{1+2}"` will resolve to `"string3"`.
+
 ## Tags
 
 The `#!setupTags` directive can be used to use textures and colors in strings.
