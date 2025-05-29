@@ -222,3 +222,9 @@ export type AstConstantData = {
     value: Ast;
     valueStr: string;
 }
+
+export type CompilationDiagnostic = {
+    message: string;
+    fileStack?: FileStackMember[];
+    severity: 'warning' | 'error';
+}
