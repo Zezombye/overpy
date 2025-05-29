@@ -999,5 +999,3 @@ rule "baptiste no crouch jump":
 	@Event eachPlayer
 	@Condition eventPlayer.getCurrentHero() == Hero.BAPTISTE and eventPlayer.isCrouching()
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.016)
-
-

@@ -541,6 +541,7 @@ subroutine Cancel_Momentum 33
 #!extension projectiles
 #!extension spawnMoreDummyBots
 
+#!suppressWarnings w_ow2_rule_condition_chase
 
 rule "Mod by LemonAid#11644, Original mode by Shingen#21859":
     disableInspector()
@@ -723,7 +724,7 @@ rule "[Tutorial] Close HUD":
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.25)
     eventPlayer.Tut_Active = false
     smallMessage(eventPlayer, "press {0} + {1} to toggle hero changes".format(inputBindingString(Button.CROUCH), inputBindingString(Button.RELOAD)))
@@ -735,14 +736,14 @@ rule "[Tutorial] Open HUD":
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.25)
     eventPlayer.Tut_Active = true
 
 
 def set_map_cg():
     @Name "Subroutine (Set Map CG): Set Spawns, Nodes, Edges, Distance Matrix, Ability Buy Location"
-    
+
     spawn_pos_list = [vect(206.454, 0.001, 70.22), vect(221.427, 8.692, 66.933), vect(193.658, 0.998, 67.449), vect(229.543, 1.999, 85.875), vect(224.599, 5.001, 110.683), vect(199.902, 8.843, 109.823), vect(176.589, 6.999, 66.024), vect(212.836, 9, 81.39), vect(228.988, 12.998, 65.82), vect(186.82, 0.999, 87.814)]
     spawn_nearest_node_idx_list = [0, 24, 2, 40, 42, 35, 10, 25, 21, 7]
     nodes = [vect(206.137, 0.041, 81.572), vect(197.753, 1.002, 81.213), vect(189.242, 0.998, 66.794), vect(188.545, 3, 51.941), vect(193.895, 16.5, 51.891), vect(196.476, 16.501, 68.781), vect(186.703, 0.999, 80.98), vect(187.579, 0.999, 92.388), vect(174.916, 5.001, 92.33), vect(174.294, 5, 80.881), vect(173.301, 6.999, 66.065), vect(173.262, 6.998, 57.01), vect(183.04, 7.999, 56.064), vect(183.491, 7.999, 63.766), vect(191.037, 7.999, 64.119), vect(199.061, 7.998, 49.104), vect(201.742, 7.998, 60.913), vect(209.518, 7.998, 60.774), vect(208.498, 9, 44.68), vect(218.343, 12, 45.13), vect(216.613, 14.001, 61.938), vect(229.231, 13.001, 61.763), vect(229.677, 9.187, 73.895), vect(220.985, 7.998, 81.14), vect(221.33, 9.002, 61.664), vect(206.1, 9, 81.084), vect(206.313, 7.999, 70.046), vect(183.802, 5.998, 74.325), vect(186.933, 6, 80.94), vect(185.025, 6.001, 87.18), vect(194.265, 8.001, 96.067), vect(205.974, 9.025, 95.64), vect(216.192, 7.999, 95.441), vect(180.423, 8.998, 104.206), vect(205.974, 8.027, 103.778), vect(206.172, 7.998, 110.406), vect(193.533, 9, 110.488), vect(219.054, 5.998, 103.97), vect(219.07, 1.998, 90.657), vect(235.431, 1.998, 90.539), vect(229.409, 1.999, 90.044), vect(237.966, 3.998, 104.629), vect(226.962, 4.284, 112.037), vect(219.008, 0.998, 81.327), vect(177.92, 0.002, 51.147), vect(196.386, 16.5, 51.909), vect(196.295, 16.5, 46.848), vect(208.835, 16.5, 47.146)]
@@ -764,7 +765,7 @@ rule "Team 1: Player Damage Automater (+-)":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.Damage_Dealt[true] != eventPlayer.Damage_Dealt[false]
-    
+
     eventPlayer.Damage_Dealt[true] = eventPlayer.Damage_Dealt[false]
     eventPlayer.setDamageDealt(eventPlayer.Damage_Dealt[true])
 
@@ -773,7 +774,7 @@ rule "Team 1: Player HP Automater (+-)":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.health_percent[true] != eventPlayer.health_percent[false]
-    
+
     eventPlayer.health_percent[true] = eventPlayer.health_percent[false]
     eventPlayer.setMaxHealth(eventPlayer.health_percent[true])
 
@@ -782,7 +783,7 @@ rule "Team 1: Player Resistance Automater (+-)":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.Damage_Received[true] != eventPlayer.Damage_Received[false]
-    
+
     eventPlayer.Damage_Received[true] = eventPlayer.Damage_Received[false]
     eventPlayer.setDamageReceived(eventPlayer.Damage_Received[true])
 
@@ -791,7 +792,7 @@ rule "Team 1: Player Move Speed Automater (+-)":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.Move_Speed[true] != eventPlayer.Move_Speed[false]
-    
+
     eventPlayer.Move_Speed[true] = eventPlayer.Move_Speed[false]
     eventPlayer.setMoveSpeed(eventPlayer.Move_Speed[true])
 
@@ -800,7 +801,7 @@ rule "Team 1: Player Healing Automater (+-)":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.healing_dealt_percent[true] != eventPlayer.healing_dealt_percent[false]
-    
+
     eventPlayer.healing_dealt_percent[true] = eventPlayer.healing_dealt_percent[false]
     eventPlayer.setHealingDealt(eventPlayer.healing_dealt_percent[true])
 
@@ -809,7 +810,7 @@ rule "Team 1: Protect from One-shots if health is over 50%":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.getNormalizedHealth() >= 0.5
-    
+
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 9999)
     waitUntil(eventPlayer.getNormalizedHealth() < 0.5, 99999)
     wait(0.4, Wait.RESTART_WHEN_TRUE)
@@ -828,7 +829,7 @@ rule "Team 2 CG: Improve Air Movement near Jump Pad":
     @Condition eventPlayer.is_using_combat_pathfinding == 0
     @Condition eventPlayer.getHorizontalSpeed() >= 5
     @Condition distance(eventPlayer, vect(eventPlayer.nav_pos.x, eventPlayer.getPosition().y, eventPlayer.nav_pos.z)) <= 0.5
-    
+
     eventPlayer.applyImpulse(-1 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.getVelocity()), 0), 0.001, Relativity.TO_WORLD)
     wait(0.25)
     if ruleCondition:
@@ -837,14 +838,14 @@ rule "Team 2 CG: Improve Air Movement near Jump Pad":
 
 def update_combatants():
     @Name "Subroutine: Update Combatants"
-    
+
     combatants = [player for player in getPlayers(Team.1) if player.is_combatant]
     combatants_count = len(combatants)
 
 
 def declare_victory():
     @Name "Subroutine: Declare Victory"
-    
+
     wait(2)
     if is_victory_declared:
         return
@@ -854,7 +855,7 @@ def declare_victory():
 
 def play_incoming_sound_twice():
     @Name "Subroutine: Play Incoming Sound Twice"
-    
+
     addToTeamScore(Team.1, 1)
     wait(0.6)
     addToTeamScore(Team.1, 1)
@@ -862,14 +863,14 @@ def play_incoming_sound_twice():
 
 def Cancel_Momentum():
     @Name "Subroutine: Cancel player momentum"
-    
+
     eventPlayer.applyImpulse(-1 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.getVelocity()), 0), 0.001, Relativity.TO_WORLD)
 
 
 rule "Global (First Wave): Create Mutator Start HUD, Scale Values, Set Level":
     @Condition wave_number == false
     @Condition (any([player.isHoldingButton(Button.INTERACT) and distance(player, ability_shop_pos) > 2 for player in combatants])) == true
-    
+
     destroyHudText(game_or_mutator_start_huds[0])
     destroyHudText(game_or_mutator_start_huds[1])
     enableMusic()
@@ -890,7 +891,7 @@ rule "Global (First Wave): Create Mutator Start HUD, Scale Values, Set Level":
 rule "Global (Next Wave): Revive Players, Scale Values, Set Level, Set Mutators":
     @Condition objective_phase_number == 3
     @Condition getNumberOfLivingPlayers(Team.2) == 0
-    
+
     if wave_number >= 15 and length == 0:
         async(declare_victory, AsyncBehavior.NOOP)
     elif wave_number >= 22 and length == 1:
@@ -948,7 +949,7 @@ rule "Global: Enable normal Spawns":
     @Condition (objective_phase_number == 1 or objective_phase_number == 2) == true
     @Condition enable_normal_spawns == false
     @Condition getNumberOfLivingPlayers(Team.2) < getNumberOfPlayers(Team.2)
-    
+
     temp_1 = [player for player in getLivingPlayers(Team.2) if not player.is_living_boss]
     temp_1 = ((2 * (len([player for player in temp_1 if player.real_tier <= 2]))) + (5 * (len([player for player in temp_1 if player.real_tier == 3])))) + (10 * (len([player for player in temp_1 if player.real_tier == 4])))
     if temp_1 <= max(5, getTotalTimeElapsed() - last_spawn_phase_end_t - 25 - 20 * (len([player for player in combatants if player.downed_start_t]) / combatants_count)):
@@ -967,7 +968,7 @@ rule "Global: Disable normal Spawns":
     @Condition (objective_phase_number == 1 or objective_phase_number == 2) == true
     @Condition enable_normal_spawns == true
     @Condition getNumberOfLivingPlayers(Team.2) == getNumberOfPlayers(Team.2)
-    
+
     enable_normal_spawns = false
     last_spawn_phase_end_t = getTotalTimeElapsed()
 
@@ -975,7 +976,7 @@ rule "Global: Disable normal Spawns":
 rule "Global: Defeat":
     @Condition wave_number > 0
     @Condition all([player.downed_start_t for player in combatants]) == true
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     if is_victory_declared:
         return
@@ -986,7 +987,7 @@ rule "Global: Defeat":
 rule "Global: Anti-crash":
     @Condition getNumberOfPlayers(Team.2) > 7
     @Condition getAverageServerLoad() >= 255
-    
+
     is_load_limit_reached = true
     if not is_waiting_to_remove_bot and wave_number:
         waitUntil(getAverageServerLoad() < 255, 4)
@@ -1000,7 +1001,7 @@ rule "Global: Anti-crash":
 
 def mut_add_mutator():
     @Name "MUT Subroutine: Add Mutator"
-    
+
     temp_2 = -50 - len(mutators_list)
     if mut_count % 5 == 0 and wave_number > 0:
         bigMessage(getAllPlayers(), "Gamechanging Mutator added!")
@@ -1097,7 +1098,7 @@ def mut_add_mutator():
 
 def set_random_perks():
     @Name "Subroutine: Set Random Perks"
-    
+
     if len(current_perks_huds_list):
         destroyInWorldText(current_perks_huds_list[0])
         destroyInWorldText(current_perks_huds_list[1])
@@ -1144,7 +1145,7 @@ def set_random_perks():
 
 def disable_player():
     @Name "Subroutine: Disable Player"
-    
+
     eventPlayer.startForcingThrottle(false, 0.1, false, 0.1, false, 0.1)
     eventPlayer.setPrimaryFireEnabled(false)
     eventPlayer.setSecondaryFireEnabled(false)
@@ -1158,7 +1159,7 @@ def disable_player():
 
 def enable_player():
     @Name "Subroutine: Enable Player"
-    
+
     eventPlayer.stopForcingThrottle()
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.setSecondaryFireEnabled(true)
@@ -1172,7 +1173,7 @@ def enable_player():
 
 def open_buy_menu():
     @Name "Subroutine: Open Buy Menu, Last Facing (3)"
-    
+
     if eventPlayer.downed_start_t or eventPlayer.getNormalizedHealth() < 0.5 or eventPlayer.hasStatus(Status.STUNNED) or eventPlayer.tased_end_t >= getTotalTimeElapsed():
         return
     eventPlayer.applyImpulse(-1 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.getVelocity()), false), 0.001, Relativity.TO_WORLD)
@@ -1187,7 +1188,7 @@ def open_buy_menu():
 
 def leave_buy_menu():
     @Name "Subroutine: Leave Buy Menu"
-    
+
     eventPlayer.in_buy_menu_start_t = false
     eventPlayer.enableHeroHud()
     eventPlayer.setFacing(eventPlayer.ab_var_3, Relativity.TO_WORLD)
@@ -1201,7 +1202,7 @@ rule "Team 1 Button: Interact, Open / Leave Buy Menu":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
-    
+
     if eventPlayer.in_buy_menu_start_t:
         leave_buy_menu()
     elif distance(eventPlayer, ability_shop_pos) <= 2:
@@ -1217,7 +1218,7 @@ rule "Team 1: Leave Buy Menu when downed, health low, stunned or tased":
     @Team 1
     @Condition eventPlayer.in_buy_menu_start_t == true
     @Condition (eventPlayer.downed_start_t or eventPlayer.getNormalizedHealth() < 0.5 or eventPlayer.hasStatus(Status.STUNNED) or eventPlayer.tased_end_t >= getTotalTimeElapsed()) == true
-    
+
     leave_buy_menu()
     if eventPlayer.getNormalizedHealth() > 0.4:
         return
@@ -1229,7 +1230,7 @@ rule "Team 1: Toggle Show active Ability":
     @Team 1
     @Condition eventPlayer.in_buy_menu_start_t == true
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
-    
+
     if eventPlayer.in_buy_menu_start_t + 0.1 >= getTotalTimeElapsed():
         return
     eventPlayer.is_showing_active_abilities = not eventPlayer.is_showing_active_abilities
@@ -1237,7 +1238,7 @@ rule "Team 1: Toggle Show active Ability":
 
 def check_if_enough_money():
     @Name "Subroutine: Check if enough money"
-    
+
     if money_mult * money_amount - eventPlayer.money_spent_amount >= temp_2:
         eventPlayer.money_spent_amount += temp_2
         smallMessage(eventPlayer, "Ability unlocked")
@@ -1249,7 +1250,7 @@ def check_if_enough_money():
 
 def buy_active_ability():
     @Name "Subroutine: Buy Active Ability"
-    
+
     if not eventPlayer.active_ab_number:
         temp_2 = 1200
         check_if_enough_money()
@@ -1302,7 +1303,7 @@ def buy_active_ability():
 
 def remove_active_ability():
     @Name "Subroutine: Remove Active Ability"
-    
+
     if eventPlayer.active_ab_cooldown < 0:
         eventPlayer.active_ab_cooldown = -0.1
     destroyEffect(eventPlayer.active_ab_effect_list)
@@ -1312,13 +1313,13 @@ def remove_active_ability():
 
 def update_ab_string_and_play_sound():
     @Name "Subroutine: Update Ability String and Play Sound"
-    
+
     eventPlayer.ab_bought_abilities_string = ("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format(["", "\nPriority A", "\nPriority B", "\nPriority C"][eventPlayer.ab_priority], ["", "\nHeadhunter I", "\nHeadhunter II"][eventPlayer.ab_headhunter], ["", "\nAntigens I", "\nAntigens II"][eventPlayer.ab_antigens]), "{0}{1}{2}".format(["", "\nQuick Fix I", "\nQuick Fix II"][eventPlayer.ab_quick_fix], ["", "\nCharged I", "\nCharged II"][eventPlayer.ab_charged], ["", "\nHaste I", "\nHaste II"][eventPlayer.ab_haste]), "{0}{1}{2}".format(["", "\nHeavy Impact I", "\nHeavy Impact II"][eventPlayer.ab_heavy_impact], ["", "\nSecond Wind I", "\nSecond Wind II"][eventPlayer.ab_second_wind], ["", "\nTriage I", "\nTriage II"][eventPlayer.ab_triage])), "{0}{1}{2}".format("{0}{1}{2}".format(["", "\nResilience I", "\nResilience II"][eventPlayer.ab_resilience], "\nMystery Swap" if eventPlayer.perk_mystery_swap else "", "\nBulletstorm" if eventPlayer.perk_bulletstorm else ""), "{0}{1}{2}".format("\nDie Hard" if eventPlayer.perk_die_hard else "", "\nBrass Knuckles" if eventPlayer.perk_brass_knuckles else "", "\nVampiric" if eventPlayer.perk_vampiric else ""), "{0}{1}{2}".format("\nCrash N' Dash" if eventPlayer.perk_crash_n_dash else "", "\nGolden Hour" if eventPlayer.perk_golden_hour else "", "\nSupercharge" if eventPlayer.perk_super_charge else "")), "{0}{1}{2}".format("{0}{1}{2}".format("\nNemesis" if eventPlayer.perk_nemesis else "", "\nSpec Ops" if eventPlayer.perk_special_operator else "", "\nSharpshooter" if eventPlayer.perk_sharpshooter else ""), "{0}{1}{2}".format("\nShockproof" if eventPlayer.perk_shockproof else "", "{0}{1}{2}".format("\n{0} {1}".format(abilityIconString(Hero.PHARAH, Button.JUMP), eventPlayer.talent_text[1]) if eventPlayer.Talent1 else "", "\n{0} {1}".format(abilityIconString(Hero.PHARAH, Button.JUMP), eventPlayer.talent_text[3]) if eventPlayer.Talent2 else "", "\n+{0}% Health".format(eventPlayer.ab_health_bonus) if eventPlayer.ab_health_bonus else ""), "\n+{0}% Damage".format(eventPlayer.ab_damage_bonus) if eventPlayer.ab_damage_bonus else ""), "\n+{0}% Healing".format(eventPlayer.ab_healing_bonus) if eventPlayer.ab_healing_bonus else ""))).substring(1, 511)
 
 
 def play_purchase_confirmation_sound():
     @Name "Subroutine: Play Purchase Confirmation Sound"
-    
+
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, buy_menu_cam_pos, 200)
 
 
@@ -1327,7 +1328,7 @@ rule "Team 1: Buy Ability":
     @Team 1
     @Condition eventPlayer.in_buy_menu_start_t == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     if eventPlayer.in_buy_menu_start_t + 0.1 >= getTotalTimeElapsed() or abs(eventPlayer.getHorizontalFacingAngle()) >= 135 or abs(eventPlayer.getVerticalFacingAngle() + 11.25) >= 45 or eventPlayer.tased_end_t >= getTotalTimeElapsed():
         return
     #Grid coordinates of selected panel
@@ -1650,7 +1651,7 @@ rule "Team 1: Buy Ability":
 
 rule "All Teams: Player left Match, Scale Damage":
     @Event playerLeft
-    
+
     update_combatants()
     temp_2 = (((2 if mut_emp_rounds else 1) * (20 + (8.25 * (wave_number - 1 + (max(0, wave_number - 9)))))) * (0.139 + 0.2 * combatants_count)) * (9 / getNumberOfPlayers(Team.2))
     for temp_1 in range(getNumberOfLivingPlayers(Team.2)):
@@ -1659,7 +1660,7 @@ rule "All Teams: Player left Match, Scale Damage":
 
 def nwp_teleport():
     @Name "Subroutine: Nearest Walkable Position Teleport"
-    
+
     if temp_1 == []:
         eventPlayer.teleport(sorted(nodes, lambda player: distance(eventPlayer, player))[0])
     else:
@@ -1670,7 +1671,7 @@ rule "Team 1 (Spawn): Player Init, Create Effects, Set Is Combatant":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.hasSpawned() == true
-    
+
     #Fail-Safe if player somehow despawned (Like Echo duplicating D.Va)
     if eventPlayer.is_combatant:
         return
@@ -1719,7 +1720,7 @@ rule "Team 1 (Spawn): Player Init, Create Effects, Set Is Combatant":
 rule "Team 1: Detect Input Device":
     @Event eachPlayer
     @Team 1
-    
+
     waitUntil(magnitude(eventPlayer.getThrottle()) > 0, 99999)
     temp_1 = [-1, false, 1]
     eventPlayer.is_controller_player = not (eventPlayer.getThrottle().x in temp_1 and eventPlayer.getThrottle().z in temp_1)
@@ -1731,7 +1732,7 @@ rule "Team 1: Add Health Pool":
     @Team 1
     @Condition eventPlayer.is_combatant == true
     @Condition upgrade_count > 0
-    
+
     eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.health_percent * 0.25 * upgrade_count, true)
 
 
@@ -1739,7 +1740,7 @@ rule "Team 1 Button: Hold Reload, Change Hero, Set Last Position (1), Last Eye P
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
-    
+
     wait(0.4, Wait.ABORT_WHEN_FALSE)
     if objective_phase_number > 0 or eventPlayer.downed_start_t or eventPlayer.in_buy_menu_start_t:
         return
@@ -1771,7 +1772,7 @@ rule "Team 1 Button: Hold Reload, Change Hero, Set Last Position (1), Last Eye P
 rule "Team 1: Took Damage, Set Last Damage Taken":
     @Event playerTookDamage
     @Team 1
-    
+
     eventPlayer.last_damage_taken_t = getTotalTimeElapsed()
 
 
@@ -1779,7 +1780,7 @@ rule "Team 1 (Death): Start Camera, Play Sounds, Set is Downed, Revive Timer, Kn
     @Event playerDied
     @Team 1
     @Condition eventPlayer.is_changing_heroes == false
-    
+
     if not eventPlayer.downed_start_t:
         eventPlayer.disableMessages()
         smallMessage(getAllPlayers(), "{0} was downed!".format(eventPlayer))
@@ -1816,7 +1817,7 @@ rule "Team 1: Player downed fallback":
     @Team 1
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     wait(0.25, Wait.ABORT_WHEN_FALSE)
     if not ruleCondition:
         return
@@ -1838,7 +1839,7 @@ rule "Team 1: Select Next Spectated Player":
     @Team 1
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     if eventPlayer.downed_start_t + 0.5 >= getTotalTimeElapsed():
         return
     eventPlayer.death_cam_target = null
@@ -1856,7 +1857,7 @@ rule "Team 1: Spectated Player does not exist anymore":
     @Event eachPlayer
     @Team 1
     @Condition entityExists(eventPlayer.spectated_player) == false
-    
+
     eventPlayer.spectated_player = eventPlayer
 
 
@@ -1865,7 +1866,7 @@ rule "Team 1: Revive, Check Player in Radius, Unset Is Downed":
     @Team 1
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.downed_start_t + 1 < getTotalTimeElapsed()
-    
+
     eventPlayer.revivers = [player for player in combatants if not player.downed_start_t and not player.is_invisible % 3 and distance(eventPlayer, vect(player.getPosition().x, eventPlayer.getPosition().y, player.getPosition().z)) <= 3 and abs(eventPlayer.getPosition().y - player.getPosition().y) <= 3 and (player.getHero() == Hero.MEI and player.isUsingAbility1() or isInLoS(eventPlayer, player))]
     if len(eventPlayer.revivers):
         eventPlayer.is_revive_slow = all([player.active_ab_is_cloaked or player.hasStatus(Status.INVINCIBLE) or player.hasStatus(Status.PHASED_OUT) for player in eventPlayer.revivers])
@@ -1886,7 +1887,7 @@ rule "Team 1: Teleport if Player died on Jumppad":
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.downed_start_t + 5 < getTotalTimeElapsed()
     @Condition eventPlayer.is_flying == true
-    
+
     temp_1 = nearestWalkablePosition(eventPlayer.getPosition() + 5 * directionFromAngles(random.randint(-179, 180), false))
     nwp_teleport()
 
@@ -1895,7 +1896,7 @@ rule "Team 1: Player gets up":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.downed_start_t == false
-    
+
     if not eventPlayer.is_combatant:
         return
     eventPlayer.enableMessages()
@@ -1922,7 +1923,7 @@ rule "Team 1: Heal after few sec":
     @Condition (eventPlayer.last_damage_taken_t + ((0.5 if eventPlayer.perk_die_hard else 1) * (5 if mut_deep_wounds else 2.5))) < getTotalTimeElapsed()
     @Condition eventPlayer.getNormalizedHealth() != 1
     @Condition eventPlayer.getHealth() != false
-    
+
     heal(eventPlayer, null, eventPlayer.getMaxHealth() * 0.333)
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 50)
     while true:
@@ -1936,7 +1937,7 @@ rule "Team 1: Set / Unset Is Flying":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isOnGround() == false
-    
+
     wait(1.5, Wait.ABORT_WHEN_FALSE)
     eventPlayer.is_flying = true
     waitUntil(eventPlayer.isOnGround(), 99999)
@@ -1947,7 +1948,7 @@ rule "Team 1: Calculate Eye Offset":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.is_combatant == true
-    
+
     if eventPlayer.getHero() == Hero.MEI and eventPlayer.isUsingAbility1():
         eventPlayer.eye_offset = 1.2 * Vector.UP
     elif eventPlayer.hasStatus(Status.KNOCKED_DOWN) or eventPlayer.hasStatus(Status.ASLEEP) or eventPlayer.isCommunicatingEmote():
@@ -1966,7 +1967,7 @@ rule "Team 1 Button: Hold or double tap Melee, Use active Ability":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
-    
+
     waitUntil(not eventPlayer.isHoldingButton(Button.MELEE), 0.4)
     if not eventPlayer.isHoldingButton(Button.MELEE):
         waitUntil(eventPlayer.isHoldingButton(Button.MELEE), 0.3)
@@ -2074,7 +2075,7 @@ rule "Team 1 Button: Hold or double tap Melee, Use active Ability":
 rule "Team 1 (Ability): Priority C":
     @Event playerDealtHealing
     @Team 1
-    
+
     if (not eventPlayer.ab_priority) == 3:
         return
     if healee == eventPlayer:
@@ -2089,7 +2090,7 @@ rule "Team 1 (Ability): Charged":
     @Team 1
     @Condition eventPlayer.ab_charged == true
     @Condition eventPlayer.getUltCharge() < eventPlayer.ab_charged * 15
-    
+
     eventPlayer.setUltCharge(eventPlayer.ab_charged * 15)
     #Workaround: Sets Ultimate Charge to a higher value for duplicating Echo
     if eventPlayer.isDuplicatingAHero():
@@ -2102,7 +2103,7 @@ rule "Team 1 (Ability): Haste Primary Fire":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.PRIMARY_FIRE) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.PRIMARY_FIRE, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.PRIMARY_FIRE))
 
 
@@ -2111,7 +2112,7 @@ rule "Team 1 (Ability): Haste Secondary Fire":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE))
 
 
@@ -2120,7 +2121,7 @@ rule "Team 1 (Ability): Haste Ability 1":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.ABILITY_1))
 
 
@@ -2129,7 +2130,7 @@ rule "Team 1 (Ability): Haste Ability 2":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.ABILITY_2))
 
 
@@ -2138,7 +2139,7 @@ rule "Team 1 (Ability): Haste Jump":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.JUMP) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.JUMP, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.JUMP))
 
 
@@ -2147,14 +2148,14 @@ rule "Team 1 (Ability): Haste Crouch":
     @Team 1
     @Condition eventPlayer.ab_haste == true
     @Condition eventPlayer.getAbilityCooldown(Button.CROUCH) > 0.1
-    
+
     eventPlayer.setAbilityCooldown(Button.CROUCH, (1 - 0.25 * eventPlayer.ab_haste) * eventPlayer.getAbilityCooldown(Button.CROUCH))
 
 
 rule "Team 1 (Ability): Headhunter":
     @Event playerDealtDamage
     @Team 1
-    
+
     if not eventPlayer.ab_headhunter:
         return
     if not eventWasCriticalHit:
@@ -2167,7 +2168,7 @@ rule "Team 1 (Ability): Priority B":
     @Team 1
     @Condition eventPlayer.ab_priority == 2
     @Condition eventPlayer.last_damage_taken_t + 3 < getTotalTimeElapsed()
-    
+
     eventPlayer.Damage_Dealt += 20
     eventPlayer.Move_Speed += 20
     waitUntil(eventPlayer.last_damage_taken_t + 3 >= getTotalTimeElapsed() or eventPlayer.perk_mystery_swap == getTotalTimeElapsed() + 90, 99999)
@@ -2179,7 +2180,7 @@ rule "Team 1 (Ability): Quick Fix":
     @Event playerEarnedElimination
     @Team 1
     @Condition eventPlayer.ab_quick_fix == true
-    
+
     heal(eventPlayer, null, eventPlayer.ab_quick_fix * 50)
     if not eventPlayer.current_quick_fix_speed_bonus:
         eventPlayer.current_quick_fix_speed_bonus = eventPlayer.ab_quick_fix * 15
@@ -2195,7 +2196,7 @@ rule "Team 1 (Ability): Second Wind":
     @Condition eventPlayer.ab_second_wind == true
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.downed_start_t + 0.9 < getTotalTimeElapsed()
-    
+
     smallMessage(getAllPlayers(), "{0} received a second wind!".format(eventPlayer))
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.GREEN, eventPlayer, 1)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 3.5)
@@ -2209,7 +2210,7 @@ rule "Team 1 (Perk): Mystery Swap":
     @Condition eventPlayer.perk_mystery_swap != false
     @Condition eventPlayer.perk_mystery_swap < getTotalTimeElapsed()
     @Condition eventPlayer.downed_start_t == false
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     if not ruleCondition:
         return
@@ -2240,7 +2241,7 @@ rule "Team 1 (Perk): Bulletstorm":
     @Team 1
     @Condition eventPlayer.perk_bulletstorm == true
     @Condition (eventPlayer.getAmmo(false) < eventPlayer.getMaxAmmo(false) or eventPlayer.getAmmo(1) < eventPlayer.getMaxAmmo(1)) == true
-    
+
     eventPlayer.setAmmo(false, 1000)
     eventPlayer.setAmmo(1, 1000)
 
@@ -2249,7 +2250,7 @@ rule "Team 1 (Perk): Nemesis":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.nemesis_killer.isDead() == true
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     if not eventPlayer.downed_start_t:
         return
@@ -2261,7 +2262,7 @@ rule "Team 1 (Perk): Nemesis":
 rule "Team 1 (Perk): Brass Knuckles":
     @Event playerDealtKnockback
     @Team 1
-    
+
     if not eventPlayer.perk_brass_knuckles:
         return
     if eventAbility != Button.MELEE:
@@ -2284,7 +2285,7 @@ rule "Team 1 (Perk): Crash N' Dash":
     @Team 1
     @Condition eventPlayer.perk_crash_n_dash == true
     @Condition eventPlayer.getSpeed() >= 8
-    
+
     heal(eventPlayer, null, 10)
     wait(0.2)
     if ruleCondition:
@@ -2294,7 +2295,7 @@ rule "Team 1 (Perk): Crash N' Dash":
 rule "Team 1 (Perk): Vampiric Heal":
     @Event playerDealtDamage
     @Team 1
-    
+
     if not eventPlayer.perk_vampiric:
         return
     heal(eventPlayer, null, eventDamage * 0.3)
@@ -2303,7 +2304,7 @@ rule "Team 1 (Perk): Vampiric Heal":
 rule "Team 1 (Perk): Supercharge":
     @Event playerDealtHealing
     @Team 1
-    
+
     if not eventPlayer.perk_super_charge:
         return
     if healee == eventPlayer:
@@ -2320,7 +2321,7 @@ rule "Team 2 (Mutator): Artful Dodger":
     @Condition mut_artful_dodger == true
     @Condition eventPlayer.can_dodge == false
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.can_dodge = true
 
 
@@ -2330,7 +2331,7 @@ rule "MUT Team 2 (Mutator): Swan Song":
     @Condition mut_swan_song == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.is_living_boss == true
-    
+
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 9999)
     waitUntil(eventPlayer.getHealth() <= 1, 99999)
     createEffect(getAllPlayers(), Effect.ECHO_CLONING, Color.TEAM_1, eventPlayer, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -2349,7 +2350,7 @@ rule "MUT Team 2: Counterstrike":
     @Condition mut_counterstrike == true
     @Condition eventPlayer.is_using_boss_aggression == false
     @Condition eventPlayer.target.isUsingUltimate() == true
-    
+
     eventPlayer.is_aggressive = not eventPlayer.is_aggressive
     wait(4)
     if ruleCondition:
@@ -2368,7 +2369,7 @@ rule "MUT Team 2: Counterstrike":
 rule "MUT Team 2 (Mutator): Low Blow":
     @Event playerDealtKnockback
     @Team 2
-    
+
     if not mut_low_blow:
         return
     damage(victim, eventPlayer, 0.5 * eventDamage)
@@ -2381,7 +2382,7 @@ rule "MUT Team 2 (Mutator) Cassidy: Fully Loaded, Magnade":
     @Condition (eventPlayer.is_living_boss or mut_fully_loaded) == true
     @Condition wave_number >= 4
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -2401,7 +2402,7 @@ rule "MUT Team 2 Echo (Mutator): Fully Loaded, Focusing Beam":
     @Hero echo
     @Condition mut_fully_loaded == true
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -2421,7 +2422,7 @@ rule "MUT Team 2 (Mutator) Team 2 Ana: Fully Loaded, Sleep Dart":
     @Hero ana
     @Condition mut_fully_loaded == true
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -2442,7 +2443,7 @@ rule "MUT Team 2 Pharah (Mutator): Fully Loaded, Concussive Blast":
     @Condition mut_fully_loaded == true
     @Condition eventPlayer.is_target_in_los == true
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
 
@@ -2452,7 +2453,7 @@ rule "Team 1 Doomfist: Meteor Strike (Invisibility 2, not detectable)":
     @Team 1
     @Hero doomfist
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     eventPlayer.is_invisible = 2
     waitUntil(not eventPlayer.isUsingUltimate(), 99999)
     eventPlayer.is_invisible = false
@@ -2464,7 +2465,7 @@ rule "Team 1 D.Va: Fill Ultimate Charge when downed":
     @Hero dva
     @Condition eventPlayer.downed_start_t == true
     @Condition eventPlayer.getUltCharge() != 100
-    
+
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     eventPlayer.setUltCharge(100)
 
@@ -2475,7 +2476,7 @@ rule "Team 1 Echo: Stealth (Invisibility 1, detectable)":
     @Hero echo
     @Condition eventPlayer.getHeroOfDuplication() == Hero.SOMBRA
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.8, Wait.ABORT_WHEN_FALSE)
     eventPlayer.is_invisible = 1
     waitUntil(not eventPlayer.isUsingAbility1(), 99999)
@@ -2488,7 +2489,7 @@ rule "Team 1 Echo: Remove Stealth when Duplicate ends":
     @Hero echo
     @Condition eventPlayer.is_invisible == 1
     @Condition eventPlayer.isDuplicatingAHero() == false
-    
+
     eventPlayer.is_invisible = false
 
 
@@ -2496,7 +2497,7 @@ rule "Team 1 Echo: Cancel Charge on Boss Enemies":
     @Event playerDealtKnockback
     @Team 1
     @Hero echo
-    
+
     if eventPlayer.getHeroOfDuplication() != Hero.REINHARDT:
         return
     if eventAbility != null:
@@ -2513,7 +2514,7 @@ rule "Team 1 Echo: Cancel Chain Hook on Boss Enemies":
     @Event playerDealtDamage
     @Team 1
     @Hero echo
-    
+
     if eventPlayer.getHeroOfDuplication() != Hero.ROADHOG:
         return
     if eventAbility != Button.ABILITY_1:
@@ -2539,7 +2540,7 @@ rule "Team 1 Mercy: Revive Ability (Player)":
     @Condition eventPlayer.downed_start_t == false
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     eventPlayer.ab_player = (sorted([player for player in getPlayersInRadius(eventPlayer, 10, Team.1) if player.is_combatant and player.downed_start_t and player.downed_start_t + 0.1 < getTotalTimeElapsed() and eventPlayer.isInViewAngle(player, 45)], lambda i_: dotProduct(eventPlayer.getFacingDirection(), directionTowards(eventPlayer.getEyePosition(), i_)))).last()
     if eventPlayer.ab_player:
         smallMessage(getAllPlayers(), "{0} has been resurrected by {1}!".format(eventPlayer.ab_player, eventPlayer))
@@ -2559,7 +2560,7 @@ rule "IV Team 1 Moira: Biotic Grasp on Portal Simulation":
     @Condition gamemode == false
     @Condition objective_phase_number == 1
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     if distance(eventPlayer.getEyePosition(), iv_dom_objective_pos + 1.11 * Vector.UP) <= 20 and isInLoS(eventPlayer.getEyePosition(), iv_dom_objective_pos + 1.11 * Vector.UP):
         #If Facing ray intersects sphere
         if distance(iv_dom_objective_pos + 1.11 * Vector.UP, eventPlayer.getEyePosition() + ((max(0, dotProduct(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer.getEyePosition(), iv_dom_objective_pos + 1.11 * Vector.UP)))) * eventPlayer.getFacingDirection())) <= 0.85:
@@ -2574,7 +2575,7 @@ rule "Team 1 Sombra: Stealth (Invisibility 1, detectable), end after 20 seconds"
     @Team 1
     @Hero sombra
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.8, Wait.ABORT_WHEN_FALSE)
     eventPlayer.is_invisible = 1
     for eventPlayer.sombra_stealth_timer in range(100, 0, -0.48):
@@ -2590,7 +2591,7 @@ rule "Team 1 Reinhardt: Cancel Charge on Boss Enemies":
     @Event playerDealtKnockback
     @Team 1
     @Hero reinhardt
-    
+
     if eventAbility != null:
         return
     if not victim.is_living_boss:
@@ -2605,7 +2606,7 @@ rule "Team 1 Roadhog: Cancel Chain Hook on Boss Enemies":
     @Event playerDealtDamage
     @Team 1
     @Hero roadhog
-    
+
     if eventAbility != Button.ABILITY_1:
         return
     if not victim.is_living_boss:
@@ -2623,7 +2624,7 @@ rule "Team 1 Tracer: Start Health Regeneration after Recall":
     @Team 1
     @Hero tracer
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     wait(0.85)
     eventPlayer.last_damage_taken_t = false
 
@@ -2632,7 +2633,7 @@ rule "Team 1 Zenyatta: Harmony target is harder to hit":
     @Event playerDealtHealing
     @Team 1
     @Hero zenyatta
-    
+
     if eventAbility != Button.ABILITY_1:
         return
     healee.active_ab_is_smoked = true
@@ -2641,13 +2642,13 @@ rule "Team 1 Zenyatta: Harmony target is harder to hit":
 
 def call_reinforcements():
     @Name "Subroutine: Spawn Reinforcements"
-    
+
     special_spawns_count += is_apocalyptic + (2 if wave_number >= 5 else 1)
 
 
 def teleport_to_free_spawn():
     @Name "Subroutine: Teleport to free Spawn"
-    
+
     if (gamemode == 0 and (eventPlayer.base_tier == -1 or special_spawns_count > 0)) and not eventPlayer.is_alive:
         eventPlayer.is_nav_reachable_node = false
         if eventPlayer.base_tier == -1 and objective_phase_number == 0:
@@ -2679,7 +2680,7 @@ def teleport_to_free_spawn():
 
 def find_wp_near_nav():
     @Name "Subroutine: Find WP near Nav (find a walkable position near the Nav and check if it's reachable)"
-    
+
     temp_1 = nearestWalkablePosition(eventPlayer.nav_pos)
     #If NWP is valid and not too far from the original destination
     if temp_1 != [] and distance(eventPlayer.nav_pos, temp_1) < 3:
@@ -2713,7 +2714,7 @@ def find_wp_near_nav():
 
 def check_drop():
     @Name "Subroutine: Check Drop (Avoid dropping too low)"
-    
+
     if is_load_limit_reached:
         eventPlayer.nav_pos = eventPlayer.getPosition()
         return
@@ -2732,7 +2733,7 @@ def check_drop():
 
 def start_facing():
     @Name "Subroutine: Start Facing"
-    
+
     if eventPlayer.getHero() == Hero.SOLDIER:
         if eventPlayer.real_tier == 4:
             eventPlayer.startFacing((vect(false, false, false) if eventPlayer.is_target_in_los and (not eventPlayer.ab_var_1 or eventPlayer.is_using_combat_pathfinding) else 1.5 * directionTowards(eventPlayer, eventPlayer.nav_pos)) + (directionTowards(eventPlayer.getEyePosition(), eventPlayer.target.getEyePosition() + eventPlayer.target.eye_offset) if eventPlayer.target.is_combatant else vect(false, false, false)), 0 if eventPlayer.hasStatus(Status.STUNNED) else 1000 if eventPlayer.ab_var_1 else 300)
@@ -2748,7 +2749,7 @@ def start_facing():
 
 def find_chase_target():
     @Name "Subroutine: Find Chase Target"
-    
+
     if eventPlayer.is_ignoring_other_targets:
         return
     eventPlayer.target = (sorted([player for player in combatants if not player.downed_start_t and not player.active_ab_is_cloaked and (not (player.is_invisible and distance(eventPlayer, player) > 2.4))], lambda i_: distance(eventPlayer, i_)))[0]
@@ -2756,7 +2757,7 @@ def find_chase_target():
 
 def update_target_nav():
     @Name "Subroutine: Update Target Nav"
-    
+
     eventPlayer.target.last_nav_update_t = getTotalTimeElapsed()
     temp_1 = eventPlayer.target.getEyePosition() + eventPlayer.target.eye_offset
     eventPlayer.target.best_nav_idx = nodes.index((sorted([i_ for i_ in nodes.exclude(elevator_nodes) if isInLoS(i_ + vect(0, 1.5, 0), temp_1)], lambda i_: distance(eventPlayer.target, i_) + (abs(eventPlayer.target.getPosition().y - i_.y))))[0])
@@ -2767,7 +2768,7 @@ def update_target_nav():
 rule "Team 2: Bot Init":
     @Event eachPlayer
     @Team 2
-    
+
     eventPlayer.setRespawnTime(9999)
     eventPlayer.ab_bought_abilities_string = ""
     #Workaround: Create Boss Health Bars
@@ -2778,7 +2779,7 @@ rule "Team 2: Bot Init":
 rule "Team 2 (Death): Field Resurrection":
     @Event playerDied
     @Team 2
-    
+
     if not wave_number:
         return
     eventPlayer.fear_end_t = false
@@ -2851,7 +2852,7 @@ rule "Team 2 (Respawn): Reset Dummy, Change Hero":
     @Team 2
     @Condition eventPlayer.is_alive == false
     @Condition (enable_objective_enemy_spawn if eventPlayer.base_tier == -1 else special_spawns_count > 0 or enable_normal_spawns or eventPlayer.is_expendable) == true
-    
+
     if not (eventPlayer.base_tier == -1 or gamemode == 2 and objective_phase_number == 0 and eventPlayer.getSlot() <= 3):
         wait(0.5 + (0.1 * (max(0, eventPlayer.getSlot() - 2))), Wait.ABORT_WHEN_FALSE)
     eventPlayer.stopAllDamageOverTime()
@@ -3142,7 +3143,7 @@ rule "Team 2: Enable Combat Pathfinding":
     @Condition eventPlayer.isOnGround() == true
     @Condition (eventPlayer.target.getPosition().y - eventPlayer.getPosition().y <= 2 or nodes[eventPlayer.target.best_nav_idx].y - eventPlayer.getPosition().y <= 1) == true
     @Condition (eventPlayer.is_ranged or distance(eventPlayer, eventPlayer.target) <= 1 + distance(eventPlayer.target, nodes[eventPlayer.target.best_nav_idx])) == true
-    
+
     if eventPlayer.target.last_nav_update_t + combatants_count * 0.4 < getTotalTimeElapsed():
         update_target_nav()
         if not ruleCondition:
@@ -3164,7 +3165,7 @@ rule "Team 2: Disable Combat Pathfinding":
     @Team 2
     @Condition eventPlayer.is_using_combat_pathfinding == true
     @Condition (eventPlayer.is_aggressive and eventPlayer.is_target_in_los) == 0
-    
+
     eventPlayer.is_using_combat_pathfinding = 0
 
 
@@ -3174,7 +3175,7 @@ rule "Team 2: Set Nav (Not in Combat), Get Back to Node, Set Nav is Node":
     @Condition eventPlayer.is_alive == true
     @Condition eventPlayer.is_using_combat_pathfinding == 0
     @Condition eventPlayer.is_nav_reachable_node == false
-    
+
     if not (is_load_limit_reached or eventPlayer.is_pathfinding_disabled):
         if eventPlayer.combat_pathfinding_type == 0:
             eventPlayer.setMoveSpeed(115 if mut_amped else 100)
@@ -3195,7 +3196,7 @@ rule "Team 2: Set Nav (Not in Combat), Select Next Node, Set Last Time at Node":
     @Condition eventPlayer.is_using_combat_pathfinding == 0
     @Condition eventPlayer.is_nav_reachable_node == true
     @Condition distance(eventPlayer, eventPlayer.nav_pos) <= 1
-    
+
     eventPlayer.last_time_at_node_t = getTotalTimeElapsed()
     if not (is_load_limit_reached or eventPlayer.is_pathfinding_disabled):
         if gamemode == 2 and eventPlayer.is_living_boss and not eventPlayer.is_aggressive:
@@ -3229,7 +3230,7 @@ rule "Team 2: Set Nav (in Combat)":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.is_using_combat_pathfinding == true
-    
+
     if not (is_load_limit_reached or eventPlayer.is_pathfinding_disabled or eventPlayer.hasStatus(Status.ROOTED) or eventPlayer.hasStatus(Status.STUNNED)):
         if isInLoS(eventPlayer.getEyePosition(), eventPlayer.target.getEyePosition() + eventPlayer.target.eye_offset):
             eventPlayer.target_last_seen_pos = eventPlayer.target.getPosition()
@@ -3337,7 +3338,7 @@ rule "Team 2: Find Target":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.is_alive == true
-    
+
     if not (eventPlayer.fear_end_t >= getTotalTimeElapsed() or eventPlayer.is_wraith or eventPlayer.getHero() == Hero.SOMBRA and eventPlayer.ab_player):
         if eventPlayer.is_ignoring_other_targets:
             temp_1 = eventPlayer.target if eventPlayer.target.is_combatant and not eventPlayer.target.downed_start_t and not eventPlayer.target.active_ab_is_cloaked and (not (eventPlayer.target.is_invisible and distance(eventPlayer, eventPlayer.target) > 2.4)) and isInLoS(eventPlayer.getEyePosition(), eventPlayer.target.getEyePosition() + eventPlayer.target.eye_offset) else null
@@ -3366,7 +3367,7 @@ rule "Team 2: Calculate Real Speed":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.is_alive == true
-    
+
     if is_load_limit_reached or eventPlayer.is_pathfinding_disabled:
         #Larger than 1.5 to not trigger stuck rules
         eventPlayer.real_speed = 1.6
@@ -3402,7 +3403,7 @@ rule "Team 2: Bot is stuck":
     @Condition eventPlayer.hasStatus(Status.ROOTED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
     @Condition (distance(eventPlayer, vect(eventPlayer.nav_pos.x, (eventPlayer.getPosition() if eventPlayer.is_using_combat_pathfinding else eventPlayer.nav_pos).y, eventPlayer.nav_pos.z))) >= 0.5
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     if eventPlayer.getHero() == Hero.REINHARDT and eventPlayer.isUsingUltimate():
         loop()
@@ -3436,7 +3437,7 @@ rule "Team 2: Teleport if Target not in LOS and hasn't reached Node for 8 second
     @Condition eventPlayer.is_target_in_los == 0
     @Condition eventPlayer.fear_end_t < getTotalTimeElapsed()
     @Condition eventPlayer.last_time_at_node_t < getTotalTimeElapsed()
-    
+
     wait(8, Wait.ABORT_WHEN_FALSE)
     if is_load_limit_reached:
         loop()
@@ -3446,7 +3447,7 @@ rule "Team 2: Teleport if Target not in LOS and hasn't reached Node for 8 second
 rule "Team 2: Bot took damage, Dodge":
     @Event playerTookDamage
     @Team 2
-    
+
     if is_load_limit_reached:
         return
     if eventPlayer.is_pathfinding_disabled:
@@ -3468,7 +3469,7 @@ rule "Team 2: Is Hacked, Tase Bot":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    
+
     if eventPlayer.is_living_boss:
         return
     if eventPlayer.is_hardwired:
@@ -3492,7 +3493,7 @@ rule "Team 2: Is Hacked, effect":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    
+
     eventPlayer.soldier_espionage = true
     waitUntil(not eventPlayer.hasStatus(Status.HACKED), 99999)
     wait(0.1)
@@ -3506,7 +3507,7 @@ rule "Team 2: Quick Melee":
     @Team 2
     @Condition eventPlayer.can_quick_melee == true
     @Condition eventPlayer.is_target_in_los == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -3526,7 +3527,7 @@ rule "Team 2: Bot is feared":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.fear_end_t >= getTotalTimeElapsed()
-    
+
     eventPlayer.is_target_in_los = 0
     if eventPlayer.is_living_boss:
         eventPlayer.startForcingOutlineFor(getAllPlayers(), true, Color.VIOLET, OutlineVisibility.ALWAYS)
@@ -3543,7 +3544,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Gamechanging Mutator was enabled":
     @Event eachPlayer
     @Team 2
     @Condition is_gmut_enabled == true
-    
+
     wait(0.5)
     if gmut_storm_raging:
         createEffect(getAllPlayers() if eventPlayer.gmut_var else [], Effect.ANA_NANO_BOOSTED, Color.TEAM_2, eventPlayer, 1, EffectReeval.VISIBILITY)
@@ -3561,7 +3562,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Adaptive Shield":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.gmut_var == false
     @Condition eventPlayer.getNormalizedHealth() <= 0.5
-    
+
     if eventPlayer.iv_is_portal:
         return
     if eventPlayer.getSlot() == 1:
@@ -3587,7 +3588,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Sympathy Gains":
     @Team 2
     @Condition gmut_sympathy_gains == true
     @Condition eventPlayer.iv_is_portal == false
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.BLACK, eventPlayer, 1)
     wait(0.15, Wait.ABORT_WHEN_FALSE)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer.getPosition(), 1)
@@ -3601,7 +3602,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Fortified":
     @Condition eventPlayer.is_fortified == true
     @Condition eventPlayer.hasStatus(Status.STUNNED) == true
     @Condition eventPlayer.gmut_fortified_bypass_end_t < getTotalTimeElapsed()
-    
+
     if eventPlayer.hasStatus(Status.KNOCKED_DOWN):
         eventPlayer.clearStatusEffect(Status.KNOCKED_DOWN)
         wait(1)
@@ -3627,7 +3628,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Salvation":
     @Condition gmut_salvation == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.is_living_boss == false
-    
+
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 9999)
     waitUntil(eventPlayer.getHealth() <= 1, 99999)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.PURPLE, eventPlayer.getPosition(), 1)
@@ -3640,7 +3641,7 @@ rule "MUT Team 2 (Gamechanging Mutator): Salvation":
 rule "Team 2 (Ability): Heavy Impact / Damage Stagger":
     @Event playerTookDamage
     @Team 2
-    
+
     if not (eventPlayer.can_stagger or attacker.ab_heavy_impact):
         return
     #the lower the minimum, the higher the chance
@@ -3657,7 +3658,7 @@ rule "Team 2 Brigitte: Hold / Drop Shield if Target and Distance to Target >= 6m
     @Hero brigitte
     @Condition eventPlayer.is_target_in_los == true
     @Condition distance(eventPlayer, eventPlayer.target) >= 6
-    
+
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     waitUntil(not (eventPlayer.is_target_in_los and distance(eventPlayer, eventPlayer.target) >= 6), 99999)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
@@ -3669,7 +3670,7 @@ rule "Team 2 Brigitte: Start / Stop Attacking if Distance to Target < 6m":
     @Hero brigitte
     @Condition eventPlayer.is_target_in_los == true
     @Condition distance(eventPlayer, eventPlayer.target) < 6
-    
+
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(not (eventPlayer.is_target_in_los and distance(eventPlayer, eventPlayer.target) < 6), 99999)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -3680,7 +3681,7 @@ rule "Team 2 Brigitte: Increase / Normalize Move Speed while holding Shield":
     @Team 2
     @Hero brigitte
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.setMoveSpeed(164.286 if mut_amped else 142.857)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
     eventPlayer.setMoveSpeed(115 if mut_amped else 100)
@@ -3691,7 +3692,7 @@ rule "Team 2 Brigitte: Whip Shot":
     @Team 2
     @Hero brigitte
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -3710,7 +3711,7 @@ rule "Team 2 Zarya: Shoot":
     @Team 2
     @Hero zarya
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -3732,7 +3733,7 @@ rule "Team 2 Zarya: Self Bubble":
     @Team 2
     @Hero zarya
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(10)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     if ruleCondition:
@@ -3745,7 +3746,7 @@ rule "Team 2 Zarya: Team Bubble":
     @Hero zarya
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 0
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(10)
     if ruleCondition:
@@ -3759,7 +3760,7 @@ rule "Team 2 Zarya: Grav":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition (wave_number >= 12 or eventPlayer.is_living_boss) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -3780,7 +3781,7 @@ rule "Team 2 Lucio: Swap to heal and shoot":
     @Team 2
     @Hero lucio
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -3804,7 +3805,7 @@ rule "Team 2 Lucio: Ultimate":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition (wave_number >= 12 or eventPlayer.is_living_boss) == true
-    
+
     if not ruleCondition:
         return
     eventPlayer.setUltCharge(100)
@@ -3819,7 +3820,7 @@ rule "Team 2 Kiriko: Shoot":
     @Team 2
     @Hero kiriko
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     wait(0.6)
     if ruleCondition:
@@ -3831,7 +3832,7 @@ rule "Team 2 Kiriko: Swift Step":
     @Team 2
     @Hero kiriko
     @Condition (eventPlayer.is_alive and eventPlayer.getNormalizedHealth() <= 0.5) == eventPlayer.is_aggressive
-    
+
     eventPlayer.is_aggressive = not eventPlayer.is_aggressive
     eventPlayer.ab_var_1 = 1
     chaseOverTime(eventPlayer.ab_var_1, 0, 3)
@@ -3856,7 +3857,7 @@ rule "Team 2 Kiriko: Jump":
     @Condition eventPlayer.is_using_combat_pathfinding == true
     @Condition eventPlayer.target.is_flying == false
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.startForcingButton(Button.JUMP)
     wait(1)
     eventPlayer.stopForcingButton(Button.JUMP)
@@ -3871,7 +3872,7 @@ rule "Team 2 Kiriko: Suzu":
     @Hero kiriko
     @Condition distance(eventPlayer, eventPlayer.target) <= 40
     @Condition eventPlayer.is_target_in_los >= 3
-    
+
     wait(random.randint(7, 15))
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     if ruleCondition:
@@ -3885,7 +3886,7 @@ rule "Team 2 Kiriko: Ult":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition distance(eventPlayer, eventPlayer.target) <= 20
     @Condition (wave_number >= 6 or eventPlayer.is_living_boss) == true
-    
+
     if not ruleCondition:
         return
     eventPlayer.setUltCharge(100)
@@ -3901,7 +3902,7 @@ rule "Team 2 Wrecking Ball: Explode":
     @Hero wreckingBall
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition distance(eventPlayer, eventPlayer.target) <= 2.4
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     eventPlayer.setUltCharge(100)
     wait(0.5)
@@ -3922,7 +3923,7 @@ rule "Team 2 Cassidy: Shoot":
     @Hero cassidy
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -3941,7 +3942,7 @@ rule "Team 2 Cassidy: Combat Roll":
     @Event playerTookDamage
     @Team 2
     @Hero cassidy
-    
+
     if is_load_limit_reached:
         return
     if not eventPlayer.is_using_combat_pathfinding:
@@ -3962,7 +3963,7 @@ rule "Team 2 Soldier: Shoot, Is Charging (1), Protecting Charge Target (2), Has 
     @Hero soldier
     @Condition eventPlayer.ab_var_1 == false
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4007,7 +4008,7 @@ rule "Team 2 Soldier: Biotic Field (Heavy Trooper), Emit Smoke (Grenadier)":
     @Hero soldier
     @Condition eventPlayer.ab_var_3 == false
     @Condition eventPlayer.getNormalizedHealth() <= 0.5
-    
+
     eventPlayer.ab_var_3 = true
     if eventPlayer.real_tier == 3:
         for eventPlayer.i in range(5, 0, -1):
@@ -4029,7 +4030,7 @@ rule "Team 1: Smoke Screen":
     @Team 1
     @Condition eventPlayer.Smoked_Screen == true
     @Condition eventPlayer.downed_start_t == false
-    
+
     getAllPlayers().startForcingOutlineFor(eventPlayer, false, Color.WHITE)
     waitUntil(eventPlayer.isDead(), 4)
     getAllPlayers().stopForcingOutlineFor(eventPlayer)
@@ -4045,7 +4046,7 @@ rule "Team 2 Soldier (Cloaker): Tactical Visor":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition eventPlayer.target.is_flying == false
     @Condition distance(eventPlayer, eventPlayer.target) <= 40
-    
+
     wait(0.5)
     if (len([player for player in combatants if player.downed_start_t]) <= (1 if combatants_count >= 4 else 0)) and random.randint(1, 100) > 50:
         eventPlayer.setUltCharge(100)
@@ -4076,7 +4077,7 @@ rule "Team 2 Soldier (Cloaker): Stuck while charging":
     @Hero soldier
     @Condition eventPlayer.ab_var_1 == 2
     @Condition (eventPlayer.real_speed <= 1.5 or eventPlayer.target.is_flying) == true
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.ab_var_1 = false
 
@@ -4089,7 +4090,7 @@ rule "Team 2 Soldier (Cloaker): Sprint":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition magnitude(eventPlayer.getThrottle()) > 0
     @Condition abs(horizontalAngleOfDirection(eventPlayer.getThrottle())) <= 60
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -4102,7 +4103,7 @@ rule "Team 2 Soldier (Cloaker): Quick Melee":
     @Hero soldier
     @Condition eventPlayer.ab_var_1 == 2
     @Condition distance(eventPlayer, eventPlayer.target) <= 3
-    
+
     eventPlayer.nav_pos = eventPlayer.target.getPosition() + 2.5 * directionTowards(eventPlayer, eventPlayer.target)
     eventPlayer.ab_var_1 = false
     eventPlayer.forceButtonPress(Button.MELEE)
@@ -4112,7 +4113,7 @@ rule "Team 2 Soldier (Cloaker): Quick Melee, apply Stun":
     @Event playerDealtKnockback
     @Team 2
     @Hero soldier
-    
+
     if eventAbility != Button.MELEE:
         return
     if eventPlayer.real_tier != 4:
@@ -4145,7 +4146,7 @@ rule "Team 2 Baptiste: Shoot, Has Used Immortality Field (1), Revive last time u
     @Team 2
     @Hero baptiste
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4165,7 +4166,7 @@ rule "Team 2 Baptiste: Immortality Field":
     @Condition (wave_number >= 10 or eventPlayer.is_living_boss) == true
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     eventPlayer.ab_var_1 = true
     if not eventPlayer.is_living_boss and random.randint(1, 100) > 40:
         return
@@ -4177,7 +4178,7 @@ rule "Team 2 Echo: Shoot, Is Landing (1)":
     @Team 2
     @Hero echo
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4194,7 +4195,7 @@ rule "Team 2 Echo: Sticky Bombs":
     @Team 2
     @Hero echo
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4215,7 +4216,7 @@ rule "Team 2 Echo: Flight":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition eventPlayer.is_aggressive == true
     @Condition distance(eventPlayer, eventPlayer.target) <= 40
-    
+
     eventPlayer.is_using_combat_pathfinding = 3
     eventPlayer.is_nav_reachable_node = false
     eventPlayer.forceButtonPress(Button.JUMP)
@@ -4251,7 +4252,7 @@ rule "Team 2 Echo: Ascend / Descend":
     @Hero echo
     @Condition eventPlayer.is_flying == true
     @Condition abs(eventPlayer.getPosition().y - eventPlayer.nav_pos.y) >= 1
-    
+
     if eventPlayer.getPosition().y < eventPlayer.nav_pos.y:
         eventPlayer.startForcingButton(Button.JUMP)
         waitUntil(not (eventPlayer.is_flying and eventPlayer.nav_pos.y - eventPlayer.getPosition().y >= 1), 99999)
@@ -4267,7 +4268,7 @@ rule "Team 2 Echo: Glide":
     @Team 2
     @Hero echo
     @Condition eventPlayer.ab_var_1 == true
-    
+
     wait(0.25, Wait.ABORT_WHEN_FALSE)
     eventPlayer.startForcingButton(Button.JUMP)
     waitUntil(not eventPlayer.ab_var_1, 2.5)
@@ -4280,7 +4281,7 @@ rule "Team 2 Mei: Shoot":
     @Hero mei
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4303,7 +4304,7 @@ rule "Team 2 Mei: Ice Block + Wall":
     @Hero mei
     @Condition eventPlayer.getNormalizedHealth() <= 0.499
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2 if random.randint(1, 4) <= 3 else Button.ABILITY_1)
     if eventPlayer.isUsingAbility2():
         wait(0.05)
@@ -4324,7 +4325,7 @@ rule "Team 2 Mei: Ult":
     @Condition distance(eventPlayer, eventPlayer.target) <= 25
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition (wave_number >= 12 or eventPlayer.is_living_boss) == true
-    
+
     if not ruleCondition:
         return
     eventPlayer.setUltCharge(100)
@@ -4340,7 +4341,7 @@ rule "Team 2 Sombra: Shoot, Tase Target (Player), Just used Translocater (1), To
     @Hero sombra
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.ab_player == null
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4365,7 +4366,7 @@ rule "Team 2 Sombra: Translocator":
     @Condition distance(eventPlayer, eventPlayer.target) <= 25
     @Condition eventPlayer.target.getPosition().y - eventPlayer.getPosition().y >= 3
     @Condition eventPlayer.isInViewAngle(eventPlayer.target, 5) == true
-    
+
     if eventPlayer.isUsingAbility2():
         eventPlayer.forceButtonPress(Button.INTERACT)
         wait(0.05)
@@ -4390,7 +4391,7 @@ rule "Team 2 Sombra: EMP":
     @Hero sombra
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition (wave_number >= 13 or eventPlayer.is_living_boss) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4424,7 +4425,7 @@ rule "Team 2 Sombra: Tase":
     @Team 2
     @Hero sombra
     @Condition eventPlayer.is_target_in_los == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4460,7 +4461,7 @@ rule "Team 2 Sombra: Tase times out / Lost Health / Target is downed / Target le
     @Hero sombra
     @Condition eventPlayer.ab_player != null
     @Condition (eventPlayer.ab_player.tased_end_t < getTotalTimeElapsed() or eventPlayer.ab_var_2 or eventPlayer.getHealth() < eventPlayer.ab_var_3 or eventPlayer.ab_player.downed_start_t or not eventPlayer.ab_player.is_combatant or eventPlayer.hasStatus(Status.HACKED) or eventPlayer.hasStatus(Status.STUNNED) or distance(eventPlayer, eventPlayer.ab_player) >= 11 or not isInLoS(eventPlayer.getEyePosition(), eventPlayer.ab_player.getEyePosition(), BarrierLos.BLOCKED_BY_ALL_BARRIERS)) == true
-    
+
     if eventPlayer.ab_player.perk_shockproof:
         damage(eventPlayer, eventPlayer.ab_player, 50)
         ([player for player in getPlayersInRadius(eventPlayer.getEyePosition(), 10, Team.2, LosCheck.SURFACES) if not player.hasStatus(Status.PHASED_OUT)]).setStatusEffect(null, Status.HACKED, 2)
@@ -4477,7 +4478,7 @@ rule "Team 2 Sombra: Took Damage":
     @Event playerTookDamage
     @Team 2
     @Hero sombra
-    
+
     eventPlayer.ab_var_2 = true
 
 
@@ -4485,7 +4486,7 @@ rule "Team 1: Is Tased, Disable Abilities, Movement, Shake Facing, Set Aimspeed,
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.tased_end_t >= getTotalTimeElapsed()
-    
+
     if eventPlayer.perk_shockproof:
         return
     eventPlayer.setStatusEffect(null, Status.BURNING, 10)
@@ -4513,7 +4514,7 @@ rule "Team 2 Widowmaker: Shoot":
     @Team 2
     @Hero widowmaker
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     if distance(eventPlayer, eventPlayer.target) < 8 or not eventPlayer.is_living_boss and eventPlayer.hasStatus(Status.HACKED):
         wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
         if not ruleCondition:
@@ -4542,7 +4543,7 @@ rule "Team 2 Widowmaker: Grappling Hook":
     @Team 2
     @Hero widowmaker
     @Condition eventPlayer.is_using_combat_pathfinding == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4572,7 +4573,7 @@ rule "Team 2 Widowmaker: Infra-Sight":
     @Condition is_infrasight_on == false
     @Condition (wave_number >= 1 or eventPlayer.is_living_boss) == true
     @Disabled
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4592,7 +4593,7 @@ rule "Team 2 Widowmaker: Infra-Sight if Sombra is stealthed":
     @Condition eventPlayer.target == 0
     @Condition is_infrasight_on == false
     @Condition any([player.is_invisible == 1 for player in combatants]) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4604,7 +4605,7 @@ rule "Team 2 Widowmaker: Infra-Sight if Sombra is stealthed":
 
 rule "Global: Set / Unset Is Infrasight on (Bots)":
     @Condition is_infrasight_on != any([player.isUsingUltimate() for player in getPlayersOnHero(Hero.WIDOWMAKER, Team.2)])
-    
+
     is_infrasight_on = not is_infrasight_on
     aim_offset = (0 if is_infrasight_on else 0.5) * Vector.DOWN
     wait()
@@ -4617,7 +4618,7 @@ rule "Team 2 Pharah: Flight":
     @Team 2
     @Hero pharah
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     eventPlayer.startForcingButton(Button.JUMP)
     wait(random.uniform(0.777, 1.111), Wait.ABORT_WHEN_FALSE)
@@ -4632,7 +4633,7 @@ rule "Team 2 Pharah: Shoot":
     @Team 2
     @Hero pharah
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4648,7 +4649,7 @@ rule "Team 2 Reaper: Shoot":
     @Hero reaper
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -4670,7 +4671,7 @@ rule "Team 2 Reaper: Wraith Form, Force Position":
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
     @Condition distance(eventPlayer, eventPlayer.target) >= 10
     @Condition distance(eventPlayer, eventPlayer.target) <= 40
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     if eventPlayer.isUsingAbility1():
         eventPlayer.ab_wraith_pos = eventPlayer.getPosition()
@@ -4695,7 +4696,7 @@ rule "Team 2 Reaper: Cancel Wraith Form, Stop Forcing Position":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition distance(eventPlayer, eventPlayer.target) <= 3
     @Condition isInLoS(eventPlayer.target, eventPlayer.getPosition()) == true
-    
+
     if distance(eventPlayer, raycast(eventPlayer, eventPlayer + 5 * Vector.DOWN, null, null, false).getHitPosition()) >= 5:
         wait(0.15)
         if not eventPlayer.is_wraith:
@@ -4716,7 +4717,7 @@ rule "Team 2 Reaper: Wraith Form Timed out / Target left / Target is invisible, 
     @Hero reaper
     @Condition eventPlayer.is_wraith == true
     @Condition (not eventPlayer.isUsingAbility1() or not eventPlayer.target.is_combatant or eventPlayer.target.active_ab_is_cloaked) == true
-    
+
     stopChasingVariable(eventPlayer.ab_wraith_pos)
     eventPlayer.stopForcingPosition()
     eventPlayer.enableEnvironmentCollision()
@@ -4732,7 +4733,7 @@ rule "Team 2 Reaper: Death Blossom":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition (wave_number >= 12 or eventPlayer.is_living_boss) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4752,7 +4753,7 @@ rule "Team 2 Ana: Shoot, Has Used Nano Boost (1)":
     @Team 2
     @Hero ana
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     if distance(eventPlayer, eventPlayer.target) < 8 or not eventPlayer.is_living_boss and eventPlayer.hasStatus(Status.HACKED):
         eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
         wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
@@ -4774,7 +4775,7 @@ rule "Team 2 Ana: Biotic Grenade":
     @Team 2
     @Hero ana
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(1.75)
     if not ruleCondition:
         return
@@ -4798,7 +4799,7 @@ rule "Team 2 Ana: Nano Boost":
     @Condition (wave_number >= 13 or eventPlayer.is_living_boss) == true
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     eventPlayer.ab_var_1 = true
     if not eventPlayer.is_living_boss and random.randint(1, 100) > 50:
         return
@@ -4812,7 +4813,7 @@ rule "Team 2 D.Va: Start / Stop Shooting, Has Used Self-Destruct (1), Can remech
     @Hero dva
     @Condition eventPlayer.is_target_in_los >= 3
     @Condition (distance(eventPlayer, eventPlayer.target) <= 10 or eventPlayer.isUsingAbility1() or eventPlayer.isStanding() or eventPlayer.isInAlternateForm()) == true
-    
+
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(not (eventPlayer.is_target_in_los >= 3 and (distance(eventPlayer, eventPlayer.target) <= 15 or eventPlayer.isUsingAbility1() or eventPlayer.isStanding() or eventPlayer.isInAlternateForm())), random.randint(4, 8))
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -4833,7 +4834,7 @@ rule "Team 2 D.Va: Boosters":
     @Condition distance(eventPlayer, eventPlayer.target) >= 7.5
     @Condition distance(eventPlayer, eventPlayer.target) <= 25
     @Condition eventPlayer.isInViewAngle(eventPlayer.target, 5) == true
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     eventPlayer.is_pathfinding_disabled = true
     waitUntil(not eventPlayer.isUsingAbility1() or distance(eventPlayer, eventPlayer.target) < 1, 3)
@@ -4855,7 +4856,7 @@ rule "Team 2 D.Va: Self-Destruct":
     @Condition eventPlayer.isInAlternateForm() == false
     @Condition eventPlayer.getNormalizedHealth() <= 0.8
     @Condition eventPlayer.getHealth() > 1
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -4881,7 +4882,7 @@ rule "Team 2 D.Va: Boss Self-Destruct":
     @Condition eventPlayer.ab_var_1 == false
     @Condition eventPlayer.isInAlternateForm() == false
     @Condition eventPlayer.getHealth() < 1
-    
+
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     if not eventPlayer.isUsingUltimate():
@@ -4898,7 +4899,7 @@ rule "Team 2 D.Va: Allow Call Mech":
     @Condition eventPlayer.is_alive == true
     @Condition eventPlayer.isInAlternateForm() == true
     @Condition eventPlayer.ab_var_2 == false
-    
+
     wait(25 if eventPlayer.is_living_boss else 10, Wait.ABORT_WHEN_FALSE)
     if not ruleCondition:
         return
@@ -4915,7 +4916,7 @@ rule "Team 2 D.Va: Call Mech":
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     eventPlayer.ab_var_2 = false
@@ -4927,7 +4928,7 @@ rule "Team 2 D.Va: Set / Unset Is aggressive":
     @Hero dva
     @Condition eventPlayer.is_using_boss_aggression == false
     @Condition (eventPlayer.is_alive and eventPlayer.isInAlternateForm()) == eventPlayer.is_aggressive
-    
+
     eventPlayer.is_aggressive = not eventPlayer.is_aggressive
     wait()
     if ruleCondition:
@@ -4939,7 +4940,7 @@ rule "Team 2 Orisa: Start / Stop Shooting":
     @Team 2
     @Hero orisa
     @Condition eventPlayer.is_target_in_los >= 3
-    
+
     if random.randint(1, 100) > 60:
         eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
         wait(0.5)
@@ -4954,7 +4955,7 @@ rule "Team 2 Orisa: Decrease / Normalize Move Speed while shooting on ground":
     @Hero orisa
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.setMoveSpeed(57.5 if mut_amped else 50)
     waitUntil(not (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) and eventPlayer.isOnGround()), 99999)
     eventPlayer.setMoveSpeed(115 if mut_amped else 100)
@@ -4967,7 +4968,7 @@ rule "Team 2 Orisa: Javelin":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition distance(eventPlayer, eventPlayer.target) <= 15
     @Condition eventPlayer.isInViewAngle(eventPlayer.target, 5) == true
-    
+
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     wait(15)
     if ruleCondition:
@@ -4981,7 +4982,7 @@ rule "Team 2 Orisa: Fortify":
     @Condition (eventPlayer.getSlot() != 1 or objective_phase_number == 1) == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.getNormalizedHealth() <= (0.6 if gmut_fortified else 0.4)
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(15)
     if ruleCondition:
@@ -4993,7 +4994,7 @@ rule "Team 2 Orisa: Javelin Spin":
     @Team 2
     @Hero orisa
     @Condition eventPlayer.is_target_in_los == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5013,7 +5014,7 @@ rule "Team 2 Orisa: Terra-Surge":
     @Hero orisa
     @Condition eventPlayer.is_target_in_los == true
     @Condition (wave_number >= 10 or eventPlayer.is_living_boss) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5034,7 +5035,7 @@ rule "Team 2 Roadhog: Shoot":
     @Hero roadhog
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -5052,7 +5053,7 @@ rule "Team 2 Roadhog: Chain Hook":
     @Team 2
     @Hero roadhog
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5074,7 +5075,7 @@ rule "Team 2 Roadhog: Whole Hog":
     @Hero roadhog
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition (wave_number >= 11 or eventPlayer.is_living_boss) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5094,7 +5095,7 @@ rule "Team 2 Roadhog: Whole Hog Shoot":
     @Team 2
     @Hero roadhog
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     wait(random.uniform(0.7, 1.1))
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -5107,7 +5108,7 @@ rule "Team 2 Tracer: Shoot":
     @Team 2
     @Hero tracer
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -5129,7 +5130,7 @@ rule "Team 2 Tracer: Blink":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition distance(eventPlayer, eventPlayer.target) <= 5
     @Condition abs(horizontalAngleTowards(eventPlayer.target, eventPlayer)) <= 45
-    
+
     if not is_load_limit_reached and eventPlayer.getAbilityCharge(Button.ABILITY_1):
         temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (7.5 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false).getHitPosition()
         if distance(temp_1, raycast(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false).getHitPosition()) < 5:
@@ -5149,7 +5150,7 @@ rule "Team 2 Tracer: Recall to enemy on high ground":
     @Condition eventPlayer.target.is_flying == false
     @Condition distance(eventPlayer, eventPlayer.target) <= 20
     @Condition eventPlayer.target.getPosition().y - eventPlayer.getPosition().y >= 3
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.8)
@@ -5170,7 +5171,7 @@ rule "Team 2 Tracer: Pulse Bomb, Has Used Pulse Bomb (1)":
     @Condition eventPlayer.getNormalizedHealth() <= 0.4
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     eventPlayer.ab_var_1 = true
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -5206,7 +5207,7 @@ rule "Team 2 Genji: Shoot":
     @Hero genji
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition (eventPlayer.isUsingUltimate() and distance(eventPlayer, eventPlayer.target) > 5) == false
-    
+
     if distance(eventPlayer, eventPlayer.target) > 4 or eventPlayer.isUsingUltimate():
         eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
     else:
@@ -5223,7 +5224,7 @@ rule "Team 2 Genji: Jump":
     @Condition eventPlayer.is_using_combat_pathfinding == true
     @Condition eventPlayer.target.is_flying == false
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.forceButtonPress(Button.JUMP)
     wait(0.5)
     eventPlayer.forceButtonPress(Button.JUMP)
@@ -5241,7 +5242,7 @@ rule "Team 2 Genji: Swift Strike":
     @Condition distance(eventPlayer, eventPlayer.target) <= 15
     @Condition abs(horizontalAngleTowards(eventPlayer, eventPlayer.target)) <= 5
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     if not is_load_limit_reached:
         temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 15 * eventPlayer.getFacingDirection(), null, null, false).getHitPosition()
         if distance(temp_1, raycast(temp_1, temp_1 + 20 * Vector.DOWN, null, null, false).getHitPosition()) < 20:
@@ -5256,7 +5257,7 @@ rule "Team 2 Genji: Deflect":
     @Event playerTookDamage
     @Team 2
     @Hero genji
-    
+
     if eventPlayer.isUsingUltimate():
         return
     if random.randint(1, 100) > 30:
@@ -5272,7 +5273,7 @@ rule "Team 2 Genji: Dragonblade":
     @Condition eventPlayer.is_alive == true
     @Condition eventPlayer.getNormalizedHealth() <= 0.5
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait(0.5)
@@ -5285,7 +5286,7 @@ rule "Team 2 Hanzo: Shoot":
     @Team 2
     @Hero hanzo
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     wait(0.8)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -5298,7 +5299,7 @@ rule "Team 2 Hanzo: Lunge":
     @Event playerTookDamage
     @Team 2
     @Hero hanzo
-    
+
     if is_load_limit_reached:
         return
     if not eventPlayer.is_using_combat_pathfinding:
@@ -5322,7 +5323,7 @@ rule "Team 2 Hanzo: Storm Arrows":
     @Condition eventPlayer.is_target_in_los == true
     @Condition eventPlayer.getNormalizedHealth() <= 0.5
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.5)
     if ruleCondition:
@@ -5337,7 +5338,7 @@ rule "Team 2 Hanzo: Dragonstrike":
     @Condition eventPlayer.is_target_in_los == 0
     @Condition eventPlayer.fear_end_t < getTotalTimeElapsed()
     @Condition distance(eventPlayer, eventPlayer.target) >= 15
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -5356,7 +5357,7 @@ rule "Team 2 Reinhardt: Disable Barrier Field after breaking":
     @Team 2
     @Hero reinhardt
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 1000)
 
 
@@ -5369,7 +5370,7 @@ rule "Team 2 Reinhardt: Hold / Drop Shield if Target and Distance to Target >= 5
     #Reinhardt won't automatically raise his shield again after charging or being hacked
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
-    
+
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     waitUntil(not (eventPlayer.is_target_in_los and distance(eventPlayer, eventPlayer.target) >= 5 and not eventPlayer.isUsingAbility1() and not eventPlayer.hasStatus(Status.HACKED)), 99999)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
@@ -5381,7 +5382,7 @@ rule "Team 2 Reinhardt: Start / Stop Attacking if Distance to Target < 5m":
     @Hero reinhardt
     @Condition eventPlayer.is_target_in_los == true
     @Condition distance(eventPlayer, eventPlayer.target) < 5
-    
+
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(not (eventPlayer.is_target_in_los and distance(eventPlayer, eventPlayer.target) < 5), 99999)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -5392,7 +5393,7 @@ rule "Team 2 Reinhardt: Fire Strike":
     @Team 2
     @Hero reinhardt
     @Condition eventPlayer.is_target_in_los >= 4
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5415,7 +5416,7 @@ rule "Team 2 Reinhardt: Charge":
     @Condition eventPlayer.target.last_hit_by_shatter_t + 1 >= getTotalTimeElapsed()
     @Condition eventPlayer.target.last_hit_by_shatter_t + 0.4 < getTotalTimeElapsed()
     @Condition abs(horizontalAngleTowards(eventPlayer, eventPlayer.target)) <= 5
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(6)
     if ruleCondition:
@@ -5430,7 +5431,7 @@ rule "Team 2 Reinhardt: Charge into battle (Mut: Lock 'n Load)":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.is_aggressive == true
     @Condition distance(eventPlayer, eventPlayer.target) > 25
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5444,7 +5445,7 @@ rule "Team 2 Reinhardt: Earthshatter":
     @Condition eventPlayer.is_target_in_los >= 5
     @Condition eventPlayer.target.is_flying == false
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     if random.randint(1, 100) <= 100 * eventPlayer.getNormalizedHealth():
         loop()
@@ -5460,7 +5461,7 @@ rule "Team 2 Reinhardt: Earthshatter":
 rule "Team 1: Is Shattered, Start Accelerating":
     @Event playerTookDamage
     @Team 1
-    
+
     if not eventPlayer.hasStatus(Status.STUNNED):
         return
     if attacker.getHero() != Hero.REINHARDT:
@@ -5482,7 +5483,7 @@ rule "Team 2 Sigma: Flux":
     @Hero sigma
     @Condition eventPlayer.is_target_in_los == true
     @Condition (eventPlayer.is_living_boss or wave_number >= 10) == true
-    
+
     wait(2)
     if not ruleCondition:
         return
@@ -5508,7 +5509,7 @@ rule "Team 2 Sigma: Shoot":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     wait(angleBetweenVectors(eventPlayer.getFacingDirection(), vectorTowards(eventPlayer, eventPlayer.target)) / 300)
     if not ruleCondition:
         return
@@ -5526,7 +5527,7 @@ rule "Team 2 Sigma: Barrier":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     if distance(eventPlayer.target, eventPlayer) <= 30:
         eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
         wait(random.uniform(0.2, 2))
@@ -5543,7 +5544,7 @@ rule "Team 2 Sigma: Grasp":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     wait(10)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     if ruleCondition:
@@ -5558,7 +5559,7 @@ rule "Team 2 Sigma: Rock":
     @Condition eventPlayer.is_target_in_los >= 4
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(10)
     if ruleCondition:
@@ -5567,7 +5568,7 @@ rule "Team 2 Sigma: Rock":
 
 def upgrade_health_and_healing():
     @Name "Subroutine: Upgrade Health and Healing"
-    
+
     upgrade_count++
     getPlayers(Team.1).setHealingReceived(85 + 2.5 * upgrade_count)
     getPlayers(Team.1).startHealingOverTime(null, 1, 100000)
@@ -5575,7 +5576,7 @@ def upgrade_health_and_healing():
 
 def start_kill_remaining_phase():
     @Name "Subroutine: Start Kill remaining Phase"
-    
+
     bigMessage(getAllPlayers(), "Kill the remaining enemies!")
     enable_normal_spawns = false
     getPlayers(Team.2).is_expendable = false
@@ -5589,7 +5590,7 @@ rule "Team 2 Boss Aggro: Set / Unset Is aggressive":
     @Team 2
     @Condition eventPlayer.is_using_boss_aggression == true
     @Condition eventPlayer.is_aggressive != (eventPlayer.is_target_in_los == 5)
-    
+
     wait(3, Wait.ABORT_WHEN_FALSE)
     if not ruleCondition:
         return
@@ -5605,7 +5606,7 @@ rule "Team 2 Boss Aggro: Set Is aggressive after losing 20% health since Boss la
     @Condition eventPlayer.is_using_boss_aggression == true
     @Condition eventPlayer.is_alive == true
     @Condition eventPlayer.is_aggressive == false
-    
+
     eventPlayer.aggression_health_threshold = eventPlayer.getNormalizedHealth() - 0.2
     waitUntil(eventPlayer.getNormalizedHealth() < eventPlayer.aggression_health_threshold or eventPlayer.is_aggressive or not eventPlayer.is_living_boss, 99999)
     if eventPlayer.is_aggressive or not eventPlayer.is_living_boss:
@@ -5621,7 +5622,7 @@ rule "Team 2 Boss Aggro: Set Is aggressive after losing 20% health since Boss la
 rule "Team 2 Boss Aggro: Disengage after killing Player":
     @Event playerEarnedElimination
     @Team 2
-    
+
     if not eventPlayer.is_using_boss_aggression:
         return
     eventPlayer.is_aggressive = false
@@ -5631,7 +5632,7 @@ rule "IV Team 2 Slot 0: Create Portal Entities":
     @Event eachPlayer
     @Team 2
     @Slot 0
-    
+
     progressBarHud(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], 200 * eventPlayer.getNormalizedHealth() if objective_phase_number == 1 else objective_progress, "Destroy the Portal" if objective_phase_number == 1 else "Portal closing", HudPosition.TOP, -97, (Color.BLUE if special_spawns_count > 0 else rgb(max(200, 255 - ((getTotalTimeElapsed() - eventPlayer.ab_var_2) * 165)), max(0, 255 - ((getTotalTimeElapsed() - eventPlayer.ab_var_2) * 765)), max(19, 255 - ((getTotalTimeElapsed() - eventPlayer.ab_var_2) * 708)))) if objective_phase_number == 1 else Color.YELLOW)
     createIcon(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], iv_dom_objective_pos + 2 * Vector.UP, Icon.EXCLAMATION_MARK, IconReeval.VISIBILITY_AND_POSITION, Color.YELLOW)
     createInWorldText(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], "Destroy the Portal" if objective_phase_number == 1 else "Portal closing", iv_dom_objective_pos + 1.7 * Vector.UP, 1.5, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.YELLOW)
@@ -5644,7 +5645,7 @@ rule "IV Team 2 Torbjörn: Start Portal Mode, Open (Phase 1), Breakpoint End Tim
     @Event eachPlayer
     @Team 2
     @Hero torbjorn
-    
+
     iv_dom_objective_pos = random.choice(iv_dom_objective_all_pos_list.exclude(iv_dom_objective_pos))
     eventPlayer.startForcingPosition(iv_dom_objective_pos, false)
     eventPlayer.disableEnvironmentCollision(true)
@@ -5658,7 +5659,7 @@ rule "IV Team 2: Force portal to shoot lava":
     @Team 2
     @Hero torbjorn
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), vect(random.randint(-500, 500), random.randint(-500, 500), random.randint(-500, 500))), Relativity.TO_WORLD)
     eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
     wait(0.25)
@@ -5668,7 +5669,7 @@ rule "IV Team 2: Force portal to shoot lava":
 
 def iv_defend_portal():
     @Name "IV Subroutine: Defend Portal"
-    
+
     money_amount += 95
     if objective_phase_number == 1:
         enable_normal_spawns = true
@@ -5695,7 +5696,7 @@ rule "IV Team 2 Torbjörn: Health reaches Breakpoint, Is Dead -> Portal Closing 
     @Team 2
     @Hero torbjorn
     @Condition eventPlayer.getNormalizedHealth() <= 0.333
-    
+
     eventPlayer.setHealth(0.333 * eventPlayer.getMaxHealth())
     iv_defend_portal()
     waitUntil(eventPlayer.getNormalizedHealth() <= 0.166, 99999)
@@ -5721,7 +5722,7 @@ rule "IV Team 2 Slot 0: Portal Closing (Phase 2) -> Kill remaining (Phase 3)":
     @Team 2
     @Slot 0
     @Condition objective_phase_number == 2
-    
+
     for objective_progress in range(100, 25, -1):
         wait(0.096)
     enable_normal_spawns = true
@@ -5740,7 +5741,7 @@ rule "IV Team 2 Torbjörn: Set Breakpoint Damage Reduction":
     @Hero torbjorn
     @Condition objective_phase_number == 1
     @Condition (eventPlayer.ab_var_2 >= getTotalTimeElapsed() or special_spawns_count > 0) == true
-    
+
     eventPlayer.setDamageReceived(5)
     waitUntil(not (objective_phase_number == 1 and (eventPlayer.ab_var_2 >= getTotalTimeElapsed() or special_spawns_count > 0)), 99999)
     eventPlayer.setDamageReceived(50)
@@ -5750,7 +5751,7 @@ rule "HVT Team 2 Slot 1: Create HVT Entities":
     @Event eachPlayer
     @Team 2
     @Slot 1
-    
+
     progressBarHud(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], 100 * eventPlayer.getNormalizedHealth() if objective_phase_number == 1 else (objective_progress if eventPlayer.downed_start_t else eventPlayer.revive_timer) / 1.5, "Subdue the High Value Target" if objective_phase_number == 1 else ("Capturing..." if localPlayer in eventPlayer.revivers else "Capture the High Value Target") if eventPlayer.downed_start_t else "High Value Target is being revived", HudPosition.TOP, -97, rgb(max(200, 255 - ((getTotalTimeElapsed() - hvt_call_reinforcements_end_t) * 165)), max(0, 255 - ((getTotalTimeElapsed() - hvt_call_reinforcements_end_t) * 765)), max(19, 255 - ((getTotalTimeElapsed() - hvt_call_reinforcements_end_t) * 708))) if objective_phase_number == 1 else (Color.GREEN if eventPlayer.downed_start_t == 2 else Color.BLUE) if eventPlayer.downed_start_t else Color.RED, Color.BLUE if objective_phase_number == 1 else Color.BLUE if eventPlayer.downed_start_t else Color.YELLOW)
     createIcon(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], eventPlayer, Icon.EXCLAMATION_MARK, IconReeval.VISIBILITY, Color.YELLOW)
     createInWorldText(getAllPlayers() if objective_phase_number == 1 or objective_phase_number == 2 else [], "Calling Reinforcements" if hvt_call_reinforcements_end_t >= getTotalTimeElapsed() else "Subdue Target" if objective_phase_number == 1 else "Capture Target", eventPlayer, 1.5, Clip.NONE, WorldTextReeval.VISIBILITY_AND_STRING, Color.YELLOW)
@@ -5766,7 +5767,7 @@ rule "HVT Team 2 Slot 1: HVT subdued fallback":
     @Slot 1
     @Condition objective_phase_number == 2
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     wait(0.25, Wait.ABORT_WHEN_FALSE)
     if not ruleCondition:
         return
@@ -5786,7 +5787,7 @@ rule "HVT Team 2 Slot 1: Subdued, check Player in Radius":
     @Team 2
     @Slot 1
     @Condition objective_phase_number == 2
-    
+
     eventPlayer.revivers = [player for player in combatants if not player.downed_start_t and not player.is_invisible % 3 and distance(eventPlayer, vect(player.getPosition().x, eventPlayer.getPosition().y, player.getPosition().z)) <= 10 and abs(eventPlayer.getPosition().y - player.getPosition().y) <= 5 and isInLoS(eventPlayer, player)]
     if len(eventPlayer.revivers):
         eventPlayer.downed_start_t = 2
@@ -5827,7 +5828,7 @@ rule "HVT Team 2 Slot 1: Call Reinforcements":
     @Slot 1
     @Condition objective_phase_number == 1
     @Condition eventPlayer.getNormalizedHealth() > 0.5
-    
+
     waitUntil(eventPlayer.getNormalizedHealth() <= 0.5 or objective_phase_number == 2, 99999)
     if objective_phase_number == 2:
         enable_normal_spawns = true
@@ -5852,7 +5853,7 @@ rule "HVT Team 2 Slot 1: Capture Breakpoints":
     @Team 2
     @Slot 1
     @Condition objective_phase_number == 2
-    
+
     upgrade_health_and_healing()
     money_amount += 105
     waitUntil(objective_progress >= 140, 99999)
@@ -5867,7 +5868,7 @@ rule "DOM Team 2 Slot 2: Create Guard and Control Point Entities":
     @Event eachPlayer
     @Team 2
     @Slot 2
-    
+
     progressBarHud(getAllPlayers() if objective_phase_number == 1 else [], objective_progress[0] if localPlayer in dom_point_A_contesters else objective_progress[1] if localPlayer in dom_point_B_contesters else 0.25 * (((100 * ((1 - getPlayersInSlot(2, Team.2).getNormalizedHealth() if getPlayersInSlot(2, Color.TEAM_2).is_living_boss else 1) + (1 - getPlayersInSlot(3, Team.2).getNormalizedHealth() if getPlayersInSlot(3, Team.2).is_living_boss else 1))) + objective_progress[0]) + objective_progress[1]), ("Kill the Guard to unlock this point" if getPlayersInSlot(2, Color.TEAM_2).is_living_boss else "Capturing...") if localPlayer in dom_point_A_contesters else ("Kill the Guard to unlock the point" if getPlayersInSlot(3, Team.2).is_living_boss else "Capturing...") if localPlayer in dom_point_B_contesters else "Kill the guards and capture the points" if any([player.is_living_boss for player in getPlayers(Team.2)]) else "Capture the points", HudPosition.TOP, -97, Color.GREEN if localPlayer in dom_point_A_contesters or localPlayer in dom_point_B_contesters else Color.BLUE, Color.YELLOW if localPlayer in dom_point_A_contesters and getPlayersInSlot(2, Team.2).is_living_boss or localPlayer in dom_point_B_contesters and getPlayersInSlot(3, Team.2).is_living_boss else Color.BLUE)
     createEffect(getAllPlayers() if objective_phase_number == 1 and objective_progress[0] < 100 else [], Effect.RING, Color.RED if getPlayersInSlot(2, Team.2).is_living_boss else Color.GREEN if len(dom_point_A_contesters) else Color.WHITE, iv_dom_objective_pos[0], 3)
     createEffect(getAllPlayers() if objective_phase_number == 1 and objective_progress[1] < 100 else [], Effect.RING, Color.RED if getPlayersInSlot(3, Team.2).is_living_boss else Color.GREEN if len(dom_point_B_contesters) else Color.WHITE, iv_dom_objective_pos[1], 3)
@@ -5883,7 +5884,7 @@ rule "DOM Team 2 Slot 2: Contest Control Point A":
     @Slot 2
     @Condition objective_phase_number == 1
     @Condition objective_progress[0] < 100
-    
+
     dom_point_A_contesters = [player for player in combatants if not player.downed_start_t and not player.is_invisible % 3 and distance(iv_dom_objective_pos[0], vect(player.getPosition().x, iv_dom_objective_pos[0].y, player.getPosition().z)) <= 3 and abs(iv_dom_objective_pos[0].getPosition().y - player.getPosition().y) <= 3 and isInLoS(iv_dom_objective_pos[0] + Vector.UP, player)]
     if not getPlayersInSlot(2, Team.2).is_living_boss and len(dom_point_A_contesters):
         objective_progress[0] += 2
@@ -5914,7 +5915,7 @@ rule "DOM Team 2 Slot 2: Contest Control Point B":
     @Slot 2
     @Condition objective_phase_number == 1
     @Condition objective_progress[1] < 100
-    
+
     dom_point_B_contesters = [player for player in combatants if not player.downed_start_t and not player.is_invisible % 3 and distance(iv_dom_objective_pos[1], vect(player.getPosition().x, iv_dom_objective_pos[1].y, player.getPosition().z)) <= 3 and abs(iv_dom_objective_pos[1].getPosition().y - player.getPosition().y) <= 3 and isInLoS(iv_dom_objective_pos[1] + Vector.UP, player)]
     if not getPlayersInSlot(3, Team.2).is_living_boss and len(dom_point_B_contesters):
         objective_progress[1] += 2
@@ -5942,7 +5943,7 @@ rule "DOM Team 2 Slot 2: Contest Control Point B":
 rule "[Info] Ana":
     @Event eachPlayer
     @Hero ana
-    
+
     #T1
     eventPlayer.talent_text[1] = "multinade"
     eventPlayer.talent_text[2] = "throw 3 biotic grenades instead of 1"
@@ -5955,7 +5956,7 @@ rule "[Info] Ana":
 rule "[Info] Ashe":
     @Event eachPlayer
     @Hero ashe
-    
+
     #T1
     eventPlayer.talent_text[1] = "black gunpowder"
     eventPlayer.talent_text[2] = "coach gun stuns and sets enemies on fire"
@@ -5967,7 +5968,7 @@ rule "[Info] Ashe":
 rule "[Info] Baptiste":
     @Event eachPlayer
     @Hero baptiste
-    
+
     #T1
     eventPlayer.talent_text[1] = "corrode"
     eventPlayer.talent_text[2] = "regenerative burst inflicts poison damage to enemies"
@@ -5980,7 +5981,7 @@ rule "[Info] Baptiste":
 rule "[Info] Bastion":
     @Event eachPlayer
     @Hero bastion
-    
+
     #T1
     eventPlayer.talent_text[1] = "fusillade"
     eventPlayer.talent_text[2] = "start firing barrages of rockets when shooting in assault form"
@@ -5992,7 +5993,7 @@ rule "[Info] Bastion":
 rule "[Info] Brigitte":
     @Event eachPlayer
     @Hero brigitte
-    
+
     #T1
     eventPlayer.talent_text[1] = "endeavor"
     eventPlayer.talent_text[2] = "gain a boost in damage, armour and speed when your barrier breaks"
@@ -6005,7 +6006,7 @@ rule "[Info] Brigitte":
 rule "[Info] DVa":
     @Event eachPlayer
     @Hero dva
-    
+
     #T1
     eventPlayer.talent_text[1] = "voltage grid"
     eventPlayer.talent_text[2] = "defense matrix damages and roots enemies"
@@ -6020,7 +6021,7 @@ rule "[Info] DVa":
 rule "[Info] Doomfist":
     @Event eachPlayer
     @Hero doomfist
-    
+
     #T1
     eventPlayer.talent_text[1] = "punch card"
     eventPlayer.talent_text[2] = "rocket punch deals triple damage at full charge"
@@ -6032,7 +6033,7 @@ rule "[Info] Doomfist":
 rule "[Info] Echo":
     @Event eachPlayer
     @Hero echo
-    
+
     #T1
     eventPlayer.talent_text[1] = "bomblet jacket"
     eventPlayer.talent_text[2] = "send out mini-bombs to enemies while flight is active"
@@ -6045,7 +6046,7 @@ rule "[Info] Echo":
 rule "[Info] Genji":
     @Event eachPlayer
     @Hero genji
-    
+
     #T1
     eventPlayer.talent_text[1] = "venomous strike"
     eventPlayer.talent_text[2] = "swift strike deals bleed damage; heal for bleed damage"
@@ -6058,7 +6059,7 @@ rule "[Info] Genji":
 rule "[Info] Hanzo":
     @Event eachPlayer
     @Hero hanzo
-    
+
     #T1
     eventPlayer.talent_text[1] = "Arrow Rain"
     eventPlayer.talent_text[2] = "fire more arrows per shot during Storm Arrows"
@@ -6071,7 +6072,7 @@ rule "[Info] Hanzo":
 rule "[Info] Junkrat":
     @Event eachPlayer
     @Hero junkrat
-    
+
     #T1
     eventPlayer.talent_text[1] = "pyromania"
     eventPlayer.talent_text[2] = "All explosive attacks deal fire damage"
@@ -6083,7 +6084,7 @@ rule "[Info] Junkrat":
 rule "[Info] Junker Queen":
     @Event eachPlayer
     @Hero junkerQueen
-    
+
     #T1
     eventPlayer.talent_text[1] = "Shout Louder"
     eventPlayer.talent_text[2] = "commanding shout wounds enemies in the area"
@@ -6095,7 +6096,7 @@ rule "[Info] Junker Queen":
 rule "[Info] Lifeweaver":
     @Event eachPlayer
     @Hero lifeweaver
-    
+
     #T1
     eventPlayer.talent_text[1] = "Autumn Blossoms"
     eventPlayer.talent_text[2] = "Deal more damage and eliminations cause enemies to drop heal orbs"
@@ -6107,7 +6108,7 @@ rule "[Info] Lifeweaver":
 rule "[Info] Kiriko":
     @Event eachPlayer
     @Hero kiriko
-    
+
     #T1
     eventPlayer.talent_text[1] = "Shinobi Tactics"
     eventPlayer.talent_text[2] = "healing health with abilities create energy explosions around the target"
@@ -6120,7 +6121,7 @@ rule "[Info] Kiriko":
 rule "[Info] Lucio":
     @Event eachPlayer
     @Hero lucio
-    
+
     #T1
     eventPlayer.talent_text[1] = "Chord Cadence"
     eventPlayer.talent_text[2] = "amp it up triggers twice and adds more shots to your attack"
@@ -6133,7 +6134,7 @@ rule "[Info] Lucio":
 rule "[Info] Cassidy":
     @Event eachPlayer
     @Hero cassidy
-    
+
     #T1
     eventPlayer.talent_text[1] = "standoff"
     eventPlayer.talent_text[2] = "enemies cannot move once their skull is locked during deadeye"
@@ -6146,7 +6147,7 @@ rule "[Info] Cassidy":
 rule "[Info] Mei":
     @Event eachPlayer
     @Hero mei
-    
+
     #T1
     eventPlayer.talent_text[1] = "cold snap"
     eventPlayer.talent_text[2] = "instantly freeze nearby enemies once cryo-freeze breaks"
@@ -6159,7 +6160,7 @@ rule "[Info] Mei":
 rule "[Info] Mercy":
     @Event eachPlayer
     @Hero mercy
-    
+
     #T1
     eventPlayer.talent_text[1] = "wings of grand"
     eventPlayer.talent_text[2] = "guardian angel damages and knocks enemies down in its path"
@@ -6171,7 +6172,7 @@ rule "[Info] Mercy":
 rule "[Info] Moira":
     @Event eachPlayer
     @Hero moira
-    
+
     #T1
     eventPlayer.talent_text[1] = "flourish"
     eventPlayer.talent_text[2] = "fading through allies heals and through enemies damages them"
@@ -6183,7 +6184,7 @@ rule "[Info] Moira":
 rule "[Info] Orisa":
     @Event eachPlayer
     @Hero orisa
-    
+
     #T1
     eventPlayer.talent_text[1] = "spinning shreddies"
     eventPlayer.talent_text[2] = "javelin spin sends projectile shards that knock back enemies"
@@ -6196,7 +6197,7 @@ rule "[Info] Orisa":
 rule "[Info] Pharah":
     @Event eachPlayer
     @Hero pharah
-    
+
     #T1
     eventPlayer.talent_text[1] = "head trauma"
     eventPlayer.talent_text[2] = "concussive blast deals damage and tazes enemies below half health"
@@ -6209,7 +6210,7 @@ rule "[Info] Pharah":
 rule "[Info] Ramattra":
     @Event eachPlayer
     @Hero ramattra
-    
+
     #T1
     eventPlayer.talent_text[1] = "vile dominance"
     eventPlayer.talent_text[2] = "move faster and root enemies with every punch in nemesis form"
@@ -6222,7 +6223,7 @@ rule "[Info] Ramattra":
 rule "[Info] Reaper":
     @Event eachPlayer
     @Hero reaper
-    
+
     #T1
     eventPlayer.talent_text[1] = "wrathful wraith"
     eventPlayer.talent_text[2] = "allow shooting during wraith form"
@@ -6235,7 +6236,7 @@ rule "[Info] Reaper":
 rule "[Info] Reinhardt":
     @Event eachPlayer
     @Hero reinhardt
-    
+
     #T1
     eventPlayer.talent_text[1] = "fire blast"
     eventPlayer.talent_text[2] = "fire strike explodes as it deals damage, igniting enemies"
@@ -6248,7 +6249,7 @@ rule "[Info] Reinhardt":
 rule "[Info] Roadhog":
     @Event eachPlayer
     @Hero roadhog
-    
+
     #T1
     eventPlayer.talent_text[1] = "stench"
     eventPlayer.talent_text[2] = "constantly inflict toxic damage to nearby enemeis"
@@ -6261,7 +6262,7 @@ rule "[Info] Roadhog":
 rule "[Info] Sigma":
     @Event eachPlayer
     @Hero sigma
-    
+
     #T1
     eventPlayer.talent_text[1] = "accretion disk"
     eventPlayer.talent_text[2] = "accretion flies straight and has increased damage and stun"
@@ -6274,7 +6275,7 @@ rule "[Info] Sigma":
 rule "[Info] Sojourn":
     @Event eachPlayer
     @Hero sojourn
-    
+
     #T1
     eventPlayer.talent_text[1] = "Thunderous kicks"
     eventPlayer.talent_text[2] = "kickslide jump initiates a powerful energy blast"
@@ -6286,7 +6287,7 @@ rule "[Info] Sojourn":
 rule "[Info] Soldier: 76":
     @Event eachPlayer
     @Hero soldier
-    
+
     #T1
     eventPlayer.talent_text[1] = "triple threat"
     eventPlayer.talent_text[2] = "helix rockets fires two adjacent mini rockets"
@@ -6298,7 +6299,7 @@ rule "[Info] Soldier: 76":
 rule "[Info] Sombra":
     @Event eachPlayer
     @Hero sombra
-    
+
     #T1
     eventPlayer.talent_text[1] = "stack overflow"
     eventPlayer.talent_text[2] = "cancelling stealth will temporarily boost damage and cause melees to stun"
@@ -6311,7 +6312,7 @@ rule "[Info] Sombra":
 rule "[Info] Symmetra":
     @Event eachPlayer
     @Hero symmetra
-    
+
     #T1
     eventPlayer.talent_text[1] = "sentry paragon"
     eventPlayer.talent_text[2] = "each sentry turret deals 50% more damage"
@@ -6323,7 +6324,7 @@ rule "[Info] Symmetra":
 rule "[Info] Torbjorn":
     @Event eachPlayer
     @Hero torbjorn
-    
+
     #T1
     eventPlayer.talent_text[1] = "heatwaves"
     eventPlayer.talent_text[2] = "unleash waves of fire when overload or molten core is active"
@@ -6336,7 +6337,7 @@ rule "[Info] Torbjorn":
 rule "[Info] Tracer":
     @Event eachPlayer
     @Hero tracer
-    
+
     #T1
     eventPlayer.talent_text[1] = "vortex"
     eventPlayer.talent_text[2] = "recall drags and roots nearby enemies to its activation point"
@@ -6349,7 +6350,7 @@ rule "[Info] Tracer":
 rule "[Info] Widowmaker":
     @Event eachPlayer
     @Hero widowmaker
-    
+
     #T1
     eventPlayer.talent_text[1] = "baiser de soie"
     eventPlayer.talent_text[2] = "scoped critical hits instantly kill enemies below 30% hp"
@@ -6362,7 +6363,7 @@ rule "[Info] Widowmaker":
 rule "[Info] Winston":
     @Event eachPlayer
     @Hero winston
-    
+
     #T1
     eventPlayer.talent_text[1] = "next generation"
     eventPlayer.talent_text[2] = "primal rage damage is doubled and recharges 5% ult per hit"
@@ -6374,7 +6375,7 @@ rule "[Info] Winston":
 rule "[Info] Wrecking Ball":
     @Event eachPlayer
     @Hero wreckingBall
-    
+
     #T1
     eventPlayer.talent_text[1] = "orbital strike"
     eventPlayer.talent_text[2] = "piledriver deals more damage the higher you drop"
@@ -6387,7 +6388,7 @@ rule "[Info] Wrecking Ball":
 rule "[Info] Zarya":
     @Event eachPlayer
     @Hero zarya
-    
+
     #T1
     eventPlayer.talent_text[1] = "combusta-bubble"
     eventPlayer.talent_text[2] = "barriers explode when they expire"
@@ -6400,7 +6401,7 @@ rule "[Info] Zarya":
 rule "[Info] Zenyatta":
     @Event eachPlayer
     @Hero zenyatta
-    
+
     #T1
     eventPlayer.talent_text[1] = "stress relief"
     eventPlayer.talent_text[2] = "fully charged orb volleys deal 50% more damage"
@@ -6415,7 +6416,7 @@ rule "Ana: Multinade":
     @Hero ana
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     for eventPlayer.i in range(4):
         wait(0.03)
         eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
@@ -6429,7 +6430,7 @@ rule "Ana: Sleep Paralysis":
     @Event playerDealtDamage
     @Team 1
     @Hero ana
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.ABILITY_1:
@@ -6450,7 +6451,7 @@ rule "Zenyatta: Stress Relief":
     @Hero zenyatta
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     playEffect(eventPlayer, DynamicEffect.EXPLOSION_SOUND, Color.BLACK, eventPlayer, 150)
     eventPlayer.Damage_Dealt += 50
@@ -6464,7 +6465,7 @@ rule "Zenyatta: Perfect Balance":
     @Hero zenyatta
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.Talent2 == true
-    
+
     getPlayersInRadius(eventPlayer, 12, Team.2, LosCheck.SURFACES).startDamageOverTime(eventPlayer, 1, 100)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.ORANGE, eventPlayer, 24)
     wait(1)
@@ -6478,7 +6479,7 @@ rule "Orisa- Spinning Shreddies":
     @Hero orisa
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     while eventPlayer.isUsingAbility2():
         createProjectile(Projectile.ORISA_FUSION_DRIVER, eventPlayer, eventPlayer.getEyePosition() + worldVector(vect(random.uniform(-0.8, 0.8), random.uniform(-0.8, -0.8), 0), eventPlayer, Transform.ROTATION), null, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 25, 2, 0, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 60, 2, 10, 1)
         wait(0.02)
@@ -6491,7 +6492,7 @@ rule "Orisa: metalhead":
     @Hero orisa
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition eventPlayer.Talent2 == true
-    
+
     damage(getPlayersInRadius(victim, 6, Team.2, LosCheck.SURFACES), eventPlayer, 50)
     getPlayersInRadius(victim, 6, Team.2, LosCheck.SURFACES).exclude(victim).applyImpulse(directionTowards(victim, eventPlayer), -15, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     getPlayersInRadius(victim, 6, Team.2, LosCheck.SURFACES).exclude(victim).applyImpulse(Vector.UP, 2, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -6504,7 +6505,7 @@ rule "Sigma: Accretion Disk":
     @Hero sigma
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     eventPlayer.setProjectileSpeed(150)
     eventPlayer.setProjectileGravity(0)
     waitUntil(not eventPlayer.Talent1 or not eventPlayer.isUsingAbility2(), 5)
@@ -6516,7 +6517,7 @@ rule "Sigma: Accretion Disk":
     @Event playerDealtKnockback
     @Team 1
     @Hero sigma
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility != Button.ABILITY_2:
@@ -6533,7 +6534,7 @@ rule "Sigma: String Theory":
     @Hero sigma
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(1.8, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
     eventPlayer.Ability_End = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, getPlayers(Team.2), eventPlayer, true).getHitPosition()
@@ -6562,7 +6563,7 @@ rule "Ashe: Black Gunpowder":
     @Condition eventPlayer.Talent1 == true
     @Condition eventAbility == Button.ABILITY_1
     @Condition victim != eventPlayer
-    
+
     victim.startDamageOverTime(eventPlayer, 3, eventDamage * 2.5)
     victim.setStatusEffect(null, Status.BURNING, 3)
 
@@ -6572,7 +6573,7 @@ rule "Ashe: Dancing Flames":
     @Team 1
     @Hero ashe
     @Condition eventPlayer.Talent2 == true
-    
+
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.ORANGE, victim.getEyePosition(), 120)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.ORANGE, victim, 5)
     playEffect(getAllPlayers(), DynamicEffect.BAD_PICKUP_EFFECT, Color.YELLOW, victim, 5)
@@ -6586,7 +6587,7 @@ rule "Widowmaker: Widowmaker Ult":
     @Team 1
     @Hero widowmaker
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     getPlayers(Team.2).Slowed_until = 9999 + getTotalTimeElapsed()
     waitUntil(not eventPlayer.isUsingUltimate(), 9999)
     getPlayers(Team.2).Slowed_until = getTotalTimeElapsed()
@@ -6596,7 +6597,7 @@ rule "Widowmaker: Baiser De Soie":
     @Event playerDealtDamage
     @Team 1
     @Hero widowmaker
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility != Button.PRIMARY_FIRE:
@@ -6623,7 +6624,7 @@ rule "Widowmaker: Parting Gift":
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.getSpeed() >= 20
-    
+
     while eventPlayer.isUsingAbility1():
         createProjectile(Projectile.RAMATTRA_RAVENOUS_VORTEX_SPHERE, eventPlayer, null, Vector.UP, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 50, 2, 4, DynamicEffect.RING_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0.05, 15, 3, 8, 1, 100)
         wait(0.15)
@@ -6638,7 +6639,7 @@ rule "Torbjorn: Heatwave":
     @Hero torbjorn
     @Condition eventPlayer.Talent1 == true
     @Condition (eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
-    
+
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.ORANGE, eventPlayer.getPosition(), 11)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.ORANGE, eventPlayer.getPosition(), 12)
     getPlayersInRadius(eventPlayer, 6, Team.2, LosCheck.SURFACES).exclude(eventPlayer).startDamageOverTime(eventPlayer, 3, 20)
@@ -6653,7 +6654,7 @@ rule "[Torbjorn] Foundry":
     @Event playerDealtDamage
     @Team 1
     @Hero torbjorn
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.PRIMARY_FIRE:
@@ -6672,7 +6673,7 @@ rule "[Torbjorn] Foundry - Bonus Speed":
     @Hero torbjorn
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.getCurrentWeapon() == 2
-    
+
     eventPlayer.Move_Speed += 40
     waitUntil(eventPlayer.getCurrentWeapon() != 2 or eventPlayer.isDead() or not eventPlayer.Talent2, 99999)
     eventPlayer.Move_Speed -= 40
@@ -6682,7 +6683,7 @@ rule "Reinhardt: Fire Blast":
     @Event playerDealtDamage
     @Team 1
     @Hero reinhardt
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility != Button.ABILITY_2:
@@ -6699,7 +6700,7 @@ rule "Reinhardt: Epicenter":
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     getPlayersInRadius(eventPlayer, 20, Team.2, LosCheck.SURFACES).setStatusEffect(eventPlayer, Status.KNOCKED_DOWN, 2.5)
     for eventPlayer.i in range(3):
         wait(0.032)
@@ -6714,7 +6715,7 @@ rule "Brigitte: Endeavor":
     @Hero brigitte
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.Ability_Available == true
-    
+
     createEffect(getAllPlayers(), Effect.ECHO_CLONING, Team.1, eventPlayer, 0.4, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[1] = getLastCreatedEntity()
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.ORANGE, eventPlayer.getEyePosition(), 15)
@@ -6740,7 +6741,7 @@ rule "Brigitte: Endeavor":
     @Hero brigitte
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) >= 0.1
-    
+
     eventPlayer.Ability_Available = true
     wait(0.25)
     eventPlayer.Ability_Available = false
@@ -6752,7 +6753,7 @@ rule "Brigitte: Whiplash":
     @Hero brigitte
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION_SOUND, Color.GREEN, victim, 100)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.ORANGE, victim, 2.5)
     playEffect(getAllPlayers(), DynamicEffect.BAD_PICKUP_EFFECT, Color.ORANGE, victim, 2.5)
@@ -6764,7 +6765,7 @@ rule "Genji: Venomous Strike":
     @Event playerDealtDamage
     @Team 1
     @Hero genji
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility != Button.ABILITY_1:
@@ -6783,7 +6784,7 @@ rule "Genji: Sharpened Storm - Primary":
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     wait(0.25)
     createProjectile(Projectile.GENJI_SHURIKEN, eventPlayer, null, null, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 27, 2, 0, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 60, 4)
     wait(0.1)
@@ -6798,7 +6799,7 @@ rule "Genji: Sharpened Storm - Secondary":
     @Hero genji
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait()
     createProjectile(Projectile.GENJI_SHURIKEN, eventPlayer, null, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + 4.5, eventPlayer.getVerticalFacingAngle()), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 27, 2, 0, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 60, 4)
     createProjectile(Projectile.GENJI_SHURIKEN, eventPlayer, null, directionFromAngles(eventPlayer.getHorizontalFacingAngle() - 4.5, eventPlayer.getVerticalFacingAngle()), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 27, 2, 0, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 60, 4)
@@ -6812,7 +6813,7 @@ rule "Mercy: Wings of Grand":
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     if eventPlayer.getSpeed() > 10:
         damage([player for player in getPlayersInRadius(eventPlayer, 4, Team.2, LosCheck.SURFACES) if not player.hasStatus(Status.KNOCKED_DOWN)], eventPlayer, 35)
         getPlayersInRadius(eventPlayer, 4, Team.2, LosCheck.SURFACES).setStatusEffect(eventPlayer, Status.KNOCKED_DOWN, 0.8)
@@ -6829,7 +6830,7 @@ rule "Mercy: Holy Light Missiles":
     @Hero mercy
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     createEffect(getAllPlayers(), Effect.ORB, Color.YELLOW, eventPlayer.Ability_Projectile1, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[1] = getLastCreatedEntity()
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
@@ -6854,7 +6855,7 @@ rule "Tracer: Vortex":
     @Hero tracer
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     heal(getPlayersInRadius(eventPlayer, 10, Team.2, LosCheck.SURFACES), eventPlayer, 1)
     damage(getPlayersInRadius(eventPlayer, 10, Team.2, LosCheck.SURFACES), eventPlayer, 25)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.RED, eventPlayer.getPosition(), 20)
@@ -6867,7 +6868,7 @@ rule "Tracer: Vortex":
 rule "Tracer: Vortex 2":
     @Event playerReceivedHealing
     @Team 2
-    
+
     if not healer.Talent1:
         return
     if eventPlayer.is_living_boss:
@@ -6893,7 +6894,7 @@ rule "Tracer: Chain Reaction":
     @Condition eventPlayer.Chain_Reaction_Immune == false
     @Condition eventPlayer.Chain_Reaction_On == false
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.25)
     eventPlayer.Chain_Reaction_On = true
 
@@ -6902,7 +6903,7 @@ rule "Tracer: Chain Reaction 2":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.Chain_Reaction_On == true
-    
+
     wait(0.1)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.AQUA, eventPlayer, 3)
     damage(eventPlayer, getPlayersOnHero(Hero.TRACER, Team.1), 200)
@@ -6917,7 +6918,7 @@ rule "Tracer: Chain Reaction 3":
     @Event playerDealtDamage
     @Team 1
     @Hero tracer
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.ULTIMATE:
@@ -6933,7 +6934,7 @@ rule "Symmetra: Sentry Paragon":
     @Hero symmetra
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     startDamageModification(getPlayers(Team.2), eventPlayer, 66.667)
     eventPlayer.damage_mod[1] = getLastDamageModification()
@@ -6951,7 +6952,7 @@ rule "Symmetra: Shield Generator":
     @Team 1
     @Hero symmetra
     @Condition eventPlayer.Talent2 == true
-    
+
     eventPlayer.Damage_Dealt += 30
     eventPlayer.Move_Speed += 30
     getPlayers(Team.1).addHealthPool(Health.SHIELDS, min(200, eventPlayer.getMaxHealth() * 0.25), false, false)
@@ -6972,7 +6973,7 @@ rule "[Hanzo] Arrow Rain ":
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     for eventPlayer.i in range(2):
         createProjectile(Projectile.MEI_ICICLE, eventPlayer, eventPlayer.getEyePosition() + Vector.DOWN * 0.5, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + random.uniform(-2, 2), eventPlayer.getVerticalFacingAngle() + random.uniform(-2, 2)), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 70, 2, 0, DynamicEffect.BAD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 110, 5, 0, 1, 5)
         createProjectile(Projectile.MEI_ICICLE, eventPlayer, eventPlayer.getEyePosition() + Vector.DOWN * 0.5, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + random.uniform(-2, 2), eventPlayer.getVerticalFacingAngle() + random.uniform(-2, 2)), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 70, 2, 0, DynamicEffect.BAD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 110, 5, 0, 1, 5)
@@ -6983,7 +6984,7 @@ rule "Hanzo: Stormbreak":
     @Team 1
     @Hero hanzo
     @Condition eventPlayer.Talent2 == true
-    
+
     eventPlayer.Ability_Countdown = 4
     chaseAtRate(eventPlayer.Ability_Countdown, 0, 1)
 
@@ -6994,7 +6995,7 @@ rule "Hanzo: Stormbreak - Boost":
     @Hero hanzo
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.Ability_Countdown > 0
-    
+
     createEffect(getAllPlayers(), Effect.WINSTON_PRIMAL_RAGE, Color.TEAM_1, eventPlayer, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[1] = getLastCreatedEntity()
     waitUntil(eventPlayer.isDead() or not eventPlayer.Ability_Countdown or not eventPlayer.Talent2, 99999)
@@ -7009,7 +7010,7 @@ rule "Hanzo: Stormbreak - Reset Cooldowns For Storm Arrows":
     @Hero hanzo
     @Condition eventPlayer.Ability_Countdown > 0
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, false)
 
 
@@ -7019,7 +7020,7 @@ rule "Echo: Bomber Jacket":
     @Hero echo
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     createHomingProjectile(Projectile.ECHO_STICKY_BOMB, eventPlayer, eventPlayer.getEyePosition() + worldVector(vect(-0.5, false, false), eventPlayer, Transform.ROTATION), Vector.DOWN, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 30, 1, 1.5, DynamicEffect.RING_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 20, 5, 0, (sorted([player for player in getPlayers(Team.2) if isInLoS(eventPlayer, player) and player.is_alive], lambda i_: distance(eventPlayer, i_)))[0])
     createHomingProjectile(Projectile.ECHO_STICKY_BOMB, eventPlayer, eventPlayer.getEyePosition() + worldVector(vect(0.5, false, false), eventPlayer, Transform.ROTATION), Vector.DOWN, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 30, 1, 1.5, DynamicEffect.RING_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 20, 5, 0, (sorted([player for player in getPlayers(Team.2) if isInLoS(eventPlayer, player) and player.is_alive], lambda i_: distance(eventPlayer, i_)))[0])
     wait(0.25)
@@ -7031,7 +7032,7 @@ rule "Echo: Focusing Optics":
     @Event playerDealtDamage
     @Team 1
     @Hero echo
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.ABILITY_2:
@@ -7052,7 +7053,7 @@ rule "[Lucio] Chord Cadence":
     @Hero lucio
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     waitUntil(not eventPlayer.isUsingAbility2(), 4)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     if eventPlayer.isDead():
@@ -7069,7 +7070,7 @@ rule "[Lucio] Chord Cadence burstfire":
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     for eventPlayer.i in range(4):
         createProjectile(Projectile.LUCIO_SONIC_AMPLIFIER, eventPlayer, eventPlayer.getEyePosition() + Vector.DOWN * 0.5, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + random.uniform(-1, 1), eventPlayer.getVerticalFacingAngle() + random.uniform(-1, 1)), Relativity.TO_WORLD, ModifyHealth.DAMAGE, getOppositeTeam(eventPlayer.getTeam()), 20, 2, 0, DynamicEffect.BAD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 50, 5)
         createProjectile(Projectile.LUCIO_SONIC_AMPLIFIER, eventPlayer, eventPlayer.getEyePosition() + Vector.DOWN * 0.5, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + random.uniform(-1, 1), eventPlayer.getVerticalFacingAngle() + random.uniform(-1, 1)), Relativity.TO_WORLD, ModifyHealth.DAMAGE, getOppositeTeam(eventPlayer.getTeam()), 20, 2, 0, DynamicEffect.BAD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 50, 5)
@@ -7087,7 +7088,7 @@ rule "Lucio: Reverse Amp":
     @Hero lucio
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.Talent2 == true
-    
+
     if eventPlayer.isUsingAbility1():
         getPlayersInRadius(eventPlayer, 12, Team.2, LosCheck.SURFACES).setStatusEffect(eventPlayer, Status.ROOTED, 0.75)
     else:
@@ -7103,7 +7104,7 @@ rule "D.Va: Voltage Grid":
     @Hero dva
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.TURQUOISE, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2, 0.15)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.TURQUOISE, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 5, 0.15)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.TURQUOISE, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, 0.15)
@@ -7124,7 +7125,7 @@ rule "D.Va: Shooting Star":
     @Hero dva
     @Condition eventAbility == Button.ABILITY_1
     @Condition eventPlayer.Talent2 == true
-    
+
     damage(victim, eventPlayer, 30)
     victim.setStatusEffect(null, Status.BURNING, 3)
     victim.startDamageOverTime(eventPlayer, 3, 35)
@@ -7137,7 +7138,7 @@ rule "Zarya- Combusta-bubble - Detect Barrier Target":
     @Hero zarya
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     wait(0.025)
     eventPlayer.Ability_End = ([player for player in getPlayersInRadius(eventPlayer, 30, Team.1, LosCheck.SURFACES) if player.hasStatus(Status.INVINCIBLE) and player.isAlive() and eventPlayer.isInViewAngle(player, 103)])[0]
     waitUntil(not eventPlayer.isUsingAbility2(), 2)
@@ -7153,7 +7154,7 @@ rule "Zarya- Combusta-Bubble - Self bubble":
     @Hero zarya
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     waitUntil(not eventPlayer.isUsingAbility1(), 2)
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.ORANGE, eventPlayer, 120)
@@ -7168,7 +7169,7 @@ rule "Zarya- Power Surge":
     @Hero zarya
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     if not eventPlayer.hasStatus(Status.INVINCIBLE):
         return
     damage(eventPlayer, null, 10000)
@@ -7186,7 +7187,7 @@ rule "Pharah: Head Trauma":
     @Condition eventAbility == Button.ABILITY_2
     @Condition victim.iv_is_portal == false
     @Condition victim != eventPlayer
-    
+
     damage(victim, eventPlayer, 60)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.GRAY, victim, 1)
     if victim.getNormalizedHealth() > 0.5:
@@ -7201,7 +7202,7 @@ rule "[Pharah] Weaponized Storm":
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.getAmmo(false) % 6 == false
-    
+
     eventPlayer.setProjectileSpeed(125)
     eventPlayer.Ability_End = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, getLivingPlayers(Team.ALL), eventPlayer, true).getHitPosition()
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
@@ -7223,7 +7224,7 @@ rule "Junkrat: Pyromania":
     @Event playerDealtKnockback
     @Team 1
     @Hero junkrat
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility == Button.MELEE:
@@ -7240,7 +7241,7 @@ rule "Junkrat: Trigger Happy":
     @Hero junkrat
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) < 5
-    
+
     wait(4, Wait.ABORT_WHEN_FALSE)
     eventPlayer.setAbilityCharge(Button.ABILITY_1, eventPlayer.getAbilityCharge(Button.ABILITY_1) + 1)
     if ruleCondition:
@@ -7253,7 +7254,7 @@ rule "Roadhog: Stench":
     @Hero roadhog
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isAlive() == true
-    
+
     createEffect(getAllPlayers(), Effect.RING, Color.VIOLET, eventPlayer, 8, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[1] = getLastCreatedEntity()
     waitUntil(not eventPlayer.Talent1 or eventPlayer.isDead(), 99999)
@@ -7269,7 +7270,7 @@ rule "Roadhog: Stench effect":
     @Hero roadhog
     @Condition distance(eventPlayer, getClosestPlayer(eventPlayer, Team.2)) <= 8
     @Condition eventPlayer.Talent1 == true
-    
+
     damage(getPlayersInRadius(eventPlayer, 8, Team.2, LosCheck.SURFACES), eventPlayer, 9)
     wait(0.4)
     if ruleCondition:
@@ -7282,7 +7283,7 @@ rule "Roadhog: Chainsnap":
     @Hero roadhog
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     eventPlayer.Damage_Dealt += 400
     waitUntil(not eventPlayer.Talent2 or not eventPlayer.isUsingAbility1(), 99999)
     eventPlayer.Damage_Dealt -= 400
@@ -7296,7 +7297,7 @@ rule "Roadhog: Chainsnap - Reset cooldown":
     @Team 1
     @Hero roadhog
     @Condition eventPlayer.Talent2 == true
-    
+
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, false)
 
@@ -7307,7 +7308,7 @@ rule "Moira: Flourish":
     @Hero moira
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     getPlayersInRadius(eventPlayer, 3, Team.2, LosCheck.SURFACES).startDamageOverTime(eventPlayer, 2, 25)
     getPlayersInRadius(eventPlayer, 3, Team.1, LosCheck.SURFACES).startHealingOverTime(eventPlayer, 2, 40)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.BLACK, eventPlayer.getPosition(), 6)
@@ -7324,7 +7325,7 @@ rule "[Moira] Catalyst - ":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition eventPlayer.getAbilityResource(Button.PRIMARY_FIRE) > 8
-    
+
     eventPlayer.Damage_Dealt += 300
     eventPlayer.healing_dealt_percent += 300
     eventPlayer.Move_Speed -= 40
@@ -7343,7 +7344,7 @@ rule "[Moira] Catalyst - ":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition eventPlayer.getAbilityResource(Button.PRIMARY_FIRE) > 8
-    
+
     eventPlayer.setAbilityResource(Button.PRIMARY_FIRE, eventPlayer.getAbilityResource(Button.PRIMARY_FIRE) - 15)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.PURPLE, eventPlayer.getEyePosition(), 10)
     damage(getPlayersInRadius(eventPlayer.getEyePosition(), 5, Team.2, LosCheck.SURFACES), eventPlayer, 35)
@@ -7358,7 +7359,7 @@ rule "Mei: Cold Snap":
     @Hero mei
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     waitUntil(not eventPlayer.isUsingAbility1(), 99999)
     damage(getPlayersInRadius(eventPlayer.getEyePosition(), 10, Team.2, LosCheck.SURFACES), eventPlayer, 35)
@@ -7373,7 +7374,7 @@ rule "[Mei] Fractical Strike ":
     @Hero mei
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.Damage_Dealt -= 60
     wait(0.3)
     eventPlayer.Damage_Dealt += 60
@@ -7390,7 +7391,7 @@ rule "[Winston] Next Generation":
     @Hero winston
     @Condition eventPlayer.Talent1 == true
     @Condition eventAbility == Button.ULTIMATE
-    
+
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 5)
     damage(victim, eventPlayer, eventDamage)
 
@@ -7401,7 +7402,7 @@ rule "[Winston] Quake":
     @Hero winston
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.25)
     waitUntil(eventPlayer.isOnGround(), 99999)
     if eventPlayer.isDead():
@@ -7418,7 +7419,7 @@ rule "Reaper: Wraith Wrath":
     @Hero reaper
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.cancelPrimaryAction()
     createEffect(getAllPlayers(), Effect.REAPER_WRAITH_FORM, Color.TEAM_1, eventPlayer, true, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -7441,7 +7442,7 @@ rule "Reaper: Loom":
     @Hero reaper
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.Talent2 == true
-    
+
     [player for player in eventPlayer.getPlayersInViewAngle(Team.2, 45) if isInLoS(eventPlayer, player)].setStatusEffect(eventPlayer, Status.HACKED, 2)
     damage([player for player in eventPlayer.getPlayersInViewAngle(Team.2, 45) if isInLoS(player, eventPlayer)], eventPlayer, 35)
 
@@ -7452,7 +7453,7 @@ rule "[Sojourn] Thunderout Kicks":
     @Hero sojourn
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     eventPlayer.Ability_Active = 1 + getTotalTimeElapsed()
     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1 or eventPlayer.isHoldingButton(Button.JUMP), 1)
     if eventPlayer.Ability_Active < getTotalTimeElapsed():
@@ -7465,7 +7466,7 @@ rule "Sojourn: Matter Splatter":
     @Event playerDealtDamage
     @Team 1
     @Hero sojourn
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.SECONDARY_FIRE:
@@ -7482,7 +7483,7 @@ rule "Soldier76: Triple Threat":
     @Hero soldier
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     createProjectile(Projectile.PHARAH_ROCKET, eventPlayer, null, directionFromAngles(eventPlayer.getHorizontalFacingAngle() + 4.5, eventPlayer.getVerticalFacingAngle()), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 60, 1, 2.5, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.RING_EXPLOSION_SOUND, 0, 60, 4)
     createProjectile(Projectile.PHARAH_ROCKET, eventPlayer, null, directionFromAngles(eventPlayer.getHorizontalFacingAngle() - 4.5, eventPlayer.getVerticalFacingAngle()), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 60, 1, 2.5, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.RING_EXPLOSION_SOUND, 0, 60, 4)
 
@@ -7492,7 +7493,7 @@ rule "Soldier76: Triple Threat - Init rocket":
     @Team 1
     @Hero soldier
     @Condition eventPlayer.Talent1 == true
-    
+
     eventPlayer.Ability_Projectile1 = eventPlayer.Ability_Available
     eventPlayer.Ability_Countdown = eventPlayer.Ability_End
 
@@ -7501,7 +7502,7 @@ rule "Soldier76: Espionage":
     @Event playerDealtHealing
     @Team 1
     @Hero soldier
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.ABILITY_2:
@@ -7514,7 +7515,7 @@ rule "Soldier76: Espionage - Allies effect":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.soldier_espionage == true
-    
+
     eventPlayer.soldier_espionage = false
     if eventPlayer.downed_start_t and len(eventPlayer.revivers) > 0:
         eventPlayer.revive_timer += 20
@@ -7528,7 +7529,7 @@ rule "Baptiste: Corrode":
     @Hero baptiste
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     for eventPlayer.i in range(3):
         playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.PURPLE, eventPlayer.getPosition(), 20)
         damage(getPlayersInRadius(eventPlayer, 10, Team.2, LosCheck.SURFACES), eventPlayer, 25)
@@ -7543,7 +7544,7 @@ rule "[Baptiste] Aerial Ace - Jump":
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isCrouching() == true
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
-    
+
     waitUntil(not eventPlayer.isCrouching(), 9999)
     waitUntil(eventPlayer.isJumping(), 1)
     eventPlayer.Ability_Available = true
@@ -7565,7 +7566,7 @@ rule "[Baptiste] Aerial Ace - Slower fall":
     @Condition (eventPlayer.hasStatus(Status.STUNNED) and eventPlayer.hasStatus(Status.HACKED)) == false
     @Condition eventPlayer.getAltitude() >= 1
     @Condition eventPlayer.getVerticalSpeed() < 0
-    
+
     eventPlayer.setGravity(7.5)
     wait(0.333)
     playEffect(getPlayers(eventPlayer.getTeam()), DynamicEffect.RING_EXPLOSION, Color.ORANGE, eventPlayer.getPosition(), 2)
@@ -7581,7 +7582,7 @@ rule "[Bastion]- Fusillade":
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isInAlternateForm() == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     while eventPlayer.isFiringPrimaryFire() and eventPlayer.isInAlternateForm():
         createProjectile(Projectile.PHARAH_ROCKET, eventPlayer, eventPlayer.getEyePosition() + worldVector(vect(random.uniform(-0.4, 0.4), random.uniform(-0.4, -0.4), 0), eventPlayer, Transform.ROTATION), null, Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.2, 25, 1, 1.5, DynamicEffect.GOOD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0, 35, 2)
@@ -7592,7 +7593,7 @@ rule "[Bastion]: Trickshot":
     @Event playerDealtDamage
     @Team 1
     @Hero bastion
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.SECONDARY_FIRE:
@@ -7611,7 +7612,7 @@ rule "[Sombra] Stack Overflow":
     @Hero sombra
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.8, Wait.ABORT_WHEN_FALSE)
     waitUntil(eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.ABILITY_1) or eventPlayer.isHoldingButton(Button.ULTIMATE) or eventPlayer.isHoldingButton(Button.MELEE) or eventPlayer.isCommunicatingEmote(), 99999)
     eventPlayer.cancelPrimaryAction()
@@ -7632,7 +7633,7 @@ rule "[Sombra] Stack Overflow - melee":
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.Ability_Active == true
     @Condition eventAbility == Button.MELEE
-    
+
     victim.setStatusEffect(eventPlayer, Status.STUNNED, 1)
     damage(victim, eventPlayer, 40)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.PURPLE, victim, 0.25)
@@ -7644,7 +7645,7 @@ rule "[Sombra] Cyberattack":
     @Hero sombra
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     waitUntil(not eventPlayer.isUsingAbility2(), 99999)
     if eventPlayer.isHoldingButton(Button.INTERACT):
         return
@@ -7664,7 +7665,7 @@ rule "Doomfist: Punch Card":
     @Hero doomfist
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Damage_Dealt += 200
     waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0.1, 1)
@@ -7677,7 +7678,7 @@ rule "[Doomfist] Fire Quake - Use seismic slam":
     @Hero doomfist
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.5)
     waitUntil(eventPlayer.isOnGround() or not eventPlayer.isUsingAbility1(), 1000)
     if not eventPlayer.isUsingAbility1():
@@ -7696,7 +7697,7 @@ rule "Cassidy: Standoff":
     @Hero cassidy
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     wait(0.2)
     eventPlayer.Ability_Countdown = false
     chaseAtRate(eventPlayer.Ability_Countdown, 9999, 100)
@@ -7712,7 +7713,7 @@ rule "Cassidy: Standoff - Set root":
     @Hero cassidy
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.Talent1 == true
-    
+
     wait(0.2)
     for eventPlayer.i in range(5):
         wait(1, Wait.ABORT_WHEN_FALSE)
@@ -7725,7 +7726,7 @@ rule "Cassidy: Flashpoint":
     @Event playerDealtDamage
     @Team 1
     @Hero cassidy
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.ABILITY_2:
@@ -7742,7 +7743,7 @@ rule "Wrecking Ball: Orbital Strike":
     @Hero wreckingBall
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.getAbilityCooldown(Button.CROUCH) >= 0.1
-    
+
     eventPlayer.Ability_Countdown = eventPlayer.getAltitude() * 10
     eventPlayer.Damage_Dealt += eventPlayer.Ability_Countdown
     waitUntil(eventPlayer.isOnGround() or eventPlayer.isDead(), 9999)
@@ -7754,7 +7755,7 @@ rule "[Wrecking Ball] Orbital Strike":
     @Event playerDealtKnockback
     @Team 1
     @Hero wreckingBall
-    
+
     if not eventPlayer.Talent1:
         return
     if eventAbility != Button.CROUCH:
@@ -7768,7 +7769,7 @@ rule "Wrecking Ball: Distort":
     @Hero wreckingBall
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     for eventPlayer.i in range(false, 4):
         playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.PURPLE, eventPlayer.getPosition(), 20)
         damage(getPlayersInRadius(eventPlayer, 10, Team.2, LosCheck.SURFACES), eventPlayer, 25)
@@ -7782,7 +7783,7 @@ rule "[Queen] Shout Very Loudly":
     @Hero junkerQueen
     @Condition eventPlayer.Talent1 == true
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     getPlayersInRadius(eventPlayer, 15, Team.2, LosCheck.SURFACES).exclude(eventPlayer).startDamageOverTime(eventPlayer, 5, 8)
     eventPlayer.startHealingOverTime(eventPlayer, 5, 8 * len(getPlayersInRadius(eventPlayer, 15, Team.2, LosCheck.SURFACES)))
 
@@ -7791,7 +7792,7 @@ rule "[Queen] Grace Period":
     @Event playerDealtKnockback
     @Team 1
     @Hero junkerQueen
-    
+
     if not eventPlayer.Talent2:
         return
     if eventAbility != Button.SECONDARY_FIRE:
@@ -7811,7 +7812,7 @@ rule "Kiriko: Shinobi Tactics":
     @Event playerDealtHealing
     @Team 1
     @Hero kiriko
-    
+
     if not eventPlayer.Talent1:
         return
     damage(getPlayersInRadius(healee, 6, Team.2, LosCheck.SURFACES), eventPlayer, eventHealing * 2)
@@ -7823,7 +7824,7 @@ rule "Kiriko: Recession":
     @Hero kiriko
     @Condition eventPlayer.Talent2 == true
     @Condition eventAbility == Button.ABILITY_2
-    
+
     damage(victim, eventPlayer, 75)
     victim.setStatusEffect(eventPlayer, Status.FROZEN, 1.5)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.GRAY, victim, 1)
@@ -7835,7 +7836,7 @@ rule "Ramattra: Vile Dominance":
     @Hero ramattra
     @Condition eventPlayer.Talent1 == true
     @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    
+
     eventPlayer.Move_Speed += 30
     eventPlayer.Ability_Active = true
     waitUntil(not eventPlayer.isUsingAbility1() and not eventPlayer.isUsingUltimate() or not eventPlayer.Talent1, 9999)
@@ -7847,7 +7848,7 @@ rule "Ramattra: Vile Dominance":
     @Event playerDealtDamage
     @Team 1
     @Hero ramattra
-    
+
     if not eventPlayer.Ability_Active:
         return
     if eventAbility == null:
@@ -7863,7 +7864,7 @@ rule "Ramattra: Nether Sector":
     @Event playerDealtDamage
     @Team 1
     @Hero ramattra
-    
+
     if not eventPlayer.Talent2:
         return
     if not eventPlayer.isOnGround():
@@ -7880,7 +7881,7 @@ rule "Lifeweaver: Autumn Blossoms":
     @Team 1
     @Hero lifeweaver
     @Condition eventPlayer.Talent1 == true
-    
+
     createProjectile(Projectile.ZARYA_PARTICLE_CANNON, null, victim.getPosition() + vect(0, 0.5, 0), Vector.UP, Relativity.TO_WORLD, ModifyHealth.HEAL, Team.1, victim.getMaxHealth(), 1, 0, DynamicEffect.BAD_EXPLOSION, DynamicEffect.EXPLOSION_SOUND, 0.025, 0, 8)
 
 
@@ -7888,7 +7889,7 @@ rule "Team 1 Lifeweaver: Increased damage":
     @Event eachPlayer
     @Team 1
     @Hero lifeweaver
-    
+
     eventPlayer.Damage_Dealt += 30
     waitUntil(eventPlayer.perk_mystery_swap >= getTotalTimeElapsed() + 90 or not eventPlayer.Talent1, 99999)
     eventPlayer.Damage_Dealt -= 30
@@ -7900,7 +7901,7 @@ rule "Lifeweaver: Pressure Therapy":
     @Hero lifeweaver
     @Condition eventPlayer.Talent2 == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     startDamageModification([player for player in getPlayers(Team.2) if eventPlayer.getPosition().y - player.getPosition().y >= 3 or dotProduct(player.getFacingDirection(), vectorTowards(player, eventPlayer)) < 0], eventPlayer, 150)
     eventPlayer.damage_mod[1] = getLastDamageModification()
@@ -7909,5 +7910,3 @@ rule "Lifeweaver: Pressure Therapy":
     wait(0.1)
     if ruleCondition:
         loop()
-
-

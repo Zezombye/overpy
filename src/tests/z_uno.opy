@@ -224,7 +224,7 @@ rule "- SETUP -":
     @Condition "Is this going on youtube?" == true
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Setup] init constants & starting variables":
@@ -398,7 +398,7 @@ rule "[Setup] create deck":
 
 rule "[Setup] init player status effects & buttons":
     @Event eachPlayer
-    
+
     #Players are invincible
     eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 9999)
     #Disable various buttons
@@ -413,7 +413,7 @@ rule "[Setup] init non-spectating player":
     @Event eachPlayer
     #The array of players has not yet been initialized, players joining late can not join in. This player is not a spectator
     @Condition Players == null
-    
+
     #Initialize player starting variables
     InitPlayerStartingVariables()
     #Set current player mode to non-spectator since they were present during the start of the round
@@ -427,7 +427,7 @@ rule "[Setup] init spectating player":
     @Condition Players != null
     #The event player is a new player
     @Condition eventPlayer in Players == false
-    
+
     #Spectating players use the floating camera by default
     ToggleFloatingCamera()
     #Spectating players are invisible
@@ -444,7 +444,7 @@ rule "[Setup][Instant Play] skip assemble heroes and start match":
     @Condition isAssemblingHeroes() == true
     #if instant play is enabled
     @Condition SETTING_INSTANT_PLAY == true
-    
+
     #skip assemble heroes and begin the match
     setMatchTime(8)
 
@@ -463,7 +463,7 @@ rule "[Setup][Instant Play] add spectating player to queue of people entering th
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
     #instant play is enabled
     @Condition SETTING_INSTANT_PLAY == true
-    
+
     #put the player in queue to join the game as soon as possible (after no animations are playing)
     eventPlayer.IsSpectatorInQueueToEnter = true
 
@@ -482,7 +482,7 @@ rule "[Setup][Instant Play] init spectating player entering the game":
     @Condition IsCurrentlyPlayingAnimation == false
     #instant play is enabled
     @Condition SETTING_INSTANT_PLAY == true
-    
+
     #Check whether the player is already using the floating camera
     if eventPlayer.IsUsingCamera:
         #stop the floating camera
@@ -513,7 +513,7 @@ rule "[Setup] init players when match starts":
     @Condition len(getAllPlayers()) > 0
     #All players have initialized their hands
     @Condition [player for player in getAllPlayers() if len(player.HandSymbols) == SETTING_AMOUNT_OF_STARTING_CARDS] == getAllPlayers()
-    
+
     #Initialize the array of players
     Players = random.shuffle(getAllPlayers())
     #Select a random offset for the first player's position
@@ -531,7 +531,7 @@ rule "[Setup] init non-spectating players facing direction and position after th
     @Condition eventPlayer.MapPosition != null
     #The player has spawned
     @Condition eventPlayer.hasSpawned() == true
-    
+
     #Teleport the player back to their position
     eventPlayer.teleport(eventPlayer.MapPosition)
     #Reset the facing of the player towards the center
@@ -556,7 +556,7 @@ rule "[Setup][Debug] init debug settings":
 rule "[Setup][Effects] init match time":
     #Hero selection is over
     @Condition isGameInProgress() == true
-    
+
     setMatchTime(1800)
 
 
@@ -588,7 +588,7 @@ rule "[Setup][Effects] init highlight beam effects":
 rule "[Setup][Effects] init highlight beam starting angle":
     #The array of players has been initialized
     @Condition Players != null
-    
+
     #Set the highlight beam angle & target angle to the position of the first player
     HighlightBeamEffectTargetAngle = horizontalAngleOfDirection(Players[0].MapPosition - MapPosition)
     HighlightBeamEffectAngle = HighlightBeamEffectTargetAngle
@@ -660,7 +660,7 @@ rule "[Setup][Effects] init non-spectating player effects":
     @Event eachPlayer
     #if the player is not a spectator
     @Condition eventPlayer.IsSpectating == false
-    
+
     #Chase the current position of the selected player highlight effects to smoothly move to the currently selected player
     chaseAtRate(eventPlayer.SelectedPlayerHighlightPosition, eventPlayer.SelectedPlayerQueue[0].MapPosition, 5 * (0.5 + distance(eventPlayer.SelectedPlayerHighlightPosition, eventPlayer.SelectedPlayerQueue[0].MapPosition)))
     #Create effects indicating the selected player when a swap card is held
@@ -681,7 +681,7 @@ rule "[Setup][Effects] init non-spectating player effects":
 
 def AddColoredSymbolsToDeck():
     @Name "[Subroutine][Setup] add colored symbols to deck"
-    
+
     #Add a single 0 card for every color
     DeckSymbols.append("0")
     #Check if swap cards are enabled
@@ -707,7 +707,7 @@ def AddColoredSymbolsToDeck():
 
 def AddUncoloredSymbolsToDeck():
     @Name "[Subroutine][Setup] add uncolored symbols to deck"
-    
+
     #Loop once for every color
     for TempColorIndex in range(len(COLORS)):
         #Add a wild and +4 card
@@ -738,13 +738,13 @@ def AddUncoloredSymbolsToDeck():
 
 def AddNewPlayerToPlayers():
     @Name "[Subroutine][Setup] Add current new player to the list of players"
-    
+
     Players.append(eventPlayer)
 
 
 def InitPlayerStartingVariables():
     @Name "[Subroutine][Setup] Initialize player variables"
-    
+
     eventPlayer.HandSymbols = []
     eventPlayer.HandColors = []
     eventPlayer.HandRenderQueueSymbols = []
@@ -760,7 +760,7 @@ def InitPlayerStartingVariables():
 
 def InitMapPositionForAll():
     @Name "[Subroutine][Setup] Init player map position for all players for the first time"
-    
+
     #Loop over every player
     for TempPlayerIndex in range(len(Players)):
         Players[TempPlayerIndex].Angle = 360 / len(Players) * (-1 * DirectionOfPlay * TempPlayerIndex % len(Players)) + StartingAngle
@@ -771,7 +771,7 @@ def InitMapPositionForAll():
 
 def UpdateMapPositionForAll():
     @Name "[Subroutine] Update player map position for all players for the first time"
-    
+
     if len(Players) > 1:
         #Select a random offset for the first player's position
         StartingAngle = Players[0].Angle
@@ -785,7 +785,7 @@ def UpdateMapPositionForAll():
 
 def SetPlayerSelectionQueueForAll():
     @Name "[Subroutine] Set player selection queue for all players"
-    
+
     #Loop over every player
     for TempPlayerIndex in range(len(Players)):
         #Set the selected player queue for this player to the array of all players without the current player. The first value in this array is the player with which is swapped when a swap card is played by this player
@@ -795,13 +795,13 @@ def SetPlayerSelectionQueueForAll():
 rule "- CARD EFFECT STUFF -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Effects] update discard pile color (white)":
     #The color of the discard pile card has changed to white
     @Condition DiscardPileColor == l"White"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     #Create the symbol effect
@@ -835,7 +835,7 @@ rule "[Effects] update discard pile color (white)":
 rule "[Effects] update discard pile color (red)":
     #The color of the discard pile card has changed to red
     @Condition DiscardPileColor == l"Red"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else l"Red" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.RED, SpecVisibility.ALWAYS)
@@ -868,7 +868,7 @@ rule "[Effects] update discard pile color (red)":
 rule "[Effects] update discard pile color (orange)":
     #The color of the discard pile card has changed to orange
     @Condition DiscardPileColor == "Orange"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else "Orange" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.ORANGE, SpecVisibility.ALWAYS)
@@ -901,7 +901,7 @@ rule "[Effects] update discard pile color (orange)":
 rule "[Effects] update discard pile color (yellow)":
     #The color of the discard pile card has changed to yellow
     @Condition DiscardPileColor == l"Yellow"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else l"Yellow" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.YELLOW, SpecVisibility.ALWAYS)
@@ -934,7 +934,7 @@ rule "[Effects] update discard pile color (yellow)":
 rule "[Effects] update discard pile color (lime green)":
     #The color of the discard pile card has changed to lime green
     @Condition DiscardPileColor == "Lime Green"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     #Create the symbol effect
@@ -968,7 +968,7 @@ rule "[Effects] update discard pile color (lime green)":
 rule "[Effects] update discard pile color (green)":
     #The color of the discard pile card has changed to green
     @Condition DiscardPileColor == l"Green"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else l"Green" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.GREEN, SpecVisibility.ALWAYS)
@@ -1001,7 +1001,7 @@ rule "[Effects] update discard pile color (green)":
 rule "[Effects] update discard pile color (turquoise)":
     #The color of the discard pile card has changed to turquoise
     @Condition DiscardPileColor == "Turquoise"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else "Turquoise" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.TURQUOISE, SpecVisibility.ALWAYS)
@@ -1034,7 +1034,7 @@ rule "[Effects] update discard pile color (turquoise)":
 rule "[Effects] update discard pile color (aqua)":
     #The color of the discard pile card has changed to aqua
     @Condition DiscardPileColor == "Aqua"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else "Aqua" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.AQUA, SpecVisibility.ALWAYS)
@@ -1067,7 +1067,7 @@ rule "[Effects] update discard pile color (aqua)":
 rule "[Effects] update discard pile color (sky blue)":
     #The color of the discard pile card has changed to sky blue
     @Condition DiscardPileColor == "Sky Blue"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else "Sky Blue" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.SKY_BLUE, SpecVisibility.ALWAYS)
@@ -1100,7 +1100,7 @@ rule "[Effects] update discard pile color (sky blue)":
 rule "[Effects] update discard pile color (blue)":
     #The color of the discard pile card has changed to blue
     @Condition DiscardPileColor == l"Blue"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else l"Blue" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.BLUE, SpecVisibility.ALWAYS)
@@ -1133,7 +1133,7 @@ rule "[Effects] update discard pile color (blue)":
 rule "[Effects] update discard pile color (purple)":
     #The color of the discard pile card has changed to purplr
     @Condition DiscardPileColor == l"Purple"
-    
+
     #Destroy the previous symbol effect
     destroyInWorldText(DiscardPileSymbolTextID)
     createInWorldText(getAllPlayers(), "Copycat" if DiscardPileSymbolMovementTimer and DeckSymbols.last() == "Copycat" else l"{0} {1}".format(DiscardPileSymbol, "(+{0})".format(CurrentPenalty)) if DiscardPileSymbol in PENALTY_CARD_SYMBOLS and not DiscardPileSymbolMovementTimer else l"Purple" if DiscardPileSymbol == "Wild" else DiscardPileSymbol, (1 - DiscardPileSymbolMovementTimer) * MapPosition + DiscardPileSymbolMovementTimer * LastPlayedCardPosition + (Vector.UP * (1.5 + 0.2 * (cosDeg(getTotalTimeElapsed() * 36)) + (3 * (1 - ((abs(2 * DiscardPileSymbolMovementTimer - 1)) ** 2))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.PURPLE, SpecVisibility.ALWAYS)
@@ -1169,7 +1169,7 @@ rule "[Effects] render hand cards in queue":
     @Condition len(eventPlayer.HandRenderQueueSymbols) > 0
     #Prevent creating HUD texts when the player is not fully loaded in
     @Condition eventPlayer.hasSpawned() == true
-    
+
     #Cards are not drawn all at the same time to reduce server load. A player's hand should not be modified when they are creating HUD texts, as this can cause their hand to be in an invalid state
     eventPlayer.IsCreatingHUDTexts = true
     #Loop until the queue is empty
@@ -1228,7 +1228,7 @@ rule "[Effects] render hand cards in queue":
 
 def DestroyDiscardPileCardEffects():
     @Name "[Subroutine][Effects] destroy discard pile effects"
-    
+
     #Destroy all existing discard pile color effects
     for TempNumber in range(len(DiscardPileColorEffectIDs)):
         destroyEffect(DiscardPileColorEffectIDs[TempNumber])
@@ -1236,7 +1236,7 @@ def DestroyDiscardPileCardEffects():
 
 def UpdateWildCardColor():
     @Name "[Subroutine][Effects] update selected card color"
-    
+
     #Destroy the currently selected HUD text
     destroyHudText(eventPlayer.HandHUDTexts[eventPlayer.SelectedCardIndex])
     #The the selected card is red
@@ -1285,7 +1285,7 @@ def UpdateWildCardColor():
 
 def ClearHandHUDTexts():
     @Name "[Subroutine][Effects] clear hand HUD texts"
-    
+
     #Loop over the HUD text ID's of the player
     for TempNumber in range(len(PlayerToClearHand.HandHUDTexts)):
         #Destroy all existing cards
@@ -1299,13 +1299,13 @@ def ClearHandHUDTexts():
 rule "- MISC -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Logic] remove player when left":
     @Event playerLeft
     @Condition Players != []
-    
+
     if Players[0] == eventPlayer:
         TurnTimeRemaining = SETTING_TURN_TIME_LIMIT
     #Remove the leaving player from the playing players. The cards held by this player can not be added back to the deck, because the player variables of this player no longer exist
@@ -1329,7 +1329,7 @@ rule "[Effects] teleport player to position":
     @Condition eventPlayer.hasSpawned() == true
     #if the player is way out of position (12 m away)
     @Condition (distance(vect(eventPlayer.getPosition().x, eventPlayer.MapPosition.y, eventPlayer.getPosition().z), eventPlayer.MapPosition) > 12 or eventPlayer.getPosition().y - eventPlayer.MapPosition.y < -5) == true
-    
+
     #Teleport the player back to their position
     eventPlayer.teleport(eventPlayer.MapPosition)
     #Reset the facing of the player towards the center
@@ -1347,7 +1347,7 @@ rule "[Effects] keep player in position":
     #if the player is slightly out of position
     @Condition distance(vect(eventPlayer.getPosition().x, eventPlayer.MapPosition.y, eventPlayer.getPosition().z), eventPlayer.MapPosition) > BoundaryRadius
     @Condition distance(vect(eventPlayer.getPosition().x, eventPlayer.MapPosition.y, eventPlayer.getPosition().z), eventPlayer.MapPosition) <= 12
-    
+
     #cancel their movement and apply a force to push them back into their boundary
     eventPlayer.applyImpulse(directionTowards(eventPlayer.getEyePosition(), eventPlayer.MapPosition) * (Vector.FORWARD + Vector.LEFT), BoundaryForce * (((distance(eventPlayer, eventPlayer.MapPosition) - (BoundaryRadius - sqrt(BoundaryRadius))) / sqrt(BoundaryRadius)) ** 1), Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0)
@@ -1361,7 +1361,7 @@ rule "[Effects] update player score":
     @Condition eventPlayer.getScore() != -1 * len(eventPlayer.HandSymbols)
     #Check if the game has started
     @Condition isGameInProgress() == true
-    
+
     #Set the score of the player to the number of cards they have
     eventPlayer.setScore(-1 * len(eventPlayer.HandSymbols))
     #Check for uno
@@ -1381,7 +1381,7 @@ rule "[Effects] notify active player":
     @Condition Players[0] == eventPlayer
     #Wait until the beam has reached the player
     @Condition HighlightBeamEffectAngle == HighlightBeamEffectTargetAngle
-    
+
     #Notify the new active player
     playEffect(eventPlayer, DynamicEffect.BUFF_IMPACT_SOUND, Color.WHITE, eventPlayer, 50)
 
@@ -1392,14 +1392,14 @@ rule "[Effects] toggle floating camera":
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
     #The event player is not holding ability one
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Toggle the floating camera for this player
     ToggleFloatingCamera()
 
 
 def ToggleFloatingCamera():
     @Name "[Subroutine][Effects] toggle floating camera"
-    
+
     #Check whether the player is already using the floating camera
     if eventPlayer.IsUsingCamera:
         #Stop using the camera
@@ -1418,7 +1418,7 @@ rule "[Debug] Spawn Bot":
     @Condition hostPlayer.isHoldingButton(Button.ABILITY_1) == true
     #debug mode is enabled
     @Condition SETTING_DEBUG == true
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     #Spawn a dummy bot
     createDummy(random.choice(getAllHeroes()), Team.ALL, -1, MapPosition, Vector.UP)
@@ -1432,7 +1432,7 @@ rule "[Debug] Destroy Bot":
     @Condition SETTING_DEBUG == true
     #if the closest player to reticle of host player is a bot
     @Condition hostPlayer.getPlayerClosestToReticle(Team.ALL).isDummy() == true
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     #destroy the closest dummy bot to reticle
     destroyDummy(Team.ALL, hostPlayer.getPlayerClosestToReticle(Team.ALL).getSlot())
@@ -1441,7 +1441,7 @@ rule "[Debug] Destroy Bot":
 rule "- CARD DEALING LOGIC -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Debug] force skip player":
@@ -1452,7 +1452,7 @@ rule "[Debug] force skip player":
     @Condition hostPlayer.isHoldingButton(Button.RELOAD) == true
     #It is currently the event player's turn. This rule is 'ongoing - each player', because the event player value is used in drawCards. Also, when the host player is holding reload and a player plays a card, the timer resets
     @Condition eventPlayer == Players[0]
-    
+
     #The host must hold reload for one second
     wait(1, Wait.ABORT_WHEN_FALSE)
     #A players hand cannot be modified when something important is happening
@@ -1472,7 +1472,7 @@ rule "[Logic] take new card(s) manually":
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     #The player is not jumping. Prevents the player from drawing a card and playing a card in the same turn
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == false
-    
+
     #A players hand cannot be modified when something important is happening
     if IsCurrentlyPlayingAnimation or eventPlayer.IsCreatingHUDTexts:
         return
@@ -1492,7 +1492,7 @@ rule "[Logic] take new card(s) when turn timer ends":
     @Condition IsCurrentlyPlayingAnimation == false
     #A players hand cannot be modified while they are creating HUD texts
     @Condition eventPlayer.IsCreatingHUDTexts == false
-    
+
     #Show a message
     smallMessage(getAllPlayers(), "{0} ran out of time!".format(eventPlayer))
     #Draw the requested card(s), and advance to the next player
@@ -1501,7 +1501,7 @@ rule "[Logic] take new card(s) when turn timer ends":
 
 def DrawCardsAndAdvanceTurn():
     @Name "[Subroutine] Draw card(s) and advance turn"
-    
+
     #Set the requested amount of cards of the player to at least 1, depending on the penalty
     eventPlayer.AmountOfRequestedCards = max(CurrentPenalty, 1)
     #Reset the penalty for the next player
@@ -1526,7 +1526,7 @@ def DrawCardsAndAdvanceTurn():
 
 def DealRequestedCards():
     @Name "[Subroutine] Deal requested cards to player"
-    
+
     #Check if there is a specific player that should be dealt cards
     if not PlayerToDealTo:
         #There is no specific player, deal to the event player
@@ -1559,7 +1559,7 @@ def DealRequestedCards():
 
 def PlayDrawCardsEffects():
     @Name "[Subroutine][Effects] Play draw card(s) effects"
-    
+
     #Play some effects
     playEffect(getAllPlayers(), DynamicEffect.BAD_PICKUP_EFFECT, Color.ORANGE, eventPlayer.getPosition(), 30)
     playEffect(getAllPlayers(), DynamicEffect.DEBUFF_IMPACT_SOUND, Color.WHITE, eventPlayer.getPosition(), 30)
@@ -1577,7 +1577,7 @@ def PlayDrawCardsEffects():
 
 def AddAnotherSetOfCardsToDeck():
     @Name "[Subroutine] Add another set of cards to deck"
-    
+
     #add a identical copy of the deck created at start back to the deck
     DeckSymbols.append(DeckSymbolsCopy)
     DeckColors.append(DeckColorsCopy)
@@ -1586,7 +1586,7 @@ def AddAnotherSetOfCardsToDeck():
 rule "- CARD SELECTING LOGIC -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Logic] Select color":
@@ -1596,7 +1596,7 @@ rule "[Logic] Select color":
     #A player cannot change the color of cards when they are creating HUD texts
     @Condition eventPlayer.IsCreatingHUDTexts == false
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Player has wild card selected
     if eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in WILD_CARD_SYMBOLS == true:
         #Cycle the color of the player's selected card
@@ -1614,7 +1614,7 @@ rule "[Logic] Select swap card player":
     #There is at least one player to swap with
     @Condition eventPlayer.SelectedPlayerQueue != []
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Cycle the selected player queue
     eventPlayer.SelectedPlayerQueue.append(eventPlayer.SelectedPlayerQueue[0])
     del eventPlayer.SelectedPlayerQueue[0]
@@ -1630,7 +1630,7 @@ rule "[Logic] Select card (next)":
     @Condition eventPlayer in Players == true
     #The event player is not holding ability one
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Increase the index of the selected card by one, loop back to 0 when needed
     eventPlayer.SelectedCardIndex = (eventPlayer.SelectedCardIndex + 1) % len(eventPlayer.HandSymbols)
     wait(0.25, Wait.ABORT_WHEN_FALSE)
@@ -1651,7 +1651,7 @@ rule "[Logic] Select card (previous)":
     @Condition eventPlayer in Players == true
     #The event player is not holding ability one
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Decrease the index of the selected car by one, loop back to the highest index when needed
     eventPlayer.SelectedCardIndex = (eventPlayer.SelectedCardIndex + (len(eventPlayer.HandSymbols) - 1)) % len(eventPlayer.HandSymbols)
     wait(0.25, Wait.ABORT_WHEN_FALSE)
@@ -1673,7 +1673,7 @@ rule "[Logic] Sort cards":
     @Condition eventPlayer.IsCreatingHUDTexts == false
     #The event player is not holding ability one
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Sort the cards of the event player
     SortHandCards()
     #Prevent the player from crashing the server
@@ -1684,7 +1684,7 @@ rule "[Effects] Show wild card error message":
     @Event eachPlayer
     #The player is trying to play a card
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     #The event player must be the active player
     if eventPlayer != Players[0]:
         return
@@ -1701,7 +1701,7 @@ rule "[Effects] Show wild card error message":
 
 def SortHandCards():
     @Name "[Subroutine] Sort cards"
-    
+
     #Reset the selected card index
     eventPlayer.SelectedCardIndex = 0
     #Find all wild symbols
@@ -1746,12 +1746,12 @@ def SortHandCards():
 rule "- CHEAT -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Setup][Cheat] setup cheat constants":
     @Disabled
-    
+
     #When set to true certain cheats and permissions are enabled for the specified player admin.
     SETTING_CHEAT_ENABLED = false
     #Setting admin name
@@ -1765,7 +1765,7 @@ rule "[Setup][Cheat] find and enable cheats for owner, set it to disabled by def
     #If cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #If the current player is admin, enable cheat for them, if not set it to disabled by default
     if "{0}".format(eventPlayer) == CURRENT_ADMIN:
         eventPlayer.CheatsEnabled = true
@@ -1784,7 +1784,7 @@ rule "[Logic][Cheat] toggle cheats on and off for other players as owner (v)":
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #if the closest player to reticle has cheats off
     if eventPlayer.getPlayerClosestToReticle(Team.ALL).CheatsEnabled == false:
         #enable cheats for selected player and show a message
@@ -1809,8 +1809,8 @@ rule "[Logic][Cheat] select closest player to reticle to force displacement as o
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
-    #select closest player to reticle 
+
+    #select closest player to reticle
     PlayersSelectedForDisplacement.append(eventPlayer.getPlayerClosestToReticle(Team.ALL))
     #if it's the first select show a message and do nothing
     if len(PlayersSelectedForDisplacement) == 1:
@@ -1819,7 +1819,7 @@ rule "[Logic][Cheat] select closest player to reticle to force displacement as o
     elif len(PlayersSelectedForDisplacement) == 2:
         bigMessage(eventPlayer, "Second player, {0}, selected for displacement. Displacement complete!".format(eventPlayer.getPlayerClosestToReticle(Team.ALL)))
         CompletePlayerPositionSwap()
-        #fail safe, if more or none are selected reset the operation 
+        #fail safe, if more or none are selected reset the operation
     else:
         bigMessage(eventPlayer, "An error occured please try again.")
         PlayersSelectedForDisplacement = []
@@ -1836,7 +1836,7 @@ rule "[Logic][Cheat] select self to force displacement as owner (alt + shift + v
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #select self
     PlayersSelectedForDisplacement.append(eventPlayer)
     #if it's the first select show a message and do nothing
@@ -1846,7 +1846,7 @@ rule "[Logic][Cheat] select self to force displacement as owner (alt + shift + v
     elif len(PlayersSelectedForDisplacement) == 2:
         bigMessage(eventPlayer, "Second player, {0}, selected for displacement. Displacement complete!".format(eventPlayer))
         CompletePlayerPositionSwap()
-        #fail safe, if more or none are selected reset the operation 
+        #fail safe, if more or none are selected reset the operation
     else:
         bigMessage(eventPlayer, "An error occured please try again.")
         PlayersSelectedForDisplacement = []
@@ -1865,7 +1865,7 @@ rule "[Logic][Cheat] force change selected card color (r)":
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #Cycle the color of the player's selected card
     eventPlayer.HandColors[eventPlayer.SelectedCardIndex] = COLORS[(COLORS.index(eventPlayer.HandColors[eventPlayer.SelectedCardIndex]) + 1) % len(COLORS)]
     #update the hud color
@@ -1885,7 +1885,7 @@ rule "[Logic][Cheat] cycle selected card symbol (special symbols) (shift + r)":
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #if it's a special card (non number/icon card)
     if eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in SPECIAL_CARD_SYMBOLS:
         #cycle through the list of special cards and select the next one
@@ -1899,7 +1899,7 @@ rule "[Logic][Cheat] cycle selected card symbol (special symbols) (shift + r)":
         eventPlayer.HandColors[eventPlayer.SelectedCardIndex] = "White"
         #if it's not a white special card and it already doesn't have a color
     elif eventPlayer.HandColors[eventPlayer.SelectedCardIndex] == "White" and not eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in WHITE_CARD_SYMBOLS:
-        #set the color to a random color 
+        #set the color to a random color
         eventPlayer.HandColors[eventPlayer.SelectedCardIndex] = COLORS[random.randint(0, len(COLORS) - 1)]
     #render the hud text color
     UpdateColorCheat()
@@ -1920,7 +1920,7 @@ rule "[Logic][Cheat] increase selected card number value (shift + m1)":
     #A player cannot change the color of cards when they are creating HUD texts
     @Condition eventPlayer.IsCreatingHUDTexts == false
     @Disabled
-    
+
     #if the card is a number card
     if eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in NUMBER_CARD_SYMBOLS:
         #increment the number
@@ -1950,7 +1950,7 @@ rule "[Logic][Cheat] decrease selected card number value (shift + m2)":
     #A player cannot change the color of cards when they are creating HUD texts
     @Condition eventPlayer.IsCreatingHUDTexts == false
     @Disabled
-    
+
     #if the card is a number card
     if eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in NUMBER_CARD_SYMBOLS:
         #decrement the number
@@ -1979,7 +1979,7 @@ rule "[Logic][Cheat] replace selected card with a random number card (shift + e)
     #if cheats are enabled
     @Condition SETTING_CHEAT_ENABLED == true
     @Disabled
-    
+
     #add the current card from hand to deck
     TransferToDeckCheat()
     #remove the card from hand
@@ -2004,7 +2004,7 @@ rule "[Logic][Cheat] force play jump in (shift + space)":
     @Condition Players[0] != eventPlayer
     @Condition (eventPlayer.HandColors[eventPlayer.SelectedCardIndex] == l"White" or DiscardPileSymbol != eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] or not eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in WILD_CARD_SYMBOLS and eventPlayer.HandColors[eventPlayer.SelectedCardIndex] != DiscardPileColor) == true
     @Disabled
-    
+
     #Modifying a players hand while something important is happening can cause invalid HUD text elements
     if IsCurrentlyPlayingAnimation or eventPlayer.IsCreatingHUDTexts:
         return
@@ -2051,7 +2051,7 @@ rule "[Logic][Cheat] force play (shift + space)":
     @Condition Players[0] == eventPlayer
     @Condition (eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] != "Copycat" and eventPlayer.HandColors[eventPlayer.SelectedCardIndex] == l"White" or CurrentPenalty != 0 and eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] != "Copycat" and not eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in PENALTY_CARD_SYMBOLS or (not (eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] == DiscardPileSymbol or eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] in "Copycat".concat(WILD_CARD_SYMBOLS) or DiscardPileColor == l"White" or eventPlayer.HandColors[eventPlayer.SelectedCardIndex] == DiscardPileColor))) == true
     @Disabled
-    
+
     #Modifying a players hand while something important is happening can cause invalid HUD text elements
     if IsCurrentlyPlayingAnimation or eventPlayer.IsCreatingHUDTexts:
         return
@@ -2068,7 +2068,7 @@ rule "[Logic][Cheat] force play (shift + space)":
 def AddRandomNumberCardCheat():
     @Name "[Subroutine][Cheat] add random number card"
     @Disabled
-    
+
     #pick a random color and number
     eventPlayer.TempColor = COLORS[random.randint(0, len(COLORS) - 1)]
     eventPlayer.TempNumber = random.randint(0, SETTING_AMOUNT_OF_NUMBERS - 1)
@@ -2083,7 +2083,7 @@ def AddRandomNumberCardCheat():
 def TransferToDeckCheat():
     @Name "[Subroutine][Cheat] add selected card to deck"
     @Disabled
-    
+
     #Put the selected card back in the deck
     DeckSymbols.append(eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex])
     #Check whether the selected card is a wild card
@@ -2098,7 +2098,7 @@ def TransferToDeckCheat():
 def DiscardCardCheat():
     @Name "[Subroutine][Cheat] remove selected card from hand"
     @Disabled
-    
+
     #Remove the card from the player's hand
     del eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex]
     del eventPlayer.HandColors[eventPlayer.SelectedCardIndex]
@@ -2111,7 +2111,7 @@ def DiscardCardCheat():
 def UpdateColorCheat():
     @Name "[Subroutine][Cheat] update selected card color"
     @Disabled
-    
+
     #Destroy the currently selected HUD text
     destroyHudText(eventPlayer.HandHUDTexts[eventPlayer.SelectedCardIndex])
     #The the selected card is red
@@ -2165,7 +2165,7 @@ def UpdateColorCheat():
 def CompletePlayerPositionSwap():
     @Name "[Subroutine][Cheat] complete displacement operation"
     @Disabled
-    
+
     #switch the map position of selected players
     TempMapPosition = PlayersSelectedForDisplacement[0].MapPosition
     PlayersSelectedForDisplacement[0].MapPosition = PlayersSelectedForDisplacement[1].MapPosition
@@ -2191,7 +2191,7 @@ def CompletePlayerPositionSwap():
 rule "- CARD PLAYING LOGIC -":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[Logic] Play selected card":
@@ -2201,7 +2201,7 @@ rule "[Logic] Play selected card":
     #Player is not crouching, prevents players from playing a card and drawing a card at the same time
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == false
     #@Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Modifying a players hand while something important is happening can cause invalid HUD text elements
     if IsCurrentlyPlayingAnimation or eventPlayer.IsCreatingHUDTexts:
         return
@@ -2228,7 +2228,7 @@ rule "[Logic] Play selected card (jump in)":
     #The player is not crouching
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == false
     #@Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == false
-    
+
     #Modifying a players hand while something important is happening can cause invalid HUD text elements
     if IsCurrentlyPlayingAnimation or eventPlayer.IsCreatingHUDTexts:
         return
@@ -2269,7 +2269,7 @@ rule "[Logic] Play selected card (jump in)":
 
 def TransferCardToDiscardPile():
     @Name "[Subroutine] Transfer selected card to the discard pile"
-    
+
     #A copycat card was played
     if eventPlayer.HandSymbols[eventPlayer.SelectedCardIndex] == "Copycat":
         #Show a message
@@ -2329,7 +2329,7 @@ def TransferCardToDiscardPile():
 
 def ChangeActivePlayer():
     @Name "[Subroutine] Change active player"
-    
+
     #A skip has been played or there are 2 players and a reverse has been played
     if DiscardPileSymbol == "Skip" or len(Players) == 2 and DiscardPileSymbol == "Reverse":
         ChangeActivePlayer_Skip()
@@ -2361,7 +2361,7 @@ def ChangeActivePlayer():
 
 def ChangeActivePlayer_Default():
     @Name "[Subroutine] Change active player (default)"
-    
+
     #The current active player is placed at the back of the queue
     Players.append(Players[0])
     del Players[0]
@@ -2369,7 +2369,7 @@ def ChangeActivePlayer_Default():
 
 def ChangeActivePlayer_Skip():
     @Name "[Subroutine] Change active player (skip)"
-    
+
     #Show a message
     smallMessage(getAllPlayers(), "{0} skipped {1}!".format(eventPlayer, Players[(1 + Players.index(eventPlayer)) % len(Players)]))
     #Advance to the player which should be skipped
@@ -2382,7 +2382,7 @@ def ChangeActivePlayer_Skip():
 
 def ChangeActivePlayer_Reverse():
     @Name "[Subroutine] Change active player (reverse)"
-    
+
     #Reverse the queue
     Players = sorted(Players, lambda player: 0 - Players.index(player))
     DirectionOfPlayTimer = -5 * DirectionOfPlay
@@ -2391,7 +2391,7 @@ def ChangeActivePlayer_Reverse():
 
 def ChangeActivePlayer_Penalty():
     @Name "[Subroutine] Change active player (penalty)"
-    
+
     #Check whether a +2 was played
     if DiscardPileSymbol == "+2" or CurrentPenalty == 0 and DiscardPileSymbol == "×2":
         CurrentPenalty += 2
@@ -2407,7 +2407,7 @@ def ChangeActivePlayer_Penalty():
 
 def ChangeActivePlayer_Swap():
     @Name "[Subroutine] Change active player (swap)"
-    
+
     #Preload the heroes
     #eventPlayer.preloadHero(eventPlayer.SelectedPlayerQueue[0].getHero())
     #eventPlayer.SelectedPlayerQueue[0].preloadHero(eventPlayer.getHero())
@@ -2442,7 +2442,7 @@ def ChangeActivePlayer_Swap():
 
 def ChangeActivePlayer_SwapAll():
     @Name "[Subroutine] Change active player (swap all)"
-    
+
     #Loop over every player once before the animation
     #for TempPlayerIndex in range(len(Players)):
     #Preload every hero
@@ -2481,7 +2481,7 @@ def ChangeActivePlayer_SwapAll():
 
 def ChangeActivePlayer_Shuffle():
     @Name "[Subroutine] Change active player (shuffle)"
-    
+
     PlaySpecialCardAnimation()
     #Store the deck
     TempSymbolIndex = DeckSymbols
@@ -2522,7 +2522,7 @@ def ChangeActivePlayer_Shuffle():
 
 def PlaySwapCardAnimation():
     @Name "[Subroutine][Effects] Play swap card animation"
-    
+
     #Set the volume of the sound effects to 0 so it can slowly be chased back to maximum volume
     SpecialCardSoundEffectVolume = 0
     #Loop over both players
@@ -2558,7 +2558,7 @@ def PlaySwapCardAnimation():
 
 def PlaySpecialCardAnimation():
     @Name "[Subroutine][Effects] Play special card animation"
-    
+
     #Set the volume of the sound effects to 0 so it can slowly be chased back to maximum volume
     SpecialCardSoundEffectVolume = 0
     #Loop over all players
@@ -2592,11 +2592,9 @@ def PlaySpecialCardAnimation():
 
 def UpdateHighlightBeamPosition():
     @Name "[Subroutine][Effects] Set highlight beam target angle"
-    
+
     HighlightBeamEffectTargetAngle = horizontalAngleOfDirection(Players[0].MapPosition - MapPosition)
     while DirectionOfPlay * HighlightBeamEffectAngle < DirectionOfPlay * HighlightBeamEffectTargetAngle:
         HighlightBeamEffectTargetAngle += -360 * DirectionOfPlay
     while DirectionOfPlay * HighlightBeamEffectAngle - 360 > DirectionOfPlay * HighlightBeamEffectTargetAngle:
         HighlightBeamEffectTargetAngle += 360 * DirectionOfPlay
-
-

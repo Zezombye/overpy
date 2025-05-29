@@ -378,7 +378,7 @@ rule "Display position":
                     if (compilationResult.encounteredWarnings.length > 0) {
                         var strWarn = "/* Warnings were encountered:\n\n";
                         for (var warning of compilationResult.encounteredWarnings) {
-                            strWarn += " - " + warning + "\n\n";
+                            strWarn += " - " + warning.message + "\n\n";
                         }
                         strWarn += "*/\n";
                         str = strWarn + str;

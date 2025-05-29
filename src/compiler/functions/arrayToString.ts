@@ -24,7 +24,7 @@ import { escapeString } from "../../utils/strings";
 
 astParsingFunctions.arrayToString = function (content) {
     if (content.args[1].name !== "__number__") {
-        error("The max length must be a literal number");
+        error("Max length of arrayToString must be a literal number", content.args[1].fileStack);
     }
 
     let maxLength = Math.min(1000, content.args[1].args[0].numValue);

@@ -20,7 +20,7 @@ rule "strings":
     B = fb'123145{C} {A+B} {0}'
     B = wf'fullwidth a{A+B}f'
     B = cf'lowercase a{owo}f'
-    B = f"consecutive{1+2}|" w"strings|" "owo"
+    B = f"consecutive" "strings{1+2}" "owo"
     A = "owo" + "uwu"
 
     print("Multiple fields {} {} {} {} {} {} {} {}".format(A,B,C,D,E,F,G,H))

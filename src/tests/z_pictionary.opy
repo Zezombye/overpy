@@ -80,7 +80,7 @@ rule "Debug Hud":
     @Event eachPlayer
     @Condition eventPlayer.isDummy() == false
     @Disabled
-    
+
     hudSubheader(eventPlayer, eventPlayer.getFacingDirection(), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudSubheader(eventPlayer, eventPlayer.getPosition(), HudPosition.LEFT, 0, Color.RED, HudReeval.VISIBILITY_AND_STRING)
     hudSubheader(eventPlayer, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), HudPosition.LEFT, 0, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
@@ -605,14 +605,14 @@ rule "Global Variables":
 
 rule "Player Variables":
     @Event eachPlayer
-    
+
     eventPlayer.Points = 0
     eventPlayer.WordArray = []
 
 
 def Menu():
     @Name "Menu"
-    
+
     createInWorldText(getAllPlayers(), "Overwatch   Pictionary", vect(19.5, 19, 0), 3, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.ORANGE)
     createInWorldText(getAllPlayers(), "By PMAJellies", vect(19.5, 17, 0), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     createInWorldText(getAllPlayers(), "START", vect(19.5, 5, 0), 3, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
@@ -625,7 +625,7 @@ rule "StartLobby":
 
 rule "Loop Time":
     @Condition getMatchTime() < 3500
-    
+
     setMatchTime(3599)
 
 
@@ -633,7 +633,7 @@ rule "Player Joins":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.teleport(vect(-8, 0, random.uniform(-8, 8)))
     eventPlayer.setFacing(vect(0.95, 0.3, 0), Relativity.TO_WORLD)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
@@ -646,7 +646,7 @@ rule "Player Joins":
 
 rule "Player Leaves":
     @Event playerLeft
-    
+
     PlayerArray = PlayerArray.exclude(eventPlayer)
     if eventPlayer.GuessedWord == true:
         NumGuessed--
@@ -659,7 +659,7 @@ rule "Primary Fire":
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.GuessedWord == false
-    
+
     eventPlayer.Firing = true
     #createEffect(eventPlayer, Effect.SPHERE, Color.RED, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, eventPlayer, true).getHitPosition(), 0.2, EffectReeval.NONE)
     #eventPlayer.BulletEffect = getLastCreatedEntity()
@@ -675,7 +675,7 @@ rule "Start Pictionary":
     @Condition distance(vect(20, 5.75, 0), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * distance(eventPlayer.getEyePosition(), vect(20, 5.75, 0)), null, getAllPlayers(), false).getHitPosition()) <= 1
     @Condition eventPlayer.Firing == true
     @Condition StartPictionary == false
-    
+
     getAllPlayers().setStatusEffect(null, Status.ROOTED, 2)
     destroyAllInWorldTexts()
     wait()
@@ -692,14 +692,14 @@ rule "Start Pictionary":
 rule "Setup Pictionary Players":
     @Event eachPlayer
     @Condition StartPictionary == true
-    
+
     createInWorldText(eventPlayer, eventPlayer.WordArray, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection(), 1.5, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.Points = 0
 
 
 def Pictionary():
     @Name "PictionarySub"
-    
+
     createBeam(getAllPlayers(), Beam.GOOD, vect(19.5, 8, -8), vect(19.5, 8, 8), Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     createBeam(getAllPlayers(), Beam.GOOD, vect(19.5, 24, -8), vect(19.5, 24, 8), Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     createBeam(getAllPlayers(), Beam.GOOD, vect(19.5, 24, 8), vect(19.5, 8, 8), Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -727,7 +727,7 @@ def Pictionary():
 
 def Keyboard():
     @Name "KeyboardSub"
-    
+
     #createInWorldText(getAllPlayers(), "Q  W  E  R  T  Y  U  I  O  P", vect(20, 4.5, 0), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     createInWorldText(getAllPlayers(), "Q", vect(20, 6, -9), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     createInWorldText(getAllPlayers(), "W", vect(20, 6, -7), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
@@ -762,7 +762,7 @@ def Keyboard():
 
 def Scoreboard():
     @Name "ScoreboardSub"
-    
+
     ScoreboardArray = sorted(PlayerArray, lambda player: player.Points)
     hudSubtext(getAllPlayers(), "{0}: Points {1}".format(ScoreboardArray[0], ScoreboardArray[0].Points), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudSubtext(getAllPlayers(), "{0}: Points {1}".format(ScoreboardArray[1], ScoreboardArray[1].Points), HudPosition.LEFT, 1, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
@@ -780,7 +780,7 @@ def Scoreboard():
 
 def NewDrawer():
     @Name "NewDrawer Setup"
-    
+
     getAllPlayers().startForcingThrottle(0, 0, 0, 0, 0, 0)
     NumGuessed = 0
     getAllPlayers().GuessedWord = false
@@ -840,7 +840,7 @@ rule "QWERTYUIOP":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -10
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 10
     @Condition eventPlayer.Firing == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8:
         eventPlayer.WordArray = "{0}Q".format(eventPlayer.WordArray)
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -6:
@@ -873,7 +873,7 @@ rule "ASDFGHJKL":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -9
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 9
     @Condition eventPlayer.Firing == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -7:
         eventPlayer.WordArray = "{0}A".format(eventPlayer.WordArray)
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -5:
@@ -904,7 +904,7 @@ rule "ZXCVBNM":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -7
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 7
     @Condition eventPlayer.Firing == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -5:
         eventPlayer.WordArray = "{0}Z".format(eventPlayer.WordArray)
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -3:
@@ -927,7 +927,7 @@ rule "SPACE":
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.Firing == true
-    
+
     eventPlayer.WordArray = "{0} ".format(eventPlayer.WordArray)
 
 
@@ -939,7 +939,7 @@ rule "SUBMIT":
     @Condition eventPlayer.Firing == true
     @Condition eventPlayer.WordArray != ""
     @Condition eventPlayer.WordArray != "******"
-    
+
     if eventPlayer.WordArray == PictionaryWord:
         hudSubtext(getAllPlayers(), "{0} guessed correctly!".format(eventPlayer), HudPosition.RIGHT, 0, Color.GREEN, HudReeval.NONE)
         wait(0.02)
@@ -963,7 +963,7 @@ rule "DEL":
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.Firing == true
-    
+
     eventPlayer.WordArray = ""
 
 
@@ -977,7 +977,7 @@ rule "DrawTool":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -8
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 8
     @Condition ChoosingWord == true
-    
+
     createEffect(eventPlayer, Effect.SPHERE, DrawerColor, updateEveryFrame(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()), DrawerRadius, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     DrawTool = getLastCreatedEntity()
 
@@ -988,7 +988,7 @@ rule "DrawTool Destroy":
     @Condition StartPictionary == true
     @Condition ((raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 24 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 8 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > 8) == true
     @Condition ChoosingWord == true
-    
+
     destroyEffect(DrawTool)
 
 
@@ -1003,7 +1003,7 @@ rule "Drawer Draw":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 8
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
-    
+
     createEffect(getAllPlayers(), Effect.SPHERE, DrawerColor, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), DrawerRadius, EffectReeval.NONE)
     NumOfEffects++
     wait(0.1)
@@ -1024,7 +1024,7 @@ rule "Drawer Select Size":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 11.5:
         DrawerRadius = 0.2
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 14.5:
@@ -1048,7 +1048,7 @@ rule "Drawer Select Color 1":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 11
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 13:
         DrawerColor = Color.LIME_GREEN
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 15:
@@ -1074,7 +1074,7 @@ rule "Drawer Select Color 2":
     @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 13
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
-    
+
     if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 13:
         DrawerColor = Color.PURPLE
     elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 15:
@@ -1095,7 +1095,7 @@ rule "Trash":
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     destroyAllIcons()
     destroyInWorldText(WordText)
     destroyAllEffects()
@@ -1113,7 +1113,7 @@ rule "Drawer Select Word 0":
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == false
-    
+
     PictionaryWord = AllWordsArray[0]
     chaseAtRate(Timer, 0, 1)
     destroyAllInWorldTexts()
@@ -1137,7 +1137,7 @@ rule "Drawer Select Word 1":
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == false
-    
+
     PictionaryWord = AllWordsArray[1]
     chaseAtRate(Timer, 0, 1)
     destroyAllInWorldTexts()
@@ -1160,7 +1160,7 @@ rule "Drawer Select Word 2":
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == false
-    
+
     PictionaryWord = AllWordsArray[2]
     chaseAtRate(Timer, 0, 1)
     destroyAllInWorldTexts()
@@ -1179,7 +1179,7 @@ rule "Drawer Select Word 2":
 rule "Times Up or Everyone Guesses":
     @Condition (Timer == 0 or NumGuessed == len(PlayerArray) - 1) == true
     @Condition StartPictionary == true
-    
+
     Drawer = null
     stopChasingVariable(Timer)
     Timer = -1
@@ -1199,14 +1199,14 @@ rule "Create Typing Text":
     @Event eachPlayer
     @Condition Drawer != eventPlayer
     @Condition ChoosingWord == true
-    
+
     createInWorldText(eventPlayer, eventPlayer.WordArray, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection(), 1.5, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
 
 
 rule "End Game":
     @Condition Turn >= len(PlayerArray) - 1
     @Condition RoundNum == 5
-    
+
     Winner()
     bigMessage(getAllPlayers(), "{0} Wins!!!".format(Winner))
     wait(5)
@@ -1222,7 +1222,7 @@ rule "End Game":
 
 def Winner():
     @Name "Winner Subroutine"
-    
+
     if PlayerArray[0].Points > PlayerArray[1].Points:
         Winner = PlayerArray[0]
     else:
@@ -1238,7 +1238,7 @@ rule "Crossing Red Line":
     @Condition eventPlayer.getPosition().x > -4
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
-    
+
     eventPlayer.applyImpulse(vect(-1, 0, 0), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
@@ -1249,7 +1249,7 @@ rule "Drawer Flies Away":
     @Event eachPlayer
     @Condition distance(Drawer.getPosition(), vect(2, 13.425, 0)) >= 2
     @Condition Drawer == eventPlayer
-    
+
     eventPlayer.setGravity(100)
     eventPlayer.teleport(vect(2, 0, 0))
     wait(0.25)
@@ -1263,7 +1263,5 @@ rule "Create Bot [testing]":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     @Disabled
-    
+
     createDummy(Hero.ANA, Team.ALL, -1, eventPlayer.getPosition())
-
-

@@ -150,17 +150,17 @@ function generateCasedLine(text: string, nbTexts: number) {
 
 astParsingFunctions.createCasedProgressBarIwt = function (content) {
     if (content.args[0].name !== "__number__") {
-        error("First argument of createCasedProgressBarIwt must be a literal number");
+        error("First argument of createCasedProgressBarIwt must be a literal number", content.args[0].fileStack);
     }
     if (content.args[0].args[0].numValue < 2 || content.args[0].args[0].numValue > 6) {
-        error("Number of texts must be between 2 and 6");
+        error("Number of texts must be between 2 and 6", content.args[0].fileStack);
     }
     if (content.args[2].name !== ".format") {
-        error("Text must be a literal custom string");
+        error("Text must be a literal custom string", content.args[2].fileStack);
     }
     for (let arg of content.args) {
         if (astContainsRandom(arg)) {
-            error("Cannot use random functions in createCasedProgressBarIwt");
+            error("Cannot use random functions in createCasedProgressBarIwt", arg.fileStack);
         }
     }
 
@@ -205,7 +205,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
                 });
                 text = text.substring(1);
             } else {
-                error("Case parser broke, please report to Zezombye");
+                error("createCasedProgressBarIwt parser broke, please report to Zezombye");
             }
         } else {
             tokens.push({
@@ -261,8 +261,6 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
     }
 
     content.parent!.children.splice(content.parent!.childIndex + 1, 0, ...iwts.slice(1));
-
-    //error("owo");
 
     return iwts[0];
 };

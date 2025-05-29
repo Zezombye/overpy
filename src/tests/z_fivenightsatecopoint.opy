@@ -159,7 +159,7 @@ rule "[WS] Settings":
 
 def OutlineFix():
     @Name "OutlineFix"
-    
+
     getPlayers(Team.2).teleport(vect(0, -1000, 0))
     kill(getPlayers(Team.2))
     wait()
@@ -178,7 +178,7 @@ def OutlineFix():
 
 def CameraShake():
     @Name "[SR] Camera Shake"
-    
+
     CamShake = vect(random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1))
     wait()
     loop()
@@ -186,7 +186,7 @@ def CameraShake():
 
 def CamsJammed():
     @Name "[SR] Cams Jammed"
-    
+
     if CurrentCam:
         Player_.clearStatusEffect(Status.ROOTED)
         Player_.setGravity(100)
@@ -207,7 +207,7 @@ rule "[EP] Toggle Text Chat":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
-    
+
     if TextChatOn:
         eventPlayer.disableTextChat()
         smallMessage(getAllPlayers(), "TEXT CHAT DISABLED")
@@ -222,7 +222,7 @@ rule "[EP] Toggle Text Chat":
 rule "[G] Defeat":
     @Event playerDied
     @Condition eventPlayer == Player_
-    
+
     enableMusic()
     declareTeamVictory(Team.2)
     if not AutoRestart:
@@ -234,7 +234,7 @@ rule "[G] Defeat":
 rule "[G] Victory":
     @Condition CurrentTime >= 6
     @Condition NightNumber != 5
-    
+
     enableMusic()
     declareTeamVictory(Team.1)
 
@@ -244,7 +244,7 @@ rule "[G] Power 0":
     @Condition Power <= 0
     @Condition Player_.isAlive() == true
     @Condition NightPhase >= 3
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     playEffect(getAllPlayers(), DynamicEffect.LUCIO_SOUND_BARRIER_CAST_SOUND, Color.TEAM_1, InteractCams, 100)
     if ClosedFrontDoor:
@@ -267,7 +267,7 @@ rule "[G] Rein Charge":
     @Condition getPlayersInSlot(1, Team.1).isAlive() == true
     @Condition (any([i >= 3 or i <= -3 for i in [BastionPhase, EchoPhase]]) or ZenDoorNumber) == true
     @Condition getPlayersInSlot(1, Team.1).isUsingAbility1() == false
-    
+
     getPlayersInSlot(1, Team.1).cancelPrimaryAction()
     getPlayersInSlot(1, Team.1).setAbilityCooldown(Button.ABILITY_1, 0)
     getPlayersInSlot(1, Team.1).forceButtonPress(Button.ABILITY_1)
@@ -320,7 +320,7 @@ rule "[G] Main Setup":
 rule "DOORS":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Doors FX":
@@ -382,7 +382,7 @@ rule "[G] Front Door Interact":
     @Condition angleBetweenVectors(Player_.getFacingDirection(), directionTowards(Player_.getEyePosition(), InteractFrontDoor)) < 30
     @Condition Player_.isHoldingButton(Button.INTERACT) == true
     @Condition isInLoS(Player_.getEyePosition(), InteractFrontDoor) == true
-    
+
     if Power:
         if ClosedFrontDoor:
             playEffect(getAllPlayers(), DynamicEffect.SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND, Color.TEAM_2, InteractFrontDoor, 35)
@@ -409,7 +409,7 @@ rule "[G] Left Door Interact":
     @Condition angleBetweenVectors(Player_.getFacingDirection(), directionTowards(Player_.getEyePosition(), InteractLeftDoor)) < 30
     @Condition Player_.isHoldingButton(Button.INTERACT) == true
     @Condition isInLoS(Player_.getEyePosition(), InteractLeftDoor) == true
-    
+
     if Power:
         if ClosedLeftDoor:
             playEffect(getAllPlayers(), DynamicEffect.SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND, Color.TEAM_2, InteractLeftDoor, 35)
@@ -436,7 +436,7 @@ rule "[G] Right Door Interact":
     @Condition angleBetweenVectors(Player_.getFacingDirection(), directionTowards(Player_.getEyePosition(), InteractRightDoor)) < 30
     @Condition Player_.isHoldingButton(Button.INTERACT) == true
     @Condition isInLoS(Player_.getEyePosition(), InteractRightDoor) == true
-    
+
     if Power:
         if ClosedRightDoor:
             playEffect(getAllPlayers(), DynamicEffect.SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND, Color.TEAM_2, InteractRightDoor, 35)
@@ -461,7 +461,7 @@ rule "[G] Front Door Barrier":
     @Condition isGameInProgress() == true
     @Condition distance(Player_.getPosition(), vect(8.21, 7.38, -18.62)) < 4
     @Condition (not DoorsWalkable or ClosedFrontDoor) == true
-    
+
     Player_.applyImpulse(directionTowards(vect(8.43, 7.38, -18.4), Player_.getPosition()), 4, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.02)
     if ruleCondition:
@@ -472,7 +472,7 @@ rule "[G] Left Door Barrier":
     @Condition isGameInProgress() == true
     @Condition distance(Player_.getPosition(), vect(4.81, 7.38, -32.44)) < 4
     @Condition (not DoorsWalkable or ClosedLeftDoor) == true
-    
+
     Player_.applyImpulse(directionTowards(vect(5.02, 7.38, -32.66), Player_.getPosition()), 4, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.02)
     if ruleCondition:
@@ -483,7 +483,7 @@ rule "[G] Right Door Barrier":
     @Condition isGameInProgress() == true
     @Condition distance(Player_.getPosition(), vect(-5.65, 7.38, -22.06)) < 4
     @Condition (not DoorsWalkable or ClosedRightDoor) == true
-    
+
     Player_.applyImpulse(directionTowards(vect(-5.87, 7.38, -21.84), Player_.getPosition()), 4, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.02)
     if ruleCondition:
@@ -493,7 +493,7 @@ rule "[G] Right Door Barrier":
 rule "CAMERAS":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Cams Setup":
@@ -528,7 +528,7 @@ rule "[EP] Cams Interact":
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     @Condition eventPlayer.isMoving() == false
     @Condition eventPlayer.isDummy() == false
-    
+
     if not CamsJammed and Power:
         if CurrentCam == 0:
             if angleBetweenVectors(eventPlayer.getFacingDirection(), directionTowards(eventPlayer.getEyePosition(), InteractCams)) >= 30:
@@ -563,7 +563,7 @@ rule "[EP] Cycle Cams":
     @Condition CurrentCam != 0
     #@Condition Power > 0
     @Condition eventPlayer.isDummy() == false
-    
+
     if eventPlayer.isHoldingButton(Button.PRIMARY_FIRE):
         if CurrentCam >= len(CamPositions) - 1:
             CurrentCam = 1
@@ -583,7 +583,7 @@ rule "[G] Update Last Cam / Zen Chance":
     @Condition isGameInProgress() == true
     @Condition CurrentCam != 0
     @Condition LastCam != CurrentCam
-    
+
     LastCam = CurrentCam
     if random.randint(1, 100) > ZenAI or NightNumber == 5:
         return
@@ -593,12 +593,12 @@ rule "[G] Update Last Cam / Zen Chance":
 rule "NIGHTS":
     @Disabled
     @Delimiter
-    
+
 
 
 def PhoneRing():
     @Name "[SR] Phone Ring"
-    
+
     waitUntil(Player_.isHoldingButton(Button.ABILITY_1), 0.08)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_IMPACT_SOUND, null, InteractCams, 8)
     waitUntil(Player_.isHoldingButton(Button.ABILITY_1), 0.08)
@@ -630,7 +630,7 @@ def PhoneRing():
 rule "[G] Night 1":
     @Condition NightNumber == 0
     @Condition isGameInProgress() == true
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.083 * PowerUsage)
@@ -651,7 +651,7 @@ rule "[G] Night 1 Call":
     @Condition NightNumber == 0
     @Condition isGameInProgress() == true
     @Condition Player_.isAlive() == true
-    
+
     wait(0.5)
     PhoneRings = 4
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -703,7 +703,7 @@ rule "[G] Night 1 Call":
 rule "[G] Night 2":
     @Condition NightNumber == 1
     @Condition isGameInProgress() == true
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.1 * PowerUsage)
@@ -730,7 +730,7 @@ rule "[G] Night 2 Call":
     @Condition NightNumber == 1
     @Condition isGameInProgress() == true
     @Condition Player_.isAlive() == true
-    
+
     wait(0.5)
     PhoneRings = 4
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -786,7 +786,7 @@ rule "[G] Night 2 Call":
 rule "[G] Night 3":
     @Condition NightNumber == 2
     @Condition isGameInProgress() == true
-    
+
     NightPhase = 999
     if Cheats[1]:
         goto lbl_0
@@ -816,7 +816,7 @@ rule "[G] Night 3 Call":
     @Condition NightNumber == 2
     @Condition isGameInProgress() == true
     @Condition Player_.isAlive() == true
-    
+
     wait(0.5)
     PhoneRings = 4
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -888,7 +888,7 @@ rule "[G] Night 3 Call":
 rule "[G] Night 4":
     @Condition NightNumber == 3
     @Condition isGameInProgress() == true
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.12 * PowerUsage)
@@ -912,7 +912,7 @@ rule "[G] Night 4 Call":
     @Condition NightNumber == 3
     @Condition isGameInProgress() == true
     @Condition Player_.isAlive() == true
-    
+
     wait(0.5)
     PhoneRings = 4
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -941,7 +941,7 @@ rule "[G] Night 4 Call":
 rule "[G] Night 5":
     @Condition NightNumber == 4
     @Condition isGameInProgress() == true
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.125 * PowerUsage)
@@ -971,7 +971,7 @@ rule "[G] Night 5 Call":
     @Condition NightNumber == 4
     @Condition isGameInProgress() == true
     @Condition Player_.isAlive() == true
-    
+
     wait(0.5)
     PhoneRings = 4
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -1011,7 +1011,7 @@ rule "[G] Night 5 Call":
 rule "[G] Night 7 (Custom)":
     @Condition NightNumber == 6
     @Condition isGameInProgress() == true
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.131 * PowerUsage)
@@ -1027,12 +1027,12 @@ rule "[G] Night 7 (Custom)":
 rule "BASTION":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Bastion Setup":
     @Condition NightNumber != 5
-    
+
     createDummy(Hero.BASTION, Team.2, 0, vect(-12.74, 7, -49.92), vect(1, 0, 0))
     Bastion = getPlayersInSlot(0, Team.2)
     Bastion.startScalingSize(1.3, false)
@@ -1046,7 +1046,7 @@ rule "[G] Bastion Setup":
 
 def BastionJumpscare():
     @Name "[SR] Bastion Jumpscare"
-    
+
     destroyAllInWorldTexts()
     if not NoJumpscares:
         Player_.setInvisibility(Invis.ALL)
@@ -1082,7 +1082,7 @@ rule "[G] Bastion Progression":
     @Condition BastionAI != 0
     @Condition BastionPhase != -3
     @Condition BastionPhase != 3
-    
+
     wait(5.5 + BastionAI / 6, Wait.ABORT_WHEN_FALSE)
     if random.randint(1, 20) <= BastionAI:
         Bastion.HasMoved = false
@@ -1097,7 +1097,7 @@ rule "[G] Bastion Phase 0":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == 0
-    
+
     waitUntil(CurrentCam != 1, 99999)
     if BastionPhase != 0:
         return
@@ -1110,7 +1110,7 @@ rule "[G] Bastion Phase 1":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == 1
-    
+
     waitUntil(CurrentCam != 1, 99999)
     if BastionPhase != 1:
         return
@@ -1123,7 +1123,7 @@ rule "[G] Bastion Phase 2":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == 2
-    
+
     waitUntil(CurrentCam != 1 and (not isInLoS(Player_.getEyePosition(), vect(6.08, 8.1, -40.48)) or not Player_.isInViewAngle(vect(6.08, 8.1, -40.48), 75)), 99999)
     if BastionPhase != 2:
         return
@@ -1136,7 +1136,7 @@ rule "[G] Bastion Phase 3":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == 3
-    
+
     waitUntil(not isInLoS(Player_.getEyePosition(), vect(1.93, 8.43, -30.57)) or not Player_.isInViewAngle(vect(1.93, 8.43, -30.57), 75), 99999)
     if BastionPhase != 3:
         return
@@ -1159,7 +1159,7 @@ rule "[G] Bastion Phase -1":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == -1
-    
+
     waitUntil(CurrentCam != 1, 99999)
     if BastionPhase != -1:
         return
@@ -1172,7 +1172,7 @@ rule "[G] Bastion Phase -2":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == -2
-    
+
     waitUntil(CurrentCam != 1 and CurrentCam != 2, 99999)
     if BastionPhase != -2:
         return
@@ -1185,7 +1185,7 @@ rule "[G] Bastion Phase -3":
     @Condition isGameInProgress() == true
     @Condition BastionAI != 0
     @Condition BastionPhase == -3
-    
+
     waitUntil(CurrentCam != 2 and OrisaMeter and (not isInLoS(Player_.getEyePosition(), vect(-4.38, 9, -23.22)) or not Player_.isInViewAngle(vect(-4.38, 9, -23.22), 75)), 99999)
     if BastionPhase != -3:
         return
@@ -1207,12 +1207,12 @@ rule "[G] Bastion Phase -3":
 rule "ECHO":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Echo Setup":
     @Condition NightNumber != 5
-    
+
     wait(0.25)
     createDummy(Hero.ECHO, Team.2, 2, vect(28.62, 3, 2.9), vect(0, 0, 1))
     Echo = getPlayersInSlot(2, Team.2)
@@ -1227,7 +1227,7 @@ rule "[G] Echo Setup":
 
 def EchoJumpscare():
     @Name "[SR] Echo Jumpscare"
-    
+
     destroyAllInWorldTexts()
     if not NoJumpscares:
         Player_.setInvisibility(Invis.ALL)
@@ -1264,7 +1264,7 @@ rule "[G] Echo Progression":
     @Condition EchoAI != 0
     @Condition EchoPhase != 4
     @Condition EchoPhase != -4
-    
+
     wait(5 + EchoAI / 6, Wait.ABORT_WHEN_FALSE)
     if random.randint(1, 20) <= EchoAI:
         Echo.HasMoved = false
@@ -1280,7 +1280,7 @@ rule "[G] Echo Phase 0":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == 0
-    
+
     waitUntil(CurrentCam != 4, 99999)
     if EchoPhase != 0:
         return
@@ -1293,7 +1293,7 @@ rule "[G] Echo Phase 1":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == 1
-    
+
     waitUntil(CurrentCam != 4, 99999)
     if EchoPhase != 1:
         return
@@ -1306,7 +1306,7 @@ rule "[G] Echo Phase 2":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == 2
-    
+
     waitUntil(CurrentCam != 4 and CurrentCam != 5, 99999)
     if EchoPhase != 2:
         return
@@ -1319,7 +1319,7 @@ rule "[G] Echo Phase 3":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == 3
-    
+
     waitUntil(CurrentCam != 5 and (not isInLoS(Player_.getEyePosition(), vect(16.39, 7.02, -14.72)) or not Player_.isInViewAngle(vect(16.39, 7.02, -14.72), 75)), 99999)
     if EchoPhase != 3:
         return
@@ -1332,7 +1332,7 @@ rule "[G] Echo Phase -1":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == -1
-    
+
     waitUntil(CurrentCam != 4 and CurrentCam != 6, 99999)
     if EchoPhase != -1:
         return
@@ -1345,7 +1345,7 @@ rule "[G] Echo Phase -2":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == -2
-    
+
     waitUntil(CurrentCam != 6, 99999)
     if EchoPhase != -2:
         return
@@ -1358,7 +1358,7 @@ rule "[G] Echo Phase -3":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition EchoPhase == -3
-    
+
     waitUntil(CurrentCam != 6 and (not isInLoS(Player_.getEyePosition(), vect(14.55, 13.1, -20.3)) or not Player_.isInViewAngle(vect(14.55, 13.1, -20.3), 75)), 99999)
     if EchoPhase != -3:
         return
@@ -1371,7 +1371,7 @@ rule "[G] Echo Phase 4 and -4":
     @Condition isGameInProgress() == true
     @Condition EchoAI != 0
     @Condition (EchoPhase == 4 or EchoPhase == -4) == true
-    
+
     waitUntil(CurrentCam != 4 and CurrentCam != 6 and (not isInLoS(Player_.getEyePosition(), vect(6.74, 9.02, -19.94)) or not Player_.isInViewAngle(vect(6.74, 9.02, -19.94), 75)), 99999)
     if EchoPhase != 4 and EchoPhase != -4:
         return
@@ -1397,12 +1397,12 @@ rule "[G] Echo Phase 4 and -4":
 rule "ORISA":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Orisa Setup":
     @Condition NightNumber != 5
-    
+
     wait(0.5)
     createDummy(Hero.ORISA, Team.2, 1, vect(-10.7, 8.52, -0.37), vect(-1, 0, 0))
     Orisa = getPlayersInSlot(1, Team.2)
@@ -1418,7 +1418,7 @@ rule "[G] Orisa Setup":
 
 def OrisaJumpscare():
     @Name "[SR] Orisa Jumpscare"
-    
+
     destroyAllInWorldTexts()
     if not NoJumpscares:
         Player_.setInvisibility(Invis.ALL)
@@ -1445,7 +1445,7 @@ def OrisaJumpscare():
 rule "[G] Orisa Progression":
     @Condition isGameInProgress() == true
     @Condition OrisaAI != 0
-    
+
     chaseAtRate(OrisaMeter, 0, 0.45 + OrisaAI / 15)
     waitUntil(CurrentCam != 3 and OrisaMeter <= 66, 99999)
     Orisa.clearStatusEffect(Status.KNOCKED_DOWN)
@@ -1479,7 +1479,7 @@ rule "[G] Update Orisa Speed":
     @Condition isGameInProgress() == true
     @Condition OrisaAI != 0
     @Condition OrisaAIPrevious != OrisaAI
-    
+
     OrisaAIPrevious = OrisaAI
     Orisa.setMoveSpeed(165 + OrisaAI * 1.5)
 
@@ -1489,7 +1489,7 @@ rule "[G] Orisa Stall Start":
     @Condition CurrentCam == 3
     @Condition OrisaAI != 0
     @Condition OrisaMeter > 0
-    
+
     stopChasingVariable(OrisaMeter)
     wait(random.uniform(1.4, 2.2), Wait.ABORT_WHEN_FALSE)
     OrisaMeter = min(100, OrisaMeter + 0.9)
@@ -1501,7 +1501,7 @@ rule "[G] Orisa Stall Stop":
     @Condition isGameInProgress() == true
     @Condition CurrentCam != 3
     @Condition OrisaAI != 0
-    
+
     wait(0.25, Wait.ABORT_WHEN_FALSE)
     chaseAtRate(OrisaMeter, 0, 0.45 + OrisaAI / 15)
 
@@ -1509,13 +1509,13 @@ rule "[G] Orisa Stall Stop":
 rule "GENJI":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Genji Setup":
     @Condition NightNumber != 5
     @Condition NightNumber > 1
-    
+
     wait(0.75)
     createDummy(Hero.GENJI, Team.2, 3, vect(-2.6, 7, 54.5), vect(-0.7, 0, -0.71))
     Genji = getPlayersInSlot(3, Team.2)
@@ -1536,7 +1536,7 @@ rule "[G] Genji Setup":
 
 def GenjiJumpscare():
     @Name "[SR] Genji Jumpscare"
-    
+
     destroyAllInWorldTexts()
     if not NoJumpscares:
         Genji.teleport(raycast(Player_.getEyePosition(), Player_.getEyePosition() + Player_.getFacingDirection() * vect(-3, 0, -3), null, Player_, false).getHitPosition())
@@ -1572,7 +1572,7 @@ rule "[G] Genji Progression":
     @Condition isGameInProgress() == true
     @Condition GenjiAI != 0
     @Condition HeaterPower <= 0
-    
+
     waitUntil(CurrentCam != 7 and HeaterPower <= 0, 99999)
     Genji.clearStatusEffect(Status.KNOCKED_DOWN)
     Genji.setFacing(directionTowards(Genji.getEyePosition(), CamPositions[7]), Relativity.TO_WORLD)
@@ -1588,7 +1588,7 @@ rule "[G] Genji Progression":
 rule "[G] Start Wind Down":
     @Condition GenjiAI != 0
     @Condition isGameInProgress() == true
-    
+
     chaseAtRate(HeaterPower, 0, 2.3 + GenjiAI / 6.2)
 
 
@@ -1596,7 +1596,7 @@ rule "[G] Wind Up":
     @Condition CurrentCam == 7
     @Condition Player_.isHoldingButton(Button.RELOAD) == true
     @Condition GenjiAI != 0
-    
+
     playEffect(getAllPlayers(), DynamicEffect.BRIGITTE_WHIP_SHOT_HEAL_AREA_SOUND, Color.TEAM_2, CamPositions[7], 25)
     chaseAtRate(HeaterPower, 100, 35, ChaseRateReeval.NONE)
     waitUntil(not Player_.isHoldingButton(Button.RELOAD) or CurrentCam != 7, 99999)
@@ -1607,7 +1607,7 @@ rule "[G] Warning":
     @Condition isGameInProgress() == true
     @Condition GenjiAI != 0
     @Condition HeaterPower < 28
-    
+
     WarningIconVisible = getAllPlayers()
     wait(0.2)
     WarningIconVisible = null
@@ -1619,12 +1619,12 @@ rule "[G] Warning":
 rule "ZEN":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Zen Setup":
     @Condition NightNumber >= 1
-    
+
     wait(1)
     createDummy(Hero.ZENYATTA, Team.2, 4, vect(2, 7.4, 22.4), vect(1, 0, 0))
     Zen = getPlayersInSlot(4, Team.2)
@@ -1640,7 +1640,7 @@ rule "[G] Zen Setup":
 
 def ZenSequence():
     @Name "[SR] Zen Jumpscare Nights 1-5"
-    
+
     Zen.setInvisibility(Invis.NONE)
     Zen.startFacing(directionTowards(Zen.getEyePosition(), CamPositions[CurrentCam]), 1000)
     Zen.teleport(sorted(ZenPositions, lambda player: distance(player, CamPositions[CurrentCam]))[0])
@@ -1687,7 +1687,7 @@ def ZenSequence():
 rule "NIGHT 6":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "[G] Zen Progression":
@@ -1698,7 +1698,7 @@ rule "[G] Zen Progression":
     @Condition ZenDoorNumber == 0
     @Condition CurrentCam != ZenPickedCamAndPos[0]
     @Condition ZenAI > 0
-    
+
     Zen.startFacing(directionTowards(Zen.getEyePosition(), sorted(CamPositions.exclude(null), lambda i: distance(Zen.getEyePosition(), i))[0]), 1000)
     wait(6.5 - ZenAI / 15, Wait.ABORT_WHEN_FALSE)
     if random.randint(1, 20) > ZenAI:
@@ -1712,7 +1712,7 @@ rule "[G] Zen Progression":
 
 def ZenJumpscare():
     @Name "[SR] Zen Jumpscare Night 6"
-    
+
     Zen.enablePlayerCollision()
     Zen.setInvisibility(Invis.NONE)
     destroyAllInWorldTexts()
@@ -1747,7 +1747,7 @@ def ZenJumpscare():
 
 def Night6Call():
     @Name "[SR] Night 6 Call"
-    
+
     wait(0.5)
     PhoneRings = 3
     while PhoneRings and not Player_.isHoldingButton(Button.ABILITY_1):
@@ -1818,7 +1818,7 @@ def Night6Call():
 rule "[G] Night 6 Part 1":
     @Condition isGameInProgress() == true
     @Condition NightNumber == 5
-    
+
     if Cheats[1]:
         goto lbl_0
     chaseAtRate(Power, 0, 0.131 * PowerUsage)
@@ -1884,7 +1884,7 @@ rule "[G] Night 6 Part 2":
     @Condition Zen.isDead() == true
     @Condition NightNumber == 5
     @Condition NightPhase == 6
-    
+
     destroyAllInWorldTexts()
     Zen.setInvisibility(Invis.ALL)
     NightPhase = 7
@@ -1915,7 +1915,7 @@ rule "[G] Fire Overload":
     @Condition CurrentCam != 0
     @Condition BarValue <= 0
     @Condition Player_.isHoldingButton(Button.RELOAD) == true
-    
+
     BarValue = 100
     Power = max(0, Power - 5)
     PowerUsage--
@@ -1944,7 +1944,7 @@ rule "[G] Stalling in Cam":
     @Condition Zen.hasStatus(Status.STUNNED) == false
     @Condition CurrentCam == ZenPickedCamAndPos[0]
     @Condition angleBetweenVectors(Player_.getFacingDirection(), directionTowards(CamPositions[CurrentCam], Zen.getEyePosition())) < 20
-    
+
     wait(2.5)
     if CurrentCam != ZenPickedCamAndPos[0]:
         return
@@ -1953,7 +1953,7 @@ rule "[G] Stalling in Cam":
 
 def ZenDoor():
     @Name "[SR] Zen at Doors"
-    
+
     ZenDoorNumber = random.randint(1, 3)
     if ZenDoorNumber == 1:
         waitUntil(not isInLoS(Player_.getEyePosition(), vect(1.93, 8.43, -30.57)) or not Player_.isInViewAngle(vect(1.93, 8.43, -30.57), 75), 99999)
@@ -1999,10 +1999,8 @@ def ZenDoor():
 
 def ZenMove():
     @Name "[SR] Zen Move"
-    
+
     ZenPickedCamAndPos[0] = random.choice([1, 2, 3, 4, 5, 6, 7].exclude(ZenPickedCamAndPos[0]))
     ZenPickedCamAndPos[1] = random.choice(ZenPositions2[ZenPickedCamAndPos[0]])
     waitUntil(CurrentCam != ZenPickedCamAndPos[0], 99999)
     Zen.teleport(ZenPickedCamAndPos[1])
-
-

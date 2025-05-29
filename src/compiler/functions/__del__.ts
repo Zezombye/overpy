@@ -23,7 +23,7 @@ import { error, functionNameToString } from "../../utils/logging";
 
 astParsingFunctions.__del__ = function (content) {
     if (content.args[0].name !== "__valueInArray__") {
-        error("Expected an array access for the 'del' operator, but got " + functionNameToString(content.args[0]));
+        error("Expected an array access for the 'del' operator, but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
     }
     content = new Ast("__modifyVar__", [content.args[0].args[0], new Ast("__removeFromArrayByIndex__", [], [], "__Operation__"), content.args[0].args[1]]);
     content.originalName = "__del__";

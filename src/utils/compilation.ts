@@ -118,12 +118,12 @@ export function trimNb(x: number | string) {
 export function parseOpyMacroAst(content: Ast): Ast {
 
     if (!(content.name in opyMacros)) {
-        error("Unknown macro '" + content.name + "'");
+        error("Unknown macro '" + content.name + "'", content.fileStack);
     }
 
     for (let [i, arg] of (opyMacros[content.name].args || []).entries()) {
         if (arg.isDuplicatedInMacro && astContainsRandom(content.args[i])) {
-            error("Cannot use random functions in argument '" + arg.name + "' of macro '" + content.name + "', as it is duplicated within the macro");
+            error("Cannot use random functions in argument '" + arg.name + "' of macro '" + content.name + "', as it is duplicated within the macro", content.args[i].fileStack);
         }
     }
 
@@ -149,7 +149,7 @@ export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
 
 export function parseAstMacro(macro: Ast): Ast[] {
     if (!(macro.name in astMacros)) {
-        error("Unknown macro '" + macro.name + "'");
+        error("Unknown macro '" + macro.name + "'", macro.fileStack);
     }
 
     function setMacroFilestack(ast: Ast, fileStack: FileStackMember[]) {

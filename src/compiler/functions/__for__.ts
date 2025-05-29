@@ -34,7 +34,7 @@ astParsingFunctions.__for__ = function (content) {
         var isGlobalVariable = true;
         var varName = content.args[0].args[0].name;
     } else {
-        error("Expected variable for 1st argument of function 'for', but got " + functionNameToString(content.args[0]));
+        error("Expected variable for 1st argument of function 'for', but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
     }
 
     var varArray = isGlobalVariable ? globalVariables : playerVariables;
@@ -43,7 +43,7 @@ astParsingFunctions.__for__ = function (content) {
         if (variable.name === varName) {
             variable["isUsedInForLoop"] = true;
             if (variable["isChased"]) {
-                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is used in a for loop, but also chased, making the for loop not run.");
+                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is used in a for loop, but also chased, making the for loop not run.", content.args[0].fileStack);
             }
             isFound = true;
             break;
@@ -55,7 +55,7 @@ astParsingFunctions.__for__ = function (content) {
             //However, only do this if it is a default variable name
             addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
         } else {
-            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
+            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'", content.args[0].fileStack);
         }
         for (var variable of varArray) {
             if (variable.name === varName) {

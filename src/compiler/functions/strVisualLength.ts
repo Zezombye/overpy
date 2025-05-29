@@ -40,10 +40,10 @@ export function getStrVisualLength(text: string) {
 
 astParsingFunctions.strVisualLength = function (content) {
     if (content.args[0].name !== ".format") {
-        error("Text must be a literal custom string");
+        error("Text must be a literal custom string", content.args[0].fileStack);
     }
     if (content.args[0].args.length > 1) {
-        error("Text must not have arguments");
+        error("Text must not have arguments", content.args[0].fileStack);
     }
     let text = content.args[0].args[0].name;
 

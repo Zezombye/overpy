@@ -25,7 +25,7 @@ import { getBestSpaces } from "./createCasedProgressBarIwt";
 astParsingFunctions.spacesForLength = function (content) {
     console.log(content);
     if (content.args[0].name !== "__number__") {
-        error("Length must be a literal number");
+        error("Length must be a literal number", content.args[0].fileStack);
     }
     let length = content.args[0].args[0].numValue;
 

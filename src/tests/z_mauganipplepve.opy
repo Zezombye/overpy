@@ -247,7 +247,7 @@ rule "init":
 rule "loop":
     #start game when any player spawns for the first time
     @Condition any([player.hasSpawned() for player in getPlayers(Team.1)]) == true
-    
+
     #intermission
     destroyEffect(threatFx)
     destroyEffect(moreFx)
@@ -349,7 +349,7 @@ rule "loop":
 
 def mobsInit():
     @Name "Subroutine mobsInit"
-    
+
     mobs = []
     for i in range(10):
         #createDummy(enemies[i%len(enemies)], Team.2, -1, Vector.DOWN, Vector.BACKWARD)
@@ -385,7 +385,7 @@ rule "summon the horde":
     @Condition obj != -1
     @Condition obj != 0
     @Condition obj != 1
-    
+
     wait(0.64, Wait.ABORT_WHEN_FALSE)
     getAllPlayers().disableKillFeed()
     wait()
@@ -396,7 +396,7 @@ rule "summon the horde":
 
 rule "slendy":
     @Condition obj == 0
-    
+
     #destroyAllInWorldTexts() # debug
     #bigMessage(hostPlayer, "slendy spawn debug")
     #for i in range(MaxBots-4-TreeNo):
@@ -440,7 +440,7 @@ rule "mob respawn":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer in mobs == true
-    
+
     eventPlayer.teleport(nipman.cacheA if random.randint(0, 1) == 0 else nipman.cacheB)
     eventPlayer.applyImpulse(vect(random.uniform(-0.15, 0.15), random.uniform(0.4, 0.66), -1), random.uniform(50, 70), Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.mobTarget), 500)
@@ -461,7 +461,7 @@ rule "knock mobs":
     @Condition eventPlayer.getNormalizedHealth() == 1
     @Condition eventPlayer.hasStatus(Status.KNOCKED_DOWN) == false
     @Condition eventPlayer in mobs == true
-    
+
     wait(1.5)
     waitUntil(eventPlayer.getPosition().y < 1.8, 7)
     eventPlayer.setStatusEffect(null, Status.KNOCKED_DOWN, 1.6)
@@ -472,7 +472,7 @@ rule "knock mobs":
 rule "mob retarget":
     @Condition mobs != []
     @Condition obj != -1
-    
+
     if getNumberOfLivingPlayers(Team.1) == 0:
         #mobs.mobTarget = null
         mobs.stopForcingThrottle()
@@ -499,7 +499,7 @@ rule "init weak spots":
     @Event eachPlayer
     @Hero wreckingBall
     @Condition eventPlayer.isDummy() == true
-    
+
     eventPlayer.startScalingSize(0.8, false)
     eventPlayer.startForcingName("sensitive spot")
     createIcon(getAllPlayers(), eventPlayer, Icon.WARNING, IconReeval.VISIBILITY_AND_COLOR, rgb(255, 205 + 50 * (sin(getTotalTimeElapsed() * 4)) / 2, 0))
@@ -511,7 +511,7 @@ rule "init weak spots":
 
 rule "more maugas charge attack":
     @Condition obj == 1
-    
+
     wait(2.4)
     while obj == 1:
         wait(8)
@@ -599,7 +599,7 @@ rule "niplets + dupe":
     @Condition 4 in threatList == true
     #or (eventPlayer in objPos)
     @Condition eventPlayer == nipman
-    
+
     createDummy(Hero.MAUGA, Team.2, -1, Vector.DOWN, eventPlayer.getFacingDirection())
     eventPlayer.botA = getLastCreatedEntity()
     threatNiplets.append(getLastCreatedEntity())
@@ -633,7 +633,7 @@ rule "niplets + dupe":
 rule "grab":
     @Condition obj != -1
     @Condition 3 in threatList == true
-    
+
     wait(0.096)
     #grabplayer changes between player, position, list of players
     createBeam(getAllPlayers(), Beam.MOIRA_GRASP_CONNECTED, nipman.cacheA, grabLeft, Color.TEAM_1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -701,7 +701,7 @@ rule "cage":
     @Condition eventPlayer.isDummy() == false
     @Condition eventPlayer.hasSpawned() == true
     @Condition 5 in threatList == true
-    
+
     #threatFx.append(getLastCreatedEntity())
     #wait()
     wait(0.16)
@@ -717,7 +717,7 @@ rule "cage":
 rule "cage boundary":
     @Condition obj != -1
     @Condition 5 in threatList == true
-    
+
     #threatFx.append(getLastCreatedEntity())
     #wait()
     createBeam(getAllPlayers(), Beam.BAD, vect(-20, 0.1, -5), vect(20, 0.1, -5), Color.ROSE, EffectReeval.VISIBILITY)
@@ -727,7 +727,7 @@ rule "cage boundary":
 rule "milk wall + collision":
     @Condition obj != -1
     @Condition 10 in threatList == true
-    
+
     wait(0.32)
     wallEffects = []
     while obj != -1:
@@ -764,7 +764,7 @@ rule "milk wall + collision":
 rule "rain":
     @Condition obj != -1
     @Condition 7 in threatList == true
-    
+
     wait(0.224)
     createEffect(getAllPlayers(), Effect.CLOUD, Color.GRAY, Vector.UP * 30, 40, EffectReeval.VISIBILITY)
     threatFx.append(getLastCreatedEntity())
@@ -783,7 +783,7 @@ rule "rain":
 rule "twister":
     @Condition obj != -1
     @Condition 6 in threatList == true
-    
+
     wait(0.192)
     for twisterCache in range(3, 12, 2):
         #smallMessage(getAllPlayers(), i)
@@ -812,7 +812,7 @@ rule "twister":
 rule "sun loop":
     @Condition obj != -1
     @Condition 17 in threatList == true
-    
+
     while obj != -1:
         wait(0.64)
         threatSuns.setInvisibility(Invis.ENEMIES)
@@ -840,7 +840,7 @@ rule "sun loop":
 rule "gravitatas":
     @Condition obj != -1
     @Condition 16 in threatList == true
-    
+
     createProjectileEffect(getAllPlayers(), Projectile.ZARYA_GRAVITON, null, nipman.cacheA, Vector.BACKWARD, 0.27, ProjectileEffectReeval.VISIBILITY)
     threatFx.append(getLastCreatedEntity())
     createProjectileEffect(getAllPlayers(), Projectile.ZARYA_GRAVITON, null, nipman.cacheB, Vector.BACKWARD, 0.27, ProjectileEffectReeval.VISIBILITY)
@@ -855,7 +855,7 @@ rule "gravitatas":
 rule "boolet":
     @Condition obj != -1
     @Condition 15 in threatList == true
-    
+
     wait(0.48)
     while obj != -1:
         createProjectile(Projectile.RAMATTRA_RAVENOUS_VORTEX_SPHERE, null, nipman.cacheA, vect(sin(getTotalTimeElapsed() * 2) * 0.5, cos(getTotalTimeElapsed()) * 0.1 - 0.2, -1), Relativity.TO_WORLD, ModifyHealth.DAMAGE, Team.1, 130, 1, 0, DynamicEffect.DVA_MICRO_MISSILES_EXPLOSION, DynamicEffect.DVA_MICRO_MISSILES_EXPLOSION_SOUND, 0.04, 14, 4)
@@ -867,7 +867,7 @@ rule "boolet":
 rule "laser":
     @Condition obj != -1
     @Condition 18 in threatList == true
-    
+
     wait(0.576)
     area1 = vect(10, 0, 20)
     area2 = vect(-10, 0, 20)
@@ -894,7 +894,7 @@ rule "discharge":
     @Condition (eventPlayer == nipman or eventPlayer in objPos) == true
     @Condition obj != -1
     @Condition 12 in threatList == true
-    
+
     wait(0.384)
     createDummy(Hero.TORBJORN, Team.2, -1, Vector.UP, Vector.BACKWARD)
     eventPlayer.botA = getLastCreatedEntity()
@@ -922,7 +922,7 @@ rule "discharge":
 rule "everybody discharge":
     @Condition obj != -1
     @Condition 12 in threatList == true
-    
+
     while 12 in threatList:
         wait(10)
         threatLactaters.setUltCharge(100)
@@ -939,7 +939,7 @@ rule "heal milk":
     @Condition 11 in threatList == true
     #sure let the niplets also do this
     @Condition eventPlayer.isAlive() == true
-    
+
     createProjectileEffect(getAllPlayers(), Projectile.MOIRA_HEAL_ORB, null, eventPlayer.cacheA, eventPlayer.getFacingDirection(), 0, ProjectileEffectReeval.VISIBILITY)
     threatFx.append(getLastCreatedEntity())
     createProjectileEffect(getAllPlayers(), Projectile.MOIRA_HEAL_ORB, null, eventPlayer.cacheB, eventPlayer.getFacingDirection(), 0, ProjectileEffectReeval.VISIBILITY)
@@ -953,7 +953,7 @@ rule "heal milk":
 rule "nuke":
     @Condition obj != -1
     @Condition 8 in threatList == true
-    
+
     wait(0.256)
     #debug
     #createEffect(getAllPlayers(), Effect.LIGHT_SHAFT, Color.ROSE, missilePos, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -1033,7 +1033,7 @@ rule "nuke":
 rule "make ice":
     @Condition obj != -1
     @Condition 2 in threatList == true
-    
+
     #createProjectileEffect(getAllPlayers(), Projectile.MEI_ICICLE, null, threatVar1, directionTowards(threatVar1, target1), 0.5, ProjectileEffectReeval.VISIBILITY_POSITION_DIRECTION_AND_SIZE)
     #threatFx.append(getLastCreatedEntity())
     while obj != -1:
@@ -1051,7 +1051,7 @@ rule "ice impact":
     @Condition eventAbility == null
     @Condition attacker == nipman
     @Condition 2 in threatList == true
-    
+
     victim.setStatusEffect(nipman, Status.FROZEN, 1.2)
 
 
@@ -1061,7 +1061,7 @@ rule "ice effect init":
     @Condition obj != -1
     @Condition 2 in threatList == true
     @Condition (eventPlayer == nipman or eventPlayer in objPos) == true
-    
+
     waitUntil(eventPlayer.cacheA != null, 3)
     createProjectileEffect(getAllPlayers(), Projectile.MEI_ICICLE, null, eventPlayer.cacheA, eventPlayer.getFacingDirection(), 0.5, ProjectileEffectReeval.VISIBILITY)
     threatFx.append(getLastCreatedEntity())
@@ -1072,7 +1072,7 @@ rule "ice effect init":
 rule "dupe ice":
     @Condition obj == 1
     @Condition 2 in threatList == true
-    
+
     while obj != -1:
         wait(9)
         #share target
@@ -1088,7 +1088,7 @@ rule "dupe boolet":
     @Condition obj == 1
     @Condition 15 in threatList == true
     @Condition eventPlayer in objPos == true
-    
+
     #print("bullet dupe run")
     while obj == 1:
         wait(0.36)
@@ -1103,7 +1103,7 @@ rule "dupe + normal sniper":
     @Condition obj != -1
     @Condition 13 in threatList == true
     @Condition (eventPlayer.cacheA == nipman.cacheA or eventPlayer in objPos) == true
-    
+
     #wait(0.048 * objPos.index(eventPlayer))
     createDummy(Hero.WIDOWMAKER, Team.2, -1, Vector.UP, eventPlayer.getFacingDirection())
     eventPlayer.botA = getLastCreatedEntity()
@@ -1131,7 +1131,7 @@ rule "sniper change target":
     @Event eachPlayer
     @Team 2
     @Hero widowmaker
-    
+
     while obj != -1:
         wait(4)
         eventPlayer.mobTarget = random.choice(getLivingPlayers(Team.1))
@@ -1141,7 +1141,7 @@ rule "sniper change target":
 rule "sniper fire":
     @Condition obj != -1
     @Condition 13 in threatList == true
-    
+
     wait(2)
     threatSnipers.setDamageDealt(60 / getNumberOfHeroes(Hero.WIDOWMAKER, Team.2))
     threatSnipers.forceButtonPress(Button.PRIMARY_FIRE)
@@ -1155,7 +1155,7 @@ rule "init suns":
     @Condition obj != -1
     @Condition 17 in threatList == true
     @Condition (eventPlayer.cacheA == nipman.cacheA or eventPlayer in objPos) == true
-    
+
     createDummy(Hero.ILLARI, Team.2, -1, eventPlayer.cacheA, Vector.DOWN)
     threatSuns.append(getLastCreatedEntity())
     eventPlayer.botA = getLastCreatedEntity()
@@ -1175,7 +1175,7 @@ rule "init suns":
 rule "missing mauga":
     @Condition obj == 1
     @Condition (all([not entityExists(player) for player in objPos])) == true
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "something went wrong. skipping phase...")
     objProg = objGoal
@@ -1185,7 +1185,7 @@ rule "NO BOTS?":
     #slendy is also a mob
     @Condition obj == 2
     @Condition getNumberOfPlayers(Team.2) < 8
-    
+
     wait(3, Wait.ABORT_WHEN_FALSE)
     for i in range(len(mobs)):
         destroyDummy(mobs[i].getTeam(), mobs[i].getSlot())
@@ -1195,7 +1195,7 @@ rule "NO BOTS?":
 
 rule "more maugas":
     @Condition obj == 1
-    
+
     #wait(0.016 * THREATS.MORE)
     objPos = []
     #need to keep them far away or the fingers block the weak spots
@@ -1235,7 +1235,7 @@ rule "more maugas":
 
 rule "miniboss":
     @Condition obj == 3
-    
+
     #hero must be same as mobs for skin limit
     wait(0.64)
     createDummy(enemies[roundNo % len(enemies)], Team.2, -1, Vector.UP * 50, Vector.BACKWARD)
@@ -1265,7 +1265,7 @@ rule "clean bots":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer != nipman
     @Condition obj == -1
-    
+
     if entityExists(eventPlayer.cacheC):
         destroyProgressBarInWorldText(eventPlayer.cacheC)
     destroyDummy(Team.2, eventPlayer.getSlot())
@@ -1273,7 +1273,7 @@ rule "clean bots":
 
 rule "setup & refresh forest":
     @Condition obj == 0
-    
+
     wait(1.5, Wait.ABORT_WHEN_FALSE)
     for i in range(7):
         createDummy(Hero.LIFEWEAVER, Team.2, -1, Vector.UP, Vector.DOWN)
@@ -1306,7 +1306,7 @@ rule "setup & refresh forest":
 
 rule "place objective":
     @Condition obj == 4
-    
+
     objPos = vect(random.randint(-13, 13), 0, random.randint(-13, 13))
     wait()
     if objPos.z < -5 and 5 in threatList:
@@ -1317,7 +1317,7 @@ rule "kill/obj prog/weak spot + respawn timer":
     @Event playerDied
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer != nipman
-    
+
     if eventPlayer in weakSpots:
         weakSpots.remove(eventPlayer)
         playEffect(getAllPlayers(), DynamicEffect.SOMBRA_TRANSLOCATOR_REAPPEAR, Color.TEAM_2, eventPlayer, 1)
@@ -1361,7 +1361,7 @@ rule "kill/obj prog/weak spot + respawn timer":
 
 rule "point":
     @Condition obj == 4
-    
+
     if getPlayersInRadius(objPos, 12, Team.1) != []:
         objProg += len(getPlayersInRadius(objPos, 12, Team.1)) / getNumberOfPlayers(Team.1) * 3
         playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION, Color.TEAM_1, objPos, 25)
@@ -1377,7 +1377,7 @@ rule "page found":
     @Condition obj == 0
     @Condition eventPlayer.isDummy() == false
     @Condition distance(eventPlayer, objPos) < 1.3
-    
+
     smallMessage(getAllPlayers(), " {0} found a page!".format(eventPlayer))
     playEffect(getAllPlayers(), DynamicEffect.BUFF_IMPACT_SOUND, Color.WHITE, objPos, 65)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.TEAM_1, objPos, 1)
@@ -1393,7 +1393,7 @@ rule "debug finish obj":
     @Condition hostPlayer.isHoldingButton(Button.INTERACT) == true
     @Condition obj != -1
     @Disabled
-    
+
     objProg = objGoal
 
 
@@ -1401,7 +1401,7 @@ rule "wrong mauga":
     @Event playerDealtDamage
     @Condition victim == nipman
     @Condition obj != -1
-    
+
     eventPlayer.communicate(Comms.NO)
     wait(10)
 
@@ -1433,7 +1433,7 @@ rule "wake up":
     @Team 2
     @Hero mauga
     @Condition eventPlayer.hasStatus(Status.KNOCKED_DOWN) == true
-    
+
     eventPlayer.clearStatusEffect(Status.KNOCKED_DOWN)
     wait(0.112)
     if ruleCondition:
@@ -1445,7 +1445,7 @@ rule "get up":
     @Team 2
     @Hero mauga
     @Condition eventPlayer.hasStatus(Status.ASLEEP) == true
-    
+
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     wait(0.112)
     if ruleCondition:
@@ -1455,7 +1455,7 @@ rule "get up":
 rule "anti crash on":
     @Condition antiCrashOn == false
     @Condition getServerLoad() > 235
-    
+
     wait(0.8, Wait.ABORT_WHEN_FALSE)
     setSlowMotion(50)
     #smallMessage(getAllPlayers(), "server load high. anti crash on.")
@@ -1465,7 +1465,7 @@ rule "anti crash on":
 rule "anti crash off":
     @Condition antiCrashOn != false
     @Condition getServerLoad() < 200
-    
+
     wait(0.16, Wait.ABORT_WHEN_FALSE)
     setSlowMotion(100)
     antiCrashOn = false
@@ -1475,7 +1475,7 @@ rule "anti crash off":
 
 rule "where did he go":
     @Condition entityExists(nipman) == false
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     createDummy(Hero.MAUGA, Team.2, -1, Vector.UP, Vector.BACKWARD)
     nipman = getLastCreatedEntity()
@@ -1504,7 +1504,7 @@ rule "charge no breaky":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.getPosition().z > 18
     @Condition eventPlayer.getFacingDirection().z > -0.7
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     eventPlayer.cancelPrimaryAction()
     smallMessage(eventPlayer, "do not the mauga")
@@ -1516,7 +1516,7 @@ rule "charge no breaky more maugas":
     @Condition obj == 1
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition (eventPlayer.getPosition().z < -18 and eventPlayer.getFacingDirection().z < 0.7 or eventPlayer.getPosition().x < -18 and eventPlayer.getFacingDirection().x < 0.7 or eventPlayer.getPosition().x > 18 and eventPlayer.getFacingDirection().x > -0.7) == true
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     eventPlayer.cancelPrimaryAction()
     smallMessage(eventPlayer, "do not the mauga")
@@ -1529,7 +1529,7 @@ rule "echo charge no breaky":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.getPosition().z > 18
     @Condition eventPlayer.getFacingDirection().z > -0.7
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     eventPlayer.cancelPrimaryAction()
     smallMessage(eventPlayer, "do not the mauga")
@@ -1542,7 +1542,7 @@ rule "echo charge no breaky more maugas":
     @Condition obj == 1
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition (eventPlayer.getPosition().z < -18 and eventPlayer.getFacingDirection().z < 0.7 or eventPlayer.getPosition().x < -18 and eventPlayer.getFacingDirection().x < 0.7 or eventPlayer.getPosition().x > 18 and eventPlayer.getFacingDirection().x > -0.7) == true
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     eventPlayer.cancelPrimaryAction()
     smallMessage(eventPlayer, "do not the mauga")
@@ -1556,7 +1556,7 @@ rule "punch no breaky":
     @Condition eventPlayer.getPosition().z > 15
     @Condition eventPlayer.getFacingDirection().z > 0
     @Disabled
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     smallMessage(eventPlayer, "do not the mauga")
 
@@ -1568,7 +1568,7 @@ rule "hook no breaky":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 35 * eventPlayer.getFacingDirection(), getPlayers(Team.2), getPlayersOnHero(Hero.LIFEWEAVER, Team.2), true).getPlayerHit() == nipman
     @Disabled
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     smallMessage(eventPlayer, "do not the mauga")
 
@@ -1578,7 +1578,7 @@ rule "flux no breaky":
     @Hero sigma
     @Condition eventAbility == Button.ULTIMATE
     @Condition (victim == nipman or obj == 1 and victim in objPos) == true
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     smallMessage(eventPlayer, "do not the mauga")
     wait(0.8)
@@ -1592,7 +1592,7 @@ rule "punch unbreaky":
     @Condition victim == nipman
     @Condition obj != -1
     @Condition eventAbility == Button.SECONDARY_FIRE
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     victim.clearStatusEffect(Status.FROZEN)
     wait(0.48, Wait.ABORT_WHEN_FALSE)
@@ -1607,7 +1607,7 @@ rule "echo punch unbreaky":
     @Condition victim == nipman
     @Condition obj != -1
     @Condition eventAbility == Button.SECONDARY_FIRE
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     victim.clearStatusEffect(Status.FROZEN)
     wait(0.48, Wait.ABORT_WHEN_FALSE)
@@ -1620,7 +1620,7 @@ rule "hook unbreaky":
     @Condition (victim == nipman or obj == 1 and victim in objPos) == true
     @Condition obj != -1
     @Condition eventAbility == Button.ABILITY_1
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     victim.clearStatusEffect(Status.FROZEN)
     wait(0.48, Wait.ABORT_WHEN_FALSE)
@@ -1634,7 +1634,7 @@ rule "echo hook unbreaky":
     @Condition (victim == nipman or obj == 1 and victim in objPos) == true
     @Condition obj != -1
     @Condition eventAbility == Button.ABILITY_1
-    
+
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)
     victim.clearStatusEffect(Status.FROZEN)
     wait(0.48, Wait.ABORT_WHEN_FALSE)
@@ -1644,7 +1644,7 @@ rule "echo hook unbreaky":
 rule "debug":
     @Condition hostPlayer.isHoldingButton(Button.ULTIMATE) == true
     @Disabled
-    
+
     hostPlayer.setUltCharge(100)
 
 
@@ -1652,7 +1652,7 @@ rule "win":
     @Event playerDied
     @Condition eventPlayer == nipman
     @Condition attacker != null
-    
+
     setSlowMotion(50)
     getAllPlayers().communicate(Comms.VOICE_LINE_UP)
     wait(0.48)
@@ -1667,7 +1667,7 @@ rule "player init, cage add":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.disableGamemodeHud()
     eventPlayer.setAllowedHeroes(getAllHeroes())
     if isHardcore:
@@ -1678,7 +1678,7 @@ rule "sombra aint slick":
     @Event eachPlayer
     @Hero sombra
     @Condition (eventPlayer.isUsingUltimate() or eventPlayer.isHoldingButton(Button.ULTIMATE) and eventPlayer.getUltCharge() == 100) == true
-    
+
     startDamageModification(getPlayersOnHero(Hero.MAUGA, Team.2), eventPlayer, 2, DamageReeval.NONE)
     eventPlayer.mobTarget = getLastDamageModification()
     waitUntil(eventPlayer.getUltCharge() < 100, 2)
@@ -1691,14 +1691,14 @@ rule "sombra was a little slick":
     @Condition victim == nipman
     @Condition (eventAbility == Button.ULTIMATE or eventDamage > 1000) == true
     @Disabled
-    
+
     nipman.setHealth(nipman.getHealth() + eventDamage * 0.7)
 
 
 rule "you are dead, not big surprise":
     @Event playerDied
     @Team 1
-    
+
     addToTeamScore(Team.2, 1)
     #if getPlayersOnHero(Hero.MERCY, Team.1) == []:
     #eventPlayer.teleport(Vector.DOWN * getTotalTimeElapsed())
@@ -1713,5 +1713,3 @@ rule "you are dead, not big surprise":
             setSlowMotion(100)
             wait(3)
             restartMatch()
-
-

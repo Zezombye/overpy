@@ -271,14 +271,14 @@ export function astContainsRandom(ast: Ast) {
 export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnTrue = false) {
     if (functionNames.includes(ast.name)) {
         if (errorOnTrue) {
-            error("Cannot have the " + functionNameToString(ast) + " in this context");
+            error("Cannot have the " + functionNameToString(ast) + " in this context", ast.fileStack);
         }
         return true;
     }
     for (var arg of ast.args) {
         if (astContainsFunctions(arg, functionNames)) {
             if (errorOnTrue) {
-                error("Cannot have the " + functionNameToString(ast) + " in this context");
+                error("Cannot have the " + functionNameToString(ast) + " in this context", arg.fileStack);
             }
             return true;
         }
@@ -286,7 +286,7 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
     for (var child of ast.children) {
         if (astContainsFunctions(child, functionNames)) {
             if (errorOnTrue) {
-                error("Cannot have the " + functionNameToString(ast) + " in this context");
+                error("Cannot have the " + functionNameToString(ast) + " in this context", child.fileStack);
             }
             return true;
         }
@@ -310,7 +310,7 @@ export function astIsLiteral(ast: Ast) {
     }
 
     if (!(ast.name in funcKw)) {
-        error("Unknown function name '"+ast.name+"'");
+        error("Unknown function name '"+ast.name+"'", ast.fileStack);
     }
     if (!funcKw[ast.name].isLiteral) {
         //Custom strings with no formatters are considered literals
@@ -329,7 +329,7 @@ export function astIsLiteral(ast: Ast) {
 
 export function stringAstContainsFormatters(ast: Ast) {
     if (ast.name !== "__customString__") {
-        error("Expected a custom string literal for stringAstContainsFormatters, but got "+functionNameToString(ast));
+        error("Expected a custom string literal for stringAstContainsFormatters, but got "+functionNameToString(ast), ast.fileStack);
     }
     return ast.args[0].name.match(/\{[012]\}/) !== null;
 }

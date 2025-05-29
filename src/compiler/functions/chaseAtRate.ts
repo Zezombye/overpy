@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { globalVariables, playerVariables, defaultVarNames } from "../../globalVars";
+import { globalVariables, playerVariables, defaultVarNames, setFileStack } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
@@ -32,11 +32,11 @@ astParsingFunctions.chaseAtRate = function (content) {
         var isGlobalVariable = true;
         var varName = content.args[0].args[0].name;
     } else {
-        error("Expected variable for 1st argument of function 'chase', but got " + functionNameToString(content.args[0]));
+        error("Expected variable for 1st argument of function '"+content.name+"', but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
     }
 
     if (content.name === "chaseAtRate" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 9999) {
-        warn("w_chase_9999", "Chasing a variable to 9999 is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
+        warn("w_chase_9999", "Chasing a variable to 9999 is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[1].fileStack);
     }
 
     var varArray = isGlobalVariable ? globalVariables : playerVariables;
@@ -45,10 +45,10 @@ astParsingFunctions.chaseAtRate = function (content) {
         if (variable.name === varName) {
             variable["isChased"] = true;
             if (variable["isUsedInForLoop"]) {
-                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a for loop, making the for loop not run.");
+                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a for loop, making the for loop not run.", content.args[0].fileStack);
             }
             if (variable["isUsedInRuleCondition"]) {
-                warn("w_ow2_rule_condition_chase", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.");
+                warn("w_ow2_rule_condition_chase", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.", content.args[0].fileStack);
             }
             isFound = true;
             break;
@@ -60,7 +60,7 @@ astParsingFunctions.chaseAtRate = function (content) {
             //However, only do this if it is a default variable name
             addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
         } else {
-            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
+            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'", content.args[0].fileStack);
         }
         for (var variable of varArray) {
             if (variable.name === varName) {

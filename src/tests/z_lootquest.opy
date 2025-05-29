@@ -1,3 +1,4 @@
+#!suppressWarnings w_ow2_rule_condition_chase
 settings {
     "main": {
         "description": "Loot Quest - Regular Maps - v7.5.1.8 (by Delwion#2667) Share Code 4QV99: Hunt enemies for a chance to obtain epic loot and save your progress with the help of a 40-digit save code! Enemy levels: 1-60. Loot Quest news, game mode manual, and forums on: https://lootquest.shivtr.com",
@@ -477,7 +478,7 @@ rule "IlIIIIIIlIIlIIIlIlIIIlIIlI":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.disableRespawn()
     if eventPlayer.isDummy():
         IIIllIIlllIlllllllllIlIllI = eventPlayer
@@ -546,7 +547,7 @@ rule "lllIlIlllIlIIIlllIIllIlIIl":
     @Team 2
     @Condition eventPlayer.IllIlIlIIlIIIIIIIIlIlIlIlI == true
     @Condition eventPlayer.IllIlIlIIlIIIIIIIIlIlIlIlI <= getTotalTimeElapsed()
-    
+
     eventPlayer.IllIlIlIIlIIIIIIIIlIlIlIlI = getTotalTimeElapsed() + 5
     if eventPlayer.IlIlIlIlIIIlIIllIIlllllIIl[1]:
         lIlIIIIlIIlIlIlIlllIllllIl()
@@ -592,7 +593,7 @@ rule "IlIIlIIlIIllIllllIIllIIllI":
     @Event playerDealtDamage
     @Team 2
     @Condition victim.getTeam() == Team.1
-    
+
     if eventPlayer.IIIlIlIllIlllIllllIlIllIll > 59:
         eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[4] = [null, Button.PRIMARY_FIRE, Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE, Button.CROUCH].index(eventAbility)
         if eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[4] > 0:
@@ -612,7 +613,7 @@ rule "lIllIIIlIllIIIIllIlIllIIII":
     @Condition victim.getTeam() == Team.1
     @Condition eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] <= getTotalTimeElapsed()
     @Condition victim.hasStatus(Status.INVINCIBLE) == false
-    
+
     IlllllllIIlllllllllllIlIlI()
     IIlllIIlllIllllllIIIIIIlII()
 
@@ -622,7 +623,7 @@ rule "lIlIIlllIIIlIIIllIllllllIl":
     @Team 2
     @Condition healee != eventPlayer
     @Condition eventPlayer.llllIIlIIIllIIIllllIIllllI <= getTotalTimeElapsed()
-    
+
     eventPlayer.llllIIlIIIllIIIllllIIllllI = getTotalTimeElapsed() + 2
     lllIllllIllIIlIllIIIIIIllI()
     if eventPlayer.IIIIIIIIlIIlIIIIIIIllIIIII[0] and random.randint(0, 19) < 7:
@@ -636,7 +637,7 @@ rule "lIIlllIlIIlIlIIIlIIIlIIIlI":
     @Team 1
     @Condition victim.getTeam() == Team.2
     @Condition eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] <= getTotalTimeElapsed()
-    
+
     eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] = getTotalTimeElapsed() + 0.25
     IlIllIIIIIlIlIIllIIIlllIll()
     victim.llIllIIIlIllllIIlIlIIIlllI = getTotalTimeElapsed() + 3
@@ -673,7 +674,7 @@ rule "IIllIIIIlllIlllllIIlIlllII":
     @Team 1
     @Condition victim.getTeam() == Team.2
     @Condition eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] <= getTotalTimeElapsed()
-    
+
     eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] = getTotalTimeElapsed() + 0.25
     IlIllIIIIIlIlIIllIIIlllIll()
     victim.llIllIIIlIllllIIlIlIIIlllI = getTotalTimeElapsed() + 3
@@ -690,7 +691,7 @@ rule "IIIIIIlIllIIIlllIlIIIIIIIl":
     @Team 2
     @Condition eventPlayer.llIllIIIlIllllIIlIlIIIlllI == true
     @Condition eventPlayer.llIllIIIlIllllIIlIlIIIlllI <= getTotalTimeElapsed()
-    
+
     eventPlayer.startHealingOverTime(null, IIlllIIIIIllIlIllIlIlllIII, (10 + eventPlayer.llIlIIIlIlIIlIIIllllIlllII * 0.75 + eventPlayer.IIlIIIIllllIllIIlIIIIlIlll * 7.5) * (1 + eventPlayer.IIllIIlIIllIIlIIlIlllIIllI * 0.5))
     while not eventPlayer.getHealth():
         smallMessage(eventPlayer, "Hold Interact or Melee to respawn")
@@ -703,7 +704,7 @@ rule "IllIIIllllIlllIlIIllIlIlII":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.getHealth() == false
-    
+
     eventPlayer.IIllIIlllllllIlIIllIIIIIll = raycast(eventPlayer.getPosition() + Vector.UP, eventPlayer.getPosition() + vect(0, -29, 0), null, null, false).getHitPosition()
 
 
@@ -715,7 +716,7 @@ rule "IllIlIlIllIllllIlIIllIIIII":
     @Condition eventPlayer.lIIIIlIlIIlIIlIllllllIIllI <= getTotalTimeElapsed()
     @Condition IIIlllllIIIllllllIIllIlIIl <= getTotalTimeElapsed() + 0.25
     @Condition llIllIlIIIIlIIlllIllIlllIl <= getTotalTimeElapsed()
-    
+
     if not eventPlayer.llllllIlIIlIIllIIlllIlIIII and eventPlayer.lllIlIIllIIllIIIIlllIIllII >= 3:
         IlIllIIIIIlIlIIllIIIlllIll()
         return
@@ -737,7 +738,7 @@ rule "IIIlIlIlIIlIllIIIllIIllllI":
     @Condition (eventPlayer.isDead() and eventPlayer.IIllIIlllllllIlIIllIIIIIll) == true
     @Condition eventPlayer.llllllIlIIlIIllIIlllIlIIII == false
     @Condition llIllIlIIIIlIIlllIllIlllIl <= getTotalTimeElapsed()
-    
+
     destroyInWorldText(eventPlayer.IIllIIlIIllIIlIIlIlllIIllI)
     if eventPlayer.lIlllllllIlIlIlIIIIIlllIII:
         destroyProgressBarHud(eventPlayer.lIlllllllIlIlIlIIIIIlllIII)
@@ -784,7 +785,7 @@ rule "IlIllIllIlIlIIIIIlIIllIIlI":
     @Team 2
     @Condition eventPlayer.IlllIIlllIlllIIlIlIIIIllIl != IIlIlIIlllIlIIllllIIlIlIIl
     @Condition eventPlayer.llllllIIIlIIIIIlIIllIlllll <= getTotalTimeElapsed()
-    
+
     eventPlayer.llllllIIIlIIIIIlIIllIlllll = getTotalTimeElapsed() + 0.25
     eventPlayer.lllIlIIllIIllIIIIlllIIllII[IIIllIIlllIlllllllllIlIllI.getSlot()] = false
     eventPlayer.IlllIIlllIlllIIlIlIIIIllIl = IIlIlIIlllIlIIllllIIlIlIIl
@@ -830,7 +831,7 @@ rule "IlIllIllIlIlIIIIIlIIllIIlI":
 rule "IIllIIlIlIlllIllIIIIlIIlII":
     @Condition IIIIlIIIIIlIIIIlIIIIllIlII < 6
     @Condition IIIlllllIIIllllllIIllIlIIl <= getTotalTimeElapsed()
-    
+
     if IllIIlIllllIIIllIlllIIlIIl == 3:
         lIIlIlIIlIlIIllIllIIlIIIlI()
         return
@@ -883,7 +884,7 @@ rule "IIIlIIIlllIlIIIlIlIIllIIII":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isCommunicatingEmote() == true
-    
+
     eventPlayer.llIIIIIIIlIIIIlIlIIIIlIllI[2] = null
     waitUntil(not eventPlayer.isCommunicatingEmote(), 16000)
     eventPlayer.llIIIIIIIlIIIIlIlIIIIlIllI[2] = eventPlayer
@@ -893,7 +894,7 @@ rule "IIllllIlIIlIIlIllllIllIIIl":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.HELLO) or eventPlayer.isCommunicating(Comms.GOODBYE) or eventPlayer.isHoldingButton(Button.RELOAD) and eventPlayer.isHoldingButton(Button.INTERACT)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI:
@@ -918,7 +919,7 @@ rule "IIlIIIlIllllIIIIIlllIIIIII":
     @Team 2
     @Condition eventPlayer.IIIIIIlllllllIlIIIIIlllIlI == true
     @Condition eventPlayer.IIIIIIlllllllIlIIIIIlllIlI <= getTotalTimeElapsed()
-    
+
     eventPlayer.IIIIIIlllllllIlIIIIIlllIlI[0] = 0
     lllllIIIllIlIIIlIlIllllllI()
 
@@ -927,7 +928,7 @@ rule "llIIlIllIIIllIIIlIIIIlIlll":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.NEED_HEALING) or eventPlayer.isCommunicating(Comms.FALL_BACK)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IllIlllllIIIlIllIllllllIII > getTotalTimeElapsed():
@@ -941,7 +942,7 @@ rule "lIlIIlllIlllIIllIlIIIIlllI":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.THANKS) or eventPlayer.isCommunicating(Comms.YOURE_WELCOME)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IllIlllllIIIlIllIllllllIII > getTotalTimeElapsed():
@@ -955,7 +956,7 @@ rule "IlIIIllIllIIlIllIlIlllIllI":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.GROUP_UP) or eventPlayer.isCommunicating(Comms.PRESS_THE_ATTACK) or eventPlayer.isCommunicating(Comms.PUSH_FORWARD)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if not eventPlayer.IIlIllllllIIlIIIllllIIllII:
@@ -985,7 +986,7 @@ rule "llIIIIIlIIIlIIIIIllllIIllI":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.ACKNOWLEDGE) or eventPlayer.isCommunicating(Comms.YES)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IllIlllllIIIlIllIllllllIII > getTotalTimeElapsed():
@@ -999,7 +1000,7 @@ rule "lIllIIllIIlIIllllIIlllIllI":
     @Event eachPlayer
     @Team 2
     @Condition (eventPlayer.isCommunicating(Comms.ULTIMATE_STATUS) or eventPlayer.isCommunicating(Comms.READY)) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IllIlllllIIIlIllIllllllIII > getTotalTimeElapsed():
@@ -1013,7 +1014,7 @@ rule "IllllIlIIIIIIllllIIIlllllI":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI:
@@ -1040,7 +1041,7 @@ rule "IlIlIIlIlIIIlllIlIlllllIII":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
-    
+
     if eventPlayer.isHoldingButton(Button.RELOAD):
         return
     if not eventPlayer.getHealth():
@@ -1064,7 +1065,7 @@ rule "lIlIllIIIllIIIIIlIllIlIIII":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
-    
+
     if not eventPlayer.getHealth():
         eventPlayer.lIIIIlIlIIlIIlIllllllIIllI = (eventPlayer.getHealth() == false) * (getTotalTimeElapsed() + 1)
         return
@@ -1091,7 +1092,7 @@ rule "IIlIIIlIllIllIIIIIIlIIIIII":
     @Team 2
     @Condition eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == true
     @Condition (eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) or eventPlayer.isHoldingButton(Button.ABILITY_1) or eventPlayer.isHoldingButton(Button.ABILITY_2) or eventPlayer.isHoldingButton(Button.ULTIMATE)) == true
-    
+
     if eventPlayer.isHoldingButton(Button.SECONDARY_FIRE):
         IlllllIIlIIllIlIlIIIlIlIlI = IlllIllIIIlIIlIIIIlIlIIIIl[eventPlayer.IIlIIIIIIllIIlIlIIIlllllIl][1]
         IlIllIIIlIIIIIlIIlIlIIlIIl()
@@ -1118,7 +1119,7 @@ rule "lIllIIIlIIIIIlIIIIIlllIIll":
     @Team 2
     @Condition (eventPlayer.IlllIllIlIlllIlIlIIlIllIlI or eventPlayer.IIIIlIIIIllllIlllIIIlllIIl == 3 and eventPlayer.isInAir()) == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI:
         IlllllIIlIIllIlIlIIIlIlIlI = IlllIllIIIlIIlIIIIlIlIIIIl[eventPlayer.IIlIIIIIIllIIlIlIIIlllllIl][8]
         IlIllIIIlIIIIIlIIlIlIIlIIl()
@@ -1137,7 +1138,7 @@ rule "lIIIlIIllIlllIIIIllIIlllll":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.lllIlIlIlIIIIlIIllIIlIIIIl == true
-    
+
     IllllllIlIlIIIlIlIIIlIIlII()
     eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII++
     eventPlayer.IlIllIIlllllllllIIIIllllll = eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII * 19
@@ -1155,7 +1156,7 @@ rule "IIIIlIllllIlllIlllIIIIIlIl":
     @Team 2
     @Condition eventPlayer.IIIIIIlIlIllIIIllllIllIlll == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == false
-    
+
     eventPlayer.IIIIIIlIlIllIIIllllIllIlll = false
     eventPlayer.setGravity(100)
 
@@ -1165,7 +1166,7 @@ rule "lIlIlIlIIlIIIIlIIlIIlIIIll":
     @Team 2
     @Condition eventPlayer.IllllllllIlIlllIIlllIlIlII == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.IllllllllIlIlllIIlllIlIlII = false
     eventPlayer.IIIIIIlIlIllIIIllllIllIlll = false
     eventPlayer.setGravity(100)
@@ -1176,7 +1177,7 @@ rule "IIIIIllIIIIIIIIIllIlllIlll":
     @Team 2
     @Condition eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == true
     @Condition distance(eventPlayer, eventPlayer.IIllIIllIllllllllIIlIIIIll) > 3
-    
+
     lIIlIIlIlllIIlllIlIllIllIl()
     eventPlayer.IIIIIlIlIlIllIlllllIIllIll = eventPlayer.IIllIIllIllllllllIIlIIIIll
     llIlIIIlIIlIIIIIllIlIIllIl()
@@ -1189,7 +1190,7 @@ rule "IlIllllIIlIIIIIllllIIlIlll":
     @Condition eventPlayer.IllllllllIlIlllIIlllIlIlII == true
     @Condition eventPlayer.lllIlIIllIIllIIIIlllIIllII >= 2
     @Condition (not IIIlIlllIlIllIIllllllIIIIl and eventPlayer.getPosition().y <= eventPlayer.getPosition().x * 0.05 + eventPlayer.getPosition().z * -0.06 - 4 or IIIlIlllIlIllIIllllllIIIIl and eventPlayer.getPosition().y <= IIIlIlllIlIllIIllllllIIIIl or eventPlayer.isInSpawnRoom()) == true
-    
+
     lIIlIIlIlllIIlllIlIllIllIl()
     eventPlayer.IIIIIlIlIlIllIlllllIIllIll = eventPlayer.IIIllIlIIIIlIlllIlllIlIIlI
     llIlIIIlIIlIIIIIllIlIIllIl()
@@ -1200,7 +1201,7 @@ rule "lIIllIIIlIIIIIIIIIlIlIIlII":
     @Team 2
     @Condition eventPlayer.lIIIIlIlIIlIIlIllllllIIllI == true
     @Condition eventPlayer.lIIIIlIlIIlIIlIllllllIIllI <= getTotalTimeElapsed()
-    
+
     eventPlayer.lIIIIlIlIIlIIlIllllllIIllI = false
     if eventPlayer.getHealth():
         return
@@ -1229,7 +1230,7 @@ rule "lIIllIIIlIIIIIIIIIlIlIIlII":
 
 rule "llIIlIIlIIlIlllIIIlIIIllII":
     @Condition IIIlIlIIIIllIlllllIIIIllIl[0] <= getTotalTimeElapsed()
-    
+
     if IIIlIlIIIIllIlllllIIIIllIl[1] == 1 and (IlIIIIllIllIllllIlIlIllllI[6] != IlIIIIllIllIllllIlIlIllllI[1] or IlIIIIllIllIllllIlIlIllllI[4] != IlIIIIllIllIllllIlIlIllllI[0] or IlIIIIllIllIllllIlIlIllllI[7] != IIIllIIIlIIllIIIIlIllllllI):
         IlIIIIllIllIllllIlIlIllllI[6] = IlIIIIllIllIllllIlIlIllllI[1]
         IlIIIIllIllIllllIlIlIllllI[4] = IlIIIIllIllIllllIlIlIllllI[0]
@@ -1258,7 +1259,7 @@ rule "IlIIlIIllIIlIIIIllIIIllIlI":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     if eventPlayer.getHero() != Hero.SOMBRA and eventPlayer.getHeroOfDuplication() != Hero.SOMBRA:
         return
     eventPlayer.llllllIlIIlIIllIIlllIlIIII = true
@@ -1269,7 +1270,7 @@ rule "IlIlIIlllIllllllIIllllllll":
     @Team 2
     @Condition eventPlayer.llllllIlIIlIIllIIlllIlIIII == true
     @Condition (not eventPlayer.isUsingAbility1() or eventPlayer.getHero() != Hero.SOMBRA and eventPlayer.getHeroOfDuplication() != Hero.SOMBRA) == true
-    
+
     eventPlayer.llllllIlIIlIIllIIlllIlIIII = false
 
 
@@ -1278,7 +1279,7 @@ rule "IllIlIIllIllllIllIlIlllIll":
     @Team 2
     @Condition eventPlayer.lIIIllIIllIIIllIlIIllIlIll == true
     @Condition (not eventPlayer.isUsingUltimate() or eventPlayer.getHero() != Hero.SIGMA and eventPlayer.getHeroOfDuplication() != Hero.SIGMA) == true
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     eventPlayer.lIIIllIIllIIIllIlIIllIlIll = false
 
@@ -1288,7 +1289,7 @@ rule "IllllIlIIllIIllIlIIlllllll":
     @Team 2
     @Condition eventPlayer.lIIIIIlIlIllIlIIIIIlIlIIlI == true
     @Condition eventPlayer.lIIIIIlIlIllIlIIIIIlIlIIlI <= getTotalTimeElapsed()
-    
+
     eventPlayer.lIIIlIIIlllllIIllIllIIIIll--
     IIIlIlllIllllIlllllllIIlII = eventPlayer.llIlIlIllIIllIlllIlIIlIllI.index(eventPlayer.lIIIIIlIlIllIlIIIIIlIlIIlI)
     eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI[IIIlIlllIllllIlllllllIIlII] = lIllIIlIlIIIIIlIIIlIlIlllI
@@ -1305,7 +1306,7 @@ rule "lIlIlllIllIlllllIlIlllIlII":
     @Team 1
     @Condition eventPlayer.lllllIIlllIlllllIIlIIlllII[0] == true
     @Condition eventPlayer.lllllIIlllIlllllIIlIIlllII[0] <= getTotalTimeElapsed()
-    
+
     eventPlayer.lllllIIlllIlllllIIlIIlllII[0] = false
     for lIIlllIllllIlIIIIlIllIIIlI in range(len(eventPlayer.lllllIIlllIlllllIIlIIlllII)):
         if eventPlayer.lllllIIlllIlllllIIlIIlllII[2][lIIlllIllllIlIIIIlIllIIIlI] <= getTotalTimeElapsed():
@@ -1320,7 +1321,7 @@ rule "lIlllIIIIIlllIlIlIIIIIlIII":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.hasSpawned() == true
-    
+
     if IllIIlIllllIIIllIlllIIlIIl != 2:
         IlllIlIIIIIllllIlllllIlllI()
         return
@@ -1430,7 +1431,7 @@ rule "lIIIlIIIlllIIlIlIllllIIlII":
     @Team 1
     @Condition eventPlayer.IlIllIlIlIlllIIlIllllllllI == true
     @Condition eventPlayer.IlIllIlIlIlllIIlIllllllllI <= getTotalTimeElapsed()
-    
+
     if not eventPlayer.getHealth():
         return
     eventPlayer.IlIllIlIlIlllIIlIllllllllI = getTotalTimeElapsed() + 0.25
@@ -1479,7 +1480,7 @@ rule "IIIllIIllllIlllllIllllIlll":
     @Team 1
     @Condition eventPlayer.llllllIllIIlllllIlIIlIIllI == true
     @Condition eventPlayer.llllllIllIIlllllIlIIlIIllI <= getTotalTimeElapsed()
-    
+
     if not eventPlayer.getHealth():
         return
     if eventPlayer.getHero() == Hero.MERCY:
@@ -1560,7 +1561,7 @@ rule "lIIlIllIIIIIllIlIIIllIIIII":
     @Team 1
     @Condition eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI == true
     @Condition eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI <= getTotalTimeElapsed()
-    
+
     if not eventPlayer.getHealth():
         return
     eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI = getTotalTimeElapsed() + 0.25
@@ -1602,7 +1603,7 @@ rule "lllIlIIIllIllIlllIIIllIlII":
     @Condition eventPlayer.IIIlIlIllIlllIllllIlIllIll == true
     @Condition eventPlayer.llllllIIIlllIlIlIlIIIIIlll <= getTotalTimeElapsed()
     @Condition IllIlIllIllIllIIlIIIIllIIl <= getTotalTimeElapsed()
-    
+
     eventPlayer.llllllIIIlllIlIlIlIIIIIlll = getTotalTimeElapsed() + 3000
     eventPlayer.lIIlIllIIIIllIlIIIlIIlIIII++
     if eventPlayer.lIIlIllIIIIllIlIIIlIIlIIII < 2:
@@ -1625,7 +1626,7 @@ rule "lllllIIlIlllllIllIIlIIIlII":
     @Team 2
     @Condition eventPlayer.llIllIIIlIllllIIlIlIIIlllI == true
     @Condition eventPlayer.isDead() == true
-    
+
     lllIllllIllIIlIllIIIIIIllI()
     if eventPlayer.IIIIlIIIIllllIlllIIIlllIIl != 5 or eventPlayer.lIIIlIlIIIIIIllllIlIlIlllI > getTotalTimeElapsed():
         eventPlayer.IIllIIlllllllIlIIllIIIIIll = 0
@@ -1651,7 +1652,7 @@ rule "lllIlIlIIIllIIlIIIIllllIIl":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.IIllIIlIIllIIlIIlIlllIIllI == true
-    
+
     wait(0.25)
     bigMessage(eventPlayer, "Super Novice!")
 
@@ -1661,7 +1662,7 @@ rule "llllllIlllIlIIIlIllllllIlI":
     @Team 2
     @Condition eventPlayer.IIllIlIIIIIIllIIIllIlIllII[2] == true
     @Condition eventPlayer.IIllIlIIIIIIllIIIllIlIllII[2] <= getTotalTimeElapsed()
-    
+
     eventPlayer.IIllIlIIIIIIllIIIllIlIllII[2] = false
     heal(eventPlayer, null, IIlllIIIIIllIlIllIlIlllIII)
     eventPlayer.setAmmo(0, eventPlayer.IIllIlIIIIIIllIIIllIlIllII[0] * (1 + (3 * (eventPlayer.getHero() == Hero.KIRIKO))))
@@ -1673,7 +1674,7 @@ rule "llIIlIlIIIIlIlIllllIIlIIlI":
     @Team 2
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero() == true
-    
+
     eventPlayer.IIIIllIIlIllIlIlIllIlIIIIl = true
     lIllIIIIIIllllIIlllIllllIl()
     lIllIIlIIIlIllllIlIlIIIlIl()
@@ -1686,7 +1687,7 @@ rule "IIIlIlIlIIIIlllllIlIIIlIII":
     @Team 2
     @Condition eventPlayer.IIIIllIIlIllIlIlIllIlIIIIl == true
     @Condition (eventPlayer.IIIllIlIIIIlIlllIlllIlIIlI != Hero.ECHO or not eventPlayer.isDuplicatingAHero()) == true
-    
+
     eventPlayer.IIIIllIIlIllIlIlIllIlIIIIl = false
     eventPlayer.startForcingHero(Hero.TRACER)
     eventPlayer.startForcingHero(eventPlayer.IIIllIlIIIIlIlllIlllIlIIlI)
@@ -1700,7 +1701,7 @@ rule "IlIIIIIIIllIlllllIlIIIlIll":
     @Event eachPlayer
     @Hero dva
     @Condition eventPlayer.isInAlternateForm() == true
-    
+
     wait(0.1)
     if not eventPlayer.isInAlternateForm():
         return
@@ -1716,7 +1717,7 @@ rule "llIIllIlIlIlIIIIIIIllllIIl":
     @Team 2
     @Condition eventPlayer.llllIIlIIllIllIIlllllIllll == true
     @Condition (eventPlayer.getHero() != Hero.DVA or not eventPlayer.isInAlternateForm()) == true
-    
+
     eventPlayer.llllIIlIIllIllIIlllllIllll = false
     eventPlayer.setUltEnabled(true if eventPlayer.llllIIlIlllllllIIllIlIllII else eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 5] == true or eventPlayer.IIllIIlIIllIIlIIlIlllIIllI)
 
@@ -1725,7 +1726,7 @@ rule "lIllIIlIllIIIIlllIIIIIllIl":
     @Event eachPlayer
     @Team 2
     @Condition eventPlayer.isInSpawnRoom() == true
-    
+
     eventPlayer.lllIlllIllIIIlIIIIlllllIIl = 2
     if IllIIlIllllIIIllIlllIIlIIl != 2:
         return
@@ -1738,7 +1739,7 @@ rule "IIIllIIllIllIIIllllllIlllI":
     @Team 1
     @Condition eventPlayer.IIIIlIIlIIlIlIIllIIlIIIIII == true
     @Condition eventPlayer.IIIIlIIlIIlIlIIllIIlIIIIII < IIIIllIlIIlIIIlIIllIllIIlI
-    
+
     eventPlayer.IIIIlIIlIIlIlIIllIIlIIIIII = IIIIllIlIIlIIIlIIllIllIIlI
     if not eventPlayer.getHealth():
         return
@@ -1757,14 +1758,14 @@ rule "llIIllIIIlIllIIlIIIlIIIlII":
     @Team 2
     @Condition eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     IlllllIIlIIllIlIlIIIlIlIlI = IlllIllIIIlIIlIIIIlIlIIIIl[eventPlayer.IIlIIIIIIllIIlIlIIIlllllIl][0]
     IlIllIIIlIIIIIlIIlIlIIlIIl()
 
 
 rule "IIIllIIlIlIllIlIIIIlllIlII":
     @Condition isGameInProgress() == true
-    
+
     IIIlIllIIIIllIIlllIIlIlIll()
     wait(60)
     loop()
@@ -1773,7 +1774,7 @@ rule "IIIllIIlIlIllIlIIIIlllIlII":
 rule "llIllIIlIlIllIIllllIlIIlll":
     @Condition lllllIIIllIIIllIlIIllIllII == true
     @Condition getTotalTimeElapsed() > lllllIIIllIIIllIlIIllIllII
-    
+
     if not lllllIIIllIIIllIlIIllIllII % 1:
         lllllIIIllIIIllIlIIllIllII = lllllIIIllIIIllIlIIllIllII + 600.5
         setMatchTime(600)
@@ -1790,7 +1791,7 @@ rule "IIlIIlIIIlIIIlllIIIIIIllIl":
     @Team 2
     @Condition eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll == true
     @Condition eventPlayer.IllIlllllIIIlIllIllllllIII <= getTotalTimeElapsed()
-    
+
     eventPlayer.lIlIlllIllIlIIIllllIllIlll[0] = eventPlayer.lIlIlllIllIlIIIllllIllIlll[1]
     eventPlayer.lIlIlllIllIlIIIllllIllIlll[2] = eventPlayer.lIlIlllIllIlIIIllllIllIlll[3]
     eventPlayer.lIlIlIIIlllIIIIlIIlIlllllI[0] = eventPlayer.lIlIlIIIlllIIIIlIIlIlllllI[1] if eventPlayer.lIlIlIIIlllIIIIlIIlIlllllI[1] else 1
@@ -1824,7 +1825,7 @@ rule "IIlIIlIIIlIIIlllIIIIIIllIl":
 
 def IlllllIlIllllIIlllIllllllI():
     @Name "IIIIIIIIlIlllIIIlIIIlIIllI"
-    
+
     if eventPlayer.llIIIIIIllIIlIIlIlIIIIllII >= eventPlayer.llIIlllIIIIllIIllIIIIIllII:
         lIIlllIllllIlIIIIlIllIIIlI[1] = eventPlayer.IIIlIlIllIlllIllllIlIllIll
         lIIlllIllllIlIIIIlIllIIIlI[0] = 0
@@ -1872,7 +1873,7 @@ def IlllllIlIllllIIlllIllllllI():
 
 def llIllIllIllIIIlIlIlIIlIlII():
     @Name "IIIlIllIlllIIlIIllllIllllI"
-    
+
     if random.uniform(0, 1) > lIIlIIIIllIIIIIlIlIIIlIIll:
         return
     lIIIIIllllIlIIIIlIIIlIIIll = 1 + eventPlayer.lIIllIIIlIlIlIllIIIlIllIII * 0.001 + ((llIlIIlIlIlIllIllllIllIllI >= 3) * (0.5 + 6.684 * eventPlayer.lIllIlIIlllIllIlIlllllIIII ** 3 / 8000))
@@ -1923,7 +1924,7 @@ def llIllIllIllIIIlIlIlIIlIlII():
 
 def IIIIlIIlIllIlllIIIIlIlllII():
     @Name "IIIIlIIIlllIIllIIIIlIIIlIl"
-    
+
     IllllllIlIlIIIlIlIIIlIIlII()
     eventPlayer.lIIIIlIlIIlIIlIllllllIIllI = false
     if not eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII:
@@ -1948,7 +1949,7 @@ def IIIIlIIlIllIlllIIIIlIlllII():
 
 def lIIlllIIlIIlIlIIllIllIIIIl():
     @Name "IIlIllIIllllIIIIlIIllllIlI"
-    
+
     eventPlayer.llIIllllIIlIIIIIIIlIlIlllI = []
     eventPlayer.llIlIIllIIIIIIIIlIlIlIIlII = lIIlIllllllIlllIlIIlIIllll[IlllllIIlIIllIlIlIIIlIlIlI - 1]
     llIlIIlIlIlIllIllllIllIllI = []
@@ -2003,7 +2004,7 @@ def lIIlllIIlIIlIlIIllIllIIIIl():
 
 def lIIlllIIlIlllIlIIIIIIIIIII():
     @Name "lIIIlIIlllIllIllllIlIllllI"
-    
+
     if eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII >= 5:
         smallMessage(eventPlayer, "Inventory full")
         return
@@ -2021,7 +2022,7 @@ def lIIlllIIlIlllIlIIIIIIIIIII():
 
 def IllIlIlIIIlIIIlIlIlIlIlIll():
     @Name "llIlIIIIlIIIIIIllIllIlIIll"
-    
+
     if eventPlayer.IIllIIlIIllIIlIIlIlllIIllI:
         smallMessage(eventPlayer, "Super Novice items cannot be imbued")
         return
@@ -2091,7 +2092,7 @@ def IllIlIlIIIlIIIlIlIlIlIlIll():
 
 def lIIIIlIllIIIIlIIIIllIIlIlI():
     @Name "lIlIlIIllllllllIIllIllIIII"
-    
+
     lIlIlIIlIIIIlIllIIllllllll = eventPlayer.lllllIIlllIlllllIIlIIlllII
     eventPlayer.IIlIIIIllllIllIIlIIIIlIlll = eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIlIlIIlIIIIlIllIIllllllll + 1]
     if not eventPlayer.IIlIIIIllllIllIIlIIIIlIlll and eventPlayer.IIIlIlIllIlllIllllIlIllIll >= 60 and (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIlIlIIlIIIIlIllIIllllllll + 17]) % 100 >= 26 and not eventPlayer.IIllIIlIIllIIlIIlIlllIIllI:
@@ -2150,38 +2151,38 @@ def lIIIIlIllIIIIlIIIIllIIlIlI():
 
 def IlllIIlIllIlIIIIIlIIIllIII():
     @Name "lllIIlIlIlIIllIIlIlIIIllII"
-    
+
     eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[3] = 1 + (((0.05 * (eventPlayer.llllllIllIIlllllIlIIlIIllI[0] == 5)) + (0.05 * (eventPlayer.llllllIllIIlllllIlIIlIIllI[7] == 2))) * eventPlayer.IIIIIIIIlIIlIIIIIIIllIIIII[1])
     eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[0] = (((84.264 + (5.786 * (eventPlayer.IIIlIlIllIlllIllllIlIllIll + (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 6])))) * (((1 + eventPlayer.IIllIIlIIllIIlIIlIlllIIllI * 2.25 + (((eventPlayer.IIlIIIIllllIllIIlIIIIlIlll >= 5) * ([0.5, 0.75, 0.25][eventPlayer.IIlIIIIllllIllIIlIIIIlIlll - 5])) * (1 + (1 * (eventPlayer.IIlIIIIllllIllIIlIIIIlIlll == 7 and (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 17]) % 100 >= 30))))) + ((0.5 + 0.15 * eventPlayer.IIllIIlIIllIIlIIlIlllIIllI) * eventPlayer.IIlIIllIIIllIllllIIIIlIIll)) + (((not eventPlayer.IIllIIlIIllIIlIIlIlllIIllI) * 0.005) * eventPlayer.IIIlIlIllIlllIllllIlIllIll))) * eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[3]) * 0.01
 
 
 def lIllIIlIIIlIllllIlIlIIIlIl():
     @Name "IlIlIlIlIllllIIlIIIlllllIl"
-    
+
     eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[1] = (((50 + 25 * eventPlayer.IIllIIlIIllIIlIIlIlllIIllI + (6.25 * (eventPlayer.IIlIIIIllllIllIIlIIIIlIlll >= 7))) + 12.5 * eventPlayer.IIlIIllIIIllIllllIIIIlIIll) * (1 + ((0.15 * (eventPlayer.llllllIllIIlllllIlIIlIIllI[7] == 1)) * eventPlayer.IIIIIIIIlIIlIIIIIIIllIIIII[1]))) * (100 / eventPlayer.IIlllllIIlIIlIIIIIIIIlIlII[0] if eventPlayer.getHero() == Hero.REAPER or eventPlayer.getHeroOfDuplication() == Hero.REAPER else 1)
 
 
 def lIIlIIIllllllIlIIllIlIlllI():
     @Name "IlIIlIlIlIllIlllIIlllIllIl"
-    
+
     eventPlayer.setDamageReceived(600 - (5 * (eventPlayer.llIlIIIlIlIIlIIIllllIlllII / 1.2 + (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 7]))))
 
 
 def llIIlllllIlIIIIIIIllIIIlII():
     @Name "IIllIIlllIIlIllllIlIIIlIII"
-    
+
     eventPlayer.setMoveSpeed((80 + 0.333 * eventPlayer.IIIlIlIllIlllIllllIlIllIll + (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 9])) * (1 + ((0.05 * (eventPlayer.llllllIllIIlllllIlIIlIIllI[0] == 3)) * eventPlayer.IIIIIIIIlIIlIIIIIIIllIIIII[1])))
 
 
 def llIlIIllIIllIIllllIlIIlIlI():
     @Name "lIllIllIIIlllllllIIIllIlll"
-    
+
     eventPlayer.setMoveSpeed(eventPlayer.IllIlIIlIIlIlIlIllIllllllI * (1 - eventPlayer.lllllIIlllIlllllIIlIIlllII[3]))
 
 
 def IllIIllIIIIIllIIIIllIIIlII():
     @Name "IIIlllIllIIlIllIllIlIlIlII"
-    
+
     if eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII:
         if eventPlayer.IlIlIIIlIIllIIIIllIlIIllll > eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII:
             eventPlayer.IlIlIIIlIIllIIIIllIlIIllll = 1
@@ -2203,13 +2204,13 @@ def IllIIllIIIIIllIIIIllIIIlII():
 
 def lllllIIIllIlIIIlIlIllllllI():
     @Name "lIIIIIIllIIIIllIlllIIlllII"
-    
+
     eventPlayer.IIIIIIlllllllIlIIIIIlllIlI[1] = "{0}{1}".format("{0} ".format(iconString(Icon.SPIRAL)) if eventPlayer.llllllIllIIlllllIlIIlIIllI[6] and eventPlayer.IIIIIIlllllllIlIIIIIlllIlI[0] <= getTotalTimeElapsed() else "", "{0} ".format(abilityIconString(Hero.BAPTISTE, Button.ABILITY_2)) if eventPlayer.IIIIlIIIIllllIlllIIIlllIIl == 5 and eventPlayer.lIIIlIlIIIIIIllllIlIlIlllI <= getTotalTimeElapsed() else "")
 
 
 def lllIlllllIlIIIllIlIlIIIlIl():
     @Name "IIllIIIIlIllIIIlIlllIlIlIl"
-    
+
     IlIIlIIIlllIIlIllIIIIIllIl = eventPlayer.IIlIlIlIIlIIIllIllIlIIllll.slice(eventPlayer.lllllIIlllIlllllIIlIIlllII, 19)
     IllIlIllIllIllIIlIIIIllIIl = getTotalTimeElapsed() + 2
     IIIlllllIIIllllllIIllIlIIl = getTotalTimeElapsed() + 5
@@ -2333,7 +2334,7 @@ def lllIlllllIlIIIllIlIlIIIlIl():
 
 def llllIllIlIIIIIllIlIIIIIIIl():
     @Name "IlllllIIlllIIllIIIllllIIll"
-    
+
     if not IllIIlIllllIIIllIlllIIlIIl or IllIIlIllllIIIllIlllIIlIIl > 2:
         return
     eventPlayer.lIllIIIIlIIlllIllIllIIIlII = eventPlayer.llIlIIIlIlIIlIIIllllIlllII * 0.013 + 0.22
@@ -2361,7 +2362,7 @@ def llllIllIlIIIIIllIlIIIIIIIl():
 
 def IllIIIlIIIIlllIllIlIlIlllI():
     @Name "IIlllllIIllIIlllIlllIIIIIl"
-    
+
     eventPlayer.lllIIlllIIlIIlllIIIIlllIlI[6] = getTotalTimeElapsed() + 1
     IlIIlIIIlllIIlIllIIIIIllIl = eventPlayer.llIIllllIIlIIIIIIIlIlIlllI
     llIlIIlIlIlIllIllllIllIllI = []
@@ -2498,7 +2499,7 @@ def IllIIIlIIIIlllIllIlIlIlllI():
 
 def IIlIIIIlIIlIlIllllIIlIlllI():
     @Name "lIIlIIllllIIIIIlIIlllIlIII"
-    
+
     if eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII >= 5:
         bigMessage(eventPlayer, "Inventory full")
         llIIlIIllllllIIlIIIIIIlIll()
@@ -2533,7 +2534,7 @@ def IIlIIIIlIIlIlIllllIIlIlllI():
 
 def lIlIIIIlIIlIlIlIlllIllllIl():
     @Name "IllIlIlllIIIllIllIlllllllI"
-    
+
     eventPlayer.IlIlIlIlIIIlIIllIIlllllIIl[1] = false
     if eventPlayer.IlIlIlIlIIIlIIllIIlllllIIl[0] == 1 or eventPlayer.IIIlIlIllIlllIllllIlIllIll > 59:
         return
@@ -2546,7 +2547,7 @@ def lIlIIIIlIIlIlIlIlllIllllIl():
 
 def lIllIlllIIIlIllIIIlIlIlIlI():
     @Name "llIllIlllIIIlIllllIIllIIll"
-    
+
     eventPlayer.IIIlIIIIlIlllllIllIlIIlllI = max(min(eventPlayer.IIIlIIIIlIlllllIllIlIIlllI, 39), 0)
     eventPlayer.lIlIIIIIIlIIlIlIlIIlIIIIlI = floor(eventPlayer.IIIlIIIIlIlllllIllIlIIlllI * 0.25) * 4
     eventPlayer.lllIIlllIIlIIlllIIIIlllIlI[4] = IlllllIIllIlIIIllIIIllIIIl[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI - eventPlayer.lIlIIIIIIlIIlIlIlIIlIIIIlI]
@@ -2559,7 +2560,7 @@ def lIllIlllIIIlIllIIIlIlIlIlI():
 
 def IIIIlIIlIIlIlllIIlIlIlIIIl():
     @Name "llIIlIlIlllllllIlllIlIllII"
-    
+
     IIlllIIIIIllIlIllIlIlllIII = 9999
     lllIllIlIlllIIIIlIIlIIllII = vect(0, 0.6, 0)
     lIllIIlIlIIIIIlIIIlIlIlllI = vect(0, 1000, 0)
@@ -2804,7 +2805,7 @@ def IIIIlIIlIIlIlllIIlIlIlIIIl():
 
 def IllllIlIlIllIIllIIIllllllI():
     @Name "IllIllIIIllllIllIlIllIllll"
-    
+
     if eventPlayer.getHero() == Hero.BAPTISTE:
         eventPlayer.setMaxAmmo(0, IIlllIIIIIllIlIllIlIlllIII)
         eventPlayer.setAmmo(0, IIlllIIIIIllIlIllIlIlllIII)
@@ -2929,7 +2930,7 @@ def IllllIlIlIllIIllIIIllllllI():
 
 def lllIIllIIIlIIllIIllIlllIlI():
     @Name "lIIlIlIlIlllIlllIllIllIIII"
-    
+
     IIIlIlllIllllIlllllllIIlII = eventPlayer.lllllIIlllIlllllIIlIIlllII
     if eventPlayer.lIlIlllIllIlIIIllllIllIlll[0]:
         if eventPlayer.IIIlIllIlIIllIlIlllllIlIll == []:
@@ -3005,7 +3006,7 @@ def lllIIllIIIlIIllIIllIlllIlI():
 
 def lIIIllIlIlIIllIlIIlIlIIlIl():
     @Name "IllIllIIllIIIlllIIIIllIIlI"
-    
+
     if not IlllIlllllIIllIlIlIIlIllll[3]:
         return
     if IlllllIIlIIllIlIlIIIlIlIlI % 1:
@@ -3016,7 +3017,7 @@ def lIIIllIlIlIIllIlIIlIlIIlIl():
 
 def lIllIlIlIllIIIIIlIlllIllIl():
     @Name "lIIIllIIlIllIIIIllIlIIlIIl"
-    
+
     if IlllllIIlIIllIlIlIIIlIlIlI == 8:
         if (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIIlllIllllIlIIIIlIllIIIlI + 17]) % 100 < 30:
             eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIIlllIllllIlIIIIlIllIIIlI + 18] = ["Hellslayer", "Baranar's Star", "Guardian Angel", "Jalal's Mane", "The Cranium Basher", "Tyrael's Might", "Windforce", "Arreat's Face", "Ghostflame", "Arkaine's Valor", "The Oculus", "Que-Hegan's Wisdom", "Gore Rider", "The Minotaur", "Ribcracker", "Rattlecage", "Thunderstroke", "Azurewrath", "Blade of Ali Baba", "Spire of Honor", "Frostburn", "Nightsmoke", "The Gladiator's Bane", "Wizardspike", "The Ward", "Herald of Zakarum", "Nightwing's Veil", "Toothrow", "Buriza-Do Kyanon", "Stormspire", "Harlequin Crest", "Vampire Gaze"][getAllHeroes().index(eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIIlllIllllIlIIIIlIllIIIlI])]
@@ -3041,7 +3042,7 @@ def lIllIlIlIllIIIIIlIlllIllIl():
 
 def lIlIlIIIIllllIlIIIIIIlllIl():
     @Name "IlIIllIlIllIllIlllIIIIllll"
-    
+
     if IlllllIIlIIllIlIlIIIlIlIlI % 1:
         lIIlllIllllIlIIIIlIllIIIlI = IlllllIIlIIllIlIlIIIlIlIlI % 1 * 10 - 1
         goto loc+floor(lIIlllIllllIlIIIIlIllIIIlI / 2) * 2
@@ -3057,7 +3058,7 @@ def lIlIlIIIIllllIlIIIIIIlllIl():
 
 def llIlIIlIlIllIIIIlllIIIlIlI():
     @Name "llIllIIIIlIIlIllIIlIlllIII"
-    
+
     goto loc+(7 * (IlllllIIlIIllIlIlIIIlIlIlI != 7)) - (4 * (IlllllIIlIIllIlIlIIIlIlIlI == 5.3))
     eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[3] = "Primal Drop!"
     bigMessage(eventPlayer, "Primal Drop!")
@@ -3071,7 +3072,7 @@ def llIlIIlIlIllIIIIlllIIIlIlI():
 
 def IIIlIlllIlIIIlIlllIllIIllI():
     @Name "llIIIlIIIllIlIllllIIlIIlll"
-    
+
     if not eventPlayer.IIlIIIIllllIllIIlIIIIlIlll and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 11] and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 11] <= 6:
         eventPlayer.lIllIIlIllllIlIIIllIIllIlI = 3000
         eventPlayer.IIllIIllIllllllllIIlIIIIll = 3
@@ -3082,7 +3083,7 @@ def IIIlIlllIlIIIlIlllIllIIllI():
 
 def IlIIlllIllIIllIIIIlIlIllll():
     @Name "IlIIlIllIIlIlIIIIIlIlIIllI"
-    
+
     eventPlayer.IIllIIllIIIIIlIlIIllIllllI = [1, 2, 3, 4, 2, 2, 2, 2][eventPlayer.IIlIIIIllllIllIIlIIIIlIlll]
     if eventPlayer.IIlIIIIllllIllIIlIIIIlIlll < 4:
         eventPlayer.lIlIlIIIIllIlllIIIIIlIlIll = round(71.016 * 4 ** eventPlayer.IIlIIIIllllIllIIlIIIIlIlll * (0.5 + eventPlayer.llIlIIIlIlIIlIIIllllIlllII * 0.01))
@@ -3103,7 +3104,7 @@ def IlIIlllIllIIllIIIIlIlIllll():
 
 def llIIIlIIIIllIlIllIIllllIlI():
     @Name "IIlIlllllIlIIIllllIlIIIIII"
-    
+
     IlllllIIlIIllIlIlIIIlIlIlI = eventPlayer.IIlIIIIllllIllIIlIIIIlIlll + 1
     llIlIIlIlIlIllIllllIllIllI = random.randint(0, 9)
     llIlIIlIlIlIllIllllIllIllI = (1 + (1 * (llIlIIlIlIlIllIllllIllIllI >= 6))) + (3 * (llIlIIlIlIlIllIllllIllIllI >= 9))
@@ -3140,14 +3141,14 @@ def llIIIlIIIIllIlIllIIllllIlI():
 
 def lIIlIlIIlIlIIllIllIIlIIIlI():
     @Name "lIllIIIlllIlIIIIlIIllIlIlI"
-    
+
     hudHeader(getPlayers(Team.2), "Calibration failed!\r\nPlease try again with default settings.\r\nYou may deselect maps to play on a specific map.", HudPosition.TOP, -2, Color.RED, HudReeval.VISIBILITY)
     IllIIlIllllIIIllIlllIIlIIl = 4
 
 
 def lIIllllIIIlIlIIIIllIIIIIll():
     @Name "lllIIlllIlIlIlIlIlIIlllIlI"
-    
+
     IlllllIIlIIllIlIlIIIlIlIlI = eventPlayer.llIIIlllIIIlllllIIllIIIIIl[lIIIIIllllIlIIIIlIIIlIIIll] % 10
     IllllllIlIlIIIlIlIIIlIIlII()
     if IlllllIIlIIllIlIlIIIlIlIlI >= 2 and not IlllllIIlIIllIlIlIIIlIlIlI % 1 and eventPlayer.lIlIIlIlIlIIIlIlllllIlIIII >= 5:
@@ -3218,7 +3219,7 @@ def lIIllllIIIlIlIIIIllIIIIIll():
 
 def lIlIIlIllllllIIllllllIIIIl():
     @Name "llllIlIllIllIlllIIIIIlllIl"
-    
+
     goto loc+(eventPlayer.lIlllllllllIllllIIIIlllIlI - 6) * 2
     playEffect(eventPlayer, DynamicEffect.BUFF_IMPACT_SOUND, null, eventPlayer, 50)
     goto lbl_0
@@ -3244,7 +3245,7 @@ def lIlIIlIllllllIIllllllIIIIl():
 
 def IIlllllIllIIlIIIIIlllIlIIl():
     @Name "IlIIlIllIIllllllllIlIlIllI"
-    
+
     lIIIIIllllIlIIIIlIIIlIIIll = 1 + eventPlayer.lIIllIIIlIlIlIllIIIlIllIII * 0.001
     llIlIIlIlIlIllIllllIllIllI = 1
     if random.uniform(0, 10000) <= lIIIIIllllIlIIIIlIIIlIIIll:
@@ -3263,7 +3264,7 @@ def IIlllllIllIIlIIIIIlllIlIIl():
 
 def llIlIlllIIIIIlIIllIlIIIIlI():
     @Name "llIlIllIIIIlIIIlIIlllIIlIl"
-    
+
     IlIIlIIIlllIIlIllIIIIIllIl = lIIIIIllllIlIIIIlIIIlIIIll * [200, 210, 265, 275, 285][llIlIIlIlIlIllIllllIllIllI]
     for IIIIlllIIIIlIIIlIIIIllllIl in range(3):
         if random.uniform(0, 1000) > IlIIlIIIlllIIlIllIIIIIllIl:
@@ -3273,7 +3274,7 @@ def llIlIlllIIIIIlIIllIlIIIIlI():
 
 def lIIlIllllIIlIlIIIIIIlIIlII():
     @Name "IIIIlllIlIlIIlIIIlIIIIlIlI"
-    
+
     wait(1.5)
     if lIlIIlIIlIlIIlIlllllIlIIII.lllIlIIllIIllIIIIlllIIllII >= 3 or lIIlIlIlllllIllIIllIlllIIl <= 0:
         return
@@ -3282,13 +3283,13 @@ def lIIlIllllIIlIlIIIIIIlIIlII():
 
 def IlIllIIIIIlIlIIllIIIlllIll():
     @Name "IlIIIIIlIlIlIIllIIlIIIlIll"
-    
+
     eventPlayer.lIIIIlIlIIlIIlIllllllIIllI = getTotalTimeElapsed() + (1.5 if eventPlayer.isDead() else (eventPlayer.lllIlIIllIIllIIIIlllIIllII ** 2 + 1) * 20)
 
 
 def lIIlIIlIlllIIlllIlIllIllIl():
     @Name "IlIIlIIIlllIIIlllIIIIIllII"
-    
+
     if not IlllIlllllIIllIlIlIIlIllll[4]:
         return
     playEffect(getPlayers(Team.2), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer.getPosition() + Vector.UP, true)
@@ -3296,13 +3297,13 @@ def lIIlIIlIlllIIlllIlIllIllIl():
 
 def lllIlllIIIlIllllIIIIIIlIlI():
     @Name "lllllIlIlIIllllIllIIIlIIlI"
-    
+
     playEffect(getPlayers(Team.2), DynamicEffect.BUFF_EXPLOSION_SOUND, null, eventPlayer, 50)
 
 
 def llIIlIllIllIIIIlIlllIlIlll():
     @Name "IlllIllIIIIlIlIlIllllIllII"
-    
+
     if IllIIlIllllIIIllIlllIIlIIl > 2:
         return
     IllIIlIllllIIIllIlllIIlIIl = 3
@@ -3313,7 +3314,7 @@ def llIIlIllIllIIIIlIlllIlIlll():
 
 def IlllIlIIIIIllllIlllllIlllI():
     @Name "llIllllIlIIIllIIIllIllIIIl"
-    
+
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 16000)
     IIIllIIlllIlllllllllIlIllI.setStatusEffect(null, Status.UNKILLABLE, 16000)
     eventPlayer.startFacing(IIlIllIIllIIlIllIIIIIIIIlI * -1, 1080, Relativity.TO_WORLD, FacingReeval.NONE)
@@ -3397,7 +3398,7 @@ def IlllIlIIIIIllllIlllllIlllI():
 
 def lIIllIllllIlIIIlllIIllIllI():
     @Name "lllIIIlIllIIIIllIllIIlIIll"
-    
+
     if not IIlIlllIlIIIIllIIlIlIlIlll[9]:
         IIlIlllIlIIIIllIIlIlIlIlll[9] = lIIllIllIllIlIIIlllIlllIIl[2]
     if not IIlIlllIlIIIIllIIlIlIlIlll[10]:
@@ -3410,7 +3411,7 @@ def lIIllIllllIlIIIlllIIllIllI():
 
 def IlIllIllIllIlIlIIlIIIlllIl():
     @Name "IIIIIlIIIIIllllIIllIlIIlIl"
-    
+
     eventPlayer.clearStatusEffect(Status.INVINCIBLE)
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
@@ -3432,7 +3433,7 @@ def IlIllIllIllIlIlIIlIIIlllIl():
 
 def IlIllIIIlllIIIllIIlllllllI():
     @Name "IlIIlIllllIlIlIllIlIlIlllI"
-    
+
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 3
     IlIIlllIllIIllIIIIlIlIllll()
     eventPlayer.lIlIlIIIIllIlllIIIIIlIlIll = "{0} Gold ({1} Favor)".format(eventPlayer.lIlIlIIIIllIlllIIIIIlIlIll, eventPlayer.IIllIIllIIIIIlIlIIllIllllI) if (eventPlayer.IIlIIIIllllIllIIlIIIIlIlll or not (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 17]) % 100) and eventPlayer.lIlIlIIIIllIlllIIIIIlIlIll else "Not available"
@@ -3442,7 +3443,7 @@ def IlIllIIIlllIIIllIIlllllllI():
 
 def IlIlllllIlIIIlIlllIlIlIIll():
     @Name "lIIIIIlIllllIIIlIlllIlIllI"
-    
+
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 4
     eventPlayer.IlIllIlIlIlllIIlIllllllllI = getTotalTimeElapsed() + 2 * len(getPlayers(Team.2))
     IIIlllllIIIllllllIIllIlIIl = getTotalTimeElapsed() + 5
@@ -3451,7 +3452,7 @@ def IlIlllllIlIIIlIlllIlIlIIll():
 
 def llIIlIIllllllIIlIIIIIIlIll():
     @Name "lllIIIIlIIIllIllIIlIllllll"
-    
+
     eventPlayer.IIlIlIlIIlIIIllIllIlIIllll = lIIIIIllllIlIIIIlIIIlIIIll
     eventPlayer.IIIlIlIllIlllIllllIlIllIll = IIIIlllIIIIlIIIlIIIIllllIl
     eventPlayer.llllIIlIlllllllIIllIlIllII = IIllIIIlIllIlIlllIlllIlllI
@@ -3459,39 +3460,39 @@ def llIIlIIllllllIIlIIIIIIlIll():
 
 def llIlIlIlIllIlIIIlIlllllIII():
     @Name "IIlllIIlIlIIllIIIIIIIlllIl"
-    
+
     lllIIllllIlIIlllIlIIIIlIIl[llIlIIlIlIlIllIllllIllIllI] = floor(lllIIllllIlIIlllIlIIIIlIIl[lIIlllIllllIlIIIIlIllIIIlI] * 0.1)
     lllIIllllIlIIlllIlIIIIlIIl[llIlIIlIlIlIllIllllIllIllI + 1] = lllIIllllIlIIlllIlIIIIlIIl[lIIlllIllllIlIIIIlIllIIIlI] % 10
 
 
 def IlllIIIIlIIlIIIIllllllllIl():
     @Name "llllIllIIlIIIIIIIlIIlIllII"
-    
+
     smallMessage(eventPlayer, "Not enough Horadric Favor (required: {0})".format(eventPlayer.IIllIIllIIIIIlIlIIllIllllI))
 
 
 def IIIllIlIIllIllllIIIlllIlIl():
     @Name "IlIIlIlIIIIIlllllllIlIIIII"
-    
+
     eventPlayer.IllIlIlIIlIIIIIIIIlIlIlIlI = getTotalTimeElapsed() + 0.25
     eventPlayer.IlllIlIIIIIlIlllIIIIlIllll -= eventPlayer.IIllIIllIIIIIlIlIIllIllllI
 
 
 def IllllllIlIlIIIlIlIIIlIIlII():
     @Name "IllIlllIIIIllIIllIllIIIIIl"
-    
+
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 1
 
 
 def llIIlIIIIIIIllIlllIIIIlIII():
     @Name "lIllIllllllllIlIllIllIlIlI"
-    
+
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 1.5
 
 
 def llIlIIIlIIlIIIIIllIlIIllIl():
     @Name "llIlllIIlIIlIllIIIIlIIIiIl"
-    
+
     eventPlayer.teleport(eventPlayer.IIIIIlIlIlIllIlllllIIllIll)
     if not IlllIlllllIIllIlIlIIlIllll[4]:
         return
@@ -3500,7 +3501,7 @@ def llIlIIIlIIlIIIIIllIlIIllIl():
 
 def IIlIIIlllIIIllIlllIllllIII():
     @Name "lIilIIIIIIIllIiIlIlIIllIlI"
-    
+
     if eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 5] < 3 and eventPlayer.llllIIlIlllllllIIllIlIllII == true:
         eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[5 + eventPlayer.lllllIIlllIlllllIIlIIlllII] = eventPlayer.llllIIlIlllllllIIllIlIllII + 2
         for lIIlllIllllIlIIIIlIllIIIlI in range(2, 5):
@@ -3512,14 +3513,14 @@ def IIlIIIlllIIIllIlllIllllIII():
 
 def IlllIIlIllIlllllIlIIllIlIl():
     @Name "IlllIlIIIlIiIlIllIIliIIlll"
-    
+
     llllIIIIllIIlIlIIllIIllIll = any([i > 50 for i in eventPlayer.IIlIlIlIIlIIIllIllIlIIllll.slice(6, 5)]) or not eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[0] or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[1] > 7 or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[17] >= 63 or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[1] != 7 and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[17] > 29 or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[1] >= 6 and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[13] != 7 or (not eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[1] and (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[13] == 9 and (any([i and i < 7 for i in eventPlayer.IIlIlIlIIlIIIllIllIlIIllll.slice(11, 2)])) or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[13] == 8 and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[12] and eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[12] < 7)) or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[1] == 6 and eventPlayer.IIIlIlIllIlllIllllIlIllIll <= 99 or (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[5] >= 3 and (eventPlayer.IIIlIlIllIlllIllllIlIllIll >= 121 or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[2] >= 6 or eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[4] >= 5))
     eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[17] += 100
 
 
 def lllIllIlIIllllIlIlIlllllll():
     @Name "lIIIIIIlIiIllIIIIIlIllIili"
-    
+
     lIlIlIIlIIIIlIllIIllllllll = 0
     llllIIIIllIIlIlIIllIIllIll = eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 13]
     if eventPlayer.IIllIIlIIllIIlIIlIlllIIllI:
@@ -3540,7 +3541,7 @@ def lllIllIlIIllllIlIlIlllllll():
 
 def IIIlIIIIllllIllllIlIIlIlll():
     @Name "lIIlIiIllIlilIlIIlilIIllIl"
-    
+
     if eventPlayer.lIIIIIIlIIllllIllIlIIllIlI == []:
         smallMessage(eventPlayer, "No item to buy back")
         return
@@ -3568,7 +3569,7 @@ def IIIlIIIIllllIllllIlIIlIlll():
 
 def llIIIllllIlIllIlIIIlIlIIIl():
     @Name "IIlIIllIIlIIIlIIlIlIIIlIlI"
-    
+
     if eventPlayer.IIIIlllIllIIIllIllIlIlIlll >= eventPlayer.IllllIIlllllIIllIIllIlIlIl:
         return
     if eventPlayer.lIlllllllllIllllIIIIlllIlI == 4:
@@ -3592,14 +3593,14 @@ def llIIIllllIlIllIlIIIlIlIIIl():
 
 def IIIlIlllIIIIIllIlIllIIlIII():
     @Name "llIlIIlIlIIIllIllllIlIIlll"
-    
+
     eventPlayer.IIIllIIlIlIIIlllllllIIIlIl = nearestWalkablePosition(random.choice(lIIllIllIllIlIIIlllIlllIIl) + vect(random.randint(-17, 17), random.randint(-15, 15), random.randint(-17, 17)))
     eventPlayer.IlIIIllIIlIIllllIlIIllllIl = 18
 
 
 def IIlIIIIIllIIlIIIIlIlIlllII():
     @Name "llIllIllIIIlllllIIIlllIIIl"
-    
+
     if eventPlayer.lIlllllllllIllllIIIIlllIlI >= 6 and eventPlayer.IIIIlllIllIIIllIllIlIlIlll < eventPlayer.IllllIIlllllIIllIIllIlIlIl:
         destroyEffect(eventPlayer.IlIlIlIIIlIIlIIlIlIlIIllll)
         if eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] < 2:
@@ -3611,7 +3612,7 @@ def IIlIIIIIllIIlIIIIlIlIlllII():
 
 def IIllllIlIIIllllllIlIIIlllI():
     @Name "llllllllllllIIllIIIIllIlll"
-    
+
     if eventPlayer.lIlIlllIllIlIIIllllIllIlll[0]:
         if eventPlayer.lIlllllllllIllllIIIIlllIlI:
             bigMessage(eventPlayer, "Quest abandoned")
@@ -3674,7 +3675,7 @@ def IIllllIlIIIllllllIlIIIlllI():
 
 def llIllIlIIIllIIlIlIlllIIllI():
     @Name "llllIlIlIIIlIllllIIIlIIlll"
-    
+
     if eventPlayer.llllllIllIIlllllIlIIlIIllI[4] and (not eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero()):
         if eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[10]:
             playEffect(eventPlayer, DynamicEffect.BAD_EXPLOSION, Color.BLUE, lIIlllIllllIlIIIIlIllIIIlI.getPosition() + Vector.UP, 1)
@@ -3698,7 +3699,7 @@ def llIllIlIIIllIIlIlIlllIIllI():
 
 def lIIlllIlIIlIIIllIllllIlllI():
     @Name "IIlIIlIlIlIIIIIlllIlIlllll"
-    
+
     if eventPlayer.lIIIlIIllIIIlllllIIIIllIlI < 0:
         eventPlayer.lIIIlIIllIIIlllllIIIIllIlI = 41
     goto loc+eventPlayer.lIIIlIIllIIIlllllIIIIllIlI * 2
@@ -3792,7 +3793,7 @@ def lIIlllIlIIlIIIllIllllIlllI():
 
 def IlIlIllIIlIlIlllIIIIIIIlII():
     @Name "lIIIIlIlIlIIIlllIIlIlIIlll"
-    
+
     eventPlayer.IIllIIllIllllllllIIlIIIIll = [IllIlIIIlIlIIIlIlllIIIllII[2], IlIlIIIlIIllllIllIlllllIll][eventPlayer.IlllIllIlIlllIlIlIIlIllIlI - 1]
     eventPlayer.IllIlllllIIIlIllIllllllIII = 16000
     eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 16000)
@@ -3810,7 +3811,7 @@ def IlIlIllIIlIlIlllIIIIIIIlII():
 
 def llllIlIIlIIIIlIllIlIlIIlll():
     @Name "lIllIIlIIlIIlIlllIlIlllIll"
-    
+
     if len(IIllIllIllllIIlIlIlIIIIlIl) <= 16:
         return
     del IIllIllIllllIIlIlIlIIIIlIl[0]
@@ -3819,7 +3820,7 @@ def llllIlIIlIIIIlIllIlIlIIlll():
 
 def IIIlIIllllIlIlIlIlIlIlIIlI():
     @Name "IIllllIIlIllIIIIlllIIIIIll"
-    
+
     if eventPlayer.llllIIlIlllllllIIllIlIllII or not eventPlayer.llIIllIlIlIlIIlllIllllIIIl:
         return
     eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 2] = (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.lllllIIlllIlllllIIlIIlllII + 2]) % 2 + 2
@@ -3827,7 +3828,7 @@ def IIIlIIllllIlIlIlIlIlIlIIlI():
 
 def lIllIIIIIIllllIIlllIllllIl():
     @Name "llIIIlllIIIlIIlIllIlIlIIIl"
-    
+
     if eventPlayer.isDuplicatingAHero():
         IIllllIlIIlIIIllIllIIIIlII = eventPlayer.getHeroOfDuplication()
     else:
@@ -3843,7 +3844,7 @@ def lIllIIIIIIllllIIlllIllllIl():
 
 def lIIIIllIIlIllIlllllIlllIII():
     @Name "lIlIIIllllIIllIlIllIllIIlI"
-    
+
     IlIllIIIlIIIIIIllIIIIIIIIl = []
     IIllIIIlIllIlIlllIlllIlllI[0] = 0
     if eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[lIlIlIIlIIIIlIllIIllllllll + 1] != 5:
@@ -3882,7 +3883,7 @@ def lIIIIllIIlIllIlllllIlllIII():
 
 def lIlIlllllIIIlllllIIIllIIII():
     @Name "IIlIIlIlllIlIIlllIllIIllll"
-    
+
     if (eventPlayer.IIlIlIlIIlIIIllIllIlIIllll[eventPlayer.llIlIIllIIIIIIIIlIlIlIIlII + 17]) % 100 == 56:
         eventPlayer.lIlIlIIIIllIlllIIIIIlIlIll[8] = "Moo"
         return
@@ -3897,7 +3898,7 @@ def lIlIlllllIIIlllllIIIllIIII():
 
 def IIllllIlIllIllIlIlIIlIllII():
     @Name "llIIllIllIlIllllIIlllIllll"
-    
+
     if not IlllIlllllIIllIlIlIIlIllll[10] or eventPlayer.lllIlIIllIIllIIIIlllIIllII < 3:
         return
     progressBarHud(getPlayers(Team.2), 100 * eventPlayer.getHealth() / eventPlayer.getMaxHealth(), null, HudPosition.TOP, -3, rgb(127, 0, 0), null, ProgressHudReeval.VISIBILITY_AND_VALUES)
@@ -3906,14 +3907,14 @@ def IIllllIlIllIllIlIlIIlIllII():
 
 def llllIlIllIIIlIIIlllIIlIIIl():
     @Name "IIlllllIllllIIIIlIlIllIlII"
-    
+
     eventPlayer.llIIllllIIlIIIIIIIlIlIlllI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI] = (eventPlayer.llIIllllIIlIIIIIIIlIlIlllI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI] + 10) % 10
     eventPlayer.lllIIlllIIlIIlllIIIIlllIlI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI - eventPlayer.lIlIIIIIIlIIlIlIlIIlIIIIlI] = eventPlayer.llIIllllIIlIIIIIIIlIlIlllI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI]
 
 
 def IlllllllIIlllllllllllIlIlI():
     @Name "llIlIIIIlIlllIIllIIlIlIllI"
-    
+
     eventPlayer.IlIIlIIIIIllIlIlIlIIIlIIIl[victim.getSlot()] = getTotalTimeElapsed() + 0.25
     if not victim.llllllIlIIlIIllIIlllIlIIII:
         victim.lIIIIlIlIIlIIlIllllllIIllI = getTotalTimeElapsed() + ((victim.lllIlIIllIIllIIIIlllIIllII ** 2 + 1) * 20)
@@ -3933,7 +3934,7 @@ def IlllllllIIlllllllllllIlIlI():
 
 def IlIIIIIlIllIIllIlIIlIlIIII():
     @Name "IllIIlIIIIIIIIllIllllIIlII"
-    
+
     lllIllllIllIIlIllIIIIIIllI()
     if random.randint(0, 24 + (55 * (eventPlayer.llllllIllIIlllllIlIIlIIllI[0] == 11))) < 4 * eventPlayer.IIIIIIIIlIIlIIIIIIIllIIIII[1]:
         if eventPlayer.llllllIllIIlllllIlIIlIIllI[0] == 10:
@@ -3967,7 +3968,7 @@ def IlIIIIIlIllIIllIlIIlIlIIII():
 
 def IIlllIIlllIllllllIIIIIIlII():
     @Name "IIlIllIIlIIIlIlIIlllIIIIIl"
-    
+
     if not eventPlayer.isUsingUltimate() or eventPlayer.getHero() != Hero.SIGMA and eventPlayer.getHeroOfDuplication() != Hero.SIGMA and eventDirection != 0:
         return
     wait(0.2)
@@ -3976,14 +3977,14 @@ def IIlllIIlllIllllllIIIIIIlII():
 
 def llIIlIllIllIlIIIIlIlIIIlII():
     @Name "llIIllIlIlllIIIIIIIlllIlII"
-    
+
     eventPlayer.IllIIIlIlllIllIlIIllIllIII = not eventPlayer.IllIIIlIlllIllIlIIllIllIII
     smallMessage(eventPlayer, "You now sell items with Crouch + Melee" if eventPlayer.IllIIIlIlllIllIlIIllIllIII else "You now sell items with Interact (default)")
 
 
 def lllIllllIllIIlIllIIIIIIllI():
     @Name "IlIIlIIIlIIIllIllIIIIIlIIl"
-    
+
     eventPlayer.llIllIIIlIllllIIlIlIIIlllI = getTotalTimeElapsed() + 3
     eventPlayer.stopAllHealingOverTime()
     eventPlayer.IIlllllIIIIlllIIIlllIllIlI = getTotalTimeElapsed()
@@ -3991,7 +3992,7 @@ def lllIllllIllIIlIllIIIIIIllI():
 
 def llIlllIllIIllllIIIIIllIlII():
     @Name "IllllllIIIIIIIlIlllllIIIlI"
-    
+
     IIllllIlIIlIIIllIllIIIIlII = 0
     while strLen(eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[0]) + strLen(eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[3]) + 2 - IIllllIlIIlIIIllIllIIIIlII > 507:
         IIllllIlIIlIIIllIllIIIIlII += eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[1]
@@ -4006,7 +4007,7 @@ def llIlllIllIIllllIIIIIllIlII():
 
 def lIIIllIIIlllllIllIIlllIIll():
     @Name "lIIIIlIIIlIIlllIllllIIIIIl"
-    
+
     if IllIIlIllllIIIllIlllIIlIIl <= 1:
         smallMessage(eventPlayer, "Calibrating - please wait a few seconds")
         return
@@ -4022,7 +4023,7 @@ def lIIIllIIIlllllIllIIlllIIll():
 
 def llllIlIllIlllIllllIllIIllI():
     @Name "lIlllllIllIllIlIllIIllIlll"
-    
+
     eventPlayer.IlIIlllllIIlIIllIIlllIIIll = eventPlayer.lIlIlllIllIlIIIllllIllIlll[0]
     eventPlayer.IlllIllIlIlllIlIlIIlIllIlI = 1
     IlIlIllIIlIlIlllIIIIIIIlII()
@@ -4046,7 +4047,7 @@ def llllIlIllIlllIllllIllIIllI():
 
 def IlllllIIlIIIlIlIIIlllIllII():
     @Name "lllllIIlIlllIIlIlIlllIllIl"
-    
+
     if eventPlayer.IIlIllllllIIlIIIllllIIllII >= 9:
         smallMessage(eventPlayer, "Cannot carry more Soul Stones")
         return
@@ -4071,7 +4072,7 @@ def IlllllIIlIIIlIlIIIlllIllII():
 
 def IlllIlIIlIllllIlllIIlIlllI():
     @Name "IllllIIIIIIlIllIllIIllIIIl"
-    
+
     if eventPlayer.IlIllIlIlIlllIIlIllllllllI > getTotalTimeElapsed():
         eventPlayer.IllIlIIlIIlIlIlIllIllllllI = getTotalTimeElapsed()
         smallMessage(eventPlayer, "Wait {0} second(s) to get another code".format(ceil(eventPlayer.IlIllIlIlIlllIIlIllllllllI - eventPlayer.IllIlIIlIIlIlIlIllIllllllI)))
@@ -4085,7 +4086,7 @@ def IlllIlIIlIllllIlllIIlIlllI():
 
 def llIllIIIIlIIIIlIlIlIIllIll():
     @Name "IllllIllIllIIlllIIlIIIIlll"
-    
+
     IlIlIllIIlIlIlllIIIIIIIlII()
     eventPlayer.IlllIllIlIlllIlIlIIlIllIlI = 2
     lIIlllIlIIlIIIllIllllIlllI()
@@ -4100,7 +4101,7 @@ def llIllIIIIlIIIIlIlIlIIllIll():
 
 def lIlllIlIIIllllIIllIlIlIIIl():
     @Name "lIllIIlIlllIIllIIlllIIlIll"
-    
+
     if eventPlayer.llIIlllIllIIIllIllIIIIIIll:
         IIllIIllllIIIlIlIIllIIlIII()
         return
@@ -4112,7 +4113,7 @@ def lIlllIlIIIllllIIllIlIlIIIl():
 
 def IIllIIllllIIIlIlIIllIIlIII():
     @Name "IIlIlIIllIlIIllIIIIIIIIIll"
-    
+
     if not eventPlayer.llllllIlIIIIllIllIlIIIllII:
         return
     destroyHudText(eventPlayer.llllllIlIIIIllIllIlIIIllII)
@@ -4121,7 +4122,7 @@ def IIllIIllllIIIlIlIIllIIlIII():
 
 def lIIlllIlllIIllIllllllIllII():
     @Name "llIIIIIIIIIlllllllIllllIlI"
-    
+
     if not IllIIlIllllIIIllIlllIIlIIl or IllIIlIllllIIIllIlllIIlIIl > 2:
         return
     if not IllIIlIllllIIIllIlllIIlIIl or IllIIlIllllIIIllIlllIIlIIl > 2:
@@ -4151,7 +4152,7 @@ def lIIlllIlllIIllIllllllIllII():
 
 def IIIlIIlIIIlIIllIlllIlIllII():
     @Name "llllIlIIlIlIIlIIIIIlllIlII"
-    
+
     if IlIllllIllllllIIlIIlIllIII >= 6:
         smallMessage(eventPlayer, "Autosave disabled (lobby settings)")
         return
@@ -4166,7 +4167,7 @@ def IIIlIIlIIIlIIllIlllIlIllII():
 
 def lIIlllIIlllllIIlIIlIIIIIlI():
     @Name "lIIIIIIllllIllllIlIllIllIl"
-    
+
     if IlllIlllllIIllIlIlIIlIllll[9]:
         smallMessage(eventPlayer, "Text log disabled (lobby settings)")
         return
@@ -4177,7 +4178,7 @@ def lIIlllIIlllllIIlIIlIIIIIlI():
 
 def IIIIIIlIIIlIIIIIIIIlIIIlIl():
     @Name "IIIIIIllIIlIlIIIIIIIIlIlII"
-    
+
     eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] += 1 - (3 * (eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] >= 2))
     smallMessage(eventPlayer, ["Position Indicator - Loot and Quest Objectives (default)", "Position Indicator - Quest Objectives only", "Position indicator - Off"][eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4]])
     if eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] >= 2:
@@ -4188,7 +4189,7 @@ def IIIIIIlIIIlIIIIIIIIlIIIlIl():
 
 def IllllIIIlllIlIIlIlIlllIllI():
     @Name "IllIIIlIlIllIIlIllIIlIIIll"
-    
+
     if createWorkshopSettingEnum("General", "Traditional code display (large font)", 0, ["Allowed", "Disabled"], 4):
         smallMessage(eventPlayer, "Traditional Code Display disabled (lobby settings)")
         return
@@ -4202,7 +4203,7 @@ def IllllIIIlllIlIIlIlIlllIllI():
 
 def lllIlllIlIlIllIlIllIIlllIl():
     @Name "IllIlIllIlIlIllllIlIlIIlll"
-    
+
     smallMessage(eventPlayer, "Obtained {0} {1} - {2}".format(eventPlayer.llIlIIllIIIIIIIIlIlIlIIlII, heroIcon(eventPlayer.lIIllllIlIIIllIIllllIIIlll), eventPlayer.lIllIIlIllllIlIIIllIIllIlI))
     if eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[2] < 2:
         return
@@ -4212,7 +4213,7 @@ def lllIlllIlIlIllIlIllIIlllIl():
 
 def IIlIIlllIIIIIlIIIIllIIIIIl():
     @Name "IllIIIIllIIlllIIIIIIIlllII"
-    
+
     if eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] >= 2:
         return
     if eventPlayer.IlIIlIIlIIlIIIIlIlIllllllI[4] == 1:
@@ -4245,7 +4246,7 @@ def IIlIIlllIIIIIlIIIIllIIIIIl():
 
 def IllIlIlIllIlIlIllIlllIlIIl():
     @Name "IlIlIlIlllllIIIIllllllIlIl"
-    
+
     if eventPlayer != hostPlayer:
         smallMessage(eventPlayer, "Only the host can change match duration.")
         llIIlIIIIIIIllIlllIIIIlIII()
@@ -4270,7 +4271,7 @@ def IllIlIlIllIlIlIllIlllIlIIl():
 
 def lllIIlllllIlllIllllIllIIll():
     @Name "IIlllIIIIlIIlIIIIIllIIIIlI"
-    
+
     if eventPlayer != hostPlayer:
         smallMessage(eventPlayer, "Only the host can change enemy levels.")
         llIIlIIIIIIIllIlllIIIIlIII()
@@ -4295,7 +4296,7 @@ def lllIIlllllIlllIllllIllIIll():
 
 def IlllIlIlIlllIIlIllIlllllll():
     @Name "lllIIllIIIIlllIIIIlIlllllI"
-    
+
     if eventPlayer != hostPlayer:
         smallMessage(eventPlayer, "Only the host can change enemy health/exp.")
         llIIlIIIIIIIllIlllIIIIlIII()
@@ -4314,7 +4315,7 @@ def IlllIlIlIlllIIlIllIlllllll():
 
 def IllIIIIllIIllIIllIlIlIIlll():
     @Name "lllIIIIlIIlIlllIIIlIllIlII"
-    
+
     if not IlllIlllllIIllIlIlIIlIllll[0] and not IlllIlllllIIllIlIlIIlIllll[1]:
         smallMessage(eventPlayer, "On hit ability and visual effects disabled (lobby settings)")
         return
@@ -4339,20 +4340,20 @@ def IllIIIIllIIllIIllIlIlIIlll():
 
 def IIIlIllIIIIllIIlllIIlIlIll():
     @Name "IllIIIllIlIlIllIIIIlIIIlIl"
-    
+
     lllIIIIllIIlIIllIlIIllllII = round(((lllllIIIllIIIllIlIIllIllII + (600 * (not lllllIIIllIIIllIlIIllIllII % 1))) - getTotalTimeElapsed()) / 60)
     lllIIIIllIIlIIllIlIIllllII = "{0}h {1}{2}min".format(floor(lllIIIIllIIlIIllIlIIllllII / 60), 0 if lllIIIIllIIlIIllIlIIllllII % 60 < 10 else "", lllIIIIllIIlIIllIlIIllllII % 60)
 
 
 def lIIIIlIllllIIIlIIllllIllll():
     @Name "lIIllIIllllIIIllIIlllIlIII"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = eventPlayer.IllIlllllIIIlIllIllllllIII <= getTotalTimeElapsed() + 1.5
 
 
 def lIlIlIIllIIlllIlllllllllll():
     @Name "IIIIIIlIIIIllllIIIlIlIIlll"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     if eventPlayer.isInSpawnRoom():
         IlIllIIIlllIIIllIIlllllllI()
@@ -4370,14 +4371,14 @@ def lIlIlIIllIIlllIlllllllllll():
 
 def llIlIIIlllllIllIlIIIlllIIl():
     @Name "llIIlIllIlIlllIlIllIllIlIl"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     IlIllIIIlllIIIllIIlllllllI()
 
 
 def IIIIlIllIlIIIlIlllllIIIllI():
     @Name "lIllIllIllllIlIlIIIIIIlIIl"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     llIIlIIIIIIIllIlllIIIIlIII()
     eventPlayer.IIllIIllIIIIIlIlIIllIllllI = 1
@@ -4395,7 +4396,7 @@ def IIIIlIllIlIIIlIlllllIIIllI():
 
 def IllllIIllIllllIIIIIIllIlII():
     @Name "lIlIIllllIIlIlllIllIllllIl"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     IllllllIlIlIIIlIlIIIlIIlII()
     if eventPlayer.isDuplicatingAHero():
@@ -4431,7 +4432,7 @@ def IllllIIllIllllIIIIIIllIlII():
 
 def IIlIllIIllIlIIIIlIIIIllIll():
     @Name "IIlIlIllIllllllllIlIlIlIlI"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 6
     lIlIlIIlIIIIlIllIIllllllll = eventPlayer.IlIllIIlllllllllIIIIllllll
@@ -4465,7 +4466,7 @@ def IIlIllIIllIlIIIIlIIIIllIll():
 
 def llIIlIlIIIIIllIIlIllIIIlII():
     @Name "IlllllIlIlIIlIlllllIlIllIl"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 0.25
     lIIIIIIllIIllIlIIIlIlIlIll()
@@ -4492,7 +4493,7 @@ def llIIlIlIIIIIllIIlIllIIIlII():
 
 def lIIIIIIllIIllIlIIIlIlIlIll():
     @Name "llIIlIlIIlIIIlIlIlllllIIII"
-    
+
     IIIIlllIIIIlIIIlIIIIllllIl = sorted(eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI, lambda player: distance(player, eventPlayer.getPosition()))[0]
     lIIIIIllllIlIIIIlIIIlIIIll = eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI.index(IIIIlllIIIIlIIIlIIIIllllIl)
     if eventPlayer.llllllIllIIlllllIlIIlIIllI[0] != 2 or distance(IIIIlllIIIIlIIIlIIIIllllIl, eventPlayer) <= 2.5:
@@ -4503,13 +4504,13 @@ def lIIIIIIllIIllIlIIIlIlIlIll():
 
 def lIlIllllIllllIIIllllIIIIlI():
     @Name "IIIIIlIIIllIIlIlllIIIllIlI"
-    
+
     IIIlIlllIllllIlllllllIIlII = sorted(IllIlIIIlIlIIIlIlllIIIllII, lambda player: distance(player, eventPlayer))[0]
 
 
 def IllIIIIllIlIIIIIlIlIlIlIll():
     @Name "IlIIlIllllIllIllIllIlllIII"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 0.25
     lIlIllllllllIIIIllIlIlIIlI()
@@ -4524,7 +4525,7 @@ def IllIIIIllIlIIIIIlIlIlIlIll():
 
 def lIIIlllIlIIllIlllllllIlllI():
     @Name "IlllllIIllIIIIIIIlIllIIlll"
-    
+
     eventPlayer.lIlIIlIIlIllIIIIIlIlIIIIll = false
     lIlIllllllllIIIIllIlIlIIlI()
     if llllIIIIllIIlIlIIllIIllIll:
@@ -4600,7 +4601,7 @@ def lIIIlllIlIIllIlllllllIlllI():
 
 def lIlIllllllllIIIIllIlIlIIlI():
     @Name "llIIIllIIllIIlllllIlIllIIl"
-    
+
     llllIIIIllIIlIlIIllIIllIll = false
     if distance(eventPlayer, IlIlIIIlIIllllIllIlllllIll) <= IIIlIIlIIIIIlIlIIIlIllIlII and not eventPlayer.isDuplicatingAHero():
         IIIlIlllIllllIlllllllIIlII = sorted(IllIlIIIlIlIIIlIlllIIIllII.slice(2, 9), lambda i: distance(i, eventPlayer))[0]
@@ -4616,7 +4617,7 @@ def lIlIllllllllIIIIllIlIlIIlI():
 
 def IlIllIIIlIIIIIlIIlIlIIlIIl():
     @Name "IIIIlIIlllIllIIlllIIIIIlll"
-    
+
     if not IlllllIIlIIllIlIlIIIlIlIlI:
         return
     goto loc+2 * (IlllllIIlIIllIlIlIIIlIlIlI - 1)
@@ -4641,7 +4642,7 @@ def IlIllIIIlIIIIIlIIlIlIIlIIl():
 
 def IIIIlllllIIIlllIIlllIllllI():
     @Name "lIIlIlIlIllIIlIIIIIlIllIlI"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI != 1:
         return
     eventPlayer.lIlIlllIIlIlllIIIIllIIlIlI = [i for i in eventPlayer.IIlIllllIllIIllIlIIlIIlIll[1] if eventPlayer.isInViewAngle(i, 2.4)][0]
@@ -4670,7 +4671,7 @@ def IIIIlllllIIIlllIIlllIllllI():
 
 def IllIIIIIllIlllllIlIllIlllI():
     @Name "lIIIIIlIlIIllllIlIllIllIIl"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI != 1:
         return
     eventPlayer.llIIllllIIlIIIIIIIlIlIlllI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI] += 1 + 1 * eventPlayer.isHoldingButton(Button.JUMP)
@@ -4679,7 +4680,7 @@ def IllIIIIIllIlllllIlIllIlllI():
 
 def IIlIIIIIIllIlIlllIllIIIlll():
     @Name "IIlllIIIIIllIIlllIlIlIlIIl"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI != 1:
         return
     eventPlayer.llIIllllIIlIIIIIIIlIlIlllI[eventPlayer.IIIlIIIIlIlllllIllIlIIlllI] -= 1 + 1 * eventPlayer.isHoldingButton(Button.JUMP)
@@ -4688,7 +4689,7 @@ def IIlIIIIIIllIlIlllIllIIIlll():
 
 def lllIIIlIlIllIIIlIIIIIlIIIl():
     @Name "llIlIIlllIIIIIIllIIIlIIIII"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == 2:
         eventPlayer.lIIIlIIllIIIlllllIIIIllIlI++
         lIIlllIlIIlIIIllIllllIlllI()
@@ -4699,7 +4700,7 @@ def lllIIIlIlIllIIIlIIIIIlIIIl():
 
 def IIlIIllIlIllIIIlllIlllllll():
     @Name "llIllIIIllIIlIllllllIllIlI"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == 2:
         eventPlayer.lIIIlIIllIIIlllllIIIIllIlI--
         lIIlllIlIIlIIIllIllllIlllI()
@@ -4710,7 +4711,7 @@ def IIlIIllIlIllIIIlllIlllllll():
 
 def IlIlIlIIIIIlllllllllIlllIl():
     @Name "lIllIllllIllllIIlIIIlIIlll"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI != 1:
         return
     if eventPlayer.lllIIlllIIlIIlllIIIIlllIlI[6] > getTotalTimeElapsed():
@@ -4720,7 +4721,7 @@ def IlIlIlIIIIIlllllllllIlllIl():
 
 def llIIlIIlIllIIlIllIIlIlIIII():
     @Name "IIlllIIIllllIlIlIIlIlIlIII"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI == 2:
         IlIllIllIllIlIlIIlIIIlllIl()
         return
@@ -4739,7 +4740,7 @@ def llIIlIIlIllIIlIllIIlIlIIII():
 
 def lllIIIIIIllIlIIlIIlIIIIIII():
     @Name "llIlIIIIIIIIlIlllIllllIlII"
-    
+
     if eventPlayer.IlllIllIlIlllIlIlIIlIllIlI != 1:
         return
     eventPlayer.IIlIllllIllIIllIlIIlIIlIll[0] = abs(angleDifference(IlIllllIIIIIIIIlllIIllIIII, horizontalAngleOfDirection(eventPlayer.getFacingDirection()))) / 9.388
@@ -4750,7 +4751,7 @@ def lllIIIIIIllIlIIlIIlIIIIIII():
 
 def lllllllIIIIIIIllIIllllIIlI():
     @Name "IIIlIIlIllIIIlIlIIIIllIIII"
-    
+
     if not eventPlayer.isHoldingButton(Button.RELOAD):
         return
     eventPlayer.IIlIIIIIIllIIlIlIIIlllllIl = 1 * (not eventPlayer.IIlIIIIIIllIIlIlIIIlllllIl)
@@ -4764,7 +4765,5 @@ def lllllllIIIIIIIllIIllllIIlI():
 
 def IIIlIlllllIlIlllIIIllIIllI():
     @Name "IllIIllIIlIlIlIIllllIllllI"
-    
+
     eventPlayer.IIlIllllIllIIllIlIIlIIlIll[1] = [llIlIIIlllIlIllllllllllIII + ((directionFromAngles(IlIllllIIIIIIIIlllIIllIIII + i.x * eventPlayer.IIlIllllIllIIllIlIIlIIlIll[0], i.y * eventPlayer.IIlIllllIllIIllIlIIlIIlIll[0])) * 1000) for i in [vect(5.345, -9.893, 0), vect(0.412, -9.893, 0), vect(-4.515, -9.893, 0), vect(5.345, -4.636, 0), vect(0.412, -4.636, 0), vect(-4.515, -4.636, 0), vect(5.345, 0.769, 0), vect(0.412, 0.769, 0), vect(-4.515, 0.769, 0), vect(-9.388, 0.769, 0), vect(-9.179, -9.893, 0), vect(-9.091, -4.636, 0)]]
-
-

@@ -29,21 +29,21 @@ astParsingFunctions.hsl = function (content) {
     let a = "$a";
 
     if (content.args[0].name === "__number__" && (content.args[0].args[0].numValue < 0 || content.args[0].args[0].numValue > 360)) {
-        error("Hue must be between 0 and 360");
+        error("Hue must be between 0 and 360", content.args[0].fileStack);
     }
     if (content.args[1].name === "__number__" && (content.args[1].args[0].numValue < 0 || content.args[1].args[0].numValue > 1)) {
-        error("Saturation must be between 0 and 1");
+        error("Saturation must be between 0 and 1", content.args[1].fileStack);
     }
     if (content.args[2].name === "__number__" && (content.args[2].args[0].numValue < 0 || content.args[2].args[0].numValue > 1)) {
-        error("Lightness must be between 0 and 1");
+        error("Lightness must be between 0 and 1", content.args[2].fileStack);
     }
     if (content.args[3].name === "__number__" && (content.args[3].args[0].numValue < 0 || content.args[3].args[0].numValue > 255)) {
-        error("Alpha must be between 0 and 255");
+        error("Alpha must be between 0 and 255", content.args[3].fileStack);
     }
 
     for (let arg of content.args) {
         if (astContainsRandom(arg)) {
-            error("Cannot use random functions in hsl() or hsla()");
+            error("Cannot use random functions in hsl() or hsla()", arg.fileStack);
         }
     }
 

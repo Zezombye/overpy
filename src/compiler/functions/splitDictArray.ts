@@ -22,14 +22,14 @@ import { error } from "../../utils/logging";
 
 astParsingFunctions.splitDictArray = function (content) {
     if (content.args[0].name !== "__dict__") {
-        error("First argument of splitDictArray() must be a dictionary");
+        error("First argument of splitDictArray() must be a dictionary", content.args[0].fileStack);
     }
     if (content.args[1].name !== "__array__") {
-        error("Second argument of splitDictArray() must be a literal array");
+        error("Second argument of splitDictArray() must be a literal array", content.args[1].fileStack);
     }
     for (let elem of content.args[1].args) {
         if (elem.name !== "__dict__") {
-            error("Second argument of splitDictArray() must be a literal array of dictionaries");
+            error("Second argument of splitDictArray() must be a literal array of dictionaries", elem.fileStack);
         }
     }
 
@@ -52,7 +52,7 @@ astParsingFunctions.splitDictArray = function (content) {
         }
         for (let key of dictKeys) {
             if (!variableKeys.includes(key)) {
-                error("Key '" + key + "' in dictionary is not defined in the first argument of splitDictArray()");
+                error("Key '" + key + "' in dictionary is not defined in the first argument of splitDictArray()", dict.fileStack);
             }
         }
     }

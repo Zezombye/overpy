@@ -34,7 +34,7 @@ astParsingFunctions.getOppositeTeam = function (content) {
                 //content.args[0].args[0].name = "ALL";
                 return content.args[0];
             } else {
-                error("Unknown team '" + content.args[0].args[0].name + "'");
+                error("Unknown team '" + content.args[0].args[0].name + "'", content.args[0].fileStack);
             }
         }
     }

@@ -34,7 +34,7 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
         if (i !== 1 && i !== 2) {
             //can't properly check the CustomStringLiteral type yet
             if (!isTypeSuitable(funcValueArgs[i].type, content.args[i].type, false)) {
-                error(getTypeCheckFailedMessage(content, i, funcValueArgs[i].type, content.args[i]));
+                error(getTypeCheckFailedMessage(content, i, funcValueArgs[i].type, content.args[i]), content.args[i].fileStack);
             }
         }
     }
@@ -64,7 +64,7 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
         } else if (settingType.name === "Hero") {
             result = new Ast("createWorkshopSettingHero", [settingCategory, settingName, settingDefault, sortOrder]);
         } else {
-            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
+            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'", settingType.fileStack);
         }
     } else {
         if (settingType.name === "int") {
@@ -83,7 +83,7 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
                 sortOrder,
             ]);
         } else {
-            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
+            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'", settingType.fileStack);
         }
     }
 
@@ -93,7 +93,7 @@ astParsingFunctions.__createWorkshopSetting__ = function (content) {
         error("Could not determine expected type for workshop setting '" + content.name + "'");
     }
     if (!isTypeSuitable(expectedType, result.args[2].type, false)) {
-        error(getTypeCheckFailedMessage(result, i, expectedType, result.args[2]));
+        error(getTypeCheckFailedMessage(result, i, expectedType, result.args[2]), result.args[2].fileStack);
     }
     return result;
 };
@@ -104,16 +104,16 @@ astParsingFunctions.createWorkshopSettingBool = astParsingFunctions.createWorksh
     content.args[1] = createSuitableWorkshopSettingString(content.args[1], true);
     if (content.name === "createWorkshopSettingEnum") {
         if (content.args[3].name !== "__array__") {
-            error("Expected an array for argument 3 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[3]) + "'");
+            error("Expected an array for argument 3 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[3]) + "'", content.args[3].fileStack);
         }
         for (var i = 0; i < content.args[3].args.length; i++) {
             content.args[3].args[i] = createSuitableWorkshopSettingString(content.args[3].args[i], false);
         }
         if (content.args[2].name !== "__number__") {
-            error("Expected a number literal for argument 2 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[2]) + "'");
+            error("Expected a number literal for argument 2 of function 'createWorkshopSettingEnum', but got '" + functionNameToString(content.args[2]) + "'", content.args[2].fileStack);
         }
         if (content.args[2].args[0].numValue !== 0) {
-            warn("w_workshop_setting_enum_default", "Default value for workshop setting enum should be 0, as otherwise the first option is not selectable via the UI.");
+            warn("w_workshop_setting_enum_default", "Default value for workshop setting enum should be 0, as otherwise the first option is not selectable via the UI.", content.args[2].fileStack);
         }
     }
     return content;

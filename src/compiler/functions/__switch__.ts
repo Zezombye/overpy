@@ -43,7 +43,7 @@ astParsingFunctions.__switch__ = function (content) {
         } else if (child.type === "Label") {
             casesChildren.push(child);
         } else {
-            error("Expected a 'case' or 'default' instruction but got " + functionNameToString(child));
+            error("Expected a 'case' or 'default' instruction, but got " + functionNameToString(child), child.fileStack);
         }
     }
 

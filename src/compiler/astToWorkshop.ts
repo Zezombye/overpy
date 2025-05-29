@@ -107,8 +107,7 @@ function astRuleConditionToWs(condition: Ast) {
     }
 
     if (condition.type === "void") {
-        setFileStack(condition.fileStack);
-        error("Expected a value, but got " + functionNameToString(condition) + " which is an action");
+        error("Expected a value, but got " + functionNameToString(condition) + " which is an action", condition.fileStack);
     }
 
     if (condition.name in funcToOpMapping) {
@@ -132,8 +131,7 @@ function astRuleConditionToWs(condition: Ast) {
         }
         for (var i = 0; i < condition.args.length; i++) {
             if (condition.args[i].type === "void") {
-                setFileStack(condition.args[i].fileStack);
-                error("Expected a value, but got " + functionNameToString(condition.args[i]) + " which is an action");
+                error("Expected a value, but got " + functionNameToString(condition.args[i]) + " which is an action", condition.args[i].fileStack);
             }
         }
         resetNbHeroesInValue();
@@ -174,8 +172,7 @@ export function astActionToWs(action: Ast, nbTabs: number) {
         return tabLevel(nbTabs) + "//" + action.name + ":\n";
     }
     if (action.type !== "void") {
-        setFileStack(action.fileStack);
-        error("Expected an action, but got " + functionNameToString(action) + " which is a value");
+        error("Expected an action, but got " + functionNameToString(action) + " which is a value", action.fileStack);
     }
     let result = "";
     if (action.name === "pass" && !action.comment) {
@@ -372,10 +369,10 @@ function astToWs(content: Ast): string {
                     }
                 }
             } else {
-                error("Cannot modify or assign to " + functionNameToString(content.args[0].args[0]));
+                error("Cannot modify or assign to " + functionNameToString(content.args[0].args[0]), content.args[0].args[0].fileStack);
             }
         } else {
-            error("Cannot modify or assign to " + functionNameToString(content.args[0]));
+            error("Cannot modify or assign to " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         content.name = newName;
     } else if (content.name === "__array__" && content.args.length === 0) {
@@ -391,7 +388,7 @@ function astToWs(content: Ast): string {
             newName = "PlayerVariable" + newName;
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
         } else {
-            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]));
+            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         newName = "__chase" + newName;
         content.name = newName;
@@ -425,7 +422,7 @@ function astToWs(content: Ast): string {
             newName = "PlayerVariable";
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
         } else {
-            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]));
+            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         newName = "__for" + newName + "__";
         content.name = newName;
@@ -534,7 +531,7 @@ function astToWs(content: Ast): string {
             newName = "PlayerVariable";
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
         } else {
-            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]));
+            error("Expected a variable for 1st argument of " + functionNameToString(content) + ", but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         newName = "__stopChasing" + newName + "__";
         content.name = newName;
@@ -573,8 +570,7 @@ function astToWs(content: Ast): string {
                 result += ", ";
             }
             if (content.args[i].type === "void") {
-                setFileStack(content.args[i].fileStack);
-                error("Expected a value, but got " + functionNameToString(content.args[i]) + " which is an action");
+                error("Expected a value, but got " + functionNameToString(content.args[i]) + " which is an action", content.args[i].fileStack);
             }
             result += astToWs(content.args[i]);
             if (content.type === "void") {

@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
+import { enableOptimization, optimizeStrict } from "../../globalVars";
 import { Ast, astParsingFunctions, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 
@@ -71,7 +71,7 @@ astParsingFunctions.__valueInArray__ = function (content) {
             if (content.args[0].name === "__array__") {
                 if (arrayIndex < content.args[0].args.length) {
                     return content.args[0].args[arrayIndex];
-                } else if (content.args[0].args.length !== 0) {
+                } else if (content.args[0].args.length !== 0 || !optimizeStrict) {
                     return getAstForNull();
                 }
             }

@@ -37,17 +37,14 @@ export class OpyError extends Error implements CompilationDiagnostic {
 }
 
 //Logging stuff
-export function error(str: string, token?: any): never {
-    if (token !== undefined && token.fileStack !== undefined) {
-        setFileStack(token.fileStack);
+export function error(str: string, fileStackOverride?: FileStackMember[]): never {
+    if (fileStackOverride) {
+        setFileStack(fileStackOverride);
     }
 
     //var error = "ERROR: ";
     var err = "";
     err += str;
-    if (token !== undefined) {
-        err += "'" + dispTokens(token) + "'";
-    }
     if (fileStack) {
         if (fileStack.length !== 0) {
             for (var file of fileStack.toReversed()) {
@@ -61,11 +58,12 @@ export function error(str: string, token?: any): never {
     throw new OpyError(err, [...fileStack]);
 }
 
-export function warn(warnType: string, message: string) {
+export function warn(warnType: string, message: string, fileStackOverride?: FileStackMember[]) {
     let warning = message + " (" + warnType + ")";
-    if (fileStack) {
-        if (fileStack.length !== 0) {
-            for (var file of fileStack.toReversed()) {
+    let fileStack_ = fileStackOverride || fileStack;
+    if (fileStack_) {
+        if (fileStack_.length !== 0) {
+            for (var file of fileStack_.toReversed()) {
                 warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
             }
         }
@@ -81,7 +79,7 @@ export function warn(warnType: string, message: string) {
     console.warn(warning);
     encounteredWarnings.push({
         message: warning,
-        fileStack,
+        fileStack: fileStack_,
         severity: "warning"
     });
 }

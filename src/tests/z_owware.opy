@@ -1,6 +1,7 @@
 #needed for the "am" == "**" comparison
 #!optimizeStrict
 
+#!suppressWarnings w_ow2_rule_condition_chase
 settings {
     "main": {
         "description": "OWWare - WarioWare Microgaming!\n▶ YZNNN ◀ English · Français · Deutsch\n        Español · Русский · Português\n◆ Discord: discord.gg/95AVMPN (ALL CAPS)\n◆ More details: workshop.codes/owware\n \n80가지 미니게임 • 80个小游戏 • ミニゲーム\n▶ AZAZ1 ◀ English · 한국어 · 中文 · にほんご\n \n◆ Made by Bonkorn#1122 (v2.1)",

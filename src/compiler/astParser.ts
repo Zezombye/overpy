@@ -398,17 +398,17 @@ export function parseAst(content: Ast) {
         }
         //Check for right arguments.
         if (content.args[0].name !== "__arrayContains__") {
-            error("Expected the 'in' operator within 'for' directive, but got " + functionNameToString(content.args[0]));
+            error("Expected the 'in' operator within 'for' directive, but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         if (content.args[0].args.length !== 2) {
-            error("Operator 'in' takes 2 operands, received " + content.args[0].args.length);
+            error("Operator 'in' takes 2 operands, received " + content.args[0].args.length, content.args[0].fileStack);
         }
         if (content.args[0].args[0].name !== "range") {
-            error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got " + functionNameToString(content.args[0].args[1]));
+            error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got " + functionNameToString(content.args[0].args[0]), content.args[0].args[0].fileStack);
         }
 
         if (content.args[0].args[0].args.length < 1 || content.args[0].args[0].args.length > 3) {
-            error("Function 'range' takes 1 to 3 arguments, received " + content.args[0].args[0].args.length);
+            error("Function 'range' takes 1 to 3 arguments, received " + content.args[0].args[0].args.length, content.args[0].args[0].fileStack);
         }
         if (content.args[0].args[0].args.length === 1) {
             content.args[0].args[0].args.unshift(getAstFor0());
@@ -456,18 +456,18 @@ export function parseAst(content: Ast) {
         }
         //Check types
         if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type ?? "", content.args[0].type)) {
-            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]));
+            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]), content.args[0].fileStack);
         }
         for (var i = 1; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name]?.args?.[1].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]));
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]), content.args[i].fileStack);
             }
         }
     } else if (["__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]));
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]), content.args[i].fileStack);
             }
         }
     } else if (content.name in astMacros) {
@@ -480,7 +480,7 @@ export function parseAst(content: Ast) {
                 if (!isTypeSuitable(args[i].type, content.args[i].type)) {
                     //Throw an error for when a literal is expected
                     if (Object.keys(constantValues).includes(args[i].type)) {
-                        error(getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]));
+                        error(getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]), content.args[i].fileStack);
                     } else {
                         //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
                     }

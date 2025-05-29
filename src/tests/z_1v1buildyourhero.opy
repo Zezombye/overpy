@@ -171,6 +171,8 @@ settings {
     }
 }
 
+#!suppressWarnings w_ow2_rule_condition_chase
+
 #Global variables
 
 globalvar HudT1Visibility 0
@@ -242,7 +244,7 @@ rule "1v1 Build your hero by Seita":
 
 rule "While in setup":
     @Condition isInSetup() == true
-    
+
     destroyAllDummies()
     getAllPlayers().FirstHeroBuilt = false
     setMatchTime(300)
@@ -258,7 +260,7 @@ rule "First Hero built":
     @Condition isInSetup() == true
     @Condition getPlayersInSlot(0, Team.1).FirstHeroBuilt == true
     @Condition getPlayersInSlot(0, Team.2).FirstHeroBuilt == true
-    
+
     wait(1, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "Both players finished their hero, starting the round")
     setMatchTime(6)
@@ -269,14 +271,14 @@ rule "First Hero built":
 rule "Remove Hud":
     @Condition isGameInProgress() == true
     @Condition isInSetup() == false
-    
+
     destroyHudText(StartHud)
     destroyHudText(StartHud2)
 
 
 rule "Remove assembling heroes for testing":
     @Condition isAssemblingHeroes() == true
-    
+
     setMatchTime(1)
 
 
@@ -285,7 +287,7 @@ rule "Faster Point open":
     @Condition isMatchBetweenRounds() == false
     @Condition isInSetup() == false
     @Condition isAssemblingHeroes() == false
-    
+
     setMatchTime(20)
 
 
@@ -294,7 +296,7 @@ rule "Bots: Phased out, Invisible, Movement collision, Facing":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.getSlot() != 0
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
     eventPlayer.setInvisibility(Invis.ALL)
     eventPlayer.disablePlayerCollision()
@@ -304,12 +306,12 @@ rule "Bots: Phased out, Invisible, Movement collision, Facing":
 rule "Ability 1:":
     @Disabled
     @Delimiter
-    
+
 
 
 def Abi1Attach():
     @Name "SUB: Ability 1 Attach"
-    
+
     eventPlayer.Abi1Scaling = 1
     if eventPlayer.getHero() == Hero.HANZO:
         eventPlayer.attachTo(getPlayersInSlot(0, eventPlayer.getTeam()), vect(0, 0, 0))
@@ -339,7 +341,7 @@ rule "Ability 1 - Attach: Hero Swap":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getHero() != getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix
-    
+
     wait(0.5)
     Abi1Attach()
     getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix = getPlayersInSlot(0, eventPlayer.getTeam()).getHero()
@@ -351,7 +353,7 @@ rule "Ability 1 - Attach: Normal":
     @Condition eventPlayer.isDummy() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.1)
     Abi1Attach()
 
@@ -367,7 +369,7 @@ rule "Using ability 1: LW & JQ & Hanzo":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD == 0
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_1)
@@ -397,7 +399,7 @@ rule "Using ability 1: Ana":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD == 0
-    
+
     #wait(2)
     eventPlayer.setInvisibility(Invis.NONE)
     getPlayersInSlot(0, eventPlayer.getTeam()).stopForcingButton(Button.PRIMARY_FIRE)
@@ -426,7 +428,7 @@ rule "Using ability 1: Hog hook":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD == 0
-    
+
     eventPlayer.setInvisibility(Invis.NONE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setMoveSpeed(50)
     getPlayersInSlot(0, eventPlayer.getTeam()).stopForcingButton(Button.PRIMARY_FIRE)
@@ -458,7 +460,7 @@ rule "Using ability 1: Genji, Dva, Pharah":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD == 0
-    
+
     eventPlayer.detach()
     eventPlayer.startForcingThrottle(1, 1, 0, 1, 0, 1)
     #eventPlayer.teleport(getPlayersInSlot(0, eventPlayer.getTeam()).getPosition())
@@ -487,7 +489,7 @@ rule "Ability 1 False: Genji, Dva, Pharah":
     @Condition (eventPlayer.getHero() == Hero.DVA or eventPlayer.getHero() == Hero.GENJI or eventPlayer.getHero() == Hero.PHARAH) == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.UsingAbi1 == true
-    
+
     wait(0.05)
     getPlayersInSlot(0, eventPlayer.getTeam()).detach()
     eventPlayer.stopForcingThrottle()
@@ -504,19 +506,19 @@ rule "Dva Flight cancel":
     @Condition eventPlayer.UsingAbi1 == true
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
 
 
 rule "Ability 2:":
     @Disabled
     @Delimiter
-    
+
 
 
 def Abi2Attach():
     @Name "SUB: Ability 2 Attach"
-    
+
     eventPlayer.Abi2Scaling = 1
     if eventPlayer.getHero() == Hero.ZARYA:
         eventPlayer.attachTo(getPlayersInSlot(0, eventPlayer.getTeam()), vect(0, 0, -2))
@@ -548,7 +550,7 @@ rule "Ability 2 - Attach: Hero Swap":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getHero() != getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix
-    
+
     wait(0.5)
     Abi2Attach()
     getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix = getPlayersInSlot(0, eventPlayer.getTeam()).getHero()
@@ -560,7 +562,7 @@ rule "Ability 2 - Attach: Normal":
     @Condition eventPlayer.isDummy() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     Abi2Attach()
 
 
@@ -578,7 +580,7 @@ rule "Using ability 2: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
@@ -611,7 +613,7 @@ rule "Using ability 2: Sig":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
-    
+
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     getPlayersInSlot(0, eventPlayer.getTeam()).setMoveSpeed(25)
     eventPlayer.setInvisibility(Invis.NONE)
@@ -641,7 +643,7 @@ rule "Using ability 2: Sym":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
@@ -666,7 +668,7 @@ rule "Using ability 2: Zarya":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
-    
+
     getPlayersInSlot(1, eventPlayer.getTeam()).startScalingSize(0.1)
     getPlayersInSlot(3, eventPlayer.getTeam()).startScalingSize(0.1)
     getPlayersInSlot(4, eventPlayer.getTeam()).startScalingSize(0.1)
@@ -684,14 +686,14 @@ rule "Using ability 2: Zarya":
 rule "Ultimate:":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Free ultimate %":
     @Event eachPlayer
     @Slot 3
     @Condition eventPlayer.hasSpawned() == true
-    
+
     getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix = getPlayersInSlot(0, eventPlayer.getTeam()).getHero()
     if eventPlayer.getHero() == Hero.KIRIKO:
         getPlayersInSlot(0, eventPlayer.getTeam()).setUltCharge(0)
@@ -717,7 +719,7 @@ rule "Ult keep testing":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.isInSpawnRoom() == true
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     eventPlayer.UltKeep = eventPlayer.getUltCharge()
     #smallMessage(getAllPlayers(), "ult put on variable: {0}".format(eventPlayer.UltKeep))
@@ -728,7 +730,7 @@ rule "Ult keep testing":
 
 def UltAttach():
     @Name "SUB: Ultimate Attach"
-    
+
     #eventPlayer.UltScaling = 1
     if eventPlayer.getHero() == Hero.ZARYA:
         eventPlayer.attachTo(getPlayersInSlot(0, eventPlayer.getTeam()), vect(0, 0.5, 0))
@@ -747,7 +749,7 @@ rule "Ultimate - Attach: Hero Swap":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getHero() != getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix
-    
+
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     #smallMessage(getAllPlayers(), "hero swap trigger")
     wait(0.1)
@@ -777,7 +779,7 @@ rule "Ultimate - Attach: Normal":
     @Condition eventPlayer.isDummy() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     UltAttach()
 
 
@@ -793,7 +795,7 @@ rule "Using ultimate: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ULTIMATE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getUltCharge() == 100
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     eventPlayer.setUltCharge(100)
     wait()
@@ -837,7 +839,7 @@ rule "Using ultimate: JQ":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ULTIMATE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getUltCharge() == 100
-    
+
     eventPlayer.setInvisibility(Invis.NONE)
     eventPlayer.detach()
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
@@ -864,7 +866,7 @@ rule "Using ultimate: Doom":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ULTIMATE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getUltCharge() == 100
-    
+
     eventPlayer.setInvisibility(Invis.NONE)
     eventPlayer.detach()
     eventPlayer.DoomUlt = raycast(getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition(), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()
@@ -885,7 +887,7 @@ rule "Kiriko ulting: CD reduction":
     @Slot 3
     @Condition eventPlayer.getHero() == Hero.KIRIKO
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     chaseAtRate(getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD, 0, 2)
     chaseAtRate(getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD, 0, 2)
     chaseAtRate(getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD, 0, 2)
@@ -897,12 +899,12 @@ rule "Kiriko ulting: CD reduction":
 rule "Secondary:":
     @Disabled
     @Delimiter
-    
+
 
 
 def SecoAttach():
     @Name "SUB: Secondary Attach"
-    
+
     if eventPlayer.getHero() == Hero.ORISA:
         eventPlayer.attachTo(getPlayersInSlot(0, eventPlayer.getTeam()), vect(0, -0.5, 0))
     elif eventPlayer.getHero() == Hero.DVA:
@@ -921,7 +923,7 @@ rule "Secondary: Attach: Hero Swap":
     @Condition eventPlayer.getHero() != Hero.LUCIO
     @Condition eventPlayer.isAlive() == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getHero() != getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix
-    
+
     wait(0.5)
     SecoAttach()
     getPlayersInSlot(0, eventPlayer.getTeam()).HeroSwapFix = getPlayersInSlot(0, eventPlayer.getTeam()).getHero()
@@ -934,7 +936,7 @@ rule "Secondary: Attach: Normal":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasSpawned() == true
     @Condition eventPlayer.getHero() != Hero.LUCIO
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.3)
     SecoAttach()
 
@@ -952,7 +954,7 @@ rule "Using secondary: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
@@ -982,7 +984,7 @@ rule "Using secondary: Hog":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
-    
+
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(false)
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), vect((raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).x, (raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).y - 0.4, (raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).z)), Relativity.TO_WORLD)
     #eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
@@ -1006,7 +1008,7 @@ rule "Using secondary: Dva":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
-    
+
     eventPlayer.setInvisibility(Invis.NONE)
     getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD = 6
     getPlayersInSlot(0, eventPlayer.getTeam()).setAbilityCooldown(Button.SECONDARY_FIRE, 6)
@@ -1030,7 +1032,7 @@ rule "Using secondary: Ram":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).hasStatus(Status.ROOTED) == false
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
-    
+
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
     wait()
@@ -1048,7 +1050,7 @@ rule "Secondary: JQ Recall":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD != 6
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD >= 3
-    
+
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     wait(0.25)
     wait(eventPlayer.SecoCD)
@@ -1058,21 +1060,21 @@ rule "Ram Shield HP":
     @Event eachPlayer
     @Slot 4
     @Condition eventPlayer.getHero() == Hero.RAMATTRA
-    
+
     eventPlayer.setMaxHealth(20)
 
 
 rule "Gamemode:":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Slot 0: Disable buttons":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.disallowButton(Button.ABILITY_1)
     eventPlayer.disallowButton(Button.ABILITY_2)
     eventPlayer.disallowButton(Button.ULTIMATE)
@@ -1083,7 +1085,7 @@ rule "Team 1: Dummy bot damage shows enemy HP":
     @Event playerDealtDamage
     @Team 1
     @Condition eventPlayer.isDummy() == true
-    
+
     damage(victim, getPlayersInSlot(0, Team.1), 0.1)
 
 
@@ -1091,13 +1093,13 @@ rule "Team 2: Dummy bot damage shows enemy HP":
     @Event playerDealtDamage
     @Team 2
     @Condition eventPlayer.isDummy() == true
-    
+
     damage(victim, getPlayersInSlot(0, Team.2), 0.1)
 
 
 rule "Ability CD":
     @Disabled
-    
+
     getPlayersInSlot(0, Team.1).setAbilityCooldown(Button.ABILITY_1, getPlayersInSlot(1, Team.1).getAbilityCooldown(Button.ABILITY_1))
     wait(0.05)
     getPlayersInSlot(0, Team.1).setAbilityCooldown(Button.ABILITY_2, getPlayersInSlot(2, Team.1).getAbilityCooldown(Button.ABILITY_2))
@@ -1125,13 +1127,13 @@ rule "Ability HUD":
 
 rule "Hud visibility Start":
     @Condition getPlayersInSlot(0, Team.1).hasSpawned() == true
-    
+
     HudT1Visibility = getPlayersInSlot(0, Team.1)
 
 
 rule "Hud visibility Start":
     @Condition getPlayersInSlot(0, Team.2).hasSpawned() == true
-    
+
     HudT2Visibility = getPlayersInSlot(0, Team.2)
 
 
@@ -1140,7 +1142,7 @@ rule "Hud visibility after 15s":
     @Condition isMatchBetweenRounds() == false
     @Condition isInSetup() == false
     @Condition isAssemblingHeroes() == false
-    
+
     wait(15)
     HudT1Visibility.append(getPlayersInSlot(0, Team.2))
     HudT2Visibility.append(getPlayersInSlot(0, Team.1))
@@ -1148,14 +1150,14 @@ rule "Hud visibility after 15s":
 
 rule "Hud visibility hide":
     @Condition isMatchBetweenRounds() == true
-    
+
     HudT1Visibility = getPlayersInSlot(0, Team.1)
     HudT2Visibility = getPlayersInSlot(0, Team.2)
 
 
 rule "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒【Josbird's Cursor Menu】▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒":
     @Delimiter
-    
+
 
 
 rule "Create basic HUD elements":
@@ -1178,7 +1180,7 @@ rule "Toggle menu mode":
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     #I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril.
     @Condition eventPlayer.isCommunicatingEmote() == false
-    
+
     #If the menu is not open, opens the menu. Otherwise, closes it.
     eventPlayer.IsInMenuMode = true
 
@@ -1194,7 +1196,7 @@ rule "Toggle menu mode":
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     #I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril.
     @Condition eventPlayer.isCommunicatingEmote() == false
-    
+
     #If the menu is not open, opens the menu. Otherwise, closes it.
     eventPlayer.IsInMenuMode = false
 
@@ -1205,7 +1207,7 @@ rule "Menu activated > Start setup":
     @Condition eventPlayer.isDummy() == false
     #Triggers once whenever the menu opens.
     @Condition eventPlayer.IsInMenuMode == true
-    
+
     #Sets aim speed to minimum to reduce camera sway while in menu.
     eventPlayer.setAimSpeed(10)
     #These 2 rules disable primary and secondary fire for the purposes of click detection. Though personally I haven't actually thought of a use for secondary fire yet.
@@ -1249,7 +1251,7 @@ rule "Menu activated > Start setup":
 
 def CreateMenuFrame():
     @Name "Menu activated > Create frame"
-    
+
     #This rule constructs the 10 elements that make up the frame of the menu. If you want to resize the menu, change the position and contents of these texts to what you want. Don't make it any larger as current size is optimized to be onscreen at min FoV.
     if false:
         return
@@ -1287,115 +1289,115 @@ rule "Wait test":
 
 def CreateMenuButtons():
     @Name "Menu activated > Create buttons"
-    
+
     #This rule creates the actual button visuals when the menu is opened. Until we get color variables, this is where more experienced users can change button colors. In each set, 2nd action = inactive button color, 4th = hovered button color.
     wait()
-    # 
+    #
     #ButtonProperties[0]
     if len(eventPlayer.ButtonProperties) <= 0:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[0][7] and true], eventPlayer.ButtonProperties[0][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[0][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[0][3] - 0.2)), eventPlayer.ButtonProperties[0][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[1]
     if len(eventPlayer.ButtonProperties) <= 1:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[1][7] and true], eventPlayer.ButtonProperties[1][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[1][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[1][3] - 0.2)), eventPlayer.ButtonProperties[1][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[2]
     if len(eventPlayer.ButtonProperties) <= 2:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[2][7] and true], eventPlayer.ButtonProperties[2][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[2][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[2][3] - 0.2)), eventPlayer.ButtonProperties[2][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[3]
     if len(eventPlayer.ButtonProperties) <= 3:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[3][7] and true], eventPlayer.ButtonProperties[3][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[3][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[3][3] - 0.2)), eventPlayer.ButtonProperties[3][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[4]
     if len(eventPlayer.ButtonProperties) <= 4:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[4][7] and true], eventPlayer.ButtonProperties[4][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[4][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[4][3] - 0.2)), eventPlayer.ButtonProperties[4][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[5]
     if len(eventPlayer.ButtonProperties) <= 5:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[5][7] and true], eventPlayer.ButtonProperties[5][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[5][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[5][3] - 0.2)), eventPlayer.ButtonProperties[5][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[6]
     if len(eventPlayer.ButtonProperties) <= 6:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[6][7] and true], eventPlayer.ButtonProperties[6][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[6][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[6][3] - 0.2)), eventPlayer.ButtonProperties[6][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[7]
     if len(eventPlayer.ButtonProperties) <= 7:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[7][7] and true], eventPlayer.ButtonProperties[7][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[7][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[7][3] - 0.2)), eventPlayer.ButtonProperties[7][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[8]
     if len(eventPlayer.ButtonProperties) <= 8:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[8][7] and true], eventPlayer.ButtonProperties[8][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[8][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[8][3] - 0.2)), eventPlayer.ButtonProperties[8][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[9]
     if len(eventPlayer.ButtonProperties) <= 9:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[9][7] and true], eventPlayer.ButtonProperties[9][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[9][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[9][3] - 0.2)), eventPlayer.ButtonProperties[9][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[10]
     if len(eventPlayer.ButtonProperties) <= 10:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[10][7] and true], eventPlayer.ButtonProperties[10][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[10][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[10][3] - 0.2)), eventPlayer.ButtonProperties[10][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[11]
     if len(eventPlayer.ButtonProperties) <= 11:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[11][7] and true], eventPlayer.ButtonProperties[11][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[11][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[11][3] - 0.2)), eventPlayer.ButtonProperties[11][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[12]
     if len(eventPlayer.ButtonProperties) <= 12:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[12][7] and true], eventPlayer.ButtonProperties[12][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[12][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[12][3] - 0.2)), eventPlayer.ButtonProperties[12][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[13]
     if len(eventPlayer.ButtonProperties) <= 13:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[13][7] and true], eventPlayer.ButtonProperties[13][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[13][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[13][3] - 0.2)), eventPlayer.ButtonProperties[13][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[14]
     if len(eventPlayer.ButtonProperties) <= 14:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[14][7] and true], eventPlayer.ButtonProperties[14][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[14][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[14][3] - 0.2)), eventPlayer.ButtonProperties[14][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[15]
     if len(eventPlayer.ButtonProperties) <= 15:
         return
@@ -1405,136 +1407,136 @@ def CreateMenuButtons():
 
 def CreateMenuButtonsMore():
     @Name "Menu activated > Create buttons 2"
-    
+
     #This rule creates the actual button visuals when the menu is opened. Until we get color variables, this is where more experienced users can change button colors. In each set, 2nd action = inactive button color, 4th = hovered button color.
     wait()
-    # 
+    #
     #ButtonProperties[16]
     if len(eventPlayer.ButtonProperties) <= 16:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[16][7] and true], eventPlayer.ButtonProperties[16][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[16][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[16][3] - 0.2)), eventPlayer.ButtonProperties[16][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[17]
     if len(eventPlayer.ButtonProperties) <= 17:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[17][7] and true], eventPlayer.ButtonProperties[17][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[17][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[17][3] - 0.2)), eventPlayer.ButtonProperties[17][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[18]
     if len(eventPlayer.ButtonProperties) <= 18:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[18][7] and true], eventPlayer.ButtonProperties[18][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[18][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[18][3] - 0.2)), eventPlayer.ButtonProperties[18][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[19]
     if len(eventPlayer.ButtonProperties) <= 19:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[19][7] and true], eventPlayer.ButtonProperties[19][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[19][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[19][3] - 0.2)), eventPlayer.ButtonProperties[19][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[20]
     if len(eventPlayer.ButtonProperties) <= 20:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[20][7] and true], eventPlayer.ButtonProperties[20][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[20][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[20][3] - 0.2)), eventPlayer.ButtonProperties[20][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[21]
     if len(eventPlayer.ButtonProperties) <= 21:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[21][7] and true], eventPlayer.ButtonProperties[21][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[21][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[21][3] - 0.2)), eventPlayer.ButtonProperties[21][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[22]
     if len(eventPlayer.ButtonProperties) <= 22:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[22][7] and true], eventPlayer.ButtonProperties[22][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[22][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[22][3] - 0.2)), eventPlayer.ButtonProperties[22][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[23]
     if len(eventPlayer.ButtonProperties) <= 23:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[23][7] and true], eventPlayer.ButtonProperties[23][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[23][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[23][3] - 0.2)), eventPlayer.ButtonProperties[23][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[24]
     if len(eventPlayer.ButtonProperties) <= 24:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[24][7] and true], eventPlayer.ButtonProperties[24][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[24][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[24][3] - 0.2)), eventPlayer.ButtonProperties[24][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[25]
     if len(eventPlayer.ButtonProperties) <= 25:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[25][7] and true], eventPlayer.ButtonProperties[25][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[25][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[25][3] - 0.2)), eventPlayer.ButtonProperties[25][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[26]
     if len(eventPlayer.ButtonProperties) <= 26:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[26][7] and true], eventPlayer.ButtonProperties[26][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[26][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[26][3] - 0.2)), eventPlayer.ButtonProperties[26][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[27]
     if len(eventPlayer.ButtonProperties) <= 27:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[27][7] and true], eventPlayer.ButtonProperties[27][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[27][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[27][3] - 0.2)), eventPlayer.ButtonProperties[27][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[28]
     if len(eventPlayer.ButtonProperties) <= 28:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[28][7] and true], eventPlayer.ButtonProperties[28][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[28][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[28][3] - 0.2)), eventPlayer.ButtonProperties[28][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[29]
     if len(eventPlayer.ButtonProperties) <= 29:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[29][7] and true], eventPlayer.ButtonProperties[29][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[29][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[29][3] - 0.2)), eventPlayer.ButtonProperties[29][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[30]
     if len(eventPlayer.ButtonProperties) <= 30:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[30][7] and true], eventPlayer.ButtonProperties[30][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[30][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[30][3] - 0.2)), eventPlayer.ButtonProperties[30][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[31]
     if len(eventPlayer.ButtonProperties) <= 31:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[31][7] and true], eventPlayer.ButtonProperties[31][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[31][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[31][3] - 0.2)), eventPlayer.ButtonProperties[31][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[32]
     if len(eventPlayer.ButtonProperties) <= 32:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[32][7] and true], eventPlayer.ButtonProperties[32][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[32][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[32][3] - 0.2)), eventPlayer.ButtonProperties[32][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[33]
     if len(eventPlayer.ButtonProperties) <= 33:
         return
     createInWorldText([i for i in eventPlayer if eventPlayer.ButtonProperties[33][7] and true], eventPlayer.ButtonProperties[33][0], eventPlayer.MenuEyePos + eventPlayer.MenuZAxis * 3 + eventPlayer.MenuXAxis * eventPlayer.ButtonProperties[33][2] + (eventPlayer.MenuYAxis * (eventPlayer.ButtonProperties[33][3] - 0.2)), eventPlayer.ButtonProperties[33][8], Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.MenuVFX.append(getLastCreatedText())
     wait(WaitTest)
-    # 
+    #
     #ButtonProperties[33]
     if len(eventPlayer.ButtonProperties) <= 34:
         return
@@ -1545,7 +1547,7 @@ def CreateMenuButtonsMore():
 
 def CreateMenuCursor():
     @Name "Menu activated > Create cursor"
-    
+
     #The next four rules create the actual cursor that the player can move around. For the cursor to render over all other text, it must be the last in-world text to become visible. Thus, we create two identical cursors that alternate visibility every frame.
     createInWorldText([i for i in eventPlayer if getTotalTimeElapsed() % 0.032 > 0.016], "▲", worldVector(localVector(eventPlayer.CursorPos + eventPlayer.MenuYAxis * -0.2, eventPlayer, Transform.ROTATION_AND_TRANSLATION), eventPlayer, Transform.ROTATION_AND_TRANSLATION), 3, Clip.NONE, WorldTextReeval.VISIBILITY_AND_POSITION, Color.YELLOW)
     eventPlayer.MenuVFX.append(getLastCreatedText())
@@ -1561,7 +1563,7 @@ rule "Menu deactivated > Clean up":
     #Triggers once whenever the menu is closed. Technically also triggers when the game starts but that, uh, probably won't cause any problems.
     @Condition eventPlayer.IsInMenuMode == false
     @Condition eventPlayer.MenuLoaded == true
-    
+
     #Return aim speed to normal.
     eventPlayer.setAimSpeed(100)
     #Reenable buttons previously reserved for menu clicking.
@@ -1593,7 +1595,7 @@ rule "Force menu exit on emote":
     #I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril.
     @Condition eventPlayer.IsInMenuMode == true
     @Condition eventPlayer.isCommunicatingEmote() == true
-    
+
     eventPlayer.IsInMenuMode = false
 
 
@@ -1604,7 +1606,7 @@ rule "Cursor bounding box":
     @Condition eventPlayer.IsInMenuMode == true
     #Checks if the cursor is more than 0.1 screen units outside of the bounding box. If you resize the screen make sure to change this as well.
     @Condition (abs(eventPlayer.CursorX) > 2.6 or abs(eventPlayer.CursorY) > 1.35) == true
-    
+
     #Clamps the player's horizontal facing to the range of valid screen space. Screen border values should replace the 2.500s and 1.250s here if you resize the screen.
     eventPlayer.setFacing(directionFromAngles(min(max(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), horizontalAngleOfDirection(eventPlayer.MenuOriginalFacing) - 2.5 / 0.75), horizontalAngleOfDirection(eventPlayer.MenuOriginalFacing) + 2.5 / 0.75), min(max(verticalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.MenuOriginalFacing) - 1.25 / 0.75), verticalAngleOfDirection(eventPlayer.MenuOriginalFacing) + 1.25 / 0.75)), Relativity.TO_WORLD)
     #Double checks every 100ms that the cursor is not still outside the bounds of the menu. This is necessary because if the player moves their aim fast enough, they could overcome the border if they were fast enough.
@@ -1620,7 +1622,7 @@ rule "Detect primary fire button press":
     #Rather than checking for a button click in conditions, we only check for a mouse click so that the player can't press down primary fire then move the cursor onto the button.
     @Condition eventPlayer.IsInMenuMode == true
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     #Clears the primary action ID queue.
     eventPlayer.ActionIDQueue = []
     #Checks if the cursor is currently within radius of the exit button.
@@ -1645,7 +1647,7 @@ rule "Detect secondary fire button press":
     #Rather than checking for a button click in conditions, we only check for a mouse click so that the player can't press down secondary fire then move the cursor onto the button.
     @Condition eventPlayer.IsInMenuMode == true
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    
+
     #Clears the secondary action ID queue.
     eventPlayer.ActionIDQueue_Secondary = []
     #Checks if the cursor is currently within radius of the exit button.
@@ -1666,7 +1668,7 @@ rule "Detect secondary fire button press":
 rule "Action ID \"exit menu\"":
     @Event eachPlayer
     @Condition eventPlayer.CurrActionID == "exit menu"
-    
+
     playEffect(eventPlayer, DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.IsInMenuMode = false
 
@@ -1674,7 +1676,7 @@ rule "Action ID \"exit menu\"":
 rule "Secondary action ID \"exit menu\"":
     @Event eachPlayer
     @Condition eventPlayer.CurrActionID_Secondary == "exit menu"
-    
+
     playEffect(eventPlayer, DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.IsInMenuMode = false
 
@@ -1685,7 +1687,7 @@ rule ">>>EDIT BUTTON & LABEL STARTING VALUES HERE<<<":
     @Condition eventPlayer.isDummy() == false
     #This rule currently resets all buttons to their initial states any time the menu is opened. If you want button states to persist between menu uses, disable this condition.
     #@Condition eventPlayer.IsInMenuMode == true
-    
+
     #Empty the button properties array.
     eventPlayer.ButtonProperties = []
     eventPlayer.ButtonProperties.append([["Ability 1", "", -2, 1, 1, 0.15, false, true, 3, null, null, null]])
@@ -1731,14 +1733,14 @@ rule ">>>EDIT BUTTON & LABEL STARTING VALUES HERE<<<":
 
 rule "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒a":
     @Delimiter
-    
+
 
 
 rule "Exit menu if out of spawn":
     @Event eachPlayer
     @Condition eventPlayer.isDummy() == false
     @Condition eventPlayer.isInSpawnRoom() == false
-    
+
     wait(1)
     eventPlayer.IsInMenuMode = false
 
@@ -1747,7 +1749,7 @@ rule "Ability 1: Hog Hook":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Hog"
-    
+
     smallMessage(eventPlayer, "Roadhog: Chain Hook")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.ROADHOG
@@ -1758,7 +1760,7 @@ rule "Ability 1: Dva Boosters":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Dva"
-    
+
     smallMessage(eventPlayer, "D.Va: Boosters")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.DVA
@@ -1769,7 +1771,7 @@ rule "Ability 1: Genji Dash":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Genji"
-    
+
     smallMessage(eventPlayer, "Genji: Dash")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.GENJI
@@ -1780,7 +1782,7 @@ rule "Ability 1: Hanzo WH":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Hanzo"
-    
+
     smallMessage(eventPlayer, "Hanzo: Sonic Arrow")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.HANZO
@@ -1791,7 +1793,7 @@ rule "Ability 1: Pharah Jet":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Pharah"
-    
+
     smallMessage(eventPlayer, "Pharah: Jump Jet")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.PHARAH
@@ -1802,7 +1804,7 @@ rule "Ability 1: LW Platform":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1LW"
-    
+
     smallMessage(eventPlayer, "Lifeweaver: Petal Platform")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.LIFEWEAVER
@@ -1813,7 +1815,7 @@ rule "Ability 1: Ana Sleep":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1Ana"
-    
+
     smallMessage(eventPlayer, "Ana: Sleep Dart")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.ANA
@@ -1824,7 +1826,7 @@ rule "Ability 1: JQ Shout":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability1JQ"
-    
+
     smallMessage(eventPlayer, "Junker Queen: Commanding Shout")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability1 = Hero.JUNKER_QUEEN
@@ -1835,7 +1837,7 @@ rule "Ability 2: Ana Nade":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Ana"
-    
+
     smallMessage(eventPlayer, "Ana: Biotic Grenade")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.ANA
@@ -1846,7 +1848,7 @@ rule "Ability 2: Zarya Bubble":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Zarya"
-    
+
     smallMessage(eventPlayer, "Zarya: Barrier")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.ZARYA
@@ -1857,7 +1859,7 @@ rule "Ability 2: Soju Disruptor":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Soju"
-    
+
     smallMessage(eventPlayer, "Sojourn: Disruptor Shot")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.SOJOURN
@@ -1868,7 +1870,7 @@ rule "Ability 2: Sym TP":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Sym"
-    
+
     smallMessage(eventPlayer, "Symmetra: Teleporter")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.SYMMETRA
@@ -1879,7 +1881,7 @@ rule "Ability 2: Soldier Heal":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Sold"
-    
+
     smallMessage(eventPlayer, "Soldier: Biotic Field")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.SOLDIER
@@ -1890,7 +1892,7 @@ rule "Ability 2: Pharah Boop":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Pharah"
-    
+
     smallMessage(eventPlayer, "Pharah: Concussive Blast")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.PHARAH
@@ -1901,7 +1903,7 @@ rule "Ability 2: Rein Fire":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Rein"
-    
+
     smallMessage(eventPlayer, "Reinhardt: Firestrike")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.REINHARDT
@@ -1912,7 +1914,7 @@ rule "Ability 2: Sig Rock":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "Ability2Sig"
-    
+
     smallMessage(eventPlayer, "Sigma: Accretion")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ability2 = Hero.SIGMA
@@ -1923,7 +1925,7 @@ rule "Ultimate: Zarya Grav":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateZarya"
-    
+
     smallMessage(eventPlayer, "Zarya: Graviton Surge")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.ZARYA
@@ -1934,7 +1936,7 @@ rule "Ultimate: Ashe Bob":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateAshe"
-    
+
     smallMessage(eventPlayer, "Ashe: B.O.B.")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.ASHE
@@ -1945,7 +1947,7 @@ rule "Ultimate: LW Tree":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateLW"
-    
+
     smallMessage(eventPlayer, "Lifeweaver: Tree of Life")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.LIFEWEAVER
@@ -1956,7 +1958,7 @@ rule "Ultimate: Kitsune Rush":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateKiri"
-    
+
     smallMessage(eventPlayer, "Kiriko: Kitsune Rush")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.KIRIKO
@@ -1967,7 +1969,7 @@ rule "Ultimate: Tracer Pulse":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateTracer"
-    
+
     smallMessage(eventPlayer, "Tracer: (Ranged) Pulse Bomb")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.TRACER
@@ -1978,7 +1980,7 @@ rule "Ultimate: Bap Window":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateBap"
-    
+
     smallMessage(eventPlayer, "Baptiste: Amplification Matrix")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.BAPTISTE
@@ -1989,7 +1991,7 @@ rule "Ultimate: Doom airstrike":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateDoom"
-    
+
     smallMessage(eventPlayer, "Doomfist: Meteor (Air) Strike")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.DOOMFIST
@@ -2000,7 +2002,7 @@ rule "Ultimate: JQ Rampage":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "UltimateJQ"
-    
+
     smallMessage(eventPlayer, "Junker Queen: Rampage")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Ultimate = Hero.JUNKER_QUEEN
@@ -2011,7 +2013,7 @@ rule "Secondary: Orisa Spear":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondOrisa"
-    
+
     smallMessage(eventPlayer, "Orisa: Energy Javelin")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.ORISA
@@ -2022,7 +2024,7 @@ rule "Secondary: Echo Mines":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondEcho"
-    
+
     smallMessage(eventPlayer, "Echo: Sticky mines")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.ECHO
@@ -2033,7 +2035,7 @@ rule "Secondary: Hog Shot":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondHog"
-    
+
     smallMessage(eventPlayer, "Roadhog: Scrap Gun")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.ROADHOG
@@ -2044,7 +2046,7 @@ rule "Secondary: Dva Matrix":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondDva"
-    
+
     smallMessage(eventPlayer, "D.Va: Defense Matrix")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.DVA
@@ -2055,7 +2057,7 @@ rule "Secondary: Ram Shield":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondRam"
-    
+
     smallMessage(eventPlayer, "Ramattra: Void Barrier")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.RAMATTRA
@@ -2066,7 +2068,7 @@ rule "Secondary: Soldier Rocket":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondSold"
-    
+
     smallMessage(eventPlayer, "Soldier: Helix Rockets")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.SOLDIER
@@ -2077,7 +2079,7 @@ rule "Secondary: JQ Blade":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "SecondJQ"
-    
+
     smallMessage(eventPlayer, "Junker Queen: Jagged Blade")
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 35)
     eventPlayer.Secondary = Hero.JUNKER_QUEEN
@@ -2088,7 +2090,7 @@ rule "Summon bots on exit menu":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.CurrActionID == "exit menu"
-    
+
     eventPlayer.SpawnLocation = eventPlayer.getPosition()
     wait(0.25)
     if getPlayersInSlot(1, eventPlayer.getTeam()).getHero() != eventPlayer.Ability1:
@@ -2117,7 +2119,7 @@ rule "Rein Size":
     @Event eachPlayer
     @Hero reinhardt
     @Condition eventPlayer.getSlot() == 0
-    
+
     eventPlayer.startScalingSize(0.8)
 
 
@@ -2125,7 +2127,7 @@ rule "Sig Size":
     @Event eachPlayer
     @Hero sigma
     @Condition eventPlayer.getSlot() == 0
-    
+
     eventPlayer.startScalingSize(0.8)
 
 
@@ -2134,7 +2136,7 @@ rule "Speed boost in spawn":
     @Slot 0
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isInSpawnRoom() == true
-    
+
     eventPlayer.setMoveSpeed(275)
 
 
@@ -2143,7 +2145,7 @@ rule "Speed boost not in setup fixes some maps":
     @Slot 0
     @Condition isInSetup() == false
     @Condition isGameInProgress() == true
-    
+
     eventPlayer.setMoveSpeed(275)
     eventPlayer.SpeedDura = 3
     chaseAtRate(eventPlayer.SpeedDura, 0, 1)
@@ -2156,7 +2158,7 @@ rule "Speed boost out of spawn":
     @Condition eventPlayer.isDummy() == false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getHero() == true
-    
+
     eventPlayer.setMoveSpeed(275)
     eventPlayer.SpeedDura = 3
     chaseAtRate(eventPlayer.SpeedDura, 0, 1)
@@ -2168,14 +2170,14 @@ rule "Speed duration 0":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.SpeedDura == 0
-    
+
     eventPlayer.setMoveSpeed(100)
 
 
 rule "Player Dies":
     @Event playerDied
     @Slot 0
-    
+
     eventPlayer.UltKeep = eventPlayer.getUltCharge()
     smallMessage(getPlayers(getOppositeTeam(victim.getTeam())), "Opponent died: Healing to full in 4.5 seconds")
     wait(0.2)
@@ -2187,7 +2189,7 @@ rule "Player Dies":
 rule "###   External Ability Hud   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Create Ability Icons":
@@ -2207,7 +2209,7 @@ rule "Abi 1 Hud: Cooldown":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.Abi1CD != 0
-    
+
     eventPlayer.Abi1Hud = ceil(eventPlayer.Abi1CD)
     wait(0.5)
     if ruleCondition:
@@ -2218,7 +2220,7 @@ rule "Abi 1 Hud: Icon cd 0":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.Abi1CD == 0
-    
+
     stopChasingVariable(eventPlayer.Abi1CD)
     eventPlayer.Abi1Hud = abilityIconString(getPlayersInSlot(1, eventPlayer.getTeam()).getHero(), Button.ABILITY_1)
 
@@ -2227,7 +2229,7 @@ rule "Abi 2 Hud: Cooldown":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.Abi2CD != 0
-    
+
     eventPlayer.Abi2Hud = ceil(eventPlayer.Abi2CD)
     wait(0.5)
     if ruleCondition:
@@ -2238,7 +2240,7 @@ rule "Abi 2 Hud: Icon cd 0":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.Abi2CD == 0
-    
+
     stopChasingVariable(eventPlayer.Abi2CD)
     eventPlayer.Abi2Hud = abilityIconString(getPlayersInSlot(2, eventPlayer.getTeam()).getHero(), Button.ABILITY_2)
 
@@ -2247,7 +2249,7 @@ rule "Seco Hud: Cooldown":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.SecoCD != 0
-    
+
     eventPlayer.SecoHud = ceil(eventPlayer.SecoCD)
     wait(0.5)
     if ruleCondition:
@@ -2258,8 +2260,6 @@ rule "Seco Hud: Icon cd 0":
     @Event eachPlayer
     @Slot 0
     @Condition eventPlayer.SecoCD == 0
-    
+
     stopChasingVariable(eventPlayer.SecoCD)
     eventPlayer.SecoHud = abilityIconString(getPlayersInSlot(4, eventPlayer.getTeam()).getHero(), Button.SECONDARY_FIRE)
-
-

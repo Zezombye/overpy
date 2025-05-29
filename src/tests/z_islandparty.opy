@@ -276,6 +276,8 @@ settings {
     }
 }
 
+#!suppressWarnings w_ow2_rule_condition_chase
+
 #Global variables
 
 globalvar timeCounter 0
@@ -439,7 +441,7 @@ subroutine symScoring 4
 
 rule "Is in setup {GLOBAL}":
     @Condition isInSetup() == true
-    
+
     roundTimer = 60
     getAllPlayers().enableDeathSpectateAllPlayers()
     getAllPlayers().disableRespawn()
@@ -492,7 +494,7 @@ rule "Is in setup {GLOBAL}":
 
 rule "Disable bulit-in game mode & start timer variables {Game in progress GLOBAL}":
     @Condition isGameInProgress() == true
-    
+
     disableGamemodeCompletion()
     disableMusic()
     disableAnnouncer()
@@ -526,7 +528,7 @@ rule "Disable bulit-in game mode & start timer variables {Game in progress GLOBA
 rule "Is game in progress {PLAYER}":
     @Event eachPlayer
     @Condition isGameInProgress() == true
-    
+
     async(gameModeDescriptionMessages, AsyncBehavior.NOOP)
     eventPlayer.enableDeathSpectateAllPlayers()
     eventPlayer.disableRespawn()
@@ -539,7 +541,7 @@ rule "Player join in setup":
     @Condition isInSetup() == true
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(0.512)
     eventPlayer.startForcingHero(heroOfTheRound)
     eventPlayer.setRespawnTime(9999)
@@ -549,7 +551,7 @@ rule "Player join with game in progress":
     @Event playerJoined
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     async(gameModeDescriptionMessages, AsyncBehavior.NOOP)
     eventPlayer.disableRespawn()
     eventPlayer.setRespawnTime(60)
@@ -756,7 +758,7 @@ rule "String Arrays (Title, credit, code and instructions)":
 
 rule "WORKSHOP SETTINGS":
     @Condition isInSetup() == true
-    
+
     firstToX = createWorkshopSettingBool("WIN CONDITIONS", "FIRST TO [X] POINTS - WIN STATE", false)
     scoreToWin = createWorkshopSettingInt("WIN CONDITIONS", "SCORE TO WIN (30)", 30, 15, 200)
     topScorerAfterAllMinigames = createWorkshopSettingBool("WIN CONDITIONS", "TOP SCORER AFTER PLAYING ALL THE MINIGAMES", false)
@@ -806,7 +808,7 @@ rule "Game Winner (First to X)":
     @Event eachPlayer
     @Condition eventPlayer.getScore() >= scoreToWin
     @Condition firstToX == true
-    
+
     declarePlayerVictory(eventPlayer)
 
 
@@ -814,13 +816,13 @@ rule "Game Winner (Top Scorer after all minigames)":
     @Event eachPlayer
     @Condition topScorerAfterAllMinigames == true
     @Condition roundNumber == len(heroList) + 1
-    
+
     declarePlayerVictory(sorted(getAllPlayers(), lambda player: player.getScore()).last())
 
 
 rule "Time Counter - Add minute":
     @Condition isGameInProgress() == true
-    
+
     setMatchTime(timeCounter)
     wait(60)
     timeCounter++
@@ -831,13 +833,13 @@ rule "Force players to be the hero of the round":
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.startForcingHero(heroOfTheRound)
 
 
 rule "Create new round {SETUP}":
     @Condition isInSetup() == true
-    
+
     wait(0.048)
     heroOfTheRound = random.choice(heroList)
     getAllPlayers().preloadHero(heroOfTheRound)
@@ -854,20 +856,20 @@ rule "Create new round {SETUP}":
 rule "Create new round {OUT OF TIME}":
     @Condition roundTimer <= 0
     @Condition isGameInProgress() == true
-    
+
     async(startNewRound, AsyncBehavior.NOOP)
 
 
 rule "Create new round {LAST PLAYER ALIVE}":
     @Condition getNumberOfLivingPlayers(Team.ALL) <= 1
     @Condition isGameInProgress() == true
-    
+
     async(startNewRound, AsyncBehavior.NOOP)
 
 
 def startNewRound():
     @Name "startNewRound()"
-    
+
     roundTimer = 60
     async(restartStats, AsyncBehavior.NOOP)
     if len(heroesOfPreviousRounds) == len(heroList) - 1:
@@ -897,14 +899,14 @@ def startNewRound():
 
 def restartStats():
     @Name "restartStats()"
-    
+
     getAllPlayers().setMoveSpeed(100)
     getAllPlayers().setGravity(100)
 
 
 def gameModeDescriptionMessages():
     @Name "Description and credit (Small Messages)"
-    
+
     wait(3.5)
     smallMessage(eventPlayer, "Island Party - Heroes Minigames v3.1.1-23")
     wait(3.5)
@@ -934,7 +936,7 @@ rule "On kill: full heal":
     @Condition eventPlayer.getHero() != Hero.TRACER
     @Condition eventPlayer.getHero() != Hero.WINSTON
     @Condition eventPlayer.getHero() != Hero.ZENYATTA
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 1)
     heal(eventPlayer, null, eventPlayer.getMaxHealth())
 
@@ -949,7 +951,7 @@ rule "On kill: cooldown reset":
     @Condition eventPlayer.getHero() != Hero.SYMMETRA
     @Condition eventPlayer.getHero() != Hero.TRACER
     @Condition eventPlayer.getHero() != Hero.WINSTON
-    
+
     eventPlayer.setAbilityCooldown(Button.PRIMARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
@@ -966,7 +968,7 @@ rule "On kill: score":
     @Condition eventPlayer.getHero() != Hero.SIGMA
     @Condition eventPlayer.getHero() != Hero.SYMMETRA
     @Condition eventPlayer.getHero() != Hero.TRACER
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     eventPlayer.addToScore(1)
@@ -981,7 +983,7 @@ rule "On kill: score":
 rule "Last seconds sound":
     @Event eachPlayer
     @Condition roundTimer <= 5
-    
+
     playEffect(eventPlayer, DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer, 200)
     wait(1)
     if ruleCondition:
@@ -990,7 +992,7 @@ rule "Last seconds sound":
 
 rule "HUD Pointfeed reduce times":
     @Condition any([player == 3.744 for player in pointfeedHudTimes]) == true
-    
+
     while true:
         for pointfeedHudTimesIt in range(len(pointfeedHudTimes)):
             if pointfeedHudTimes[pointfeedHudTimesIt] > 0:
@@ -1000,7 +1002,7 @@ rule "HUD Pointfeed reduce times":
 
 rule "Destroy HUD Pointfeed {more than 6}":
     @Condition len(pointfeedHud) > 6
-    
+
     while len(pointfeedHud) > 6:
         destroyHudText(pointfeedHud[0])
         del pointfeedHud[0]
@@ -1009,7 +1011,7 @@ rule "Destroy HUD Pointfeed {more than 6}":
 
 rule "Destroy HUD Pointfeed {time}":
     @Condition any([player <= 0 for player in pointfeedHudTimes]) == true
-    
+
     while true:
         for pointfeedHudTimesIt in range(len(pointfeedHudTimes)):
             if pointfeedHudTimes[pointfeedHudTimesIt] <= 0:
@@ -1021,20 +1023,20 @@ rule "Destroy HUD Pointfeed {time}":
 
 rule "Reset HUD Pointfeed ID":
     @Condition len(pointfeedHud) == 0
-    
+
     pointfeedHudId = 0
 
 
 rule "HoF player HUD":
     @Condition hofPlayersCounter != len(hofPlayers)
-    
+
     hudSubtext(getAllPlayers(), "{0}".format(hofPlayers.last()), HudPosition.RIGHT, -500, Color.ORANGE, HudReeval.VISIBILITY_AND_SORT_ORDER)
     hofPlayersCounter = len(hofPlayers)
 
 
 rule "Hof append":
     @Event eachPlayer
-    
+
     if eventPlayer.getScore() >= 120:
         if "{0}".format(eventPlayer) in hofPlayers == false:
             hofPlayers.append("{0}".format(eventPlayer))
@@ -1045,7 +1047,7 @@ rule "Hof append":
 rule "HoF effect":
     @Event eachPlayer
     @Condition eventPlayer.getScore() >= 120
-    
+
     hudHeader(eventPlayer, "You seam to enjoy this mode. You should join discord.io/IslandParty {0}".format(iconString(Icon.HAPPY)), HudPosition.TOP, 1000, Color.ORANGE, HudReeval.VISIBILITY_AND_STRING)
     eventPlayer.discordLinkForHofPlayersHud = getLastCreatedText()
     #createEffect([player for player in getAllPlayers() if eventPlayer.isAlive()], Effect.SPARKLES, Color.ORANGE, eventPlayer, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -1064,7 +1066,7 @@ rule "HoF effect":
 rule "HoF outlines":
     @Event eachPlayer
     @Condition eventPlayer.getScore() >= 120
-    
+
     eventPlayer.startForcingOutlineFor(getAllPlayers(), true, Color.BLUE)
     wait(0.192)
     eventPlayer.startForcingOutlineFor(getAllPlayers(), true, Color.GREEN)
@@ -1086,7 +1088,7 @@ rule "HoF outlines":
 
 rule "----- HEROES -----":
     @Delimiter
-    
+
 
 
 rule "ANA on kill":
@@ -1094,7 +1096,7 @@ rule "ANA on kill":
     @Hero ana
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ANA
-    
+
     while eventPlayer.isUsingAbility1() == true:
         wait(0.032)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
@@ -1107,7 +1109,7 @@ rule "BASTION tank":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.BASTION
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait()
     if ruleCondition:
@@ -1119,7 +1121,7 @@ rule "BRIG init":
     @Hero brigitte
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition isGameInProgress() == true
-    
+
     wait(0.032)
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, roundTimer)
 
@@ -1131,7 +1133,7 @@ rule "BRIG standard gravity":
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.isFiringSecondaryFire() != true
     @Condition eventPlayer.hasStatus(Status.STUNNED) == false
-    
+
     eventPlayer.setGravity(100)
 
 
@@ -1141,7 +1143,7 @@ rule "BRIG shield gravity":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.setGravity(200)
 
 
@@ -1151,7 +1153,7 @@ rule "BRIG stunned gravity & longer stun":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.hasStatus(Status.STUNNED) == true
-    
+
     eventPlayer.setGravity(25)
     eventPlayer.setStatusEffect(null, Status.STUNNED, 1.5)
 
@@ -1163,7 +1165,7 @@ rule "BRIG speed-boosted shield bash":
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.setMoveSpeed(200)
     wait(0.25)
     eventPlayer.setMoveSpeed(100)
@@ -1175,7 +1177,7 @@ rule "BRIG ult cooldown reset":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     eventPlayer.setAbilityCooldown(Button.PRIMARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
@@ -1187,7 +1189,7 @@ rule "BRIG auto-healing":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.BRIGITTE
     @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth()
-    
+
     heal(eventPlayer, null, eventPlayer.getMaxHealth())
     wait(0.032)
     if ruleCondition:
@@ -1199,7 +1201,7 @@ rule "BRIG end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.BRIGITTE
     @Condition heroOfLastRound == Hero.BRIGITTE
-    
+
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
     eventPlayer.setGravity(100)
     eventPlayer.setMoveSpeed(100)
@@ -1210,7 +1212,7 @@ rule "DOOM init player":
     @Hero doomfist
     @Condition heroOfTheRound == Hero.DOOMFIST
     @Condition isGameInProgress() == true
-    
+
     wait(0.064)
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
 
@@ -1221,7 +1223,7 @@ rule "DOOM ult stun":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DOOMFIST
     @Condition attacker.isUsingUltimate() == true
-    
+
     victim.setStatusEffect(eventPlayer, Status.STUNNED, 3)
 
 
@@ -1230,7 +1232,7 @@ rule "DOOM not using ult":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DOOMFIST
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     eventPlayer.setMoveSpeed(100)
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
 
@@ -1240,7 +1242,7 @@ rule "DOOM using ult":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DOOMFIST
     @Condition eventPlayer.isUsingUltimate() == true
-    
+
     eventPlayer.setMoveSpeed(150)
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
@@ -1252,7 +1254,7 @@ rule "DOOM end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.DOOMFIST
     @Condition heroOfLastRound == Hero.DOOMFIST
-    
+
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
 
 
@@ -1263,7 +1265,7 @@ rule "DVA init player":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isInAlternateForm() == false
     @Condition eventPlayer.dvaPointsHud == null
-    
+
     eventPlayer.dvaPointsHud = null
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), dvaObjectivePos[0]), Relativity.TO_WORLD)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 60)
@@ -1286,7 +1288,7 @@ rule "DVA init player":
 
 rule "DVA init global":
     @Condition heroOfTheRound == Hero.DVA
-    
+
     dvaObjectiveEffects = []
     dvaObjectiveIcons = []
     dvaObjectivePos = [vect(random.uniform(-100, 100), random.uniform(45, 100), random.uniform(-100, 100)), vect(random.uniform(-100, 100), random.uniform(45, 100), random.uniform(-100, 100)), vect(random.uniform(-100, 100), random.uniform(45, 100), random.uniform(-100, 100)), vect(random.uniform(-100, 100), random.uniform(45, 100), random.uniform(-100, 100)), vect(random.uniform(-100, 100), random.uniform(45, 100), random.uniform(-100, 100))]
@@ -1330,7 +1332,7 @@ rule "DVA point":
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.dvaPoints < 5
     @Condition distance(eventPlayer.getPosition(), dvaObjectivePos[eventPlayer.dvaPoints]) <= 7.5
-    
+
     eventPlayer.addToScore(1)
     smallMessage(eventPlayer, "+1 point with {0} {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.getHero()))
     eventPlayer.dvaPoints++
@@ -1348,7 +1350,7 @@ rule "DVA boosting":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     eventPlayer.setMoveSpeed(500)
     eventPlayer.setGravity(0)
 
@@ -1360,7 +1362,7 @@ rule "DVA not boosting in air":
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isInAir() == true
-    
+
     eventPlayer.setMoveSpeed(10)
     eventPlayer.setGravity(0)
 
@@ -1372,7 +1374,7 @@ rule "DVA not boosting on ground":
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setGravity(100)
 
@@ -1384,7 +1386,7 @@ rule "DVA brake":
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     @Disabled
-    
+
     eventPlayer.cancelPrimaryAction()
     wait(0.048)
     #eventPlayer.applyImpulse(Vector.DOWN, 0.001, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -1405,7 +1407,7 @@ rule "DVA baby call mecha":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.isInAlternateForm() == true
-    
+
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait()
@@ -1421,7 +1423,7 @@ rule "DVA winner":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.DVA
     @Condition eventPlayer.dvaPoints >= 5
-    
+
     roundTimer = 0.032
 
 
@@ -1429,7 +1431,7 @@ rule "DVA end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.DVA
     @Condition heroOfLastRound == Hero.DVA
-    
+
     dvaDestructorIt = 0
     for dvaDestructorIt in range(len(dvaObjectiveEffects)):
         destroyEffect(dvaObjectiveEffects[dvaDestructorIt])
@@ -1441,7 +1443,7 @@ rule "DVA end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.DVA
     @Condition heroOfLastRound == Hero.DVA
-    
+
     eventPlayer.dvaPoints = 0
     wait()
     eventPlayer.clearStatusEffect(Status.PHASED_OUT)
@@ -1462,7 +1464,7 @@ rule "ECHO init player":
     @Hero echo
     @Condition heroOfTheRound == Hero.ECHO
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.echoPointsHud = null
     eventPlayer.echoPoints = 0
     wait(1)
@@ -1474,7 +1476,7 @@ rule "ECHO init player":
 
 rule "ECHO init global":
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     #Creates the array to store the effects of the common rings
     commonRingsEffects = []
     #Creates the array to store the positions of the common rings
@@ -1628,7 +1630,7 @@ rule "ECHO reduce speed when taking damage":
     @Event playerTookDamage
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.setMoveSpeed(50)
     wait(0.5)
     eventPlayer.setMoveSpeed(100)
@@ -1640,7 +1642,7 @@ rule "ECHO meele stun":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ECHO
     @Condition attacker.isHoldingButton(Button.MELEE) == true
-    
+
     if attacker.isHoldingButton(Button.MELEE) == true:
         victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.75)
 
@@ -1651,7 +1653,7 @@ rule "ECHO healing like Mercy passive":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ECHO
     @Condition eventPlayer.getHealth() < 200
-    
+
     wait(0.064)
     eventPlayer.startHealingOverTime(null, roundTimer, 200)
 
@@ -1662,7 +1664,7 @@ rule "ECHO not healing":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ECHO
     @Condition eventPlayer.getHealth() == 200
-    
+
     eventPlayer.stopAllHealingOverTime()
     wait()
 
@@ -1674,7 +1676,7 @@ rule "ECHO points common rings":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.echoClosestRing = sorted(commonRingsPos, lambda player: distance(eventPlayer, player))[0]
     wait()
     eventPlayer.echoClosestRing = commonRingsPos.index(eventPlayer.echoClosestRing)
@@ -1691,7 +1693,7 @@ rule "ECHO points rare rings":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.echoClosestRing = sorted(rareRingsPos, lambda player: distance(eventPlayer, player))[0]
     wait()
     eventPlayer.echoClosestRing = rareRingsPos.index(eventPlayer.echoClosestRing)
@@ -1708,7 +1710,7 @@ rule "ECHO points epic rings":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.echoClosestRing = sorted(epicRingsPos, lambda player: distance(eventPlayer, player))[0]
     wait()
     eventPlayer.echoClosestRing = epicRingsPos.index(eventPlayer.echoClosestRing)
@@ -1725,7 +1727,7 @@ rule "ECHO points legendary rings":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.echoClosestRing = sorted(legendaryRingsPos, lambda player: distance(eventPlayer, player))[0]
     wait()
     eventPlayer.echoClosestRing = legendaryRingsPos.index(eventPlayer.echoClosestRing)
@@ -1742,7 +1744,7 @@ rule "ECHO teleports":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ECHO
-    
+
     eventPlayer.teleport(sorted(echoTeleportPos, lambda player: distance(eventPlayer, player))[1])
     wait()
     playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.GREEN, eventPlayer, 1)
@@ -1758,7 +1760,7 @@ rule "ECHO winner":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ECHO
     @Condition eventPlayer.echoPoints >= 40
-    
+
     roundTimer = 0.032
 
 
@@ -1766,7 +1768,7 @@ rule "ECHO end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.ECHO
     @Condition heroOfLastRound == Hero.ECHO
-    
+
     wait(0.064)
     for ringsIt in range(8):
         destroyEffect(commonRingsEffects[ringsIt])
@@ -1813,7 +1815,7 @@ rule "ECHO end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.ECHO
     @Condition heroOfLastRound == Hero.ECHO
-    
+
     wait(eventPlayer.echoPoints * 0.001)
     eventPlayer.addToScore(floor(eventPlayer.echoPoints / 10))
     if eventPlayer.echoPoints >= 10:
@@ -1835,7 +1837,7 @@ rule "LUCIO init player":
     @Hero lucio
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.LUCIO
-    
+
     eventPlayer.lucioPointsHud = null
     createIcon(eventPlayer, sorted(snotPos, lambda player: distance(eventPlayer.getPosition(), player))[0], Icon.RING_THICK, IconReeval.VISIBILITY_AND_POSITION, Color.GREEN)
     eventPlayer.lucioClosestSnotIcon = getLastCreatedEntity()
@@ -1854,7 +1856,7 @@ rule "LUCIO init player":
 rule "LUCIO Snot":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.LUCIO
-    
+
     snotPos = []
     snotEffects = []
     snotPosRandomXComp = random.uniform(-18, 18)
@@ -1907,7 +1909,7 @@ rule "LUCIO point":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.LUCIO
-    
+
     eventPlayer.lucioClosestSnot = sorted(snotPos, lambda player: distance(eventPlayer, player))[0]
     wait()
     eventPlayer.lucioClosestSnot = snotPos.index(eventPlayer.lucioClosestSnot)
@@ -1944,7 +1946,7 @@ rule "LUCIO on ground = reset speed":
     @Condition heroOfTheRound == Hero.LUCIO
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.lucioSpeed > 100
-    
+
     eventPlayer.lucioSpeed = 100
     eventPlayer.setMoveSpeed(eventPlayer.lucioSpeed)
     playEffect(eventPlayer, DynamicEffect.DEBUFF_IMPACT_SOUND, Color.GREEN, eventPlayer, 100)
@@ -1957,7 +1959,7 @@ rule "LUCIO winner":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.LUCIO
     @Condition eventPlayer.lucioPoints >= 8
-    
+
     roundTimer = 0.032
 
 
@@ -1965,7 +1967,7 @@ rule "LUCIO end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.LUCIO
     @Condition heroOfLastRound == Hero.LUCIO
-    
+
     wait(0.064)
     for destructorIt in range(8):
         destroyEffect(snotEffects[destructorIt])
@@ -1979,7 +1981,7 @@ rule "LUCIO end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.LUCIO
     @Condition heroOfLastRound == Hero.LUCIO
-    
+
     wait(eventPlayer.lucioPoints * 0.016)
     eventPlayer.addToScore(floor(eventPlayer.lucioPoints / 2))
     if eventPlayer.lucioPoints >= 2:
@@ -2001,7 +2003,7 @@ rule "MCCREE init player":
     @Event eachPlayer
     @Hero cassidy
     @Condition heroOfTheRound == Hero.CASSIDY
-    
+
     eventPlayer.mccreeHealthHud = null
     wait(0.256)
     if eventPlayer.mccreeHealthHud == null:
@@ -2014,7 +2016,7 @@ rule "MCCREE choose a potato holder":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition potatoHolder == null
-    
+
     potatoHolder = random.choice(getLivingPlayers(Team.ALL))
     potatoPos = potatoHolder
     if ruleCondition:
@@ -2025,7 +2027,7 @@ rule "MCCREE choose a potato holder":
 rule "MCCREE potato effect":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.CASSIDY
-    
+
     createEffect(getAllPlayers(), Effect.BAD_AURA, Color.RED, potatoPos, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     potatoEffect = getLastCreatedEntity()
     createIcon(getAllPlayers(), potatoPos, Icon.FIRE, IconReeval.VISIBILITY_AND_POSITION, Color.RED)
@@ -2039,7 +2041,7 @@ rule "MCCREE potato holder":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition eventPlayer == potatoHolder
-    
+
     eventPlayer.setStatusEffect(null, Status.BURNING, roundTimer)
     playEffect(getAllPlayers(), DynamicEffect.DEBUFF_IMPACT_SOUND, Color.WHITE, eventPlayer, 50)
     eventPlayer.startDamageOverTime(null, roundTimer, 250)
@@ -2055,7 +2057,7 @@ rule "MCCREE not potato holder":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition eventPlayer != potatoHolder
-    
+
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.stopAllDamageOverTime()
     eventPlayer.setMoveSpeed(100)
@@ -2070,7 +2072,7 @@ rule "MCCREE pas\u200bs the potato":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition eventPlayer == potatoHolder
-    
+
     destroyInWorldText(eventPlayer.mccreeInvincibleText)
     destroyHudText(eventPlayer.mccreeInvincibleHud)
     potatoHolder = victim
@@ -2098,7 +2100,7 @@ rule "MCCREE potato holder dies":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition eventPlayer == potatoHolder
-    
+
     potatoHolder = null
 
 
@@ -2107,7 +2109,7 @@ rule "MCCREE potato holder leaves":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.CASSIDY
     @Condition eventPlayer == potatoHolder
-    
+
     potatoHolder = null
 
 
@@ -2120,7 +2122,7 @@ rule "MCCREE win {OUT OF TIME}":
     @Condition roundTimer <= 0.5
     @Condition getNumberOfPlayers(Team.ALL) > 1
     @Condition ceil(len(playersStartOfTheRound) / getNumberOfLivingPlayers(Team.ALL)) - 1 > 0
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     eventPlayer.addToScore(ceil(len(playersStartOfTheRound) / getNumberOfLivingPlayers(Team.ALL)) - 1)
@@ -2140,7 +2142,7 @@ rule "MCCREE win {LAST PLAYER ALIVE}":
     @Condition getNumberOfLivingPlayers(Team.ALL) <= 1
     @Condition getNumberOfPlayers(Team.ALL) > 1
     @Condition ceil(len(playersStartOfTheRound) / getNumberOfLivingPlayers(Team.ALL)) - 1 > 0
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     eventPlayer.addToScore(len(playersStartOfTheRound) - 1)
@@ -2155,7 +2157,7 @@ rule "MCCREE end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.CASSIDY
     @Condition heroOfLastRound == Hero.CASSIDY
-    
+
     destroyEffect(potatoEffect)
     destroyIcon(potatoIcon)
     potatoHolder = null
@@ -2166,7 +2168,7 @@ rule "MCCREE end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.CASSIDY
     @Condition heroOfLastRound == Hero.CASSIDY
-    
+
     eventPlayer.clearStatusEffect(Status.BURNING)
     stopDamageOverTime(getLastDamageOverTimeId())
     stopAllDamageModifications()
@@ -2184,7 +2186,7 @@ rule "MEI init player":
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.isAlive() == true
     @Condition isGameInProgress() == true
-    
+
     wait()
     eventPlayer.setMaxHealth(0.04)
     eventPlayer.setHealth(1)
@@ -2215,7 +2217,7 @@ rule "MEI init player":
 rule "MEI init global":
     @Condition heroOfTheRound == Hero.MEI
     @Condition isGameInProgress() == true
-    
+
     #Creates the array to store the effects of the snow spots
     meiSnowEffects = []
     #Creates the array to store the positions of the snow spots
@@ -2280,7 +2282,7 @@ rule "MEI Kill":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventAbility != Button.MELEE
-    
+
     if victim.meiIsCatching == false:
         eventPlayer.clearStatusEffect(Status.UNKILLABLE)
         kill(victim, attacker)
@@ -2299,7 +2301,7 @@ rule "MEI Pick up Snow":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MEI
-    
+
     if eventPlayer.meiAmmo < 3:
         eventPlayer.meiClosestSnow = sorted(meiSnowPos, lambda player: distance(eventPlayer, player))[0]
         wait()
@@ -2321,7 +2323,7 @@ rule "MEI Meele Catch Cooldown":
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
     @Condition eventPlayer.meiMeeleCatchCooldown == 0
-    
+
     wait()
     eventPlayer.meiIsCatching = true
     eventPlayer.meiMeeleCatchCooldown = 3
@@ -2336,7 +2338,7 @@ rule "MEI No Meele Catch":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.meiMeeleCatchCooldown < 2
-    
+
     eventPlayer.meiIsCatching = false
 
 
@@ -2347,7 +2349,7 @@ rule "MEI Meele Catch Catch":
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.meiMeeleCatchCooldown >= 2
     @Condition eventAbility == Button.SECONDARY_FIRE
-    
+
     if eventPlayer.meiAmmo < 3:
         victim.meiAmmo++
     else:
@@ -2359,7 +2361,7 @@ rule "MEI Disallow Meele":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.meiMeeleCatchCooldown > 0
-    
+
     eventPlayer.disallowButton(Button.MELEE)
 
 
@@ -2368,7 +2370,7 @@ rule "MEI Allow Meele":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.meiMeeleCatchCooldown == 0
-    
+
     eventPlayer.allowButton(Button.MELEE)
 
 
@@ -2377,7 +2379,7 @@ rule "MEI Disallow Sec. Fire":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition (eventPlayer.meiAmmo <= 0 or eventPlayer.meiIsPickingSnow == true) == true
-    
+
     eventPlayer.disallowButton(Button.SECONDARY_FIRE)
 
 
@@ -2387,7 +2389,7 @@ rule "MEI Allow Sec. Fire":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition (eventPlayer.meiAmmo > 0 and eventPlayer.meiIsPickingSnow == false) == true
-    
+
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
 
 
@@ -2400,7 +2402,7 @@ rule "MEI Shoot":
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition (eventPlayer.meiAmmo > 0 and eventPlayer.meiIsPickingSnow == false) == true
-    
+
     wait()
     eventPlayer.disallowButton(Button.MELEE)
     if eventPlayer.isFiringSecondaryFire() == false:
@@ -2418,7 +2420,7 @@ rule "MEI Stop Shoot":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    
+
     if eventPlayer.meiAmmo <= 0:
         eventPlayer.disallowButton(Button.SECONDARY_FIRE)
         eventPlayer.cancelPrimaryAction()
@@ -2438,7 +2440,7 @@ rule "MEI Ultimate":
     @Condition heroOfTheRound == Hero.MEI
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
     @Condition eventPlayer.getUltCharge() >= 100
-    
+
     destroyHudText(eventPlayer.meiAmmoHud)
     hudHeader(eventPlayer, "AMMO: ∞/3", HudPosition.LEFT, 0, Color.SKY_BLUE, HudReeval.VISIBILITY_AND_STRING)
     eventPlayer.meiAmmoHud = getLastCreatedText()
@@ -2451,7 +2453,7 @@ rule "MEI end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.MEI
     @Condition heroOfLastRound == Hero.MEI
-    
+
     eventPlayer.meiAmmo = 1
     eventPlayer.allowButton(Button.MELEE)
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
@@ -2473,7 +2475,7 @@ rule "MEI end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.MEI
     @Condition heroOfLastRound == Hero.MEI
-    
+
     wait(0.064)
     for meiSnowIt in range(10):
         destroyEffect(meiSnowEffects[meiSnowIt])
@@ -2487,7 +2489,7 @@ rule "MERCY go back, told you":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.MERCY
     @Condition distance(eventPlayer, vect(0, 0, 0)) >= 60
-    
+
     smallMessage(eventPlayer, "go back")
     eventPlayer.setStatusEffect(null, Status.STUNNED, 1)
     wait(4)
@@ -2503,7 +2505,7 @@ rule "MERCY secondary buttons":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.MERCY
     @Condition (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) == true
-    
+
     eventPlayer.forceButtonPress(Button.MELEE)
 
 
@@ -2512,7 +2514,7 @@ rule "PHARAH init effects":
     @Hero pharah
     @Condition heroOfTheRound == Hero.PHARAH
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(2)
     createEffect([player for player in getAllPlayers() if eventPlayer.pharahHeal == true], Effect.GOOD_AURA, Color.YELLOW, eventPlayer, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.pharahHealEffect = getLastCreatedEntity()
@@ -2531,7 +2533,7 @@ rule "PHARAH damage boost":
     @Condition heroOfTheRound == Hero.PHARAH
     @Condition eventPlayer.getHealth() > 199
     @Condition eventPlayer.pharahHeal == true
-    
+
     eventPlayer.pharahHeal = false
     eventPlayer.pharahDamageBoost = true
     eventPlayer.setDamageDealt(130)
@@ -2545,7 +2547,7 @@ rule "PHARAH healing":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.PHARAH
     @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth()
-    
+
     eventPlayer.pharahDamageBoost = false
     wait(0.5)
     eventPlayer.pharahHeal = true
@@ -2557,7 +2559,7 @@ rule "PHARAH dead":
     @Event playerDied
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.PHARAH
-    
+
     wait(0.032)
     eventPlayer.pharahHeal = false
     eventPlayer.pharahDamageBoost = false
@@ -2576,7 +2578,7 @@ rule "PHARAH end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.PHARAH
     @Condition heroOfLastRound == Hero.PHARAH
-    
+
     eventPlayer.pharahHeal = false
     eventPlayer.pharahDamageBoost = false
     destroyEffect(eventPlayer.pharahHealEffect)
@@ -2593,7 +2595,7 @@ rule "REIN init player":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     wait(0.256)
     eventPlayer.disallowButton(Button.ULTIMATE)
     eventPlayer.setDamageDealt(50)
@@ -2607,7 +2609,7 @@ rule "REIN bounce":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     if eventPlayer.isHoldingButton(Button.CROUCH) == false:
         goto lbl_0
     eventPlayer.applyImpulse(Vector.UP, 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -2629,7 +2631,7 @@ rule "REIN knockback effect on all abilities":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     victim.applyImpulse(vect(directionTowards(attacker, victim).x, 0, directionTowards(attacker, victim).z), eventDamage * ((60 - roundTimer) / 60 + 1), Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     #smallMessage(attacker, "{0}".format(eventDamage * ((60 - roundTimer) / 60 + 1)))
     heal(victim, null, eventDamage)
@@ -2649,7 +2651,7 @@ rule "REIN died":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.REINHARDT
     @Condition victim.reinAttackerCreditTimer > 0
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, victim.reinLastAttacker, 1)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, victim.reinLastAttacker, 100)
     victim.reinLastAttacker.addToScore(1)
@@ -2668,7 +2670,7 @@ rule "REIN charge: make shorter":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinChargeTimer = 3
     chaseAtRate(eventPlayer.reinChargeTimer, 0, 1)
 
@@ -2680,7 +2682,7 @@ rule "REIN charge: stop after delay":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.setStatusEffect(null, Status.STUNNED, 0.016)
     eventPlayer.reinCanCancelCharge = false
     eventPlayer.stopAcceleration()
@@ -2693,7 +2695,7 @@ rule "REIN charge: make the player glide":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.startAcceleration(vect(0, 0.8, 0), 30, 4, Relativity.TO_PLAYER)
     eventPlayer.reinChargeCancelTimer = 0.8
     chaseAtRate(eventPlayer.reinChargeCancelTimer, 0, 1)
@@ -2708,7 +2710,7 @@ rule "REIN charge: allow cancel":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinCanCancelCharge = true
 
 
@@ -2721,7 +2723,7 @@ rule "REIN charge: cancel (press charge again to cancel a charge)":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinCanCancelCharge = false
     eventPlayer.reinChargeTimer = 0
 
@@ -2733,7 +2735,7 @@ rule "REIN charge: stop":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinChargeTimer = 0
 
 
@@ -2744,7 +2746,7 @@ rule "REIN charge: boom boom if two rein charge each other":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinExplosionCenter = (eventPlayer.getPosition() + getClosestPlayer(eventPlayer, Team.ALL).getPosition()) / 2
     wait(0.02)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.RED, eventPlayer.reinExplosionCenter, 15)
@@ -2761,7 +2763,7 @@ rule "REIN ult: charge":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.reinTempUltCharge = eventPlayer.getUltCharge() + 30
     attacker.setUltCharge(eventPlayer.reinTempUltCharge)
 
@@ -2774,7 +2776,7 @@ rule "REIN ult: use":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.setUltCharge(0)
     eventPlayer.setStatusEffect(null, Status.BURNING, 1 + getNumberOfLivingPlayers(Team.ALL))
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer, 200)
@@ -2797,7 +2799,7 @@ rule "REIN ult: stun effect":
     @Condition attacker.hasStatus(Status.BURNING) == true
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.setStatusEffect(null, Status.STUNNED, 1)
 
 
@@ -2807,7 +2809,7 @@ rule "REIN ult: end":
     @Condition eventPlayer.reinUltTimer <= 0
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.REINHARDT
-    
+
     eventPlayer.setDamageDealt(50)
     eventPlayer.setProjectileSpeed(150)
     eventPlayer.setMoveSpeed(100)
@@ -2822,7 +2824,7 @@ rule "REIN end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.REINHARDT
     @Condition heroOfLastRound == Hero.REINHARDT
-    
+
     eventPlayer.stopAcceleration()
     eventPlayer.allowButton(Button.ULTIMATE)
     eventPlayer.setDamageDealt(100)
@@ -2836,7 +2838,7 @@ rule "REIN end of the round {EACH PLAYER}":
 
 rule "ROADHOG init global":
     @Condition heroOfTheRound == Hero.ROADHOG
-    
+
     roadhogHoleRadius = 7
     roadhogHoleEffects = []
     createEffect(getAllPlayers(), Effect.LIGHT_SHAFT, Color.RED, vect(0, 0, 0), roadhogHoleRadius, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -2866,7 +2868,7 @@ rule "ROADHOG init player":
     @Event eachPlayer
     @Condition heroOfTheRound == Hero.ROADHOG
     @Condition eventPlayer.isAlive() == true
-    
+
     #eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0)
     #eventPlayer.setGravity(0)
     #eventPlayer.teleport(10 * normalize(vect(random.uniform(-1, 1), 0, random.uniform(-1, 1))))
@@ -2907,7 +2909,7 @@ rule "ROADHOG in the hole":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ROADHOG
     @Condition roundTimer <= 58
-    
+
     eventPlayer.disableEnvironmentCollision(true)
     #eventPlayer.setStatusEffect(null, Status.FROZEN, roundTimer)
 
@@ -2920,7 +2922,7 @@ rule "ROADHOG out of the hole":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ROADHOG
     @Condition roundTimer <= 58
-    
+
     eventPlayer.enableEnvironmentCollision()
     #eventPlayer.clearStatusEffect(Status.FROZEN)
 
@@ -2931,7 +2933,7 @@ rule "ROADHOG Yank":
     @Condition eventAbility == Button.ABILITY_1
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.ROADHOG
-    
+
     while attacker.isUsingAbility1():
         wait()
         victim.roadhogYanked = true
@@ -2947,7 +2949,7 @@ rule "ROADHOG secondary buttons":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ROADHOG
     @Condition (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) == true
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
 
 
@@ -2957,7 +2959,7 @@ rule "ROADHOG cd":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ROADHOG
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     while eventPlayer.isUsingAbility1() == true:
         wait(0.032)
     #smallMessage(eventPlayer, "{0}".format(eventPlayer.getAbilityCooldown(Button.ABILITY_1)))
@@ -2968,7 +2970,7 @@ rule "ROADHOG end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.ROADHOG
     @Condition heroOfLastRound == Hero.ROADHOG
-    
+
     for roadhogHoleEffectsIt in range(len(roadhogHoleEffects)):
         destroyEffect(roadhogHoleEffects[roadhogHoleEffectsIt])
     destroyInWorldText(roadhogHoleEffects.last())
@@ -2979,7 +2981,7 @@ rule "ROADHOG end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.ROADHOG
     @Condition heroOfLastRound == Hero.ROADHOG
-    
+
     #eventPlayer.setGravity(100)
     eventPlayer.roadhogYanked = true
     eventPlayer.enableEnvironmentCollision()
@@ -2989,7 +2991,7 @@ rule "SIGMA init player":
     @Event eachPlayer
     @Hero sigma
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     startDamageModification(eventPlayer, eventPlayer, 0)
     eventPlayer.sigmaCatch = false
 
@@ -3000,7 +3002,7 @@ rule "SIGMA Ult damage off":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     eventPlayer.setDamageDealt(0)
 
 
@@ -3010,7 +3012,7 @@ rule "SIGMA no Ult damage on":
     @Condition eventPlayer.isUsingUltimate() == false
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     eventPlayer.setDamageDealt(100)
 
 
@@ -3019,7 +3021,7 @@ rule "SIGMA Ult stunt":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     victim.setStatusEffect(null, Status.STUNNED, 5)
 
 
@@ -3029,7 +3031,7 @@ rule "SIGMA grasp cooldown":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     eventPlayer.sigmaUsingGrasp = true
     eventPlayer.setDamageReceived(1)
     wait(0.125)
@@ -3052,7 +3054,7 @@ rule "SIGMA catch":
     @Condition victim.sigmaUsingGrasp == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     victim.sigmaCatch = true
     kill(attacker, victim)
     smallMessage([victim, attacker], "rock catched {0} by {1}".format("{0}{1}".format(abilityIconString(Hero.SIGMA, Button.ABILITY_2), abilityIconString(Hero.SIGMA, Button.ABILITY_1)), victim))
@@ -3065,7 +3067,7 @@ rule "SIGMA no catch":
     @Condition victim.sigmaUsingGrasp == false
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     eventPlayer.sigmaCatch = false
     kill(victim, attacker)
 
@@ -3075,7 +3077,7 @@ rule "SIGMA kill":
     @Hero sigma
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SIGMA
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.GREEN, eventPlayer, 1)
     eventPlayer.addToScore(1)
     smallMessage(eventPlayer, "+1 point with {0} {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.getHero()))
@@ -3091,14 +3093,14 @@ rule "SIGMA end of the round":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SIGMA
     @Condition heroOfLastRound == Hero.SIGMA
-    
+
     eventPlayer.setDamageDealt(100)
     startDamageModification(eventPlayer, eventPlayer, 100)
 
 
 rule "SOLDIER init global":
     @Condition heroOfTheRound == Hero.SOLDIER
-    
+
     soldierObjectiveEffects = []
     soldierObjectivePos = []
     soldierObjectivePos = [vect(-18, 0, -18), vect(-18, 0, 0), vect(-18, 0, 18), vect(0, 0, -18), vect(0, 0, 18), vect(18, 0, -18), vect(18, 0, 0), vect(18, 0, 18)]
@@ -3155,7 +3157,7 @@ rule "SOLDIER init & phased out":
     @Hero soldier
     @Condition heroOfTheRound == Hero.SOLDIER
     @Condition eventPlayer.isAlive() == true
-    
+
     eventPlayer.soldierPointsHud = null
     eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0)
     wait(0.512)
@@ -3186,7 +3188,7 @@ rule "SOLDIER sprint":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.getHorizontalSpeed() > 5
     @Condition heroOfTheRound == Hero.SOLDIER
-    
+
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 60)
     eventPlayer.soldierSprint += 1.5
     eventPlayer.setMoveSpeed(eventPlayer.soldierSprint)
@@ -3206,7 +3208,7 @@ rule "SOLDIER point":
     @Condition heroOfTheRound == Hero.SOLDIER
     @Condition eventPlayer.soldierPoints < 8
     @Condition distance(eventPlayer.getPosition(), soldierObjectivePos[eventPlayer.soldierPoints]) <= 1.55
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.BLUE, eventPlayer, 1)
     playEffect(eventPlayer, DynamicEffect.BUFF_EXPLOSION_SOUND, Color.BLUE, eventPlayer, 100)
     eventPlayer.soldierPoints++
@@ -3225,7 +3227,7 @@ rule "SOLDIER winner":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SOLDIER
     @Condition eventPlayer.soldierPoints >= 8
-    
+
     roundTimer = 0.032
 
 
@@ -3233,7 +3235,7 @@ rule "SOLDIER end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SOLDIER
     @Condition heroOfLastRound == Hero.SOLDIER
-    
+
     soldierDestructorIt = 0
     for soldierDestructorIt in range(len(soldierObjectiveEffects)):
         destroyEffect(soldierObjectiveEffects[soldierDestructorIt])
@@ -3244,7 +3246,7 @@ rule "SOLDIER end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SOLDIER
     @Condition heroOfLastRound == Hero.SOLDIER
-    
+
     wait()
     eventPlayer.soldierPoints = 0
     destroyHudText(eventPlayer.playerSpeedHud)
@@ -3261,7 +3263,7 @@ rule "SOMBRA hack to kill":
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SOMBRA
-    
+
     eventPlayer.sombraHackedPostion = eventPlayer.getPosition()
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.PURPLE, eventPlayer.sombraHackedPostion, 1.5)
     eventPlayer.teleport(vect(0, -500, 0))
@@ -3273,7 +3275,7 @@ rule "SOMBRA limit stealth duration":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SOMBRA
-    
+
     wait(6, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     smallMessage(eventPlayer, "Maximum Stealth Duration Reached")
@@ -3284,7 +3286,7 @@ rule "SYM init player":
     @Hero symmetra
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
-    
+
     #Brig flag text above the head for the player who reached the color first
     createInWorldText([player for player in getAllPlayers() if symPlayersInTheSelectedColor[0] == eventPlayer], "{0}".format(abilityIconString(Hero.BRIGITTE, Button.ULTIMATE)), eventPlayer, 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)
     eventPlayer.symFirstPlayerInColorText = getLastCreatedText()
@@ -3301,7 +3303,7 @@ rule "SYM init player":
 rule "SYM init global":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
-    
+
     symColoredSpheresEffectsAndText = []
     symPlayersInTheSelectedColor = []
     symVictims = []
@@ -3372,7 +3374,7 @@ rule "SYM invisibility ON":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition distance(eventPlayer.getPosition(), vect(0, 0, 0)) <= 2
-    
+
     #getAllPlayers().exclude(eventPlayer).setInvisibility(Invis.ALL)
     getAllPlayers().setInvisibility(Invis.ALL)
 
@@ -3383,7 +3385,7 @@ rule "SYM invisibility OFF":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition distance(eventPlayer.getPosition(), vect(0, 0, 0)) > 2
-    
+
     wait(0.064)
     #getAllPlayers().exclude(eventPlayer).setInvisibility(Invis.NONE)
     eventPlayer.setInvisibility(Invis.NONE)
@@ -3396,7 +3398,7 @@ rule "SYM invisibility ON 2":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition distance(eventPlayer.getPosition(), getClosestPlayer(eventPlayer, Team.ALL)) <= 2
     @Disabled
-    
+
     ([player for player in getAllPlayers() if distance(player.getPosition(), eventPlayer.getPosition()) <= 2]).setInvisibility(Invis.ALL)
 
 
@@ -3407,7 +3409,7 @@ rule "SYM invisibility OFF 2":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition distance(eventPlayer.getPosition(), getClosestPlayer(eventPlayer, Team.ALL)) > 2
     @Disabled
-    
+
     ([player for player in getAllPlayers() if distance(player.getPosition(), eventPlayer.getPosition()) > 2]).setInvisibility(Invis.NONE)
 
 
@@ -3415,7 +3417,7 @@ rule "SYM decidingOnAColor PHASE":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "decidingOnAColor"
-    
+
     symColorDeciding = random.choice([1, 2, 3, 4, 5, 6, 7, 8].exclude(symColorDeciding))
     wait(0.192, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -3424,7 +3426,7 @@ rule "SYM decidingOnAColor PHASE":
 
 def symTheColorIsSelectedTrigger():
     @Name "SYM theColorIsSelected TRIGGER"
-    
+
     symPlayersInTheSelectedColor = []
     symPhase = "decidingOnAColor"
     wait(3)
@@ -3437,7 +3439,7 @@ rule "SYM theColorIsSelected PHASE":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "theColorIsSelected"
     #@Condition symColorSelected == 0
-    
+
     #symColorSelected = random.choice([3, 7])
     symColorSelected = random.randint(1, 8)
     wait(0.032)
@@ -3476,7 +3478,7 @@ rule "SYM someoneReachedTheSelectedColor TRIGGER":
     @Condition symPhase == "theColorIsSelectedEnd"
     #@Condition len(symPlayersInTheSelectedColor) >= 1
     @Condition any([player.symIn for player in playersStartOfTheRound]) == true
-    
+
     symPhase = "someoneReachedTheSelectedColor"
 
 
@@ -3484,7 +3486,7 @@ rule "SYM someoneReachedTheSelectedColor PHASE":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "someoneReachedTheSelectedColor"
-    
+
     chaseAtRate(symTimeToReachTheColor, 0, 1, ChaseRateReeval.NONE)
     if symColorSelected == 1:
         hudSubtext(getAllPlayers(), "Time to reach the color: {0}".format(symTimeToReachTheColor), HudPosition.TOP, 4, Color.BLUE, HudReeval.VISIBILITY_AND_STRING)
@@ -3517,7 +3519,7 @@ rule "SYM innerRoundTimerIsOver TRIGGER":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symTimeToReachTheColor == 0
     @Condition symPhase == "someoneReachedTheSelectedColor"
-    
+
     symPhase = "innerTimeRoundIsOver"
 
 
@@ -3525,7 +3527,7 @@ rule "SYM innerRoundTimerIsOver PHASE":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "innerTimeRoundIsOver"
-    
+
     stopChasingVariable(symTimeToReachTheColor)
     destroyHudText(symSelectedColorHud)
     #smallMessage(getAllPlayers(), "destroyed symSelectedColorHud")
@@ -3541,7 +3543,7 @@ rule "SYM innerRoundTimerIsOver PHASE":
 
 def symScoring():
     @Name "SYM scoring"
-    
+
     #symVictims = [player for player in playersStartOfTheRound if player.isAlive()].exclude(symPlayersInTheSelectedColor)
     symVictims = getLivingPlayers(Team.ALL).exclude(symPlayersInTheSelectedColor)
     symVictims.forceButtonPress(Button.ABILITY_2)
@@ -3569,7 +3571,7 @@ rule "SYM in":
     @Condition eventPlayer.symIn == false
     @Condition symTimeToReachTheColor > 0
     @Condition (symPhase == "theColorIsSelectedEnd" or symPhase == "someoneReachedTheSelectedColor") == true
-    
+
     eventPlayer.teleport(symColorsPositions[symColorSelected])
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     if symColorSelected == 1:
@@ -3613,7 +3615,7 @@ rule "SYM out":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition roundTimer <= 58
     #@Condition eventPlayer.symIn == true
-    
+
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.allowButton(Button.INTERACT)
     eventPlayer.allowButton(Button.ABILITY_2)
@@ -3629,7 +3631,7 @@ rule "SYM position corrector":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "decidingOnAColor"
     @Condition distance(eventPlayer, vect(0, 0, 0)) > 1
-    
+
     eventPlayer.teleport(vect(0, 0, 0))
     wait(0.032)
     if ruleCondition:
@@ -3639,7 +3641,7 @@ rule "SYM position corrector":
 rule "SYM player debug":
     @Event eachPlayer
     @Disabled
-    
+
     hudHeader(getAllPlayers(), "{0}: {1}".format(eventPlayer, eventPlayer.symIn), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #Left HUD showing which position you finish the run to the color + brig flag icon if you finished 1st
     hudHeader(eventPlayer, "{0}{1}".format(symPlayersInTheSelectedColor.index(eventPlayer) + 1, eventPlayer.symOrdinalString), HudPosition.LEFT, 2, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
@@ -3647,7 +3649,7 @@ rule "SYM player debug":
 
 rule "SYM global debug":
     @Disabled
-    
+
     hudHeader(getAllPlayers(), "Phase: {0}".format(symPhase), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudHeader(getAllPlayers(), "Color Selected: {0}, {1}".format(["NULL", "BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "TURQUOISE", "WHITE", "YELLOW"][symColorSelected], symColorSelected), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudHeader(getAllPlayers(), "innerTime: {0}".format(symTimeToReachTheColor), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
@@ -3658,7 +3660,7 @@ rule "SYM phase corrector":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SYMMETRA
     @Condition symPhase != null
-    
+
     symPhase = null
 
 
@@ -3667,7 +3669,7 @@ rule "SYM end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SYMMETRA
     @Condition heroOfLastRound == Hero.SYMMETRA
-    
+
     wait()
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.clearStatusEffect(Status.ROOTED)
@@ -3683,7 +3685,7 @@ rule "SYM end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.SYMMETRA
     @Condition heroOfLastRound == Hero.SYMMETRA
-    
+
     destroyHudText(symSelectedColorHud)
     destroyHudText(symTimeToReachTheColorHud)
     wait()
@@ -3706,7 +3708,7 @@ rule "SYM end of the round {GLOBAL}":
 rule "TRACER create crown":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.TRACER
-    
+
     crownPos = vect(0, 1.5, 0)
     createEffect(getAllPlayers(), Effect.GOOD_AURA, Color.ORANGE, crownPos, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     crownEffect = getLastCreatedEntity()
@@ -3721,7 +3723,7 @@ rule "TRACER stun & steal":
     @Hero tracer
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.TRACER
-    
+
     if tracerQueen == attacker:
         victim.setStatusEffect(eventPlayer, Status.STUNNED, 1)
     if tracerQueen == victim:
@@ -3735,7 +3737,7 @@ rule "TRACER init queen":
     @Event eachPlayer
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.TRACER
-    
+
     eventPlayer.queenPointsHud = null
     eventPlayer.queenPoints = 0
     wait(0.256)
@@ -3753,7 +3755,7 @@ rule "TRACER first queen":
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen == null
     @Condition roundTimer <= 58.5
-    
+
     wait(0.064, Wait.ABORT_WHEN_FALSE)
     playEffect(eventPlayer, DynamicEffect.BUFF_IMPACT_SOUND, Color.ORANGE, eventPlayer, 50)
     tracerQueen = eventPlayer
@@ -3767,7 +3769,7 @@ rule "TRACER is queen = points, gravity":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen == eventPlayer
-    
+
     eventPlayer.setGravity(500)
     wait(1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.queenPoints++
@@ -3784,7 +3786,7 @@ rule "TRACER is not queen = points, gravity":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen != eventPlayer
-    
+
     eventPlayer.setGravity(100)
 
 
@@ -3795,7 +3797,7 @@ rule "TRACER queen winner":
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen == eventPlayer
     @Condition eventPlayer.queenPoints >= 10
-    
+
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 1)
     playEffect(getAllPlayers(), DynamicEffect.BUFF_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     eventPlayer.addToScore(len(playersStartOfTheRound) - 1)
@@ -3812,7 +3814,7 @@ rule "TRACER dead queen":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen == eventPlayer
-    
+
     tracerQueen = null
     crownPos = vect(0, 1.5, 0)
 
@@ -3822,7 +3824,7 @@ rule "TRACER leaver queen":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound == Hero.TRACER
     @Condition tracerQueen == eventPlayer
-    
+
     tracerQueen = null
     crownPos = vect(0, 1.5, 0)
 
@@ -3830,7 +3832,7 @@ rule "TRACER leaver queen":
 rule "TRACER destroy crown":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.TRACER
-    
+
     destroyEffect(crownEffect[0])
     tracerQueen = null
 
@@ -3841,7 +3843,7 @@ rule "TRACER secondary buttons":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.TRACER
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
-    
+
     eventPlayer.forceButtonPress(Button.MELEE)
 
 
@@ -3850,7 +3852,7 @@ rule "TRACER end of the round {EACH PLAYER}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.TRACER
     @Condition heroOfLastRound == Hero.TRACER
-    
+
     eventPlayer.queenPoints = 0
     eventPlayer.setGravity(100)
     wait(0.256)
@@ -3861,7 +3863,7 @@ rule "TRACER end of the round {GLOBAL}":
     @Condition isGameInProgress() == true
     @Condition heroOfTheRound != Hero.TRACER
     @Condition heroOfLastRound == Hero.TRACER
-    
+
     tracerQueen = null
     wait(0.256)
     destroyIcon(tracerQueenPositionIcon)
@@ -3875,7 +3877,7 @@ rule "WINSTON rage":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.WINSTON
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait()
     if ruleCondition:
@@ -3889,7 +3891,7 @@ rule "WINSTON jump cooldown":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.WINSTON
     @Condition eventPlayer.isUsingAbility1() == true
-    
+
     wait(0.032)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 12)
 
@@ -3900,7 +3902,7 @@ rule "ZEN mega-kick":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ZENYATTA
-    
+
     victim.applyImpulse(eventPlayer.getFacingDirection() + vect(0, 0.1, 0), 75, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
 
@@ -3910,19 +3912,19 @@ rule "ZEN secondary buttons":
     @Condition eventPlayer.isAlive() == true
     @Condition heroOfTheRound == Hero.ZENYATTA
     @Condition (eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) == true
-    
+
     eventPlayer.forceButtonPress(Button.MELEE)
 
 
 rule "----- THIRD CAMERA PERSON ----- Made by Mitsiee. More at https://workshop.codes/third-person":
     @Delimiter
-    
+
 
 
 rule "Enable/disable third camera person":
     @Event eachPlayer
     @Condition eventPlayer.isCommunicating(Comms.FALL_BACK) == true
-    
+
     if eventPlayer.isOnThirdCamera == false:
         eventPlayer.isOnThirdCamera = true
         smallMessage(eventPlayer, "----- THIRD CAMERA PERSON ----- Made by Mitsiee. More at https://workshop.codes/third-person")
@@ -3934,7 +3936,7 @@ rule "Enable/disable third camera person":
 rule "Initialise":
     @Event eachPlayer
     @Condition eventPlayer.isOnThirdCamera == true
-    
+
     eventPlayer.thirdCameraDirection = 1
     eventPlayer.thirdCameraZoom = -2.5
 
@@ -3944,7 +3946,7 @@ rule "Set Third Person":
     @Condition eventPlayer.isAlive() == true
     @Condition ((eventPlayer.getHero() == Hero.WIDOWMAKER or eventPlayer.getHero() == Hero.ASHE or eventPlayer.getHero() == Hero.ANA) and eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) != true
     @Condition eventPlayer.isOnThirdCamera == true
-    
+
     eventPlayer.startCamera(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + worldVector(vect(eventPlayer.thirdCameraDirection * (min(eventPlayer.thirdCameraZoom / 2.5, -0.75)), 0, 0), eventPlayer, Transform.ROTATION) + eventPlayer.getFacingDirection() * eventPlayer.thirdCameraZoom, getAllPlayers(), eventPlayer, false).getHitPosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), eventPlayer, false).getHitPosition(), 60)
 
 
@@ -3952,7 +3954,7 @@ rule "Unset Third Person for specific conditions":
     @Event eachPlayer
     @Condition ((eventPlayer.getHero() == Hero.WIDOWMAKER or eventPlayer.getHero() == Hero.ASHE or eventPlayer.getHero() == Hero.ANA) and eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) == true
     @Condition eventPlayer.isOnThirdCamera == true
-    
+
     eventPlayer.stopCamera()
 
 
@@ -3960,7 +3962,7 @@ rule "Pressing Interact":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     @Condition eventPlayer.isOnThirdCamera == true
-    
+
     if eventPlayer.thirdCameraDirection == -1:
         eventPlayer.thirdCameraDirection = 1
     else:
@@ -3969,14 +3971,14 @@ rule "Pressing Interact":
 
 rule "----- TEST -----":
     @Delimiter
-    
+
 
 
 rule "Lobby with Dummies (TEST)":
     #@Condition isInSetup() == true
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
     @Condition len(getAllPlayers()) < 2
-    
+
     createDummy(Hero.ASHE, Team.ALL, -1, vect(0, 0, 0))
     if len(getAllPlayers()) < 2:
         loop()
@@ -3995,7 +3997,7 @@ rule "Dummys Summon (TEST)":
     @Condition eventPlayer.isCommunicating(Comms.HELLO) == true
     @Condition "Jokaes" == "{0}".format(hostPlayer) == true
     @Disabled
-    
+
     createDummy(Hero.ASHE, Team.ALL, -1, eventPlayer.getPosition())
 
 
@@ -4003,7 +4005,7 @@ rule "Dummy Aim Bot (TEST)":
     @Event eachPlayer
     @Condition eventPlayer.isDummy() == true
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer, sorted([player for player in getAllPlayers() if player.isAlive()], lambda i: distance(eventPlayer, i))[1]), 10000)
     eventPlayer.startForcingButton(Button.ABILITY_2)
     eventPlayer.startForcingButton(Button.ABILITY_1)
@@ -4025,7 +4027,7 @@ rule "Dummy Ult (TEST)":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.getUltCharge() == 100
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
 
 
@@ -4033,7 +4035,7 @@ rule "Dummy Meele loop (TEST)":
     @Event eachPlayer
     @Condition eventPlayer.isDummy() == true
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer, getClosestPlayer(eventPlayer, getOppositeTeam(eventPlayer.getTeam()))), 10000)
     eventPlayer.forceButtonPress(Button.MELEE)
     wait(random.uniform(0.25, 0.35))
@@ -4045,7 +4047,7 @@ rule "Dummy Moving (TEST)":
     @Event eachPlayer
     @Condition eventPlayer.isDummy() == true
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
-    
+
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, sorted([player for player in getAllPlayers() if player.isAlive()], lambda i: distance(eventPlayer, i))[1]), 1, Relativity.TO_WORLD)
 
 
@@ -4056,7 +4058,7 @@ rule "Skip round (TEST)":
     @Condition "Jokaes" == "{0}".format(hostPlayer) == true
     @Condition "Jokaes" == "{0}".format(eventPlayer) == true
     @Disabled
-    
+
     roundTimer = 1
 
 
@@ -4065,7 +4067,7 @@ rule "Force dummy to be hero of the round (TEST)":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.getHero() == Hero.ASHE
     #@Condition "Jokaes" == "{0}".format(hostPlayer) == true
-    
+
     eventPlayer.startForcingHero(heroOfTheRound)
 
 
@@ -4077,7 +4079,7 @@ rule "Destroy the dummies (TEST)":
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     @Disabled
-    
+
     destroyAllDummies()
 
 
@@ -4085,7 +4087,7 @@ rule "Ray Cast Detector (TEST)":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Disabled
-    
+
     hudHeader(getAllPlayers(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false).getHitPosition(), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY)
     createEffect(eventPlayer, Effect.ORB, Color.YELLOW, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false).getHitPosition(), 1, EffectReeval.NONE)
     createBeam(getAllPlayers(), Beam.GOOD, eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), getAllPlayers(), false).getHitPosition(), Color.RED, EffectReeval.NONE)
@@ -4097,7 +4099,7 @@ rule "Destroy all the HUD (TEST)":
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     @Disabled
-    
+
     destroyAllHudTexts()
     eventPlayer.disableGamemodeHud()
     eventPlayer.disableHeroHud()
@@ -4107,7 +4109,7 @@ rule "Debug HUDs (TEST)":
     @Event eachPlayer
     @Condition "Jokaes" == "{0}".format(hostPlayer) == true
     @Disabled
-    
+
     hudHeader(eventPlayer, "{0} m/s".format(eventPlayer.getHorizontalSpeed()), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #hudHeader(eventPlayer, "{0}".format(eventPlayer.getPosition()), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #hudHeader(eventPlayer, "{0}".format(eventPlayer.getPosition().y), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
@@ -4119,11 +4121,8 @@ rule "Debug HUDs (TEST)":
 
 rule "Created by Jokaes#2263":
     @Delimiter
-    
+
 
 
 rule "Code: W468T":
     @Delimiter
-    
-
-

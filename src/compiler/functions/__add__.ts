@@ -30,7 +30,7 @@ astParsingFunctions.__add__ = function (content) {
         //return content;
     }
     //The w_type_check warning is suppressed for now, so throw another warning if the user is attempting to concatenate strings with "+".
-    if (isTypeSuitable("String", content.args[0].type) || isTypeSuitable("String", content.args[1].type)) {
+    if (isTypeSuitable("String", content.args[0].type, false) || isTypeSuitable("String", content.args[1].type, false)) {
         warn("w_string_concat", "The '+' operator cannot be used to concatenate strings. Use the .format() function or f-strings.");
     }
 

@@ -424,14 +424,14 @@ rule "Workshop Settings":
 
 rule "Remove Assembling":
     @Condition isAssemblingHeroes() == true
-    
+
     setMatchTime(0)
     hudSubheader(getAllPlayers(), " \n \n \n ", HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
 
 
 rule "All heroes mode setup, hero text, no fly list, hero list, score per win":
     @Condition AllHeroesMode == true
-    
+
     HeroModifier[getAllHeroes().index(Hero.CASSIDY)] = "default"
     HeroModifier[getAllHeroes().index(Hero.ANA)] = "default"
     HeroModifier[getAllHeroes().index(Hero.ZENYATTA)] = "default"
@@ -491,7 +491,7 @@ rule "All heroes mode setup, hero text, no fly list, hero list, score per win":
 
 rule "Creating Herolist and Herolist2 if different heroes enabled, score per win":
     @Condition AllHeroesMode == false
-    
+
     if Juno == true:
         HeroList.append(Hero.JUNO)
     if Freja == true:
@@ -708,7 +708,7 @@ rule "Disable Scoring, Intro hud, Arena Locations, Spawn Loc, Spawn detect":
 
 rule "Game is in Progress:   Pause Match Time, Sort Queue, Destroy IntroHud":
     @Condition isGameInProgress() == true
-    
+
     #respawn as random heroes [off]
     wait(8)
     pauseMatchTime()
@@ -734,13 +734,13 @@ rule "Game is in Progress:   Pause Match Time, Sort Queue, Destroy IntroHud":
 rule "Playing last hero:    Restart Hero List":
     @Event eachPlayer
     @Condition eventPlayer.HeroNumber == len(eventPlayer.HeroList)
-    
+
     eventPlayer.HeroNumber = 0
 
 
 rule "Player Joins:   Create hero list (Host/List check), Sort Queue, Spectating":
     @Event playerJoined
-    
+
     eventPlayer.Hud = -1
     if eventPlayer.isDummy() == true:
         BotHeroList()
@@ -790,7 +790,7 @@ rule "Player Joins:   Create hero list (Host/List check), Sort Queue, Spectating
 rule "Match ends:    Auto restart":
     @Event eachPlayer
     @Condition eventPlayer.getScore() >= 50
-    
+
     wait(21)
     restartMatch()
 
@@ -798,13 +798,13 @@ rule "Match ends:    Auto restart":
 rule "###   Spectating   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Spectating before game is in progress":
     @Event eachPlayer
     @Condition eventPlayer.JoinSpecHelper == true
-    
+
     eventPlayer.teleport(SpecSpot)
     eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0)
     eventPlayer.setGravity(abs(0))
@@ -829,7 +829,7 @@ rule "Spectating:   Queue Hud, Teleport, Disallow etc":
     @Event eachPlayer
     @Condition eventPlayer.Spectating == true
     @Condition isGameInProgress() == true
-    
+
     destroyHudText(eventPlayer.Hud)
     if eventPlayer in Arena1Q == true:
         hudText(eventPlayer, l"{0}: {1}".format("Position in Queue", abs(Arena1Q.index(eventPlayer) - 2)), "Score per kill: {0}".format(ScorePerWin[1]), "Arena: 1", HudPosition.TOP, 2, Color.GREEN, Color.WHITE, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
@@ -873,7 +873,7 @@ rule "Spectating:   You are next message & Sound":
     @Event eachPlayer
     @Condition eventPlayer.Spectating == true
     @Condition (Arena1Q[3] == eventPlayer or Arena2Q[3] == eventPlayer or Arena3Q[3] == eventPlayer) == true
-    
+
     bigMessage(eventPlayer, "you are next")
     playEffect(eventPlayer, DynamicEffect.RING_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 200)
 
@@ -881,7 +881,7 @@ rule "Spectating:   You are next message & Sound":
 rule "Not Spectating:   Allow buttons, Destroy hud when game is in progress":
     @Event eachPlayer
     @Condition eventPlayer.Spectating == false
-    
+
     eventPlayer.setGravity(100)
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 0)
@@ -906,7 +906,7 @@ rule "Not Spectating:   Allow buttons, Destroy hud when game is in progress":
 rule "Player Dies:   Set Spectating and Change Hero":
     @Event playerDied
     @Condition isGameInProgress() == true
-    
+
     if eventPlayer.isDummy() == true:
         eventPlayer.BotKiriHeal = false
         eventPlayer.ShootRando = eventPlayer.BotCassDif[0]
@@ -945,12 +945,12 @@ rule "Player Dies:   Set Spectating and Change Hero":
 rule "###   Match and Round Start   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 def SpawnLocationCheck():
     @Name "Arena 1: Spawn Location subroutine"
-    
+
     if distance(Arena1Q[1].getEyePosition(), MainSpawnDetLoc[2]) <= 19:
         MainDefaultSpawn = MainOppositeSpawn[1]
         #smallMessage(getAllPlayers(), "Attacker is Right")
@@ -977,7 +977,7 @@ rule "Arena 1: First Match Start":
     @Condition Arena1Q[2].hasSpawned() == true
     @Condition Arena1Match == false
     @Condition FirstMatch == false
-    
+
     Arena1Match = true
     wait(0.25)
     Arena1Q[1].teleport(MainOppositeSpawn[0])
@@ -1004,7 +1004,7 @@ rule "Arena 1: Match Start":
     @Condition Arena1Q[2] == true
     @Condition Arena1Match == false
     @Condition FirstMatch == true
-    
+
     SpawnLocationCheck()
     wait(0.1)
     Arena1Q[2].teleport(MainDefaultSpawn)
@@ -1030,7 +1030,7 @@ rule "Arena 2: Match Start":
     @Condition Arena2Q[1] == true
     @Condition Arena2Q[2] == true
     @Condition Arena2Match == false
-    
+
     wait()
     Arena2Match = true
     wait(0.5)
@@ -1056,7 +1056,7 @@ rule "Arena 3: Match Start":
     @Condition Arena3Q[1] == true
     @Condition Arena3Q[2] == true
     @Condition Arena3Match == false
-    
+
     wait()
     Arena3Match = true
     wait(0.5)
@@ -1080,7 +1080,7 @@ rule "Arena 3: Match Start":
 rule "###   Player dies   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Arena 1: Winner got ana naded":
@@ -1088,7 +1088,7 @@ rule "Arena 1: Winner got ana naded":
     @Condition eventPlayer in Arena1Q == true
     @Condition eventPlayer.Spectating == false
     @Condition (attacker.getHero() == Hero.ANA and (eventDamage == 90 or eventDamage == 135)) == true
-    
+
     eventPlayer.AntiHealDebuffed = true
     wait(3)
     eventPlayer.AntiHealDebuffed = false
@@ -1098,7 +1098,7 @@ rule "Arena 1: Player Dies":
     @Event playerDied
     @Condition (eventPlayer == Arena1Q[1] or eventPlayer == Arena1Q[2]) == true
     @Condition eventPlayer.DeadHelper == false
-    
+
     eventPlayer.DeadHelper = true
     Arena1Q.remove(eventPlayer)
     if getNumberOfPlayers(Team.ALL) <= 3:
@@ -1145,7 +1145,7 @@ rule "Arena 2: Player Dies":
     @Event playerDied
     @Condition (eventPlayer == Arena2Q[1] or eventPlayer == Arena2Q[2]) == true
     @Condition eventPlayer.DeadHelper == false
-    
+
     eventPlayer.DeadHelper = true
     Arena2Q.remove(eventPlayer)
     if getNumberOfPlayers(Team.ALL) <= 3:
@@ -1191,7 +1191,7 @@ rule "Arena 3: Player Dies":
     @Event playerDied
     @Condition (eventPlayer == Arena3Q[1] or eventPlayer == Arena3Q[2]) == true
     @Condition eventPlayer.DeadHelper == false
-    
+
     eventPlayer.DeadHelper = true
     Arena3Q.remove(eventPlayer)
     if getNumberOfPlayers(Team.ALL) <= 3:
@@ -1239,12 +1239,12 @@ rule "Arena 3: Player Dies":
 rule "###   Player leaves   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Player Leaves: Remove from All Queues":
     @Event playerLeft
-    
+
     if Arena1Match == true and (eventPlayer == Arena1Q[1] or eventPlayer == Arena1Q[2]):
         Arena1Q.remove(eventPlayer)
         heal(Arena1Q[1], null, 1000)
@@ -1295,7 +1295,7 @@ rule "Player Leaves: Remove from All Queues":
 rule "###   Bug fix   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Arena 1: Bug fix":
@@ -1305,7 +1305,7 @@ rule "Arena 1: Bug fix":
     @Condition FirstMatch == true
     @Condition (eventPlayer == Arena1Q[1] or eventPlayer == Arena1Q[2]) == true
     @Condition eventPlayer.Spectating == true
-    
+
     wait(1.5, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Spectating = false
 
@@ -1314,7 +1314,7 @@ rule "Arena 2: Afk player":
     @Condition Arena2Q[1] == true
     @Condition Arena2Q[2] == true
     @Condition Arena2Match == true
-    
+
     wait(30, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "   Duel taking over 30s in Arena2 or bugged, killing 1 player to keep the queue rolling")
     kill(Arena2Q[2], Arena2Q[1])
@@ -1326,7 +1326,7 @@ rule "Arena 2: Stuck":
     @Condition Arena2Q[1] == false
     @Condition Arena2Q[2] == false
     @Condition Arena2Match == true
-    
+
     wait(5, Wait.ABORT_WHEN_FALSE)
     Arena2Match = false
     smallMessage(getAllPlayers(), "   Arena 2 left active when no players, trying to fix")
@@ -1336,7 +1336,7 @@ rule "Arena 3: Afk player":
     @Condition Arena3Q[1] == true
     @Condition Arena3Q[2] == true
     @Condition Arena3Match == true
-    
+
     wait(30, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "   Duel taking over 30s in Arena3 or bugged, killing 1 player to keep the queue rolling")
     kill(Arena3Q[2], Arena3Q[1])
@@ -1348,7 +1348,7 @@ rule "Arena 3: Stuck":
     @Condition Arena3Q[1] == false
     @Condition Arena3Q[2] == false
     @Condition Arena3Match == true
-    
+
     wait(5, Wait.ABORT_WHEN_FALSE)
     Arena3Match = false
     smallMessage(getAllPlayers(), "   Arena 3 left active when no players, trying to fix")
@@ -1357,7 +1357,7 @@ rule "Arena 3: Stuck":
 rule "###   Zone check   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Zone Check Arena 1 Center":
@@ -1368,7 +1368,7 @@ rule "Zone Check Arena 1 Center":
     @Condition (eventPlayer.getAltitude() >= 30 or eventPlayer.getAltitude() <= 6) == true
     @Condition distance(eventPlayer, MainHigh) >= 16.4
     @Condition distance(eventPlayer, MainCenter) >= 15.1
-    
+
     eventPlayer.setStatusEffect(null, Status.BURNING, 0.5)
     if eventPlayer.isDummy() == true:
         if eventPlayer.getHero() == Hero.SOJOURN:
@@ -1390,7 +1390,7 @@ rule "Zone Check Arena 1 Top":
     @Condition eventPlayer.Spectating == false
     @Condition (eventPlayer.getAltitude() >= 30 or eventPlayer.getAltitude() <= 6) == true
     @Condition distance(eventPlayer, MainTopDeck) <= 3.75
-    
+
     eventPlayer.setStatusEffect(null, Status.BURNING, 0.5)
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     damage(eventPlayer, null, BurnDamage)
@@ -1405,7 +1405,7 @@ rule "Zone Check Arena 2":
     @Condition eventPlayer.Spectating == false
     @Condition (eventPlayer.getAltitude() >= 30 or eventPlayer.getAltitude() <= 6) == true
     @Condition distance(eventPlayer, SideArenaCenter[1]) >= 17.4
-    
+
     eventPlayer.setStatusEffect(null, Status.BURNING, 0.5)
     damage(eventPlayer, null, BurnDamage)
     wait(0.5)
@@ -1420,7 +1420,7 @@ rule "Zone Check Arena 3":
     @Condition eventPlayer.Spectating == false
     @Condition (eventPlayer.getAltitude() >= 30 or eventPlayer.getAltitude() <= 6) == true
     @Condition distance(eventPlayer, SideArenaCenter[3]) >= 17.4
-    
+
     eventPlayer.setStatusEffect(null, Status.BURNING, 0.5)
     damage(eventPlayer, null, BurnDamage)
     wait(0.5)
@@ -1430,7 +1430,7 @@ rule "Zone Check Arena 3":
 
 rule "###   Hero changes   ###":
     @Disabled
-    
+
     wait(3)
     createDummy(Hero.MOIRA, Team.ALL, 11, vect(0, 0, 0))
     #wait(2)
@@ -1458,7 +1458,7 @@ rule "Hero locking":
     @Condition eventPlayer.isDummy() == false
     @Condition len(eventPlayer.HeroList) >= 2
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     smallMessage(eventPlayer, "   Keep holding reload to change hero")
     wait(0.4, Wait.ABORT_WHEN_FALSE)
@@ -1621,7 +1621,7 @@ rule "Echo duplicate nerf":
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero() == true
     @Condition eventPlayer.isAlive() == true
-    
+
     wait(7, Wait.ABORT_WHEN_FALSE)
     damage(eventPlayer, null, 1000)
 
@@ -1631,7 +1631,7 @@ rule "Support passive healing disabled":
     @Condition eventPlayer.getHero() in getSupportHeroes() == true
     @Condition eventPlayer.getNormalizedHealth() != 1
     @Condition eventPlayer.hasStatus(Status.ASLEEP) == false
-    
+
     wait(2.45, Wait.ABORT_WHEN_FALSE)
     damage(eventPlayer, null, 0.001)
     heal(eventPlayer, null, 0.001)
@@ -1644,7 +1644,7 @@ rule "Dps & Tank passive healing disabled":
     @Condition eventPlayer.getHero() in getSupportHeroes() == false
     @Condition eventPlayer.getNormalizedHealth() != 1
     @Condition eventPlayer.hasStatus(Status.ASLEEP) == false
-    
+
     wait(4.95, Wait.ABORT_WHEN_FALSE)
     if eventPlayer.getHero() == Hero.SOMBRA:
         goto lbl_0
@@ -1658,13 +1658,13 @@ rule "Dps & Tank passive healing disabled":
 rule "###   Bot Game   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Create bot":
     @Condition isGameInProgress() == true
     @Condition getNumberOfPlayers(Team.ALL) == 1
-    
+
     wait(2, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "   Player alone: Spawning a bot in 5 seconds")
     wait(5, Wait.ABORT_WHEN_FALSE)
@@ -1679,7 +1679,7 @@ rule "Create bot":
 
 def BotHeroList():
     @Name "Bot herolist and difficulty selector"
-    
+
     if Hero.SOLDIER in HeroList == true:
         eventPlayer.HeroList.append(Hero.SOLDIER)
     if Hero.ASHE in HeroList == true:
@@ -1775,7 +1775,7 @@ rule "Remove bot":
     @Condition isGameInProgress() == true
     @Condition getNumberOfPlayers(Team.ALL) >= 3
     @Condition getPlayersInSlot(11, Team.ALL).isDummy() == true
-    
+
     smallMessage(getAllPlayers(), "   Player joined: reseting score and removing the bot")
     wait(1, Wait.ABORT_WHEN_FALSE)
     destroyAllDummies()
@@ -1791,7 +1791,7 @@ rule "Bot Dynamic Difficulty":
     @Condition eventPlayer.isDummy() == true
     @Condition Arena1Match == true
     @Condition BotDifSelect == 0
-    
+
     if eventPlayer.getScore() - 12 >= Arena1Q[eventPlayer.TargetNumber].getScore():
         BotDifHud[0] = "Gold"
         BotDifHud[1] = Color.YELLOW
@@ -1838,7 +1838,7 @@ rule "Bot Help Positions":
     @Event eachPlayer
     @Slot 11
     @Condition eventPlayer.isDummy() == true
-    
+
     eventPlayer.BotStrafe[0] = 0.2
     eventPlayer.BotStrafe[1] = 0.8
     eventPlayer.BotHelpPositions[0] = vect(-0.068, 267.788, 286.871)
@@ -1883,7 +1883,7 @@ rule "Bot Move Positions":
     @Event eachPlayer
     @Slot 11
     @Condition eventPlayer.isDummy() == true
-    
+
     eventPlayer.BotMovePositions[0] = vect(-8.165, 268.367, 284.724)
     eventPlayer.BotMovePositions[1] = vect(-4.747, 268.367, 271.626)
     eventPlayer.BotMovePositions[2] = vect(3.481, 268.367, 272.082)
@@ -1919,7 +1919,7 @@ rule "Bot Target Number":
     @Slot 11
     @Condition eventPlayer.isDummy() == true
     @Condition Arena1Q[1] == eventPlayer
-    
+
     eventPlayer.TargetNumber = 2
 
 
@@ -1928,7 +1928,7 @@ rule "Bot Target Number":
     @Slot 11
     @Condition eventPlayer.isDummy() == true
     @Condition Arena1Q[2] == eventPlayer
-    
+
     eventPlayer.TargetNumber = 1
 
 
@@ -1937,7 +1937,7 @@ rule "Bot Facing":
     @Slot 11
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.hasSpawned() == true
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 360)
 
 
@@ -1951,7 +1951,7 @@ rule "Bot Melee":
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 3
     @Condition eventPlayer.BotShoot == true
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() <= 40
-    
+
     wait(abs(eventPlayer.BotDifficulty - 6) - 10, Wait.ABORT_WHEN_FALSE)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 720)
     eventPlayer.setDamageDealt(100)
@@ -1964,7 +1964,7 @@ rule "Bot Melee":
 rule "Bot Movement":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot player Hiding":
@@ -1973,7 +1973,7 @@ rule "Bot player Hiding":
     @Condition eventPlayer.isDummy() == true
     @Condition Arena1Match == true
     @Condition isInLoS(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) == false
-    
+
     if eventPlayer.BotSoldRun == 1:
         waitUntil(eventPlayer.getNormalizedHealth() == 1, 2)
         eventPlayer.BotSoldRun = 0
@@ -2001,7 +2001,7 @@ rule "Bot player not Hiding":
     @Slot 11
     @Condition eventPlayer.isDummy() == true
     @Condition isInLoS(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) == true
-    
+
     eventPlayer.PlayerHiding = false
     eventPlayer.BotPathing = true
     eventPlayer.BotShoot = true
@@ -2019,7 +2019,7 @@ rule "Bot Strafing":
     @Condition eventPlayer.getHero() != Hero.GENJI
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     if eventPlayer.BotLeft == false:
         eventPlayer.startThrottleInDirection(Vector.LEFT, 1, Relativity.TO_PLAYER)
         eventPlayer.BotLeft = true
@@ -2040,7 +2040,7 @@ rule "Bot Strafing Genji Illari Echo":
     @Condition eventPlayer.isDummy() == true
     @Condition (eventPlayer.getHero() == Hero.ECHO or eventPlayer.getHero() == Hero.GENJI or eventPlayer.getHero() == Hero.ILLARI) == true
     @Condition eventPlayer.BotPathing == true
-    
+
     if eventPlayer.BotLeft == false:
         eventPlayer.startThrottleInDirection(Vector.LEFT, 1, Relativity.TO_PLAYER)
         eventPlayer.BotLeft = true
@@ -2070,7 +2070,7 @@ rule "Bot Pathing True - Push low hp":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.getHealth() >= 75 + Arena1Q[eventPlayer.TargetNumber].getHealth()
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer >= 1:
@@ -2113,7 +2113,7 @@ rule "Bot Pathing True - Push random":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.getHealth() >= 0 + Arena1Q[eventPlayer.TargetNumber].getHealth()
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 4)
     #if eventPlayer.getHero() == Hero.SOLDIER:
@@ -2137,7 +2137,7 @@ rule "Bot Pathing False - Stop Push":
     @Slot 11
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.BotPathing == false
-    
+
     eventPlayer.stopForcingThrottle()
 
 
@@ -2152,7 +2152,7 @@ rule "Bot Pathing, No line of sight, Combined all":
     @Condition Arena1Q[eventPlayer.TargetNumber].isUsingUltimate() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.isReloading() == false
-    
+
     if distance(eventPlayer.getPosition(), eventPlayer.BotHelpPositions[2]) <= 7:
         if eventPlayer.getHero() == Hero.TRACER:
             #eventPlayer.BotTracerRecall = true
@@ -2304,7 +2304,7 @@ rule "Bot H 9, out of bounds":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition distance(eventPlayer.getPosition(), eventPlayer.BotHelpPositions[9]) <= 5
-    
+
     #smallMessage(getAllPlayers(), "h9 to m3")
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), eventPlayer.BotMovePositions[3]), 1, Relativity.TO_WORLD)
     eventPlayer.BotPathing = false
@@ -2322,7 +2322,7 @@ rule "Bot H 10, out of bounds":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition distance(eventPlayer.getPosition(), eventPlayer.BotHelpPositions[10]) <= 5
-    
+
     #smallMessage(getAllPlayers(), "h10 to m0")
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), eventPlayer.BotMovePositions[0]), 1, Relativity.TO_WORLD)
     eventPlayer.BotPathing = false
@@ -2341,7 +2341,7 @@ rule "Strafing to a wall left side":
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.BotLeft == true
     @Condition distance(eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false).getHitPosition()) <= 1
-    
+
     eventPlayer.startThrottleInDirection(Vector.RIGHT, 1, Relativity.TO_PLAYER)
 
 
@@ -2354,14 +2354,14 @@ rule "Strafing to a wall right side":
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.BotRight == true
     @Condition distance(eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(-90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false).getHitPosition()) <= 1
-    
+
     eventPlayer.startThrottleInDirection(Vector.LEFT, 1, Relativity.TO_PLAYER)
 
 
 rule "Bot Cassidy":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Cass Primary":
@@ -2376,7 +2376,7 @@ rule "Bot Cass Primary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.ShootPos = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
     wait(eventPlayer.ShootRando / 10 - 0.016, Wait.ABORT_WHEN_FALSE)
     eventPlayer.stopFacing()
@@ -2424,7 +2424,7 @@ rule "Bot Cass Secondary":
     @Condition eventPlayer.getAmmo() >= 4
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
-    
+
     #eventPlayer.setDamageDealt(75)
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
@@ -2448,7 +2448,7 @@ rule "Bot Cass Reload":
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() <= 3
     @Condition eventPlayer.isReloading() == false
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -2466,7 +2466,7 @@ rule "Bot Cass Roll":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getAmmo() <= 3
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 3)
     if eventPlayer.Randomizer == 0:
@@ -2489,7 +2489,7 @@ rule "Bot Cass Roll low hp":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getHealth() <= 100
-    
+
     wait(random.uniform(0.3, 0.6), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
 
@@ -2507,7 +2507,7 @@ rule "Bot Cass Roll to reload":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getAmmo() == 0
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
 
 
@@ -2524,7 +2524,7 @@ rule "Bot Cass Grenade":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 7
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
@@ -2546,7 +2546,7 @@ rule "Bot Cass Grenade":
 rule "Bot Illari":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Illari Primary":
@@ -2558,7 +2558,7 @@ rule "Bot Illari Primary":
     @Condition Arena1Match == true
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
-    
+
     eventPlayer.ShootPos = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
     wait(eventPlayer.ShootRando / 10 - 0.016, Wait.ABORT_WHEN_FALSE)
     eventPlayer.stopFacing()
@@ -2600,7 +2600,7 @@ rule "Bot Illari Pathing - Stop push":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.BotPathing == true
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 12
-    
+
     eventPlayer.Randomizer = random.randint(0, 4)
     if eventPlayer.Randomizer != 0:
         eventPlayer.stopForcingThrottle()
@@ -2620,7 +2620,7 @@ rule "Bot Illari Reload":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() <= 3
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -2634,7 +2634,7 @@ rule "Bot Illari Outburst":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 3)
     if eventPlayer.Randomizer == 0:
@@ -2656,7 +2656,7 @@ rule "Bot Illari Outburst Close":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 7.5
-    
+
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(random.uniform(0.1, 0.3))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
@@ -2677,7 +2677,7 @@ rule "Bot Illari Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 175
     @Condition eventPlayer.getHealth() >= 175
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
@@ -2693,7 +2693,7 @@ rule "Bot Illari Ultimate":
 rule "Bot Baptiste":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Bap Heal":
@@ -2707,7 +2707,7 @@ rule "Bot Bap Heal":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getHealth() < 125
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_1)
 
 
@@ -2720,7 +2720,7 @@ rule "Bot Bap Crouch Jump":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.startForcingButton(Button.CROUCH)
     wait(random.uniform(0.3, 0.7))
     eventPlayer.stopForcingButton(Button.CROUCH)
@@ -2744,7 +2744,7 @@ rule "Bot Bap Crouch Jump vs Genji Echo":
     @Condition eventPlayer.BotShoot == true
     @Condition (Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.ECHO or Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI) == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     eventPlayer.startForcingButton(Button.CROUCH)
     wait(random.uniform(0.3, 0.7))
     eventPlayer.stopForcingButton(Button.CROUCH)
@@ -2769,7 +2769,7 @@ rule "Bot Bap Ultimate":
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.BotKiriHeal = true
     eventPlayer.BotShoot = false
@@ -2805,7 +2805,7 @@ rule "Bot Bap Primary":
     @Condition Arena1Match == true
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
-    
+
     #eventPlayer.ShootRando = random.randint(0, 5)
     eventPlayer.ShootPos = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
     wait(eventPlayer.ShootRando / 10 - 0.016, Wait.ABORT_WHEN_FALSE)
@@ -2864,7 +2864,7 @@ rule "Bot Bap Reload":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() <= 15
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -2872,7 +2872,7 @@ rule "Bot Bap Reload":
 rule "Bot Zen":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Zen Discord":
@@ -2884,7 +2884,7 @@ rule "Bot Zen Discord":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(1, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -2893,7 +2893,7 @@ rule "Bot Zen Discord":
 
 def ZenAim():
     @Name "Bot Zen Aim"
-    
+
     eventPlayer.stopFacing()
     eventPlayer.ZenAim = distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())
     if eventPlayer.getHero() == Hero.ECHO:
@@ -2928,7 +2928,7 @@ rule "Bot Zen Primary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isReloading() == false
-    
+
     #wait(0.2, Wait.ABORT_WHEN_FALSE)
     wait(eventPlayer.BotCassDif[1] - 0.5, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, eventPlayer.BotCassDif[0] + 1)
@@ -2965,7 +2965,7 @@ rule "Bot Zen Right Click":
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() >= 10
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(3)
@@ -2986,7 +2986,7 @@ rule "Bot Zen Release Right click":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
         goto lbl_0
@@ -3010,7 +3010,7 @@ rule "Bot Zen Melee":
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 3
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
@@ -3031,7 +3031,7 @@ rule "Bot Zen Reload":
     @Condition eventPlayer.getAmmo() < 10
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.BotShoot == false
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -3048,7 +3048,7 @@ rule "Bot Zen Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() <= 50
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 50
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
 
@@ -3056,7 +3056,7 @@ rule "Bot Zen Ultimate":
 rule "Bot Soldier":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Soldier Primary":
@@ -3069,7 +3069,7 @@ rule "Bot Soldier Primary":
     @Condition eventPlayer.BotSoldRun == 0
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
         goto lbl_0
@@ -3085,7 +3085,7 @@ rule "Bot Soldier Primary Tracking":
     @Condition eventPlayer.isAlive() == true
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
-    
+
     eventPlayer.ShootRando = random.uniform(1, abs(eventPlayer.BotDifficulty - 6))
     eventPlayer.ShootPosHelp = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
     eventPlayer.ShootPos = vect(eventPlayer.ShootPosHelp.x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 0.4, eventPlayer.ShootPosHelp.z)
@@ -3102,7 +3102,7 @@ rule "Bot Soldier Stop Primary":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == false
-    
+
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
     wait(0.25, Wait.ABORT_WHEN_FALSE)
@@ -3122,7 +3122,7 @@ rule "Bot Soldier Stop Primary vs Reflect":
     @Condition Arena1Match == true
     @Condition Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI
     @Condition Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true
-    
+
     wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -3142,7 +3142,7 @@ rule "Bot Soldier Reload":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() <= 13
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -3158,7 +3158,7 @@ rule "Bot Soldier Heal Field":
     @Condition eventPlayer.getHealth() <= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 100
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
-    
+
     eventPlayer.BotStayTimer = 5
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     eventPlayer.stopForcingThrottle()
@@ -3180,7 +3180,7 @@ rule "Bot Soldier Heal Field run":
     @Condition eventPlayer.BotStayTimer >= 4
     @Condition eventPlayer.getHealth() <= 75
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 100
-    
+
     eventPlayer.BotSoldRun = 1
     eventPlayer.forceButtonPress(Button.RELOAD)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -3216,7 +3216,7 @@ rule "Bot Soldier Rocket":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition Arena1Q[eventPlayer.TargetNumber].isOnGround() == true
-    
+
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
         wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
@@ -3243,7 +3243,7 @@ rule "Bot Soldier Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     wait(0.4, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
@@ -3256,7 +3256,7 @@ rule "Bot Soldier Ultimate":
 rule "Bot Ana":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Ana Pre Zoom":
@@ -3269,7 +3269,7 @@ rule "Bot Ana Pre Zoom":
     @Condition eventPlayer.BotSleepDartHit == 0
     @Condition eventPlayer.BotShoot == false
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 9
-    
+
     if eventPlayer.isFiringSecondaryFire() == false:
         eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(1)
@@ -3289,7 +3289,7 @@ rule "Bot Ana Primary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 7.5:
         if eventPlayer.isFiringSecondaryFire() == false:
             eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
@@ -3334,7 +3334,7 @@ rule "Bot Ana Reload":
     @Condition eventPlayer.getAmmo() <= 6
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -3352,7 +3352,7 @@ rule "Bot Ana Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() <= 100
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 100
-    
+
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
@@ -3375,7 +3375,7 @@ rule "Bot Ana Offensive Nade":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition Arena1Q[eventPlayer.TargetNumber].getEyePosition().y <= 271
-    
+
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer == 0:
         wait(random.uniform(0.6, 0.6), Wait.ABORT_WHEN_FALSE)
@@ -3410,7 +3410,7 @@ rule "Bot Ana Self Nade":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.getHealth() <= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 130
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 3)
     if eventPlayer.Randomizer == 0:
@@ -3436,7 +3436,7 @@ rule "Bot Ana Self Nade low":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.getHealth() <= 100
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 60
-    
+
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition()), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
@@ -3458,7 +3458,7 @@ rule "Bot Ana Sleep":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
         wait(random.uniform(0.4, 0.5), Wait.ABORT_WHEN_FALSE)
@@ -3495,7 +3495,7 @@ rule "Bot Ana Sleep Hit":
     @Condition Arena1Match == true
     @Condition Arena1Q[eventPlayer.TargetNumber].hasStatus(Status.ASLEEP) == true
     @Condition eventPlayer.BotSleepDartHit == 0
-    
+
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
     if distance(Arena1Q[eventPlayer.TargetNumber].getEyePosition(), eventPlayer.BotHelpPositions[11]) <= 7:
@@ -3546,7 +3546,7 @@ rule "Bot Ana Sleep Broke":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotSleepDartHit != 0
     @Condition Arena1Q[eventPlayer.TargetNumber].hasStatus(Status.ASLEEP) == false
-    
+
     eventPlayer.BotSleepDartHit = 0
     eventPlayer.stopForcingThrottle()
     wait(1)
@@ -3557,7 +3557,7 @@ rule "Bot Ana Sleep Broke":
 rule "Bot Sojourn":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Sojourn Primary":
@@ -3570,7 +3570,7 @@ rule "Bot Sojourn Primary":
     @Condition eventPlayer.BotSoldRun == 0
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
-    
+
     wait(eventPlayer.BotCassDif[1] - 0.5, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
         goto lbl_0
@@ -3597,7 +3597,7 @@ rule "Bot Sojourn Stop Primary":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == false
-    
+
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
     wait(0.25, Wait.ABORT_WHEN_FALSE)
@@ -3615,7 +3615,7 @@ rule "Bot Sojourn Stop Primary vs Reflect":
     @Condition Arena1Match == true
     @Condition Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI
     @Condition Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true
-    
+
     wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -3633,7 +3633,7 @@ rule "Bot Sojourn Secondary resource count":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventAbility == Button.PRIMARY_FIRE
-    
+
     eventPlayer.BotSojRail += 5
     if eventPlayer.BotSojRail >= 100:
         eventPlayer.BotSojRail = 100
@@ -3650,7 +3650,7 @@ rule "Bot Sojourn Secondary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.BotSojRail + 30 >= Arena1Q[eventPlayer.TargetNumber].getHealth()
     @Condition eventPlayer.BotSojRail >= 5
-    
+
     wait(random.uniform(0.2, 0.4), Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
         goto lbl_0
@@ -3672,7 +3672,7 @@ rule "Bot Sojourn Reload":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == false
     @Condition eventPlayer.getAmmo() <= 18
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
 
@@ -3690,7 +3690,7 @@ rule "Bot Sojourn Disruptor":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition Arena1Q[eventPlayer.TargetNumber].isOnGround() == true
-    
+
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
         wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
@@ -3717,7 +3717,7 @@ rule "Bot Sojourn Slide":
     @Condition Arena1Match == true
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
-    
+
     wait(random.uniform(2, 5), Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer == 0:
@@ -3741,7 +3741,7 @@ rule "Bot Sojourn Slide low":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getHealth() <= 75
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 60
-    
+
     wait(random.uniform(0.3, 0.5), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     eventPlayer.Randomizer = random.randint(0, 1)
@@ -3764,7 +3764,7 @@ rule "Bot Sojourn Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
@@ -3785,7 +3785,7 @@ rule "Bot Sojourn Ultimate":
 rule "Bot Tracer":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Tracer Move towards player":
@@ -3799,7 +3799,7 @@ rule "Bot Tracer Move towards player":
     #@Condition eventPlayer.BotShoot == true
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 10
     @Condition Arena1Q[eventPlayer.TargetNumber].getEyePosition().y <= 275
-    
+
     eventPlayer.startForcingThrottle(1, 1, 0, 1, 0, 1)
     wait(2, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -3816,7 +3816,7 @@ rule "Bot Tracer Stop moving towards":
     @Condition eventPlayer.isReloading() == false
     #@Condition eventPlayer.BotShoot == true
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 7
-    
+
     eventPlayer.stopForcingThrottle()
     wait(2, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -3834,7 +3834,7 @@ rule "Bot Tracer First Blink":
     @Condition eventPlayer.BotTracerFirstBlink == true
     @Condition eventPlayer.BotShoot == true
     @Condition distance(eventPlayer.getEyePosition(), raycast(Arena1Q[eventPlayer.TargetNumber].getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition() + Arena1Q[eventPlayer.TargetNumber].getFacingDirection() * distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), getAllPlayers(), Arena1Q[eventPlayer.TargetNumber], true).getHitPosition()) <= 2
-    
+
     #wait(1)
     #waitUntil(Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 25), 20)
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q.getEyePosition()), eventPlayer.TargetNumber, Relativity.TO_WORLD)
@@ -3866,7 +3866,7 @@ rule "Bot Tracer Blink 2 charges":
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) >= 2
     @Condition eventPlayer.BotTracerFirstBlink == false
     @Condition Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 45) == true
-    
+
     wait(random.uniform(0.4, 1), Wait.ABORT_WHEN_FALSE)
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 15:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q.getEyePosition()), eventPlayer.TargetNumber, Relativity.TO_WORLD)
@@ -3904,7 +3904,7 @@ rule "Bot Tracer Blink Reload":
     @Condition Arena1Q[eventPlayer.TargetNumber].isReloading() == false
     @Condition eventPlayer.isReloading() == true
     @Condition Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 45) == true
-    
+
     wait(random.uniform(0.5, 0.5), Wait.ABORT_WHEN_FALSE)
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 15:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q.getEyePosition()), eventPlayer.TargetNumber, Relativity.TO_WORLD)
@@ -3942,7 +3942,7 @@ rule "Bot Tracer Blink Close < 6":
     @Condition eventPlayer.getAbilityCharge(Button.ABILITY_1) >= 1
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 6
     @Condition Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 30) == true
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q.getEyePosition()), eventPlayer.TargetNumber, Relativity.TO_WORLD)
     eventPlayer.BotPathing = false
@@ -3967,7 +3967,7 @@ rule "Bot Tracer Blink Low HP":
     @Condition eventPlayer.getHealth() <= 75
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 30) == true
-    
+
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 6.5:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q.getEyePosition()), eventPlayer.TargetNumber, Relativity.TO_WORLD)
         eventPlayer.BotPathing = false
@@ -3990,7 +3990,7 @@ rule "Bot Tracer Recall HP log":
     @Event eachPlayer
     @Hero tracer
     @Condition eventPlayer.isDummy() == true
-    
+
     for eventPlayer.Control in range(29):
         eventPlayer.BotTracerRecall[eventPlayer.Control] = eventPlayer.getHealth()
         wait(0.1)
@@ -4007,7 +4007,7 @@ rule "Bot Tracer Recall":
     @Condition Arena1Match == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() + 85 < sorted(eventPlayer.BotTracerRecall).last() == true
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
 
@@ -4021,7 +4021,7 @@ rule "Bot Tracer Recall low hp":
     @Condition Arena1Match == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() <= 60
-    
+
     wait(random.uniform(0.1, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
 
@@ -4037,7 +4037,7 @@ rule "Bot Tracer Primary":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 15
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
         goto lbl_0
@@ -4053,7 +4053,7 @@ rule "Bot Tracer Primary Tracking":
     @Condition eventPlayer.isAlive() == true
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
-    
+
     eventPlayer.ShootRando = random.uniform(1, abs(eventPlayer.BotDifficulty - 6))
     #eventPlayer.ShootRando = random.randint(1, 3)
     eventPlayer.ShootPosHelp = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
@@ -4072,7 +4072,7 @@ rule "Bot Tracer Stop Primary":
     @Condition Arena1Match == true
     @Condition eventPlayer.isUsingUltimate() == false
     @Condition (eventPlayer.BotShoot == false or distance(eventPlayer.getEyePosition(), eventPlayer.getEyePosition()) > 15.5) == true
-    
+
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 360)
     wait(0.25, Wait.ABORT_WHEN_FALSE)
@@ -4098,7 +4098,7 @@ rule "Bot Tracer Stop Primary vs Reflect":
     @Condition Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI
     @Condition Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -4122,7 +4122,7 @@ rule "Bot Tracer Ultimate":
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 100
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 10
     @Condition Arena1Q[eventPlayer.TargetNumber].getEyePosition().y <= 271
-    
+
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 6:
         eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 720)
         eventPlayer.startForcingThrottle(1, 1, 0, 1, 0, 1)
@@ -4159,7 +4159,7 @@ rule "Bot Tracer Ultimate":
 rule "Bot Echo":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Echo Fly":
@@ -4172,7 +4172,7 @@ rule "Bot Echo Fly":
     @Condition Arena1Match == true
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
-    
+
     if eventPlayer.BotDifficulty <= 1:
         goto lbl_0
     eventPlayer.startForcingThrottle(1, 1, 0, 1, 0, 1)
@@ -4195,7 +4195,7 @@ rule "Bot Echo Primary":
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.isReloading() == false
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, eventPlayer.BotCassDif[0] + 1)
     if eventPlayer.Randomizer <= 2:
@@ -4229,7 +4229,7 @@ rule "Bot Echo Moving Forward":
     @Condition eventPlayer.BotDifficulty >= 2
     @Condition eventPlayer.isOnGround() == false
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 10
-    
+
     eventPlayer.startForcingThrottle(1, 1, 0, 1, 0, 1)
     wait(2)
     if ruleCondition:
@@ -4245,7 +4245,7 @@ rule "Bot Echo stop Moving Forward":
     @Condition Arena1Match == true
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 10
-    
+
     eventPlayer.stopForcingThrottle()
     wait(2)
     if ruleCondition:
@@ -4263,7 +4263,7 @@ rule "Bot Echo Secondary":
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
-    
+
     eventPlayer.Randomizer = random.randint(0, eventPlayer.BotCassDif[0] + 1)
     #eventPlayer.Randomizer = random.randint(0, 3)
     if eventPlayer.Randomizer <= 2:
@@ -4299,7 +4299,7 @@ rule "Bot Echo Beam":
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition Arena1Q[eventPlayer.TargetNumber].getNormalizedHealth() <= 0.6
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 35
-    
+
     eventPlayer.Randomizer = random.randint(0, eventPlayer.BotCassDif[0] + 1)
     #eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer <= 2:
@@ -4318,7 +4318,7 @@ rule "Bot Echo Beam":
 rule "Bot Genji":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Genji Jump":
@@ -4330,7 +4330,7 @@ rule "Bot Genji Jump":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventPlayer.isOnGround() == true
-    
+
     if eventPlayer.isUsingUltimate() == true:
         eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
     elif distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 5:
@@ -4355,7 +4355,7 @@ rule "Bot Genji Climb":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventPlayer.isOnWall() == true
-    
+
     eventPlayer.startForcingButton(Button.JUMP)
     wait(1)
     eventPlayer.stopForcingButton(Button.JUMP)
@@ -4373,7 +4373,7 @@ rule "Bot Genji Dash":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 14
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(Arena1Q[eventPlayer.TargetNumber].getEyePosition().x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 1, Arena1Q[eventPlayer.TargetNumber].getEyePosition().z)), 5000)
     eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), vect(Arena1Q[eventPlayer.TargetNumber].getEyePosition().x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 1, Arena1Q[eventPlayer.TargetNumber].getEyePosition().z)), Relativity.TO_WORLD)
     wait(0.1, Wait.ABORT_WHEN_FALSE)
@@ -4400,7 +4400,7 @@ rule "Bot Genji Reflect far":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 16
     @Condition eventPlayer.getNormalizedHealth() != 1
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(Arena1Q[eventPlayer.TargetNumber].getEyePosition().x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 0.5, Arena1Q[eventPlayer.TargetNumber].getEyePosition().z)), 400)
@@ -4417,7 +4417,7 @@ rule "Bot Genji Reflect low":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() <= 75
-    
+
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(Arena1Q[eventPlayer.TargetNumber].getEyePosition().x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 0.5, Arena1Q[eventPlayer.TargetNumber].getEyePosition().z)), 400)
     wait(random.uniform(0.7, 2))
@@ -4437,7 +4437,7 @@ rule "Bot Genji Reflect random":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() <= 175
-    
+
     eventPlayer.Randomizer = random.randint(0, 3)
     if eventPlayer.Randomizer == 0:
         eventPlayer.forceButtonPress(Button.ABILITY_2)
@@ -4465,7 +4465,7 @@ rule "Bot Genji Primary":
     @Condition eventPlayer.isFiringSecondaryFire() == false
     @Condition eventPlayer.isReloading() == false
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 12
-    
+
     #smallMessage(getAllPlayers(), "prim")
     wait(eventPlayer.BotCassDif[0] / 10, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
@@ -4499,7 +4499,7 @@ rule "Bot Genji Secondary":
     @Condition eventPlayer.isFiringPrimaryFire() == false
     @Condition eventPlayer.isReloading() == false
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) < 12
-    
+
     #smallMessage(getAllPlayers(), "sec")
     wait(eventPlayer.BotCassDif[0] / 10, Wait.ABORT_WHEN_FALSE)
     if Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI and Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true:
@@ -4528,7 +4528,7 @@ rule "Bot Genji Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     eventPlayer.startForcingThrottle(1, 1, 0, 0, 0, 1)
     if eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0:
         eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(Arena1Q[eventPlayer.TargetNumber].getEyePosition().x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 1, Arena1Q[eventPlayer.TargetNumber].getEyePosition().z)), 5000)
@@ -4547,7 +4547,7 @@ rule "Bot Genji Ultimate":
 rule "Bot Kiriko":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Kiriko Aggro & Climb":
@@ -4558,7 +4558,7 @@ rule "Bot Kiriko Aggro & Climb":
     @Condition eventPlayer.isAlive() == true
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
-    
+
     eventPlayer.startForcingButton(Button.JUMP)
     if eventPlayer.BotDifficulty <= 1:
         if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 12:
@@ -4585,7 +4585,7 @@ rule "Bot Kiriko Shoot":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     #if eventPlayer.BotDifficulty == 0:
     #wait(0.4, Wait.ABORT_WHEN_FALSE)
     #elif eventPlayer.BotDifficulty == 1:
@@ -4637,7 +4637,7 @@ rule "Bot Kiriko Self Suzu random":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() <= 170
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer == 0:
@@ -4664,7 +4664,7 @@ rule "Bot Kiriko Self Suzu low":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.getHealth() <= 100
-    
+
     wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.BotKiriHeal = true
     eventPlayer.stopFacing()
@@ -4690,7 +4690,7 @@ rule "Bot Kiriko Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
     wait(0.1)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -4699,7 +4699,7 @@ rule "Bot Kiriko Ultimate":
 rule "Bot Hanzo":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Hanzo Lunge":
@@ -4713,7 +4713,7 @@ rule "Bot Hanzo Lunge":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.getAbilityCooldown(Button.JUMP) == 0
-    
+
     eventPlayer.forceButtonPress(Button.JUMP)
     wait(random.uniform(0.2, 0.5))
     eventPlayer.forceButtonPress(Button.JUMP)
@@ -4731,7 +4731,7 @@ rule "Bot Hanzo Primary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.BotZoom >= 0.7
-    
+
     wait(eventPlayer.BotCassDif[1] - 0.5, Wait.ABORT_WHEN_FALSE)
     #wait(0.2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, eventPlayer.BotCassDif[0] + 1)
@@ -4765,7 +4765,7 @@ rule "Bot Hanzo Storm Arrows":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
-    
+
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer == 0:
@@ -4785,7 +4785,7 @@ rule "Bot Hanzo Storm Arrows Shoot":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility2() == true
-    
+
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     wait(eventPlayer.BotCassDif[1] - 0.5, Wait.ABORT_WHEN_FALSE)
     #wait(0.24, Wait.ABORT_WHEN_FALSE)
@@ -4816,7 +4816,7 @@ rule "Bot Hanzo Loading":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     eventPlayer.BotZoom = 0
     chaseAtRate(eventPlayer.BotZoom, 0.7, 1)
 
@@ -4830,7 +4830,7 @@ rule "Bot Hanzo not Loading":
     @Condition Arena1Match == true
     @Condition eventPlayer.isFiringPrimaryFire() == false
     @Condition eventPlayer.isUsingAbility2() == false
-    
+
     stopChasingVariable(eventPlayer.BotZoom)
     eventPlayer.BotZoom = 0
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
@@ -4844,7 +4844,7 @@ rule "Bot Hanzo not Loading":
 rule "Bot Ashe":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Ashe Boop":
@@ -4858,7 +4858,7 @@ rule "Bot Ashe Boop":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) <= 8
-    
+
     wait(0.25, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Randomizer = random.randint(0, 2)
     if eventPlayer.Randomizer == 0:
@@ -4878,7 +4878,7 @@ rule "Bot Ashe Primary":
     @Condition eventPlayer.isReloading() == false
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility1() == false
-    
+
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 12:
         if eventPlayer.isFiringSecondaryFire() == false:
             eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
@@ -4928,7 +4928,7 @@ rule "Bot Ashe Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.getHealth() >= 150
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 150
-    
+
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
     wait(0.1)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -4937,7 +4937,7 @@ rule "Bot Ashe Ultimate":
 rule "Bot Widow":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Bot Widow Finish low hp":
@@ -4951,7 +4951,7 @@ rule "Bot Widow Finish low hp":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() < 75
-    
+
     if eventPlayer.BotKiriHeal == true:
         goto lbl_0
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), 300)
@@ -4981,7 +4981,7 @@ rule "Bot Widow Stop smg vs reflect":
     @Condition Arena1Match == true
     @Condition Arena1Q[eventPlayer.TargetNumber].getHero() == Hero.GENJI
     @Condition Arena1Q[eventPlayer.TargetNumber].isUsingAbility2() == true
-    
+
     wait(random.uniform(0, 0.3), Wait.ABORT_WHEN_FALSE)
     eventPlayer.forceButtonPress(Button.RELOAD)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -4998,7 +4998,7 @@ rule "Bot Widow Grapple":
     @Condition eventPlayer.BotZoom <= 0.5
     #@Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 75
     @Condition eventPlayer.isFiringPrimaryFire() == false
-    
+
     eventPlayer.Randomizer = random.randint(0, 1)
     if eventPlayer.Randomizer == 0:
         if distance(eventPlayer.getPosition(), eventPlayer.BotMovePositions[0]) <= 6:
@@ -5060,7 +5060,7 @@ rule "Bot Widow Stop smg / Start zoom":
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
     @Condition eventPlayer.BotShoot == false
-    
+
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     if eventPlayer.isFiringSecondaryFire() == false:
         wait(2, Wait.ABORT_WHEN_FALSE)
@@ -5075,7 +5075,7 @@ rule "Bot Widow Zooming":
     @Hero widowmaker
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     eventPlayer.BotZoom = 0
     chaseAtRate(eventPlayer.BotZoom, 1, 1)
 
@@ -5085,7 +5085,7 @@ rule "Bot Widow Not zooming":
     @Hero widowmaker
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
-    
+
     stopChasingVariable(eventPlayer.BotZoom)
     eventPlayer.BotZoom = 0
 
@@ -5101,7 +5101,7 @@ rule "Bot Widow Primary":
     @Condition eventPlayer.BotShoot == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition Arena1Q[eventPlayer.TargetNumber].getHealth() >= 75
-    
+
     if distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()) >= 10 or eventPlayer.BotZoom >= 0.5:
         if eventPlayer.isFiringSecondaryFire() == false:
             eventPlayer.Randomizer = random.randint(0, 2)
@@ -5160,7 +5160,7 @@ rule "Bot Widow Smg Tracking":
     @Condition eventPlayer.isAlive() == true
     @Condition Arena1Q[eventPlayer.TargetNumber].isAlive() == true
     @Condition Arena1Match == true
-    
+
     eventPlayer.ShootRando = random.uniform(1, abs(eventPlayer.BotDifficulty - 6))
     eventPlayer.ShootPosHelp = eventPlayer.ShootRando / 10 * Arena1Q[eventPlayer.TargetNumber].getVelocity() + Arena1Q[eventPlayer.TargetNumber].getEyePosition()
     eventPlayer.ShootPos = vect(eventPlayer.ShootPosHelp.x, Arena1Q[eventPlayer.TargetNumber].getEyePosition().y - 0.4, eventPlayer.ShootPosHelp.z)
@@ -5172,7 +5172,7 @@ rule "Bot Widow Smg Tracking":
 rule "###   All heroes mode   ###":
     @Disabled
     @Delimiter
-    
+
 
 
 rule "Sombra invis break":
@@ -5180,7 +5180,7 @@ rule "Sombra invis break":
     @Hero sombra
     #@Condition AllHeroesMode == true
     @Condition eventPlayer.getHorizontalSpeed() >= 6
-    
+
     wait(4.95)
     damage(eventPlayer, null, 0.001)
     heal(eventPlayer, null, 0.001)
@@ -5193,7 +5193,7 @@ rule "Sombra invis break":
     @Hero sombra
     #@Condition AllHeroesMode == true
     @Condition eventPlayer.getHorizontalSpeed() == 0
-    
+
     wait(4.95, Wait.ABORT_WHEN_FALSE)
     damage(eventPlayer, null, 0.001)
     heal(eventPlayer, null, 0.001)
@@ -5206,7 +5206,7 @@ rule "Venture no health over 250":
     @Hero venture
     @Condition AllHeroesMode == true
     @Condition eventPlayer.getHealth() > 250
-    
+
     damage(eventPlayer, null, eventPlayer.getHealth() - 250)
     wait(0.1)
     if ruleCondition:
@@ -5218,7 +5218,7 @@ rule "Ramattra no health over 375":
     @Hero ramattra
     @Condition AllHeroesMode == true
     @Condition eventPlayer.getHealth() > 345
-    
+
     damage(eventPlayer, null, eventPlayer.getHealth() - 340)
     wait(0.1)
     if ruleCondition:
@@ -5230,7 +5230,7 @@ rule "Mauga no health over 368":
     @Hero mauga
     @Condition AllHeroesMode == true
     @Condition eventPlayer.getHealth() > 368
-    
+
     damage(eventPlayer, null, eventPlayer.getHealth() - 363)
     wait(0.1)
     if ruleCondition:
@@ -5242,7 +5242,7 @@ rule "Rein Shield hack":
     @Hero reinhardt
     @Condition AllHeroesMode == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(1.2)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 3)
     if eventPlayer.isFiringSecondaryFire() == true:
@@ -5254,7 +5254,7 @@ rule "Sigma no health over 356":
     @Hero sigma
     @Condition AllHeroesMode == true
     @Condition eventPlayer.getHealth() > 357
-    
+
     damage(eventPlayer, null, eventPlayer.getHealth() - 357)
     wait(0.1)
     if ruleCondition:
@@ -5266,7 +5266,7 @@ rule "Sigma Shield cancel":
     @Hero sigma
     @Condition AllHeroesMode == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
-    
+
     wait(1.2)
     if eventPlayer.getHero() == Hero.SIGMA:
         eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
@@ -5282,7 +5282,7 @@ rule "Pharah cannot fly high vs some heroes":
     @Condition AllHeroesMode == true
     @Condition ((eventPlayer == Arena1Q[1] or eventPlayer == Arena1Q[2]) and (Arena1Q[1].getHero() in NoFlyHeroes == true or Arena1Q[2].getHero() in NoFlyHeroes == true)) == true
     @Condition eventPlayer.getEyePosition().y >= 275
-    
+
     if distance(eventPlayer, vect(-0.126, 279.35, 291.717)) <= 4:
         eventPlayer.applyImpulse(directionTowards(eventPlayer.getEyePosition(), vect(0.232, 275, 279.999)), 30, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     else:
@@ -5299,7 +5299,7 @@ rule "Echo cannot fly high vs some heroes":
     @Condition AllHeroesMode == true
     @Condition ((eventPlayer == Arena1Q[1] or eventPlayer == Arena1Q[2]) and (Arena1Q[1].getHero() in NoFlyHeroes == true or Arena1Q[2].getHero() in NoFlyHeroes == true)) == true
     @Condition eventPlayer.getEyePosition().y >= 275
-    
+
     if distance(eventPlayer, vect(-0.126, 279.35, 291.717)) <= 4:
         eventPlayer.applyImpulse(directionTowards(eventPlayer.getEyePosition(), vect(0.232, 275, 279.999)), 30, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     else:
@@ -5313,7 +5313,7 @@ rule "Echo cannot fly high vs some heroes":
 rule "Ball spawn Grapple":
     @Event eachPlayer
     @Hero wreckingBall
-    
+
     wait(0.5)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
 
@@ -5322,7 +5322,5 @@ rule "D.va ultimate charge bug fix":
     @Event eachPlayer
     @Hero dva
     @Condition eventPlayer.isInAlternateForm() == true
-    
+
     eventPlayer.setUltCharge(0)
-
-

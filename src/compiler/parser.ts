@@ -598,12 +598,12 @@ export function parseArgs(funcName: string, args: Token[][]) {
     for (let [i, arg] of args.entries()) {
         if (arg.length > 2 && arg[1].text === "=") {
             if (!(arg[0].text in funcArgsDict)) {
-                error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'");
+                error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'", arg[0].fileStack);
             }
             hasKwArg = true;
             let argIndex = funcArgsDict[arg[0].text].index;
             if (positionalArgs[argIndex] !== null) {
-                error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice");
+                error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice", arg[0].fileStack);
             }
             positionalArgs[argIndex] = arg.slice(2);
         } else {
@@ -640,7 +640,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
     //Handle the "del" directive.
     if (content[0].text === "del") {
-        return new Ast("__del__", [parse(content.slice(1))]);
+        let result = new Ast("__del__", [parse(content.slice(1))]);
+        result.fileStack = content[0].fileStack;
+        return result;
     }
 
     //Parse the "goto" directive.
@@ -660,7 +662,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             if (content[1].text !== "loc" || content[2].text !== "+") {
                 error("Expected a label or 'loc+XXX' after 'goto'");
             }
-            return new Ast("__skip__", [parse(content.slice(3))]);
+            let result = new Ast("__skip__", [parse(content.slice(3))]);
+            result.fileStack = content[0].fileStack;
+            return result;
         }
     }
 
@@ -672,10 +676,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Check for ++/--.
     if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
         var op1 = parse(content.slice(0, content.length - 2));
+        setFileStack(content[0].fileStack);
         return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])]);
     }
     if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
         var op1 = parse(content.slice(0, content.length - 2));
+        setFileStack(content[0].fileStack);
         return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])]);
     }
 
@@ -705,7 +711,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + 1, content.length)];
 
         if (operator === "=") {
-            return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
+            let result = new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
+            result.fileStack = content[0].fileStack;
+            return result;
         } else if (operator === "if") {
             //"true if condition else false"
 
@@ -717,13 +725,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             var falseExpr = parse(elseOperands[1]);
             var condition = parse(elseOperands[0]);
 
+            setFileStack(content[0].fileStack);
             return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
         } else if (["or", "and"].includes(operator)) {
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
+            setFileStack(content[0].fileStack);
             return new Ast("__" + operator + "__", [op1, op2]);
         } else if (operator === "not") {
             var op1 = parse(operands[1]);
+            setFileStack(content[0].fileStack);
             return new Ast("__not__", [op1]);
         } else if (operator === "in") {
             var isNotInOperator = false;
@@ -733,6 +744,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             }
             var value = parse(operands[0]);
             var array = parse(operands[1]);
+            setFileStack(content[0].fileStack);
             if (isNotInOperator) {
                 return new Ast("__not__", [new Ast("__arrayContains__", [array, value])]);
             } else {
@@ -749,6 +761,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "<": "__lessThan__",
                 ">": "__greaterThan__",
             };
+            setFileStack(content[0].fileStack);
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
             //Actually de-optimize so we can keep the logic in one place.
@@ -769,6 +782,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             const opName = opToFuncMapping[operator as keyof typeof opToFuncMapping];
             const value = parse(operands[1]);
 
+            setFileStack(content[0].fileStack);
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
             if (!areAstsAlwaysEqual(variable, variable)) {
                 // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
@@ -786,13 +800,19 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 if (operator === "+") {
                     return parse(operands[1]);
                 } else {
-                    return new Ast("__negate__", [parse(operands[1])]);
+                    let result = new Ast("__negate__", [parse(operands[1])]);
+                    result.fileStack = content[0].fileStack;
+                    return result;
                 }
             } else {
                 if (operator === "+") {
-                    return new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
+                    let result = new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
+                    result.fileStack = content[0].fileStack;
+                    return result;
                 } else {
-                    return new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
+                    let result = new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
+                    result.fileStack = content[0].fileStack;
+                    return result;
                 }
             }
         } else if (["/", "*", "%", "**"].includes(operator)) {
@@ -804,6 +824,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             };
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
+            setFileStack(content[0].fileStack);
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         }
         error("Unhandled operator " + operator);
@@ -819,6 +840,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         } else {
             var array = parse(content.slice(0, bracketPos[bracketPos.length - 2]));
             var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
+            setFileStack(content[0].fileStack);
             return new Ast("__valueInArray__", [array, value]);
         }
     }
@@ -858,7 +880,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 string = unescapeString(content[i].text, true) + string;
             } else {
                 if (i !== 0) {
-                    error("Invalid content before string: '" + content[i].text + "'");
+                    error("Invalid content before string: '" + content[i].text + "'", content[i].fileStack);
                 }
                 //string modifiers
                 //console.log("string modifiers: "+content[0].text);
@@ -929,7 +951,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 }
                 for (let char of content[0].text) {
                     if (!["l", "b", "c", "w", "p", "t", "f"].includes(char)) {
-                        error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
+                        error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)", content[0].fileStack);
                     }
                 }
             }
@@ -978,7 +1000,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (content[1].text === "(") {
             args = splitTokens(content.slice(2, content.length - 1), ",");
         } else {
-            error("Expected '(' after '" + name + "', but got '" + content[1].text + "'");
+            error("Expected '(' after '" + name + "', but got '" + content[1].text + "' (is '"+name+"' a valid keyword/variable?)");
         }
     }
 
@@ -1072,6 +1094,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             context = unescapeString(args[0][0].text, true);
         }
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
+        setFileStack(content[0].fileStack);
         if (translationTarget.type === "CustomStringLiteral") {
             return getTranslatedString(translationTarget.name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
@@ -1094,7 +1117,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             error("Expected subroutine name as first argument");
         }
 
-        return new Ast("async", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
+        let result = new Ast("async", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
+        result.fileStack = content[0].fileStack;
+        return result;
     }
 
     if (name === "chase") {
@@ -1102,7 +1127,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             error("Function 'chase' takes 4 arguments, received " + args.length);
         }
         if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
-            error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
+            error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'", args[2][0].fileStack);
         }
 
         if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
@@ -1117,7 +1142,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             args[3][0].text = "ChaseTimeReeval";
         }
 
-        return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
+        let result = new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
+        result.fileStack = content[0].fileStack;
+        return result;
     }
 
     if (name === "__distanceTo__") {
@@ -1142,7 +1169,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 args[4] = args[4].slice(2);
             }
 
-            return new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
+            let result = new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
+            result.fileStack = content[0].fileStack;
+            return result;
         } else {
             error("Function 'raycast' takes 5 arguments, received " + args.length);
         }
@@ -1177,12 +1206,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 setCurrentArrayIndexName("");
             } else if (lambdaArgs[0].length === 4) {
                 if (lambdaArgs[0][2].text !== ",") {
-                    error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text);
+                    error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text, lambdaArgs[0][2].fileStack);
                 }
                 setCurrentArrayElementName(lambdaArgs[0][1].text);
                 setCurrentArrayIndexName(lambdaArgs[0][3].text);
             } else {
-                error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1));
+                error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1), lambdaArgs[0][0].fileStack);
             }
 
             sortedCondition = parse(lambdaArgs[1]);
@@ -1197,6 +1226,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         } else {
             astArgs.push(new Ast("__currentArrayElement__"));
         }
+        setFileStack(content[0].fileStack);
         return new Ast("sorted", astArgs);
     }
 
@@ -1208,7 +1238,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             args.push([{ text: "0", fileStack: [] }]);
         }
 
-        return new Ast("__createWorkshopSetting__", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
+        let result = new Ast("__createWorkshopSetting__", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
+        result.fileStack = content[0].fileStack;
+        return result;
     }
 
     //Check for subroutine call
@@ -1250,6 +1282,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         name,
         parseArgs(name, args),
     );
+    astResult.fileStack = content[0].fileStack;
     if (name === "debug") {
         astResult.tokenArgsStr = dispTokens(content.slice(2, content.length - 1), true);
     }
@@ -1262,6 +1295,7 @@ function parseMember(object: Token[], member: Token[]) {
     if (member.length === 0) {
         error("Expected tokens after '.'");
     }
+    setFileStack(member[0].fileStack);
 
     var name = member[0].text;
     //debug("name = "+name);
@@ -1269,18 +1303,19 @@ function parseMember(object: Token[], member: Token[]) {
     if (member.length > 1) {
         if (member[1].text === "(") {
             if (member[member.length - 1].text !== ")") {
-                setFileStack(member[member.length - 1].fileStack);
-                error("Unexpected token '" + member[member.length - 1].text + "'");
+                error("Unexpected token '" + member[member.length - 1].text + "'", member[member.length - 1].fileStack);
             }
             args = splitTokens(member.slice(2, member.length - 1), ",");
         } else {
-            error("Expected '(' after '" + name + "', but got '" + member[1].text + "'");
+            error("Expected '(' after '" + name + "', but got '" + member[1].text + "' (is '" + name + "' a valid keyword/variable?)");
         }
     }
 
     if (args === null) {
         if (["x", "y", "z"].includes(name)) {
-            return new Ast(`__${name}ComponentOf__`, [parse(object)]);
+            let result = new Ast(`__${name}ComponentOf__`, [parse(object)]);
+            result.fileStack = member[0].fileStack;
+            return result;
         }
 
         if (object.length === 1) {
@@ -1365,6 +1400,7 @@ function parseMember(object: Token[], member: Token[]) {
             if ("." + name in astConstants) {
                 let result = astConstants["." + name].value.clone();
                 result = replaceFunctionInAst(result, "$self", parse(object));
+                result.fileStack = member[0].fileStack;
                 return result;
             }
         }
@@ -1373,19 +1409,25 @@ function parseMember(object: Token[], member: Token[]) {
         if (!isVarName(name, false)) {
             error("Unknown member '" + name + "' of '" + dispTokens(object) + "'");
         }
-        return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
+        let result = new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
+        result.fileStack = member[0].fileStack;
+        return result;
     } else {
         if (object[0].text === "random" && object.length === 1) {
             if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {
                     error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
                 }
-                return new Ast("random." + name, [parse(args[0]), parse(args[1])]);
+                let result = new Ast("random." + name, [parse(args[0]), parse(args[1])]);
+                result.fileStack = member[0].fileStack;
+                return result;
             } else if (name === "shuffle" || name === "choice") {
                 if (args.length !== 1) {
                     error("Function 'random." + name + "' takes 1 argument, received " + args.length);
                 }
-                return new Ast("random." + name, [parse(args[0])]);
+                let result = new Ast("random." + name, [parse(args[0])]);
+                result.fileStack = member[0].fileStack;
+                return result;
             } else {
                 error("Unhandled member 'random." + name + "'");
             }
@@ -1406,7 +1448,9 @@ function parseMember(object: Token[], member: Token[]) {
             if (name in functionAliases) {
                 name = functionAliases[name];
             }
-            return new Ast("." + name, parseArgs("."+name, [object].concat(args)));
+            let result = new Ast("." + name, parseArgs("."+name, [object].concat(args)));
+            result.fileStack = member[0].fileStack;
+            return result;
         }
     }
 
@@ -1481,8 +1525,6 @@ function parseLiteralArray(content: Token[]) {
             //Map to [elem, index], then filter, then apply the actual mapping function.
             //currentArrayElement becomes currentArrayElement[0] and currentArrayIndex becomes currentArrayElement[1].
             if (astContainsFunctions(mappingFunction, ["__currentArrayIndex__"])) {
-                //warn("w_current_array_index_in_mapping_function", "The current array index is used in the mapping function of a filtered+mapped array. This will not work as expected, as the workshop first filters then maps, not both at the same time.");
-
                 mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayElement__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor0()]));
                 mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayIndex__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor1()]));
 
@@ -1548,7 +1590,7 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
     //console.log(customGameSettings);
     if (customGameSettings.name === "__settings__") {
         if (customGameSettings.args[0].name !== "__dict__") {
-            error("Expected custom game settings to be a dictionary, but got " + functionNameToString(customGameSettings.args[0]));
+            error("Expected custom game settings to be a dictionary, but got " + functionNameToString(customGameSettings.args[0]), customGameSettings.args[0].fileStack);
         }
         return customGameSettingsAstToObject(customGameSettings.args[0]);
     }
@@ -1556,7 +1598,7 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
         let result: Record<string, any> = {};
         for (let dictElem of customGameSettings.args) {
             if (dictElem.name !== "__dictElem__") {
-                error("Expected dict element, but got " + functionNameToString(dictElem));
+                error("Expected dict element, but got " + functionNameToString(dictElem), dictElem.fileStack);
             }
             let key = customGameSettingsAstToObject(dictElem.args[0]);
             if (typeof key !== "string") {
@@ -1575,10 +1617,10 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
     if (customGameSettings.name === "__customString__") {
 
         if (customGameSettings.name !== "__customString__") {
-            error("Expected dict key to be a string literal, but got " + functionNameToString(customGameSettings));
+            error("Expected dict key to be a string literal, but got " + functionNameToString(customGameSettings), customGameSettings.fileStack);
         }
         if (customGameSettings.args[1].name !== "null" || customGameSettings.args[2].name !== "null" || customGameSettings.args[3].name !== "null") {
-            error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters");
+            error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters", customGameSettings.fileStack);
         }
         return customGameSettings.args[0].name;
     }
@@ -1591,5 +1633,5 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
     if (customGameSettings.name === "false") {
         return false;
     }
-    error("Unhandled "+ functionNameToString(customGameSettings) + " in custom game settings, expected dict, array, string, number or boolean");
+    error("Unhandled "+ functionNameToString(customGameSettings) + " in custom game settings, expected dict, array, string, number or boolean", customGameSettings.fileStack);
 }
