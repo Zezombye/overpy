@@ -361,7 +361,7 @@ rule ("global init") {
         Wait(False, Ignore Condition);
         Set Global Variable(t2_names_array, Array(Custom String("The Witch"), Custom String("Dr.​ Junkenstein"), Custom String("Junkenstein's Monster"), Custom String("The Reaper"), Null, Custom String("The Swordsman"), Custom String("The Merchant"), Custom String("The Gunslinger"), Custom String("The Summoner"), Custom String("The Alchemist"), Null));
         Set Global Variable(t2_heroes_array, Array(Hero(Mercy), Hero(Junkrat), Hero(Roadhog), Hero(Reaper), Hero(Reinhardt), Hero(Genji), Hero(Moira), Hero(Cassidy), Hero(Symmetra), Hero(Ana), Hero(Sombra)));
-        Set Global Variable(t2_hero_colours, Array(Custom Color(246, 231, 100, 255), Custom Color(False, 255, 255, 255), Custom Color(92, 198, 86, 255), Custom Color(173, False, False, 255), Color(White), Custom Color(100, 255, 100, 255), Custom Color(130, 40, 255, 255), Custom Color(255, 50, 50, 255), Custom Color(255, 119, False, 255), Custom Color(54, 114, 255, 255), Custom Color(169, 135, 255, 255)));
+        Set Global Variable(t2_hero_colours, Array(Custom Color(246, 231, 100, 255), Custom Color(False, 255, 255, 255), Custom Color(62, 219, 54, 255), Custom Color(173, False, False, 255), Color(White), Custom Color(100, 255, 100, 255), Custom Color(130, 40, 255, 255), Custom Color(255, 50, 50, 255), Custom Color(255, 119, False, 255), Custom Color(54, 114, 255, 255), Custom Color(169, 135, 255, 255)));
         Set Global Variable(name_colors_2, Array(Custom Color(255, 250, 204, 255), Custom Color(156, 255, 255, 255), Custom Color(162, 207, 159, 255), Custom Color(196, 84, 84, 255)));
         Wait(False, Ignore Condition);
         For Global Variable(i5, 0, 3, True);

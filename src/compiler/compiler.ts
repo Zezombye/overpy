@@ -109,6 +109,8 @@ export async function compile(
 
     var lines = tokenize(content);
 
+    //console.log("tokens:",structuredClone(lines));
+
     setFileStack([
         {
             name: "<internal>",

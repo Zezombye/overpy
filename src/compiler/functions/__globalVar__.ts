@@ -60,7 +60,7 @@ astParsingFunctions.__globalVar__ = function (content) {
             if (defaultVarNames.includes(varName)) {
                 //Add the variable as it doesn't already exist (else it would've been caught by the for)
                 //However, only do this if it is a default variable name
-                addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
+                addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), content.fileStack);
             } else {
                 error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
             }

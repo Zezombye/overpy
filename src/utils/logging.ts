@@ -208,7 +208,7 @@ export function getFileStackRange(tokens: Token[]): FileStackMember[] {
     if (tokens.length === 0) {
         error("Cannot get file stack range from an empty array of tokens, please report to Zezombye");
     }
-    let result = tokens[0].fileStack;
+    let result = structuredClone(tokens[0].fileStack);
     let lastTokenFilestack = tokens[tokens.length - 1].fileStack[tokens[tokens.length - 1].fileStack.length - 1];
     result[result.length - 1].endLine = lastTokenFilestack.endLine;
     result[result.length - 1].endCol = lastTokenFilestack.endCol;

@@ -29,13 +29,14 @@ astParsingFunctions.__for__ = function (content) {
 
     if (content.args[0].name === "__playerVar__") {
         var isGlobalVariable = false;
-        var varName = content.args[0].args[1].name;
+        var varAst = content.args[0].args[1];
     } else if (content.args[0].name === "__globalVar__") {
         var isGlobalVariable = true;
-        var varName = content.args[0].args[0].name;
+        var varAst = content.args[0].args[0];
     } else {
         error("Expected variable for 1st argument of function 'for', but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
     }
+    var varName = varAst.name;
 
     var varArray = isGlobalVariable ? globalVariables : playerVariables;
     var isFound = false;
@@ -53,7 +54,7 @@ astParsingFunctions.__for__ = function (content) {
         if (defaultVarNames.includes(varName)) {
             //Add the variable as it doesn't already exist (else it would've been caught by the for)
             //However, only do this if it is a default variable name
-            addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
+            addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), varAst.fileStack);
         } else {
             error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'", content.args[0].fileStack);
         }
