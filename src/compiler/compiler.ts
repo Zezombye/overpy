@@ -48,7 +48,7 @@ export async function compile(
     content: string,
     language: OWLanguage = "en-US",
     _rootPath = "",
-    mainFileName = "",
+    _mainFileName = "",
 ): Promise<{
     result: string;
     macros: MacroData[];
@@ -89,9 +89,9 @@ export async function compile(
             console.log(content);
         }
     } else {
-        setMainFileName(mainFileName);
-        importedFiles.push(rootPath);
+        setMainFileName(_mainFileName);
     }
+    importedFiles.push(rootPath);
 
     setFileStack([
         {

@@ -1342,7 +1342,7 @@ function parseMember(object: Token[], member: Token[]) {
                 return new Ast(name, [], [], object[0].text);
             } else if (builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo]) {
                 const astInfo = builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo];
-                if (astInfo.name === "__color__" && constantValues[astInfo.type][name].onlyInOverpy) {
+                if (astInfo.name === "__color__" && constantValues[astInfo.type][name]?.onlyInOverpy) {
                     return new Ast("rgb", [getAstForNumber(constantValues[astInfo.type][name].red ?? 0), getAstForNumber(constantValues[astInfo.type][name].green ?? 0), getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), getAstForNumber(constantValues[astInfo.type][name].alpha ?? 255)]);
                 }
                 return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);

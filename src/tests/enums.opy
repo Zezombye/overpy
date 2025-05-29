@@ -12,6 +12,9 @@ enum Team:
     HUMANS,
     ZOMBIES = Team.1,
 
+enum Color:
+    KB_WHITE = rgb(255, 250, 250),
+
 rule "":
     A = GameStatus.AA #1
     A = GameStatus.BB #2
@@ -20,3 +23,4 @@ rule "":
     A = Team.1 #Team 1
     L = len(GameStatus) # 6
     E = GameStatus.toArray() # [1, 2, 6, 7, "psqdoj\"fidqs", Global.A]
+    F = Color.KB_WHITE
