@@ -20,3 +20,4 @@ settings
 		}
 	}
 }
+//Optimize for size enabled

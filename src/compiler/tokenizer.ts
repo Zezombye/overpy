@@ -177,7 +177,11 @@ export function tokenize(content: string): LogicalLine[] {
             return;
         }
         if (content.startsWith("#!disableOptimizations")) {
-            setOptimizationEnabled(false);
+            addToken("__disableOptimizations__");
+            return;
+        }
+        if (content.startsWith("#!enableOptimizations")) {
+            addToken("__enableOptimizations__");
             return;
         }
         if (content.startsWith("#!extension ")) {
@@ -215,11 +219,19 @@ export function tokenize(content: string): LogicalLine[] {
             return;
         }
         if (content.startsWith("#!optimizeForSize")) {
-            setOptimizationForSize(true);
+            addToken("__enableOptimizeForSize__");
+            return;
+        }
+        if (content.startsWith("#!disableOptimizeForSize")) {
+            addToken("__disableOptimizeForSize__");
             return;
         }
         if (content.startsWith("#!optimizeStrict")) {
-            setOptimizeStrict(true);
+            addToken("__enableOptimizeStrict__");
+            return;
+        }
+        if (content.startsWith("#!disableOptimizeStrict")) {
+            addToken("__disableOptimizeStrict__");
             return;
         }
         if (content.startsWith("#!setupTx") || content.startsWith("#!setupTags")) {

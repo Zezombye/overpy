@@ -5,6 +5,7 @@ variables {
         2: C
         3: D
 }
+//Optimize for size enabled
 rule ("comments") {
     event {
         Ongoing - Global;

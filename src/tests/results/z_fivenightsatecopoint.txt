@@ -371,7 +371,7 @@ rule ("[G] Main Setup") {
         Create HUD Text(All Players(All Teams), Custom String("{0} AM", If-Then-Else(Compare(Global.CurrentTime, <, 1), 12, Round To Integer(Global.CurrentTime, Down))), Custom String("NIGHT {0}", Add(Global.NightNumber, 1)), If-Then-Else(Is True For Any(Global.Cheats, Current Array Element), Custom String("CHEATS ENABLED"), Custom String("")), Right, 0, Color(White), Color(White), Color(Turquoise), Visible To and String, Default Visibility);
         //lbl_0:
         Create HUD Text(All Players(All Teams), Custom String("POWER: {0}%", Round To Integer(Global.Power, Down)), Null, Null, Left, 0, Color(White), Null, Null, Visible To and String, Default Visibility);
-        Create HUD Text(All Players(All Teams), Null, Custom String(" \r\nUSAGE"), String Slice(Custom String("■■■■■"), 0, Global.PowerUsage), Left, 1, Null, Color(White), If-Then-Else(Compare(Global.PowerUsage, <=, 2), Color(Green), If-Then-Else(And(Compare(Global.PowerUsage, >, 2), Compare(Global.PowerUsage, <=, 3)), Color(Yellow), Color(Red))), Visible To String and Color, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Custom String(" \r\nUSAGE"), String Slice(Custom String("■■■■■"), 0, Global.PowerUsage), Left, 1, Color(White), Color(White), If-Then-Else(Compare(Global.PowerUsage, <=, 2), Color(Green), If-Then-Else(And(Compare(Global.PowerUsage, >, 2), Compare(Global.PowerUsage, <=, 3)), Color(Yellow), Color(Red))), Visible To String and Color, Default Visibility);
         Create In-World Text(If-Then-Else(Global.PhoneRings, Local Player, Null), Custom String("HOLD [{0}] TO ANSWER PHONE OR WAIT TO IGNORE", Input Binding String(Button(Ability 1))), Update Every Frame(Add(If-Then-Else(Global.CurrentCam, Value In Array(Global.CamPositions, Global.CurrentCam), Eye Position(Global.Player_)), Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 18)), 1000))), 1.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 200), Default Visibility);
         Create In-World Text(If-Then-Else(Global.CurrentCam, Null, Global.Player_), Custom String("⊙"), Update Every Frame(Add(Eye Position(Global.Player_), Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 3.87)), 1000))), 2.3, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 170), Default Visibility);
     }
@@ -418,7 +418,7 @@ rule ("[G] Doors FX") {
         Wait(0.05, Ignore Condition);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(6.27, 10.88, -21.19), Vector(6.27, Add(10.88, Global.HeightFrontDoor), -21.19), Color(White), Visible To Position and Radius);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(6.57, 10.88, -21.5), Vector(6.57, Add(10.88, Global.HeightFrontDoor), -21.5), Color(White), Visible To Position and Radius);
-        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(6.81, Add(10.88, Global.HeightFrontDoor), -21.74), Vector(5.09, Add(10.88, Global.HeightFrontDoor), -20.02), Null, Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(6.81, Add(10.88, Global.HeightFrontDoor), -21.74), Vector(5.09, Add(10.88, Global.HeightFrontDoor), -20.02), Color(White), Visible To Position and Radius);
         Wait(0.05, Ignore Condition);
         "LEFT BEAMS"
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(2.48, 10.88, -30.14), Vector(2.48, Add(10.88, Global.HeightLeftDoor), -30.14), Color(White), Visible To Position and Radius);
@@ -427,7 +427,7 @@ rule ("[G] Doors FX") {
         Wait(0.05, Ignore Condition);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(2.17, 10.88, -30.45), Vector(2.17, Add(10.88, Global.HeightLeftDoor), -30.45), Color(White), Visible To Position and Radius);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(1.86, 10.88, -30.76), Vector(1.86, Add(10.88, Global.HeightLeftDoor), -30.76), Color(White), Visible To Position and Radius);
-        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(1.64, Add(10.88, Global.HeightLeftDoor), -31), Vector(3.33, Add(10.88, Global.HeightLeftDoor), -29.29), Null, Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(1.64, Add(10.88, Global.HeightLeftDoor), -31), Vector(3.33, Add(10.88, Global.HeightLeftDoor), -29.29), Color(White), Visible To Position and Radius);
         Wait(0.05, Ignore Condition);
         "RIGHT BEAMS"
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-3.3, 10.88, -24.36), Vector(-3.3, Add(10.88, Global.HeightRightDoor), -24.36), Color(White), Visible To Position and Radius);
@@ -436,7 +436,7 @@ rule ("[G] Doors FX") {
         Wait(0.05, Ignore Condition);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-2.99, 10.88, -24.05), Vector(-2.99, Add(10.88, Global.HeightRightDoor), -24.05), Color(White), Visible To Position and Radius);
         Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-2.68, 10.88, -23.74), Vector(-2.68, Add(10.88, Global.HeightRightDoor), -23.74), Color(White), Visible To Position and Radius);
-        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-2.45, Add(10.88, Global.HeightRightDoor), -23.51), Vector(-4.15, Add(10.88, Global.HeightRightDoor), -25.21), Null, Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-2.45, Add(10.88, Global.HeightRightDoor), -23.51), Vector(-4.15, Add(10.88, Global.HeightRightDoor), -25.21), Color(White), Visible To Position and Radius);
     }
 }
 

@@ -550,7 +550,7 @@ For example:
 
 You can check [here](https://github.com/Zezombye/overpy/issues/33) for a list of optimizations.
 
-The `#!disableOptimizations` directive can be used to disable all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.
+The `#!disableOptimizations` directive can be used to disable all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations, or if you want to generate an unoptimize instruction for some reason.
 
 The `#!optimizeForSize` directive prioritizes lowering the number of elements over optimizing the runtime (see [here](https://github.com/Zezombye/overpy/issues/238) for a list of optimizations).
 
@@ -563,6 +563,24 @@ The `#!optimizeStrict` directive disables some optimizations that may cause issu
 Those optimizations (and others) will be disabled so that the behavior of the gamemode will not be altered.
 
 This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
+
+All 3 of these directives are only effective in the current block scope (indentation level) once they are declared, and can be cancelled by `#!enableOptimizations`, `#!disableOptimizeForSize` and `#!disableOptimizeStrict` respectively. For example:
+
+```py
+rule "default: optimizations, no optimize for size, no optimize strict"
+    A = B+0 #will be optimized
+    if A:
+        #!disableOptimizations
+        B = B+0 #will not be optimized
+    C = B+0 #will be optimized
+    #!optimizeForSize
+    D = B+1 #B + true
+
+#!optimizeStrict
+#All subsequent rules will have strict optimization enabled
+rule "optimize strict, no optimize for size":
+    E = B*1 #will not be optimized
+```
 
 ## Replacements
 

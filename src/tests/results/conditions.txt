@@ -11,6 +11,7 @@ variables {
         8: I
         9: J
 }
+//Optimize for size enabled
 rule ("if/else") {
     event {
         Ongoing - Global;

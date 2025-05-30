@@ -12,6 +12,7 @@ variables {
         0: A
         1: B
 }
+//Optimize for size enabled
 rule ("normal") {
     event {
         Ongoing - Global;

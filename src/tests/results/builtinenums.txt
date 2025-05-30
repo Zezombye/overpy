@@ -13,6 +13,7 @@ variables {
         10: K
         18: S
 }
+//Optimize for size enabled
 rule ("enums") {
     event {
         Ongoing - Each Player;

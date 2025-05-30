@@ -6,6 +6,7 @@ variables {
         3: D
         4: E
 }
+//Optimize for size enabled
 rule ("switches") {
     event {
         Ongoing - Global;

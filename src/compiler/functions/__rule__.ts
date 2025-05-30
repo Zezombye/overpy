@@ -59,10 +59,16 @@ astParsingFunctions.__rule__ = function (content) {
                     "__abortIfConditionIsTrue__",
                     "break",
                     "continue",
+                    "__disableOptimizations__",
+                    "__disableOptimizeForSize__",
+                    "__disableOptimizeStrict__",
+                    "__enableOptimizations__",
+                    "__enableOptimizeForSize__",
+                    "__enableOptimizeStrict__",
                     "__else__",
                     "__elif__",
                     "__end__",
-                    //"__for__",
+                    //"__for__", //meaningful because it modifies the loop variable
                     //"__forGlobalVariable__",
                     //"__forPlayerVariable__",
                     "__if__",
@@ -124,7 +130,7 @@ astParsingFunctions.__rule__ = function (content) {
                         foundLabel = true;
                     }
                     computeDistanceTo(content.children[i]);
-                    if (content.children[i].type !== "Label") {
+                    if (content.children[i].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__"].includes(content.children[i].name)) {
                         debug("Increasing distanceTo count for label " + label + ": function '" + content.children[i].name + "'");
                         count++;
                     }

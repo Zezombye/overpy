@@ -3,8 +3,10 @@ variables {
         0: A
         4: E
         5: F
+        6: G
         11: L
 }
+//Optimize for size enabled
 rule ("") {
     event {
         Ongoing - Global;
@@ -25,6 +27,8 @@ rule ("") {
         "[1, 2, 6, 7, \"psqdoj\\\"fidqs\", Global.A]"
         Set Global Variable(E, Array(1, 2, 6, 7, Custom String("psqdoj\"fidqs"), Global.A));
         Set Global Variable(F, Custom Color(255, 250, 250, 255));
+        Set Global Variable(G, Custom Color(255, 112, 122, 255));
+        Create Effect(All Players(All Teams), Bad Aura, Color(Red), Null, 2, Visible To Position Radius and Color);
     }
 }
 

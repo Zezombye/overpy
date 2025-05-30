@@ -22,7 +22,7 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict } from "../globalVars";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0 } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
 import { error, functionNameToString } from "../utils/logging";
@@ -42,6 +42,13 @@ export function astRulesToWs(rules: Ast[]) {
         if (rule.name === "pass") {
             continue;
         }
+
+        if (rule.name === "__disableOptimizations__") {setOptimizationEnabled(false); compiledRules.push("//Optimizations disabled\n"); continue;}
+        if (rule.name === "__enableOptimizations__") {setOptimizationEnabled(true); compiledRules.push("//Optimizations enabled\n"); continue;}
+        if (rule.name === "__disableOptimizeForSize__") {setOptimizationForSize(false); compiledRules.push("//Optimize for size disabled\n"); continue;}
+        if (rule.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); compiledRules.push("//Optimize for size enabled\n"); continue;}
+        if (rule.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); compiledRules.push("//Strict optimizations disabled\n"); continue;}
+        if (rule.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); compiledRules.push("//Strict optimizations enabled\n"); continue;}
 
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw) + " ";
@@ -78,9 +85,15 @@ export function astRulesToWs(rules: Ast[]) {
         //Rule actions
         if (rule.children.length > 0) {
             result += tabLevel(1) + tows("__actions__", ruleKw) + " {\n";
+            let oldEnableOptimization = enableOptimization;
+            let oldOptimizeForSize = optimizeForSize;
+            let oldOptimizeStrict = optimizeStrict;
             for (var child of rule.children) {
                 result += astActionToWs(child, 2);
             }
+            setOptimizationEnabled(oldEnableOptimization);
+            setOptimizationForSize(oldOptimizeForSize);
+            setOptimizeStrict(oldOptimizeStrict);
             result += tabLevel(1) + "}\n";
         }
 
@@ -89,6 +102,9 @@ export function astRulesToWs(rules: Ast[]) {
         compiledRules.push(result);
     }
 
+    setOptimizationEnabled(true);
+    setOptimizeStrict(false);
+    setOptimizationForSize(false);
     return compiledRules;
 }
 
@@ -171,6 +187,13 @@ export function astActionToWs(action: Ast, nbTabs: number) {
     if (action.type === "Label") {
         return tabLevel(nbTabs) + "//" + action.name + ":\n";
     }
+    if (action.name === "__disableOptimizations__") {setOptimizationEnabled(false); return tabLevel(nbTabs) + "//Optimizations disabled\n";}
+    if (action.name === "__enableOptimizations__") {setOptimizationEnabled(true); return tabLevel(nbTabs) + "//Optimizations enabled\n";}
+    if (action.name === "__disableOptimizeForSize__") {setOptimizationForSize(false); return tabLevel(nbTabs) + "//Optimize for size disabled\n";}
+    if (action.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); return tabLevel(nbTabs) + "//Optimize for size enabled\n";}
+    if (action.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); return tabLevel(nbTabs) + "//Strict optimizations disabled\n";}
+    if (action.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); return tabLevel(nbTabs) + "//Strict optimizations enabled\n";}
+
     if (action.type !== "void") {
         error("Expected an action, but got " + functionNameToString(action) + " which is a value", action.fileStack);
     }
@@ -184,9 +207,16 @@ export function astActionToWs(action: Ast, nbTabs: number) {
     }
 
     result += tabLevel(nbTabs) + astToWs(action) + ";\n";
+
+    let oldEnableOptimization = enableOptimization;
+    let oldOptimizeForSize = optimizeForSize;
+    let oldOptimizeStrict = optimizeStrict;
     for (var child of action.children) {
         result += astActionToWs(child, nbTabs + 1);
     }
+    setOptimizationEnabled(oldEnableOptimization);
+    setOptimizationForSize(oldOptimizeForSize);
+    setOptimizeStrict(oldOptimizeStrict);
     return result;
 }
 

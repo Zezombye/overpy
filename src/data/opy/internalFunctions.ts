@@ -180,6 +180,18 @@ export const opyInternalFuncs: Record<string, {
         "isConstant": true,
         "return": "DictElem"
     },
+    "__disableOptimizations__": {
+        "args": null,
+        "return": "void",
+    },
+    "__disableOptimizeForSize__": {
+        "args": null,
+        "return": "void",
+    },
+    "__disableOptimizeStrict__": {
+        "args": null,
+        "return": "void",
+    },
     "__distanceTo__": {
         "args": [
             {
@@ -198,6 +210,18 @@ export const opyInternalFuncs: Record<string, {
             }
         ],
         "return": "void"
+    },
+    "__enableOptimizations__": {
+        "args": null,
+        "return": "void",
+    },
+    "__enableOptimizeForSize__": {
+        "args": null,
+        "return": "void",
+    },
+    "__enableOptimizeStrict__": {
+        "args": null,
+        "return": "void",
     },
     "__enum__": {
         "args": [

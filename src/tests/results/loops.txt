@@ -8,6 +8,7 @@ variables {
     player:
         8: I
 }
+//Optimize for size enabled
 rule ("while loop") {
     event {
         Ongoing - Global;

@@ -32,6 +32,7 @@ variables {
         11: L
         25: Z
 }
+//Optimize for size enabled
 rule ("cs:s zombie escape - made by /u/zezombye - discord in description") {
     event {
         Ongoing - Global;

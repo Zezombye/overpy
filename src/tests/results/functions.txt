@@ -11,6 +11,7 @@ variables {
     player:
         1: B
 }
+//Optimize for size enabled
 rule ("function") {
     event {
         Ongoing - Each Player;

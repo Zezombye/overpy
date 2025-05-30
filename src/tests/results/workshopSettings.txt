@@ -2,6 +2,7 @@ variables {
     global:
         0: A
 }
+//Optimize for size enabled
 rule ("workshop settings") {
     event {
         Ongoing - Global;

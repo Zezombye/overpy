@@ -7,6 +7,33 @@ variables {
     player:
         0: A
 }
+//Optimize for size enabled
+rule ("strict optimizations") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        //Strict optimizations enabled
+        "Unless specified otherwise, none of these should be optimized"
+        Set Global Variable(A, Compare(Custom String("am"), ==, Custom String("**")));
+        Set Global Variable(A, Add(Global.B, 0));
+        Set Global Variable(A, Add(Global.B, Add(Left, Right)));
+        Set Global Variable(A, Multiply(Global.B, 0));
+        Set Global Variable(A, Multiply(Global.B, 0));
+        "0"
+        Set Global Variable(A, Null);
+        Set Global Variable(A, Multiply(Global.B, 1));
+        Set Global Variable(A, Divide(Global.B, 1));
+        Set Global Variable(A, Divide(0, Global.B));
+        Set Global Variable(A, And(Global.B, False));
+        Set Global Variable(A, And(Global.B, True));
+        Set Global Variable(A, And(Global.B, Not(Global.B)));
+        Set Global Variable(A, Or(Global.B, False));
+        Set Global Variable(A, Or(Global.B, True));
+        Set Global Variable(A, Or(Global.B, Not(Global.B)));
+    }
+}
+
 rule ("comparison") {
     event {
         Ongoing - Global;
@@ -68,16 +95,16 @@ rule ("add") {
     }
     actions {
         Set Global Variable(A, Add(Global.B, Global.C));
-        "B+0"
-        Set Global Variable(A, Add(Global.B, 0));
+        "B"
+        Set Global Variable(A, Global.B);
         "B*2"
         Set Global Variable(A, Multiply(2, Global.B));
         "3"
         Set Global Variable(A, 3);
-        "B+vect(0,0,0)"
-        Set Global Variable(A, Add(Global.B, Add(Left, Right)));
-        "vect(0,0,0)+B"
-        Set Global Variable(A, Add(Add(Left, Right), Global.B));
+        "B"
+        Set Global Variable(A, Global.B);
+        "B"
+        Set Global Variable(A, Global.B);
         Set Global Variable(A, Add(Vector(Global.B, Global.C, Global.D), Vector(True, 2, 3)));
         "vect(5,7,9)"
         Set Global Variable(A, Vector(5, 7, 9));
@@ -101,8 +128,8 @@ rule ("subtract") {
         Set Global Variable(A, Subtract(Subtract(Global.B, Global.C), Global.D));
         "B"
         Set Global Variable(A, Global.B);
-        "B*0"
-        Set Global Variable(A, Multiply(Global.B, 0));
+        "0"
+        Set Global Variable(A, Null);
         "-1"
         Set Global Variable(A, -1);
         "B"
@@ -126,11 +153,11 @@ rule ("negate") {
         Set Global Variable(A, -1);
         Set Global Variable(A, Multiply(-1, Global.B));
         "B"
-        Set Global Variable(A, Multiply(1, Global.B));
+        Set Global Variable(A, Global.B);
         "1"
         Set Global Variable(A, 1);
         "B"
-        Set Global Variable(A, Multiply(1, Global.B));
+        Set Global Variable(A, Global.B);
         "-1"
         Set Global Variable(A, -1);
         "-B"
@@ -149,12 +176,10 @@ rule ("multiply") {
     }
     actions {
         Set Global Variable(A, Multiply(Global.B, Global.C));
-        "B*1"
-        Set Global Variable(A, Multiply(Global.B, 1));
+        "B"
+        Set Global Variable(A, Global.B);
         "B**2"
         Set Global Variable(A, Multiply(Global.B, Global.B));
-        "B*0"
-        Set Global Variable(A, Multiply(Global.B, 0));
         "0"
         Set Global Variable(A, Null);
         "6"
@@ -174,12 +199,12 @@ rule ("divide") {
     }
     actions {
         Set Global Variable(A, Divide(Global.B, Global.C));
-        "B/1"
-        Set Global Variable(A, Divide(Global.B, 1));
-        "B/0"
-        Set Global Variable(A, Divide(Global.B, 0));
-        "0/B"
-        Set Global Variable(A, Divide(0, Global.B));
+        "B"
+        Set Global Variable(A, Global.B);
+        "0"
+        Set Global Variable(A, Null);
+        "0"
+        Set Global Variable(A, Null);
         "0.5"
         Set Global Variable(A, 0.5);
         Set Global Variable(A, Divide(-3, Global.B));
@@ -248,8 +273,6 @@ rule ("assignment") {
         Set Player Variable At Index(Event Player, A, False, Global.B);
         Modify Global Variable(A, Add, Global.B);
         Modify Player Variable(Event Player, A, Add, Global.B);
-        "pass"
-        Modify Global Variable(A, Add, False);
         Modify Global Variable(A, Subtract, Global.B);
         Modify Global Variable(A, Multiply, Global.B);
         Modify Global Variable(A, Divide, Global.B);
@@ -268,14 +291,14 @@ rule ("and") {
     }
     actions {
         Set Global Variable(A, And(Global.A, Global.B));
-        "B and true"
-        Set Global Variable(A, And(Global.B, True));
-        "B and false"
-        Set Global Variable(A, And(Global.B, False));
         "B"
         Set Global Variable(A, Global.B);
-        "B and not B"
-        Set Global Variable(A, And(Global.B, Not(Global.B)));
+        "false"
+        Set Global Variable(A, False);
+        "B"
+        Set Global Variable(A, Global.B);
+        "false"
+        Set Global Variable(A, False);
         "not (B or C)"
         Set Global Variable(A, Not(Or(Global.B, Global.C)));
     }
@@ -289,12 +312,12 @@ rule ("or") {
         Set Global Variable(A, Or(Global.A, Global.B));
         "B"
         Set Global Variable(A, Global.B);
-        "A or true"
-        Set Global Variable(A, Or(Global.A, True));
-        "B or false"
-        Set Global Variable(A, Or(Global.B, False));
-        "B or not B"
-        Set Global Variable(A, Or(Global.B, Not(Global.B)));
+        "true"
+        Set Global Variable(A, True);
+        "B"
+        Set Global Variable(A, Global.B);
+        "true"
+        Set Global Variable(A, True);
         "not (B and C)"
         Set Global Variable(A, Not(And(Global.B, Global.C)));
     }
@@ -306,8 +329,10 @@ rule ("not") {
     }
     actions {
         Set Global Variable(A, Not(Global.B));
-        "B"
+        "not not B"
         Set Global Variable(A, Not(Not(Global.B)));
+        "B == C"
+        Set Global Variable(A, Compare(Global.B, ==, Global.C));
         "false"
         Set Global Variable(A, False);
         "true"
@@ -353,9 +378,8 @@ rule ("handling random values") {
         Ongoing - Global;
     }
     actions {
-        "pass"
-        Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Add, False);
         Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Add, True);
+        Set Player Variable(Random Value In Array(All Players(All Teams)), A, Add((Random Value In Array(All Players(All Teams))).A, True));
         Modify Player Variable(Random Value In Array(All Players(All Teams)), A, Max, Global.B);
     }
 }

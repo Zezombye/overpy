@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros } from "../globalVars";
+import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros, setOptimizationEnabled, setOptimizationForSize, setOptimizeStrict, enableOptimization, optimizeForSize, optimizeStrict } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, astParsingFunctions, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
@@ -161,14 +161,19 @@ import "./functions/wait";
 import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
 import { parseAstMacro, parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
-import { getTranslatedString } from "./translations";
 import { upperCaseToCamelCase } from "../utils/other";
-import { parse } from "path";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
     for (var rule of rules) {
         setFileStack(rule.fileStack);
+
+        if (rule.name === "__disableOptimizations__") {setOptimizationEnabled(false); rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizations__") {setOptimizationEnabled(true); rulesResult.push(rule); continue;}
+        if (rule.name === "__disableOptimizeForSize__") {setOptimizationForSize(false); rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); rulesResult.push(rule); continue;}
+        if (rule.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); rulesResult.push(rule); continue;}
 
         //Resolve macros in case macros have annotations
         for (let i = 0; i < rule.children.length; i++) {
@@ -342,6 +347,9 @@ export function parseAstRules(rules: Ast[]) {
 
         rulesResult.push(parseAst(rule));
     }
+    setOptimizationEnabled(true);
+    setOptimizeStrict(false);
+    setOptimizationForSize(false);
     return rulesResult;
 }
 
@@ -514,7 +522,18 @@ export function parseAst(content: Ast) {
     }
 
     content.argIndex = -1;
+
+    let oldEnableOptimization = enableOptimization;
+    let oldOptimizeForSize = optimizeForSize;
+    let oldOptimizeStrict = optimizeStrict;
+
     for (var i = 0; i < content.children.length; i++) {
+        if (content.children[i].name === "__disableOptimizations__") {setOptimizationEnabled(false);continue;}
+        if (content.children[i].name === "__enableOptimizations__") {setOptimizationEnabled(true);continue;}
+        if (content.children[i].name === "__disableOptimizeForSize__") {setOptimizationForSize(false);continue;}
+        if (content.children[i].name === "__enableOptimizeForSize__") {setOptimizationForSize(true);continue;}
+        if (content.children[i].name === "__disableOptimizeStrict__") {setOptimizeStrict(false);continue;}
+        if (content.children[i].name === "__enableOptimizeStrict__") {setOptimizeStrict(true);continue;}
         content.childIndex = i;
         let childComment: string | undefined = undefined;
         if (content.name === "__rule__") {
@@ -532,6 +551,9 @@ export function parseAst(content: Ast) {
             content.children[i].comment = childComment;
         }
     }
+    setOptimizationEnabled(oldEnableOptimization);
+    setOptimizationForSize(oldOptimizeForSize);
+    setOptimizeStrict(oldOptimizeStrict);
     content.childIndex = 0;
 
     setFileStack(content.fileStack);

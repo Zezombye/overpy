@@ -6,6 +6,7 @@ variables {
         0: score
         1: currentCheckpoint
 }
+//Optimize for size enabled
 rule ("macros") {
     event {
         Ongoing - Global;

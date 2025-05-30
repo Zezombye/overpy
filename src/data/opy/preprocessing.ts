@@ -46,10 +46,16 @@ export const preprocessingDirectives: Record<string, {
         "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will).",
     },
     "disableOptimizations": {
-        "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
+        "description": "Disables all optimizations done by the compiler for the current block or file, up until the end of the block/file or the next `#!enableOptimizations` directive.",
+    },
+    "enableOptimizations": {
+        "description": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing.",
     },
     "optimizeForSize": {
-        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block or file, up until the end of the block/file or the next `#!disableOptimizeForSize` directive."
+    },
+    "disableOptimizeForSize": {
+        "description": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing."
     },
     "optimizeStrict": {
         "description": `Disables some optimizations that may cause issues in extreme cases of type conversion. For example:
@@ -60,7 +66,12 @@ export const preprocessingDirectives: Record<string, {
 
 Those optimizations (and others) will be disabled so that the behavior of the gamemode will not be altered.
 
-This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.`,
+This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
+
+This directive is effective for the current block or file, up until the end of the block/file or the next \`#!disableOptimizeStrict\` directive.`,
+    },
+    "disableOptimizeStrict": {
+        "description": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing."
     },
     "replace0ByCapturePercentage": {
         "description": `

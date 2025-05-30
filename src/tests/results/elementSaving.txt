@@ -6,6 +6,7 @@ variables {
     player:
         0: A
 }
+//Optimize for size enabled
 rule ("0 to null") {
     event {
         Ongoing - Global;

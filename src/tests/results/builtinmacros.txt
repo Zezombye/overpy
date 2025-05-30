@@ -3,6 +3,7 @@ variables {
         0: waveHeroes
         1: waveLengths
 }
+//Optimize for size enabled
 rule ("splitDictArray") {
     event {
         Ongoing - Global;

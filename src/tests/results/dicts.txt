@@ -3,6 +3,7 @@ variables {
         0: A
         1: B
 }
+//Optimize for size enabled
 rule ("dicts") {
     event {
         Ongoing - Global;
