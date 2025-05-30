@@ -53,8 +53,6 @@ export const memberFuncList: Record<string, Omit<(typeof opyMemberFuncs)[string]
 export const stringEntitiesCompList = makeCompList(stringEntities);
 export const metaRuleParamsCompList = makeCompList(metaRuleParams);
 
-export let constValues: Record<string, Record<string, unknown>> = {};
-
 export let defaultCompList: vscode.CompletionList;
 export let allFuncList: Record<string, Record<string, unknown>>;
 export let memberCompletionItems: vscode.CompletionList;
@@ -170,7 +168,7 @@ postLoadTasks.push({
 export function refreshAutoComplete() {
     constantValuesCompLists = { ...defaultConstCompletionLists };
     for (let userEnum in userEnums) {
-        if (!(userEnum in constValues)) {
+        if (!(userEnum in defaultConstValues)) {
             constantValuesCompLists[userEnum] = new vscode.CompletionList();
         }
 
@@ -189,7 +187,7 @@ export function refreshAutoComplete() {
 
     ["Beam", "Effect", "DynamicEffect"].forEach((constType) => {
         constantValuesCompLists[constType] = new vscode.CompletionList();
-        constantValuesCompLists[constType].items = defaultConstCompletionLists[constType].items.filter((item) => !("extension" in constantValues[constType][item.label.toString()]) || activatedExtensions.includes(constantValues[constType][item.label.toString()].extension ?? "<INVALID>"));
+        constantValuesCompLists[constType].items = defaultConstCompletionLists[constType].items.filter((item) => !(item.label.toString() in constantValues[constType]) || !("extension" in constantValues[constType][item.label.toString()]) || activatedExtensions.includes(constantValues[constType][item.label.toString()].extension ?? "<INVALID>"));
     });
 
     const extensionDoc = preprocessingDirectivesList.items.filter((item) => item.label.toString() === "extension")[0];

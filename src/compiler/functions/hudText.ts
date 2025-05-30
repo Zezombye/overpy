@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
+import { enableOptimization, optimizeForSize } from "../../globalVars";
 import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces, getAstForNull, getAstForUselessInstruction } from "../../utils/ast";
 
 astParsingFunctions.hudText = function (content) {
@@ -47,15 +47,17 @@ astParsingFunctions.hudText = function (content) {
             return getAstForUselessInstruction();
         }
 
-        //Nullify the colors for null texts
-        if (content.args[1].name === "null") {
-            content.args[6] = getAstForNull();
-        }
-        if (content.args[2].name === "null") {
-            content.args[7] = getAstForNull();
-        }
-        if (content.args[3].name === "null") {
-            content.args[8] = getAstForNull();
+        if (optimizeForSize) {
+            //Nullify the colors for null texts
+            if (content.args[1].name === "null") {
+                content.args[6] = getAstForNull();
+            }
+            if (content.args[2].name === "null") {
+                content.args[7] = getAstForNull();
+            }
+            if (content.args[3].name === "null") {
+                content.args[8] = getAstForNull();
+            }
         }
     }
     return content;

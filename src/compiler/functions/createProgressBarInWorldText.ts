@@ -18,12 +18,12 @@
 "use strict";
 
 import { constantValues } from "../../data/constants";
-import { activatedExtensions, enableOptimization } from "../../globalVars";
+import { activatedExtensions, enableOptimization, optimizeForSize } from "../../globalVars";
 import { astParsingFunctions, getAstForNull, isDefinitelyFalsy } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.createProgressBarInWorldText = function (content) {
-    if (enableOptimization) {
+    if (enableOptimization && optimizeForSize) {
         //Set color to null if empty progress bar or empty text
         if (isDefinitelyFalsy(content.args[1])) {
             content.args[6] = getAstForNull();

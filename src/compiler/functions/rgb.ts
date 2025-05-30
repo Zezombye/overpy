@@ -31,6 +31,9 @@ astParsingFunctions.rgb = function (content) {
                     if (typeof value === "string") {
                         continue;
                     }
+                    if (value.onlyInOverpy) {
+                        continue;
+                    }
                     let [vr, vg, vb, va] = [value.red ?? 0, value.green ?? 0, value.blue ?? 0, value.alpha ?? 255];
                     if (r === vr && g === vg && b === vb && a === va) {
                         return new Ast("__color__", [new Ast(key, [], [], "ColorLiteral")]);

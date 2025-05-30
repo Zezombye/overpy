@@ -610,7 +610,7 @@ export function parseArgs(funcName: string, args: Token[][]) {
             positionalArgs[argIndex] = arg.slice(2);
         } else {
             if (hasKwArg) {
-                error("Cannot use positional arguments after keyword arguments");
+                error("Cannot use positional arguments after keyword arguments", getFileStackRange(arg));
             }
             positionalArgs[i] = arg;
         }
@@ -1079,6 +1079,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
     }
 
+    setFileStack(getFileStackRange(content));
     debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
 
     //Special functions
@@ -1415,6 +1416,9 @@ function parseMember(object: Token[], member: Token[]) {
         result.fileStack = getFileStackRange(object.concat(...member));
         return result;
     } else {
+
+        setFileStack(getFileStackRange(object.concat(...member)));
+
         if (object[0].text === "random" && object.length === 1) {
             if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {

@@ -185,7 +185,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
         //Optimize string args by inlining numbers and custom strings with at most one {0}
         let argIndexesToRemove = [];
         for (let [i, arg] of args.entries()) {
-            if (arg.name === "__number__" && Math.abs(arg.args[0].numValue) < NUMBER_LIMIT || (arg.name === "__customString__" && (arg.args[0].name.match(/\{0\}/g) || []).length <= 1 && !arg.args[0].name.includes("{1}") && !arg.args[0].name.includes("{2}"))) {
+            if (arg.name === "__number__" && Math.abs(arg.args[0].numValue) < NUMBER_LIMIT || (arg.name === "__customString__" && !arg.args[0].name.includes("{0}") && !arg.args[0].name.includes("{1}") && !arg.args[0].name.includes("{2}"))) {
                 argIndexesToRemove.push(i);
             }
         }
@@ -197,13 +197,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                     if (args[t.index].name === "__number__") {
                         newText = args[t.index].args[0].numValue.toFixed(2).replace(".00", "");
                     } else if (args[t.index].name === "__customString__") {
-                        if (args[t.index].args[0].name.includes("{0}")) {
-                            let newTexts: { text: string; type: "string" }[] = (args[t.index].args[0].name.split("{0}") as string[]).map((x) => ({ text: x, type: "string" }));
-                            args[t.index] = args[t.index].args[1];
-                            return [newTexts[0], t, newTexts[1]];
-                        } else {
-                            newText = args[t.index].args[0].name;
-                        }
+                        newText = args[t.index].args[0].name;
                     } else {
                         error("Invalid optimized string arg name '" + args[t.index].name + "', please report to Zezombye");
                     }

@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
+import { enableOptimization, optimizeForSize } from "../../globalVars";
 import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces, getAstForNull, isDefinitelyFalsy } from "../../utils/ast";
 
 astParsingFunctions.progressBarHud = function (content) {
@@ -26,7 +26,7 @@ astParsingFunctions.progressBarHud = function (content) {
             content.args[2] = new Ast(".format", [getAstForCustomString("{}{}"), content.args[2], getAstForFucktonOfSpaces()]);
         }
     }
-    if (enableOptimization) {
+    if (enableOptimization && optimizeForSize) {
         //Set color to null if empty progress bar or empty text
         if (isDefinitelyFalsy(content.args[1])) {
             content.args[5] = getAstForNull();

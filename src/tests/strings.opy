@@ -83,6 +83,8 @@ string")
     A = "[{1}] LEAVE EDIT MODE\n{2} CREATE BOT\n{3} GRAB BOT\n[{4}] REMOVE BOT\n[{0}] + [{4}] REMOVE ALL BOTS\n[{5}] PLACE RESET MARKER\n[{0}] + [{5}] REMOVE RESET MARKER\n[{6}] INCREASE PLACEMENT DISTANCE\n[{0}] + [{6}] DECREASE PLACEMENT DISTANCE".format(A,B,C,D,E,F, G)
     A =  "{1} CREATE BOT {2}\n{3} GRAB BOT\n[{4}] REMOVE BOT\n[{0}] + [{4}] REMOVE ALL BOTS\n[{4}] PLACE RESET MARKER\n[{0}] + [{4}] REMOVE RESET MARKER\n[{5}] INCREASE PLACEMENT DISTANCE\n[{0}] + [{5}] DECREASE PLACEMENT DISTANCE".format(A,B,C,D,E,F)
 
+    A = "{0}fgFFFFFFF0>{1}{1}{1}{1}".format(A, "{0}TX C0000000002DD21>".format(A))
+
 
 rule "optimizations":
     A = strLen("owo") #3
