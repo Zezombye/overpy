@@ -181,6 +181,7 @@ function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
         }
     }
 
+    content = content.trim();
     //console.log(content);
 
     var bracketPos = getBracketPositions(content);
