@@ -28,6 +28,8 @@ import { transform } from "@babel/standalone";
 const MAX_SCRIPT_STEP_COUNT = 65_536;
 const MAX_SCRIPT_STACK_SIZE = 1_000_000;
 
+const scriptCache: Record<string, string> = {};
+
 //camelCase -> UPPER_CASE
 export function camelCaseToUpperCase(str: string): string {
     return str
@@ -127,6 +129,12 @@ export function getUniqueNumber(): number {
 
 //eval with js-interpreter
 export function safeEval(script: string): string {
+
+    //The interpreter is very slow, so caching script results is worth it
+    if (script in scriptCache) {
+        return scriptCache[script];
+    }
+
     // Transform code with Babel so that js-interpreter can understand
     // more modern JavaScript syntax
     const transformedScript = transform(script, {
@@ -161,6 +169,7 @@ export function safeEval(script: string): string {
     if (typeof scriptResult !== "string") {
         error(`JavaScript macro returned value with type of ${typeof scriptResult}, expected string`);
     }
+    scriptCache[script] = scriptResult;
     return scriptResult;
 }
 

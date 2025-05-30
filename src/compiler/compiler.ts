@@ -277,6 +277,11 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
         exportToPoFiles(translatedStrings);
     }
 
+    //Remove duplicated warnings
+    let uniqueEncounteredWarnings = encounteredWarnings.filter((warning, index, self) => {
+        return index === self.findIndex((w) => JSON.stringify(w) === JSON.stringify(warning));
+    });
+
     return {
         result,
         macros,
@@ -285,7 +290,7 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
         globalVariables,
         playerVariables,
         subroutines,
-        encounteredWarnings,
+        encounteredWarnings: uniqueEncounteredWarnings,
         hiddenWarnings,
         enumMembers,
         nbElements,

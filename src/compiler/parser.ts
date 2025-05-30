@@ -878,11 +878,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         let isCasedString = false;
         var string = "";
         for (var i = content.length - 1; i >= 0; i--) {
+            setFileStack(content[i].fileStack);
             if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
                 string = unescapeString(content[i].text, true) + string;
             } else {
                 if (i !== 0) {
-                    error("Invalid content before string: '" + content[i].text + "'", content[i].fileStack);
+                    error("Invalid content before string: '" + content[i].text + "'");
                 }
                 //string modifiers
                 //console.log("string modifiers: "+content[0].text);
@@ -958,6 +959,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 }
             }
         }
+        setFileStack(getFileStackRange(content));
         if (translate) {
             if (kwargs.disableTranslation) {
                 error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
