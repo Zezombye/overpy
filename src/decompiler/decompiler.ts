@@ -140,6 +140,49 @@ function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
     var gamemodeRegex = new RegExp("\\b" + gamemodeConstFunction + "\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g");
     content = content.replace(gamemodeRegex, gamemodeConstFunction + "(__removed_from_ow2__)");
 
+    //Remove comments
+    for (let i = 0; i < content.length; i++) {
+        if (content.startsWith("//", i)) {
+            //Single line comment
+            var endOfLine = content.indexOf("\n", i);
+            if (endOfLine < 0) {
+                endOfLine = content.length;
+            }
+            content = content.substring(0, i) + content.substring(endOfLine);
+            i--;
+        } else if (content.startsWith("/*", i)) {
+            //Multi-line comment
+            var endOfComment = content.indexOf("*/", i);
+            if (endOfComment < 0) {
+                error("Unclosed multiline comment '"+content.substring(i, i+20)+"...'");
+            }
+            content = content.substring(0, i) + content.substring(endOfComment + 2);
+            i--;
+        } else if (content[i] === '"') {
+            //String
+            let j = i + 1;
+            let isBackslashed = false;
+            let foundEndOfString = false;
+            for (; j < content.length; j++) {
+                if (content[j] === '"' && !isBackslashed) {
+                    foundEndOfString = true;
+                    break;
+                }
+                if (content[j] === "\\" && !isBackslashed) {
+                    isBackslashed = true;
+                } else {
+                    isBackslashed = false;
+                }
+            }
+            if (!foundEndOfString) {
+                error("Unclosed string '"+content.substring(i, i+20)+"...'");
+            }
+            i = j;
+        }
+    }
+
+    //console.log(content);
+
     var bracketPos = getBracketPositions(content);
     if (bracketPos.length === 0) {
         error("Content is not workshop code");

@@ -128,15 +128,18 @@ function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
         error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
     }
 
-    //If string is blank, add U+2000 EN QUAD.
+    //If string is blank, add a fullwidth space as strings cannot only contain regular whitespace.
     if (!/\S/.test(str.args[0].name)) {
         str.args[0].name += String.fromCharCode(0x3000);
     }
 
     //Replace disallowed workshop setting chars
-    str.args[0].name = str.args[0].name.replace(":", "\u{E003A}").replace("{", "\u{E007B}").replace("}", "\u{E007D}");
+    str.args[0].name = str.args[0].name.replaceAll(":", "\u{E003A}").replaceAll("{", "\u{E007B}").replaceAll("}", "\u{E007D}");
 
     if (isName) {
+        //Chars other than :{} are allowed, but are stripped out on copying, so replace them if the string is the setting name (category is not copied and enum names are copied as index)
+        //The | char must also be replaced as it makes the setting not recognized on pasting
+        str.args[0].name = str.args[0].name.replaceAll('"', "\u{E0022}").replaceAll("(", "\u{E0028}").replaceAll(")", "\u{E0029}").replaceAll(",", "\u{E002C}").replaceAll("/", "\u{E002F}").replaceAll(";", "\u{E003B}").replaceAll("\\", "\u{E005C}").replaceAll("|", "\u{E007C}");
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
         var settingName = str.args[0].name;
         if (workshopSettingNames.includes(settingName)) {

@@ -105,7 +105,7 @@ export function astRulesToOpy(rules: Ast[]) {
     }
 
     if (result) {
-        result = "#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.\n#!optimizeStrict\n\n\n"+result;
+        result = "#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, \"am\" == \"**\", etc which would otherwise be optimized out.\n#!optimizeStrict\n\n\n"+result;
     }
 
     return result;

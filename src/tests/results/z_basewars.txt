@@ -823,7 +823,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(-32, -1.75, -14.5));
             Set Global Variable(mapExtension1Xyz, Vector(48, 16.75, 85.75));
             Set Global Variable(mapExtension1Rotation, -284.5);
-            If(Not(Workshop Setting Toggle(Custom String("­\nMap extensions"), Custom String("Eichenwalde 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("­\nMap extensions"), Custom String("Eichenwalde 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("­\nMap extensions"), Custom String("Eichenwalde 1st point"), False, 1));
@@ -839,7 +839,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(31, -5, -29.75));
             Set Global Variable(mapExtension1Xyz, Vector(65.5, 14, 38));
             Set Global Variable(mapExtension1Rotation, -0.5);
-            If(Not(Workshop Setting Toggle(Custom String("      　　"), Custom String("Hanamura 1st point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("      　　"), Custom String("Hanamura 1st point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("      　　"), Custom String("Hanamura pre-choke"), False, 1));
@@ -862,7 +862,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension3Origin, Vector(-18.25, 4, -36));
             Set Global Variable(mapExtension3Xyz, Vector(64.75, 13, 70.25));
             Set Global Variable(mapExtension3Rotation, 0);
-            If(Not(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("     　　"), Custom String("Havana 1st point"), False, 1));
@@ -888,7 +888,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension2Origin, Vector(-41.5, 2, -18.75));
             Set Global Variable(mapExtension2Xyz, Vector(70.5, 15.25, 94.25));
             Set Global Variable(mapExtension2Rotation, -25.75);
-            If(Not(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("    　　"), Custom String("Hollywood 3rd point"), False, 1));
@@ -934,13 +934,13 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension2Origin, Vector(-29.5, 4, -7.75));
             Set Global Variable(mapExtension2Xyz, Vector(45.25, 15.75, 73.5));
             Set Global Variable(mapExtension2Rotation, -101);
-            If(Not(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row 1st point"), False, 1));
                 Modify Global Variable(availableMapExtensions, Append To Array, 1);
             End;
-            If(And(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row secret area (not available on winter)"), False, 2), Compare(Current Map, ==, Map(King's Row))));
+            If(And(Workshop Setting Toggle(Custom String("   　　"), Custom String("King's Row secret area 󠀨not available on winter󠀩"), False, 2), Compare(Current Map, ==, Map(King's Row))));
                 Modify Global Variable(availableMapExtensions, Append To Array, 2);
             End;
         Else If(Or(Compare(Current Map, ==, Map(Lijiang Control Center)), Compare(Current Map, ==, Map(Lijiang Control Center Lunar New Year))));
@@ -989,7 +989,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(31.75, 8, -48.5));
             Set Global Variable(mapExtension1Xyz, Vector(42.5, 14.5, 115));
             Set Global Variable(mapExtension1Rotation, -137);
-            If(Not(Workshop Setting Toggle(Custom String("  　　"), Custom String("Paris 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String("  　　"), Custom String("Paris 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String("  　　"), Custom String("Paris 1st point"), False, 1));
@@ -1007,7 +1007,7 @@ rule ("GAME INIT MAP") {
             Set Global Variable(mapExtension1Origin, Vector(-67.5, 4, 46.25));
             Set Global Variable(mapExtension1Xyz, Vector(51.5, 15, 101.5));
             Set Global Variable(mapExtension1Rotation, -224);
-            If(Not(Workshop Setting Toggle(Custom String(" 　　"), Custom String("Route 66 2nd point (default)"), True, 0)));
+            If(Not(Workshop Setting Toggle(Custom String(" 　　"), Custom String("Route 66 2nd point 󠀨default󠀩"), True, 0)));
                 Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
             End;
             If(Workshop Setting Toggle(Custom String(" 　　"), Custom String("Route 66 3rd point"), False, 1));

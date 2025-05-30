@@ -826,7 +826,7 @@ rule ("WORKSHOP SETTINGS") {
     }
     actions {
         Set Global Variable(firstToX, Workshop Setting Toggle(Custom String("WIN CONDITIONS"), Custom String("FIRST TO [X] POINTS - WIN STATE"), False, 0));
-        Set Global Variable(scoreToWin, Workshop Setting Integer(Custom String("WIN CONDITIONS"), Custom String("SCORE TO WIN (30)"), 30, 15, 200, 0));
+        Set Global Variable(scoreToWin, Workshop Setting Integer(Custom String("WIN CONDITIONS"), Custom String("SCORE TO WIN 󠀨30󠀩"), 30, 15, 200, 0));
         Set Global Variable(topScorerAfterAllMinigames, Workshop Setting Toggle(Custom String("WIN CONDITIONS"), Custom String("TOP SCORER AFTER PLAYING ALL THE MINIGAMES"), False, 0));
         Set Global Variable(minigamesToggleArray, Null);
         For Global Variable(workshopSettingsIt, 0, Count Of(Global.heroList), 1);

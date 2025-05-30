@@ -626,7 +626,7 @@ rule ("Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Cre
         "0=Easy, 1=Normal, 2=Hard, 3=Apocalypse"
         Set Global Variable(temp_1, Workshop Setting Combo(Custom String("Settings"), Custom String("Difficulty"), 1, Array(Custom String("Easy"), Custom String("Normal"), Custom String("Hard"), Custom String("Apocalyptic")), 0));
         "100-500%"
-        Set Global Variable(money_mult, Workshop Setting Integer(Custom String("Settings"), Custom String("Money Generation Scalar (in Percent)"), 100, 100, 500, 1));
+        Set Global Variable(money_mult, Workshop Setting Integer(Custom String("Settings"), Custom String("Money Generation Scalar 󠀨in Percent󠀩"), 100, 100, 500, 1));
         "0=15w, 1=22w"
         Set Global Variable(length, Workshop Setting Combo(Custom String("Settings"), Custom String("Game Length"), 0, Array(Custom String("15 Waves"), Custom String("22 Waves")), 2));
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0} Difficulty{1}", Value In Array(Array(Custom String("Easy"), Custom String("Normal"), Custom String("Hard"), Custom String("Apocalyptic")), Global.temp_1), If-Then-Else(Compare(Global.money_mult, ==, 100), Custom String(""), Custom String(", +{0}% money", Subtract(Global.money_mult, 100)))), Right, -100, Null, Null, Color(Orange), Visible To, Default Visibility);

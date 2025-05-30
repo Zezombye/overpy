@@ -217,7 +217,7 @@ export function getFileStackRange(tokens: Token[]): FileStackMember[] {
 
 export function displayFileStack(fileStack: FileStackMember[] | undefined): string {
     if (!fileStack || fileStack.length === 0) {
-        return "\n    | <no filestack>";
+        return "";
     }
     let result = "";
     for (const file of fileStack.toReversed()) {

@@ -32,4 +32,4 @@ rule "workshop settings":
     A = createWorkshopSetting(enum["<txC00000000008E02>"], "<txC00000000008E02>", "<txC00000000008E02>", 0)
 
     #char workaround
-    A = createWorkshopSettingEnum("!\"#$%&'()*+,-./:\n;<=>?[\\]^_`{|}~", "{test special chars:}", 1, ["{test special chars:}", "owo"])
+    A = createWorkshopSettingEnum("!\"#$%&'()*+,-./:\n;<=>?[\\]^_`{|}~", "!\"#$%&'()*+,-./:\n;<=>?[\\]^_`{|}~", 0, ["{test special chars:}", "!\"#$%&'()*+,-./:\n;<=>?[\\]^_`{|}~"])

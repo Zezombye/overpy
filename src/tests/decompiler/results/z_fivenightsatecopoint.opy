@@ -148,7 +148,7 @@ subroutine ZenMove 12
 #!extension playMoreEffects
 
 
-#Only remove the following directive if the gamemode does not use type casting tricks such as A+0, A*0, A and true, etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
 
 
