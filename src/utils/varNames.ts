@@ -23,6 +23,7 @@ import { Token } from "../compiler/tokenizer";
 import { Ast } from "./ast";
 import { error } from "./logging";
 import { FileStackMember } from "../types";
+import { checkVarNameForBadWords } from "./strings";
 
 /** Translates a subroutine name from Overwatch to its OverPy version */
 export function translateSubroutineToPy(content: string, fileStack: FileStackMember[]): string {
@@ -60,6 +61,7 @@ export function addSubroutine(content: string, index: number | null, fileStack: 
     if (reservedSubroutineNames.includes(content)) {
         error("Subroutine name '" + content + "' is a built-in function or keyword");
     }
+    checkVarNameForBadWords(content);
     subroutines.push({
         name: content,
         index: index ?? subroutines.length,
@@ -120,6 +122,7 @@ export function addVariable(content: string, isGlobalVariable: boolean, index: n
     if ((isGlobalVariable && reservedNames.includes(content)) || (!isGlobalVariable && reservedMemberNames.includes(content))) {
         error("Variable name '" + content + "' is a reserved word");
     }
+    checkVarNameForBadWords(content);
     if (isGlobalVariable) {
         globalVariables.push({
             name: content,

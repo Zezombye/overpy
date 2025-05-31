@@ -732,7 +732,7 @@ rule ("Create playzone FX") {
     }
 }
 
-rule ("Trigger playzone") {
+rule ("Tri­gger playzone") {
     event {
         Ongoing - Each Player;
         All;
@@ -774,7 +774,7 @@ rule ("ECOPOINT create TPs") {
     }
 }
 
-rule ("ECOPOINT trigger right side TP") {
+rule ("ECOPOINT tri­gger right side TP") {
     event {
         Ongoing - Each Player;
         All;
@@ -803,7 +803,7 @@ rule ("ECOPOINT trigger right side TP") {
     }
 }
 
-rule ("ECOPOINT trigger left side TP") {
+rule ("ECOPOINT tri­gger left side TP") {
     event {
         Ongoing - Each Player;
         All;
@@ -847,7 +847,7 @@ rule ("FOREST create TP") {
     }
 }
 
-rule ("FOREST trigger TP") {
+rule ("FOREST tri­gger TP") {
     event {
         Ongoing - Each Player;
         All;
@@ -924,7 +924,7 @@ rule ("CREATE Dorado launcher") {
     }
 }
 
-rule ("TRIGGER Dorado launcher") {
+rule ("TRI­GGER Dorado launcher") {
     event {
         Ongoing - Each Player;
         All;
@@ -958,7 +958,7 @@ disabled rule ("CREATE Lijang Control launcher") {
     }
 }
 
-disabled rule ("TRIGGER Lijang Control launcher") {
+disabled rule ("TRI­GGER Lijang Control launcher") {
     event {
         Ongoing - Each Player;
         All;
@@ -2613,7 +2613,7 @@ rule ("CREATE all jump pads") {
     }
 }
 
-rule ("TRIGGER any jump pad") {
+rule ("TRI­GGER any jump pad") {
     event {
         Ongoing - Each Player;
         All;

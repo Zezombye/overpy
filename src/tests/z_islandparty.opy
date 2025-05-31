@@ -1,3 +1,5 @@
+#!suppressWarnings w_closest_player
+
 settings {
     "main": {
         "description": "Island Party - Heroes Minigames    v3.1.1-23    Play rounds of 23 classic and new games as minigames and score points.    Widow HS only, McCree Hot Potato, Zen Sparta, Echo Rings...    Code: W468T    Join my discord.io/IslandParty to choose the next minigame or give feedback.    ~Created by Jokaes#2263 My codes in: jokaes.github.io",

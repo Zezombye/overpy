@@ -1,3 +1,5 @@
+#!suppressWarnings w_tags w_ow2_rule_condition_chase
+
 settings {
     "main": {
         "description": "<fg00ffffff>Base Wars <fgffa600ff>is a FFA in which you <fgff6fd0ff>build your base</fg>, <fgc752ffff>collect loot</fg> and <fgc8ff55ff>raid your neighbors</fg>.\n\nFirst to <fgffff00ff>1000 gold</fg> wins - <fgf40000ff>by any means necessary.</fg>\n\n<fgddddddff>v2.3</fg> | Code: <fg00ff6eff>14WON</fg>\n\nFeedback: <fgff00ffff>discord.gg/EEMjjFB</fg>\nMade by </fg>Durkhaz",
@@ -1112,7 +1114,7 @@ rule "PLAYER REGEN START":
     @Condition eventPlayer.regenID == null
     @Condition eventPlayer.isInBase == false
 
-    eventPlayer.startHealingOverTime(null, 9999, 33)
+    eventPlayer.startHealingOverTime(null, 99999, 33)
     eventPlayer.regenID = getLastHealingOverTimeId()
     wait()
     if ruleCondition:
@@ -1240,7 +1242,7 @@ rule "player finished entering base":
 
     eventPlayer.setDamageDealt(0)
     eventPlayer.setInvisibility(Invis.ALL)
-    eventPlayer.startHealingOverTime(eventPlayer, 9999, 25)
+    eventPlayer.startHealingOverTime(eventPlayer, 99999, 25)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
     eventPlayer.disallowButton(Button.SECONDARY_FIRE)

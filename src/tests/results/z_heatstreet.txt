@@ -590,7 +590,7 @@ rule ("Special thanks") {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(Special_Thanks, Workshop Setting Combo(Custom String("Special thanks"), Custom String("Cool people"), 10, Array(Custom String("Thank you to"), Custom String("Shingen"), Custom String("Developful"), Custom String("SgtMoody")), 0));
+        Set Global Variable(Special_Thanks, Workshop Setting Combo(Custom String("Special thanks"), Custom String("Cool people"), 0, Array(Custom String("Thank you to"), Custom String("Shingen"), Custom String("Developful"), Custom String("SgtMoody")), 0));
     }
 }
 
@@ -624,7 +624,7 @@ rule ("Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Cre
             Set Global Variable(boss_list_1, Array(Hero(Cassidy), Hero(Baptiste), Hero(Lúcio), Hero(Pharah), Hero(Widowmaker), Hero(Sombra), Hero(Reaper), Hero(Ana), Hero(Echo), Hero(Mei), Hero(Zarya), Hero(Tracer), Hero(Orisa), Hero(Kiriko), Hero(Reinhardt), Hero(Brigitte), Hero(Hanzo), Hero(Genji), Hero(D.Va), Hero(Roadhog), Hero(Sigma), Hero(Reinhardt)));
         End;
         "0=Easy, 1=Normal, 2=Hard, 3=Apocalypse"
-        Set Global Variable(temp_1, Workshop Setting Combo(Custom String("Settings"), Custom String("Difficulty"), 1, Array(Custom String("Easy"), Custom String("Normal"), Custom String("Hard"), Custom String("Apocalyptic")), 0));
+        Set Global Variable(temp_1, Workshop Setting Combo(Custom String("Settings"), Custom String("Difficulty"), 0, Array(Custom String("Easy"), Custom String("Normal"), Custom String("Hard"), Custom String("Apocalyptic")), 0));
         "100-500%"
         Set Global Variable(money_mult, Workshop Setting Integer(Custom String("Settings"), Custom String("Money Generation Scalar 󠀨in Percent󠀩"), 100, 100, 500, 1));
         "0=15w, 1=22w"
@@ -8120,7 +8120,7 @@ rule ("Widowmaker: Widowmaker Ult") {
     }
     actions {
         Set Player Variable(All Players(Team 2), Slowed_until, Add(9999, Total Time Elapsed));
-        Wait Until(Not(Is Using Ultimate(Event Player)), 9999);
+        Wait Until(Not(Is Using Ultimate(Event Player)), 99999);
         Set Player Variable(All Players(Team 2), Slowed_until, Total Time Elapsed);
     }
 }
@@ -8916,7 +8916,7 @@ rule ("Junkrat: Pyromania") {
     }
 }
 
-rule ("Junkrat: Trigger Happy") {
+rule ("Junkrat: Tri­gger Happy") {
     event {
         Ongoing - Each Player;
         Team 1;
@@ -9321,7 +9321,7 @@ rule ("[Baptiste] Aerial Ace - Jump") {
         Has Status(Event Player, Hacked) == False;
     }
     actions {
-        Wait Until(Not(Is Crouching(Event Player)), 9999);
+        Wait Until(Not(Is Crouching(Event Player)), 99999);
         Wait Until(Is Jumping(Event Player), 1);
         Set Player Variable(Event Player, Ability_Available, True);
         Wait(0.25, Ignore Condition);
@@ -9515,11 +9515,11 @@ rule ("Cassidy: Standoff") {
     actions {
         Wait(0.2, Ignore Condition);
         Set Player Variable(Event Player, Ability_Countdown, False);
-        Chase Player Variable At Rate(Event Player, Ability_Countdown, 9999, 100, Destination and Rate);
+        Chase Player Variable At Rate(Event Player, Ability_Countdown, 99999, 100, Destination and Rate);
         Wait(0.5, Ignore Condition);
-        Chase Player Variable At Rate(Event Player, Ability_Countdown, 9999, 275, Destination and Rate);
+        Chase Player Variable At Rate(Event Player, Ability_Countdown, 99999, 275, Destination and Rate);
         Wait(0.5, Ignore Condition);
-        Chase Player Variable At Rate(Event Player, Ability_Countdown, 9999, 550, Destination and Rate);
+        Chase Player Variable At Rate(Event Player, Ability_Countdown, 99999, 550, Destination and Rate);
     }
 }
 
@@ -9573,7 +9573,7 @@ rule ("Wrecking Ball: Orbital Strike") {
     actions {
         Set Player Variable(Event Player, Ability_Countdown, Multiply(Altitude Of(Event Player), 10));
         Modify Player Variable(Event Player, Damage_Dealt, Add, (Event Player).Ability_Countdown);
-        Wait Until(Or(Is On Ground(Event Player), Is Dead(Event Player)), 9999);
+        Wait Until(Or(Is On Ground(Event Player), Is Dead(Event Player)), 99999);
         Wait(1, Ignore Condition);
         Modify Player Variable(Event Player, Damage_Dealt, Subtract, (Event Player).Ability_Countdown);
     }
@@ -9690,7 +9690,7 @@ rule ("Ramattra: Vile Dominance") {
     actions {
         Modify Player Variable(Event Player, Move_Speed, Add, 30);
         Set Player Variable(Event Player, Ability_Active, True);
-        Wait Until(Not(And(Or(Is Using Ability 1(Event Player), Is Using Ultimate(Event Player)), (Event Player).Talent1)), 9999);
+        Wait Until(Not(And(Or(Is Using Ability 1(Event Player), Is Using Ultimate(Event Player)), (Event Player).Talent1)), 99999);
         Modify Player Variable(Event Player, Move_Speed, Subtract, 30);
         Set Player Variable(Event Player, Ability_Active, False);
     }

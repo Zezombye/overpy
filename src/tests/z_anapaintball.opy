@@ -1,3 +1,5 @@
+#!suppressWarnings w_ow2_rule_condition_chase w_closest_player w_lone_else
+
 settings {
     "main": {
         "description": "Always import the code → 1DMTZ ←\nNEVER SAVE AS PRESET!\n\nTrain your aim while having fun!\nEarn medals, honor players, get a nuke...\nThe best Ana Paintball mode since 2019!\n\nDonate ≫ ko-fi.com/jinkofi\nDiscord ≫ jinko.dev/discord\nTikTok ≫ @Jinko_OW\nFull mode details ≫ www.jinko.dev/anapb",

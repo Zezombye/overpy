@@ -23,7 +23,7 @@ import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
 import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict } from "../globalVars";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0 } from "../utils/ast";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
 import { error, functionNameToString } from "../utils/logging";
 import { tabLevel } from "../utils/other";
@@ -258,27 +258,39 @@ function astToWs(content: Ast): string {
         //Check that before size optimizations as otherwise we check vect(false, true, false)
         if (enableOptimization) {
             //Check for each of the 6 vector constants
-            if (content.args[0].name === "__number__" && content.args[1].name === "__number__" && content.args[2].name === "__number__") {
-                let x = content.args[0].args[0].numValue;
-                let y = content.args[1].args[0].numValue;
-                let z = content.args[2].args[0].numValue;
-                if (x === 1 && y === 0 && z === 0) {
-                    return astToWs(new Ast("Vector.LEFT"));
+            let x = numValue(content.args[0]);
+            let y = numValue(content.args[1]);
+            let z = numValue(content.args[2]);
+            if (x === 1 && y === 0 && z === 0) {
+                return astToWs(new Ast("Vector.LEFT"));
+            }
+            if (x === -1 && y === 0 && z === 0) {
+                return astToWs(new Ast("Vector.RIGHT"));
+            }
+            if (x === 0 && y === 1 && z === 0) {
+                return astToWs(new Ast("Vector.UP"));
+            }
+            if (x === 0 && y === -1 && z === 0) {
+                return astToWs(new Ast("Vector.DOWN"));
+            }
+            if (x === 0 && y === 0 && z === 1) {
+                return astToWs(new Ast("Vector.FORWARD"));
+            }
+            if (x === 0 && y === 0 && z === -1) {
+                return astToWs(new Ast("Vector.BACKWARD"));
+            }
+
+            if (optimizeForSize && !(x === 0 && y === 0 && z === 0)) {
+                //vect(0,A,0) -> A * Vector.UP and same for other vector constants
+                //We already checked for null vector, so we can just check for zeroes
+                if (y === 0 && z === 0) {
+                    return astToWs(new Ast("__multiply__", [content.args[0], new Ast("Vector.LEFT")]));
                 }
-                if (x === -1 && y === 0 && z === 0) {
-                    return astToWs(new Ast("Vector.RIGHT"));
+                if (x === 0 && z === 0) {
+                    return astToWs(new Ast("__multiply__", [content.args[1], new Ast("Vector.UP")]));
                 }
-                if (x === 0 && y === 1 && z === 0) {
-                    return astToWs(new Ast("Vector.UP"));
-                }
-                if (x === 0 && y === -1 && z === 0) {
-                    return astToWs(new Ast("Vector.DOWN"));
-                }
-                if (x === 0 && y === 0 && z === 1) {
-                    return astToWs(new Ast("Vector.FORWARD"));
-                }
-                if (x === 0 && y === 0 && z === -1) {
-                    return astToWs(new Ast("Vector.BACKWARD"));
+                if (x === 0 && y === 0) {
+                    return astToWs(new Ast("__multiply__", [content.args[2], new Ast("Vector.FORWARD")]));
                 }
             }
         }

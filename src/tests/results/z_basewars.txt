@@ -1332,7 +1332,7 @@ rule ("PLAYER REGEN START") {
         (Event Player).isInBase == False;
     }
     actions {
-        Start Heal Over Time(Event Player, Null, 9999, 33);
+        Start Heal Over Time(Event Player, Null, 99999, 33);
         Set Player Variable(Event Player, regenID, Last Heal Over Time ID);
         Wait(0.016, Ignore Condition);
         Loop If Condition Is True;
@@ -1520,7 +1520,7 @@ rule ("player finished entering base") {
     actions {
         Set Damage Dealt(Event Player, 0);
         Set Invisible(Event Player, All);
-        Start Heal Over Time(Event Player, Event Player, 9999, 25);
+        Start Heal Over Time(Event Player, Event Player, 99999, 25);
         Set Status(Event Player, Null, Phased Out, 9999);
         Disallow Button(Event Player, Button(Primary Fire));
         Disallow Button(Event Player, Button(Secondary Fire));

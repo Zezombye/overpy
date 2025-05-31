@@ -4427,7 +4427,7 @@ rule ("SYM decidingOnAColor PHASE") {
     }
 }
 
-rule ("SYM theColorIsSelected TRIGGER") {
+rule ("SYM theColorIsSelected TRI­GGER") {
     event {
         Subroutine;
         symTheColorIsSelectedTrigger;
@@ -4484,7 +4484,7 @@ rule ("SYM theColorIsSelected PHASE") {
     }
 }
 
-rule ("SYM someoneReachedTheSelectedColor TRIGGER") {
+rule ("SYM someoneReachedTheSelectedColor TRI­GGER") {
     event {
         Ongoing - Global;
     }
@@ -4538,7 +4538,7 @@ rule ("SYM someoneReachedTheSelectedColor PHASE") {
     }
 }
 
-rule ("SYM innerRoundTimerIsOver TRIGGER") {
+rule ("SYM innerRoundTimerIsOver TRI­GGER") {
     event {
         Ongoing - Global;
     }

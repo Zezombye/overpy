@@ -116,13 +116,13 @@ rule ("kings row") {
         Modify Global Variable(W, Append To Array, Vector(-170.521, 1.479, 39.27));
         Modify Global Variable(W, Append To Array, Vector(-171.641, 1.479, 32.51));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(42.16, 0.67, 31.96));
         Modify Global Variable(B, Append To Array, Vector(-20.25, 1.26, 27.649));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(-19.271, 2.35, -16.34));
         Modify Global Variable(B, Append To Array, Vector(-97.971, -1.141, -47.771));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(62.729, 5.859, -55.221));
         Modify Global Variable(C, Append To Array, Vector(3.63, 3.55, 52.29));
@@ -170,7 +170,7 @@ rule ("blizz world") {
         Modify Global Variable(W, Append To Array, Vector(-145.59, 2.15, 115.9));
         Modify Global Variable(W, Append To Array, Vector(-147.46, 2.23, 90.87));
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Multiply(15, Forward));
         Modify Global Variable(S, Append To Array, Vector(False, 2, 20));
         Modify Global Variable(S, Append To Array, Vector(2, 5, 15));
         Modify Global Variable(S, Append To Array, Vector(4, 6, 15));
@@ -206,14 +206,14 @@ rule ("blizz world") {
         Modify Global Variable(T, Append To Array, Vector(-145.55, 2.1, 103.96));
         Modify Global Variable(T, Append To Array, Vector(-145.55, 2.1, 103.96));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(-12.51, -2.65, -33.5));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(22.18, 1.52, 96.16));
         Modify Global Variable(B, Append To Array, Vector(-78.4, 1.95, 129.36));
         Modify Global Variable(B, Append To Array, Vector(-113.26, 6.1, 130.81));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(2.97, -4.65, -85.64));
         Modify Global Variable(C, Append To Array, Vector(-12.48, -2.72, -32.04));
@@ -300,12 +300,12 @@ rule ("eichenwalde") {
         Modify Global Variable(T, Append To Array, Vector(126.503, 17.516, -15.358));
         Modify Global Variable(T, Append To Array, Vector(111.545, 16.071, -33.741));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(21, 11.208, -99));
         Modify Global Variable(B, Append To Array, Vector(26.932, 10.006, -87.287));
         Modify Global Variable(B, Append To Array, Vector(67.503, 6.071, -83.707));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(125.858, 16.083, -19.069));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(-12.112, 2.165, -7.337));
@@ -356,13 +356,13 @@ rule ("oasis city center") {
         Modify Global Variable(W, Append To Array, Vector(142.109, 5.352, 226.935));
         Modify Global Variable(W, Append To Array, Vector(137.603, 2, 210.548));
         Set Global Variable(S, Empty Array);
-        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Multiply(15, Forward));
         Modify Global Variable(S, Append To Array, Vector(False, 5, 20));
         Modify Global Variable(S, Append To Array, Vector(4, 7, 15));
         Modify Global Variable(S, Append To Array, Vector(9, 3, 25));
         Modify Global Variable(S, Append To Array, Vector(12, 4, 20));
         Modify Global Variable(S, Append To Array, Vector(16, 5, 15));
-        Modify Global Variable(S, Append To Array, Vector(False, False, 15));
+        Modify Global Variable(S, Append To Array, Multiply(15, Forward));
         Modify Global Variable(S, Append To Array, Add(Left, Right));
         Set Global Variable(L, Empty Array);
         Modify Global Variable(L, Append To Array, Vector(220.224, 2.351, 167.747));
@@ -392,14 +392,14 @@ rule ("oasis city center") {
         Modify Global Variable(T, Append To Array, Vector(16.617, -8.5, 120.524));
         Modify Global Variable(T, Append To Array, Vector(16.617, -8.5, 120.524));
         Set Global Variable(B, Empty Array);
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(202.897, 2.351, 194.546));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Modify Global Variable(B, Append To Array, Vector(146.278, 12.871, 273.901));
         Modify Global Variable(B, Append To Array, Vector(62.114, 9.21, 309.601));
         Modify Global Variable(B, Append To Array, Vector(113.736, 2.148, 217.728));
-        Modify Global Variable(B, Append To Array, Vector(False, -30, False));
+        Modify Global Variable(B, Append To Array, Multiply(-30, Up));
         Set Global Variable(C, Empty Array);
         Modify Global Variable(C, Append To Array, Vector(201.216, 2.354, 197.171));
         Modify Global Variable(C, Append To Array, Vector(202.001, 2.349, 195.913));
@@ -521,7 +521,7 @@ rule ("init section (slice + draw tp)") {
     }
 }
 
-rule ("trigger draw") {
+rule ("tri­gger draw") {
     event {
         Ongoing - Global;
     }
@@ -544,7 +544,7 @@ rule ("walls visual effect") {
     }
     actions {
         Create Effect(All Players(All Teams), Sphere, Color(Yellow), Value In Array(Global.A, Global.I), 4, Visible To);
-        Create Effect(All Players(All Teams), Sphere, Color(Yellow), Add(Value In Array(Global.A, Global.I), Vector(False, 4, False)), 4, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Yellow), Add(Value In Array(Global.A, Global.I), Multiply(4, Up)), 4, Visible To);
         Modify Global Variable(I, Add, True);
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
@@ -593,7 +593,7 @@ rule ("use tp") {
     }
 }
 
-rule ("trigger") {
+rule ("tri­gger") {
     event {
         Ongoing - Global;
     }
@@ -966,7 +966,7 @@ rule ("humans win") {
         Wait(3.5, Ignore Condition);
         Set Match Time(1200);
         Set Global Variable(R, 1);
-        Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Vector(False, -500, False));
+        Teleport(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Multiply(-500, Up));
     }
 }
 

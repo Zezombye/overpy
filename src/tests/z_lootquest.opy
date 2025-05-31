@@ -1,4 +1,4 @@
-#!suppressWarnings w_ow2_rule_condition_chase
+#!suppressWarnings w_ow2_rule_condition_chase w_workshop_setting_enum_default
 settings {
     "main": {
         "description": "Loot Quest - Regular Maps - v7.5.1.8 (by Delwion#2667) Share Code 4QV99: Hunt enemies for a chance to obtain epic loot and save your progress with the help of a 40-digit save code! Enemy levels: 1-60. Loot Quest news, game mode manual, and forums on: https://lootquest.shivtr.com",

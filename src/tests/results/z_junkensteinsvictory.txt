@@ -355,7 +355,7 @@ rule ("global init") {
     actions {
         Disable Inspector Recording;
         Set Global Variable(subtitle_speed, Workshop Setting Real(Custom String("General"), Custom String("Subtitle speed"), 4, 1, 10, 1));
-        Set Global Variable(difficulty, Subtract(Workshop Setting Combo(Custom String("General"), Custom String("Difficulty"), 3, Array(Custom String("Cinematic "), Custom String("Dead Easy "), Custom String("Para-Normal "), Custom String("Terrifying! "), Custom String("JUNKTASTICALLY NIGHTMARISH!!!")), 0), 1));
+        Set Global Variable(difficulty, Subtract(Workshop Setting Combo(Custom String("General"), Custom String("Difficulty"), 0, Array(Custom String("Cinematic "), Custom String("Dead Easy "), Custom String("Para-Normal "), Custom String("Terrifying! "), Custom String("JUNKTASTICALLY NIGHTMARISH!!!")), 0), 1));
         Set Global Variable(newline, Custom String("\n"));
         Create HUD Text(All Players(All Teams), Null, Null, Custom String(" {0}{0}{1}{2}", Custom String("{0}{0}{0}{0}{0}{0}{0}{0}{0}", Global.newline), Global.newline, If-Then-Else(Or(Global.objective_complete, Global.no_hud), Custom String("{0}{0}{0}{0}", Global.newline), Custom String(" "))), Top, True, Null, Null, Color(White), Visible To and String, Default Visibility);
         Wait(False, Ignore Condition);

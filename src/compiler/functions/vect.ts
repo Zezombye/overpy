@@ -27,20 +27,38 @@ astParsingFunctions.vect = function (content) {
 
 //Unoptimize so that we can then do optimizations on eg Vector.LEFT*2
 astParsingFunctions["Vector.LEFT"] = function(content) {
-    return new Ast("vect", [getAstFor1(), getAstFor0(), getAstFor0()]);
+    if (enableOptimization) {
+        return new Ast("vect", [getAstFor1(), getAstFor0(), getAstFor0()]);
+    }
+    return content;
 };
 astParsingFunctions["Vector.RIGHT"] = function(content) {
-    return new Ast("vect", [getAstForMinus1(), getAstFor0(), getAstFor0()]);
+    if (enableOptimization) {
+        return new Ast("vect", [getAstForMinus1(), getAstFor0(), getAstFor0()]);
+    }
+    return content;
 };
 astParsingFunctions["Vector.UP"] = function(content) {
-    return new Ast("vect", [getAstFor0(), getAstFor1(), getAstFor0()]);
-};
+    if (enableOptimization) {
+        return new Ast("vect", [getAstFor0(), getAstFor1(), getAstFor0()]);
+    }
+    return content;
+}
 astParsingFunctions["Vector.DOWN"] = function(content) {
-    return new Ast("vect", [getAstFor0(), getAstForMinus1(), getAstFor0()]);
+    if (enableOptimization) {
+        return new Ast("vect", [getAstFor0(), getAstForMinus1(), getAstFor0()]);
+    }
+    return content;
 };
 astParsingFunctions["Vector.FORWARD"] = function(content) {
-    return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor1()]);
+    if (enableOptimization) {
+        return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor1()]);
+    }
+    return content;
 };
 astParsingFunctions["Vector.BACKWARD"] = function(content) {
-    return new Ast("vect", [getAstFor0(), getAstFor0(), getAstForMinus1()]);
+    if (enableOptimization) {
+        return new Ast("vect", [getAstFor0(), getAstFor0(), getAstForMinus1()]);
+    }
+    return content;
 };

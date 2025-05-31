@@ -87,4 +87,20 @@ rule "null vector to null":
     createDummy(Hero.ANA, Team.2, A, vect(0,0,0), vect(0,0,0))
 
 rule "other optimizations":
-    A = vect(0,0,0) #left + right
+    A = vect(0, 0, 0) #left + right
+    A = vect(1, 0, 0) #left
+    A = Vector.LEFT #left
+    A = vect(-1, 0, 0) #right
+    A = Vector.RIGHT #right
+    A = vect(0, 1, 0) #up
+    A = Vector.UP #up
+    A = vect(0, -1, 0) #down
+    A = Vector.DOWN #down
+    A = vect(0, 0, 1) #forward
+    A = Vector.FORWARD #forward
+    A = vect(0, 0, -1) #backward
+    A = Vector.BACKWARD #backward
+
+    A = vect(B, 0, 0) #B * left
+    A = vect(0, B, 0) #B * up
+    A = vect(0, 0, B) #B * forward

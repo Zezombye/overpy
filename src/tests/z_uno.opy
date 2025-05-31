@@ -1,3 +1,4 @@
+#!suppressWarnings w_ow2_rule_condition_chase w_player_closest_to_reticle
 settings {
     "main": {
         "description": "Overwatch Uno v5.1 | 22FJJ",

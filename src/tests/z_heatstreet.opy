@@ -1,3 +1,5 @@
+#!suppressWarnings w_9999 w_closest_player
+
 settings {
     "main": {
         "description": "☆ Heat Street: TALENTS Chateau Guillard! by LemonAid#11644\n★ [KFVAY] - Fight for survival against an overwhelming force. Your enemies are numerous and hunting you down. Can you survive all waves? The AI is able to play 25 different heroes, some of which have new abilities. PvE game mode suited for 1 to 5 players. \n☆ Version 3.4.6 from the classic version, featuring new enemies, abilities, and talents for every hero!\n★ Credits to: Shingen and SgtMoody\n☆ Join our Discord! discord.gg/WJr3gFC",
@@ -548,7 +550,7 @@ rule "Mod by LemonAid#11644, Original mode by Shingen#21859":
 
 
 rule "Special thanks":
-    Special_Thanks = createWorkshopSettingEnum("Special thanks", "Cool people", 10, ["Thank you to", "Shingen", "Developful", "SgtMoody"])
+    Special_Thanks = createWorkshopSettingEnum("Special thanks", "Cool people", 0, ["Thank you to", "Shingen", "Developful", "SgtMoody"])
 
 
 rule "Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Create Game Entities":
@@ -572,7 +574,7 @@ rule "Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Crea
     else:
         boss_list_1 = [Hero.CASSIDY, Hero.BAPTISTE, Hero.LUCIO, Hero.PHARAH, Hero.WIDOWMAKER, Hero.SOMBRA, Hero.REAPER, Hero.ANA, Hero.ECHO, Hero.MEI, Hero.ZARYA, Hero.TRACER, Hero.ORISA, Hero.KIRIKO, Hero.REINHARDT, Hero.BRIGITTE, Hero.HANZO, Hero.GENJI, Hero.DVA, Hero.ROADHOG, Hero.SIGMA, Hero.REINHARDT]
     #0=Easy, 1=Normal, 2=Hard, 3=Apocalypse
-    temp_1 = createWorkshopSettingEnum("Settings", "Difficulty", 1, ["Easy", "Normal", "Hard", "Apocalyptic"])
+    temp_1 = createWorkshopSettingEnum("Settings", "Difficulty", 0, ["Easy", "Normal", "Hard", "Apocalyptic"])
     #100-500%
     money_mult = createWorkshopSettingInt("Settings", "Money Generation Scalar (in Percent)", 100, 100, 500, 1)
     #0=15w, 1=22w
@@ -3832,6 +3834,7 @@ rule "Team 2 Kiriko: Swift Step":
     @Team 2
     @Hero kiriko
     @Condition (eventPlayer.is_alive and eventPlayer.getNormalizedHealth() <= 0.5) == eventPlayer.is_aggressive
+    @SuppressWarnings w_wait_until
 
     eventPlayer.is_aggressive = not eventPlayer.is_aggressive
     eventPlayer.ab_var_1 = 1
@@ -6589,7 +6592,7 @@ rule "Widowmaker: Widowmaker Ult":
     @Condition eventPlayer.isUsingUltimate() == true
 
     getPlayers(Team.2).Slowed_until = 9999 + getTotalTimeElapsed()
-    waitUntil(not eventPlayer.isUsingUltimate(), 9999)
+    waitUntil(not eventPlayer.isUsingUltimate(), 99999)
     getPlayers(Team.2).Slowed_until = getTotalTimeElapsed()
 
 
@@ -7545,7 +7548,7 @@ rule "[Baptiste] Aerial Ace - Jump":
     @Condition eventPlayer.isCrouching() == true
     @Condition eventPlayer.hasStatus(Status.HACKED) == false
 
-    waitUntil(not eventPlayer.isCrouching(), 9999)
+    waitUntil(not eventPlayer.isCrouching(), 99999)
     waitUntil(eventPlayer.isJumping(), 1)
     eventPlayer.Ability_Available = true
     wait(0.25)
@@ -7700,11 +7703,11 @@ rule "Cassidy: Standoff":
 
     wait(0.2)
     eventPlayer.Ability_Countdown = false
-    chaseAtRate(eventPlayer.Ability_Countdown, 9999, 100)
+    chaseAtRate(eventPlayer.Ability_Countdown, 99999, 100)
     wait(0.5)
-    chaseAtRate(eventPlayer.Ability_Countdown, 9999, 275)
+    chaseAtRate(eventPlayer.Ability_Countdown, 99999, 275)
     wait(0.5)
-    chaseAtRate(eventPlayer.Ability_Countdown, 9999, 550)
+    chaseAtRate(eventPlayer.Ability_Countdown, 99999, 550)
 
 
 rule "Cassidy: Standoff - Set root":
@@ -7746,7 +7749,7 @@ rule "Wrecking Ball: Orbital Strike":
 
     eventPlayer.Ability_Countdown = eventPlayer.getAltitude() * 10
     eventPlayer.Damage_Dealt += eventPlayer.Ability_Countdown
-    waitUntil(eventPlayer.isOnGround() or eventPlayer.isDead(), 9999)
+    waitUntil(eventPlayer.isOnGround() or eventPlayer.isDead(), 99999)
     wait(1)
     eventPlayer.Damage_Dealt -= eventPlayer.Ability_Countdown
 
@@ -7839,7 +7842,7 @@ rule "Ramattra: Vile Dominance":
 
     eventPlayer.Move_Speed += 30
     eventPlayer.Ability_Active = true
-    waitUntil(not eventPlayer.isUsingAbility1() and not eventPlayer.isUsingUltimate() or not eventPlayer.Talent1, 9999)
+    waitUntil(not eventPlayer.isUsingAbility1() and not eventPlayer.isUsingUltimate() or not eventPlayer.Talent1, 99999)
     eventPlayer.Move_Speed -= 30
     eventPlayer.Ability_Active = false
 

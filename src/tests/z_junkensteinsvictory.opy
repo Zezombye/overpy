@@ -1,4 +1,4 @@
-#!suppressWarnings w_ow2_rule_condition_chase
+#!suppressWarnings w_ow2_rule_condition_chase w_wait_until
 
 settings {
     "main": {
@@ -347,7 +347,7 @@ subroutine phase_11_spawn 17
 rule "global init":
     disableInspector()
     subtitle_speed = createWorkshopSettingFloat("General", "Subtitle speed", 4, 1, 10, 1)
-    difficulty = createWorkshopSettingEnum("General", "Difficulty", 3, ["Cinematic\u2028", "Dead Easy\u2028", "Para-Normal\u2028", "Terrifying!\u2028", "JUNKTASTICALLY NIGHTMARISH!!!"]) - 1
+    difficulty = createWorkshopSettingEnum("General", "Difficulty", 0, ["Cinematic\u2028", "Dead Easy\u2028", "Para-Normal\u2028", "Terrifying!\u2028", "JUNKTASTICALLY NIGHTMARISH!!!"]) - 1
     newline = "\n"
     hudSubtext(getAllPlayers(), " {0}{0}{1}{2}".format("{0}{0}{0}{0}{0}{0}{0}{0}{0}".format(newline), newline, "{0}{0}{0}{0}".format(newline) if objective_complete or no_hud else " "), HudPosition.TOP, true, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     wait(false)

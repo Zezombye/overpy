@@ -127,6 +127,36 @@ rule ("other optimizations") {
     actions {
         "left + right"
         Set Global Variable(A, Add(Left, Right));
+        "left"
+        Set Global Variable(A, Left);
+        "left"
+        Set Global Variable(A, Left);
+        "right"
+        Set Global Variable(A, Right);
+        "right"
+        Set Global Variable(A, Right);
+        "up"
+        Set Global Variable(A, Up);
+        "up"
+        Set Global Variable(A, Up);
+        "down"
+        Set Global Variable(A, Down);
+        "down"
+        Set Global Variable(A, Down);
+        "forward"
+        Set Global Variable(A, Forward);
+        "forward"
+        Set Global Variable(A, Forward);
+        "backward"
+        Set Global Variable(A, Backward);
+        "backward"
+        Set Global Variable(A, Backward);
+        "B * left"
+        Set Global Variable(A, Multiply(Global.B, Left));
+        "B * up"
+        Set Global Variable(A, Multiply(Global.B, Up));
+        "B * forward"
+        Set Global Variable(A, Multiply(Global.B, Forward));
     }
 }
 

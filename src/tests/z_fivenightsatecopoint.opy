@@ -1,3 +1,5 @@
+#!suppressWarnings w_ow2_rule_condition_chase
+
 settings {
     "main": {
         "description": "Change nights through workshop settings (orange card)\nDMG46 / Release 1.0.4 (March 2024) / Alomare#11266",

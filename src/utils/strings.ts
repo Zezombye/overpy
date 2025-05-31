@@ -17,13 +17,13 @@
 
 "use strict";
 
-import { error } from "./logging.js";
+import { error, warn } from "./logging.js";
 import { opyStringEntities } from "../data/opy/stringEntities.js";
-import { caseSensitiveReplacements } from "../globalVars.js";
+import { caseSensitiveReplacements, currentLanguage } from "../globalVars.js";
 
 export function escapeBadWords(content: string) {
     //000000000057.07F
-    //000000000058.07F
+    //000000000058.07F - some words work but some don't? eg "nul" and "nephalem" work but not "orous" as of 2025-05-31
     //00000000005A.07F
     //Naturally, only words that aren't actually bad are here.
     //Insert a zero-width space inside the word.
@@ -36,6 +36,7 @@ export function escapeBadWords(content: string) {
     content = content.replace(/(1)(488)/gi, "$1\u00ad$2");
     content = content.replace(/(a)(ccount)/gi, "$1\u00ad$2");
     content = content.replace(/(a)(dmin)/gi, "$1\u00ad$2");
+    content = content.replace(/\b(a)(ss)\b/gi, "$1\u00ad$2");
     content = content.replace(/(b)(attlenet)/gi, "$1\u00ad$2");
     content = content.replace(/\b(b)(liz)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(b)(lizzaard)\b/gi, "$1\u00ad$2");
@@ -47,6 +48,7 @@ export function escapeBadWords(content: string) {
     content = content.replace(/\b(d)(enmark)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(e)(ngland)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(f)(inland)\b/gi, "$1\u00ad$2");
+    content = content.replace(/(f)(uck)/gi, "$1\u00ad$2");
     content = content.replace(/(g)(oddamn)/gi, "$1\u00ad$2");
     content = content.replace(/\b(i)(reland)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(n)(etherlands)\b/gi, "$1\u00ad$2");
@@ -56,10 +58,20 @@ export function escapeBadWords(content: string) {
     content = content.replace(/\b(s)(anctuary)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(s)(atan)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(s)(ingapore)\b/gi, "$1\u00ad$2");
+    content = content.replace(/(s)(hit)/gi, "$1\u00ad$2");
     content = content.replace(/\b(s)(weden)\b/gi, "$1\u00ad$2");
     content = content.replace(/\b(s)(witzerland)\b/gi, "$1\u00ad$2");
+    content = content.replace(/(r\s*i\s*)(gg\s*e\s*r)\b/gi, "$1\u00ad$2");
 
     return content;
+}
+
+export function checkVarNameForBadWords(varName: string) {
+    for (let word of ["shit", "rigger", "fuck", "bong", "puss"]) {
+        if (varName.toLowerCase().includes(word)) {
+            warn("w_censored_var_name", "The variable or subroutine name '" + varName + "' will not be able to be pasted " + (currentLanguage === "en-US" ? "" : "by English players ")+", as it contains the word '" + word + "'.");
+        }
+    }
 }
 
 export function unescapeString(content: string, tows: boolean) {

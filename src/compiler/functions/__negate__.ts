@@ -35,14 +35,17 @@ astParsingFunctions.__negate__ = function (content) {
         } else if (content.args[0].name === "__modulo__" && content.args[0].args[0].name === "__number__") {
             content.args[0].args[0] = getAstForNumber(-content.args[0].args[0].args[0].numValue);
             return content.args[0];
-        } else if (content.args[0].name === "__number__") {
-            return getAstForNumber(-content.args[0].args[0].numValue);
         } else if (content.args[0].name === "vect") {
             //Check if it is a vector containing only numbers.
             if (content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
                 return new Ast("vect", [getAstForNumber(-content.args[0].args[0].args[0].numValue), getAstForNumber(-content.args[0].args[1].args[0].numValue), getAstForNumber(-content.args[0].args[2].args[0].numValue)]);
             }
         }
+    }
+
+    //Do that even if optimization is disabled, so that negative numbers are still able to be generated. It's not really an "optimization" anyway because there is no negate function in the workshop
+    if (content.args[0].name === "__number__") {
+        return getAstForNumber(-content.args[0].args[0].numValue);
     }
 
     return new Ast("__multiply__", [getAstForMinus1(), content.args[0]]);

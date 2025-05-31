@@ -1,3 +1,5 @@
+#!suppressWarnings w_ow2_rule_condition_chase
+
 settings {
     "main": {
         "description": "1v1 Arena v3.1 by Seita, 14 Hero rotation, Bot will spawn if you are alone. Winner stays(or moves up), First to 50 points, Points per Elimination varies depending on the arena, To win you need to get the final elimination on Arena 1.",
