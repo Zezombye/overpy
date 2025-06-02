@@ -18,11 +18,11 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForBool, getAstForNumber, stringAstContainsFormatters } from "../../utils/ast";
+import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForBool, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.strContains = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "__customString__" && content.args[1].name === "__customString__" && !stringAstContainsFormatters(content.args[0]) && !stringAstContainsFormatters(content.args[1])) {
+        if (content.args[0].name === "__customString__" && content.args[1].name === "__customString__" && content.args[0].args.length === 1 && content.args[1].args.length === 1) {
             // If both strings are static and do not contain formatters, we can optimize
             const str1 = content.args[0].args[0].name;
             const str2 = content.args[1].args[0].name;

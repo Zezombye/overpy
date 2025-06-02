@@ -23,7 +23,7 @@ import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpac
 astParsingFunctions.progressBarHud = function (content) {
     if (content.args[4].name === "ACTUALLY_LEFT") {
         if (content.args[2].name !== "null") {
-            content.args[2] = new Ast(".format", [getAstForCustomString("{}{}"), content.args[2], getAstForFucktonOfSpaces()]);
+            content.args[2] = getAstForCustomString("{}{}", [content.args[2], getAstForFucktonOfSpaces()]);
         }
     }
     if (enableOptimization && optimizeForSize) {

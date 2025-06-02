@@ -39,13 +39,11 @@ export function getStrVisualLength(text: string) {
 }
 
 astParsingFunctions.strVisualLength = function (content) {
-    if (content.args[0].name !== ".format") {
+    if (content.args[0].name !== "__customString__") {
         error("Text must be a literal custom string", content.args[0].fileStack);
     }
     if (content.args[0].args.length > 1) {
         error("Text must not have arguments", content.args[0].fileStack);
     }
-    let text = content.args[0].args[0].name;
-
-    return getAstForNumber(getStrVisualLength(text));
+    return getAstForNumber(getStrVisualLength(content.args[0].args[0].name));
 };

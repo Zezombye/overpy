@@ -19,10 +19,10 @@
 // @ts-check
 import { astMacros, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw, optimizeStrict } from "../globalVars";
 import { error, functionNameToString } from "./logging";
-import { Argument, FileStackMember, Type } from "../types";
+import { Argument, FileStackMember, StringToken, Type } from "../types";
 import { isTypeSuitable } from "./types";
 import { constantValues } from "../data/constants";
-import { builtInEnumNameToAstInfo } from "../compiler/parser";
+import { builtInEnumNameToAstInfo, parseStringTokens } from "../compiler/parser";
 import { parseOpyMacro } from "./compilation";
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
@@ -48,6 +48,7 @@ export class Ast {
     numValue!: number; //avoids undefined error, only used for __number__ ast anyway
     fileStack: FileStackMember[];
     tokenArgsStr?: string; //Used for the debug() function
+    stringTokens?: StringToken[]; //Used for __customString__
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
@@ -126,6 +127,7 @@ export class Ast {
         clone.tokenArgsStr = this.tokenArgsStr;
         clone.fileStack = this.fileStack;
         clone.numValue = this.numValue;
+        clone.stringTokens = structuredClone(this.stringTokens);
         return clone;
     }
 }
@@ -233,7 +235,7 @@ export function isDefinitelyTruthy(content: Ast): boolean {
     }
     //Test for non-empty string. Note: the string could technically not be empty, but only have formatters that could be empty
     if (content.name === "__customString__" || content.name === "__localizedString__") {
-        return content.args[0].name !== "" && !content.args[0].name.match(/^(\{[012]\}){1,3}$/);
+        return content.stringTokens!.filter(x => x.type !== "arg").length > 0;
     }
 
     return false;
@@ -318,7 +320,7 @@ export function astIsLiteral(ast: Ast) {
         //Custom strings with no formatters are considered literals
         //...unless they're not. Eg in Turkish, the "am" string is censored. Owware compares "am" to "**" to check if the censor is active.
         //This is so niche that I'm putting it behind optimizeStrict.
-        if (ast.name === "__customString__" && !stringAstContainsFormatters(ast) && !optimizeStrict) {
+        if (ast.name === "__customString__" && ast.args.length === 1 && !optimizeStrict) {
             return true;
         }
         return false;
@@ -327,13 +329,6 @@ export function astIsLiteral(ast: Ast) {
         return false;
     }
     return true;
-}
-
-export function stringAstContainsFormatters(ast: Ast) {
-    if (ast.name !== "__customString__") {
-        error("Expected a custom string literal for stringAstContainsFormatters, but got "+functionNameToString(ast), ast.fileStack);
-    }
-    return ast.args[0].name.match(/\{[012]\}/) !== null;
 }
 
 //Shorthand to get the number value of a number literal, used in many optimizations
@@ -446,14 +441,13 @@ export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");
 }
 export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
-    const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
-    return astParsingFunctions[".format"](new Ast(".format", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
+    let result = new Ast("__customString__", [new Ast(content, [], [], "CustomStringLiteral"), ...formatArgs]);
+    result.stringTokens = parseStringTokens(content);
+    return astParsingFunctions.__customString__(result);
 }
 export function getAstForFucktonOfSpaces() {
     return getAstForCustomString("\u2003".repeat(170));
 }
-
-
 
 export function getAstForArgDefault(arg: Argument) {
     let defaultAst;

@@ -36,11 +36,6 @@ export const opyMacros: Record<string, {
                 "type": "Button",
             }
         ],
-        /*macro: `(
-    inputBindingString($button)
-        if "\\\\{}".format(inputBindingString($button)).substring(0, 3) == "\\\\{}".format(iconString(Icon.ARROW_DOWN)).substring(0, 3)
-        else "[{}]".format(inputBindingString($button).replace("LSHIFT", "SHIFT").replace("LCONTROL", "CTRL").replace("LALT", "ALT"))
-    )`,*/
         macro: `["{0}(0.00, 1.00, 0.00)[{0}](0.00, 1.00, 0.00)[SHIFT](0.00, 1.00, 0.00)[CTRL](0.00, 1.00, 0.00)[ALT]".format(b).split(Vector.UP[0])[
             strLen("\\\\{0}{0}{0}{0}{0}{0}{0}".format(b)) % 7 == 1 and
             abs("\uEC470\uEC470LSHIFT0LCONTROL0LALT".split(null[0]).index(b))

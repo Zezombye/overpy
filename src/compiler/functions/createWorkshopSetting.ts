@@ -22,6 +22,7 @@ import { Ast, getAstForMinusInfinity, getAstForInfinity, getAstFor0, astParsingF
 import { error, getTypeCheckFailedMessage, functionNameToString, warn } from "../../utils/logging";
 import { getUtf8Length } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
+import { parseStringTokens } from "../parser";
 
 astParsingFunctions.__createWorkshopSetting__ = function (content) {
     let funcValueArgs = funcKw[content.name].args;
@@ -124,41 +125,53 @@ function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
     if (str.name !== "__customString__") {
         error("Expected a custom string literal for workshop setting, but got '" + functionNameToString(str) + "'");
     }
-    if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
-        error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
+    if (str.args.length > 1) {
+        error("Workshop setting strings cannot contain formatting arguments");
+    }
+    let text = str.args[0].name;
+    if (getUtf8Length(text) > 128) {
+        error("Workshop setting strings cannot be longer than 128 characters");
     }
 
     //If string is blank, add a fullwidth space as strings cannot only contain regular whitespace.
-    if (!/\S/.test(str.args[0].name)) {
-        str.args[0].name += String.fromCharCode(0x3000);
+    if (!/\S/.test(text)) {
+        text += String.fromCharCode(0x3000);
     }
 
     //Replace disallowed workshop setting chars
-    str.args[0].name = str.args[0].name.replaceAll(":", "\u{E003A}").replaceAll("{", "\u{E007B}").replaceAll("}", "\u{E007D}");
+    text = text.replaceAll(":", "\u{E003A}").replaceAll("{", "\u{E007B}").replaceAll("}", "\u{E007D}");
 
     if (isName) {
         //Chars other than :{} are allowed, but are stripped out on copying, so replace them if the string is the setting name (category is not copied and enum names are copied as index)
         //The | char must also be replaced as it makes the setting not recognized on pasting
-        str.args[0].name = str.args[0].name.replaceAll('"', "\u{E0022}").replaceAll("(", "\u{E0028}").replaceAll(")", "\u{E0029}").replaceAll(",", "\u{E002C}").replaceAll("/", "\u{E002F}").replaceAll(";", "\u{E003B}").replaceAll("\\", "\u{E005C}").replaceAll("|", "\u{E007C}");
+        text = text.replaceAll('"', "\u{E0022}").replaceAll("(", "\u{E0028}").replaceAll(")", "\u{E0029}").replaceAll(",", "\u{E002C}").replaceAll("/", "\u{E002F}").replaceAll(";", "\u{E003B}").replaceAll("\\", "\u{E005C}").replaceAll("|", "\u{E007C}");
         //Check for a duplicate setting. If there is one, add some useless whitespace to the end.
-        var settingName = str.args[0].name;
+        var settingName = text;
         if (workshopSettingNames.includes(settingName)) {
             for (var i = 0; i < workshopSettingWhitespace.length && workshopSettingNames.includes(settingName); i++) {
-                settingName = str.args[0].name + workshopSettingWhitespace[i];
+                settingName = text + workshopSettingWhitespace[i];
             }
         }
-        str.args[0].name = settingName;
-        workshopSettingNames.push(str.args[0].name);
+        text = settingName;
+        workshopSettingNames.push(text);
     }
 
     //Strings have a max of 128 chars, and must be literals
-    if (getUtf8Length(str.args[0].name) > 128) {
-        error("String '" + str.args[0].name + "' was pushed over the 128 characters limit due to OverPy modifications (is now " + getUtf8Length(str.args[0].name) + " characters long)");
+    if (getUtf8Length(text) > 128) {
+        error("String '" + str.args[0].name + "' was pushed over the 128 characters limit due to OverPy modifications (is now " + getUtf8Length(text) + " characters long)");
     }
 
     if (workshopSettingNames.length > 128) {
         error("Cannot have more than 128 workshop settings");
     }
+
+    str.args[0].name = text;
+    str.stringTokens = parseStringTokens(text).map((t) => {
+        if (t.type === "tag" || t.type === "holygrail") {
+            t.type = "text";
+        }
+        return t;
+    });
 
     return str;
 }

@@ -22,12 +22,13 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict } from "../globalVars";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue } from "../utils/ast";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS } from "../globalVars";
+import { StringToken } from "../types";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
-import { error, functionNameToString } from "../utils/logging";
+import { debug, error, functionNameToString } from "../utils/logging";
 import { tabLevel } from "../utils/other";
-import { escapeBadWords, escapeString } from "../utils/strings";
+import { escapeBadWords, escapeString, getUtf8Length } from "../utils/strings";
 import { tows } from "../utils/translation";
 import { isTypeSuitable } from "../utils/types";
 import { translateSubroutineToWs, translateVarToWs } from "../utils/varNames";
@@ -230,6 +231,7 @@ function astToWs(content: Ast): string {
         __greaterThan__: ">",
     };
 
+    //debug("astToWs: "+content.name);
     setFileStack(content.fileStack);
 
     if (content.type === "GlobalVariable") {
@@ -299,7 +301,7 @@ function astToWs(content: Ast): string {
     if (enableOptimization && optimizeForSize) {
         //Replace 0 by false/null, 1 by true, and null vector by null or left+right
         for (var i = 0; i < content.args.length; i++) {
-            let argInfo = content.name === "__array__" ? funcKw[content.name].args?.[0] : funcKw[content.name].args?.[i];
+            let argInfo = content.name === "__array__" ? funcKw[content.name].args?.[0] : content.name === "__customString__" ? funcKw[content.name].args?.[1] : funcKw[content.name].args?.[i];
             if (argInfo === undefined) {
                 error("Could not find info about argument " + (content.name === "__array__" ? 0 : i) + " of " + content.name);
             }
@@ -435,6 +437,17 @@ function astToWs(content: Ast): string {
         newName = "__chase" + newName;
         content.name = newName;
     } else if (content.name === "__customString__" || content.name === "__localizedString__") {
+
+        if (content.name === "__customString__" && content.stringTokens) {
+            //This string wasn't split yet
+            content = splitCustomString(content.stringTokens, content.args.slice(1));
+        }
+
+        if (content.args.length !== 4) {
+            console.log(content);
+            error("Expected 4 arguments for " + functionNameToString(content) + ", but got " + content.args.length+", please report to Zezombye");
+        }
+
         //Remove the additional nulls to get cleaner output
         for (let i = 3; i >= 1; i--) {
             if (content.args[i].name === "null") {
@@ -629,7 +642,7 @@ function astToWs(content: Ast): string {
     incrementNbElements();
 
     //Apply workaround for booleans not accepting all functions such as Vector.UP
-    //"First Of" keeps the truthyness of all functions (even those which return an array, as it takes the first element anyway)
+    //"First Of" keeps the truthiness of all functions (even those which return an array, as it takes the first element anyway)
     if (content.expectedType === "bool" && funcKw[content.name].canBePutInBoolean === false) {
         result = tows("__firstOf__", valueFuncKw) + "(" + result + ")";
         incrementNbElements();
@@ -656,4 +669,161 @@ function astToWs(content: Ast): string {
     }
 
     return result;
+}
+
+
+//Splits a custom string according to the 128 char limit and 3 args limit.
+//This should be in utils/strings.ts but if I put it there it messes up the import order.
+function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
+    var result: string = "";
+    var resultArgs: Ast[] = [];
+    let argIndex = 0;
+    var stringLength = 0;
+
+
+    if (tokens.some(token => token.type !== "text" && token.type !== "arg")) {
+        //Tag/holygrail tokens should be converted in the __customString__ function
+        error("Custom string parser received a token that is not a text or arg token, please report to Zezombye");
+    }
+    if (tokens.some(token => token.type === "arg" && token.argIndex !== null)) {
+        //All arg tokens should be unnumbered in the __customString__ function
+        error("Custom string parser received an arg token with an argIndex, please report to Zezombye");
+    }
+    if (tokens.filter(t => t.type === "arg").length !== args.length) {
+        //The number of arg tokens and args should always be equal, as they are duplicated in the __customString__ function
+        console.log(tokens);
+        console.log(args);
+        error("Custom string parser received "+tokens.filter(t => t.type === "arg").length+" arg tokens but "+args.length+" args, please report to Zezombye");
+    }
+
+    //console.log("Parsing string tokens: ", structuredClone(tokens));
+    //console.log("Args: ", args);
+
+    //Compilation optimization: check if the string is "simple" (aka one token that doesn't need to be split)
+    if (tokens.length === 1 && tokens[0].type === "text" && getUtf8Length(tokens[0].text) <= STR_MAX_LENGTH) {
+        return new Ast("__customString__", [new Ast(tokens[0].text, [], [], "CustomStringLiteral"), getAstForNull(), getAstForNull(), getAstForNull()]);
+    }
+
+    for (let [i, token] of tokens.entries()) {
+        let shouldSplitString = false;
+        //console.log("Token: ", token);
+
+        //Check text tokens
+
+        //Check if the string would overflow if we add the token (adding a buffer for a potential "{0}" if there are more tokens remaining).
+        //If the string would overflow, then add to the result the text of the token up to the overflow point, and remove that from the token text.
+        if (token.type === "text" && stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length)) {
+            shouldSplitString = true;
+            let tokenText = [...token.text];
+            //console.log(tokenText);
+            let tokenSliceLength = 0;
+            let sliceIndex = 0;
+            for (let j = 0; stringLength + tokenSliceLength < STR_MAX_LENGTH - "{0}".length; j++) {
+                tokenSliceLength += getUtf8Length(tokenText[j] + "");
+                sliceIndex++;
+            }
+            result += tokenText.slice(0, sliceIndex).join("");
+            token.text = tokenText.slice(sliceIndex).join("");
+        }
+
+        //Check arg tokens
+
+        //Check if the string would overflow if there are tokens remaining and adding the arg + an additional arg would make the string overflow.
+        //For maximum optimization, check if there is only 1 string token remaining and its length wouldn't make the string overflow.
+        if (token.type === "arg"
+            && i < tokens.length-1 && stringLength + "{0}{0}".length > STR_MAX_LENGTH
+            && !(i === tokens.length-2 && tokens[tokens.length-1].type === "text" && stringLength+"{0}".length+getUtf8Length(tokens[tokens.length-1].text) <= STR_MAX_LENGTH)
+        ) {
+            shouldSplitString = true;
+        }
+
+        //Check if the string would overflow if we add the arg + an additional arg (if there are more tokens remaining).
+        //Also check if the current arg is already in the resultArgs, in which case it will be reused and not go beyond the arg limit.
+        if (token.type === "arg" && resultArgs.length >= STR_MAX_ARGS - 1 && !resultArgs.some(x => areAstsAlwaysEqual(x, args[argIndex]))) {
+            //resultArgs.length === 2. We've got {0} {1} already, and the current token would be {2} if not string splitting.
+
+            let remainingUniqueArg1 = null;
+            let remainingUniqueArg2 = null;
+            for (let j = argIndex; j < args.length; j++) {
+                if (resultArgs.every(x => !areAstsAlwaysEqual(x, args[j]))) {
+                    if (remainingUniqueArg1 === null) {
+                        remainingUniqueArg1 = args[j];
+                    } else if (remainingUniqueArg2 === null) {
+                        remainingUniqueArg2 = args[j];
+                        if (!areAstsAlwaysEqual(remainingUniqueArg1, remainingUniqueArg2)) {
+                            //More than one unique arg is incoming, so we have to split
+                            shouldSplitString = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!shouldSplitString) {
+                //Check if the string would overflow if we add all remaining tokens (in which case it would need an additional format arg, so split now)
+                let remainingStringLength = 0;
+                for (let token2 of tokens.slice(i)) {
+                    if (token2.type === "arg") {
+                        remainingStringLength += "{0}".length;
+                    } else {
+                        remainingStringLength += getUtf8Length(token2.text);
+                    }
+                }
+                if (stringLength + remainingStringLength > STR_MAX_LENGTH) {
+                    shouldSplitString = true;
+                }
+            }
+        }
+
+        if (shouldSplitString) {
+            result += "{" + resultArgs.length + "}";
+            if (resultArgs.length > STR_MAX_ARGS-1) {
+                error("Custom string parser returned '{" + (resultArgs.length) + "}', please report to Zezombye");
+            }
+            resultArgs.push(splitCustomString(tokens.slice(i, tokens.length), args.slice(argIndex)));
+            break;
+        }
+
+        if (token.type === "text") {
+            result += token.text;
+            stringLength += getUtf8Length(token.text);
+
+        } else {
+            let argToAdd = args[argIndex];
+            let isArgReused = false;
+            for (let j = 0; j < resultArgs.length; j++) {
+                if (areAstsAlwaysEqual(resultArgs[j], argToAdd)) {
+                    //We already have that arg, so just reuse it
+                    result += "{" + j + "}";
+                    if (j > STR_MAX_ARGS-1) {
+                        error("Custom string parser returned '{" + j + "}', please report to Zezombye");
+                    }
+                    isArgReused = true;
+                    break;
+                }
+            }
+            if (!isArgReused) {
+                result += "{" + resultArgs.length + "}";
+                if (resultArgs.length > STR_MAX_ARGS-1) {
+                    error("Custom string parser returned '{" + (resultArgs.length) + "}', please report to Zezombye");
+                }
+                resultArgs.push(argToAdd);
+            }
+            stringLength += "{0}".length;
+            argIndex++;
+        }
+    }
+
+    while (resultArgs.length < STR_MAX_ARGS) {
+        resultArgs.push(getAstForNull());
+    }
+
+    if (resultArgs.length !== STR_MAX_ARGS) {
+        error("Custom string parser broke (string args length is " + resultArgs.length + "), please report to Zezombye");
+    }
+
+    if (getUtf8Length(result) > STR_MAX_LENGTH) {
+        error("Custom string parser broke (string char length is "+getUtf8Length(result)+"), please report to Zezombye");
+    }
+
+    return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }

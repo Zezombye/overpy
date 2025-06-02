@@ -45,6 +45,12 @@ export var currentLanguage: OWLanguage;
 export const ELEMENT_LIMIT = 32768;
 //The workshop behaves weirdly with this limit (sometimes it is 100M instead of 10M), so don't perform optimizations if going beyond it
 export const NUMBER_LIMIT = 10_000_000;
+//The max length of a custom string, in UTF-8 characters. Beyond this limit, we need to split the string.
+//The max total length of 511 bytes got removed.
+export const STR_MAX_LENGTH = 128;
+//The max number of arguments in a custom string. Beyond this limit, we need to split the string.
+export const STR_MAX_ARGS = 3;
+
 export const PAGE_SIZE = 100;
 //If it is in a browser then it is assumed to be in debug mode.
 // @ts-ignore
@@ -210,10 +216,6 @@ export const setUsePlayerVarForTranslations = (use: boolean) => (usePlayerVarFor
 export var excludeVariablesInCompilation: boolean;
 export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
 
-//As game settings are now compiled with the OverPy parser, we need to conditionally override the string limit (which isn't 128 chars for game description for example).
-export var ignoreStringLimit: boolean;
-export const setIgnoreStringLimit = (ignore: boolean) => (ignoreStringLimit = ignore);
-
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -299,7 +301,6 @@ export function resetGlobalVariables(language: OWLanguage) {
     translationLanguageConstantOpy = "";
     usePlayerVarForTranslations = false;
     excludeVariablesInCompilation = false;
-    ignoreStringLimit = false;
 }
 
 //Other constants

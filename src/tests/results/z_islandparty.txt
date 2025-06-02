@@ -2273,7 +2273,7 @@ rule ("ECHO end of the round {EACH PLAYER}") {
         Wait(Multiply((Event Player).echoPoints, 0.001), Ignore Condition);
         Modify Player Score(Event Player, Round To Integer(Divide((Event Player).echoPoints, 10), Down));
         If(Compare((Event Player).echoPoints, >=, 10));
-            Small Message(Event Player, Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Round To Integer(Divide((Event Player).echoPoints, 10), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).echoPoints, 10), Down), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player)));
+            Small Message(Event Player, Custom String("+{0} {1} with {2}", Round To Integer(Divide((Event Player).echoPoints, 10), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).echoPoints, 10), Down), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player))));
             Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Event Player, 1);
             Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), Event Player, 100);
             Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0} {1}", Round To Integer(Divide((Event Player).echoPoints, 10), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).echoPoints, 10), Down), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
@@ -2485,7 +2485,7 @@ rule ("LUCIO end of the round {EACH PLAYER}") {
         Wait(Multiply((Event Player).lucioPoints, 0.016), Ignore Condition);
         Modify Player Score(Event Player, Round To Integer(Divide((Event Player).lucioPoints, 2), Down));
         If(Compare((Event Player).lucioPoints, >=, 2));
-            Small Message(Event Player, Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Round To Integer(Divide((Event Player).lucioPoints, 2), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).lucioPoints, 2), Down), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player)));
+            Small Message(Event Player, Custom String("+{0} {1} with {2}", Round To Integer(Divide((Event Player).lucioPoints, 2), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).lucioPoints, 2), Down), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player))));
             Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Event Player, 1);
             Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), Event Player, 100);
             Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0} {1}", Round To Integer(Divide((Event Player).lucioPoints, 2), Down), If-Then-Else(Compare(Round To Integer(Divide((Event Player).lucioPoints, 2), Down), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
@@ -2683,7 +2683,7 @@ rule ("MCCREE win {OUT OF TIME}") {
         Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Event Player, 1);
         Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), Event Player, 100);
         Modify Player Score(Event Player, Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1));
-        Small Message(Event Player, Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player)));
+        Small Message(Event Player, Custom String("+{0} {1} with {2}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player))));
         Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0} {1}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
         Modify Global Variable(pointfeedHud, Append To Array, Last Text ID);
         Set Global Variable At Index(pointfeedHudTimes, Subtract(Count Of(Global.pointfeedHud), 1), 3.744);
@@ -2709,7 +2709,7 @@ rule ("MCCREE win {LAST PLAYER ALIVE}") {
         Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Event Player, 1);
         Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), Event Player, 100);
         Modify Player Score(Event Player, Subtract(Count Of(Global.playersStartOfTheRound), 1));
-        Small Message(Event Player, Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player)));
+        Small Message(Event Player, Custom String("+{0} {1} with {2}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player))));
         Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0} {1}", Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), If-Then-Else(Compare(Subtract(Round To Integer(Divide(Count Of(Global.playersStartOfTheRound), Number Of Living Players(All Teams)), Up), 1), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
         Modify Global Variable(pointfeedHud, Append To Array, Last Text ID);
         Set Global Variable At Index(pointfeedHudTimes, Subtract(Count Of(Global.pointfeedHud), 1), 3.744);
@@ -3946,7 +3946,7 @@ rule ("SIGMA catch") {
     actions {
         Set Player Variable(Victim, sigmaCatch, True);
         Kill(Attacker, Victim);
-        Small Message(Array(Victim, Attacker), Custom String("rock catched {0} by {1}", Custom String("{0}{1}", Ability Icon String(Hero(Sigma), Button(Ability 2)), Ability Icon String(Hero(Sigma), Button(Ability 1))), Victim));
+        Small Message(Array(Victim, Attacker), Custom String("rock catched {0}{1} by {2}", Ability Icon String(Hero(Sigma), Button(Ability 2)), Ability Icon String(Hero(Sigma), Button(Ability 1)), Victim));
     }
 }
 
@@ -4592,8 +4592,8 @@ rule ("SYM scoring") {
             Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), First Of(Global.symPlayersInTheSelectedColor), 1);
             Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), First Of(Global.symPlayersInTheSelectedColor), 100);
             Modify Player Score(First Of(Global.symPlayersInTheSelectedColor), Count Of(Global.symVictims));
-            Small Message(First Of(Global.symPlayersInTheSelectedColor), Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Count Of(Global.symVictims), If-Then-Else(Compare(Count Of(Global.symVictims), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero(Symmetra)), Hero(Symmetra)));
-            Create HUD Text(All Players(All Teams), Hero Icon String(Hero(Symmetra)), First Of(Global.symPlayersInTheSelectedColor), Custom String("+{0}", Custom String("{0} {1}", Count Of(Global.symVictims), If-Then-Else(Compare(Count Of(Global.symVictims), >, 1), Custom String("points"), Custom String("point")))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
+            Small Message(First Of(Global.symPlayersInTheSelectedColor), Custom String("+{0} {1} with {2}", Count Of(Global.symVictims), If-Then-Else(Compare(Count Of(Global.symVictims), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero(Symmetra)), Hero(Symmetra))));
+            Create HUD Text(All Players(All Teams), Hero Icon String(Hero(Symmetra)), First Of(Global.symPlayersInTheSelectedColor), Custom String("+{0} {1}", Count Of(Global.symVictims), If-Then-Else(Compare(Count Of(Global.symVictims), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
             Modify Global Variable(pointfeedHud, Append To Array, Last Text ID);
             Set Global Variable At Index(pointfeedHudTimes, Subtract(Count Of(Global.pointfeedHud), 1), 3.744);
             Modify Global Variable(pointfeedHudId, Subtract, 0.01);
@@ -4933,8 +4933,8 @@ rule ("TRACER queen winner") {
         Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Event Player, 1);
         Play Effect(All Players(All Teams), Buff Explosion Sound, Color(White), Event Player, 100);
         Modify Player Score(Event Player, Subtract(Count Of(Global.playersStartOfTheRound), 1));
-        Small Message(Event Player, Custom String("+{0} with {1} {2}", Custom String("{0} {1}", Subtract(Count Of(Global.playersStartOfTheRound), 1), If-Then-Else(Compare(Subtract(Count Of(Global.playersStartOfTheRound), 1), >, 1), Custom String("points"), Custom String("point"))), Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player)));
-        Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0}", Custom String("{0} {1}", Subtract(Count Of(Global.playersStartOfTheRound), 1), If-Then-Else(Compare(Subtract(Count Of(Global.playersStartOfTheRound), 1), >, 1), Custom String("points"), Custom String("point")))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
+        Small Message(Event Player, Custom String("+{0} {1} with {2}", Subtract(Count Of(Global.playersStartOfTheRound), 1), If-Then-Else(Compare(Subtract(Count Of(Global.playersStartOfTheRound), 1), >, 1), Custom String("points"), Custom String("point")), Custom String("{0} {1}", Hero Icon String(Hero Of(Event Player)), Hero Of(Event Player))));
+        Create HUD Text(All Players(All Teams), Hero Icon String(Hero Of(Event Player)), Event Player, Custom String("+{0} {1}", Subtract(Count Of(Global.playersStartOfTheRound), 1), If-Then-Else(Compare(Subtract(Count Of(Global.playersStartOfTheRound), 1), >, 1), Custom String("points"), Custom String("point"))), Right, Add(-1, Global.pointfeedHudId), Color(Orange), Color(White), Color(Orange), Visible To, Default Visibility);
         Modify Global Variable(pointfeedHud, Append To Array, Last Text ID);
         Set Global Variable At Index(pointfeedHudTimes, Subtract(Count Of(Global.pointfeedHud), 1), 3.744);
         Modify Global Variable(pointfeedHudId, Subtract, 0.01);

@@ -28,6 +28,7 @@ import "./functions/__add__.ts";
 import "./functions/__and__.ts";
 import "./functions/__arrayContains__";
 import "./functions/__assignTo__.ts";
+import "./functions/__customString__";
 import "./functions/__del__.ts";
 import "./functions/__dict__.ts";
 import "./functions/__distanceTo__.ts";
@@ -48,6 +49,7 @@ import "./functions/__ifThenElse__.ts";
 import "./functions/__inequals__.ts";
 import "./functions/__lessThan__.ts";
 import "./functions/__lessThanOrEquals__.ts";
+import "./functions/__localizedString__";
 import "./functions/__map__.ts";
 import "./functions/__mappedArray__.ts";
 import "./functions/__modifyVar__.ts";
@@ -236,10 +238,13 @@ export function parseAstRules(rules: Ast[]) {
                 }
 
                 if (rule.children[i].name === "@Name") {
-                    if (rule.children[i].args[0].type !== "CustomStringLiteral") {
+                    if (rule.children[i].args[0].name !== "__customString__") {
                         error("Expected a string as argument of '@Name'");
                     }
-                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
+                    if (rule.children[i].args[0].args.length !== 1) {
+                        error("Argument of '@Name' must be a string literal without formatters");
+                    }
+                    rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].args[0].name;
                 } else {
                     rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
                 }
@@ -260,10 +265,13 @@ export function parseAstRules(rules: Ast[]) {
                 }
                 var fillerName = "";
                 if (rule.children[i].args.length > 0) {
-                    if (rule.children[i].args[0].type !== "CustomStringLiteral") {
+                    if (rule.children[i].args[0].name !== "__customString__") {
                         error("Expected a string as argument of '@NewPage'");
                     }
-                    fillerName = rule.children[i].args[0].name;
+                    if (rule.children[i].args[0].args.length !== 1) {
+                        error("Argument of '@NewPage' must be a string literal without formatters");
+                    }
+                    fillerName = rule.children[i].args[0].args[0].name;
                 }
                 while (rulesResult.filter((x) => x.name === "__rule__").length % 100 !== 0 || rulesResult.filter((x) => x.name === "__rule__").length === 0) {
                     var emptyRule = new Ast("__rule__");
@@ -372,7 +380,7 @@ export function parseAst(content: Ast) {
 
     //Skip if it's a literal, a type literal, or a constant
     if (typeof content.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
-        if (["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral"].concat(Object.keys(constantValues)).includes(content.type)) {
+        if (["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral", "StringLiteral", "CustomStringLiteral", "LocalizedStringLiteral"].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
         }
     }
@@ -385,18 +393,6 @@ export function parseAst(content: Ast) {
     //For labels and dict keys, do nothing.
     if (content.type === "Label" || content.type === "DictKey") {
         return content;
-    }
-
-    //For string literals, check if they are a child of .format (or of a string function). If not, wrap them with the .format function.
-    //Do not use isTypeSuitable as that can return true for "value".
-    if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral"].includes(content.type)) {
-        if (content.parent && ([".format", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0 || content.parent.name === "__translatedString__")) {
-            return content;
-        } else {
-            var tmpParent = content.parent;
-            content = new Ast(".format", [content]);
-            content.parent = tmpParent;
-        }
     }
 
     if (!(content.name in funcKw) && !(content.name in astMacros)) {
@@ -434,7 +430,7 @@ export function parseAst(content: Ast) {
 
 
 
-    if (![".format", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
+    if (![".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
         if (content.name in astMacros) {
             let nbExpectedArgs = astMacros[content.name].args.length;
             if (content.args.length !== nbExpectedArgs) {
@@ -461,7 +457,7 @@ export function parseAst(content: Ast) {
     }
     content.argIndex = 0;
 
-    //Manually check types and arguments for the .format, __array__, __enumType__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
+    //Manually check types and arguments for the functions that can take an infinite number of arguments.
     if (content.name === ".format") {
         if (content.args.length < 1) {
             error("Function '.format' takes at least 1 argument, received " + content.args.length);
@@ -475,7 +471,7 @@ export function parseAst(content: Ast) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]), content.args[i].fileStack);
             }
         }
-    } else if (["__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
+    } else if (["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"].includes(content.name)) {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
@@ -508,7 +504,7 @@ export function parseAst(content: Ast) {
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === ".format" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
-        } else if (["__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.parent.name)) {
+        } else if (["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"].includes(content.parent.name)) {
             content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";

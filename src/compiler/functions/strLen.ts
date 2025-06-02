@@ -18,12 +18,13 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForNumber, stringAstContainsFormatters } from "../../utils/ast";
+import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
+import { getUtf8Length } from "../../utils/strings";
 
 astParsingFunctions.strLen = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "__customString__" && !stringAstContainsFormatters(content.args[0])) {
-            return getAstForNumber(content.args[0].args[0].name.length);
+        if (content.args[0].name === "__customString__" && content.args[0].args.length === 1) {
+            return getAstForNumber(getUtf8Length(content.args[0].args[0].name));
         }
     }
 

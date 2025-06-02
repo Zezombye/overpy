@@ -228,3 +228,9 @@ export type CompilationDiagnostic = {
     fileStack?: FileStackMember[];
     severity: 'warning' | 'error';
 }
+
+export type StringToken = {
+    type: "text" | "arg" | "holygrail" | "tag";
+    text: string;
+    argIndex?: number | null;
+}

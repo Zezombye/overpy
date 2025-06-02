@@ -20,8 +20,9 @@
 import { astToOpy } from "../../decompiler/astToOpy";
 import { enableTagsSetup } from "../../globalVars";
 import { Ast, astParsingFunctions, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
+import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
-import { applyCasedStringModifier } from "../../utils/strings";
+import { escapeString } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
 import { getStrVisualLength } from "./strVisualLength";
 
@@ -59,6 +60,5 @@ astParsingFunctions.debug = function (content) {
     }
 
     //console.log(contentStr);
-
-    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(),  astParsingFunctions[".format"](new Ast(".format", [new Ast(applyCasedStringModifier(contentStr), [], [], "CustomStringLiteral"), content.args[0]])), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForColorWhite(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return parseOpyMacro("hudSubheader(getAllPlayers(), c"+escapeString(contentStr, false)+".format($debugContent), HudPosition.LEFT, -9999, Color.WHITE)", ["$debugContent"], [content.args[0]]);
 };

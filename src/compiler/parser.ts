@@ -18,14 +18,14 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, setIgnoreStringLimit, DEBUG_MODE } from "../globalVars";
-import { BaseNormalFileStackMember, OWLanguage } from "../types";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup } from "../globalVars";
+import { BaseNormalFileStackMember, OWLanguage, StringToken } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, getFileStackRange, getInternalFileStack, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
-import { applyCasedStringModifier, escapeString, getUtf8Length, unescapeString } from "../utils/strings";
+import { escapeString, getUtf8Length, unescapeString } from "../utils/strings";
 import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
 import { parseType } from "../utils/types";
 import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../utils/varNames";
@@ -35,7 +35,7 @@ import { opyTextures } from "../data/opy/textures";
 import { parseOpyMacro } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
 import { parseAst } from "./astParser";
-import { get } from "http";
+import { getAstForTranslatedString } from "./functions/__translatedString__";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -192,13 +192,11 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 error(e);
             }
 
-            setIgnoreStringLimit(true);
             let customGameSettingsAst = parseAst(new Ast("__settings__", [parse(customGameSettings)]));
             if (DEBUG_MODE) {
                 console.log("Settings AST: ", customGameSettingsAst);
             }
             compileCustomGameSettings(customGameSettingsAstToObject(customGameSettingsAst));
-            setIgnoreStringLimit(false);
             currentComments = [];
             continue;
         }
@@ -589,7 +587,7 @@ export function parseArgs(funcName: string, args: Token[][]) {
         }
         return [];
     }
-    if ([".format", "__array__", "__dict__", "__enumType__", "range"].includes(funcName)) {
+    if ([".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "range"].includes(funcName)) {
         //Those functions take infinite arguments or a wacky number of arguments
         return args.map(x => parse(x));
     }
@@ -872,129 +870,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
     //Check for strings
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
-        var stringType = "CustomStringLiteral";
-        let translate = false;
-        let isFormattedString = false;
-        let isCasedString = false;
-        var string = "";
-        for (var i = content.length - 1; i >= 0; i--) {
-            setFileStack(content[i].fileStack);
-            if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-                string = unescapeString(content[i].text, true) + string;
-            } else {
-                if (i !== 0) {
-                    error("Invalid content before string: '" + content[i].text + "'");
-                }
-                //string modifiers
-                //console.log("string modifiers: "+content[0].text);
-                if (content[0].text.includes("l")) {
-                    if (content[0].text.length > 1) {
-                        error("Cannot use other string modifiers with 'l'");
-                    }
-                    stringType = "LocalizedStringLiteral";
-                }
-                if (content[0].text.includes("b")) {
-                    let isConvertedToBigLetters = false;
-                    //If big letters, try to map letters until we get one
-                    //We only need one letter to convert to big letters
-                    for (var j = 0; j < string.length; j++) {
-                        let formatterMatch = string.substring(j).match(content[0].text.includes("f") ? /^\{([^}]*)\}/ : /^\{\d*\}/);
-                        if (formatterMatch) {
-                            j += formatterMatch[0].length - 1;
-                            continue;
-                        }
-                        if (string[j] in bigLettersMappings) {
-                            string = string.substring(0, j) + bigLettersMappings[string[j]] + string.substring(j + 1);
-                            isConvertedToBigLetters = true;
-                            break;
-                        }
-                    }
-                    if (!isConvertedToBigLetters) {
-                        error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
-                    }
-                }
-                if (content[0].text.includes("w")) {
-                    let containsNonFullwidthChar = false;
-                    var tmpStr = "";
-                    for (var j = 0; j < string.length; j++) {
-
-                        let formatterMatch = string.substring(j).match(content[0].text.includes("f") ? /^\{([^}]*)\}/ : /^\{\d*\}/);
-                        if (formatterMatch) {
-                            j += formatterMatch[0].length - 1;
-                            tmpStr += formatterMatch[0];
-                            continue;
-                        }
-                        if (string[j] in fullwidthMappings) {
-                            tmpStr += fullwidthMappings[string[j]];
-                        } else {
-                            containsNonFullwidthChar = true;
-                            tmpStr += string[j];
-                        }
-                    }
-                    string = tmpStr;
-                    if (containsNonFullwidthChar) {
-                        warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
-                    }
-                }
-                if (content[0].text.includes("p")) {
-                    //legacy string modifier, unused
-                }
-                if (content[0].text.includes("c")) {
-                    //easier to apply the modifier after we do the formatting
-                    isCasedString = true;
-                }
-                if (content[0].text.includes("t")) {
-                    if (content[0].text.length > 1) {
-                        error("Cannot use other string modifiers with 't'");
-                    }
-                    translate = true;
-                }
-                if (content[0].text.includes("f")) {
-                    isFormattedString = true;
-                }
-                for (let char of content[0].text) {
-                    if (!["l", "b", "c", "w", "p", "t", "f"].includes(char)) {
-                        error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)", content[0].fileStack);
-                    }
-                }
-            }
-        }
-        setFileStack(getFileStackRange(content));
-        if (translate) {
-            if (kwargs.disableTranslation) {
-                error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
-            }
-            return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
-        }
-        if (isFormattedString) {
-            let formatter = null;
-            let formatArgs = [];
-            do {
-                formatter = string.match(/\{([^}]*)\}/);
-                if (formatter) {
-
-                    let lines = tokenize(formatter[1]);
-                    let astLines = parseLines(lines);
-                    if (astLines.length !== 1) {
-                        error("String formatter '" + formatter + "' should only have one line");
-                    }
-                    let formatArg = astLines[0];
-                    formatArgs.push(formatArg);
-                    string = string.replace(formatter[0], "\uEC60" + (formatArgs.length - 1) + "\uEC61");
-                }
-
-            } while (formatter);
-            string = string.replaceAll("\uEC60", "{").replaceAll("\uEC61", "}");
-            if (isCasedString) {
-                string = applyCasedStringModifier(string);
-            }
-            debug("processed formatted string: "+string);
-            return new Ast(".format", [new Ast(string, [], [], stringType), ...formatArgs]);
-        }
-        if (isCasedString) {
-            string = applyCasedStringModifier(string);
-        }
-        return new Ast(string, [], [], stringType);
+        return parseString(content, kwargs);
     }
 
     //Parse args and name of function.
@@ -1100,8 +976,11 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
         setFileStack(getFileStackRange(content));
-        if (translationTarget.type === "CustomStringLiteral") {
-            return getTranslatedString(translationTarget.name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+        if (translationTarget.name === "__customString__") {
+            if (translationTarget.args.length !== 1) {
+                error("The .format() function must be outside of the _() function");
+            }
+            return getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
             //It is a variable; assume the value is a translated string (string array)
             if (args.length !== 1) {
@@ -1439,6 +1318,24 @@ function parseMember(object: Token[], member: Token[]) {
             } else {
                 error("Unhandled member 'random." + name + "'");
             }
+        } else if (name === "format") {
+            let stringAst = parse(object);
+            if (stringAst.name !== "__customString__" && stringAst.name !== "__translatedString__" && stringAst.name !== "__localizedString__") {
+                error("Expected a string literal for .format(), but got '" + dispTokens(object) + "'", getFileStackRange(object));
+            }
+            let argsAst = parseArgs("."+name, args);
+            if (stringAst.name === "__translatedString__") {
+                //Handle that in the AST, as we need to know the parent for getAstForTranslatedString
+                let result = new Ast("." + name, [stringAst, ...argsAst]);
+                result.fileStack = getFileStackRange(object.concat(...member));
+                return result;
+            }
+            if (stringAst.args.length > 1) {
+                error("Cannot use .format() on f-strings");
+            }
+            stringAst.args.push(...argsAst);
+            stringAst.fileStack = getFileStackRange(object.concat(...member));
+            return stringAst;
         } else {
             //Assume it is a generic member function
 
@@ -1593,6 +1490,242 @@ function parseDictionary(content: Token[]) {
     return new Ast("__dict__", astElems);
 }
 
+export function parseStringTokens(string: string, isFormattedString=false): StringToken[] {
+
+    //Tokenize the string
+    let stringTokens: StringToken[] = [];
+
+    let formatterPattern = isFormattedString ? "\\{([^}]*)\\}" : "\\{(\\d*)\\}";
+    let formatterRegex = new RegExp("^" + formatterPattern);
+    let tagRegex = new RegExp("^((<(tx\\s*|fg\\s*#?)([0-9a-fA-F]|(?<!\\{)"+formatterPattern+")+>)|(</fg>))", "i");
+
+    for (let i = 0; i < string.length; i++) {
+        let formatterEscapeMatch = string.substring(i).match(new RegExp("^\\{"+formatterPattern+"\\}"));
+        if (formatterEscapeMatch) {
+            stringTokens.push({
+                text: formatterEscapeMatch[0],
+                type: "text",
+            });
+            i += formatterEscapeMatch[0].length - 1;
+            continue;
+        }
+        let formatterMatch = string.substring(i).match(formatterRegex);
+        if (formatterMatch) {
+            stringTokens.push({
+                text: formatterMatch[0],
+                type: "arg",
+                argIndex: formatterMatch[1] === "" || isFormattedString ? null : parseInt(formatterMatch[1]),
+            });
+            i += formatterMatch[0].length - 1;
+            continue;
+        }
+        let tagMatch = string.substring(i).match(tagRegex);
+        if (tagMatch && enableTagsSetup) {
+            //There can be formatters inside a tag, so we need to re-parse
+            for (let j = 0; j < tagMatch[0].length; j++) {
+                //Note: there cannot be escaped formatters inside a tag, as the regex would not match
+                let formatterMatch = tagMatch[0].substring(j).match(formatterRegex);
+                if (formatterMatch) {
+                    stringTokens.push({
+                        text: formatterMatch[0],
+                        type: "arg",
+                        argIndex: formatterMatch[1] === "" || isFormattedString ? null : parseInt(formatterMatch[1]),
+                    });
+                    j += formatterMatch[0].length - 1;
+                    continue;
+                }
+                if (tagMatch[0][j] === "<") {
+                    stringTokens.push({
+                        text: "<",
+                        type: "holygrail",
+                    });
+                } else {
+                    stringTokens.push({
+                        text: tagMatch[0][j],
+                        type: "tag",
+                    });
+                }
+            }
+            i += tagMatch[0].length - 1;
+            continue;
+        }
+        stringTokens.push({
+            text: string[i],
+            type: "text",
+        });
+    }
+    //Concatenate consecutive text/tag tokens
+    stringTokens = stringTokens.reduce((acc, token) => {
+        if ((token.type === "text" || token.type === "tag") && acc.length > 0 && acc[acc.length - 1].type === token.type) {
+            acc[acc.length - 1].text += token.text;
+        } else {
+            acc.push(token);
+        }
+        return acc;
+    }, [] as StringToken[]);
+
+
+    return stringTokens;
+}
+
+export function parseString(content: Token[], kwargs: Record<string, any> = {}) {
+
+    let isTranslatedString = false;
+    let isFormattedString = false;
+    let isFullwidthString = false;
+    let isLocalizedString = false;
+    let isBigLettersString = false;
+    let isCasedString = false;
+    let string = "";
+    for (var i = content.length - 1; i >= 0; i--) {
+        setFileStack(content[i].fileStack);
+        if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
+            string = unescapeString(content[i].text, true) + string;
+        } else {
+            if (i !== 0) {
+                error("Invalid content before string: '" + content[i].text + "'");
+            }
+            //Parse string modifiers. Note that unlike Python, string modifiers can only be at the start of a concatenation chain (otherwise we run into issues with .format() and all).
+            //console.log("string modifiers: "+content[0].text);
+            if (content[0].text.includes("l")) {
+                if (content[0].text.length > 1) {
+                    error("Cannot use other string modifiers with 'l'");
+                }
+                isLocalizedString = true;
+            }
+            if (content[0].text.includes("b")) {
+                isBigLettersString = true;
+            }
+            if (content[0].text.includes("w")) {
+                isFullwidthString = true;
+            }
+            if (content[0].text.includes("p")) {
+                //legacy string modifier, unused
+            }
+            if (content[0].text.includes("c")) {
+                isCasedString = true;
+            }
+            if (content[0].text.includes("t")) {
+                if (content[0].text.length > 1) {
+                    error("Cannot use other string modifiers with 't'");
+                }
+                isTranslatedString = true;
+            }
+            if (content[0].text.includes("f")) {
+                isFormattedString = true;
+            }
+            for (let char of content[0].text) {
+                if (!["l", "b", "c", "w", "p", "t", "f"].includes(char)) {
+                    error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
+                }
+            }
+        }
+    }
+    setFileStack(getFileStackRange(content));
+    if (isTranslatedString) {
+        if (kwargs.disableTranslation) {
+            error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
+        }
+        return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+    }
+
+    let stringTokens = parseStringTokens(string, isFormattedString);
+
+    debug("String tokens for '"+string+"': " + JSON.stringify(stringTokens));
+
+    if (isBigLettersString) {
+
+        let isConvertedToBigLetters = false;
+        //If big letters, try to map letters until we get one
+        //We only need one letter to convert to big letters
+        for (let token of stringTokens) {
+            if (token.type !== "text") {
+                continue;
+            }
+            for (let j = 0; j < token.text.length; j++) {
+                if (token.text[j] in bigLettersMappings) {
+                    token.text = token.text.substring(0, j) + bigLettersMappings[token.text[j]] + token.text.substring(j + 1);
+                    isConvertedToBigLetters = true;
+                    break;
+                }
+            }
+            if (isConvertedToBigLetters) {
+                break;
+            }
+        }
+        if (!isConvertedToBigLetters) {
+            error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
+        }
+    }
+
+    if (isFullwidthString) {
+
+        let containsNonFullwidthChar = false;
+        for (let token of stringTokens) {
+            if (token.type !== "text") {
+                continue;
+            }
+            for (let j = 0; j < token.text.length; j++) {
+                if (token.text[j] in fullwidthMappings) {
+                    token.text = token.text.substring(0, j) + fullwidthMappings[token.text[j]] + token.text.substring(j + 1);
+                } else {
+                    containsNonFullwidthChar = true;
+                }
+            }
+        }
+        if (containsNonFullwidthChar) {
+            warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
+        }
+    }
+    if (isCasedString) {
+        for (let token of stringTokens) {
+            if (token.type !== "text") {
+                continue;
+            }
+            token.text = token.text.replace(/e([0123456789!\?\/@"\&#\^\$\*%])/g, "ѐ$1");
+            token.text = token.text.replace(/n([0123456789!\?\/@"\&#\^\$\*%])/g, "ǹ$1");
+            for (var key of Object.keys(caseSensitiveReplacements)) {
+                token.text = token.text.replace(new RegExp(key, "g"), caseSensitiveReplacements[key]);
+            }
+        }
+    }
+
+    let formatArgs = [];
+
+    if (isFormattedString) {
+        for (let token of stringTokens) {
+            if (token.type !== "arg") {
+                continue;
+            }
+            if (token.text === "{}") {
+                error("Cannot have empty formatters in a f-string");
+            }
+            let formatter = token.text.slice(1, -1); //Remove the curly braces
+            let lines = tokenize(formatter);
+            let astLines = parseLines(lines);
+            if (astLines.length !== 1) {
+                error("String formatter '" + token.text + "' should only have one line");
+            }
+            let formatArg = astLines[0];
+            formatArgs.push(formatArg);
+            token.text = "{}";
+        }
+    }
+    setFileStack(getFileStackRange(content));
+
+    //This has the side effect that the converted string will be shown in errors/warnings, but it is worth it to avoid potential bugs by using the ast name instead of stringTokens.map() and not having the string modifiers apply.
+    string = stringTokens.map((x) => x.text).join("");
+
+    let result;
+    if (isLocalizedString) {
+        result = new Ast("__localizedString__", [new Ast(string, [], [], "LocalizedStringLiteral"), ...formatArgs]);
+    } else {
+        result = new Ast("__customString__", [new Ast(string, [], [], "CustomStringLiteral"), ...formatArgs]);
+    }
+    result.stringTokens = stringTokens;
+    return result;
+}
+
 //This function cannot be in utils/compilation.ts, otherwise it causes import order issues
 export function customGameSettingsAstToObject(customGameSettings: Ast): Record<string, any> | Array<any> | string | number | boolean {
     //console.log(customGameSettings);
@@ -1623,11 +1756,7 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
         return customGameSettings.args.map((x) => customGameSettingsAstToObject(x));
     }
     if (customGameSettings.name === "__customString__") {
-
-        if (customGameSettings.name !== "__customString__") {
-            error("Expected dict key to be a string literal, but got " + functionNameToString(customGameSettings), customGameSettings.fileStack);
-        }
-        if (customGameSettings.args[1].name !== "null" || customGameSettings.args[2].name !== "null" || customGameSettings.args[3].name !== "null") {
+        if (customGameSettings.args.length > 1) {
             error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters", customGameSettings.fileStack);
         }
         return customGameSettings.args[0].name;

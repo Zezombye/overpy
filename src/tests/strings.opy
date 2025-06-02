@@ -12,9 +12,11 @@ rule "strings":
     print('single \'"quotes"')
     print(w"fullwidth string")
     print(b"big letters string")
+    A = l"Hello"
     print(l"{0} {1}".format("localized", "string"))
     print(l"{0}, {1}, and {2}".format(0,1,2))
 
+    A = "no tags: {{0}} {{}} <tx{{}}>"
     A = w"uwu {0}".format(C)
     A = f"owo {1+2}"
     B = fb'123145{C} {A+B} {0}'
@@ -22,6 +24,13 @@ rule "strings":
     B = cf'lowercase a{owo}f'
     B = f"consecutive" "strings{1+2}" "owo"
     A = "owo" + "uwu"
+
+    A = "{0}{0}{0}{0}".format("{0}{0}{0}{0}".format("{0}{0}{0}{0}".format("{0}{0}{0}{0}".format(A))))
+    A = "A, B, B, C, D {}{}{}{}{}".format(A,B,B,C,D)
+    A = "A, B, C, D {}{}{}{}".format(A,B,C,D)
+    A = "A, A, B, B {}{}{}{}".format(A,A,B,B)
+    A = "A, B, C, B, A {}{}{}{}{}".format(A,B,C,B,A)
+    A = "A, B, C, D, A, B {}{}{}{}{}{}".format(A,B,C,D,A,B)
 
     print("Multiple fields {} {} {} {} {} {} {} {}".format(A,B,C,D,E,F,G,H))
     print("Numbered fields {0} {1} {2} {1} {3}".format(A,B,C,D))

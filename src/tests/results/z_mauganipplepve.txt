@@ -600,7 +600,7 @@ rule ("more maugas charge attack") {
             "createBeam(getAllPlayers(), Beam.WINSTON_TESLA_CANNON, attackingClone.smallRNip, LeftNip if attackingClone.smallRNip.x > 0 else RightNip, Color.TEAM_2, EffectReeval.VISIBILITY)"
             Create Beam Effect(All Players(All Teams), Winston Tesla Cannon Beam, (Global.attackingClone).cacheB, (Global.nipman).cacheB, Color(Team 2), Visible To);
             Modify Global Variable(moreFx, Append To Array, Last Created Entity);
-            Big Message(All Players(All Teams), Custom String("{0} deadly attack incoming! attack the sensitive spots! {1}", Icon String(Warning), Icon String(Warning)));
+            Big Message(All Players(All Teams), Custom String("{0} deadly attack incoming! attack the sensitive spots! {0}", Icon String(Warning)));
             Communicate(Random Value In Array(Filtered Array(All Living Players(Team 1), Has Spawned(Current Array Element))), Press the Attack);
             "all hammond dummies get weak spot init"
             Create Dummy Bot(Hero(Wrecking Ball), Team 2, -1, Up, Up);

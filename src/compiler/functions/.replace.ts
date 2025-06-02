@@ -18,11 +18,11 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber, stringAstContainsFormatters } from "../../utils/ast";
+import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions[".replace"] = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "__customString__" && content.args[1].name === "__customString__" && content.args[2].name === "__customString__" && !stringAstContainsFormatters(content.args[0]) && !stringAstContainsFormatters(content.args[1]) && !stringAstContainsFormatters(content.args[2])) {
+        if (content.args[0].name === "__customString__" && content.args[1].name === "__customString__" && content.args[2].name === "__customString__" && content.args[0].args.length === 1 && content.args[1].args.length === 1 && content.args[2].args.length === 1) {
             const originalString = content.args[0].args[0].name;
             const searchString = content.args[1].args[0].name;
             const replaceString = content.args[2].args[0].name;

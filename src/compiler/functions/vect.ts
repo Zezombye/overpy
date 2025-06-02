@@ -43,7 +43,7 @@ astParsingFunctions["Vector.UP"] = function(content) {
         return new Ast("vect", [getAstFor0(), getAstFor1(), getAstFor0()]);
     }
     return content;
-}
+};
 astParsingFunctions["Vector.DOWN"] = function(content) {
     if (enableOptimization) {
         return new Ast("vect", [getAstFor0(), getAstForMinus1(), getAstFor0()]);

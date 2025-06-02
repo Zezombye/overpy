@@ -18,7 +18,7 @@
 "use strict";
 
 import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber, stringAstContainsFormatters } from "../../utils/ast";
+import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber } from "../../utils/ast";
 
 //Do not implement this optimization, as it is commonly used to compress strings and save elements
 /*astParsingFunctions[".split"] = function (content) {
