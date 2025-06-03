@@ -930,7 +930,8 @@ Last, you can use the `#!translateWithPlayerVar` directive to store the player's
 
 rule "Player got kill":
     @Event playerDied
-    bigMessage(attacker, t"You killed {}!".format(victim)) #here, the string can simply be prefixed with "t", as it is in a display action
+    #here, the string can simply be prefixed with "t", as it is in a display action
+    bigMessage(attacker, t"You killed {}!".format(victim))
 
 rule "Set wave message":
     if wave == 1:
@@ -939,16 +940,22 @@ rule "Set wave message":
         waveMsg = t"Wave {}".format(wave)
         waveMsg = _("Wave {}").format(wave) #equivalent to the above
 
-    #waveMsg is now a translated string. You CANNOT do any further operations on it until displaying it!
+    #waveMsg is now a translated string.
+    #You CANNOT do any further operations on it until displaying it!
     waveMsg = waveMsg.replace("Wave", "wave") #This won't work!
     someMsg = "You are at {}".format(waveMsg) #This won't work either
     waveMsg = _(waveMsg).replace("Wave", "wave") #This won't work either
 
-    bigMessage(getAllPlayers(), _(waveMsg)) #We have to wrap waveMsg with the _() function when displaying it, as it is a translated string
+    #We have to wrap waveMsg with the _() function when displaying it, as it is a translated string
+    bigMessage(getAllPlayers(), _(waveMsg)) 
 
-    bigMessage(getAllPlayers(), _(waveMsg).replace("Wave, wave")) #This will work, as the _() function converts the translated string back to a normal string when used in a display action
+    #This will work, as the _() function converts the translated string back to
+    #a normal string when used in a display action
+    bigMessage(getAllPlayers(), _(waveMsg).replace("Wave, wave"))
 
-    bigMessage(getAllPlayers(), _("not the ocean kind", "Wave {}").format(wave)) #If two arguments are supplied to the _() function, the first argument is used as a context string for translators. Note that the .format() function must be used outside of the _() function.
+    #If two arguments are supplied to the _() function, the first argument is used as a context string
+    #for translators. Note that the .format() function must be used outside of the _() function.
+    bigMessage(getAllPlayers(), _("not the ocean kind", "Wave {}").format(wave)) 
 ```
     
 
