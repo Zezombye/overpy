@@ -45,6 +45,22 @@ export const opyFuncs: Record<
         ],
         "return": "String",
     },
+    "__": {
+        "description": "Same as the `_` function, but if using `#!translateWithPlayerVar`, it will ignore that directive. Use this if you want a string to be translated for spectators.",
+        "args": [
+            {
+                "name": "contextOrString",
+                "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+                "type": "String",
+            }, {
+                "name": "string",
+                "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+                "type": "CustomStringLiteral",
+                "default": null,
+            }
+        ],
+        "return": "String",
+    },
     "all": {
         "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
         "args": [

@@ -35,7 +35,6 @@ import { opyTextures } from "../data/opy/textures";
 import { parseOpyMacro } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
 import { parseAst } from "./astParser";
-import { getAstForTranslatedString } from "./functions/__translatedString__";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -963,31 +962,36 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Special functions
 
 
-    if (name === "_") {
+    if (name === "_" || name === "__") {
         if (args.length !== 1 && args.length !== 2) {
-            error("Function '_' takes 2 arguments, received " + args.length);
+            error("Function '"+name+"' takes 2 arguments, received " + args.length);
         }
         let context = null;
         if (args.length === 2) {
             if (args[0].length !== 1 || (args[0][0].text[0] !== "'" && args[0][0].text[0] !== "\"")) {
-                error("First argument of function '_' must be a string literal");
+                error("First argument of function '"+name+"' must be a string literal");
             }
             context = unescapeString(args[0][0].text, true);
         }
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
         setFileStack(getFileStackRange(content));
+        let result;
         if (translationTarget.name === "__customString__") {
             if (translationTarget.args.length !== 1) {
-                error("The .format() function must be outside of the _() function");
+                error("The .format() function must be outside of the "+name+"() function");
             }
-            return getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+            result = getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
             //It is a variable; assume the value is a translated string (string array)
             if (args.length !== 1) {
                 error("Cannot specify translation context when not translating a string literal");
             }
-            return new Ast("__translateString__", [translationTarget]);
+            result = new Ast("__translateString__", [translationTarget]);
         }
+        if (name === "__") {
+            result.isSpectatorTranslation = true;
+        }
+        return result;
 
     }
 

@@ -102,7 +102,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
 
     if (isReevaluatedClientSide) {
-        if (usePlayerVarForTranslations) {
+        if (usePlayerVarForTranslations && !content.isSpectatorTranslation) {
             opyMacro += "[localPlayer.__languageIndex__]";
         } else {
             opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";

@@ -49,6 +49,7 @@ export class Ast {
     fileStack: FileStackMember[];
     tokenArgsStr?: string; //Used for the debug() function
     stringTokens?: StringToken[]; //Used for __customString__
+    isSpectatorTranslation?: boolean; //Used for translated strings, if set to true then player var won't be used
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
@@ -128,6 +129,7 @@ export class Ast {
         clone.fileStack = this.fileStack;
         clone.numValue = this.numValue;
         clone.stringTokens = structuredClone(this.stringTokens);
+        clone.isSpectatorTranslation = this.isSpectatorTranslation;
         return clone;
     }
 }

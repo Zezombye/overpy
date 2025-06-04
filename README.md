@@ -917,7 +917,7 @@ This also means that, when used in a variable, you cannot use a translated strin
 
 Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable using a rule which uses the `.startFacing()` function when the player spawns (the language is determined based on the player's facing direction).
 
-If using translations, this can save a lot of elements.
+If using translations, this can save a lot of elements. However, it will make translated strings not display correctly for spectators; you will have to wrap them with the `__` function (which behaves the same as the `_` function, except it will not use the `__languageIndex__` player variable).
 
 If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once `eventPlayer.__languageIndex__ != 1.1`.
 
