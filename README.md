@@ -915,7 +915,11 @@ This also means that, when used in a variable, you cannot use a translated strin
 - `(0.00, 0.00, -1.00)` (`Vector.BACKWARD`)
 - `1876650.25`, `1876651.25`, `1876652.25`, `1876653.25`, `1876654.25`, `1876655.25`, `1876656.25`, `1876657.25`, `1876658.25`, `1876659.25`
 
-Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable and save on elements, but it is potentially invasive (although it should work with the vast majority of gamemodes), as it works by changing the facing direction of the player.
+Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable using a rule which uses the `.startFacing()` function when the player spawns (the language is determined based on the player's facing direction).
+
+If using translations, this can save a lot of elements.
+
+If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once `eventPlayer.__languageIndex__ != 1.1`.
 
 **In summary**:
 
@@ -947,7 +951,7 @@ rule "Set wave message":
     waveMsg = _(waveMsg).replace("Wave", "wave") #This won't work either
 
     #We have to wrap waveMsg with the _() function when displaying it, as it is a translated string
-    bigMessage(getAllPlayers(), _(waveMsg)) 
+    bigMessage(getAllPlayers(), _(waveMsg))
 
     #This will work, as the _() function converts the translated string back to
     #a normal string when used in a display action
@@ -955,9 +959,9 @@ rule "Set wave message":
 
     #If two arguments are supplied to the _() function, the first argument is used as a context string
     #for translators. Note that the .format() function must be used outside of the _() function.
-    bigMessage(getAllPlayers(), _("not the ocean kind", "Wave {}").format(wave)) 
+    bigMessage(getAllPlayers(), _("not the ocean kind", "Wave {}").format(wave))
 ```
-    
+
 
 <details>
     <summary>Technical details</summary>

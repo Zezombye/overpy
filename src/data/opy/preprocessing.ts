@@ -181,7 +181,9 @@ Stores the player's language in a variable using a rule which uses the \`.startF
 
 If using translations, this can save a lot of elements.
 
-Do not use this directive if your gamemode changes the player's facing direction on spawn.
+If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once \`eventPlayer.__languageIndex__ != 1.1\`.
+
+You can specify \`noDetectionRule\` to not create the rule which sets the variable to the player's language, in which case you'll have to define the rule yourself; the variable must be set to the language as defined in the order specified in the \`#!translations\` directive, where the first language is index 1, and must be set to 1 by default if no language could be determined.
         `,
     },
 

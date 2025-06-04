@@ -212,6 +212,8 @@ export const setTranslationLanguageConstantOpy = (constant: string) => (translat
 
 export var usePlayerVarForTranslations: boolean;
 export const setUsePlayerVarForTranslations = (use: boolean) => (usePlayerVarForTranslations = use);
+export var generateRuleForTranslationsPlayerVar: boolean;
+export const setGenerateRuleForTranslationsPlayerVar = (generate: boolean) => (generateRuleForTranslationsPlayerVar = generate);
 
 export var excludeVariablesInCompilation: boolean;
 export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
@@ -300,6 +302,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     translationLanguageConstant = null;
     translationLanguageConstantOpy = "";
     usePlayerVarForTranslations = false;
+    generateRuleForTranslationsPlayerVar = true;
     excludeVariablesInCompilation = false;
 }
 

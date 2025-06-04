@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -216,6 +216,9 @@ export function tokenize(content: string): LogicalLine[] {
         }
         if (content.startsWith("#!translateWithPlayerVar")) {
             setUsePlayerVarForTranslations(true);
+            if (content.startsWith("#!translateWithPlayerVar noDetectionRule")) {
+                setGenerateRuleForTranslationsPlayerVar(false);
+            }
             return;
         }
         if (content.startsWith("#!optimizeForSize")) {

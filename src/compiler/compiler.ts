@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -208,33 +208,35 @@ export async function compile(
             error("Translations must be setup using the #!translations directive");
         }
 
-        let translationSetupRule: any =
-        `
-rule "OverPy translation setup - Determine the player's language":
-    @Event eachPlayer
-    @Condition eventPlayer.hasSpawned()
-    @Condition not eventPlayer.isDummy()
-    @Condition eventPlayer.__languageIndex__ == 1.1
-    eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
-    eventPlayer.startFacing(
-        directionFromAngles(10*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
-        Math.INFINITY,
-        Relativity.TO_WORLD,
-        FacingReeval.DIRECTION_AND_TURN_RATE
-    )
+        if (generateRuleForTranslationsPlayerVar) {
+            let translationSetupRule: any =
+            `
+    rule "OverPy translation setup - Determine the player's language":
+        @Event eachPlayer
+        @Condition eventPlayer.hasSpawned()
+        @Condition not eventPlayer.isDummy()
+        @Condition eventPlayer.__languageIndex__ == 1.1
+        eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
+        eventPlayer.startFacing(
+            directionFromAngles(10*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
+            Math.INFINITY,
+            Relativity.TO_WORLD,
+            FacingReeval.DIRECTION_AND_TURN_RATE
+        )
 
-    #Have a tolerance of 1/100 of a degree to account for precision errors
-    waitUntil(abs(eventPlayer.getHorizontalFacingAngle() % 10) < 0.01 and abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01, 15)
+        #Have a tolerance of 1/100 of a degree to account for precision errors
+        waitUntil(abs(eventPlayer.getHorizontalFacingAngle() % 10) < 0.01 and abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01, 15)
 
-    eventPlayer.__languageIndex__[false] = max(1, (abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01) * round(eventPlayer.getHorizontalFacingAngle()/10))
+        eventPlayer.__languageIndex__[false] = max(1, (abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01) * round(eventPlayer.getHorizontalFacingAngle()/10))
 
-    eventPlayer.stopFacing()
-    eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
-    eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__[0]
-        `;
-        translationSetupRule = tokenize(translationSetupRule);
-        translationSetupRule = parseLines(translationSetupRule)[0];
-        astRules.unshift(translationSetupRule);
+        eventPlayer.stopFacing()
+        eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
+        eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__[0]
+            `;
+            translationSetupRule = tokenize(translationSetupRule);
+            translationSetupRule = parseLines(translationSetupRule)[0];
+            astRules.unshift(translationSetupRule);
+        }
     }
 
     if (enableTagsSetup) {
