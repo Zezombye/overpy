@@ -891,7 +891,7 @@ Use the `#!translations` directive to setup the translation system. Arguments ar
 
 `#!translations en fr es zh_cn`
 
-Only the `es_mx`, `es_es`, `zh_cn` and `zh_tw` languages can be specified fully. For the rest, you can only specify the first two letters.
+Only the `es_mx`, `es_es`, `zh_cn` and `zh_tw` languages can be specified fully. For the rest, you can only specify the first two letters. The valid languages are `de`,`en`,`es`,`es_es`,`es_mx`,`fr`,`it`,`ja`,`ko`,`pl`,`pt`,`ru`,`th`,`tr`,`zh`,`zh_cn`,`zh_tw`.
 
 To translate a string, wrap it with the `_` function, such as `_("You have \${} money").format(money)`. Note that the formatter has to be outside of the function. You can also use the "t" string modifier, such as `t"\${} money".format(money)`.
 
@@ -915,13 +915,49 @@ This also means that, when used in a variable, you cannot use a translated strin
 - `(0.00, 0.00, -1.00)` (`Vector.BACKWARD`)
 - `1876650.25`, `1876651.25`, `1876652.25`, `1876653.25`, `1876654.25`, `1876655.25`, `1876656.25`, `1876657.25`, `1876658.25`, `1876659.25`
 
-Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable and save on elements, but it is potentially invasive (although it should work with the vast majority of gamemodes).
+Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable and save on elements, but it is potentially invasive (although it should work with the vast majority of gamemodes), as it works by changing the facing direction of the player.
 
 **In summary**:
 
 - Use the `#!translations` directive to setup translations, and `#!translateWithPlayerVar` if you are short on elements.
 - If a string is within a display action (`bigMessage()`, `hudText()`, `createInWorldText()`, etc), simply prefix it with `t` or wrap it with the `_` function, and it will work.
 - Otherwise, if the string is assigned to a variable, you have to wrap the variable with the `_` function when displaying it, as well as check if the string is not used as a string formatter or that string operations aren't applied on it. If there are, you need to refactor your code.
+
+**Example**:
+
+```py
+#!translations en fr zh
+
+rule "Player got kill":
+    @Event playerDied
+    #here, the string can simply be prefixed with "t", as it is in a display action
+    bigMessage(attacker, t"You killed {}!".format(victim))
+
+rule "Set wave message":
+    if wave == 1:
+        waveMsg = t"First wave!"
+    else:
+        waveMsg = t"Wave {}".format(wave)
+        waveMsg = _("Wave {}").format(wave) #equivalent to the above
+
+    #waveMsg is now a translated string.
+    #You CANNOT do any further operations on it until displaying it!
+    waveMsg = waveMsg.replace("Wave", "wave") #This won't work!
+    someMsg = "You are at {}".format(waveMsg) #This won't work either
+    waveMsg = _(waveMsg).replace("Wave", "wave") #This won't work either
+
+    #We have to wrap waveMsg with the _() function when displaying it, as it is a translated string
+    bigMessage(getAllPlayers(), _(waveMsg)) 
+
+    #This will work, as the _() function converts the translated string back to
+    #a normal string when used in a display action
+    bigMessage(getAllPlayers(), _(waveMsg).replace("Wave, wave"))
+
+    #If two arguments are supplied to the _() function, the first argument is used as a context string
+    #for translators. Note that the .format() function must be used outside of the _() function.
+    bigMessage(getAllPlayers(), _("not the ocean kind", "Wave {}").format(wave)) 
+```
+    
 
 <details>
     <summary>Technical details</summary>
