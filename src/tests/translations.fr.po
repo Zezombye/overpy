@@ -52,13 +52,17 @@ msgid "formatted string {0} on both sidess"
 msgstr ""
 
 #. file translations.opy, line 31, rule "owo\nuwu"
+msgid "translated fstring: {0}"
+msgstr ""
+
+#. file translations.opy, line 32, rule "owo\nuwu"
 msgid "multiple formatters {0} {1} owo"
 msgstr "plusieurs {0} formatteurs {1} owo"
 
-#. file translations.opy, line 32, rule "owo\nuwu"
+#. file translations.opy, line 33, rule "owo\nuwu"
 msgid "653453[]|.<>$= ¤$"
 msgstr ""
 
-#. file translations.opy, line 33, rule "owo\nuwu"
+#. file translations.opy, line 34, rule "owo\nuwu"
 msgid "$200"
 msgstr ""

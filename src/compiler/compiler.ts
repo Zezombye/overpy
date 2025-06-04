@@ -170,6 +170,7 @@ export async function compile(
         if (usePlayerVarForTranslations) {
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
             addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize("1.1")[0].tokens);
+            addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}", false))[0].tokens);
         } else {
             addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         }
@@ -214,20 +215,22 @@ rule "OverPy translation setup - Determine the player's language":
     @Condition eventPlayer.hasSpawned()
     @Condition not eventPlayer.isDummy()
     @Condition eventPlayer.__languageIndex__ == 1.1
+    eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
     eventPlayer.startFacing(
-        directionFromAngles(20*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
+        directionFromAngles(10*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
         Math.INFINITY,
         Relativity.TO_WORLD,
         FacingReeval.DIRECTION_AND_TURN_RATE
     )
 
-    #Because of precision errors, we round to the hundredth.
-    waitUntil(round(eventPlayer.getHorizontalFacingAngle()*100)/100 % 20 == 0 and round(eventPlayer.getVerticalFacingAngle()*100)/100 == 5, 15)
+    #Have a tolerance of 1/100 of a degree to account for precision errors
+    waitUntil(abs(eventPlayer.getHorizontalFacingAngle() % 10) < 0.01 and abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01, 15)
 
-    eventPlayer.__languageIndex__ = max(1, (round(eventPlayer.getVerticalFacingAngle()*100)/100 == 5) * round(eventPlayer.getHorizontalFacingAngle()/20))
+    eventPlayer.__languageIndex__[false] = max(1, (abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01) * round(eventPlayer.getHorizontalFacingAngle()/10))
 
     eventPlayer.stopFacing()
-    eventPlayer.setFacing(null, Relativity.TO_WORLD)
+    eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
+    eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__[0]
         `;
         translationSetupRule = tokenize(translationSetupRule);
         translationSetupRule = parseLines(translationSetupRule)[0];

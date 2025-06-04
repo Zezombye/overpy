@@ -1,0 +1,110 @@
+settings
+{
+	lobby
+	{
+		Allow Players Who Are In Queue: Yes
+		Match Voice Chat: Enabled
+	}
+	modes
+	{
+		Skirmish
+		{
+			enabled maps
+			{
+				Workshop Chamber
+			}
+		}
+	}
+}
+variables {
+    global:
+        0: A
+        126: __holygrail__
+        127: __overpyTranslationHelper__
+    player:
+        127: __languageIndex__
+}
+rule ("Initialize global variables") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(__overpyTranslationHelper__, Custom String(""));
+    }
+}
+
+rule ("Initialize player variables") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Set Player Variable(Event Player, __languageIndex__, 1.1);
+    }
+}
+
+rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "By Zezombye"
+        Create Dummy Bot(All Heroes, If-Then-Else(Number Of Slots(Team 1), Team 1, If-Then-Else(Number Of Slots(Team 2), Team 2, True)), False, Null, Null);
+        "More info: https://workshop.codes/wiki/articles/tx-reference-sheet"
+        Start Forcing Dummy Bot Name(Last Created Entity, Custom String("______________________________________________________________________________________________________________________________〼"));
+        Set Global Variable(__holygrail__, String Split(First Of(Last Created Entity), Empty Array));
+        Start Forcing Dummy Bot Name(Last Created Entity, Custom String("______________________________________________________________________________________________________________________________ࡀ"));
+        Set Global Variable(__holygrail__, String Slice(String Replace(Custom String("______________________________________________________________________________________________________________________________〼"), Global.__holygrail__, First Of(Last Created Entity)), 126, True));
+        Destroy All Dummy Bots;
+    }
+}
+
+rule ("OverPy translation setup - Determine the player's language") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Has Spawned(Event Player) == True;
+        Is Dummy Bot(Event Player) == False;
+        (Event Player).__languageIndex__ == 1.1;
+    }
+    actions {
+        Modify Player Variable(Event Player, __languageIndex__, Append To Array, Facing Direction Of(Event Player));
+        Start Facing(Event Player, Direction From Angles(Multiply(10, Absolute Value(Index Of Array Value(String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)), String Split(Color(White), Empty Array)))), 5), 999999999999, To World, Direction and Turn Rate);
+        "Have a tolerance of 1/100 of a degree to account for precision errors"
+        Wait Until(And(Compare(Absolute Value(Modulo(Horizontal Facing Angle Of(Event Player), 10)), <, 0.01), Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01)), 15);
+        Set Player Variable At Index(Event Player, __languageIndex__, False, Max(1, Multiply(Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01), Round To Integer(Divide(Horizontal Facing Angle Of(Event Player), 10), To Nearest))));
+        Stop Facing(Event Player);
+        Set Facing(Event Player, Last Of((Event Player).__languageIndex__), To World);
+        Set Player Variable(Event Player, __languageIndex__, First Of((Event Player).__languageIndex__));
+    }
+}
+
+rule ("owo\nuwu") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, Mapped Array(String Split(Custom String("ＴＬＥｒｒhost player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.0{0}", Custom String("0, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, {0}", Custom String("1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.00, 1.00, 0.00)host player: (0.0{0}", Custom String("0, 1.00, 0.00)host player: (0.00, 1.00, 0.00)")))), Global.__overpyTranslationHelper__), String Replace(Current Array Element, Update Every Frame(Up), Host Player)));
+        Create HUD Text(All Players(All Teams), Null, Custom String("{0}FGD0FF00FF>ṭ\"ѕοṃẹ ѕṭṛіṇǥ\" {0}FG99F3FFFF>= {0}FGFFFF00FF>{1}                                                               {2}", Global.__holygrail__, Value In Array(String Split(Custom String("ＴＬＥｒｒsome stringsome stringsome stringsome stringsome stringsome stringsome stringsome stringsome stringsome string{0}", Custom String("some stringsome stringsome string")), Global.__overpyTranslationHelper__), (Local Player).__languageIndex__), Custom String("                                                                                                           ")), Null, Left, -9999, Null, Color(White), Null, Visible To Sort Order String and Color, Default Visibility);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Button Held(Event Player, Button(Interact)) == True;
+    }
+    actions {
+        Big Message(All Players(All Teams), Custom String("{0}{1}", Value In Array(Global.A, (Local Player).__languageIndex__), Input Binding String(Button(Interact))));
+        Small Message(All Players(All Teams), Custom String("{0}{1}", Value In Array(Global.A, (Local Player).__languageIndex__), Input Binding String(Button(Interact))));
+    }
+}
+

@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt\n"
+"X-Generator: OverPy\n"
+
+#. file translations2.opy, line 18, rule "owo\nuwu"
+msgid "host player: {0}"
+msgstr ""
+
+#. file translations2.opy, line 19, rule "owo\nuwu"
+msgid "some string"
+msgstr ""

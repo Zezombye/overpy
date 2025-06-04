@@ -22,7 +22,7 @@ import { translationLanguageConstantOpy, translationLanguages, usePlayerVarForTr
 import { Ast, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
-import { escapeString } from "../../utils/strings";
+import { escapeString, getUtf8ByteLength } from "../../utils/strings";
 import { getBestSpaces } from "./createCasedProgressBarIwt";
 import { getStrVisualLength } from "./strVisualLength";
 
@@ -52,15 +52,12 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
     let opyMacro = "";
     let replacementNames: string[] = [];
+    let replacementMacro = "";
 
     if (content.parent?.name === "spacesForString") {
         opyMacro += escapeString("ＴＬＥｒｒ\uEC48"+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
         opyMacro += ".split(__overpyTranslationHelper__)";
     } else if (isTranslatedStringLiteral) {
-        //\uEC48 is a character from the private use area. Use as separator, as it cannot appear in translated strings
-        //__overpyTranslationsHelper__[0] is that character, so we add it to the start of the string so that the translation indexes match when we split it
-        //We add "TLERR" at the start to notify the user if the string is stored in a variable then not translated using the "_" function when displayed
-        let rawString = "ＴＬＥｒｒ\uEC48"+content.args.map(x => x.name.replaceAll("{}", "{0}")).join("\uEC48");
 
         //Warning: if adding more separators, check in a print() function if there is no loss of precision (client-side values have low precision)
         let separators = ["Vector.UP", "Vector.DOWN", "Vector.LEFT", "Vector.RIGHT", "Vector.FORWARD", "Vector.BACKWARD", "1876650.25", "1876651.25", "1876652.25", "1876653.25", "1876654.25", "1876655.25", "1876656.25", "1876657.25", "1876658.25", "1876659.25"];
@@ -73,14 +70,27 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
             "Vector.BACKWARD": "(0.00, 0.00, -1.00)",
         };
 
-        for (let i = 0; i < separators.length; i++) {
-            rawString = rawString.replaceAll("{" + i + "}", separators[i] in vectorToString ? vectorToString[separators[i]] : separators[i]);
+        let translationStrings = content.args.map(x => x.name.replaceAll("{}", "{0}"));
+
+        for (let h = 0; h < translationStrings.length; h++) {
+
+            for (let i = 0; i < separators.length; i++) {
+                translationStrings[h] = translationStrings[h].replaceAll("{" + i + "}", separators[i] in vectorToString ? vectorToString[separators[i]] : separators[i]);
+            }
+            if (getUtf8ByteLength(translationStrings[h]) > 511) {
+                error("Translated string for language '"+translationLanguages[h]+"' "+escapeString(translationStrings[h], false)+" is too long, maximum length is 511 bytes");
+            }
         }
 
-        opyMacro = escapeString(rawString, false);
+        //\uEC48 is a character from the private use area. Use as separator, as it cannot appear in translated strings
+        //__overpyTranslationsHelper__[0] is that character, so we add it to the start of the string so that the translation indexes match when we split it
+        //We add "TLERR" at the start to notify the user if the string is stored in a variable then not translated using the "_" function when displayed
+        let rawString = "ＴＬＥｒｒ\uEC48"+translationStrings.join("\uEC48");
+
         for (let i = 0; i < replacements.length; i++) {
-            opyMacro += ".replace(updateEveryFrame("+separators[i]+"), $arg" + i+")";
+            replacementMacro += ".replace(updateEveryFrame("+separators[i]+"), $arg" + i+")";
         }
+        opyMacro = escapeString(rawString, false);
         opyMacro += ".split(__overpyTranslationHelper__)";
         replacementNames = replacements.map((x,i) => "$arg" + i);
 
@@ -96,6 +106,11 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
             opyMacro += "[localPlayer.__languageIndex__]";
         } else {
             opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";
+        }
+        opyMacro += replacementMacro;
+    } else {
+        if (replacementMacro !== "") {
+            opyMacro = "[s"+replacementMacro+" for s in "+opyMacro+"]";
         }
     }
 

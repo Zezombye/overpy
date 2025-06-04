@@ -28,6 +28,7 @@ rule "owo\nuwu":
         K = 2
     I = t"some formatted string {}".format(Z)
     J = t"formatted string {} on both sidess".format(Z)
+    K = tf"translated fstring: {hostPlayer}"
     debug(t"multiple formatters {} {} owo".format(Z, Y))
     L = t"653453[]|.<>$= ¤$"
     M = _("$200")

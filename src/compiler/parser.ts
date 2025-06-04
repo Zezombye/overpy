@@ -1606,7 +1606,7 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
                 isCasedString = true;
             }
             if (content[0].text.includes("t")) {
-                if (content[0].text.length > 1) {
+                if (content[0].text.length > 2 || content[0].text.length === 2 && !content[0].text.includes("f")) {
                     error("Cannot use other string modifiers with 't'");
                 }
                 isTranslatedString = true;
@@ -1622,16 +1622,48 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
         }
     }
     setFileStack(getFileStackRange(content));
-    if (isTranslatedString) {
-        if (kwargs.disableTranslation) {
-            error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
-        }
-        return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
-    }
 
     let stringTokens = parseStringTokens(string, isFormattedString);
 
     debug("String tokens for '"+string+"': " + JSON.stringify(stringTokens));
+
+
+    let formatArgs = [];
+
+    if (isFormattedString) {
+        for (let token of stringTokens) {
+            if (token.type !== "arg") {
+                continue;
+            }
+            if (token.text === "{}") {
+                error("Cannot have empty formatters in a f-string");
+            }
+            let formatter = token.text.slice(1, -1); //Remove the curly braces
+            let lines = tokenize(formatter);
+            let astLines = parseLines(lines);
+            if (astLines.length !== 1) {
+                error("String formatter '" + token.text + "' should only have one line");
+            }
+            let formatArg = astLines[0];
+            formatArgs.push(formatArg);
+            token.text = "{}";
+        }
+        setFileStack(getFileStackRange(content));
+    }
+
+    if (isTranslatedString) {
+        if (kwargs.disableTranslation) {
+            error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
+        }
+        if (!isFormattedString) {
+            return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+        } else {
+            let result = getTranslatedString(stringTokens.map((x) => x.text).join(""), null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+            result = new Ast(".format", [result, ...formatArgs]);
+            result.fileStack = getFileStackRange(content);
+            return result;
+        }
+    }
 
     if (isBigLettersString) {
 
@@ -1690,28 +1722,6 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
         }
     }
 
-    let formatArgs = [];
-
-    if (isFormattedString) {
-        for (let token of stringTokens) {
-            if (token.type !== "arg") {
-                continue;
-            }
-            if (token.text === "{}") {
-                error("Cannot have empty formatters in a f-string");
-            }
-            let formatter = token.text.slice(1, -1); //Remove the curly braces
-            let lines = tokenize(formatter);
-            let astLines = parseLines(lines);
-            if (astLines.length !== 1) {
-                error("String formatter '" + token.text + "' should only have one line");
-            }
-            let formatArg = astLines[0];
-            formatArgs.push(formatArg);
-            token.text = "{}";
-        }
-    }
-    setFileStack(getFileStackRange(content));
 
     //This has the side effect that the converted string will be shown in errors/warnings, but it is worth it to avoid potential bugs by using the ast name instead of stringTokens.map() and not having the string modifiers apply.
     string = stringTokens.map((x) => x.text).join("");
