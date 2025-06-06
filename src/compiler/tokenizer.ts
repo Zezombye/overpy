@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -24,6 +24,7 @@ import { getFileStackCopy, isVarChar, safeEval } from "../utils/other";
 import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
 import { dispTokens } from "../utils/tokens";
 import { TranslationLanguage } from "./translations";
+import { unescapeString } from "../utils/strings";
 
 export class Macro {
     isFunction: boolean;
@@ -219,6 +220,16 @@ export function tokenize(content: string): LogicalLine[] {
             if (content.startsWith("#!translateWithPlayerVar noDetectionRule")) {
                 setGenerateRuleForTranslationsPlayerVar(false);
             }
+            return;
+        }
+        if (content.startsWith("#!globalvarInitRuleName ")) {
+            let ruleName = content.substring("#!globalvarInitRuleName ".length).trim();
+            setGlobalvarInitRuleName(unescapeString(ruleName, true));
+            return;
+        }
+        if (content.startsWith("#!playervarInitRuleName ")) {
+            let ruleName = content.substring("#!playervarInitRuleName ".length).trim();
+            setPlayervarInitRuleName(unescapeString(ruleName, true));
             return;
         }
         if (content.startsWith("#!optimizeForSize")) {

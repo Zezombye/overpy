@@ -29,7 +29,7 @@ rule ("Initialize global variables") {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(__overpyTranslationHelper__, Custom String(""));
+        Set Global Variable(__overpyTranslationHelper__, String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)));
     }
 }
 
@@ -73,10 +73,10 @@ rule ("OverPy translation setup - Determine the player's language") {
     }
     actions {
         Modify Player Variable(Event Player, __languageIndex__, Append To Array, Facing Direction Of(Event Player));
-        Start Facing(Event Player, Direction From Angles(Multiply(10, Absolute Value(Index Of Array Value(String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)), String Split(Color(White), Empty Array)))), 5), 999999999999, To World, Direction and Turn Rate);
+        Start Facing(Event Player, Direction From Angles(Multiply(10, Index Of Array Value(String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)), String Split(Color(White), Empty Array))), 5), 999999999999, To World, Direction and Turn Rate);
         "Have a tolerance of 1/100 of a degree to account for precision errors"
-        Wait Until(And(Compare(Absolute Value(Modulo(Horizontal Facing Angle Of(Event Player), 10)), <, 0.01), Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01)), 15);
-        Set Player Variable At Index(Event Player, __languageIndex__, False, Max(1, Multiply(Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01), Round To Integer(Divide(Horizontal Facing Angle Of(Event Player), 10), To Nearest))));
+        Wait Until(And(Not(Modulo(Round To Integer(Multiply(Horizontal Facing Angle Of(Event Player), 100), To Nearest), 1000)), Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01)), 15);
+        Set Player Variable At Index(Event Player, __languageIndex__, 0, Max(1, Multiply(Compare(Absolute Value(Subtract(Vertical Facing Angle Of(Event Player), 5)), <, 0.01), Round To Integer(Divide(Horizontal Facing Angle Of(Event Player), 10), To Nearest))));
         Stop Facing(Event Player);
         Set Facing(Event Player, Last Of((Event Player).__languageIndex__), To World);
         Set Player Variable(Event Player, __languageIndex__, First Of((Event Player).__languageIndex__));

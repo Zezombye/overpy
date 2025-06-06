@@ -218,6 +218,11 @@ export const setGenerateRuleForTranslationsPlayerVar = (generate: boolean) => (g
 export var excludeVariablesInCompilation: boolean;
 export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
 
+export var globalvarInitRuleName: string;
+export const setGlobalvarInitRuleName = (name: string) => (globalvarInitRuleName = name);
+export var playervarInitRuleName: string;
+export const setPlayervarInitRuleName = (name: string) => (playervarInitRuleName = name);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -304,6 +309,8 @@ export function resetGlobalVariables(language: OWLanguage) {
     usePlayerVarForTranslations = false;
     generateRuleForTranslationsPlayerVar = true;
     excludeVariablesInCompilation = false;
+    globalvarInitRuleName = "Initialize global variables";
+    playervarInitRuleName = "Initialize player variables";
 }
 
 //Other constants

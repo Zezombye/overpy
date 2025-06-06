@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -170,10 +170,8 @@ export async function compile(
         if (usePlayerVarForTranslations) {
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
             addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize("1.1")[0].tokens);
-            addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}", false))[0].tokens);
-        } else {
-            addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         }
+        addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
     }
 
     if (enableTagsSetup) {
@@ -218,16 +216,16 @@ export async function compile(
         @Condition eventPlayer.__languageIndex__ == 1.1
         eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
         eventPlayer.startFacing(
-            directionFromAngles(10*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
+            directionFromAngles(10*${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([])), 5),
             Math.INFINITY,
             Relativity.TO_WORLD,
             FacingReeval.DIRECTION_AND_TURN_RATE
         )
 
         #Have a tolerance of 1/100 of a degree to account for precision errors
-        waitUntil(abs(eventPlayer.getHorizontalFacingAngle() % 10) < 0.01 and abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01, 15)
+        waitUntil(not (round(eventPlayer.getHorizontalFacingAngle()*100) % 1000) and abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01, 15)
 
-        eventPlayer.__languageIndex__[false] = max(1, (abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01) * round(eventPlayer.getHorizontalFacingAngle()/10))
+        eventPlayer.__languageIndex__[0] = max(1, (abs(eventPlayer.getVerticalFacingAngle() - 5) < 0.01) * round(eventPlayer.getHorizontalFacingAngle()/10))
 
         eventPlayer.stopFacing()
         eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
@@ -350,7 +348,7 @@ function getInitDirectivesRules() {
     if (globalInitDirectives.length > 0) {
         var rule = new Ast("__rule__");
         rule.ruleAttributes = {
-            name: "Initialize global variables",
+            name: globalvarInitRuleName,
             event: "global",
         };
         rule.children = globalInitDirectives;
@@ -359,7 +357,7 @@ function getInitDirectivesRules() {
     if (playerInitDirectives.length > 0) {
         var rule = new Ast("__rule__");
         rule.ruleAttributes = {
-            name: "Initialize player variables",
+            name: playervarInitRuleName,
             event: "eachPlayer",
             eventPlayer: "all",
             eventTeam: "all",
