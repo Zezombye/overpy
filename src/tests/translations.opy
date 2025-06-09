@@ -30,6 +30,8 @@ rule "owo\nuwu":
     J = t"formatted string {} on both sidess".format(Z)
     K = tf"translated fstring: {hostPlayer}"
     debug(t"multiple formatters {} {} owo".format(Z, Y))
+    debug(t"multiple formatters {0} {1} owo".format(Z, Y))
+    debug(t"multiple formatters {1} {0} owo".format(Z, Y))
     L = t"653453[]|.<>$= ¤$"
     M = _("$200")
     N = "untranslated string"
@@ -38,6 +40,10 @@ rule "owo\nuwu":
     hudHeader(text=_(H), reevaluation=HudReeval.VISIBILITY_AND_STRING)
     hudHeader(text=A, reevaluation=HudReeval.VISIBILITY_AND_STRING)
     hudHeader(text=_(N), reevaluation=HudReeval.VISIBILITY_AND_STRING)
+    bigMessage(text=_([
+        ___("string 1"),
+        ___("string 2"),
+    ][Z]))
 
 rule "":
     @Event eachPlayer

@@ -962,7 +962,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Special functions
 
 
-    if (name === "_" || name === "__") {
+    if (name === "_" || name === "__" || name === "___") {
         if (args.length !== 1 && args.length !== 2) {
             error("Function '"+name+"' takes 2 arguments, received " + args.length);
         }
@@ -990,6 +990,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
         if (name === "__") {
             result.isSpectatorTranslation = true;
+        }
+        if (name === "___") {
+            result.forceNotResolvingTranslation = true;
         }
         return result;
 
@@ -1284,13 +1287,14 @@ function parseMember(object: Token[], member: Token[]) {
                 return new Ast("__number__", [new Ast(object[0].text + "." + name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
             }
 
-            //Check for member constant
-            if ("." + name in astConstants) {
-                let result = astConstants["." + name].value.clone();
-                result = replaceFunctionInAst(result, "$self", parse(object));
-                result.fileStack = getFileStackRange(object.concat(...member));
-                return result;
-            }
+        }
+
+        //Check for member constant
+        if ("." + name in astConstants) {
+            let result = astConstants["." + name].value.clone();
+            result = replaceFunctionInAst(result, "$self", parse(object));
+            result.fileStack = getFileStackRange(object.concat(...member));
+            return result;
         }
 
         //Should be a player variable.

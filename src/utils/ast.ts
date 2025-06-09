@@ -50,6 +50,7 @@ export class Ast {
     tokenArgsStr?: string; //Used for the debug() function
     stringTokens?: StringToken[]; //Used for __customString__
     isSpectatorTranslation?: boolean; //Used for translated strings, if set to true then player var won't be used
+    forceNotResolvingTranslation?: boolean; //Used for translated strings, if true then the resulting string array won't be indexed and will need to be indexed later on with the _() function
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;

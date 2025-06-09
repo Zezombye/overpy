@@ -101,7 +101,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
     }
 
 
-    if (isReevaluatedClientSide) {
+    if (isReevaluatedClientSide && !content.forceNotResolvingTranslation) {
         if (usePlayerVarForTranslations && !content.isSpectatorTranslation) {
             opyMacro += "[localPlayer.__languageIndex__]";
         } else {

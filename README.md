@@ -921,6 +921,22 @@ If using translations, this can save a lot of elements. However, it will make tr
 
 If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once `eventPlayer.__languageIndex__ != 1.1`.
 
+The `___` function is the same as the `_` function, but will never resolve the translation, even if in a display action. You must wrap it with the `_` function to resolve it.
+
+This is useful when several strings are used in a single display action. For example:
+
+```python
+bigMessage(text=[t"Choice 1", t"Choice 2"][eventPlayer.choice])
+```
+
+This will add the code to resolve the translation twice, but it can be optimized to:
+
+```python
+bigMessage(text=_([___("Choice 1"), ___("Choice 2")][eventPlayer.choice]))
+```
+
+Wrapping a string with `___` has the same caveats as putting a translated string in a variable: you must treat it as an opaque value and not do any operations on it, and display it with the `_` function. But, since it is still a value, array indexing is still possible.
+
 **In summary**:
 
 - Use the `#!translations` directive to setup translations, and `#!translateWithPlayerVar` if you are short on elements.
