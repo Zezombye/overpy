@@ -976,10 +976,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
         setFileStack(getFileStackRange(content));
         let result;
+        let formatArgs: Ast[] = [];
         if (translationTarget.name === "__customString__") {
-            if (translationTarget.args.length !== 1) {
-                error("The .format() function must be outside of the "+name+"() function");
-            }
+            formatArgs = translationTarget.args.slice(1);
             result = getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
             //It is a variable; assume the value is a translated string (string array)
@@ -993,6 +992,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
         if (name === "___") {
             result.forceNotResolvingTranslation = true;
+        }
+        if (formatArgs.length > 0) {
+            return new Ast(".format", [result, ...formatArgs]);
         }
         return result;
 

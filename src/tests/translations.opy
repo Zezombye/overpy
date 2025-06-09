@@ -29,6 +29,7 @@ rule "owo\nuwu":
     I = t"some formatted string {}".format(Z)
     J = t"formatted string {} on both sidess".format(Z)
     K = tf"translated fstring: {hostPlayer}"
+    K = _(f"translated fstring: {hostPlayer}")
     debug(t"multiple formatters {} {} owo".format(Z, Y))
     debug(t"multiple formatters {0} {1} owo".format(Z, Y))
     debug(t"multiple formatters {1} {0} owo".format(Z, Y))

@@ -893,7 +893,7 @@ Use the `#!translations` directive to setup the translation system. Arguments ar
 
 Only the `es_mx`, `es_es`, `zh_cn` and `zh_tw` languages can be specified fully. For the rest, you can only specify the first two letters. The valid languages are `de`,`en`,`es`,`es_es`,`es_mx`,`fr`,`it`,`ja`,`ko`,`pl`,`pt`,`ru`,`th`,`tr`,`zh`,`zh_cn`,`zh_tw`.
 
-To translate a string, wrap it with the `_` function, such as `_("You have \${} money").format(money)`. Note that the formatter has to be outside of the function. You can also use the "t" string modifier, such as `t"\${} money".format(money)`.
+To translate a string, wrap it with the `_` function, such as `_("You have \${} money".format(money))`. You can also use the "t" string modifier, such as `t"\${} money".format(money)` or `tf"\${money} money"`.
 
 If two strings are the same but have to be translated differently, you can add a context string as the first argument, such as `_("the direction", "left")`.
 
