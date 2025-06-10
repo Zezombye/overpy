@@ -59,6 +59,12 @@ rule ("strings") {
         Set Global Variable(A, Custom String("A, A, B, B {0}{0}{1}{1}", Global.A, Global.B));
         Set Global Variable(A, Custom String("A, B, C, B, A {0}{1}{2}{1}{0}", Global.A, Global.B, Global.C));
         Set Global Variable(A, Custom String("A, B, C, D, A, B {0}{1}{2}", Global.A, Global.B, Custom String("{0}{1}{2}", Global.C, Global.D, Custom String("{0}{1}", Global.A, Global.B))));
+        Set Global Variable(A, Custom String("{0} {1} {2} {2}", Global.A, Global.B, Global.C));
+        Set Global Variable(A, Custom String("{0} {1} {1} {2}", Global.A, Global.B, Global.C));
+        Set Global Variable(A, Custom String("{0} {1} {1} {2}", Global.A, Global.B, Custom String("{0} {1}", Global.C, Global.D)));
+        Set Global Variable(A, Custom String("{0} {1} {1} {2} {2}", Global.A, Global.B, Global.C));
+        Set Global Variable(A, Custom String("{0} {1} {2}", Global.A, Global.B, Custom String("{0} {1} {1}", Global.C, Global.D)));
+        Set Global Variable(A, Custom String("{0} {1} {2}", Global.A, Global.B, Custom String("{0} {0} {1}", Global.C, Global.D)));
         Create HUD Text(All Players(All Teams), Custom String("Multiple fields {0} {1} {2}", Global.A, Global.B, Custom String("{0} {1} {2}", Global.C, Global.D, Custom String("{0} {1} {2}", Global.E, Global.F, Custom String("{0} {1}", Global.G, Global.H)))), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("Numbered fields {0} {1} {2}", Global.A, Global.B, Custom String("{0} {1} {2}", Global.C, Global.B, Global.D)), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("Numbered fields 2 {0}{1}{2}{0}", Global.B, Global.A, Global.C), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);

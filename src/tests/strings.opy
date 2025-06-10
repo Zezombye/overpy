@@ -32,6 +32,13 @@ rule "strings":
     A = "A, B, C, B, A {}{}{}{}{}".format(A,B,C,B,A)
     A = "A, B, C, D, A, B {}{}{}{}{}{}".format(A,B,C,D,A,B)
 
+    A = f"{A} {B} {C} {C}"
+    A = f"{A} {B} {B} {C}"
+    A = f"{A} {B} {B} {C} {D}"
+    A = f"{A} {B} {B} {C} {C}"
+    A = f"{A} {B} {C} {D} {D}"
+    A = f"{A} {B} {C} {C} {D}"
+
     print("Multiple fields {} {} {} {} {} {} {} {}".format(A,B,C,D,E,F,G,H))
     print("Numbered fields {0} {1} {2} {1} {3}".format(A,B,C,D))
     print("Numbered fields 2 {1}{0}{2}{1}".format(A,B,C))

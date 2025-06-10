@@ -742,19 +742,14 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
         if (token.type === "arg" && resultArgs.length >= STR_MAX_ARGS - 1 && !resultArgs.some(x => areAstsAlwaysEqual(x, args[argIndex]))) {
             //resultArgs.length === 2. We've got {0} {1} already, and the current token would be {2} if not string splitting.
 
-            let remainingUniqueArg1 = null;
-            let remainingUniqueArg2 = null;
+            let remainingUniqueArgs: Ast[] = [];
             for (let j = argIndex; j < args.length; j++) {
-                if (resultArgs.every(x => !areAstsAlwaysEqual(x, args[j]))) {
-                    if (remainingUniqueArg1 === null) {
-                        remainingUniqueArg1 = args[j];
-                    } else if (remainingUniqueArg2 === null) {
-                        remainingUniqueArg2 = args[j];
-                        if (!areAstsAlwaysEqual(remainingUniqueArg1, remainingUniqueArg2)) {
-                            //More than one unique arg is incoming, so we have to split
-                            shouldSplitString = true;
-                            break;
-                        }
+                if (resultArgs.every(x => !areAstsAlwaysEqual(x, args[j])) && remainingUniqueArgs.every(x => !areAstsAlwaysEqual(x, args[j]))) {
+                    remainingUniqueArgs.push(args[j]);
+                    if (remainingUniqueArgs.length >= 2) {
+                        //More than one unique arg is incoming, so we have to split
+                        shouldSplitString = true;
+                        break;
                     }
                 }
             }
@@ -777,7 +772,7 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
         if (shouldSplitString) {
             result += "{" + resultArgs.length + "}";
             if (resultArgs.length > STR_MAX_ARGS-1) {
-                error("Custom string parser returned '{" + (resultArgs.length) + "}', please report to Zezombye");
+                error("Custom string parser returned '{" + (resultArgs.length) + "}' when deciding to split the string, please report to Zezombye");
             }
             resultArgs.push(splitCustomString(tokens.slice(i, tokens.length), args.slice(argIndex)));
             break;
@@ -795,7 +790,7 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
                     //We already have that arg, so just reuse it
                     result += "{" + j + "}";
                     if (j > STR_MAX_ARGS-1) {
-                        error("Custom string parser returned '{" + j + "}', please report to Zezombye");
+                        error("Custom string parser returned '{" + j + "}' when reusing an argument, please report to Zezombye");
                     }
                     isArgReused = true;
                     break;
@@ -804,7 +799,7 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
             if (!isArgReused) {
                 result += "{" + resultArgs.length + "}";
                 if (resultArgs.length > STR_MAX_ARGS-1) {
-                    error("Custom string parser returned '{" + (resultArgs.length) + "}', please report to Zezombye");
+                    error("Custom string parser returned '{" + (resultArgs.length) + "}' when adding an argument, please report to Zezombye");
                 }
                 resultArgs.push(argToAdd);
             }
