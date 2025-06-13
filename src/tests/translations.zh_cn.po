@@ -48,7 +48,7 @@ msgid "some formatted string {0}"
 msgstr ""
 
 #. file translations.opy, line 30, rule "owo\nuwu"
-msgid "formatted string {0} on both sidess"
+msgid "some formatted string {0} which is relatively long qjdsfio piqsjf ioqpjsfd joiqsfd poijqsf pijo"
 msgstr ""
 
 # TODO: check if all occurrences have the same translation
@@ -56,33 +56,41 @@ msgstr ""
 #.  - file translations.opy, line 31, rule "owo\nuwu"
 #.  - file translations.opy, line 32, rule "owo\nuwu"
 #, hasMultipleOccurrencesNotification
-msgid "translated fstring: {0}"
-msgstr ""
-
-# TODO: check if all occurrences have the same translation
-#. 2 occurrences:
-#.  - file translations.opy, line 33, rule "owo\nuwu"
-#.  - file translations.opy, line 34, rule "owo\nuwu"
-#, hasMultipleOccurrencesNotification
 msgid "multiple formatters {0} {1} owo"
 msgstr "plusieurs {0} formatteurs {1} owo"
 
-#. file translations.opy, line 35, rule "owo\nuwu"
+#. file translations.opy, line 33, rule "owo\nuwu"
 msgid "multiple formatters {1} {0} owo"
 msgstr ""
 
+#. file translations.opy, line 34, rule "owo\nuwu"
+msgid "multiple formatters {0} {1} {2} {4} owo"
+msgstr ""
+
+#. file translations.opy, line 35, rule "owo\nuwu"
+msgid "multiple formatters {0} with a very long string ifdjopq ifjsqop idjfq spoifj poifjeqs iopj{1} owo"
+msgstr ""
+
 #. file translations.opy, line 36, rule "owo\nuwu"
-msgid "653453[]|.<>$= ¤$"
+msgid "multiple formatters {0} with a very long string ifdjopq ifjsqop idjfq spoifj poifjeqs iopj {1} owo"
 msgstr ""
 
 #. file translations.opy, line 37, rule "owo\nuwu"
+msgid "multiple formatters {1} with a very long string ifdjopq ifjsqop idjfq spoifj poifjeqs iopj {0} owo"
+msgstr ""
+
+#. file translations.opy, line 38, rule "owo\nuwu"
+msgid "653453[]|.<>$= ¤$"
+msgstr ""
+
+#. file translations.opy, line 39, rule "owo\nuwu"
 msgid "$200"
 msgstr ""
 
-#. file translations.opy, line 45, rule "owo\nuwu"
+#. file translations.opy, line 47, rule "owo\nuwu"
 msgid "string 1"
 msgstr ""
 
-#. file translations.opy, line 46, rule "owo\nuwu"
+#. file translations.opy, line 48, rule "owo\nuwu"
 msgid "string 2"
 msgstr ""

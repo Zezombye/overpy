@@ -18,11 +18,11 @@
 "use strict";
 
 import { spaces } from "../../data/opy/blizzardGlobal";
-import { translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
+import { STR_MAX_ARGS, STR_MAX_LENGTH, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
 import { Ast, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
-import { escapeString, getUtf8ByteLength } from "../../utils/strings";
+import { escapeString, getUtf8ByteLength, getUtf8Length } from "../../utils/strings";
 import { getBestSpaces } from "./createCasedProgressBarIwt";
 import { getStrVisualLength } from "./strVisualLength";
 
@@ -72,25 +72,40 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
         let translationStrings = content.args.map(x => x.name.replaceAll("{}", "{0}"));
 
-        for (let h = 0; h < translationStrings.length; h++) {
-
-            for (let i = 0; i < separators.length; i++) {
-                translationStrings[h] = translationStrings[h].replaceAll("{" + i + "}", separators[i] in vectorToString ? vectorToString[separators[i]] : separators[i]);
-            }
-            if (getUtf8ByteLength(translationStrings[h]) > 511) {
-                error("Translated string for language '"+translationLanguages[h]+"' "+escapeString(translationStrings[h], false)+" is too long, maximum length is 511 bytes");
-            }
-        }
-
         //\uEC48 is a character from the private use area. Use as separator, as it cannot appear in translated strings
         //__overpyTranslationsHelper__[0] is that character, so we add it to the start of the string so that the translation indexes match when we split it
         //We add "TLERR" at the start to notify the user if the string is stored in a variable then not translated using the "_" function when displayed
         let rawString = "ＴＬＥｒｒ\uEC48"+translationStrings.join("\uEC48");
 
-        for (let i = 0; i < replacements.length; i++) {
-            replacementMacro += ".replace(updateEveryFrame("+separators[i]+"), $arg" + i+")";
+        if (getUtf8Length(rawString) <= STR_MAX_LENGTH && replacements.length <= STR_MAX_ARGS) {
+            //We can directly use the built-in formatters
+            if (replacements.length > 0) {
+                replacementMacro = ".format(" + replacements.map((x, i) => "$arg" + i).join(", ") + ")";
+            }
+        } else {
+
+            //We have to use .replace()
+            for (let i = 0; i < separators.length; i++) {
+                rawString = rawString.replaceAll("{" + i + "}", separators[i] in vectorToString ? vectorToString[separators[i]] : separators[i]);
+            }
+
+            for (let h = 0; h < rawString.split("\uec48").length; h++) {
+
+                if (getUtf8ByteLength(rawString.split("\uec48")[h]) > 511) {
+                    error("Translated string for language '"+translationLanguages[h]+"' "+escapeString(rawString.split("\uec48")[h], false)+" is too long, maximum length is 511 bytes");
+                }
+            }
+
+
+            for (let i = 0; i < replacements.length; i++) {
+                replacementMacro += ".replace(updateEveryFrame("+separators[i]+"), $arg" + i+")";
+            }
         }
+
         opyMacro = escapeString(rawString, false);
+        if (replacementMacro.startsWith(".format(")) {
+            opyMacro += replacementMacro;
+        }
         opyMacro += ".split(__overpyTranslationHelper__)";
         replacementNames = replacements.map((x,i) => "$arg" + i);
 
@@ -107,9 +122,11 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
         } else {
             opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";
         }
-        opyMacro += replacementMacro;
+        if (!replacementMacro.startsWith(".format(")) {
+            opyMacro += replacementMacro;
+        }
     } else {
-        if (replacementMacro !== "") {
+        if (replacementMacro !== "" && !replacementMacro.startsWith(".format(")) {
             opyMacro = "[s"+replacementMacro+" for s in "+opyMacro+"]";
         }
     }
