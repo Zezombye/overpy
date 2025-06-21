@@ -26,7 +26,7 @@ Thanks to:
 - Install: `npm install`
 - Build in dev and test with the demo: `npm run dev`
 - Build `out/overpy_standalone.js`: `npm run package`
-- Build .vsix for prod: `vsce package` (also builds overpy_standalone.js)
+- Build and publish to prod: `npm run publish`
 
 # Installation
 
@@ -900,6 +900,8 @@ If two strings are the same but have to be translated differently, you can add a
 Lastly, if a translated string is stored in a variable, you **have** to use the `_` function when displaying it, such as `hudHeader(text=_(someVariable))`. Else, "TLErr" will be displayed. Note that you also have to use the `_` function when storing the string in the variable, else "0" will be displayed.
 
 OverPy will generate and parse .po files for each language based on the name of the main file. You can then use an online editor to edit those files, such as https://pofile.net/free-po-editor or https://localise.biz/free/poeditor. Leading and trailing whitespace is automatically stripped from the string when put into translation files.
+
+Unused translations are automatically removed from the generated .po files; use `#!keepUnusedTranslations` to keep them.
 
 **WARNING**: A translated string cannot be used as a normal string **when stored in a variable**, as it becomes a string array. This means you cannot use `.replace()`, `.charAt()`, etc. When translating your gamemode, look out for these functions.
 

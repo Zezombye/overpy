@@ -3,6 +3,18 @@
     "name": "OverPy",
     "patterns": [
         {
+            "include": "#keywords"
+        },
+        {
+            "include": "#invalid"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#enums"
+        },
+        {
             "include": "#classes"
         },
         {
@@ -10,9 +22,6 @@
         },
         {
             "include": "#multiline-comments"
-        },
-        {
-            "include": "#keywords"
         },
         {
             "include": "#functions"
@@ -34,15 +43,6 @@
         },
         {
             "include": "#macros"
-        },
-        {
-            "include": "#invalid"
-        },
-        {
-            "include": "#numbers"
-        },
-        {
-            "include": "#enums"
         },
         {
             "include": "#string-modifiers"

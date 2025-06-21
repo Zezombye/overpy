@@ -1,0 +1,9 @@
+.github
+.vscode
+img/readme_*
+src
+strings
+webui
+codemirror.min.js
+out/overpy_standalone.js
+out/overpy_standalone.js.map

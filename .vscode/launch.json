@@ -5,11 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Generate OverPy Extension files",
-            "program": "${workspaceFolder}/generate-overpy.js",
+            "name": "Run Development version of OverPy",
+            "type": "extensionHost",
+            "preLaunchTask": "Compile",
             "request": "launch",
-            "skipFiles": ["<node_internals>/**"],
-            "type": "node"
+            "runtimeExecutable": "${execPath}",
+            "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
+            "outFiles": ["${workspaceFolder}/**/*.(m|c|)js", "!**/node_modules/**"]
         },
         {
             "name": "Generate translations (cached - does not require DataTool)",
@@ -31,15 +33,6 @@
             "request": "launch",
             "name": "Open file in browser",
             "file": "${file}"
-        },
-        {
-            "name": "Run Development version of OverPy",
-            "type": "extensionHost",
-            "preLaunchTask": "Compile",
-            "request": "launch",
-            "runtimeExecutable": "${execPath}",
-            "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
-            "outFiles": ["${workspaceFolder}/**/*.(m|c|)js", "!**/node_modules/**"]
         },
         {
             "name": "Run Production version of OverPy",
