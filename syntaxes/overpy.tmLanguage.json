@@ -3,6 +3,33 @@
     "name": "OverPy",
     "patterns": [
         {
+            "include": "#comments"
+        },
+        {
+            "include": "#multiline-comments"
+        },
+        {
+            "include": "#macros"
+        },
+        {
+            "include": "#fstrings"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#apos-fstrings"
+        },
+        {
+            "include": "#apos-strings"
+        },
+        {
+            "include": "#string-modifiers"
+        },
+        {
+            "include": "#labels"
+        },
+        {
             "include": "#keywords"
         },
         {
@@ -18,34 +45,7 @@
             "include": "#classes"
         },
         {
-            "include": "#comments"
-        },
-        {
-            "include": "#multiline-comments"
-        },
-        {
             "include": "#functions"
-        },
-        {
-            "include": "#labels"
-        },
-        {
-            "include": "#fstrings"
-        },
-        {
-            "include": "#strings"
-        },
-        {
-            "include": "#apos-fstrings"
-        },
-        {
-            "include": "#apos-strings"
-        },
-        {
-            "include": "#macros"
-        },
-        {
-            "include": "#string-modifiers"
         }
     ],
 
@@ -98,7 +98,7 @@
             "patterns": [
                 {
                     "name": "support.class",
-                    "match": "^[ \\t]*(?!(do|else|elif|default))[A-Za-z\\d_]+(?=:)"
+                    "match": "^[ \\t]*(?!(do|else|elif|default)\\b)[A-Za-z\\d_]+(?=:)"
                 },
                 {
                     "name": "support.class",
