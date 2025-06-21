@@ -18,7 +18,7 @@
 "use strict";
 
 import PO from "pofile";
-import { currentRuleName, DEBUG_MODE, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
+import { currentRuleName, DEBUG_MODE, keepUnusedTranslations, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
 import { BaseNormalFileStackMember } from "../types";
 import { Ast } from "../utils/ast";
 import { escapeString, unescapeString } from "../utils/strings";
@@ -145,7 +145,7 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
         error("Cannot do translations in browsers (fs not found)");
     }
 
-    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0).sort((a, b) => a.occurrences[0].localeCompare(b.occurrences[0]));
+    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || a.occurrences[0].localeCompare(b.occurrences[0]));
 
     for (let language of translationLanguages.slice(1)) { //first language is default language
 
@@ -176,7 +176,11 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
             item.flags = {
                 "hasMultipleOccurrencesNotification": translatedString.hasMultipleOccurrencesNotification || hasPutMultipleOccurrencesNotification,
             };
-            item.extractedComments.push(...translatedString.occurrences.map(x => (translatedString.occurrences.length > 1 ? " - " : "") + x.replace(/line 0+/, "line ")));
+            if (translatedString.occurrences.length > 0) {
+                item.extractedComments.push(...translatedString.occurrences.map(x => (translatedString.occurrences.length > 1 ? " - " : "") + x.replace(/line 0+/, "line ")));
+            } else {
+                item.extractedComments.push("Unused translation");
+            }
             po.items.push(item);
         }
 

@@ -24,26 +24,6 @@ variables {
     player:
         127: __languageIndex__
 }
-rule ("Initialize global variables") {
-    event {
-        Ongoing - Global;
-    }
-    actions {
-        Set Global Variable(__overpyTranslationHelper__, String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)));
-    }
-}
-
-rule ("Initialize player variables") {
-    event {
-        Ongoing - Each Player;
-        All;
-        All;
-    }
-    actions {
-        Set Player Variable(Event Player, __languageIndex__, 1.1);
-    }
-}
-
 rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
     event {
         Ongoing - Global;
@@ -80,6 +60,26 @@ rule ("OverPy translation setup - Determine the player's language") {
         Stop Facing(Event Player);
         Set Facing(Event Player, Last Of((Event Player).__languageIndex__), To World);
         Set Player Variable(Event Player, __languageIndex__, First Of((Event Player).__languageIndex__));
+    }
+}
+
+rule ("Initialize global variables") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(__overpyTranslationHelper__, String Split(Custom String("0Weiß0Blanc0白色0Blanco0Beyaz0ขาว0白0흰색0Biały0Branco0Белый0Bianco0White"), First Of(Null)));
+    }
+}
+
+rule ("Initialize player variables") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Set Player Variable(Event Player, __languageIndex__, 1.1);
     }
 }
 

@@ -116,3 +116,8 @@ rule "optimizations":
     F = "abcdef".substring(-1, 4) #"abcd"
     G = "abcdef".substring(2, -1) #""
     A = "ab|cd|ef".split("|") # should not be optimized
+
+    #!optimizeForSize
+    A = ["a", "b"] #.split(null[0])
+    A = ["0", "1", "2"] #.split(Vector.LEFT[0])
+    A = ["0(1.00, 0.00, 0.00)", "123"] #.split("\uEC51")

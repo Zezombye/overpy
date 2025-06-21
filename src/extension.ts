@@ -6,46 +6,10 @@ import * as vscode from "vscode";
 // ! Yes, this sucks. Too bad!
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
-import { postInitialLoad, rootPath } from "./globalVars";
+import { postInitialLoad, rootPath, overpyTemplate } from "./globalVars";
 import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionAstMacros, fillAutocompletionConstants, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
 import { Argument, CompilationDiagnostic, OWLanguage, ow_languages } from "./types.d";
 import { OpyError as OverpyError } from "./utils/logging";
-
-const overpyTemplate = `
-#OverPy starter pack
-
-#!setupTags
-
-settings {
-    "main": {
-        "description": "Some awesome game mode"
-    },
-    "gamemodes": {
-        "skirmish": {
-            "enabledMaps": [
-                "workshopIsland"
-            ]
-        },
-        "general": {
-            "heroLimit": "off",
-            "respawnTime%": 30
-        }
-    }
-}
-
-rule "Teleport player on pressing interact":
-    @Event eachPlayer
-    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
-    eventPlayer.teleport(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection()*5)
-    #Hold the player in place, to reset falling velocity
-    eventPlayer.startForcingPosition(eventPlayer.getPosition(), false)
-    wait()
-    eventPlayer.stopForcingPosition()
-
-rule "Display position":
-    @Event eachPlayer
-    print("Position of {}: {}".format(eventPlayer, eventPlayer.getPosition()))
-`;
 
 export function activate(context: vscode.ExtensionContext) {
     postInitialLoad();

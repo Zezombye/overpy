@@ -2,7 +2,7 @@
 // ! the order in which esbuild includes the files.
 // !
 // ! Yes, this sucks. Too bad!
-import { currentLanguage, macros, resetGlobalVariables, postInitialLoad, computeCustomGameSettingsSchema } from "./globalVars";
+import { currentLanguage, macros, resetGlobalVariables, postInitialLoad, computeCustomGameSettingsSchema, overpyTemplate } from "./globalVars";
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
 import { actionKw } from "./data/actions";
@@ -68,5 +68,6 @@ if (typeof module !== "undefined") {
         customGameSettingsSchema,
         readyPromise,
         computeCustomGameSettingsSchema,
+        overpyTemplate,
     };
 }

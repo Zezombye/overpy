@@ -111,45 +111,6 @@
 
         <script src="out/overpy_standalone.js"></script>
 
-        <script>
-            const decompileTest = `
-#OverPy starter pack
-
-#!setupTags
-
-settings {
-    "main": {
-        "description": "Some awesome game mode"
-    },
-    "gamemodes": {
-        "skirmish": {
-            "enabledMaps": [
-                "workshopIsland"
-            ]
-        },
-        "general": {
-            "heroLimit": "off",
-            "respawnTime%": 30
-        }
-    }
-}
-
-rule "Teleport player on pressing interact":
-    @Event eachPlayer
-    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
-    eventPlayer.teleport(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection()*5)
-    #Hold the player in place, to reset falling velocity
-    eventPlayer.startForcingPosition(eventPlayer.getPosition(), false)
-    wait()
-    eventPlayer.stopForcingPosition()
-
-rule "Display position":
-    @Event eachPlayer
-    print("Position of {}: {}".format(eventPlayer, eventPlayer.getPosition()))
-`.trimStart()
-
-        </script>
-
         <script src="codemirror.min.js"></script>
         <script src="codemirror-persist-document-extension.js"></script>
 
@@ -337,8 +298,22 @@ rule "Display position":
             };
 
             var overpyTextEditorView = new EditorView({
-                extensions: [syntaxHighlighting(overpyHighlight), StreamLanguage.define(overpyLanguage), history(), indentUnit.of("    "), keymap.of([indentWithTab, ...defaultKeymap, ...historyKeymap, { key: "Enter", run: autoIndentOnEnter }]), basicSetup, persistDocument("opyTextEditorDoc")],
+                extensions: [
+                    syntaxHighlighting(overpyHighlight),
+                    StreamLanguage.define(overpyLanguage),
+                    history(),
+                    indentUnit.of("    "),
+                    keymap.of([
+                        indentWithTab,
+                        ...defaultKeymap,
+                        ...historyKeymap,
+                        { key: "Enter", run: autoIndentOnEnter }
+                    ]),
+                    basicSetup,
+                    persistDocument("opyTextEditorDoc")
+                ],
                 parent: document.getElementById("cm-overpy-text"),
+                doc: overpyTemplate,
             });
         </script>
 
@@ -393,7 +368,7 @@ rule "Display position":
             function demoAddText() {
 
                 overpyTextEditorView.dispatch({
-                    changes: { from: 0, to: overpyTextEditorView.state.doc.length, insert: decompileTest },
+                    changes: { from: 0, to: overpyTextEditorView.state.doc.length, insert: overpyTemplate },
                 });
                 document.getElementById("workshop-textarea").value = "";
                 document.getElementById("compiled-textarea").value = "";
