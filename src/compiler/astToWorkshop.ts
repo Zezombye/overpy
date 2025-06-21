@@ -24,7 +24,7 @@ import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
 import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS } from "../globalVars";
 import { StringToken } from "../types";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual } from "../utils/ast";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
 import { debug, error, functionNameToString } from "../utils/logging";
 import { tabLevel } from "../utils/other";
@@ -419,9 +419,27 @@ function astToWs(content: Ast): string {
             error("Cannot modify or assign to " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         content.name = newName;
-    } else if (content.name === "__array__" && content.args.length === 0) {
-        incrementNbElements();
-        return tows("__emptyArray__", valueKw);
+    } else if (content.name === "__array__") {
+        if (content.args.length === 0) {
+            incrementNbElements();
+            return tows("__emptyArray__", valueKw);
+        } else if (optimizeForSize && content.parent?.name !== "createWorkshopSettingEnum" && content.args.every(x => x.name === "__customString__" && x.args.length === 1)) {
+            //An array of string literals without args can be optimized to one string with string split
+            //["a", "b"] -> "a|b".split("|")
+            let separator = "\uEC51";
+            let separatorAst = getAstForCustomString(separator);
+            let str = content.args.map(x => x.args[0].name).join(separator);
+            if (!str.includes("0")) {
+                separator = "0";
+                separatorAst = new Ast("__firstOf__", [getAstForNull()]);
+            } else if (!str.includes("(1.00, 0.00, 0.00)") && (getUtf8Length(str) % (STR_MAX_LENGTH-"{0}".length)) + content.args.length * ("(1.00, 0.00, 0.00)".length - "\uEC51".length) <= STR_MAX_LENGTH) {
+                separator = "(1.00, 0.00, 0.00)";
+                separatorAst = new Ast("__firstOf__", [new Ast("Vector.LEFT")]);
+            }
+            str = str.replaceAll("\uEC51", separator);
+            return astToWs(new Ast(".split", [getAstForCustomString(str), separatorAst]));
+
+        }
     } else if (content.name === "chaseAtRate" || content.name === "chaseOverTime") {
         var newName = content.name === "chaseAtRate" ? "AtRate__" : "OverTime__";
 
