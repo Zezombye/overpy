@@ -18,7 +18,7 @@
 "use strict";
 
 import PO from "pofile";
-import { currentRuleName, DEBUG_MODE, keepUnusedTranslations, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
+import { currentRuleName, DEBUG_MODE, disableTranslationSourceLines, keepUnusedTranslations, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
 import { BaseNormalFileStackMember } from "../types";
 import { Ast } from "../utils/ast";
 import { escapeString, unescapeString } from "../utils/strings";
@@ -166,7 +166,7 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
             }
             item.comments = translatedString.comments || [];
             let hasPutMultipleOccurrencesNotification = false;
-            if (translatedString.occurrences.length > 1) {
+            if (translatedString.occurrences.length > 1 && !disableTranslationSourceLines && !item.msgstr[0]) {
                 item.extractedComments.push(translatedString.occurrences.length + " occurrences:");
                 if (!translatedString.hasMultipleOccurrencesNotification && translatedString.context === null) {
                     item.comments.push("TODO: check if all occurrences have the same translation");
@@ -177,9 +177,14 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
                 "hasMultipleOccurrencesNotification": translatedString.hasMultipleOccurrencesNotification || hasPutMultipleOccurrencesNotification,
             };
             if (translatedString.occurrences.length > 0) {
-                item.extractedComments.push(...translatedString.occurrences.map(x => (translatedString.occurrences.length > 1 ? " - " : "") + x.replace(/line 0+/, "line ")));
+                if (!disableTranslationSourceLines && !item.msgstr[0]) {
+                    item.extractedComments.push(...translatedString.occurrences.map(x => (translatedString.occurrences.length > 1 ? " - " : "") + x.replace(/line 0+/, "line ")));
+                }
             } else {
                 item.extractedComments.push("Unused translation");
+            }
+            if (disableTranslationSourceLines) {
+                item.extractedComments = [];
             }
             po.items.push(item);
         }

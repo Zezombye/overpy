@@ -903,6 +903,8 @@ OverPy will generate and parse .po files for each language based on the name of 
 
 Unused translations are automatically removed from the generated .po files; use `#!keepUnusedTranslations` to keep them.
 
+If a string isn't translated, the source line is included to help translators figure out what this string is used for if necessary. You can disable that behavior with `#!disableTranslationSourceLines`.
+
 **WARNING**: A translated string cannot be used as a normal string **when stored in a variable**, as it becomes a string array. This means you cannot use `.replace()`, `.charAt()`, etc. When translating your gamemode, look out for these functions.
 
 This also means that, when used in a variable, you cannot use a translated string as an argument of a string: `"{}{}".format(t"string", 1234)` will not work. Instead, do `t"string{}".format(1234)`. The translated string must always be top-level. You will also get "TLErr" if trying to use a translated string as an argument for another function.

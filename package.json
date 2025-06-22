@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "9.4.1",
+    "version": "9.4.2",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.89.0"
@@ -189,7 +189,6 @@
         "typescript": "^5.4.5"
     },
     "scripts": {
-        "vscode:prepublish": "npm run package",
         "dev": "node esbuild.standalone.js --watch",
         "compile": "node esbuild.js",
         "compile-standalone": "node esbuild.standalone.js",
@@ -203,7 +202,7 @@
         "lint": "npx eslint src --ext ts",
         "test": "node esbuild.standalone.js && node runTests.mjs",
         "prepare": "husky",
-        "publish": "del *.vsix && vsce package && vsce publish --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
+        "publish": "del *.vsix && npm run package && vsce package && vsce publish --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
     },
     "lint-staged": {
         "*.ts": "eslint --fix"

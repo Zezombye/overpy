@@ -202,6 +202,9 @@ export const setTranslationLanguages = (languages: TranslationLanguage[]) => (tr
 export var keepUnusedTranslations: boolean;
 export const setKeepUnusedTranslations = (keep: boolean) => (keepUnusedTranslations = keep);
 
+export var disableTranslationSourceLines: boolean;
+export const setDisableTranslationSourceLines = (disable: boolean) => (disableTranslationSourceLines = disable);
+
 //List of translated strings encountered during compilation
 export var translatedStrings: TranslatedString[] = [];
 export const setTranslatedStrings = (strings: TranslatedString[]) => (translatedStrings = strings);
@@ -319,6 +322,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     playervarInitRuleName = "Initialize player variables";
     disableInspector = false;
     keepUnusedTranslations = false;
+    disableTranslationSourceLines = false;
 }
 
 //Other constants
