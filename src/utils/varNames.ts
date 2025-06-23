@@ -123,6 +123,10 @@ export function addVariable(content: string, isGlobalVariable: boolean, index: n
         error("Variable name '" + content + "' is a reserved word");
     }
     checkVarNameForBadWords(content);
+    if (initValue && initValue.length === 1 && ["null", "0"].includes(initValue[0].text)) {
+        // Variables are initialized to null/0 by default
+        initValue = null;
+    }
     if (isGlobalVariable) {
         globalVariables.push({
             name: content,

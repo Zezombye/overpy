@@ -51,15 +51,6 @@ rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
     }
 }
 
-rule ("Initialize global variables") {
-    event {
-        Ongoing - Global;
-    }
-    actions {
-        Set Global Variable(counter, 0);
-    }
-}
-
 rule ("Teleport player on pressing interact") {
     event {
         Ongoing - Each Player;
