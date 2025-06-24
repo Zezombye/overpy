@@ -114,8 +114,13 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "ayutthaya",
                                             "antarcticPeninsula",
+                                            "arenaVictoriae",
+                                            "gogadoro",
+                                            "redwoodDam",
+                                            "placeLacroix",
                                             "blackForest",
                                             "blackForestWinter",
                                             "blizzWorld",
@@ -205,6 +210,20 @@
                                         "oneOf": [
                                             {
                                                 "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
                                                     "ayutthaya": {
                                                         "type": "array",
                                                         "items": {
@@ -226,6 +245,66 @@
                                                             "enum": [
                                                                 "morning",
                                                                 "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "arenaVictoriae": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "sunset",
+                                                                "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "gogadoro": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "night",
+                                                                "morning"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "redwoodDam": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "placeLacroix": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
                                                             ]
                                                         }
                                                     }
@@ -1401,8 +1480,13 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "ayutthaya",
                                             "antarcticPeninsula",
+                                            "arenaVictoriae",
+                                            "gogadoro",
+                                            "redwoodDam",
+                                            "placeLacroix",
                                             "blackForest",
                                             "blackForestWinter",
                                             "blizzWorld",
@@ -1492,6 +1576,20 @@
                                         "oneOf": [
                                             {
                                                 "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
                                                     "ayutthaya": {
                                                         "type": "array",
                                                         "items": {
@@ -1513,6 +1611,66 @@
                                                             "enum": [
                                                                 "morning",
                                                                 "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "arenaVictoriae": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "sunset",
+                                                                "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "gogadoro": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "night",
+                                                                "morning"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "redwoodDam": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "placeLacroix": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
                                                             ]
                                                         }
                                                     }
@@ -3364,6 +3522,8 @@
                                         "type": "string",
                                         "enum": [
                                             "antarcticPeninsula",
+                                            "arenaVictoriae",
+                                            "gogadoro",
                                             "busan",
                                             "ilios",
                                             "lijiangTower",
@@ -3385,6 +3545,36 @@
                                                             "enum": [
                                                                 "morning",
                                                                 "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "arenaVictoriae": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "sunset",
+                                                                "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "gogadoro": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "night",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -3509,6 +3699,8 @@
                                         "type": "string",
                                         "enum": [
                                             "antarcticPeninsula",
+                                            "arenaVictoriae",
+                                            "gogadoro",
                                             "busan",
                                             "ilios",
                                             "lijiangTower",
@@ -3530,6 +3722,36 @@
                                                             "enum": [
                                                                 "morning",
                                                                 "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "arenaVictoriae": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "sunset",
+                                                                "night"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "gogadoro": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "night",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -9996,6 +10218,7 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "antarcticPeninsula",
                                             "blizzWorld",
                                             "blizzWorldWinter",
@@ -10047,6 +10270,20 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "antarcticPeninsula": {
@@ -10726,6 +10963,7 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "antarcticPeninsula",
                                             "blizzWorld",
                                             "blizzWorldWinter",
@@ -10777,6 +11015,20 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "antarcticPeninsula": {
@@ -11931,6 +12183,7 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "newJunkCity",
                                             "suravasa"
                                         ]
@@ -11938,6 +12191,20 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "newJunkCity": {
@@ -11978,6 +12245,7 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "aatlis",
                                             "newJunkCity",
                                             "suravasa"
                                         ]
@@ -11985,6 +12253,20 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "aatlis": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "newJunkCity": {
@@ -13929,6 +14211,8 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "redwoodDam",
+                                            "placeLacroix",
                                             "colosseo",
                                             "esperanca",
                                             "newQueenStreet",
@@ -13938,6 +14222,36 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "redwoodDam": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "placeLacroix": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "colosseo": {
@@ -14008,6 +14322,8 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "redwoodDam",
+                                            "placeLacroix",
                                             "colosseo",
                                             "esperanca",
                                             "newQueenStreet",
@@ -14017,6 +14333,36 @@
                                     {
                                         "type": "object",
                                         "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "redwoodDam": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "placeLacroix": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "morning",
+                                                                "sunset"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
                                             {
                                                 "properties": {
                                                     "colosseo": {

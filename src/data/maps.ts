@@ -28,6 +28,16 @@ Busan Meka Base: 2.32074 * x - 274.76433
 export const mapKw: Record<string, import("../types").Map> =
 //begin-json
 {
+    "aatlis": {
+        "gamemodes": [
+            "skirmish",
+            "flashpoint",
+        ],
+        "variants": {
+            "default": "972777519512068153",
+        },
+        "en-US": "Aatlis",
+    },
     "ayutthaya": {
         "guid": "00000000676E",
         "gamemodes": [
@@ -84,6 +94,44 @@ export const mapKw: Record<string, import("../types").Map> =
         "tr-TR": "Antarktika Yarımadası",
         "zh-CN": "南极半岛",
         "zh-TW": "南極半島"
+    },
+    "arenaVictoriae": {
+        "gamemodes": [
+            "control",
+        ],
+        "variants": {
+            "sunset": "972777519512068292",
+            "night": "972777519512068153",
+        },
+        "en-US": "Arena Victoriae"
+    },
+    "gogadoro": {
+        "gamemodes": [
+            "control",
+        ],
+        "variants": {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
+        "en-US": "Gogadoro",
+    },
+    "redwoodDam": {
+        "gamemodes": [
+            "push",
+        ],
+        "variants": {
+            "morning": "972777519512068154",
+            "sunset": "972777519512068292",
+        },
+        "en-US": "Redwood Dam",
+    },
+    "placeLacroix": {
+        "gamemodes": ["push"],
+        "variants": {
+            "morning": "972777519512055904",
+            "sunset": "972777519512068292",
+        },
+        "en-US": "Place Lacroix",
     },
     "blackForest": {
         "guid": "0000000059C3",
