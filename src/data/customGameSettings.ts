@@ -4878,7 +4878,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "kiriko",
                         "moira",
                         "reinhardt",
-                        "sojourn",
                         "sigma",
                     ],
                     "guid": "000000005ECC",

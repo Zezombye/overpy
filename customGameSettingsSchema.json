@@ -21374,6 +21374,11 @@
                                 "enablePrimaryFire": {
                                     "type": "boolean"
                                 },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
@@ -27007,6 +27012,11 @@
                                 },
                                 "enablePrimaryFire": {
                                     "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
                                 },
                                 "passiveHealthRegen": {
                                     "type": "boolean"
@@ -32642,6 +32652,11 @@
                                 "enablePrimaryFire": {
                                     "type": "boolean"
                                 },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
@@ -38275,6 +38290,11 @@
                                 },
                                 "enablePrimaryFire": {
                                     "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
                                 },
                                 "passiveHealthRegen": {
                                     "type": "boolean"
@@ -44050,6 +44070,11 @@
                         },
                         "enablePrimaryFire": {
                             "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
                         },
                         "passiveHealthRegen": {
                             "type": "boolean"
