@@ -123,6 +123,7 @@ export enum Overwatch2Heroes {
     widowmaker = "widowmaker",
     winston = "winston",
     wreckingBall = "wreckingBall",
+	wuyang = "wuyang",
     zarya = "zarya",
     zenyatta = "zenyatta",
 }
