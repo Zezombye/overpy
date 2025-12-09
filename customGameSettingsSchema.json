@@ -16413,7 +16413,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -16464,7 +16465,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -21995,6 +21997,119 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "wuyang": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileGravity%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -22052,7 +22167,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -22103,7 +22219,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -27634,6 +27751,119 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "wuyang": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileGravity%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -27691,7 +27921,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -27742,7 +27973,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -33273,6 +33505,119 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "wuyang": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileGravity%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -33330,7 +33675,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -33381,7 +33727,8 @@
                                     "lifeweaver",
                                     "venture",
                                     "juno",
-                                    "hazard"
+                                    "hazard",
+                                    "wuyang"
                                 ]
                             }
                         },
@@ -38912,6 +39259,119 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "wuyang": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileGravity%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -39110,7 +39570,8 @@
                             "lifeweaver",
                             "venture",
                             "juno",
-                            "hazard"
+                            "hazard",
+                            "wuyang"
                         ]
                     }
                 },
@@ -39161,7 +39622,8 @@
                             "lifeweaver",
                             "venture",
                             "juno",
-                            "hazard"
+                            "hazard",
+                            "wuyang"
                         ]
                     }
                 },
@@ -44692,6 +45154,119 @@
                             "type": "boolean"
                         },
                         "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "wuyang": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileGravity%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
                             "type": "boolean"
                         }
                     }
