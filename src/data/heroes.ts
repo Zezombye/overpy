@@ -3623,7 +3623,22 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "tr-TR": "Hazard",
         "zh-CN": "骇灾",
         "zh-TW": "災害"
-    }
+    },
+	"wuyang": {
+		"en-US": "Wuyang",
+		"secondaryFire": {
+			"en-US": "Restorative Stream",
+		},
+		"ability1": {
+			"en-US": "Rushing Torrent",
+		},
+		"ability2": {
+			"en-US": "Guardian Wave",
+		},
+		"ultimate": {
+			"en-US": "Tidal Blast",
+		}
+	}
 }
 //end-json
 ;
