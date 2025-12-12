@@ -119,6 +119,7 @@ export enum Overwatch2Heroes {
     symmetra = "symmetra",
     torbjorn = "torbjorn",
     tracer = "tracer",
+    vendetta = "vendetta",
     venture = "venture",
     widowmaker = "widowmaker",
     winston = "winston",
