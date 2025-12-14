@@ -3638,7 +3638,22 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
 		"ultimate": {
 			"en-US": "Tidal Blast",
 		}
-	}
+	},
+    "vendetta": {
+      "en-US": "Vendetta",
+      "primaryFire": {
+        "en-US": "Projected Edge"
+      },
+      "ability1": {
+        "en-US": "Whirlwind Dash"
+      },
+      "ability2": {
+        "en-US": "Soaring Slice"
+      },
+      "ultimate": {
+        "en-US": "Sundering Blade"
+      }
+    }
 }
 //end-json
 ;
