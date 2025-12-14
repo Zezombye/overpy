@@ -7,10 +7,29 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "9.4.7",
+    "version": "9.4.8",
+    "scripts": {
+        "dev": "node esbuild.standalone.js --watch",
+        "compile": "node esbuild.js",
+        "compile-standalone": "node esbuild.standalone.js",
+        "watch": "npm-run-all -p watch:*",
+        "watch:esbuild": "node esbuild.js --watch",
+        "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+        "package": "pnpm run check-types && pnpm run lint && pnpm run test && node esbuild.js --production && node generateJsonSchema.mjs",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "check-types": "tsc --noEmit",
+        "lint": "npx eslint src --ext ts",
+        "test": "node esbuild.standalone.js && node runTests.mjs",
+        "prepare": "husky",
+        "publish": "del *.vsix && pnpm run package && pnpm vsce package --no-dependencies && pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
+    },
     "readme": "README.md",
     "engines": {
-        "vscode": "^1.89.0"
+        "vscode": "^1.105.0",
+        "npm": "please-use-pnpm",
+        "yarn": "please-use-pnpm",
+        "pnpm": ">= 10.0.0"
     },
     "icon": "img/overpy.png",
     "keywords": [
@@ -161,50 +180,35 @@
         ]
     },
     "dependencies": {
-        "@babel/standalone": "^7.24.7",
-        "babel-plugin-polyfill-es-shims": "^0.10.5",
+        "@babel/standalone": "^7.28.5",
+        "babel-plugin-polyfill-es-shims": "^0.10.8",
         "colors": "^1.4.0",
         "diff": "^5.2.0",
-        "dotenv": "^16.4.5",
-        "js-interpreter": "^5.1.2",
+        "dotenv": "^16.6.1",
+        "js-interpreter": "^5.2.1",
         "pofile": "^1.1.4",
-        "vscode-uri": "^3.0.8"
+        "vscode-uri": "^3.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.24.7",
-        "@babel/preset-typescript": "^7.24.7",
-        "@types/babel__standalone": "^7.1.7",
-        "@types/mocha": "^10.0.6",
-        "@types/node": "^20.12.7",
-        "@types/vscode": "^1.88.0",
-        "@typescript-eslint/eslint-plugin": "^7.8.0",
-        "@typescript-eslint/parser": "^7.8.0",
+        "@babel/core": "^7.28.5",
+        "@babel/preset-typescript": "^7.28.5",
+        "@types/babel__standalone": "^7.1.9",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^20.19.24",
+        "@types/vscode": "^1.105.0",
+        "@typescript-eslint/eslint-plugin": "^7.18.0",
+        "@typescript-eslint/parser": "^7.18.0",
         "@vscode/test-cli": "^0.0.9",
-        "@vscode/test-electron": "^2.3.9",
-        "esbuild": "^0.25.2",
-        "eslint": "^8.57.0",
-        "husky": "^9.0.11",
-        "lint-staged": "^15.2.7",
+        "@vscode/test-electron": "^2.5.2",
+        "esbuild": "^0.25.11",
+        "eslint": "^8.57.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.5.2",
         "npm-run-all": "^4.1.5",
-        "typescript": "^5.4.5"
-    },
-    "scripts": {
-        "dev": "node esbuild.standalone.js --watch",
-        "compile": "node esbuild.js",
-        "compile-standalone": "node esbuild.standalone.js",
-        "watch": "npm-run-all -p watch:*",
-        "watch:esbuild": "node esbuild.js --watch",
-        "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-        "package": "npm run check-types && npm run lint && npm run test && node esbuild.js --production && node generateJsonSchema.mjs",
-        "compile-tests": "tsc -p . --outDir out",
-        "watch-tests": "tsc -p . -w --outDir out",
-        "check-types": "tsc --noEmit",
-        "lint": "npx eslint src --ext ts",
-        "test": "node esbuild.standalone.js && node runTests.mjs",
-        "prepare": "husky",
-        "publish": "del *.vsix && npm run package && vsce package && vsce publish --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
+        "typescript": "^5.9.3"
     },
     "lint-staged": {
         "*.ts": "eslint --fix"
-    }
+    },
+    "packageManager": "pnpm@10.18.0+sha512.e804f889f1cecc40d572db084eec3e4881739f8dec69c0ff10d2d1beff9a4e309383ba27b5b750059d7f4c149535b6cd0d2cb1ed3aeb739239a4284a68f40cfa"
 }

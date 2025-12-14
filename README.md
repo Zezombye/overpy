@@ -23,10 +23,12 @@ Thanks to:
 
 # Development
 
-- Install: `npm install`
-- Build in dev and test with the demo: `npm run dev`
-- Build `out/overpy_standalone.js`: `npm run package`
-- Build and publish to prod: `npm run publish`
+You first need to install the [pnpm package manager](https://pnpm.io/installation). For security reasons, `npm` is not supported.
+
+- Install dependencies: `pnpm install`
+- Build in dev and test with the demo: `pnpm run dev`
+- Build `out/overpy_standalone.js`: `pnpm run package`
+- Build and publish to prod: `pnpm run publish`
 
 # Installation
 
