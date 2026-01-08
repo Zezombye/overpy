@@ -785,17 +785,27 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
     },
     "freja": {
         "en-US": "Freja",
+        "zh-CN": "弗蕾娅",
+        "zh-TW": "弗蕾亞",
         "secondaryFire": {
             "en-US": "Take Aim",
+            "zh-CN": "瞄准射击",
+            "zh-TW": "精確瞄準",
         },
         "ability1": {
             "en-US": "Quick Dash",
+            "zh-CN": "疾冲",
+            "zh-TW": "快速衝刺",
         },
         "ability2": {
             "en-US": "Updraft",
+            "zh-CN": "上升气流",
+            "zh-TW": "上升氣流",
         },
         "ultimate": {
             "en-US": "Bola Shot",
+            "zh-CN": "流星索",
+            "zh-TW": "縛錘射擊",
         }
     },
     "genji": {
@@ -3624,35 +3634,60 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "zh-CN": "骇灾",
         "zh-TW": "災害"
     },
-	"wuyang": {
-		"en-US": "Wuyang",
-		"secondaryFire": {
-			"en-US": "Restorative Stream",
-		},
-		"ability1": {
-			"en-US": "Rushing Torrent",
-		},
-		"ability2": {
-			"en-US": "Guardian Wave",
-		},
-		"ultimate": {
-			"en-US": "Tidal Blast",
-		}
-	},
+    "wuyang": {
+        "en-US": "Wuyang",
+        "zh-CN": "无漾",
+        "zh-TW": "無漾",
+        "secondaryFire": {
+            "en-US": "Restorative Stream",
+            "zh-CN": "养神泉",
+            "zh-TW": "恢復水流"
+        },
+        "ability1": {
+            "en-US": "Rushing Torrent",
+            "zh-CN": "飞流步",
+            "zh-TW": "奔騰洪流"
+        },
+        "ability2": {
+            "en-US": "Guardian Wave",
+            "zh-CN": "翻江浪",
+            "zh-TW": "守護之浪"
+        },
+        "ultimate": {
+            "en-US": "Tidal Blast",
+            "zh-CN": "惊涛破",
+            "zh-TW": "濤浪爆發"
+        }
+    },
     "vendetta": {
-      "en-US": "Vendetta",
-      "primaryFire": {
-        "en-US": "Projected Edge"
-      },
-      "ability1": {
-        "en-US": "Whirlwind Dash"
-      },
-      "ability2": {
-        "en-US": "Soaring Slice"
-      },
-      "ultimate": {
-        "en-US": "Sundering Blade"
-      }
+        "en-US": "Vendetta",
+        "zh-CN": "斩仇",
+        "zh-TW": "宿怨",
+        "primaryFire": {
+            "en-US": "Palatine Fang",
+            "zh-CN": "帕拉蒂尼之牙",
+            "zh-TW": "帕拉丁之牙"
+        },
+        "secondaryFire": {
+            "en-US": "Warding Stance",
+            "zh-CN": "招架姿态",
+            "zh-TW": "守備架式"
+        },
+        "ability1": {
+            "en-US": "Whirlwind Dash",
+            "zh-CN": "旋风疾步",
+            "zh-TW": "旋風衝刺"
+        },
+        "ability2": {
+            "en-US": "Soaring Slice",
+            "zh-CN": "飞空斩击",
+            "zh-TW": "飛躍斬"
+        },
+        "ultimate": {
+            "en-US": "Sundering Blade",
+            "zh-CN": "斩地巨剑",
+            "zh-TW": "碎裂刀刃"
+        }
     }
 }
 //end-json
