@@ -7446,7 +7446,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Усиление планирования",
                         "th-TH": "ปรับระยะเวลาไกลด์บูสต์",
                         "tr-TR": "Süzülme Desteği Süresi Skaleri",
-                        "zh-CN": "滑翔推进持续时间",
+                        "zh-CN": "滑翔推进持续时间倍率",
                         "zh-TW": "滑翔加速持續時間"
                     }
                 }
