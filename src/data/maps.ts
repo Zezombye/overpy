@@ -37,6 +37,7 @@ export const mapKw: Record<string, import("../types").Map> =
             "default": "972777519512068153",
         },
         "en-US": "Aatlis",
+        "zh-CN": "阿特利斯"
     },
     "ayutthaya": {
         "guid": "00000000676E",
