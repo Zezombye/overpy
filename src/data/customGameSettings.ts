@@ -5860,6 +5860,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 300,
                         "default": 100,
                         "en-US": "Take Aim Duration",
+                        "zh-CN": "瞄准射击持续时间"
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
@@ -5867,6 +5868,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 200,
                         "default": 100,
                         "en-US": "Quick Dash Distance",
+                        "zh-CN": "疾冲距离"
                     },
                     "ability2Height%": {
                         "values": "__percent__",
@@ -5874,6 +5876,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 150,
                         "default": 100,
                         "en-US": "Updraft Height",
+                        "zh-CN": "上升气流高度"
                     }
                 }
             },
