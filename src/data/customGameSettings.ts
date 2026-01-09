@@ -5337,7 +5337,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "dva",
                         "roadhog",
                         "reinhardt",
-                        "sigma"
+                        "sigma",
+                        "wuyang"
                     ],
                     "guid": "000000005B3F",
                     "en-US": "%1$s Recharge Rate",
@@ -7568,6 +7569,34 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Haşin Atlayış Mesafe Skaleri",
                         "zh-CN": "狂跃距离倍率",
                         "zh-TW": "猛躍距離"
+                    }
+                }
+            },
+            "wuyang": {
+                "values": {
+                    "secondaryFireCost%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Restorative Stream Drain Rate",
+                        "zh-CN": "养神泉消耗速度"
+                    },
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Rushing Torrent Duration Scalar",
+                        "zh-CN": "飞流步持续时间倍率"
+                    },
+                    "ability2Kb%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Guardian Wave Knockback Scalar",
+                        "zh-CN": "翻江浪击退倍率"
                     }
                 }
             }
