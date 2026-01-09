@@ -805,6 +805,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 500,
                         "default": 100,
                         "en-US": "Perk Generation",
+                        "zh-CN": "威能充能速度",
                     },
                     "tankPassiveHealthBonus": {
                         "values": {
