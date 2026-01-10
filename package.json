@@ -183,7 +183,7 @@
         "@babel/standalone": "^7.28.5",
         "babel-plugin-polyfill-es-shims": "^0.10.8",
         "colors": "^1.4.0",
-        "diff": "^5.2.0",
+        "diff": "^8.0.2",
         "dotenv": "^16.6.1",
         "js-interpreter": "^6.0.1",
         "pofile": "^1.1.4",
