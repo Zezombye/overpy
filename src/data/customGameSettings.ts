@@ -6590,7 +6590,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Скорость восполнения биотической энергии",
                         "th-TH": "อัตราการรีชาร์จพลังงานชีวภาพ",
                         "tr-TR": "Biyotik Enerji Dolum Oranı",
-                        "zh-CN": "生化能量回复速度",
+                        "zh-CN": "生化能量恢复速度",
                         "zh-TW": "生化能量恢復速率"
                     }
                 }
