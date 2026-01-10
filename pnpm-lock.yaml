@@ -24,8 +24,8 @@ importers:
         specifier: ^16.6.1
         version: 16.6.1
       js-interpreter:
-        specifier: ^5.2.1
-        version: 5.2.1
+        specifier: ^6.0.1
+        version: 6.0.1
       pofile:
         specifier: ^1.1.4
         version: 1.1.4
@@ -1318,8 +1318,8 @@ packages:
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
 
-  js-interpreter@5.2.1:
-    resolution: {integrity: sha512-offKOHFrtvQckRY0g4Bp6l4QbRUap/pFQ6HgwMgOaqqGmG7hNh21FZpHUJa99XWRyoWUlj7J/P70jHznRB4kUg==}
+  js-interpreter@6.0.1:
+    resolution: {integrity: sha512-XfPw6y1FzFwHcGYB62jzPUoSCoCSIL+dICMjRJx6f8V/AmTczeodDOaVxWc4GU4p7qeN7ieuMXNKxScoaBkJ6A==}
     hasBin: true
 
   js-tokens@4.0.0:
@@ -3434,7 +3434,7 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  js-interpreter@5.2.1:
+  js-interpreter@6.0.1:
     dependencies:
       minimist: 1.2.8
 

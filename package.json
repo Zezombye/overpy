@@ -185,7 +185,7 @@
         "colors": "^1.4.0",
         "diff": "^5.2.0",
         "dotenv": "^16.6.1",
-        "js-interpreter": "^5.2.1",
+        "js-interpreter": "^6.0.1",
         "pofile": "^1.1.4",
         "vscode-uri": "^3.1.0"
     },
