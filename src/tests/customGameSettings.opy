@@ -64,6 +64,9 @@ settings {
             "widowmaker": {
                 "damageDealt%": 120,
                 "ability1Cooldown%": 10
+            },
+            "junkerQueen": {
+                "secondaryFireCooldown%": 120
             }
         }
     }
