@@ -83,6 +83,7 @@ export type Map = {
 
 export enum Overwatch2Heroes {
     ana = "ana",
+    anran = "anran",
     ashe = "ashe",
     baptiste = "baptiste",
     bastion = "bastion",
