@@ -17512,6 +17512,11 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -17631,11 +17636,6 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
                                 }
                             }
                         },
@@ -23381,6 +23381,11 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -23500,11 +23505,6 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
                                 }
                             }
                         },
@@ -29250,6 +29250,11 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -29369,11 +29374,6 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
                                 }
                             }
                         },
@@ -35119,6 +35119,11 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -35238,11 +35243,6 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
                                 }
                             }
                         },
@@ -41129,6 +41129,11 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
+                        "secondaryFireCooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "secondaryFireKb%": {
                             "type": "number",
                             "minimum": 0,
@@ -41248,11 +41253,6 @@
                         },
                         "enableSecondaryFire": {
                             "type": "boolean"
-                        },
-                        "secondaryFireCooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
                         }
                     }
                 },
