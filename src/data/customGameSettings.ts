@@ -5996,6 +5996,15 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "junkerQueen": {
                 "values": {
+                    "secondaryFireCooldown%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Jagged Blade Gracie Cooldown Time",
+                        "zh-CN": "锯齿利刃（格雷西）冷却时间",
+                        "zh-TW": "鋸刃（格雷西）冷卻時間"
+                    },
                     "secondaryFireKb%": {
                         "values": "__percent__",
                         "min": 0,
