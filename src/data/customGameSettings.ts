@@ -805,6 +805,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 500,
                         "default": 100,
                         "en-US": "Perk Generation",
+                        "zh-CN": "威能充能速度",
                     },
                     "tankPassiveHealthBonus": {
                         "values": {
@@ -5335,7 +5336,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "dva",
                         "roadhog",
                         "reinhardt",
-                        "sigma"
+                        "sigma",
+                        "wuyang"
                     ],
                     "guid": "000000005B3F",
                     "en-US": "%1$s Recharge Rate",
@@ -5858,6 +5860,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 300,
                         "default": 100,
                         "en-US": "Take Aim Duration",
+                        "zh-CN": "瞄准射击持续时间"
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
@@ -5865,6 +5868,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 200,
                         "default": 100,
                         "en-US": "Quick Dash Distance",
+                        "zh-CN": "疾冲距离"
                     },
                     "ability2Height%": {
                         "values": "__percent__",
@@ -5872,6 +5876,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 150,
                         "default": 100,
                         "en-US": "Updraft Height",
+                        "zh-CN": "上升气流高度"
                     }
                 }
             },
@@ -6584,7 +6589,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Скорость восполнения биотической энергии",
                         "th-TH": "อัตราการรีชาร์จพลังงานชีวภาพ",
                         "tr-TR": "Biyotik Enerji Dolum Oranı",
-                        "zh-CN": "生化能量回复速度",
+                        "zh-CN": "生化能量恢复速度",
                         "zh-TW": "生化能量恢復速率"
                     }
                 }
@@ -7440,7 +7445,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Усиление планирования",
                         "th-TH": "ปรับระยะเวลาไกลด์บูสต์",
                         "tr-TR": "Süzülme Desteği Süresi Skaleri",
-                        "zh-CN": "滑翔推进持续时间",
+                        "zh-CN": "滑翔推进持续时间倍率",
                         "zh-TW": "滑翔加速持續時間"
                     }
                 }
@@ -7563,6 +7568,34 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Haşin Atlayış Mesafe Skaleri",
                         "zh-CN": "狂跃距离倍率",
                         "zh-TW": "猛躍距離"
+                    }
+                }
+            },
+            "wuyang": {
+                "values": {
+                    "secondaryFireCost%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Restorative Stream Drain Rate",
+                        "zh-CN": "养神泉消耗速度"
+                    },
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Rushing Torrent Duration Scalar",
+                        "zh-CN": "飞流步持续时间倍率"
+                    },
+                    "ability2Kb%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Guardian Wave Knockback Scalar",
+                        "zh-CN": "翻江浪击退倍率"
                     }
                 }
             }
