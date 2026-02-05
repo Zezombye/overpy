@@ -5269,7 +5269,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "doomfist",
                         "echo",
                         "freja",
-                        "junkerQueen",
                         "lucio",
                         "orisa",
                         "pharah",

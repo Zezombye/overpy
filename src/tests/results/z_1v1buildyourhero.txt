@@ -79,7 +79,7 @@ settings
 			Junker Queen
 			{
 				Commanding Shout Cooldown Time: 0%
-				Jagged Blade Cooldown Time: 62%
+				Jagged Blade Gracie Cooldown Time: 62%
 			}
 			Junkrat
 			{

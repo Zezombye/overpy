@@ -76,6 +76,10 @@ settings
 				Damage Dealt: 120%
 				Grappling Hook Cooldown Time: 10%
 			}
+			Junker Queen
+			{
+				Jagged Blade Gracie Cooldown Time: 120%
+			}
 		}
 	}
 }
