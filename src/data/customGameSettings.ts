@@ -7447,7 +7447,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Длительность закапывания",
                         "th-TH": "ปรับระยะเวลาเบอร์โรว์",
                         "tr-TR": "Battıçıktı Süresi Skaleri",
-                        "zh-CN": "钻地持续时间",
+                        "zh-CN": "钻地持续时间倍率",
                         "zh-TW": "鑽地持續時間"
                     }
                 }
