@@ -54,6 +54,12 @@ settings {
             }
         },
         "allTeams": {
+            "anran": {
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 50,
+                "damageDealt%": 200,
+                "ultGen%": 120
+            },
             "ashe": {
                 "ammoClipSize%": 200,
                 "ultDuration%": HeroUltModifiers.ASHE
