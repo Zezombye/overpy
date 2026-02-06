@@ -71,6 +71,15 @@ settings
 			{
 				Ammunition Clip Size Scalar: 200%
 			}
+			Vendetta
+			{
+				Warding Stance Regen Scalar: 120%
+				Whirlwind Dash Cooldown Time: 10%
+				Whirlwind Dash Distance: 120%
+				Soaring Slice Cooldown Time: 10%
+				Soaring Slice Distance: 120%
+				Ultimate Generation Sundering Blade: 120%
+			}
 			Widowmaker
 			{
 				Damage Dealt: 120%

@@ -61,6 +61,14 @@ settings {
             "bastion": {
                 "ammoClipSize%": 200
             },
+            "vendetta": {
+                "secondaryFireRechargeRate%": 120,
+                "ability1Cooldown%": 10,
+                "ability1Distance%": 120,
+                "ability2Cooldown%": 10,
+                "ability2Distance%": 120,
+                "ultGen%": 120
+            },
             "widowmaker": {
                 "damageDealt%": 120,
                 "ability1Cooldown%": 10
