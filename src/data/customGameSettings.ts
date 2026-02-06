@@ -7398,6 +7398,34 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     }
                 }
             },
+            "vendetta": {
+                "values": {
+                    "secondaryFireRechargeRate%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Warding Stance Regen Scalar",
+                        "zh-CN": "招架姿态恢复倍率"
+                    },
+                    "ability1Distance%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Whirlwind Dash Distance",
+                        "zh-CN": "旋风疾步距离"
+                    },
+                    "ability2Distance%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Soaring Slice Distance",
+                        "zh-CN": "飞空斩击距离"
+                    },
+                },
+            },
             "venture": {
                 "values": {
                     "ability1Duration%": {
