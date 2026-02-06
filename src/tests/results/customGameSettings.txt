@@ -62,6 +62,13 @@ settings
 		}
 		General
 		{
+			Anran
+			{
+				Inferno Rush Cooldown Time: 50%
+				Dancing Blaze Cooldown Time: 50%
+				Damage Dealt: 200%
+				Ultimate Generation Vermillion Ascent: 120%
+			}
 			Ashe
 			{
 				Ammunition Clip Size Scalar: 200%

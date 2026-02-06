@@ -99,6 +99,22 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pl-PL": "Ana",
         "pt-BR": "Ana"
     },
+    "anran": {
+        "ability1": {
+            "en-US": "Inferno Rush",
+            "zh-CN": "怒炎冲"
+        },
+        "ability2": {
+            "en-US": "Dancing Blaze",
+            "zh-CN": "熠闪舞"
+        },
+        "ultimate": {
+            "en-US": "Vermillion Ascent",
+            "zh-CN": "朱羽焚"
+        },
+        "en-US": "Anran",
+        "zh-CN": "安燃"
+    },
     "ashe": {
         "guid": "00000000832E",
         "ability1": {
