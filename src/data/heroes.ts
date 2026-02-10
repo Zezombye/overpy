@@ -602,6 +602,11 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pt-BR": "Doomfist"
     },
     "domina":{
+        "passive": {
+            "en-US": "Reconstruction",
+            "zh-CN": "护盾重构",
+            "zh-TW": "重組"
+        },
         "primaryFire": {
             "en-US": "Photon Magnum",
             "zh-CN": "光子马格南",
