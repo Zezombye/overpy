@@ -78,6 +78,30 @@ settings
 			{
 				Ammunition Clip Size Scalar: 200%
 			}
+			Domina
+			{
+				Sonic Repulsors Knockback Scalar: 125%
+				Reconstruction Heal Scalar: 125%
+				Ultimate Barrier Health Scalar Panopticon: 200%
+				Ammunition Clip Size Scalar: 200%
+			}
+			Emre
+			{
+				Cyber Frag Knockback Scalar: 50%
+				Siphon Blaster Duration Scalar: 200%
+				Siphon Blaster Heat Scalar: 125%
+				Override Protocol Knockback Scalar: 150%
+				Infinite Ultimate Duration: On
+			}
+			Jetpack Cat
+			{
+				Biotic Pawjectile Range: 150%
+				Frenetic Flight Unlimited Fuel: On
+			}
+			Mizuki
+			{
+				Katashiro Return Duration Scalar: 200%
+			}
 			Vendetta
 			{
 				Warding Stance Regen Scalar: 120%
