@@ -82,6 +82,7 @@ settings {
             },
             "jetpackCat": {
                 "primaryFireRange%": 150,
+                "secondaryFireMaximumTime%": 200,
                 "enablePassiveUnlimitedFuel": true
             },
             "mizuki": {

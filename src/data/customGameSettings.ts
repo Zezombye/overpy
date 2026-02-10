@@ -5311,7 +5311,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "default": 100,
                     "include": [
                         "dva",
-                        "jetpackCat",
                         "roadhog"
                     ],
                     "guid": "000000005B45",
@@ -6079,6 +6078,14 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "default": 100,
                         "en-US": "Biotic Pawjectile Range",
                         "zh-CN": "生物猫爪弹射程"
+                    },
+                    "secondaryFireMaximumTime%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Frenetic Flight Maximum Time",
+                        "zh-CN": "咻咻飞最大时间",
                     },
                     "enablePassiveUnlimitedFuel": {
                         "values": "__boolOnOff__",

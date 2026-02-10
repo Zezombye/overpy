@@ -96,6 +96,7 @@ settings
 			Jetpack Cat
 			{
 				Biotic Pawjectile Range: 150%
+				Frenetic Flight Maximum Time: 200%
 				Frenetic Flight Unlimited Fuel: On
 			}
 			Mizuki
