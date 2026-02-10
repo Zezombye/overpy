@@ -5866,7 +5866,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "max": 300,
                         "default": 100,
                         "en-US": "Sonic Repulsors Knockback Scalar",
-                        "zh-CN": "音速斥力场击退距离",
+                        "zh-CN": "音速斥力场击退倍率",
                         "zh-TW": "音波反斥器擊退距離"
                     },
                     "passiveHeal%": {
