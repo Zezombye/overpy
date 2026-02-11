@@ -601,6 +601,41 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "it-IT": "Doomfist",
         "pt-BR": "Doomfist"
     },
+    "domina":{
+        "passive": {
+            "en-US": "Reconstruction",
+            "zh-CN": "护盾重构",
+            "zh-TW": "重組"
+        },
+        "primaryFire": {
+            "en-US": "Photon Magnum",
+            "zh-CN": "光子马格南",
+            "zh-TW": "光子麥格農"
+        },
+        "secondaryFire": {
+            "en-US": "Barrier Array",
+            "zh-CN": "屏障阵列",
+            "zh-TW": "屏障陣列"
+        },
+        "ability1": {
+            "en-US": "Sonic Repulsors",
+            "zh-CN": "音速斥力场",
+            "zh-TW": "音波反斥器"
+        },
+        "ability2": {
+            "en-US": "Crystal Charge",
+            "zh-CN": "爆能水晶",
+            "zh-TW": "晶體炸彈"
+        },
+        "ultimate": {
+            "en-US": "Panopticon",
+            "zh-CN": "全景牢笼",
+            "zh-TW": "全景光牢"
+        },
+        "en-US": "Domina",
+        "zh-CN": "金驭",
+        "zh-TW": "多米娜"
+    },
     "dva": {
         "guid": "0000000002E2",
         "secondaryFire": {
@@ -798,6 +833,26 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pl-PL": "Echo",
         "pt-BR": "Echo",
         "tr-TR": "Echo"
+    },
+    "emre": {
+        "en-US": "Emre",
+        "zh-CN": "埃姆雷",
+        "zh-TW": "伊默",
+        "ability1": {
+            "en-US": "Siphon Blaster",
+            "zh-CN": "虹吸冲击枪",
+            "zh-TW": "虹吸爆能槍",
+        },
+        "ability2": {
+            "en-US": "Cyber Frag",
+            "zh-CN": "赛博手雷",
+            "zh-TW": "生化手榴彈",
+        },
+        "ultimate": {
+            "en-US": "Override Protocol",
+            "zh-CN": "覆盖协议",
+            "zh-TW": "覆寫協定",
+        }
     },
     "freja": {
         "en-US": "Freja",
@@ -1165,6 +1220,31 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pl-PL": "Hanzo",
         "pt-BR": "Hanzo",
         "tr-TR": "Hanzo"
+    },
+    "jetpackCat": {
+        "en-US": "Jetpack Cat",
+        "zh-CN": "飞天猫",
+        "zh-TW": "火箭貓",
+        "secondaryFire": {
+            "en-US": "Frenetic Flight",
+            "zh-CN": "咻咻飞",
+            "zh-TW": "狂飆飛貓",
+        },
+        "ability1": {
+            "en-US": "Lifeline",
+            "zh-CN": "救生索",
+            "zh-TW": "救生索",
+        },
+        "ability2": {
+            "en-US": "Purr",
+            "zh-CN": "呼噜噜",
+            "zh-TW": "呼嚕",
+        },
+        "ultimate": {
+            "en-US": "Catnapper",
+            "zh-CN": "猫猫劫",
+            "zh-TW": "貓的綁架",
+        }
     },
     "junkerQueen": {
         "secondaryFire": {
@@ -1759,6 +1839,31 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "it-IT": "Mercy",
         "pt-BR": "Mercy",
         "tr-TR": "Mercy"
+    },
+    "mizuki": {
+        "en-US": "Mizuki",
+        "zh-CN": "瑞稀",
+        "zh-TW": "瑞稀",
+        "secondaryFire": {
+            "en-US": "Healing Kasa",
+            "zh-CN": "疗魂斗笠",
+            "zh-TW": "治癒之笠",
+        },
+        "ability1": {
+            "en-US": "Katashiro Return",
+            "zh-CN": "替魂纸人",
+            "zh-TW": "形代歸返",
+        },
+        "ability2": {
+            "en-US": "Binding Chain",
+            "zh-CN": "缚魂锁链",
+            "zh-TW": "束縛鎖鏈",
+        },
+        "ultimate": {
+            "en-US": "Kekkai Sanctuary",
+            "zh-CN": "护魂结界",
+            "zh-TW": "結界護佑",
+        }
     },
     "moira": {
         "guid": "000000006339",

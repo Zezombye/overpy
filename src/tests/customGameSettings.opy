@@ -67,6 +67,27 @@ settings {
             "bastion": {
                 "ammoClipSize%": 200
             },
+            "domina": {
+                "ability1KB%": 125,
+                "passiveHeal%": 125,
+                "ultBarrierHealth%": 200,
+                "ammoClipSize%": 200
+            },
+            "emre": {
+                "ability2Kb%": 50,
+                "ability1Duration%": 200,
+                "ability1Heat%": 125,
+                "ultKb%": 150,
+                "enableInfiniteUlt": true
+            },
+            "jetpackCat": {
+                "primaryFireRange%": 150,
+                "secondaryFireMaximumTime%": 200,
+                "enablePassiveUnlimitedFuel": true
+            },
+            "mizuki": {
+                "ability1Duration%": 200
+            },
             "vendetta": {
                 "secondaryFireRechargeRate%": 120,
                 "ability1Cooldown%": 10,

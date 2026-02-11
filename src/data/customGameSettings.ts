@@ -4507,6 +4507,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "baptiste",
                         "bastion",
                         "doomfist",
+                        "emre",
                         "genji",
                         "junkrat",
                         "mauga",
@@ -4544,6 +4545,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "baptiste",
                         "bastion",
                         "doomfist",
+                        "emre",
                         "genji",
                         "junkrat",
                         "moira",
@@ -5268,9 +5270,11 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "bastion",
                         "brigitte",
                         "doomfist",
+                        "domina",
                         "echo",
                         "freja",
                         "lucio",
+                        "mizuki",
                         "orisa",
                         "pharah",
                         "reinhardt",
@@ -5334,6 +5338,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "include": [
                         "brigitte",
                         "dva",
+                        "jetpackCat",
                         "roadhog",
                         "reinhardt",
                         "sigma",
@@ -5852,6 +5857,72 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     }
                 }
             },
+            "domina": {
+                "values": {
+                    "ability1KB%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Sonic Repulsors Knockback Scalar",
+                        "zh-CN": "音速斥力场击退倍率",
+                        "zh-TW": "音波反斥器擊退距離"
+                    },
+                    "passiveHeal%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Reconstruction Heal Scalar",
+                        "zh-CN": "护盾重构治疗量倍率",
+                        "zh-TW": "重組治療量"
+                    },
+                    "ultBarrierHealth%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Ultimate Barrier Health Scalar Panopticon",
+                        "zh-CN": "终极技能屏障生命值倍率（全景牢笼）"
+                    }
+                }
+            },
+            "emre": {
+                "values": {
+                    "ability2Kb%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Cyber Frag Knockback Scalar",
+                        "zh-CN": "赛博手雷击退倍率"
+                    },
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Siphon Blaster Duration Scalar",
+                        "zh-CN": "虹吸冲击枪持续时间倍率"
+                    },
+                    "ability1Heat%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Siphon Blaster Heat Scalar",
+                        "zh-CN": "虹吸冲击枪热量倍率"
+                    },
+                    "ultKb%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Override Protocol Knockback Scalar",
+                        "zh-CN": "覆盖协议击退倍率"
+                    }
+                }
+            },
             "freja": {
                 "values": {
                     "secondaryFireDuration%": {
@@ -5995,6 +6066,33 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Güneş Enerjisi Dolma Oranı",
                         "zh-CN": "太阳能充能速度",
                         "zh-TW": "太陽能量補充速度"
+                    }
+                }
+            },
+            "jetpackCat": {
+                "values": {
+                    "primaryFireRange%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Biotic Pawjectile Range",
+                        "zh-CN": "生物猫爪弹射程"
+                    },
+                    "secondaryFireMaximumTime%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Frenetic Flight Maximum Time",
+                        "zh-CN": "咻咻飞最大时间",
+                    },
+                    "enablePassiveUnlimitedFuel": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "en-US": "Frenetic Flight Unlimited Fuel",
+                        "zh-CN": "咻咻飞无限燃料",
+                        "zh-TW": "狂飆飛貓無限燃料"
                     }
                 }
             },
@@ -6499,6 +6597,18 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Silahlar Etkinleştirildi",
                         "zh-CN": "可用武器",
                         "zh-TW": "可使用武器"
+                    }
+                }
+            },
+            "mizuki": {
+                "values": {
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Katashiro Return Duration Scalar",
+                        "zh-CN": "替魂纸人持续时间倍率"
                     }
                 }
             },
