@@ -7351,7 +7351,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Enemies"
         },
         "NONE": {
-            "guid": "00000000B8C3",
+            "guid": "00000000B8C9",
             "en-US": "None",
             "es-MX": "Ninguno",
             "fr-FR": "Aucune",
@@ -7359,7 +7359,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "pt-BR": "Ninguém",
             "th-TH": "ไม่มี",
             "tr-TR": "Yok",
-            "zh-CN": "无",
+            "zh-CN": "全部禁用",
             "de-DE": "None",
             "es-ES": "None",
             "it-IT": "None",

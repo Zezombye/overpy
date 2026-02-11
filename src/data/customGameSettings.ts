@@ -210,7 +210,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "projectiles": {
                 "points": 4,
 
-                "guid": "00000000C991",
+                "guid": "000000019736",
                 "en-US": "Projectiles",
                 "de-DE": "Projektile",
                 "es-ES": "Proyectiles",
@@ -222,7 +222,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "ru-RU": "Снаряды",
                 "th-TH": "โพรเจกไทล์",
                 "tr-TR": "Atılır Cisimler",
-                "zh-CN": "飞弹",
+                "zh-CN": "弹道",
                 "zh-TW": "拋射物",
                 "fr-FR": "Projectiles",
                 "ko-KR": "Projectiles"
