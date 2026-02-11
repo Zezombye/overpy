@@ -360,7 +360,7 @@ export function decompile(content: string): Ast {
     if (hasArgs) {
         args = getArgs(content.substring(bracketPos[0] + 1, bracketPos[1]));
     }
-    debug("Arguments: " + args.join(","));
+    debug("Name: '"+name+"', arguments: " + args.join(","));
 
     //Special functions
 
@@ -401,6 +401,10 @@ export function decompile(content: string): Ast {
     }
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
+    }
+    if (name === ".setInvisibility" && args.length === 2 && args[1] === "无") {
+        //Fix Chinese translation issue
+        args[1] = constantValues.Invis.NONE["zh-CN"] as string;
     }
     if (name === ".startForcingOutlineFor" && args.length === 4) {
         args.push("DEFAULT");
