@@ -102,6 +102,7 @@ settings
 			Mizuki
 			{
 				Katashiro Return Duration Scalar: 200%
+				Role Passives: Off
 			}
 			Vendetta
 			{
