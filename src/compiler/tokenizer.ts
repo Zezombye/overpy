@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, registerPostCompileHook } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -25,7 +25,7 @@ import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroDat
 import { dispTokens } from "../utils/tokens";
 import { TranslationLanguage } from "./translations";
 import { unescapeString } from "../utils/strings";
-
+import { existsSync, writeFileSync } from "fs";
 export class Macro {
     isFunction: boolean;
     args: unknown[];
@@ -191,6 +191,38 @@ export function tokenize(content: string): LogicalLine[] {
                 error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
             }
             activatedExtensions.push(addedExtension);
+            return;
+        }
+        if(content.startsWith("#!postCompileHook ")){
+            const match = content.match(/^#!postCompileHook\s+["'](.+?)["']/);
+            if (!match) error("Invalid #!postCompileHook syntax");
+            const postScriptPath = `${rootPath}${match[1]}`;
+            if (!postScriptPath.endsWith(".js")) error("postCompileHook must be a .js file");
+            if (!existsSync(postScriptPath)){
+                writeFileSync(
+                    postScriptPath,
+                    `
+/**
+ * 
+ * @param {string} content 
+ * @returns 
+ */
+function postCompileHook(content){
+    let resultText = content;
+    //DoSomething...
+
+    return String(resultText);
+}
+                `);
+            }
+            const scriptText = getFileContent(postScriptPath);
+            registerPostCompileHook((content: string) => {
+                return safeEval(`
+                    ${scriptText}
+                    const __input = ${JSON.stringify(content)};
+                    postCompileHook(__input);
+                `);
+            });
             return;
         }
         if (content.startsWith("#!excludeVariablesInCompilation")) {

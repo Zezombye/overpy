@@ -205,6 +205,10 @@ You can specify \`noDetectionRule\` to not create the rule which sets the variab
     },
     "disableTranslationSourceLines": {
         "description": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs."
+    },
+    "postCompileHook":{
+        "description": "It is a user-defined function that is executed after the script content has been compiled.",
+        "snippet": "postCompileHook \"script.js\""
     }
 };
 
