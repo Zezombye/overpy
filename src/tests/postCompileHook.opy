@@ -1,4 +1,4 @@
-#!postCompileHook "script.js"
+#!postCompileHook "postCompileHook.js"
 settings {
     "gamemodes": {
         "skirmish": {
@@ -8,7 +8,6 @@ settings {
         }
     }
 }
-
 #Activated extensions
 #!extension projectiles
 

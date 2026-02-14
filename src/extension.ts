@@ -6,7 +6,7 @@ import * as vscode from "vscode";
 // ! Yes, this sucks. Too bad!
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
-import { postInitialLoad, rootPath, overpyTemplate, postCompileHook, resetPostCompileHook } from "./globalVars";
+import { postInitialLoad, rootPath, overpyTemplate } from "./globalVars";
 import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionAstMacros, fillAutocompletionConstants, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
 import { Argument, CompilationDiagnostic, OWLanguage, ow_languages } from "./types.d";
 import { OpyError as OverpyError } from "./utils/logging";
@@ -81,8 +81,7 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showWarningMessage(`Warning: ${warning.message}`);
             }
             applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings);
-            const postResult = postCompileHook(compileResult.result);
-            vscode.env.clipboard.writeText(postResult);
+            vscode.env.clipboard.writeText(compileResult.result);
 
             const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
             vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
@@ -96,7 +95,6 @@ export function activate(context: vscode.ExtensionContext) {
             setActivatedExtensions(compileResult.activatedExtensions);
             setSpentExtensionPoints(compileResult.spentExtensionPoints);
             setAvailableExtensionPoints(compileResult.availableExtensionPoints);
-            resetPostCompileHook();
             refreshAutoComplete();
         } catch (e) {
             if (e instanceof Error) {

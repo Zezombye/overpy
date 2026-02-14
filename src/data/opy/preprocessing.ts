@@ -207,8 +207,28 @@ You can specify \`noDetectionRule\` to not create the rule which sets the variab
         "description": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs."
     },
     "postCompileHook":{
-        "description": "It is a user-defined function that is executed after the script content has been compiled.",
-        "snippet": "postCompileHook \"script.js\""
+        "description": `
+Specifies a JavaScript file to be executed after compilation, with the compiled code as a \`content\` variable. The script must return the modified code.
+
+Please do not use this directive to work around OverPy bugs; instead, report the bugs so they can be fixed at the source.
+
+Example:
+
+\`\`\`js
+#!postCompileHook "hook.js"
+
+//In hook.js:
+
+content = content.toLowerCase();
+content = content.replace(/abc/g, "def");
+// In case content becomes a 
+// JS interpreter object, which can 
+// happen if the last operation is a 
+// replace or match
+content.toString();
+\`\`\`
+        `,
+        "snippet": "postCompileHook \"$0\""
     }
 };
 

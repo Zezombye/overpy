@@ -69,11 +69,10 @@ export const setMainFileName = (name: string) => (mainFileName = name);
 export var rootPath: string;
 export const setRootPath = (path: string) => (rootPath = path);
 
-//postCompileHook
-type PostCompileHook = (content: string) => string;
-export var postCompileHook:PostCompileHook = (c) => c;
-export var resetPostCompileHook = () => (postCompileHook = (c) => c);
-export var registerPostCompileHook = (hook: PostCompileHook) => (postCompileHook = hook); 
+//Called after compilation to transform the compiled output. Set with #!postCompileHook
+type PostCompileHook = ((content: string) => string) | null;
+export var postCompileHook: PostCompileHook = null;
+export var setPostCompileHook = (hook: PostCompileHook) => (postCompileHook = hook); 
 //Global variables used to keep track of the name for the current array element/index.
 //Should be null at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
 export var currentArrayElementName: string;
@@ -328,6 +327,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     disableInspector = false;
     keepUnusedTranslations = false;
     disableTranslationSourceLines = false;
+    postCompileHook = null;
 }
 
 //Other constants

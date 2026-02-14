@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -71,7 +71,6 @@ export async function compile(
 
     if (DEBUG_PROFILER) console.profile();
     resetGlobalVariables(language);
-    reinitInterpreter("");
     _rootPath = _rootPath.trim().replaceAll("\\", "/");
     if (!_rootPath.endsWith("/")) {
         _rootPath += "/";
@@ -241,7 +240,7 @@ export async function compile(
 
     if (enableTagsSetup) {
         var txSetupRule: any = `
-rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
+rule "OverPy <\\ztx> / <\\zfg> setup code":
     #By Zezombye
     createDummy(getAllHeroes(),  Team.1 if getNumberOfSlots(Team.1) else Team.2 if getNumberOfSlots(Team.2) else true, false, null, null)
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
@@ -295,6 +294,34 @@ rule "Disable inspector":
     let uniqueEncounteredWarnings = encounteredWarnings.filter((warning, index, self) => {
         return index === self.findIndex((w) => JSON.stringify(w) === JSON.stringify(warning));
     });
+
+    if (postCompileHook) {
+        setFileStack([
+            {
+                name: "<postCompileHook>",
+                startLine: 1,
+                startCol: 1,
+                endCol: null,
+                endLine: null,
+                remainingChars: 99999999999, //does not matter
+                staticMember: true,
+                fileStackMemberType: "normal",
+            } as ScriptFileStackMember,
+        ]);
+        result = ""+postCompileHook(result);
+        setFileStack([
+            {
+                name: "<internal>",
+                startLine: 1,
+                startCol: 1,
+                endCol: null,
+                endLine: null,
+                remainingChars: 99999999999, //does not matter
+                staticMember: true,
+                fileStackMemberType: "normal",
+            } as ScriptFileStackMember,
+        ]);
+    }
 
     return {
         result,

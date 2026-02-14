@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, registerPostCompileHook } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -193,35 +193,14 @@ export function tokenize(content: string): LogicalLine[] {
             activatedExtensions.push(addedExtension);
             return;
         }
-        if(content.startsWith("#!postCompileHook ")){
-            const match = content.match(/^#!postCompileHook\s+["'](.+?)["']/);
-            if (!match) error("Invalid #!postCompileHook syntax");
-            const postScriptPath = `${rootPath}${match[1]}`;
-            if (!postScriptPath.endsWith(".js")) error("postCompileHook must be a .js file");
-            if (!existsSync(postScriptPath)){
-                writeFileSync(
-                    postScriptPath,
-                    `
-/**
- * 
- * @param {string} content 
- * @returns 
- */
-function postCompileHook(content){
-    let resultText = content;
-    //DoSomething...
-
-    return String(resultText);
-}
-                `);
+        if(content.startsWith("#!postCompileHook ")) {
+            if (postCompileHook) {
+                error("Post-compile hook is already defined");
             }
-            const scriptText = getFileContent(postScriptPath);
-            registerPostCompileHook((content: string) => {
-                return safeEval(`
-                    ${scriptText}
-                    const __input = ${JSON.stringify(content)};
-                    postCompileHook(__input);
-                `);
+            let hookPath = getFilePaths(content.substring("#!postCompileHook ".length).trim(), rootPath)[0];
+            const scriptText = getFileContent(hookPath);
+            setPostCompileHook((content: string) => {
+                return safeEval(`var content = ${JSON.stringify(content)};\n${scriptText}`);
             });
             return;
         }

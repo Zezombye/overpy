@@ -18,10 +18,10 @@
 "use strict";
 
 import { IS_IN_BROWSER, fileStack, incrementUniqueNumber, uniqueNumber } from "../globalVars";
-import { error } from "./logging";
+import { debug, error } from "./logging";
 // @ts-ignore - no declared types for Neil Fraser's js-interpreter
 import Interpreter from "js-interpreter";
-import { JSInterpreter } from "../jsInterpreter";
+import { JSInterpreter, reinitInterpreter } from "../jsInterpreter";
 
 import { transform } from "@babel/standalone";
 
@@ -134,6 +134,8 @@ export function safeEval(script: string): string {
     if (script in scriptCache) {
         return scriptCache[script];
     }
+    
+    reinitInterpreter("");
 
     // Transform code with Babel so that js-interpreter can understand
     // more modern JavaScript syntax
@@ -144,6 +146,8 @@ export function safeEval(script: string): string {
         // 	[require("babel-plugin-polyfill-es-shims").default, { "method": "usage-global" }]
         // ],
     }).code;
+
+    //console.debug("Transformed script: ", transformedScript);
 
     JSInterpreter.appendCode(transformedScript);
 
@@ -167,7 +171,8 @@ export function safeEval(script: string): string {
 
     const scriptResult = JSInterpreter.value;
     if (typeof scriptResult !== "string") {
-        error(`JavaScript macro returned value with type of ${typeof scriptResult}, expected string`);
+        //console.debug("Script result is: ", scriptResult);
+        error(`JavaScript macro returned value with type of ${typeof scriptResult}, expected string. Try using .toString()`);
     }
     scriptCache[script] = scriptResult;
     return scriptResult;
