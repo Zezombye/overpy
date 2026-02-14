@@ -34,7 +34,7 @@ variables {
         126: __holygrail__
         127: __overpyTranslationHelper__
 }
-rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
+rule ("OverPy <­tx> / <­fg> setup code") {
     event {
         Ongoing - Global;
     }

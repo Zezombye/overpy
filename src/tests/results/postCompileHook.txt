@@ -1,0 +1,28 @@
+settings
+{
+	modes
+	{
+		skirmish
+		{
+			enabled maps
+			{
+				workshop chamber
+			}
+		}
+	}
+	extensions
+	{
+		projectiles
+	}
+}
+rule ("set player invis") {
+    event {
+        ongoing - each player;
+        all;
+        all;
+    }
+    actions {
+        set invisible(event player, none);
+    }
+}
+

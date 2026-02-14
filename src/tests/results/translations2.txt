@@ -24,7 +24,7 @@ variables {
     player:
         127: __languageIndex__
 }
-rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
+rule ("OverPy <­tx> / <­fg> setup code") {
     event {
         Ongoing - Global;
     }
