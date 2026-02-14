@@ -86,7 +86,8 @@ settings {
                 "enablePassiveUnlimitedFuel": true
             },
             "mizuki": {
-                "ability1Duration%": 200
+                "ability1Duration%": 200,
+                "enableRolePassive": false
             },
             "vendetta": {
                 "secondaryFireRechargeRate%": 120,

@@ -16582,6 +16582,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -16709,6 +16712,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -16817,6 +16823,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -16951,6 +16960,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -17102,6 +17114,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -17236,6 +17251,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -17384,6 +17402,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -17497,6 +17518,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -17627,6 +17651,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -17751,6 +17778,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -17880,6 +17910,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -18013,6 +18046,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -18149,6 +18185,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -18252,6 +18291,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -18368,6 +18410,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -18516,6 +18561,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -18660,6 +18708,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -18777,6 +18828,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -18901,6 +18955,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -19034,6 +19091,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -19195,6 +19255,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -19330,6 +19393,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -19446,6 +19512,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -19574,6 +19643,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -19700,6 +19772,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -19834,6 +19909,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -19973,6 +20051,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -20100,6 +20181,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -20239,6 +20323,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -20366,6 +20453,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -20512,6 +20602,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -20648,6 +20741,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -20769,6 +20865,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -20880,6 +20979,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -21023,6 +21125,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -21154,6 +21259,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -21280,6 +21388,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "abilityCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -21375,6 +21486,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -21494,6 +21608,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -21617,6 +21734,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -21728,6 +21848,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -21837,6 +21960,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -21966,6 +22092,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22082,6 +22211,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22193,6 +22325,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22296,6 +22431,9 @@
                                     "maximum": 500
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -22419,6 +22557,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22535,6 +22676,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22649,6 +22793,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -22772,6 +22919,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -22884,6 +23034,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -23137,6 +23290,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -23264,6 +23420,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -23372,6 +23531,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -23506,6 +23668,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -23657,6 +23822,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -23791,6 +23959,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -23939,6 +24110,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -24052,6 +24226,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -24182,6 +24359,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -24306,6 +24486,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -24435,6 +24618,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -24568,6 +24754,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -24704,6 +24893,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -24807,6 +24999,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -24923,6 +25118,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -25071,6 +25269,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -25215,6 +25416,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -25332,6 +25536,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -25456,6 +25663,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -25589,6 +25799,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -25750,6 +25963,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -25885,6 +26101,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -26001,6 +26220,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -26129,6 +26351,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -26255,6 +26480,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -26389,6 +26617,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -26528,6 +26759,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -26655,6 +26889,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -26794,6 +27031,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -26921,6 +27161,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -27067,6 +27310,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -27203,6 +27449,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -27324,6 +27573,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -27435,6 +27687,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -27578,6 +27833,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -27709,6 +27967,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -27835,6 +28096,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "abilityCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -27930,6 +28194,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -28049,6 +28316,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -28172,6 +28442,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -28283,6 +28556,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -28392,6 +28668,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -28521,6 +28800,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -28637,6 +28919,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -28748,6 +29033,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -28851,6 +29139,9 @@
                                     "maximum": 500
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -28974,6 +29265,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -29090,6 +29384,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -29204,6 +29501,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -29327,6 +29627,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -29439,6 +29742,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -29692,6 +29998,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -29819,6 +30128,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -29927,6 +30239,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -30061,6 +30376,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -30212,6 +30530,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -30346,6 +30667,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -30494,6 +30818,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -30607,6 +30934,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -30737,6 +31067,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -30861,6 +31194,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -30990,6 +31326,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -31123,6 +31462,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -31259,6 +31601,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -31362,6 +31707,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -31478,6 +31826,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -31626,6 +31977,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -31770,6 +32124,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -31887,6 +32244,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -32011,6 +32371,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -32144,6 +32507,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -32305,6 +32671,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -32440,6 +32809,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -32556,6 +32928,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -32684,6 +33059,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -32810,6 +33188,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -32944,6 +33325,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -33083,6 +33467,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -33210,6 +33597,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -33349,6 +33739,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -33476,6 +33869,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -33622,6 +34018,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -33758,6 +34157,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -33879,6 +34281,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -33990,6 +34395,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -34133,6 +34541,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -34264,6 +34675,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -34390,6 +34804,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "abilityCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -34485,6 +34902,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -34604,6 +35024,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -34727,6 +35150,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -34838,6 +35264,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -34947,6 +35376,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -35076,6 +35508,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35192,6 +35627,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35303,6 +35741,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35406,6 +35847,9 @@
                                     "maximum": 500
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -35529,6 +35973,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35645,6 +36092,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35759,6 +36209,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -35882,6 +36335,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -35994,6 +36450,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -36247,6 +36706,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -36374,6 +36836,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -36482,6 +36947,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -36616,6 +37084,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -36767,6 +37238,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -36901,6 +37375,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -37049,6 +37526,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -37162,6 +37642,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -37292,6 +37775,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -37416,6 +37902,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -37545,6 +38034,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -37678,6 +38170,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -37814,6 +38309,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -37917,6 +38415,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -38033,6 +38534,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -38181,6 +38685,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -38325,6 +38832,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -38442,6 +38952,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -38566,6 +39079,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -38699,6 +39215,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -38860,6 +39379,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -38995,6 +39517,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -39111,6 +39636,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -39239,6 +39767,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -39365,6 +39896,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -39499,6 +40033,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -39638,6 +40175,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -39765,6 +40305,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -39904,6 +40447,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40031,6 +40577,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -40177,6 +40726,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40313,6 +40865,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40434,6 +40989,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40545,6 +41103,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -40688,6 +41249,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40819,6 +41383,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -40945,6 +41512,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "abilityCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -41040,6 +41610,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -41159,6 +41732,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -41282,6 +41858,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -41393,6 +41972,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -41502,6 +42084,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -41631,6 +42216,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -41747,6 +42335,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -41858,6 +42449,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -41961,6 +42555,9 @@
                                     "maximum": 500
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -42084,6 +42681,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -42200,6 +42800,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -42314,6 +42917,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -42437,6 +43043,9 @@
                                 "passiveHealthRegen": {
                                     "type": "boolean"
                                 },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
@@ -42549,6 +43158,9 @@
                                     "type": "boolean"
                                 },
                                 "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
                                     "type": "boolean"
                                 },
                                 "enableAbility1": {
@@ -42943,6 +43555,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -43070,6 +43685,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -43178,6 +43796,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -43312,6 +43933,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -43463,6 +44087,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -43597,6 +44224,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -43745,6 +44375,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -43858,6 +44491,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -43988,6 +44624,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -44112,6 +44751,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -44241,6 +44883,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -44374,6 +45019,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -44510,6 +45158,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -44613,6 +45264,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -44729,6 +45383,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -44877,6 +45534,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -45021,6 +45681,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -45138,6 +45801,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -45262,6 +45928,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -45395,6 +46064,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -45556,6 +46228,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -45691,6 +46366,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -45807,6 +46485,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -45935,6 +46616,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -46061,6 +46745,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -46195,6 +46882,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -46334,6 +47024,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -46461,6 +47154,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -46600,6 +47296,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -46727,6 +47426,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -46873,6 +47575,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -47009,6 +47714,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -47130,6 +47838,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -47241,6 +47952,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -47384,6 +48098,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -47515,6 +48232,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -47641,6 +48361,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "abilityCooldown%": {
                             "type": "number",
                             "minimum": 0,
@@ -47736,6 +48459,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -47855,6 +48581,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -47978,6 +48707,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48089,6 +48821,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48198,6 +48933,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -48327,6 +49065,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48443,6 +49184,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48554,6 +49298,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48657,6 +49404,9 @@
                             "maximum": 500
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -48780,6 +49530,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -48896,6 +49649,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -49010,6 +49766,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -49133,6 +49892,9 @@
                         "passiveHealthRegen": {
                             "type": "boolean"
                         },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -49245,6 +50007,9 @@
                             "type": "boolean"
                         },
                         "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
                             "type": "boolean"
                         },
                         "enableAbility1": {

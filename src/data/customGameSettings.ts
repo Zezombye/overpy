@@ -4951,6 +4951,12 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "tr-TR": "Pasif Can Yenileme",
                     "zh-CN": "被动生命值恢复",
                     "zh-TW": "生命值再生被動技能"
+                },
+                "enableRolePassive": {
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "en-US": "Role Passives",
+                    "zh-CN": "职责被动"
                 }
             },
             "__eachHero__": {
