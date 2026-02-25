@@ -19,6 +19,7 @@
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . -w --outDir out",
         "check-types": "tsc --noEmit",
+        "sync:npm-manifest": "node scripts/sync-out-package-version.mjs",
         "lint": "npx eslint src --ext ts",
         "test": "node esbuild.standalone.js && node runTests.mjs",
         "prepare": "husky",

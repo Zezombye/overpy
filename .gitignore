@@ -2,5 +2,9 @@ node_modules
 *.vsix
 /out/*
 !/out/overpy_standalone.js
+!/out/package.json
+!/out/overpy_standalone.d.ts
+!/out/README.md
+!/out/LICENSE
 .env
 *.cpuprofile

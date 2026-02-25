@@ -1,0 +1,25 @@
+{
+  "name": "overpy",
+  "version": "9.4.16",
+  "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zezombye/overpy"
+  },
+  "license": "GPL-3.0",
+  "keywords": [
+    "overpy",
+    "overwatch",
+    "workshop",
+    "ow",
+    "owws"
+  ],
+  "main": "./overpy_standalone.js",
+  "types": "./overpy_standalone.d.ts",
+  "files": [
+    "overpy_standalone.js",
+    "overpy_standalone.d.ts",
+    "README.md",
+    "LICENSE"
+  ]
+}

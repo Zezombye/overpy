@@ -32,10 +32,8 @@ You first need to install the [pnpm package manager](https://pnpm.io/installatio
 
 npm release note:
 - Keep bumping `package.json` version manually after merge.
-- Manual npm release flow: `pnpm run package` -> `pnpm run sync:npm-manifest` -> `npm publish ./out --access public`.
-- Sync `out/package.json` version from root with `pnpm run sync:npm-manifest`.
-- Publish npm package manually from `out/`: `npm publish ./out --access public`.
-- If the same npm version already exists, publish will fail (npm does not allow overwriting a published version).
+- npm publish is handled automatically by GitHub Actions on `master` when `package.json` version changes, and it publishes from `out/`.
+- If the same npm version already exists, the workflow fails (npm does not allow overwriting a published version).
 - VS Code marketplace publishing remains manual (`pnpm run publish`).
 
 # Installation
