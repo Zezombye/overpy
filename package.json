@@ -21,7 +21,9 @@
         "watch-tests": "tsc -p . -w --outDir out",
         "check-types": "tsc --noEmit",
         "lint": "npx eslint src --ext ts",
-        "test": "node esbuild.standalone.js && node runTests.mjs",
+        "test:core": "node esbuild.standalone.js && node runTests.mjs",
+        "test:cli": "node esbuild.standalone.js && node esbuild.cli.js && node runCliTests.mjs",
+        "test": "pnpm run test:core && pnpm run test:cli",
         "prepare": "husky",
         "publish": "del *.vsix && pnpm run package && pnpm vsce package --no-dependencies && pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
     },
