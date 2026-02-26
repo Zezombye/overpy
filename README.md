@@ -558,9 +558,9 @@ The `#!optimizeForSize` directive prioritizes lowering the number of elements ov
 
 The `#!optimizeStrict` directive disables some optimizations that may cause issues in extreme cases of type conversion. For example:
 
-- A*0 can return vect(0,0,0) instead of 0
-- A+0 and A*1 can return 0 if A is not a number
-- A or true should return A instead of true if A is truthy
+- `A*0` can return `vect(0,0,0)` instead of `0`
+- `A+0` and `A*1` can return `0` if `A` is not a number
+- `A or true` should return `A` instead of `true` if `A` is truthy
 
 Those optimizations (and others) will be disabled so that the behavior of the gamemode will not be altered.
 
