@@ -11,6 +11,8 @@ The VS Code extension includes syntax highlighting, autocompletion, and document
 ![](img/readme_autocomplete1.png)
 ![](img/readme_autocomplete2.png)
 
+The [npm package](#npm-usage) supports both JS/TS API usage and CLI usage.
+
 Join the discord for help & feedback: https://workshop.codes/discord
 
 Play around with the demo: https://zezombye.github.io/overpy/demo
@@ -21,14 +23,55 @@ Thanks to:
 - The Overtool team for providing a way to datamine all translations
 - CactusPuppy for converting OverPy to Typescript
 
-# Development
+# npm Usage
+![NPM Version](https://img.shields.io/npm/v/overpy) ![NPM Type Definitions](https://img.shields.io/npm/types/overpy)
 
-You first need to install the [pnpm package manager](https://pnpm.io/installation). For security reasons, `npm` is not supported.
+Install:
 
-- Install dependencies: `pnpm install`
-- Build in dev and test with the demo: `pnpm run dev`
-- Build `out/overpy_standalone.js`: `pnpm run package`
-- Build and publish to prod: `pnpm run publish`
+- As a dependency: `pnpm i overpy`
+- Global CLI (optional): `pnpm i -g overpy`
+- One-off CLI without install: `npx overpy --help`
+
+JS/TS API usage:
+
+```js
+// JavaScript (CommonJS)
+const overpy = require("overpy");
+
+async function main() {
+    await overpy.readyPromise;
+    const compileResult = await overpy.compile(
+        'rule "hello":\n    @Event global\n    wait(1)\n',
+        "en-US",
+        process.cwd(),
+        "inline.opy"
+    );
+    console.log(compileResult.result);
+}
+
+main().catch(console.error);
+```
+
+```ts
+// TypeScript
+import * as overpy from "overpy";
+
+async function main() {
+    await overpy.readyPromise;
+    const workshopText = "rule(\"hello\") { event { Ongoing - Global; } actions { Wait(1, Ignore Condition); } }";
+    const decompiled = overpy.decompileAllRules(workshopText, "en-US");
+    console.log(decompiled);
+}
+```
+
+CLI usage:
+
+- Compile a file: `overpy compile -i script.opy -o script.txt`
+- Compile from stdin to stdout: `cat script.opy | overpy compile > script.txt`
+- Decompile a file: `overpy decompile -i workshop.txt -o script.opy`
+- Decompile from stdin to stdout: `cat workshop.txt | overpy decompile --ignore-variable-index > script.opy`
+
+Run `overpy --help` to see all options (`-l/--language`, `--root`, `--main-file`, `--ignore-variable-index`, `--ignore-subroutine-index`).
 
 # Installation
 
@@ -73,6 +116,15 @@ You first need to install the [pnpm package manager](https://pnpm.io/installatio
 It is not recommended to constantly switch between Workshop and OverPy, as you will not be able to fully use OverPy to its full potential. Once you have decompiled your gamemode, you should not decompile it again.
 
 You may get warnings when compiling; do not ignore them, as they can lead to bugs in your gamemode. If you are sure some warnings can be ignored, see below for how to disable them.
+
+# Development
+
+You first need to install the [pnpm package manager](https://pnpm.io/installation). For security reasons, `npm` is not supported.
+
+- Install dependencies: `pnpm install`
+- Build in dev and test with the demo: `pnpm run dev`
+- Build `out/overpy_standalone.js`: `pnpm run package`
+- Build and publish to prod: `pnpm run publish`
 
 # General Syntax
 
