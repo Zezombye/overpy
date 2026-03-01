@@ -23,7 +23,18 @@ Thanks to:
 - The Overtool team for providing a way to datamine all translations
 - CactusPuppy for converting OverPy to Typescript
 
-# npm Usage
+
+# Development
+
+You first need to install the [pnpm package manager](https://pnpm.io/installation). For security reasons, `npm` is not supported.
+
+- Install dependencies: `pnpm install`
+- Build in dev and test with the demo: `pnpm run dev`
+- Build `out/overpy_standalone.js`: `pnpm run package`
+- Build and publish to prod: `pnpm run publish`
+
+# NPM usage
+
 ![NPM Version](https://img.shields.io/npm/v/overpy) ![NPM Type Definitions](https://img.shields.io/npm/types/overpy)
 
 Install:
@@ -116,15 +127,6 @@ Run `overpy --help` to see all options (`-l/--language`, `--root`, `--main-file`
 It is not recommended to constantly switch between Workshop and OverPy, as you will not be able to fully use OverPy to its full potential. Once you have decompiled your gamemode, you should not decompile it again.
 
 You may get warnings when compiling; do not ignore them, as they can lead to bugs in your gamemode. If you are sure some warnings can be ignored, see below for how to disable them.
-
-# Development
-
-You first need to install the [pnpm package manager](https://pnpm.io/installation). For security reasons, `npm` is not supported.
-
-- Install dependencies: `pnpm install`
-- Build in dev and test with the demo: `pnpm run dev`
-- Build `out/overpy_standalone.js`: `pnpm run package`
-- Build and publish to prod: `pnpm run publish`
 
 # General Syntax
 

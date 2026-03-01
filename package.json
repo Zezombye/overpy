@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "9.4.20",
+    "version": "9.4.21",
     "scripts": {
         "dev": "node esbuild.standalone.js --watch",
         "compile": "node esbuild.js",
@@ -25,7 +25,7 @@
         "test:cli": "node esbuild.standalone.js && node esbuild.cli.js && node runCliTests.mjs",
         "test": "pnpm run test:core && pnpm run test:cli",
         "prepare": "husky",
-        "publish": "del *.vsix && pnpm run package && pnpm vsce package --no-dependencies && pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version && python upload-to-openvsx.py"
+        "publish": "node publish.js"
     },
     "readme": "README.md",
     "engines": {
