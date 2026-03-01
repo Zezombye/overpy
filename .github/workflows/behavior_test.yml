@@ -30,6 +30,10 @@ jobs:
               run: |
                   pnpm i --frozen-lockfile
 
-            - name: Run tests
+            - name: Run core tests
               run: |
-                  pnpm run test
+                  pnpm run test:core
+
+            - name: Run CLI tests
+              run: |
+                  pnpm run test:cli
