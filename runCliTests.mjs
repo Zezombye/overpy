@@ -6,6 +6,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import colors from "colors";
 
 const cliPath = "./out/overpy_cli.js";
 const nodePath = process.execPath;
@@ -95,4 +96,4 @@ console.log("Running CLI tests...");
     assert.ok(result.stderr.includes("No input provided"), "missing input should print an error message");
 }
 
-console.log("CLI tests passed");
+console.log(colors.bold(colors.green("All CLI tests passed")));
