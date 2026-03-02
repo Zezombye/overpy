@@ -185,6 +185,21 @@ async function getNpmToken() {
         cwd: path.join(__dirname, "npm"),
     });
     console.log("Successfully published to npm");
+
+    // Commit & push if package.json is the only modified file
+    const status = execSync("git status --porcelain", { cwd: __dirname, encoding: "utf-8" }).trim();
+    const modifiedFiles = status.split("\n").filter((l) => l.trim().length > 0);
+    if (modifiedFiles.length === 1 && modifiedFiles[0].trimStart().endsWith(" package.json")) {
+        const version = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf-8")).version;
+        console.log(`\nCommitting and pushing v${version}...`);
+        execSync(`git add package.json && git commit -m "v${version}" && git push`, {
+            stdio: "inherit",
+            cwd: __dirname,
+        });
+    } else if (modifiedFiles.length > 0) {
+        console.log("\nSkipping auto-commit: other files besides package.json are modified.");
+    }
+
     console.log("\nPublish complete.");
 
 })();
