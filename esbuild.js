@@ -2,6 +2,7 @@ const esbuild = require("esbuild");
 
 const production = process.argv.includes("--production");
 const watch = process.argv.includes("--watch");
+const buildAll = process.argv.includes("--all") || process.argv.includes("-all");
 const targets = ["extension", "cli", "standalone"];
 
 /**
@@ -26,25 +27,41 @@ const esbuildProblemMatcherPlugin = {
 
 /**
  * @param {string[]} args
- * @returns {string}
+ * @returns {{ target: string, hasTargetArg: boolean }}
  */
-function getTarget(args) {
+function parseBuildTarget(args) {
+    let target = "extension";
+    let hasTargetArg = false;
+
     for (let i = 0; i < args.length; i++) {
         const arg = args[i];
         if (arg.startsWith("--target=")) {
-            return arg.split("=")[1];
+            target = arg.split("=")[1];
+            hasTargetArg = true;
+            continue;
         }
         if (arg === "--target") {
-            return args[i + 1] ?? "";
+            target = args[i + 1] ?? "";
+            hasTargetArg = true;
         }
     }
-    return "extension";
+
+    return {
+        target,
+        hasTargetArg,
+    };
 }
 
 async function main() {
-    const target = getTarget(process.argv.slice(2));
+    const args = process.argv.slice(2);
+    const { target, hasTargetArg } = parseBuildTarget(args);
 
-    if (!targets.includes(target)) {
+    if (buildAll && hasTargetArg) {
+        console.error("Cannot use --all with --target. Use either --all or --target <name>.");
+        process.exit(1);
+    }
+
+    if (!buildAll && !targets.includes(target)) {
         console.error(`Invalid target "${target}". Available targets: ${targets.join("|")}`);
         process.exit(1);
     }
@@ -85,15 +102,35 @@ async function main() {
         },
     };
 
-    const ctx = await esbuild.context({
-        ...baseOptions,
-        ...targetOptionsMap[target],
-    });
-    if (watch) {
-        await ctx.watch();
-    } else {
-        await ctx.rebuild();
-        await ctx.dispose();
+    const targetsToBuild = buildAll ? targets : [target];
+    const watchContexts = [];
+
+    for (const currentTarget of targetsToBuild) {
+        const ctx = await esbuild.context({
+            ...baseOptions,
+            ...targetOptionsMap[currentTarget],
+        });
+        if (watch) {
+            await ctx.watch();
+            watchContexts.push(ctx);
+        } else {
+            await ctx.rebuild();
+            await ctx.dispose();
+        }
+    }
+
+    if (watchContexts.length > 0) {
+        const disposeAndExit = async () => {
+            await Promise.all(watchContexts.map((ctx) => ctx.dispose()));
+            process.exit(0);
+        };
+
+        process.on("SIGINT", () => {
+            void disposeAndExit();
+        });
+        process.on("SIGTERM", () => {
+            void disposeAndExit();
+        });
     }
 }
 

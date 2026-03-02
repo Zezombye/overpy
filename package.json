@@ -11,6 +11,7 @@
     "scripts": {
         "dev": "node esbuild.js --target standalone --watch",
         "compile": "node esbuild.js",
+        "compile-all": "node esbuild.js --all",
         "compile-cli": "node esbuild.js --target cli",
         "compile-standalone": "node esbuild.js --target standalone",
         "watch": "npm-run-all -p watch:*",
