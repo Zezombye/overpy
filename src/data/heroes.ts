@@ -2493,7 +2493,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
             "ru-RU": "Дополнительный режим огня рельсотрона",
             "th-TH": "อาวุธสำรองเรลกัน",
             "tr-TR": "Raylı Tüfek Alternatif Ateşi",
-            "zh-CN": "电磁炮辅助模式",
+            "zh-CN": "充能射击",
             "zh-TW": "磁軌槍次要攻擊"
         },
         "ability1": {
