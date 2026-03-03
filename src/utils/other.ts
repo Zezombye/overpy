@@ -25,8 +25,8 @@ import { JSInterpreter, reinitInterpreter } from "../jsInterpreter";
 
 import { transform } from "@babel/standalone";
 
-const MAX_SCRIPT_STEP_COUNT = 65_536;
-const MAX_SCRIPT_STACK_SIZE = 1_000_000;
+const MAX_SCRIPT_STEP_COUNT = 655360;
+const MAX_SCRIPT_STACK_SIZE = 100_000_000;
 
 const scriptCache: Record<string, string> = {};
 
