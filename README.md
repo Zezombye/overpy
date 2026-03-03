@@ -764,6 +764,33 @@ You can use `len(GameStatus)` to have the amount of values in the enum and `Game
 
 Note that enum members are inlined, so if you use a value such as `getAllPlayers()` that changes during a game, the value of the enum will also change.
 
+## #!postCompileHook
+
+Runs a JavaScript post-processing script after OverPy finishes compilation. This can effectively resolve certain compilation errors caused by language translation.
+
+```hs
+#!postCompileHook "hooks/postCompileHook.js"
+```
+
+### How it works:
+
+- The compiled Workshop text is exposed to the script as a `content` variable.
+- The final value produced by the script is used as the final compiled output.
+- The hook path is resolved from the main file root path (the compile `rootPath`).
+- Only one `#!postCompileHook` directive can be defined per compilation.
+
+Example `hooks/postCompileHook.js`:
+
+```js
+content = content.replace(/abc/g, "def");
+
+// If the last operation returns an interpreter object,
+// force a plain string as final output.
+content.toString();
+```
+
+The hook script does not need to declare a wrapper function; writing statements that transform `content` is enough.
+
 # Advanced constructs
 
 ## Switches
