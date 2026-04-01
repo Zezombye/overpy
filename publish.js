@@ -190,15 +190,15 @@ async function getNpmToken() {
     // Commit & push if package.json is the only modified file
     const status = execSync("git status --porcelain", { cwd: __dirname, encoding: "utf-8" }).trim();
     const modifiedFiles = status.split("\n").filter((l) => l.trim().length > 0);
-    if (modifiedFiles.length === 1 && modifiedFiles[0].trimStart().endsWith(" package.json")) {
+    if (modifiedFiles.every(f => f.trim().match(/^M\s+(package\.json|out\/overpy_standalone\.js|customGameSettingsSchema\.json)$/))) {
         const version = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf-8")).version;
         console.log(`\nCommitting and pushing v${version}...`);
-        execSync(`git add package.json && git commit -m "v${version}" && git push`, {
+        execSync(`git add . && git commit -m "v${version}" && git push`, {
             stdio: "inherit",
             cwd: __dirname,
         });
     } else if (modifiedFiles.length > 0) {
-        console.log("\nSkipping auto-commit: other files besides package.json are modified.");
+        console.log("\nSkipping auto-commit: other files besides package.json, out/overpy_standalone.js, or customGameSettingsSchema.json are modified.");
     }
 
     console.log("\nPublish complete.");
