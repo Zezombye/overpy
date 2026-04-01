@@ -90,6 +90,10 @@ export function tokenize(content: string): LogicalLine[] {
 
     let i = 0;
 
+    // Track the fileStack position where the first unclosed bracket was opened
+    // This allows us to report accurate error locations instead of the current (modified) fileStack
+    let unclosedBracketFileStack: FileStackMember[] | undefined = undefined;
+
     function addToken(text: string) {
         if (text.length === 0) {
             error("Token is empty, lexer broke");
@@ -382,6 +386,11 @@ export function tokenize(content: string): LogicalLine[] {
         }
         if (content[i] === "(" || content[i] === "[" || content[i] === "{") {
             bracketsLevel++;
+            // Record the fileStack position when opening a bracket at level 0
+            // This is used to report accurate error locations for unclosed brackets
+            if (bracketsLevel === 1) {
+                unclosedBracketFileStack = getFileStackCopy();
+            }
             addToken(content[i]);
             continue;
         }
@@ -589,7 +598,9 @@ export function tokenize(content: string): LogicalLine[] {
     }
 
     if (bracketsLevel > 0) {
-        error("Found end of file, but a bracket isn't closed");
+        // Use the recorded fileStack to report accurate line numbers
+        // The current fileStack has been modified by moveCursor() during tokenization
+        error("Found end of file, but a bracket isn't closed", unclosedBracketFileStack);
     }
 
     if (DEBUG_MODE) {
