@@ -113,10 +113,16 @@ async function main() {
     fs.copyFileSync(quickJSWasmSourcePath, quickJSWasmOutputPath);
 
     for (const currentTarget of targetsToBuild) {
-        const ctx = await esbuild.context({
+
+        const options = {
             ...baseOptions,
             ...targetOptionsMap[currentTarget],
-        });
+        };
+        if (currentTarget === "standalone") {
+            options.minify = false; //bugs out with minification
+        }
+
+        const ctx = await esbuild.context(options);
         if (watch) {
             await ctx.watch();
             watchContexts.push(ctx);

@@ -16,7 +16,7 @@
         "compile-extension": "node esbuild.js --target extension",
         "compile-standalone": "node esbuild.js --target standalone",
         "watch": "npm-run-all -p watch:*",
-        "watch:esbuild": "node esbuild.js --watch",
+        "watch:esbuild": "node esbuild.js --watch --all",
         "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
         "package": "pnpm run check-types && pnpm run lint && pnpm run test && node esbuild.js --production --all && node generateJsonSchema.mjs",
         "compile-tests": "tsc -p . --outDir out",
