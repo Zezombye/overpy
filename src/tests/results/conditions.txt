@@ -131,3 +131,54 @@ rule ("lone elif/else") {
     }
 }
 
+rule ("optimized out empty ifs & if/elif false/true") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 2);
+        Set Global Variable(A, 2);
+        Set Global Variable(B, 3);
+        Set Global Variable(C, 6);
+        Modify Global Variable(D, Add, True);
+        Set Global Variable(A, 2);
+        Set Global Variable(B, 4);
+        If(Global.A);
+            Set Global Variable(B, 6);
+        End;
+        Modify Global Variable(D, Add, True);
+        If(Global.A);
+            Modify Global Variable(B, Add, True);
+        Else If(Global.C);
+            Modify Global Variable(D, Add, True);
+        Else;
+            Modify Global Variable(E, Add, True);
+        End;
+        Skip(3);
+        If(True);
+            Set Global Variable(A, 2);
+        Else If(Global.A);
+            //lbl_1:
+            Set Global Variable(A, 3);
+        End;
+        Set Global Variable(B, 3);
+        Skip(True);
+        If(False);
+            //lbl_2:
+            Set Global Variable(B, 6);
+        End;
+        Set Global Variable(B, 9);
+        Set Global Variable(C, 4);
+        Set Global Variable(A, 3);
+    }
+}
+
+rule ("optimized out empty if at end of rule") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(A, Add, True);
+    }
+}
+

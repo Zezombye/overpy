@@ -1079,9 +1079,7 @@ rule ("skip assembling heroes") {
         Is Assembling Heroes == True;
     }
     actions {
-        If(False);
-        Else;
-            Set Match Time(10);
+        Set Match Time(10);
     }
 }
 
@@ -1131,10 +1129,7 @@ rule ("init player") {
         Set Player Variable(Event Player, statsUpgradeHeroSwitchShadowCost, 75);
         Set Player Variable(Event Player, statsMoneyKill, 5);
         Set Player Variable(Event Player, statsStealingSpeed, 1);
-        If(False);
-        Else;
-            Set Player Variable(Event Player, statsBaseDelay, 4);
-        End;
+        Set Player Variable(Event Player, statsBaseDelay, 4);
         Set Player Variable(Event Player, isStealingActive, False);
         Set Player Variable(Event Player, playerBaseLocation, Vector(0, -1000, 0));
         Set Player Variable(Event Player, playerObjectInBase, Null);
@@ -2326,8 +2321,7 @@ rule ("failsafe") {
         Ongoing - Global;
     }
     actions {
-        If(True);
-            Create HUD Text(All Players(All Teams), Custom String("Warning: obfuscation is disabled!"), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Custom String("Warning: obfuscation is disabled!"), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
     }
 }
 

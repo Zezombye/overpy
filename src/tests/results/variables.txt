@@ -23,3 +23,17 @@ rule ("variables") {
     }
 }
 
+rule ("numbers") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 74940);
+        Set Global Variable(A, -74940);
+        Set Global Variable(A, -292);
+        Set Global Variable(A, 74940);
+        Set Global Variable(A, 292);
+        Set Global Variable(A, 1e10);
+    }
+}
+
