@@ -934,6 +934,10 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
+            if (name.startsWith("0x")) {
+                //Convert hex numbers to decimal. Do not do that for all numbers, to keep stuff like 1e10 which is accepted by the workshop.
+                name = parseInt(name, 16).toString();
+            }
             return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 

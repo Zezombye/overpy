@@ -270,7 +270,7 @@
                     if (stream.match(/@\w+\b/)) {
                         return "annotation";
                     }
-                    if (stream.match(/\b[+-]?(\d*\.)?\d+\b/)) {
+                    if (stream.match(/\b[+-]?((\d*\.)?\d+|0x[0-9a-fA-F]+)\b/)) {
                         return "number";
                     }
                     if (stream.match(/[A-Za-z\d_]+(?=:)/)) {

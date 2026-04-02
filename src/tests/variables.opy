@@ -10,3 +10,11 @@ rule "variables":
     
     foo = bar+A+E
     eventPlayer.foo = eventPlayer.bar+eventPlayer.A+eventPlayer.E
+
+rule "numbers":
+    A = --0x124BC
+    A = -0x124BC
+    A = -0x124
+    A = 0x124BC
+    A = 0x124
+    A = 1e10

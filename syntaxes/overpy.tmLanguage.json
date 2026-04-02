@@ -90,7 +90,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "\\b[+-]?(\\d*\\.)?\\d+\\b"
+                    "match": "\\b[+-]?((\\d*\\.)?\\d+|0x[0-9a-fA-F]+)\\b"
                 }
             ]
         },
