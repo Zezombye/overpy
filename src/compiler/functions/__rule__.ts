@@ -18,12 +18,14 @@
 "use strict";
 
 import { fileStack, enableOptimization, setFileStack } from "../../globalVars";
-import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
+import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions, getAstForTrue } from "../../utils/ast";
 import { debug, error } from "../../utils/logging";
 
 astParsingFunctions.__rule__ = function (content) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
+    //Some control flow optimizations with if/elif/else cannot be made safely at all if any goto is encountered.
+    var isGotoEncountered = false;
 
     //Check if an instruction other than a control flow statement has been encountered.
     var hasMeaningfulInstructionBeenEncountered = false;
@@ -40,6 +42,9 @@ astParsingFunctions.__rule__ = function (content) {
             //Check for a dynamic goto.
             if ((children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__") || (children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__")) {
                 isRelativeGotoEncountered = true;
+            }
+            if (children[i].name === "__skip__" || children[i].name === "__skipIf__") {
+                isGotoEncountered = true;
             }
 
             //Check that the label isn't already declared.
@@ -92,10 +97,76 @@ astParsingFunctions.__rule__ = function (content) {
 
             iterateOnRuleActions(children[i].children);
 
-            //Remove useless instructions, if no relative goto has been encountered.
-            if (!isRelativeGotoEncountered && children[i].name === "pass") {
-                children.splice(i, 1);
-                i--;
+            if (!isRelativeGotoEncountered) {
+
+                //Remove useless instructions
+                if (children[i].name === "pass") {
+                    children.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                if (children[i].name === "__if__") {
+                    if (children[i].children.length === 0) {
+                        if (i === children.length - 1 || (children[i + 1].name !== "__else__" && children[i + 1].name !== "__elif__")) {
+                            
+                            //Remove empty "If" statements, if not followed by an "Else" or "Else If".
+                            children.splice(i, 1);
+                            
+                            if (i < children.length && children[i].name === "__end__") {
+                                children.splice(i, 1);
+                            }
+                            i--;
+                            continue;
+                        }
+                    }
+                    //Note: if there is a goto we also have to check if the children's length is 0, because otherwise there might be a label inside the if that we shouldn't remove. The optimization in __if__.ts should correctly optimize out all children if the if is falsy and can be removed.
+                    if (isDefinitelyFalsy(children[i].args[0]) && (children[i].children.length === 0 || !isGotoEncountered)) {
+                        if (children[i+1].name === "__else__") {
+                            //Remove the current if and replace else by if true (easier then to optimize for further else/elifs)
+                            children[i+1].name = "__if__";
+                            children[i+1].args = [getAstForTrue()];
+                            children.splice(i, 1);
+                            i--;
+                            continue;
+                        } else if (children[i+1].name === "__elif__") {
+                            //Replace the "elif" by an "if", and remove the current "if"
+                            children[i+1].name = "__if__";
+                            children.splice(i, 1);
+                            i--;
+                            continue;
+                        }
+                    }
+                }
+                if (children[i].name === "__if__" || children[i].name === "__elif__") {
+                    if (isDefinitelyTruthy(children[i].args[0]) && !isGotoEncountered) {
+                        //Replace "If/Elif" statements with a condition that is always true by their children or by an "Else".
+                        //We need to check that no goto was encountered, otherwise the label might be in the else/elifs that we will be removing.
+                        //First, remove the rest of the elif/else chain
+                        while (i < children.length - 1 && (children[i + 1].name === "__else__" || children[i + 1].name === "__elif__" || children[i + 1].name === "__end__")) {
+                            if (children[i + 1].name === "__end__") {
+                                break;
+                            } else {
+                                children.splice(i + 1, 1);
+                            }
+                        }
+
+                        if (children[i].name === "__if__") {
+                            //Replace the "if" by its children, and remove the "end" if present
+                            if (i < children.length - 1 && children[i + 1].name === "__end__") {
+                                children.splice(i + 1, 1);
+                            }
+                            
+                            children.splice(i, 1, ...children[i].children);
+                            i--;
+                            continue;
+                        } else if (children[i].name === "__elif__") {
+                            //Replace the elif by an else
+                            children[i].name = "__else__";
+                            children[i].args = [];
+                            continue;
+                        }
+                    }
+                }
             }
         }
     }
