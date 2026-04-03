@@ -187,18 +187,25 @@ async function getNpmToken() {
     });
     console.log("Successfully published to npm");
 
-    // Commit & push if package.json is the only modified file
+    // Commit & push
     const status = execSync("git status --porcelain", { cwd: __dirname, encoding: "utf-8" }).trim();
     const modifiedFiles = status.split("\n").filter((l) => l.trim().length > 0);
-    if (modifiedFiles.every(f => f.trim().match(/^M\s+(package\.json|out\/overpy_standalone\.js|customGameSettingsSchema\.json)$/))) {
-        const version = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf-8")).version;
-        console.log(`\nCommitting and pushing v${version}...`);
-        execSync(`git add . && git commit -m "v${version}" && git push`, {
+    const version = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf-8")).version;
+
+    if (modifiedFiles.length > 0) {
+        let commitMsg;
+        if (modifiedFiles.every(f => f.trim().match(/^M\s+(package\.json|out\/overpy_standalone\.js|customGameSettingsSchema\.json)$/))) {
+            commitMsg = `v${version}`;
+        } else {
+            const userMsg = await prompt(`Enter a commit message for release ${version}: `);
+            commitMsg = `v${version} - ${userMsg}`;
+        }
+        console.log(`\nCommitting and pushing ${commitMsg}...`);
+        let commitMsgEscaped = commitMsg.replace(/"/g, '\\"');
+        execSync(`git add . && git commit -m "${commitMsgEscaped}" && git tag -a "v${version}" -m "${commitMsgEscaped}" && git push --follow-tags`, {
             stdio: "inherit",
             cwd: __dirname,
         });
-    } else if (modifiedFiles.length > 0) {
-        console.log("\nSkipping auto-commit: other files besides package.json, out/overpy_standalone.js, or customGameSettingsSchema.json are modified.");
     }
 
     console.log("\nPublish complete.");

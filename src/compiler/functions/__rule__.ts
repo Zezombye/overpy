@@ -137,6 +137,17 @@ astParsingFunctions.__rule__ = function (content) {
                         }
                     }
                 }
+                if (children[i].name === "__elif__") {
+                    if (isDefinitelyFalsy(children[i].args[0]) && (children[i].children.length === 0 || !isGotoEncountered)) {
+                        if (i > 0 && (children[i-1].name === "__if__" || children[i-1].name === "__elif__")) {
+                            //Don't deal with lone elifs, idk how they work and I'm too lazy to figure it out
+                            //Since the elif is part of an if/elif/else/end chain, just removing the elif is enough
+                            children.splice(i, 1);
+                            i--;
+                            continue;
+                        }
+                    }
+                }
                 if (children[i].name === "__if__" || children[i].name === "__elif__") {
                     if (isDefinitelyTruthy(children[i].args[0]) && !isGotoEncountered) {
                         //Replace "If/Elif" statements with a condition that is always true by their children or by an "Else".

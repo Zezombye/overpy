@@ -33,7 +33,7 @@ astParsingFunctions.__elif__ = function (content) {
         if (["__if__", "__elif__", "__else__"].includes(content.parent.name)) {
             error("Found 'elif', but no 'if' or 'elif' before it");
         }
-        warn("w_lone_else", "Found 'else', but no 'if' or 'elif' before it");
+        warn("w_lone_else", "Found 'elif', but no 'if' or 'elif' before it");
     }
     if (content.parent.childIndex === 0 || ["__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
         warn("w_lone_elif", "Found 'elif' directly after an 'else'");

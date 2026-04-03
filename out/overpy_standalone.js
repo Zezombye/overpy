@@ -44669,7 +44669,7 @@ astParsingFunctions.__elif__ = function(content) {
     if (["__if__", "__elif__", "__else__"].includes(content.parent.name)) {
       error("Found 'elif', but no 'if' or 'elif' before it");
     }
-    warn("w_lone_else", "Found 'else', but no 'if' or 'elif' before it");
+    warn("w_lone_else", "Found 'elif', but no 'if' or 'elif' before it");
   }
   if (content.parent.childIndex === 0 || ["__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
     warn("w_lone_elif", "Found 'elif' directly after an 'else'");
@@ -45405,6 +45405,15 @@ astParsingFunctions.__rule__ = function(content) {
               continue;
             } else if (children[i2 + 1].name === "__elif__") {
               children[i2 + 1].name = "__if__";
+              children.splice(i2, 1);
+              i2--;
+              continue;
+            }
+          }
+        }
+        if (children[i2].name === "__elif__") {
+          if (isDefinitelyFalsy(children[i2].args[0]) && (children[i2].children.length === 0 || !isGotoEncountered)) {
+            if (i2 > 0 && (children[i2 - 1].name === "__if__" || children[i2 - 1].name === "__elif__")) {
               children.splice(i2, 1);
               i2--;
               continue;

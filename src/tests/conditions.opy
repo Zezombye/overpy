@@ -99,6 +99,10 @@ rule "optimized out empty ifs & if/elif false/true":
         B = 5
     elif A:
         B = 6
+    elif false:
+        H++
+    else:
+        K++
 
     if false:
         B++

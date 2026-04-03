@@ -10,6 +10,7 @@ variables {
         7: H
         8: I
         9: J
+        10: K
 }
 //Optimize for size enabled
 rule ("if/else") {
@@ -145,6 +146,8 @@ rule ("optimized out empty ifs & if/elif false/true") {
         Set Global Variable(B, 4);
         If(Global.A);
             Set Global Variable(B, 6);
+        Else;
+            Modify Global Variable(K, Add, True);
         End;
         Modify Global Variable(D, Add, True);
         If(Global.A);
