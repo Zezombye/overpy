@@ -2,10 +2,8 @@ name: Auto GitHub Release
 
 on:
     push:
-        branches:
-            - master
-        paths:
-            - package.json
+        tags:
+            - "v*"
 
 permissions:
     contents: write
@@ -17,38 +15,17 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v6
               with:
-                  fetch-depth: 0
+                  fetch-depth: 1
 
-            - name: Check package.json version change
-              id: version_check
+            - name: Create GitHub Release (skip if exists)
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               shell: bash
               run: |
-                  if ! git rev-parse --verify HEAD^ >/dev/null 2>&1; then
-                      echo "No previous commit to compare."
-                      echo "should_release=false" >> "$GITHUB_OUTPUT"
+                  tag="${{ github.ref_name }}"
+                  if gh release view "$tag" >/dev/null 2>&1; then
+                      echo "Release $tag already exists. Skipping."
                       exit 0
+                  else
+                      gh release create "$tag" --generate-notes --title "$tag"
                   fi
-
-                  prev_version="$(git show HEAD^:package.json | node -e "let data=''; process.stdin.on('data', c => data += c); process.stdin.on('end', () => process.stdout.write(JSON.parse(data).version));")"
-                  curr_version="$(node -e "const fs=require('fs'); process.stdout.write(JSON.parse(fs.readFileSync('package.json', 'utf8')).version);")"
-
-                  echo "Previous version: $prev_version"
-                  echo "Current version: $curr_version"
-
-                  if [ "$prev_version" = "$curr_version" ]; then
-                      echo "Version unchanged. Skip release."
-                      echo "should_release=false" >> "$GITHUB_OUTPUT"
-                      exit 0
-                  fi
-
-                  echo "should_release=true" >> "$GITHUB_OUTPUT"
-                  echo "new_version=$curr_version" >> "$GITHUB_OUTPUT"
-                  echo "release_tag=v$curr_version" >> "$GITHUB_OUTPUT"
-
-            - name: Create or update GitHub Release
-              if: steps.version_check.outputs.should_release == 'true'
-              uses: softprops/action-gh-release@v2
-              with:
-                  tag_name: ${{ steps.version_check.outputs.release_tag }}
-                  name: ${{ steps.version_check.outputs.release_tag }}
-                  generate_release_notes: true
