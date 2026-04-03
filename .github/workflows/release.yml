@@ -1,0 +1,31 @@
+name: Auto GitHub Release
+
+on:
+    push:
+        tags:
+            - "v*"
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 1
+
+            - name: Create GitHub Release (skip if exists)
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              shell: bash
+              run: |
+                  tag="${{ github.ref_name }}"
+                  if gh release view "$tag" >/dev/null 2>&1; then
+                      echo "Release $tag already exists. Skipping."
+                      exit 0
+                  else
+                      gh release create "$tag" --generate-notes --title "$tag"
+                  fi
