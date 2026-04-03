@@ -264,7 +264,7 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Disable Movement Collision With Players</code>     | <code><i>player</i>.disablePlayerCollision()</code>
 <code>Divide(A, 3)</code> | <code>A / 3</code>
 <code>Down</code>                                        | <code>Vector.DOWN</code>
-<code>Else</code>                                        | <code>else:</code>
+<code>Else</code>                                        | <code>else:</code>  
 <code>Else If</code>                                     | <code>elif:</code>
 <code>Empty Array</code>                                 | <code>[]</code>
 <code>End</code>                                         | Go back a level of indentation
