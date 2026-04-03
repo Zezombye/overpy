@@ -15,9 +15,9 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v6
               with:
-                  fetch-depth: 1
+                  fetch-depth: 0
 
-            - name: Create GitHub Release (skip if exists)
+            - name: Create GitHub Release
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               shell: bash
@@ -26,6 +26,19 @@ jobs:
                   if gh release view "$tag" >/dev/null 2>&1; then
                       echo "Release $tag already exists. Skipping."
                       exit 0
-                  else
-                      gh release create "$tag" --generate-notes --title "$tag"
                   fi
+
+                  prev_tag="$(git describe --tags --abbrev=0 "${tag}^" 2>/dev/null || true)"
+                  if [ -n "$prev_tag" ]; then
+                      commit_range="${prev_tag}..${tag}"
+                  else
+                      commit_range="$tag"
+                  fi
+
+                  notes_file="$(mktemp)"
+                  {
+                      echo "## What's Changed"
+                      echo
+                      git log --pretty='- %h %s' "$commit_range"
+                  } > "$notes_file"
+                  gh release create "$tag" --title "$tag" --notes-file "$notes_file"
