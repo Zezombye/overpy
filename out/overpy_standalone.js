@@ -45328,10 +45328,9 @@ astParsingFunctions.__raiseToPower__ = function(content) {
 astParsingFunctions.__rule__ = function(content) {
   var isRelativeGotoEncountered = false;
   var isGotoEncountered = false;
-  var hasMeaningfulInstructionBeenEncountered = false;
   var declaredLabels = [];
   function iterateOnRuleActions(children) {
-    for (var i2 = 0; i2 < children.length; i2++) {
+    for (let i2 = 0; i2 < children.length; i2++) {
       setFileStack(content.fileStack);
       if (children[i2].name === "__skip__" && children[i2].args[0].name !== "__distanceTo__" || children[i2].name === "__skipIf__" && children[i2].args[1].name !== "__distanceTo__") {
         isRelativeGotoEncountered = true;
@@ -45344,39 +45343,6 @@ astParsingFunctions.__rule__ = function(content) {
           error("Label '" + content.name + "' is already declared in this rule");
         }
         declaredLabels.push(content.name);
-      }
-      if (!hasMeaningfulInstructionBeenEncountered && ![
-        "__abortIf__",
-        "__abortIfConditionIsFalse__",
-        "__abortIfConditionIsTrue__",
-        "break",
-        "continue",
-        "__disableOptimizations__",
-        "__disableOptimizeForSize__",
-        "__disableOptimizeStrict__",
-        "__enableOptimizations__",
-        "__enableOptimizeForSize__",
-        "__enableOptimizeStrict__",
-        "__else__",
-        "__elif__",
-        "__end__",
-        //"__for__", //meaningful because it modifies the loop variable
-        //"__forGlobalVariable__",
-        //"__forPlayerVariable__",
-        "__if__",
-        "loop",
-        "__loopIf__",
-        "__loopIfConditionIsFalse__",
-        "__loopIfConditionIsTrue__",
-        "pass",
-        "return",
-        "__skip__",
-        "__skipIf__",
-        //"wait",
-        "__while__"
-      ].includes(children[i2].name) && children[i2].type !== "Label" && !(children[i2].name === "wait" && content.ruleAttributes.event !== "__subroutine__")) {
-        debug("meaningful instruction :" + children[i2].name);
-        hasMeaningfulInstructionBeenEncountered = true;
       }
       iterateOnRuleActions(children[i2].children);
       if (!isRelativeGotoEncountered) {
@@ -45397,7 +45363,14 @@ astParsingFunctions.__rule__ = function(content) {
             }
           }
           if (isDefinitelyFalsy(children[i2].args[0]) && (children[i2].children.length === 0 || !isGotoEncountered)) {
-            if (children[i2 + 1].name === "__else__") {
+            if (i2 === children.length - 1 || children[i2 + 1].name === "__end__") {
+              children.splice(i2, 1);
+              if (i2 < children.length && children[i2].name === "__end__") {
+                children.splice(i2, 1);
+              }
+              i2--;
+              continue;
+            } else if (children[i2 + 1].name === "__else__") {
               children[i2 + 1].name = "__if__";
               children[i2 + 1].args = [getAstForTrue()];
               children.splice(i2, 1);
@@ -45446,10 +45419,51 @@ astParsingFunctions.__rule__ = function(content) {
       }
     }
   }
+  function checkForMeaningfulInstructions(instructions) {
+    for (let instruction of instructions) {
+      if (![
+        "__abortIf__",
+        "__abortIfConditionIsFalse__",
+        "__abortIfConditionIsTrue__",
+        "break",
+        "continue",
+        "__disableOptimizations__",
+        "__disableOptimizeForSize__",
+        "__disableOptimizeStrict__",
+        "__enableOptimizations__",
+        "__enableOptimizeForSize__",
+        "__enableOptimizeStrict__",
+        "__else__",
+        "__elif__",
+        "__end__",
+        //"__for__", //meaningful because it modifies the loop variable
+        //"__forGlobalVariable__",
+        //"__forPlayerVariable__",
+        "__if__",
+        "loop",
+        "__loopIf__",
+        "__loopIfConditionIsFalse__",
+        "__loopIfConditionIsTrue__",
+        "pass",
+        "return",
+        "__skip__",
+        "__skipIf__",
+        //"wait",
+        "__while__"
+      ].includes(instruction.name) && instruction.type !== "Label" && !(instruction.name === "wait" && content.ruleAttributes.event !== "__subroutine__")) {
+        debug("meaningful instruction :" + instruction.name);
+        return true;
+      }
+      if (checkForMeaningfulInstructions(instruction.children)) {
+        return true;
+      }
+    }
+    return false;
+  }
   if (enableOptimization) {
     iterateOnRuleActions(content.children);
   }
-  if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
+  if (enableOptimization && !checkForMeaningfulInstructions(content.children) && !content.ruleAttributes.isDelimiter) {
     return getAstForUselessInstruction();
   }
   function resolveDistanceTo(content2) {
@@ -65313,7 +65327,7 @@ rule "Disable inspector":
   }
   if (DEBUG_MODE) {
     for (var elem of astRules) {
-      console.log(astToString2(elem));
+      console.log(astToString3(elem));
     }
     console.log(astRules);
   }
@@ -67736,7 +67750,7 @@ function nthOfNumber(nb) {
     return nb + "th";
   }
 }
-function astToString2(ast, nbTabs2 = 0) {
+function astToString3(ast, nbTabs2 = 0) {
   var result = "";
   if (ast === void 0) {
     return "__undefined__";
@@ -67745,14 +67759,14 @@ function astToString2(ast, nbTabs2 = 0) {
   if (ast.args === void 0) {
     result += "(__undefined__)";
   } else if (ast.args.length > 0) {
-    result += "(" + ast.args.map((x) => astToString2(x)).join(", ") + ")";
+    result += "(" + ast.args.map((x) => astToString3(x)).join(", ") + ")";
   }
   if (ast.children === void 0) {
     result += ":__undefined__";
   } else if (ast.children.length > 0) {
     result += ":\n";
     for (var child of ast.children) {
-      result += tabLevel(nbTabs2 + 1) + astToString2(child, nbTabs2 + 1) + "\n";
+      result += tabLevel(nbTabs2 + 1) + astToString3(child, nbTabs2 + 1) + "\n";
     }
   }
   return result;

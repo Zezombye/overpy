@@ -151,3 +151,9 @@ rule "optimized out empty if at end of rule":
     A++
     if B:
         A = A
+
+rule "optimized out elif false at end of rule":
+    if false:
+        A = 1
+    elif false:
+        A = 2

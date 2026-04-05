@@ -19,7 +19,7 @@
 
 import { fileStack, enableOptimization, setFileStack } from "../../globalVars";
 import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions, getAstForTrue } from "../../utils/ast";
-import { debug, error } from "../../utils/logging";
+import { astToString, debug, error } from "../../utils/logging";
 
 astParsingFunctions.__rule__ = function (content) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
@@ -27,16 +27,13 @@ astParsingFunctions.__rule__ = function (content) {
     //Some control flow optimizations with if/elif/else cannot be made safely at all if any goto is encountered.
     var isGotoEncountered = false;
 
-    //Check if an instruction other than a control flow statement has been encountered.
-    var hasMeaningfulInstructionBeenEncountered = false;
-
     //To check that there is no duplicate label.
     var declaredLabels: string[] = [];
 
     function iterateOnRuleActions(children: Ast[]) {
-        //Remove useless instructions and check for meaningful intructions.
+        //Remove useless instructions and optimize if/elif/else structure.
 
-        for (var i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             setFileStack(content.fileStack);
 
             //Check for a dynamic goto.
@@ -53,46 +50,6 @@ astParsingFunctions.__rule__ = function (content) {
                     error("Label '" + content.name + "' is already declared in this rule");
                 }
                 declaredLabels.push(content.name);
-            }
-
-            //Check if the instruction is meaningful.
-            if (
-                !hasMeaningfulInstructionBeenEncountered &&
-                ![
-                    "__abortIf__",
-                    "__abortIfConditionIsFalse__",
-                    "__abortIfConditionIsTrue__",
-                    "break",
-                    "continue",
-                    "__disableOptimizations__",
-                    "__disableOptimizeForSize__",
-                    "__disableOptimizeStrict__",
-                    "__enableOptimizations__",
-                    "__enableOptimizeForSize__",
-                    "__enableOptimizeStrict__",
-                    "__else__",
-                    "__elif__",
-                    "__end__",
-                    //"__for__", //meaningful because it modifies the loop variable
-                    //"__forGlobalVariable__",
-                    //"__forPlayerVariable__",
-                    "__if__",
-                    "loop",
-                    "__loopIf__",
-                    "__loopIfConditionIsFalse__",
-                    "__loopIfConditionIsTrue__",
-                    "pass",
-                    "return",
-                    "__skip__",
-                    "__skipIf__",
-                    //"wait",
-                    "__while__",
-                ].includes(children[i].name) &&
-                children[i].type !== "Label" &&
-                !(children[i].name === "wait" && content.ruleAttributes.event !== "__subroutine__")
-            ) {
-                debug("meaningful instruction :" + children[i].name);
-                hasMeaningfulInstructionBeenEncountered = true;
             }
 
             iterateOnRuleActions(children[i].children);
@@ -121,7 +78,16 @@ astParsingFunctions.__rule__ = function (content) {
                     }
                     //Note: if there is a goto we also have to check if the children's length is 0, because otherwise there might be a label inside the if that we shouldn't remove. The optimization in __if__.ts should correctly optimize out all children if the if is falsy and can be removed.
                     if (isDefinitelyFalsy(children[i].args[0]) && (children[i].children.length === 0 || !isGotoEncountered)) {
-                        if (children[i+1].name === "__else__") {
+                        if (i === children.length - 1 || children[i+1].name === "__end__") {
+                            //Remove the current if
+                            children.splice(i, 1);
+                            
+                            if (i < children.length && children[i].name === "__end__") {
+                                children.splice(i, 1);
+                            }
+                            i--;
+                            continue;
+                        } else if (children[i+1].name === "__else__") {
                             //Remove the current if and replace else by if true (easier then to optimize for further else/elifs)
                             children[i+1].name = "__if__";
                             children[i+1].args = [getAstForTrue()];
@@ -181,11 +147,60 @@ astParsingFunctions.__rule__ = function (content) {
             }
         }
     }
+
+    function checkForMeaningfulInstructions(instructions: Ast[]): boolean {
+        //Check if an instruction other than a control flow statement has been encountered.
+        for (let instruction of instructions) {
+            if (
+                ![
+                    "__abortIf__",
+                    "__abortIfConditionIsFalse__",
+                    "__abortIfConditionIsTrue__",
+                    "break",
+                    "continue",
+                    "__disableOptimizations__",
+                    "__disableOptimizeForSize__",
+                    "__disableOptimizeStrict__",
+                    "__enableOptimizations__",
+                    "__enableOptimizeForSize__",
+                    "__enableOptimizeStrict__",
+                    "__else__",
+                    "__elif__",
+                    "__end__",
+                    //"__for__", //meaningful because it modifies the loop variable
+                    //"__forGlobalVariable__",
+                    //"__forPlayerVariable__",
+                    "__if__",
+                    "loop",
+                    "__loopIf__",
+                    "__loopIfConditionIsFalse__",
+                    "__loopIfConditionIsTrue__",
+                    "pass",
+                    "return",
+                    "__skip__",
+                    "__skipIf__",
+                    //"wait",
+                    "__while__",
+                ].includes(instruction.name) &&
+                instruction.type !== "Label" &&
+                !(instruction.name === "wait" && content.ruleAttributes.event !== "__subroutine__")
+            ) {
+                debug("meaningful instruction :" + instruction.name);
+                return true;
+            }
+            if (checkForMeaningfulInstructions(instruction.children)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     if (enableOptimization) {
         iterateOnRuleActions(content.children);
     }
 
-    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
+    if (enableOptimization && !checkForMeaningfulInstructions(content.children) && !content.ruleAttributes.isDelimiter) {
         return getAstForUselessInstruction();
     }
 
