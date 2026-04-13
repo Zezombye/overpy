@@ -276,89 +276,89 @@ rule "[Setup] init gamemode settings":
 
 rule "[Setup] init map location":
     #Black Forest
-    if getCurrentMap() in [Map.BLACK_FOREST, Map.BLACK_FOREST_WINTER]:
+    if __getCurrentMap__() in [Map.BLACK_FOREST, Map.BLACK_FOREST_WINTER]:
         MapPosition = random.choice([vect(-20.9, 12.5, 7.52), vect(15.377, 11.8, -19.31)])
         #Blizzard World
-    elif getCurrentMap() == Map.BLIZZ_WORLD or getCurrentMap() == Map.BLIZZ_WORLD_WINTER:
+    elif __getCurrentMap__() == Map.BLIZZ_WORLD or __getCurrentMap__() == Map.BLIZZ_WORLD_WINTER:
         MapPosition = random.choice([vect(-54.44, -0.2, 110.26), vect(-45.93, -0.2, 78.22), vect(-122.04, 0, 110.5), vect(-49.87, 4.78, 93.18), vect(-9.639, -3.8, -13.73), vect(8.759, -3.59, -28.836)])
         #Dorado
-    elif getCurrentMap() == Map.DORADO:
+    elif __getCurrentMap__() == Map.DORADO:
         MapPosition = random.choice([vect(184.13, 14.1, 40.75), vect(131.118, 11.3, 26.112), vect(26.527, 4.2, -15.76), vect(-21.188, 0, -10.738)])
         #Ecopoint: Antarctica
-    elif getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER:
+    elif __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER:
         MapPosition = random.choice([vect(6.46, 7.1, 35.44), vect(6.905, 7.15, -34.932), vect(12.222, 4.4, 0.173)])
         #Eichenwalde
-    elif getCurrentMap() == Map.EICHENWALDE or getCurrentMap() == Map.EICHENWALDE_HALLOWEEN:
+    elif __getCurrentMap__() == Map.EICHENWALDE or __getCurrentMap__() == Map.EICHENWALDE_HALLOWEEN:
         MapPosition = random.choice([vect(86.89, 12.7, -72.41), vect(119.27, 8.77, -42.85), vect(11.72, 5.86, -72.57)])
         #Hanamura
-    elif getCurrentMap() == Map.HANAMURA or getCurrentMap() == Map.HANAMURA_WINTER:
+    elif __getCurrentMap__() == Map.HANAMURA or __getCurrentMap__() == Map.HANAMURA_WINTER:
         MapPosition = random.choice([vect(62.6, -1.6, 14.48), vect(-11.53, -0.82, -85.4), vect(-40.08, 0.7, -108.303)])
         #Havana
-    elif getCurrentMap() == Map.HAVANA:
+    elif __getCurrentMap__() == Map.HAVANA:
         MapPosition = random.choice([vect(55.651, 6.28, -83.225), vect(88.873, 4.3, -66.162), vect(140.027, 6.28, -46.503), vect(186.001, 11.4, -46.504), vect(-11.381, 6, -79.2), vect(-35.694, 6.1, -54.354), vect(-60.034, 19.1, -17.452), vect(-72.769, 4.1, -51.278), vect(-118.81, 4.1, -91.384), vect(18.913, 5.25, -29.269)])
         #Hollywood
-    elif getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN:
+    elif __getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN:
         MapPosition = random.choice([vect(-12.77, -0.1, 57.88), vect(-15.55, 1.65, 3.1), vect(-33.2, 1.8, -129.01), vect(-4.27, 2.1, -98.28)])
         #Horizon Lunar Colony
-    elif getCurrentMap() == Map.HORIZON_LUNAR_COLONY:
+    elif __getCurrentMap__() == Map.HORIZON_LUNAR_COLONY:
         MapPosition = random.choice([vect(94.03, 12.7, -71.21), vect(54.08, 9, -89.53), vect(-24.74, 2.9, -121.35), vect(-3.586, 8.25, -0.908), vect(-52.768, 4.93, -173.594)])
         #Ilios Lighthouse
-    elif getCurrentMap() == Map.ILIOS_LIGHTHOUSE:
+    elif __getCurrentMap__() == Map.ILIOS_LIGHTHOUSE:
         MapPosition = random.choice([vect(313.57, -24.62, -75.12), vect(344.49, -24.62, -3.05), vect(336.39, -25.4, 22.87), vect(290.22, -25.4, -88.83), vect(268.898, -23.67, -94.066), vect(324.469, -23.72, 40.321), vect(312.399, -24.69, 63.545), vect(244.193, -24.69, -101.824)])
         #Ilios Ruins
-    elif getCurrentMap() == Map.ILIOS_RUINS:
+    elif __getCurrentMap__() == Map.ILIOS_RUINS:
         MapPosition = random.choice([vect(-74.15, 62.75, -161.19), vect(62.03, 60.4, -156.48), vect(28.4, 57.4, -156.55)])
         #Ilios Well
-    elif getCurrentMap() == Map.ILIOS_WELL:
+    elif __getCurrentMap__() == Map.ILIOS_WELL:
         MapPosition = vect(-208.525, 0, -16.525)
         #The area of play is centered on the well. Setting this constant to True lowers the light shaft indicating the color of the discard pile card
         IS_HOLE_MAP = true
         #King's Row
-    elif getCurrentMap() == Map.KINGS_ROW or getCurrentMap() == Map.KINGS_ROW_WINTER:
+    elif __getCurrentMap__() == Map.KINGS_ROW or __getCurrentMap__() == Map.KINGS_ROW_WINTER:
         MapPosition = random.choice([vect(-92.4, 0.91, -9.79), vect(-20.2, -0.11, -32.38), vect(-149, -2.86, 24.26), vect(-179.255, 0.2, 37.547)])
         #Lijiang Control Center
-    elif getCurrentMap() == Map.LIJIANG_CONTROL_CENTER or getCurrentMap() == Map.LIJIANG_CONTROL_CENTER_LNY:
+    elif __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER or __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER_LNY:
         MapPosition = random.choice([vect(48.34, 265, 329.42), vect(-76.674, 264.83, 359.171), vect(-48.464, 265, 329.667), vect(85.037, 264.75, 367.254)])
         #Lijiang Garden
-    elif getCurrentMap() == Map.LIJIANG_GARDEN or getCurrentMap() == Map.LIJIANG_GARDEN_LNY:
+    elif __getCurrentMap__() == Map.LIJIANG_GARDEN or __getCurrentMap__() == Map.LIJIANG_GARDEN_LNY:
         MapPosition = random.choice([vect(42.56, 95, 150), vect(-7.214, 94.3, 133.743), vect(-42.661, 95.29, 150.278)])
         #Lijiang Night Market
-    elif getCurrentMap() == Map.LIJIANG_NIGHT_MARKET or getCurrentMap() == Map.LIJIANG_NIGHT_MARKET_LNY:
+    elif __getCurrentMap__() == Map.LIJIANG_NIGHT_MARKET or __getCurrentMap__() == Map.LIJIANG_NIGHT_MARKET_LNY:
         MapPosition = random.choice([vect(1, -1.1, -31.9), vect(1, -0.5, -61)])
         #Nepal Sanctum
-    elif getCurrentMap() == Map.NEPAL_SANCTUM:
+    elif __getCurrentMap__() == Map.NEPAL_SANCTUM:
         MapPosition = random.choice([vect(83.25, 128.47, 0), vect(81, 129.5, -106), vect(51.208, 130.2, 0), vect(83.091, 130.1, 69.812)])
         #Nepal Shrine
-    elif getCurrentMap() == Map.NEPAL_SHRINE:
+    elif __getCurrentMap__() == Map.NEPAL_SHRINE:
         MapPosition = random.choice([vect(-43.19, 14.97, 123.42), vect(-43.09, 15.7, 109.962), vect(-63.382, 10.3, 14.262), vect(-41.581, 15.25, -69.886)])
         #Nepal Village
-    elif getCurrentMap() == Map.NEPAL_VILLAGE or getCurrentMap() == Map.NEPAL_VILLAGE_WINTER:
+    elif __getCurrentMap__() == Map.NEPAL_VILLAGE or __getCurrentMap__() == Map.NEPAL_VILLAGE_WINTER:
         MapPosition = random.choice([vect(-195, -93.9, 0), vect(-172.919, -98.85, 73.714), vect(-192.026, -93.8, 14.091), vect(-192.677, -93.8, -14.382)])
         #Oasis City Center
-    elif getCurrentMap() == Map.OASIS_CITY_CENTER:
+    elif __getCurrentMap__() == Map.OASIS_CITY_CENTER:
         MapPosition = random.choice([vect(128, 2.05, 290), vect(89.623, 1.25, 292.299), vect(188.576, 2.2, 230.769)])
         #Oasis Gardens
-    elif getCurrentMap() == Map.OASIS_GARDENS:
+    elif __getCurrentMap__() == Map.OASIS_GARDENS:
         MapPosition = random.choice([vect(81.7, 6.5, -308.38), vect(202.33, 6.5, -188.08), vect(90.234, 2.6, -245.388), vect(141.218, 7.64, -247.442), vect(139.37, 2.6, -195.984), vect(180.123, 8.15, -208.561), vect(101.628, 8.15, -287.053)])
         #Oasis University
-    elif getCurrentMap() == Map.OASIS_UNIVERSITY:
+    elif __getCurrentMap__() == Map.OASIS_UNIVERSITY:
         MapPosition = vect(-188, 15.1, 0)
         #The area of play is centered around the hole. The light shaft should be lowered
         IS_HOLE_MAP = true
         #Paris
-    elif getCurrentMap() == Map.PARIS:
+    elif __getCurrentMap__() == Map.PARIS:
         MapPosition = random.choice([vect(-53.57, 12.13, 12.43), vect(-97.114, 11.15, -36.356)])
         #Petra
-    elif getCurrentMap() == Map.PETRA:
+    elif __getCurrentMap__() == Map.PETRA:
         MapPosition = vect(4.44, -12.5, 46.93)
         #Temple of Anubis
-    elif getCurrentMap() == Map.TEMPLE_OF_ANUBIS:
+    elif __getCurrentMap__() == Map.TEMPLE_OF_ANUBIS:
         MapPosition = random.choice([vect(-45.46, 2, 43.4), vect(-0.61, -1.5, -11.144)])
         #Volskaya Industries
-    elif getCurrentMap() == Map.VOLSKAYA:
+    elif __getCurrentMap__() == Map.VOLSKAYA:
         MapPosition = random.choice([vect(-57.79, -4.09, 71.08), vect(-94.3, -1.9, 49.26), vect(-13.68, -3.59, 90.21), vect(-11.175, -6.8, 0.911), vect(-121.529, 6.15, 32.678)])
         #Workshop Maps
-    elif getCurrentMap() in [Map.WORKSHOP_CHAMBER, Map.WORKSHOP_EXPANSE, Map.WORKSHOP_EXPANSE_NIGHT, Map.WORKSHOP_ISLAND, Map.WORKSHOP_ISLAND_NIGHT]:
+    elif __getCurrentMap__() in [Map.WORKSHOP_CHAMBER, Map.WORKSHOP_EXPANSE, Map.WORKSHOP_EXPANSE_NIGHT, Map.WORKSHOP_ISLAND, Map.WORKSHOP_ISLAND_NIGHT]:
         MapPosition = vect(0, 0, 0)
         #Unsupported maps
     else:

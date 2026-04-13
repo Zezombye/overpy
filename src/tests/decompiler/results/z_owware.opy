@@ -1654,7 +1654,7 @@ rule "":
     while not isGameInProgress():
         wait(0.03)
     pauseMatchTime()
-    if getCurrentMap() == Map.WORKSHOP_ISLAND_NIGHT:
+    if __getCurrentMap__() == Map.WORKSHOP_ISLAND_NIGHT:
         hudText(IlIlllIIllIl, "{0}{1} ".format(" Match Starting in # Le match commence dans # Spielstart in # Partida empezando en # La partida comienza en ".split(lIllIlllIlll).concat(" Матч начнется через # Partida começa em ".split(lIllIlllIlll))[localPlayer.IllIIllIllII], IlIIIIIlIlll), lllIIllllIIl, lllIIllllIIl, HudPosition.TOP, 4, Color.WHITE, null, null, HudReeval.VISIBILITY_AND_STRING)
         async(IIIIlIIIllIl, AsyncBehavior.RESTART)
     else:

@@ -480,6 +480,12 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         class: "String",
         return: "String",
     },
+    "getCurrentMap": {
+        "description": "The current map of the custom game.",
+        "args": [],
+        "isConstant": true,
+        "return": "Map",
+    },
     ".getNormal": {
         "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
         "args": [

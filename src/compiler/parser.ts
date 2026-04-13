@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup, usedMaps } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage, StringToken } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -1239,6 +1239,9 @@ function parseMember(object: Token[], member: Token[]) {
                 const astInfo = builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo];
                 if (astInfo.name === "__color__" && constantValues[astInfo.type][name]?.onlyInOverpy) {
                     return new Ast("rgb", [getAstForNumber(constantValues[astInfo.type][name].red ?? 0), getAstForNumber(constantValues[astInfo.type][name].green ?? 0), getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), getAstForNumber(constantValues[astInfo.type][name].alpha ?? 255)]);
+                }
+                if (astInfo.name === "__map__") {
+                    usedMaps.add(name.toLowerCase());
                 }
                 return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
                 //Check the pseudo-enum "math"

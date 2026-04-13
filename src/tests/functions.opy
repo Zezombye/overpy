@@ -34,6 +34,7 @@ rule "function":
     A = lineIntersectsSphere(B, random.choice(C), D, random.choice(E))
 
     A = rgb(255, 255, 0) # Color.YELLOW
+    A = getCurrentMap()
 
 rule "beams":
     createBeam(A, Beam.GRAPPLE, B, C, Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)

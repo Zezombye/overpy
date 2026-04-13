@@ -46,6 +46,7 @@ rule ("function") {
         Set Global Variable(A, Compare(Angle Between Vectors(Global.B, Random Value In Array(Global.C)), <=, Arcsine In Degrees(Divide(Random Value In Array(Global.E), Distance Between(Global.B, Global.D)))));
         "Color.YELLOW"
         Set Global Variable(A, Color(Yellow));
+        Set Global Variable(A, Current Map);
     }
 }
 

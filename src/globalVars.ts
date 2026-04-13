@@ -195,6 +195,10 @@ export const setActivatedExtensions = (extensions: string[]) => (activatedExtens
 export var availableExtensionPoints: number;
 export const setAvailableExtensionPoints = (points: number) => (availableExtensionPoints = points);
 
+//List of used maps for the getCurrentMap() fix, in lowercase
+export var usedMaps: Set<string> = new Set();
+export const addUsedMap = (map: string) => usedMaps.add(map.toLowerCase());
+
 //Bypass for <tx> and <fg>
 export var enableTagsSetup: boolean;
 export const setEnableTagsSetup = (enable: boolean) => (enableTagsSetup = enable);
@@ -327,6 +331,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     disableInspector = false;
     keepUnusedTranslations = false;
     disableTranslationSourceLines = false;
+    usedMaps = new Set();
     postCompileHook = null;
 }
 

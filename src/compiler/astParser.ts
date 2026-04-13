@@ -130,6 +130,7 @@ import "./functions/dotProduct.ts";
 import "./functions/eventPlayer.ts";
 import "./functions/floor.ts";
 import "./functions/getClosestPlayer";
+import "./functions/getCurrentMap";
 import "./functions/getFarthestPlayer";
 import "./functions/getOppositeTeam.ts";
 import "./functions/healee.ts";

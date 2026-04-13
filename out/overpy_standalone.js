@@ -47048,6 +47048,15 @@ astParsingFunctions.getClosestPlayer = function(content) {
   return content;
 };
 
+// src/compiler/functions/getCurrentMap.ts
+astParsingFunctions.getCurrentMap = function(content) {
+  if (usedMaps.has("colosseo") || usedMaps.has("esperanca") || usedMaps.has("samoa")) {
+    let buggedUsedMaps = ["colosseo", "esperanca", "samoa"].filter((m) => usedMaps.has(m));
+    return parseOpyMacro(`[${buggedUsedMaps.map((m) => "Map." + m.toUpperCase()).join(", ")}, __getCurrentMap__()].filter(lambda x: "{}".format(__getCurrentMap__()) == x.split([]))[0]`, [], []);
+  }
+  return new Ast2("__getCurrentMap__");
+};
+
 // src/compiler/functions/getFarthestPlayer.ts
 astParsingFunctions.getFarthestPlayer = function(content) {
   warn("w_farthest_player", "The getFarthestPlayer() function targets dead and unspawned players (at 0,0,0). Use getRealFarthestPlayer() instead.");
@@ -61574,7 +61583,7 @@ var valueFuncKw = (
       "th-TH": "Current Game Mode",
       "zh-TW": "Current Game Mode"
     },
-    "getCurrentMap": {
+    "__getCurrentMap__": {
       "guid": "00000000D418",
       "description": "The current map of the custom game.",
       "args": [],
@@ -66944,6 +66953,9 @@ function parseMember(object, member) {
         if (astInfo.name === "__color__" && constantValues[astInfo.type][name]?.onlyInOverpy) {
           return new Ast2("rgb", [getAstForNumber(constantValues[astInfo.type][name].red ?? 0), getAstForNumber(constantValues[astInfo.type][name].green ?? 0), getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), getAstForNumber(constantValues[astInfo.type][name].alpha ?? 255)]);
         }
+        if (astInfo.name === "__map__") {
+          usedMaps.add(name.toLowerCase());
+        }
         return new Ast2(astInfo.name, [new Ast2(name, [], [], astInfo.type)]);
       } else if (object[0].text === "Math") {
         if (name === "PI") {
@@ -68832,6 +68844,12 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     class: "String",
     return: "String"
   },
+  "getCurrentMap": {
+    "description": "The current map of the custom game.",
+    "args": [],
+    "isConstant": true,
+    "return": "Map"
+  },
   ".getNormal": {
     "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
     "args": [
@@ -69212,6 +69230,7 @@ var activatedExtensions;
 var setActivatedExtensions = (extensions) => activatedExtensions = extensions;
 var availableExtensionPoints;
 var setAvailableExtensionPoints = (points) => availableExtensionPoints = points;
+var usedMaps = /* @__PURE__ */ new Set();
 var enableTagsSetup;
 var setEnableTagsSetup = (enable) => enableTagsSetup = enable;
 var translationLanguages2 = [];
@@ -69307,6 +69326,7 @@ function resetGlobalVariables(language) {
   disableInspector = false;
   keepUnusedTranslations = false;
   disableTranslationSourceLines = false;
+  usedMaps = /* @__PURE__ */ new Set();
   postCompileHook = null;
 }
 var operatorPrecedence = {

@@ -2577,7 +2577,7 @@ def IIIIlIIlIIlIlllIIlIlIlIIIl():
     llIIIllIIIIlIlllIlIIIllIll = 1
     IIIlIlllIlIllIIllllllIIIIl = -7
     IIlIllIIlIIllIlIlIIllIIIIl = ["Monster", "Champion", "Boss", "Great Evil", "The Cow Lich King"]
-    goto loc+IIlIlllIlIIIIllIIlIlIlIlll[1][IIlIlllIlIIIIllIIlIlIlIlll[0].index(getCurrentMap())] * 14
+    goto loc+IIlIlllIlIIIIllIIlIlIlIlll[1][IIlIlllIlIIIIllIIlIlIlIlll[0].index(__getCurrentMap__())] * 14
     llIIllllIIIlIIIIIllIlIIIll = vect(-24.6, 6.5, -88.55)
     IlIlIIIlIIllllIllIlllllIll = vect(-15.54, 1, 17.14)
     IllIlIIIlIlIIIlIlllIIIllII = [vect(-8.45, 6, 8.3), vect(-19.71, 6, 6.5), vect(-10.84, 1, 23.33), vect(-13.41, 1, 3.27), vect(-20.55, 1, 16.35), vect(-21.04, 1, 12.05), vect(-7.73, 1, 8.98), vect(-19.7, 1, 20.66), vect(-13.01, 1, -0.56), vect(-15.84, 1, 23.09)]

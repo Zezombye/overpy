@@ -253,7 +253,7 @@ rule "Initialize global variables":
     LONGSHOT_DISTANCE = 40
     CUSTOM_RESPAWN_TIME = 1.6
     NIGHT_MAPS = [Map.EICHENWALDE_HALLOWEEN, Map.CHATEAU_GUILLARD_HALLOWEEN, Map.BLIZZ_WORLD_WINTER, Map.ECOPOINT_ANTARCTICA_WINTER, Map.HOLLYWOOD_HALLOWEEN]
-    JUMP_PAD_COLOR = Color.BLUE if getCurrentMap() in NIGHT_MAPS else Color.PURPLE
+    JUMP_PAD_COLOR = Color.BLUE if __getCurrentMap__() in NIGHT_MAPS else Color.PURPLE
     DEATH_PLANE_BOT_MAPS = [Map.BLACK_FOREST, Map.BLACK_FOREST_WINTER, Map.HOLLYWOOD, Map.HOLLYWOOD_HALLOWEEN, Map.CHATEAU_GUILLARD, Map.CHATEAU_GUILLARD_HALLOWEEN]
     MatchEnded = false
     RevertKillsToAIBotsEnabled = createWorkshopSettingBool("AI Bots", "Revert kills against removed AI bots", true)
@@ -336,77 +336,77 @@ rule "Restart game when lobby is empty":
 
 
 rule "Define spawn points, play zone and nuke settings depending on map":
-    if getCurrentMap() == Map.CHATEAU_GUILLARD or getCurrentMap() == Map.CHATEAU_GUILLARD_HALLOWEEN:
+    if __getCurrentMap__() == Map.CHATEAU_GUILLARD or __getCurrentMap__() == Map.CHATEAU_GUILLARD_HALLOWEEN:
         RespawnsCHATEAU()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(200.75, 21.89, 67)
         NukeCamPos = vect(241.37, 123.78, 29.92)
-    elif getCurrentMap() == Map.PETRA:
+    elif __getCurrentMap__() == Map.PETRA:
         RespawnsPETRA()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(15.57, -6.6, 35.95)
         NukeCamPos = vect(25.8, 66.8, 89.99)
-    elif getCurrentMap() == Map.BLACK_FOREST or getCurrentMap() == Map.BLACK_FOREST_WINTER:
+    elif __getCurrentMap__() == Map.BLACK_FOREST or __getCurrentMap__() == Map.BLACK_FOREST_WINTER:
         RespawnsBLACKFOREST()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(-21.97, 12.09, 5.58)
         NukeCamPos = vect(-54.85, 104.18, -38.5)
-    elif getCurrentMap() == Map.MALEVENTO:
+    elif __getCurrentMap__() == Map.MALEVENTO:
         RespawnsMALEVENTO()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(0.31, -1, -7.36)
         NukeCamPos = vect(30.1, 78, -53.59)
-    elif getCurrentMap() == Map.DORADO:
+    elif __getCurrentMap__() == Map.DORADO:
         RespawnsDORADO()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(99.13, 21.23, 1.93)
         NukeCamPos = vect(119.79, 122.46, -49.05)
-    elif getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN:
+    elif __getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN:
         RespawnsHOLLYWOOD()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(1.95, 1.6, -47.4)
         NukeCamPos = vect(1.08, 83.21, 7.6)
-    elif getCurrentMap() == Map.BLIZZ_WORLD or getCurrentMap() == Map.BLIZZ_WORLD_WINTER:
+    elif __getCurrentMap__() == Map.BLIZZ_WORLD or __getCurrentMap__() == Map.BLIZZ_WORLD_WINTER:
         RespawnsBLIZZWORLD()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(-51.16, 11.03, 96.46)
         NukeCamPos = vect(-105.76, 102.05, 89.83)
-    elif getCurrentMap() == Map.EICHENWALDE or getCurrentMap() == Map.EICHENWALDE_HALLOWEEN:
+    elif __getCurrentMap__() == Map.EICHENWALDE or __getCurrentMap__() == Map.EICHENWALDE_HALLOWEEN:
         RespawnsEICHENWALDE()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(56, 18, -80)
         NukeCamPos = vect(117, 95, -114)
-    elif getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER:
+    elif __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER:
         RespawnsECOPOINT()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(2.68, 7.3, 1.25)
         NukeCamPos = vect(-13.77, 92.29, -51.37)
-    elif getCurrentMap() == Map.KANEZAKA:
+    elif __getCurrentMap__() == Map.KANEZAKA:
         RespawnsKANEZAKA()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 25
         RespawnFailsafeDistance = 15
         NukeImpactPos = vect(-36.31, 5.84, -7.69)
         NukeCamPos = vect(-66.48, 91.68, -53.68)
-    elif getCurrentMap() == Map.LIJIANG_CONTROL_CENTER or getCurrentMap() == Map.LIJIANG_CONTROL_CENTER_LNY:
+    elif __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER or __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER_LNY:
         RespawnsLIJANGCONTROL()
         RespawnHigherDistance = 999
         RespawnLowerDistance = 30
@@ -638,7 +638,7 @@ rule "Trigger playzone":
 
 
 rule "ECOPOINT create TPs":
-    @Condition (getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
+    @Condition (__getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
     
     createIcon([localPlayer.IsPlayer and isInLoS(localPlayer.getEyePosition(), vect(-5, 9, -54), BarrierLos.BLOCKED_BY_ALL_BARRIERS)], vect(-5.2, 8, -54.64), Icon.SPIRAL, IconReeval.VISIBILITY_POSITION_AND_COLOR, Color.SKY_BLUE, false)
     createEffect(getAllPlayers(), Effect.BAD_AURA, Color.ROSE, vect(-5.35, 8, -54.66), 1.5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -655,7 +655,7 @@ rule "ECOPOINT create TPs":
 rule "ECOPOINT trigger right side TP":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
+    @Condition (__getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
     @Condition distance(eventPlayer, vect(-7.78, 8, -57.05)) <= 4.8
     
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.WHITE, vect(-5.3, 8, -54.7), 80)
@@ -678,7 +678,7 @@ rule "ECOPOINT trigger right side TP":
 rule "ECOPOINT trigger left side TP":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
+    @Condition (__getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
     @Condition distance(eventPlayer, vect(-16.3, 8, 41)) <= 4.9
     
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.WHITE, vect(-13.7, 8, 43.5), 80)
@@ -699,7 +699,7 @@ rule "ECOPOINT trigger left side TP":
 
 
 rule "FOREST create TP":
-    @Condition (getCurrentMap() == Map.BLACK_FOREST_WINTER or getCurrentMap() == Map.BLACK_FOREST) == true
+    @Condition (__getCurrentMap__() == Map.BLACK_FOREST_WINTER or __getCurrentMap__() == Map.BLACK_FOREST) == true
     
     createInWorldText([localPlayer.IsPlayer and isInLoS(localPlayer.getEyePosition(), vect(-32, 13, 8), BarrierLos.BLOCKED_BY_ALL_BARRIERS) and angleBetweenVectors(localPlayer.getFacingDirection(), directionTowards(localPlayer.getEyePosition(), vect(-32, 13, 8))) < 15 and distance(vect(-32, 14.5, 8), localPlayer) <= 25], "teleporter", vect(-32, 17, 8), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_AND_COLOR, Color.ROSE, SpecVisibility.NEVER)
     createEffect(getAllPlayers(), Effect.BAD_AURA, Color.ROSE, vect(-32, 13, 8), 3, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -710,7 +710,7 @@ rule "FOREST create TP":
 rule "FOREST trigger TP":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.BLACK_FOREST_WINTER or getCurrentMap() == Map.BLACK_FOREST) == true
+    @Condition (__getCurrentMap__() == Map.BLACK_FOREST_WINTER or __getCurrentMap__() == Map.BLACK_FOREST) == true
     @Condition distance(eventPlayer, vect(-32, 13, 8)) <= 3
     
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.WHITE, vect(-32, 13, 8), 120)
@@ -730,7 +730,7 @@ rule "FOREST trigger TP":
 rule "HOLLYWOOD Locked zone 1":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN) == true
     @Condition eventPlayer.isOnGround() == true
     @Condition distance(eventPlayer, vect(2.88, 7.75, -15.9)) <= 2
     
@@ -744,7 +744,7 @@ rule "HOLLYWOOD Locked zone 1":
 rule "HOLLYWOOD Locked zone 2":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN) == true
     @Condition distance(eventPlayer, vect(37, 8.74, -66.5)) <= 6.3
     @Condition eventPlayer.isOnGround() == true
     @Condition abs(eventPlayer.getPosition().y - 8.9) < 0.2
@@ -757,7 +757,7 @@ rule "HOLLYWOOD Locked zone 2":
 
 
 rule "CREATE Dorado launcher":
-    @Condition getCurrentMap() == Map.DORADO
+    @Condition __getCurrentMap__() == Map.DORADO
     
     createEffect(getAllPlayers(), Effect.GOOD_AURA, Color.YELLOW, vect(123.4, 10, -17.5), 0.5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
 
@@ -765,7 +765,7 @@ rule "CREATE Dorado launcher":
 rule "TRIGGER Dorado launcher":
     @Event eachPlayer
     @Hero ana
-    @Condition getCurrentMap() == Map.DORADO
+    @Condition __getCurrentMap__() == Map.DORADO
     @Condition distance(eventPlayer, vect(123.4, 10, -17.5)) <= 1.2
     
     eventPlayer.applyImpulse(eventPlayer.getVelocity() * -1, eventPlayer.getSpeed(), Relativity.TO_WORLD, Impulse.INCORPORATE_CONTRARY_MOTION)
@@ -779,7 +779,7 @@ rule "TRIGGER Dorado launcher":
 
 
 rule "CREATE Lijang Control launcher":
-    @Condition (getCurrentMap() == Map.LIJIANG_CONTROL_CENTER or getCurrentMap() == Map.LIJIANG_CONTROL_CENTER_LNY) == true
+    @Condition (__getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER or __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER_LNY) == true
     @Disabled
     
     createEffect(getAllPlayers(), Effect.GOOD_AURA, Color.YELLOW, vect(0, 271, 268), 0.5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -788,7 +788,7 @@ rule "CREATE Lijang Control launcher":
 rule "TRIGGER Lijang Control launcher":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.LIJIANG_CONTROL_CENTER or getCurrentMap() == Map.LIJIANG_CONTROL_CENTER_LNY) == true
+    @Condition (__getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER or __getCurrentMap__() == Map.LIJIANG_CONTROL_CENTER_LNY) == true
     @Condition distance(eventPlayer, vect(0, 271, 268)) <= 1.2
     @Disabled
     
@@ -805,7 +805,7 @@ rule "TRIGGER Lijang Control launcher":
 rule "HOLLYWOOD platform boost PAYLOAD SIDE":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN) == true
     @Condition distance(eventPlayer, vect(13.2, 10.55, -32.1)) <= 2.3
     @Condition eventPlayer.isOnGround() == true
     @Condition (updateEveryFrame(eventPlayer.getPosition().y >= 9 and eventPlayer.getPosition().y < 10.4)) != false
@@ -824,7 +824,7 @@ rule "HOLLYWOOD platform boost PAYLOAD SIDE":
 rule "HOLLYWOOD platform boost WALL SIDE":
     @Event eachPlayer
     @Hero ana
-    @Condition (getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN) == true
     @Condition distance(eventPlayer, vect(-6.21, 10.13, -58.94)) <= 2.3
     @Condition eventPlayer.isOnGround() == true
     @Condition (updateEveryFrame(eventPlayer.getPosition().y >= 8.3 and eventPlayer.getPosition().y < 9.88)) != false
@@ -867,7 +867,7 @@ rule "GLOBAL create Nano-Nuke Bastion":
 
 rule "PETRA break floor over time":
     @Condition NanoNukeBot != false
-    @Condition getCurrentMap() == Map.PETRA
+    @Condition __getCurrentMap__() == Map.PETRA
     
     for PetraPunches in range(50):
         wait(3)
@@ -880,7 +880,7 @@ rule "PETRA break floor over time":
 
 
 rule "Death plane exploit loop":
-    @Condition getCurrentMap() in DEATH_PLANE_BOT_MAPS == true
+    @Condition __getCurrentMap__() in DEATH_PLANE_BOT_MAPS == true
     
     wait(10)
     OutOfBoundBot.setEnvironmentalKillCreditor(OutOfBoundBot)
@@ -890,7 +890,7 @@ rule "Death plane exploit loop":
 
 rule "Death plane HAMMOND CHATEAU":
     @Condition isGameInProgress() == true
-    @Condition (getCurrentMap() == Map.CHATEAU_GUILLARD or getCurrentMap() == Map.CHATEAU_GUILLARD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.CHATEAU_GUILLARD or __getCurrentMap__() == Map.CHATEAU_GUILLARD_HALLOWEEN) == true
     
     createDummy(Hero.WRECKING_BALL, Team.ALL, 11, vect(200, 200, 80), Vector.FORWARD)
     OutOfBoundBot = getLastCreatedEntity()
@@ -915,7 +915,7 @@ rule "Death plane HAMMOND CHATEAU":
 
 rule "Death plane HAMMOND HOLLYWOOD":
     @Condition isGameInProgress() == true
-    @Condition (getCurrentMap() == Map.HOLLYWOOD or getCurrentMap() == Map.HOLLYWOOD_HALLOWEEN) == true
+    @Condition (__getCurrentMap__() == Map.HOLLYWOOD or __getCurrentMap__() == Map.HOLLYWOOD_HALLOWEEN) == true
     
     createDummy(Hero.WRECKING_BALL, Team.ALL, 11, vect(200, 200, 80), Vector.FORWARD)
     OutOfBoundBot = getLastCreatedEntity()
@@ -940,7 +940,7 @@ rule "Death plane HAMMOND HOLLYWOOD":
 
 rule "Death plane SIGMA BLACK FOREST":
     @Condition isGameInProgress() == true
-    @Condition (getCurrentMap() == Map.BLACK_FOREST or getCurrentMap() == Map.BLACK_FOREST_WINTER) == true
+    @Condition (__getCurrentMap__() == Map.BLACK_FOREST or __getCurrentMap__() == Map.BLACK_FOREST_WINTER) == true
     
     createDummy(Hero.SIGMA, Team.ALL, 11, vect(1000, 1000, 1000), Vector.FORWARD)
     OutOfBoundBot = getLastCreatedEntity()
@@ -964,7 +964,7 @@ rule "Death plane SIGMA BLACK FOREST":
 
 rule "Mei ECOPOINT":
     @Condition isGameInProgress() == true
-    @Condition (getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
+    @Condition (__getCurrentMap__() == Map.ECOPOINT_ANTARCTICA or __getCurrentMap__() == Map.ECOPOINT_ANTARCTICA_WINTER) == true
     @Disabled
     
     createDummy(Hero.MEI, Team.ALL, 11, vect(26, 9.5, 0), Vector.RIGHT)
@@ -983,7 +983,7 @@ rule "Mei ECOPOINT":
 
 rule "Kiriko Kanezaka":
     @Condition isGameInProgress() == true
-    @Condition getCurrentMap() == Map.KANEZAKA
+    @Condition __getCurrentMap__() == Map.KANEZAKA
     
     createDummy(Hero.KIRIKO, Team.ALL, 11, vect(-11.5, 10.8, 16.9), Vector.RIGHT)
     OutOfBoundBot = getLastCreatedEntity()
@@ -1002,7 +1002,7 @@ rule "Kiriko Kanezaka":
 
 rule "Junkrat Petra":
     @Condition isGameInProgress() == true
-    @Condition getCurrentMap() == Map.PETRA
+    @Condition __getCurrentMap__() == Map.PETRA
     
     createDummy(Hero.JUNKRAT, Team.ALL, 11, vect(-17.94, 0.24, 17.11), Vector.LEFT)
     OutOfBoundBot = getLastCreatedEntity()
@@ -1986,7 +1986,7 @@ rule "Fix camera if last victim leaves the game":
 
 rule "CREATE all jump pads":
     if true:
-        goto loc+[44, 0, 0, 4, 8, 8, 12, 12, 16, 20, 20, 24, 24, 28, 32, 32, 36, 36, 40][1 + [Map.EICHENWALDE, Map.EICHENWALDE_HALLOWEEN, Map.PETRA, Map.CHATEAU_GUILLARD, Map.CHATEAU_GUILLARD_HALLOWEEN, Map.ECOPOINT_ANTARCTICA_WINTER, Map.ECOPOINT_ANTARCTICA, Map.MALEVENTO, Map.BLACK_FOREST_WINTER, Map.BLACK_FOREST, Map.BLIZZ_WORLD_WINTER, Map.BLIZZ_WORLD, Map.DORADO, Map.HOLLYWOOD_HALLOWEEN, Map.HOLLYWOOD, Map.LIJIANG_CONTROL_CENTER_LNY, Map.LIJIANG_CONTROL_CENTER, Map.KANEZAKA].index(getCurrentMap())]
+        goto loc+[44, 0, 0, 4, 8, 8, 12, 12, 16, 20, 20, 24, 24, 28, 32, 32, 36, 36, 40][1 + [Map.EICHENWALDE, Map.EICHENWALDE_HALLOWEEN, Map.PETRA, Map.CHATEAU_GUILLARD, Map.CHATEAU_GUILLARD_HALLOWEEN, Map.ECOPOINT_ANTARCTICA_WINTER, Map.ECOPOINT_ANTARCTICA, Map.MALEVENTO, Map.BLACK_FOREST_WINTER, Map.BLACK_FOREST, Map.BLIZZ_WORLD_WINTER, Map.BLIZZ_WORLD, Map.DORADO, Map.HOLLYWOOD_HALLOWEEN, Map.HOLLYWOOD, Map.LIJIANG_CONTROL_CENTER_LNY, Map.LIJIANG_CONTROL_CENTER, Map.KANEZAKA].index(__getCurrentMap__())]
         JumpPadPos = [vect(47.05, 2.91, -75.46), vect(60.91, 8.9, -58.98), vect(67.98, 11.05, -104.86)]
         JumpPadPower = [23.5, 15, 17]
         JumpPadSize = [3.9, 3.1, 1.8]

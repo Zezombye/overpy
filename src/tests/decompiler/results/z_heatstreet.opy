@@ -620,7 +620,7 @@ rule "Global (Init): Set Workshop Vars, Game Vars, Disable Game Components, Crea
             wait(false)
             mut_add_mutator()
     #Initialize Map Specific Variables
-    if getCurrentMap() == Map.CHATEAU_GUILLARD or getCurrentMap() == Map.CHATEAU_GUILLARD_HALLOWEEN:
+    if __getCurrentMap__() == Map.CHATEAU_GUILLARD or __getCurrentMap__() == Map.CHATEAU_GUILLARD_HALLOWEEN:
         set_map_cg()
         is_map_cg = true
     else:

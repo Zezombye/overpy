@@ -5239,7 +5239,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Current Game Mode",
         "zh-TW": "Current Game Mode"
     },
-    "getCurrentMap": {
+    "__getCurrentMap__": {
         "guid": "00000000D418",
         "description": "The current map of the custom game.",
         "args": [],
