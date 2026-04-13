@@ -22,6 +22,11 @@ import { Ast, astParsingFunctions } from "../../utils/ast";
 import {parseOpyMacro} from "../../utils/compilation";
 
 astParsingFunctions.getCurrentMap = function (content) {
+
+    if (content.parent?.name === "__equals__" && content.parent.args[1].name === "__map__") {
+        return content; //__equals__ will handle the optimization
+    }
+
     //These maps cannot be detected using the workshop's raw getCurrentMap() as there are duplicates and the Map() function returns the wrong value
     if (usedMaps.has("colosseo") || usedMaps.has("esperanca") || usedMaps.has("samoa")) {
         //This uses the least elements, even when there is only one map to detect

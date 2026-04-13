@@ -19,6 +19,7 @@
 
 import { enableOptimization } from "../../globalVars";
 import { getAstForBool, areAstsAlwaysEqual, getAstForTrue, isDefinitelyFalsy, Ast, astParsingFunctions, astIsLiteral, getAstForFalse } from "../../utils/ast";
+import {parseOpyMacro} from "../../utils/compilation";
 import { isTypeSuitable } from "../../utils/types";
 
 astParsingFunctions.__equals__ = function (content) {
@@ -55,5 +56,14 @@ astParsingFunctions.__equals__ = function (content) {
             return content.args[1];
         }
     }
+
+    if (content.args[0].name === "getCurrentMap" && content.args[1].name === "__map__") {
+        if (["COLOSSEO", "ESPERANCA", "SAMOA"].includes(content.args[1].args[0].name)) {
+            return parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[1].args[0].name})`, [], []);
+        } else {
+            content.args[0].name = "__getCurrentMap__";
+        }
+    }
+
     return content;
 };
