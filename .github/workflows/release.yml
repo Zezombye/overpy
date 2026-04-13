@@ -39,6 +39,6 @@ jobs:
                   {
                       echo "## What's Changed"
                       echo
-                      git log --pretty='- %h %s' "$commit_range"
+                      git log --pretty='- [%h] %s' "$commit_range" | grep --invert-match "] Merge pull request #" 
                   } > "$notes_file"
                   gh release create "$tag" --title "$tag" --notes-file "$notes_file"
