@@ -20203,6 +20203,7 @@ var customGameSettingsSchema = (
               "pharah",
               "reinhardt",
               "roadhog",
+              "sierra",
               "sigma",
               "sojourn",
               "soldier",
@@ -20248,6 +20249,7 @@ var customGameSettingsSchema = (
               "pharah",
               "reinhardt",
               "roadhog",
+              "sierra",
               "sigma",
               "soldier",
               "sombra",
@@ -21990,6 +21992,18 @@ var customGameSettingsSchema = (
               "tr-TR": "Domuz \xC7evirme Geri \u0130tme Skaleri",
               "zh-CN": "\u9E21\u98DE\u72D7\u8DF3\u51FB\u9000\u500D\u7387",
               "zh-TW": "\u706B\u529B\u5168\u958B\u64CA\u9000\u8DDD\u96E2"
+            }
+          }
+        },
+        "sierra": {
+          "values": {
+            "ability2Kb%": {
+              "values": "__percent__",
+              "min": 0,
+              "max": 400,
+              "default": 100,
+              "en-US": "Tremor Charge Knockback Scalar",
+              "zh-CN": "\u9707\u5730\u624B\u96F7\u51FB\u9000\u500D\u7387"
             }
           }
         },
@@ -42814,6 +42828,26 @@ var heroKw = (
       "it-IT": "Roadhog",
       "pt-BR": "Roadhog",
       "tr-TR": "Roadhog"
+    },
+    "sierra": {
+      "secondaryFire": {
+        "en-US": "Tracking Shot",
+        "zh-CN": "\u8FFD\u8E2A\u5F39"
+      },
+      "ability1": {
+        "en-US": "Anchor Drone",
+        "zh-CN": "\u951A\u70B9\u65E0\u4EBA\u673A"
+      },
+      "ability2": {
+        "en-US": "Tremor Charge",
+        "zh-CN": "\u9707\u5730\u624B\u96F7"
+      },
+      "ultimate": {
+        "en-US": "Trailblazer",
+        "zh-CN": "\u5F00\u8DEF\u5148\u950B"
+      },
+      "en-US": "Sierra",
+      "zh-CN": "\u897F\u62C9"
     },
     "sigma": {
       "guid": "000000009E9E",
@@ -67932,6 +67966,7 @@ var Overwatch2Heroes = /* @__PURE__ */ ((Overwatch2Heroes3) => {
   Overwatch2Heroes3["reaper"] = "reaper";
   Overwatch2Heroes3["reinhardt"] = "reinhardt";
   Overwatch2Heroes3["roadhog"] = "roadhog";
+  Overwatch2Heroes3["sierra"] = "sierra";
   Overwatch2Heroes3["sigma"] = "sigma";
   Overwatch2Heroes3["sojourn"] = "sojourn";
   Overwatch2Heroes3["soldier76"] = "soldier";
@@ -71879,3 +71914,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

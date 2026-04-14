@@ -5244,6 +5244,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pharah",
                         "reinhardt",
                         "roadhog",
+                        "sierra",
                         "sigma",
                         "sojourn",
                         "soldier",
@@ -5289,6 +5290,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pharah",
                         "reinhardt",
                         "roadhog",
+                        "sierra",
                         "sigma",
                         "soldier",
                         "sombra",
@@ -7031,6 +7033,18 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Domuz Çevirme Geri İtme Skaleri",
                         "zh-CN": "鸡飞狗跳击退倍率",
                         "zh-TW": "火力全開擊退距離"
+                    }
+                }
+            },
+            "sierra": {
+                "values": {
+                    "ability2Kb%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Tremor Charge Knockback Scalar",
+                        "zh-CN": "震地手雷击退倍率",
                     }
                 }
             },

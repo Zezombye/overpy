@@ -2387,6 +2387,26 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pt-BR": "Roadhog",
         "tr-TR": "Roadhog"
     },
+    "sierra": {
+        "secondaryFire": {
+            "en-US": "Tracking Shot",
+            "zh-CN": "追踪弹",
+        },
+        "ability1": {
+            "en-US": "Anchor Drone",
+            "zh-CN": "锚点无人机"
+        },
+        "ability2": {
+            "en-US": "Tremor Charge",
+            "zh-CN": "震地手雷"
+        },
+        "ultimate": {
+            "en-US": "Trailblazer",
+            "zh-CN": "开路先锋"
+        },
+        "en-US": "Sierra",
+        "zh-CN": "西拉"
+    },
     "sigma": {
         "guid": "000000009E9E",
         "secondaryFire": {
