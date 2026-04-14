@@ -13,7 +13,8 @@ rule ("test current map workaround for colosseo/esperança/samoa") {
         Set Global Variable(A, First Of(Filtered Array(Array(Map(Colosseo), Map(Samoa), Current Map), Compare(Custom String("{0}", Current Map), ==, String Split(Current Array Element, Empty Array)))));
         Set Global Variable(B, Compare(Global.A, ==, Map(Samoa)));
         Set Global Variable(C, Compare(Current Map, ==, Map(King's Row)));
-        Set Global Variable(C, Compare(Map(King's Row), ==, First Of(Filtered Array(Array(Map(Colosseo), Map(Samoa), Current Map), Compare(Custom String("{0}", Current Map), ==, String Split(Current Array Element, Empty Array))))));
+        Set Global Variable(C, Compare(Map(King's Row), ==, Current Map));
+        Set Global Variable(C, Compare(Custom String("{0}", Current Map), ==, Custom String("{0}", Map(Colosseo))));
         Set Global Variable(C, Compare(Custom String("{0}", Current Map), ==, Custom String("{0}", Map(Colosseo))));
     }
 }

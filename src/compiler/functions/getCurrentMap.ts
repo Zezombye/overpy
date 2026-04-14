@@ -23,7 +23,7 @@ import {parseOpyMacro} from "../../utils/compilation";
 
 astParsingFunctions.getCurrentMap = function (content) {
 
-    if (content.parent?.name === "__equals__" && content.parent.args[1].name === "__map__") {
+    if (content.parent?.name === "__equals__" && (content.parent.args[0].name === "__map__" || content.parent.args[1].name === "__map__")) {
         return content; //__equals__ will handle the optimization
     }
 

@@ -44802,6 +44802,13 @@ astParsingFunctions.__equals__ = function(content) {
       content.args[0].name = "__getCurrentMap__";
     }
   }
+  if (content.args[1].name === "getCurrentMap" && content.args[0].name === "__map__") {
+    if (["COLOSSEO", "ESPERANCA", "SAMOA"].includes(content.args[0].args[0].name)) {
+      return parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[0].args[0].name})`, [], []);
+    } else {
+      content.args[1].name = "__getCurrentMap__";
+    }
+  }
   return content;
 };
 
@@ -47091,7 +47098,7 @@ astParsingFunctions.getClosestPlayer = function(content) {
 
 // src/compiler/functions/getCurrentMap.ts
 astParsingFunctions.getCurrentMap = function(content) {
-  if (content.parent?.name === "__equals__" && content.parent.args[1].name === "__map__") {
+  if (content.parent?.name === "__equals__" && (content.parent.args[0].name === "__map__" || content.parent.args[1].name === "__map__")) {
     return content;
   }
   if (usedMaps.has("colosseo") || usedMaps.has("esperanca") || usedMaps.has("samoa")) {
@@ -71914,4 +71921,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map
