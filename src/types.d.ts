@@ -117,6 +117,7 @@ export enum Overwatch2Heroes {
     reaper = "reaper",
     reinhardt = "reinhardt",
     roadhog = "roadhog",
+    sierra = "sierra",
     sigma = "sigma",
     sojourn = "sojourn",
     soldier76 = "soldier",
