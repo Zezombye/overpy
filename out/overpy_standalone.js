@@ -40418,8 +40418,8 @@ var gamemodeKw = (
       "zh-CN": "\u96EA\u7403\u6B7B\u6597",
       "zh-TW": "\u96EA\u7403\u6B7B\u9B25\u5927\u4F5C\u6230"
     },
-    "stadium": {
-      "en-US": "Stadium",
+    "stadiumPracticeRange": {
+      "en-US": "Stadium Practice Range",
       "zh-CN": "\u51B3\u6597\u9886\u57DF"
     },
     "tdm": {

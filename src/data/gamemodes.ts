@@ -425,8 +425,8 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
-    "stadium": {
-        "en-US": "Stadium",
+    "stadiumPracticeRange": {
+        "en-US": "Stadium Practice Range",
         "zh-CN": "决斗领域",
     }, 
     "tdm": {

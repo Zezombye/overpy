@@ -193,12 +193,12 @@ async function getNpmToken() {
     const version = JSON.parse(fs.readFileSync(PACKAGE_JSON, "utf-8")).version;
 
     if (modifiedFiles.length > 0) {
-        let commitMsg;
-        if (modifiedFiles.every(f => f.trim().match(/^M\s+(package\.json|out\/overpy_standalone\.js|customGameSettingsSchema\.json)$/))) {
-            commitMsg = `v${version}`;
-        } else {
-            const userMsg = await prompt(`Enter a commit message for release ${version}: `);
-            commitMsg = `v${version} - ${userMsg}`;
+        let commitMsg = `v${version}`;
+        if (!modifiedFiles.every(f => f.trim().match(/^M\s+(package\.json|out\/overpy_standalone\.js|customGameSettingsSchema\.json)$/))) {
+            const userMsg = (await prompt(`Enter a commit message for release ${version}: `)).trim();
+            if (userMsg) {
+                commitMsg += ` - ${userMsg}`;
+            }
         }
         console.log(`\nCommitting and pushing ${commitMsg}...`);
         let commitMsgEscaped = commitMsg.replace(/"/g, '\\"');

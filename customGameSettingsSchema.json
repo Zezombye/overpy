@@ -16292,7 +16292,7 @@
                         }
                     }
                 },
-                "stadium": {
+                "stadiumPracticeRange": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
