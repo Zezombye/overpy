@@ -3099,6 +3099,72 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     }
                 }
             },
+            "stadiumPracticeRange": {
+                "values": {
+                    "spawnTrainingBots": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "00000000EC7E",
+                        "en-US": "Spawn Training Bots",
+                        "de-DE": "Trainingsbots erscheinen lassen",
+                        "es-ES": "Poner robots de entrenamiento",
+                        "es-MX": "Reaparición de robots de entrenamiento",
+                        "fr-FR": "Générer des robots d’entraînement",
+                        "it-IT": "Generazione Addestra-bot",
+                        "ja-JP": "トレーニング・ボット リスポーン",
+                        "ko-KR": "훈련용 봇 생성",
+                        "pl-PL": "Odrodź boty treningowe",
+                        "pt-BR": "Gerar bots de treinamento",
+                        "ru-RU": "Возродить тренировочных роботов",
+                        "th-TH": "เรียกบอทฝึกฝน",
+                        "tr-TR": "Talim Robotu Yaratımı",
+                        "zh-CN": "刷新训练机器人",
+                        "zh-TW": "產生訓練機器人"
+                    },
+                    "trainingBotsRespawnTime%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "00000000F0CC",
+                        "en-US": "Training Bot Respawn Time Scalar",
+                        "de-DE": "Wiederbelebungszeit von Trainingsbots",
+                        "es-ES": "Tiempo de reaparición de robot de entrenamiento",
+                        "es-MX": "Escala de tiempo de reaparición de robot de entrenamiento",
+                        "fr-FR": "Temps de réapparition des robots d’entraînement",
+                        "it-IT": "Frequenza di ricomparsa degli Addestra-bot",
+                        "ja-JP": "トレーニング・ボット リスポーン時間スカラー",
+                        "ko-KR": "훈련용 봇 재생성 시간 조정",
+                        "pl-PL": "Skalowanie czasu odświeżania botów treningowych",
+                        "pt-BR": "Tempo escalar de ressurgimento de bots de treinamento",
+                        "ru-RU": "Время возрождения тренировочных роботов",
+                        "th-TH": "ปรับเวลาเกิดใหม่เกิดใหม่ของบอทฝึกฝน",
+                        "tr-TR": "Talim Robotu Yeniden Doğma Süre Skaleri",
+                        "zh-CN": "训练机器人刷新时间",
+                        "zh-TW": "訓練機器人重生時間"
+                    },
+                    "enableTrainingPartner": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "0000000105D8",
+                        "en-US": "Training Partner",
+                        "de-DE": "Trainingspartner",
+                        "es-ES": "Pareja de entrenamiento",
+                        "es-MX": "Compañero de entrenamiento",
+                        "fr-FR": "Partenaire d’entraînement",
+                        "it-IT": "Assistente d'Addestramento",
+                        "ja-JP": "トレーニング・パートナー",
+                        "ko-KR": "훈련 상대",
+                        "pl-PL": "Partner treningowy",
+                        "pt-BR": "Parceiro de Treinamento",
+                        "ru-RU": "Спарринг-партнер",
+                        "th-TH": "คู่หูฝึกฝน",
+                        "tr-TR": "Talim Arkadaşı",
+                        "zh-CN": "训练伙伴",
+                        "zh-TW": "訓練夥伴"
+                    }
+                }
+            },
             "junkenstein": {
                 "values": {
                     "difficulty": {

@@ -18058,6 +18058,72 @@ var customGameSettingsSchema = (
             }
           }
         },
+        "stadiumPracticeRange": {
+          "values": {
+            "spawnTrainingBots": {
+              "values": "__boolOnOff__",
+              "default": "on",
+              "guid": "00000000EC7E",
+              "en-US": "Spawn Training Bots",
+              "de-DE": "Trainingsbots erscheinen lassen",
+              "es-ES": "Poner robots de entrenamiento",
+              "es-MX": "Reaparici\xF3n de robots de entrenamiento",
+              "fr-FR": "G\xE9n\xE9rer des robots d\u2019entra\xEEnement",
+              "it-IT": "Generazione Addestra-bot",
+              "ja-JP": "\u30C8\u30EC\u30FC\u30CB\u30F3\u30B0\u30FB\u30DC\u30C3\u30C8 \u30EA\u30B9\u30DD\u30FC\u30F3",
+              "ko-KR": "\uD6C8\uB828\uC6A9 \uBD07 \uC0DD\uC131",
+              "pl-PL": "Odrod\u017A boty treningowe",
+              "pt-BR": "Gerar bots de treinamento",
+              "ru-RU": "\u0412\u043E\u0437\u0440\u043E\u0434\u0438\u0442\u044C \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043E\u0447\u043D\u044B\u0445 \u0440\u043E\u0431\u043E\u0442\u043E\u0432",
+              "th-TH": "\u0E40\u0E23\u0E35\u0E22\u0E01\u0E1A\u0E2D\u0E17\u0E1D\u0E36\u0E01\u0E1D\u0E19",
+              "tr-TR": "Talim Robotu Yarat\u0131m\u0131",
+              "zh-CN": "\u5237\u65B0\u8BAD\u7EC3\u673A\u5668\u4EBA",
+              "zh-TW": "\u7522\u751F\u8A13\u7DF4\u6A5F\u5668\u4EBA"
+            },
+            "trainingBotsRespawnTime%": {
+              "values": "__percent__",
+              "min": 10,
+              "max": 500,
+              "default": 100,
+              "guid": "00000000F0CC",
+              "en-US": "Training Bot Respawn Time Scalar",
+              "de-DE": "Wiederbelebungszeit von Trainingsbots",
+              "es-ES": "Tiempo de reaparici\xF3n de robot de entrenamiento",
+              "es-MX": "Escala de tiempo de reaparici\xF3n de robot de entrenamiento",
+              "fr-FR": "Temps de r\xE9apparition des robots d\u2019entra\xEEnement",
+              "it-IT": "Frequenza di ricomparsa degli Addestra-bot",
+              "ja-JP": "\u30C8\u30EC\u30FC\u30CB\u30F3\u30B0\u30FB\u30DC\u30C3\u30C8 \u30EA\u30B9\u30DD\u30FC\u30F3\u6642\u9593\u30B9\u30AB\u30E9\u30FC",
+              "ko-KR": "\uD6C8\uB828\uC6A9 \uBD07 \uC7AC\uC0DD\uC131 \uC2DC\uAC04 \uC870\uC815",
+              "pl-PL": "Skalowanie czasu od\u015Bwie\u017Cania bot\xF3w treningowych",
+              "pt-BR": "Tempo escalar de ressurgimento de bots de treinamento",
+              "ru-RU": "\u0412\u0440\u0435\u043C\u044F \u0432\u043E\u0437\u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043E\u0447\u043D\u044B\u0445 \u0440\u043E\u0431\u043E\u0442\u043E\u0432",
+              "th-TH": "\u0E1B\u0E23\u0E31\u0E1A\u0E40\u0E27\u0E25\u0E32\u0E40\u0E01\u0E34\u0E14\u0E43\u0E2B\u0E21\u0E48\u0E40\u0E01\u0E34\u0E14\u0E43\u0E2B\u0E21\u0E48\u0E02\u0E2D\u0E07\u0E1A\u0E2D\u0E17\u0E1D\u0E36\u0E01\u0E1D\u0E19",
+              "tr-TR": "Talim Robotu Yeniden Do\u011Fma S\xFCre Skaleri",
+              "zh-CN": "\u8BAD\u7EC3\u673A\u5668\u4EBA\u5237\u65B0\u65F6\u95F4",
+              "zh-TW": "\u8A13\u7DF4\u6A5F\u5668\u4EBA\u91CD\u751F\u6642\u9593"
+            },
+            "enableTrainingPartner": {
+              "values": "__boolOnOff__",
+              "default": "on",
+              "guid": "0000000105D8",
+              "en-US": "Training Partner",
+              "de-DE": "Trainingspartner",
+              "es-ES": "Pareja de entrenamiento",
+              "es-MX": "Compa\xF1ero de entrenamiento",
+              "fr-FR": "Partenaire d\u2019entra\xEEnement",
+              "it-IT": "Assistente d'Addestramento",
+              "ja-JP": "\u30C8\u30EC\u30FC\u30CB\u30F3\u30B0\u30FB\u30D1\u30FC\u30C8\u30CA\u30FC",
+              "ko-KR": "\uD6C8\uB828 \uC0C1\uB300",
+              "pl-PL": "Partner treningowy",
+              "pt-BR": "Parceiro de Treinamento",
+              "ru-RU": "\u0421\u043F\u0430\u0440\u0440\u0438\u043D\u0433-\u043F\u0430\u0440\u0442\u043D\u0435\u0440",
+              "th-TH": "\u0E04\u0E39\u0E48\u0E2B\u0E39\u0E1D\u0E36\u0E01\u0E1D\u0E19",
+              "tr-TR": "Talim Arkada\u015F\u0131",
+              "zh-CN": "\u8BAD\u7EC3\u4F19\u4F34",
+              "zh-TW": "\u8A13\u7DF4\u5925\u4F34"
+            }
+          }
+        },
         "junkenstein": {
           "values": {
             "difficulty": {
