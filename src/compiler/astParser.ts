@@ -338,6 +338,8 @@ export function parseAstRules(rules: Ast[]) {
         } else if (rule.name in astMacros) {
             rulesResult.push(...parseAstRules(parseAstMacro(rule)));
             continue;
+        } else if (rule.name === "pass") {
+            continue;
         } else {
             error("Unexpected function '" + rule.name + "' outside a rule");
         }
