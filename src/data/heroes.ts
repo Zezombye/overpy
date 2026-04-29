@@ -2500,21 +2500,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
     "sojourn": {
         "secondaryFire": {
             "guid": "00000000796B",
-            "en-US": "Railgun Alt Fire",
-            "de-DE": "Railgun – Alternativer Feuermodus",
-            "es-ES": "Disparo secundario del cañón de riel",
-            "es-MX": "Disparo secundario de Cañón de riel",
-            "fr-FR": "Canon électrique : tir alternatif",
-            "it-IT": "Fuoco Alternativo Fucile a Rotaia",
-            "ja-JP": "レールガン - サブ攻撃",
-            "ko-KR": "레일건 보조 발사",
-            "pl-PL": "Alternatywny atak Karabinu Kinetycznego",
-            "pt-BR": "Canhão Elétrico - Disparo alternativo",
-            "ru-RU": "Дополнительный режим огня рельсотрона",
-            "th-TH": "อาวุธสำรองเรลกัน",
-            "tr-TR": "Raylı Tüfek Alternatif Ateşi",
-            "zh-CN": "充能射击",
-            "zh-TW": "磁軌槍次要攻擊"
+            "en-US": "Charged Shot",
         },
         "ability1": {
             "guid": "000000007964",

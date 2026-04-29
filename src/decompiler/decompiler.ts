@@ -361,7 +361,7 @@ function decompileCustomGameSettings(content: string) {
                     }
                 }
 
-                Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values));
+                Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values, {parent: gamemode}));
             }
         } else if (opyCategory === "heroes") {
             for (var team of Object.keys(serialized[category])) {
@@ -395,6 +395,7 @@ function decompileCustomGameSettings(content: string) {
                             Object.assign(
                                 result[opyCategory][opyTeam][opyHero],
                                 decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), heroValues, {
+                                    parent: property,
                                     invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general?.values ?? error("No general values for heroes"),
                                 }),
                             );

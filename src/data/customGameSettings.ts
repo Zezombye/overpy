@@ -4921,6 +4921,9 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "guid": "000000005B4B",
                     "values": "__boolOnOff__",
                     "default": "on",
+                    "exclude": [
+                        "mauga",
+                    ],
                     "en-US": "Primary Fire",
                     "de-DE": "Primärer Feuermodus",
                     "es-ES": "Disparo principal",
@@ -5309,7 +5312,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "orisa",
                         "pharah",
                         "reinhardt",
-                        "roadhog",
                         "sierra",
                         "sigma",
                         "sojourn",
@@ -5444,6 +5446,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
+                        "anran",
                         "baptiste",
                         "genji",
                         "illari",
@@ -5452,6 +5455,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "mei",
                         "mercy",
                         "moira",
+                        "roadhog",
                         "sojourn",
                         "symmetra",
                         "torbjorn",

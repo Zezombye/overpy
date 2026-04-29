@@ -468,7 +468,22 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "tr-TR": "Yeti Avcısı",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
-    }
+    },
+    "assaultBalancedOverwatch": {
+        "en-US": "Assault Balanced Overwatch",
+    },
+    "controlBalancedOverwatch": {
+        "en-US": "Control Balanced Overwatch",
+    },
+    "escortBalancedOverwatch": {
+        "en-US": "Escort Balanced Overwatch",
+    },
+    "hybridBalancedOverwatch": {
+        "en-US": "Hybrid Balanced Overwatch",
+    },
+    "pushBalancedOverwatch": {
+        "en-US": "Push Balanced Overwatch",
+    },
 }
 //end-json
 ;

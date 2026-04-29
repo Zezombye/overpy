@@ -109,7 +109,7 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
         }
 
         if (keyName === null || value === null) {
-            error("No translation found for key of element '" + potentialKey + "'");
+            error("No translation found for key of element '" + (options.parent ? options.parent + " > " : "") + potentialKey + "'");
         }
 
         if (isInvalidButAcceptedProperty) {
@@ -124,6 +124,10 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
             if (!value.endsWith("%")) {
                 if (kwObj[keyName]["en-US"] === "Glide Boost Duration Scalar" && keyName === "ability1Duration%") {
                     warn("w_dead_workshop", "Juno's 'Glide Boost Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
+                    continue;
+                }
+                if (kwObj[keyName]["en-US"] === "Katashiro Return Duration Scalar" && keyName === "ability1Duration%") {
+                    warn("w_dead_workshop", "Mizuki's 'Katashiro Return Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
                     continue;
                 }
                 error("Expected a percentage for value of elem '" + elem + "'");

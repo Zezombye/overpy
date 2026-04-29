@@ -2848,9 +2848,7 @@
                                 "all",
                                 "first",
                                 "second",
-                                "third",
-                                "fourth",
-                                "fifth"
+                                "third"
                             ]
                         },
                         "scoreToWin": {
@@ -16580,6 +16578,710 @@
                             }
                         }
                     }
+                },
+                "assaultBalancedOverwatch": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkEliminationCatchupLevelAmount%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkGeneration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "teamOverlay": {
+                            "type": "boolean"
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enablePerks": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "controlBalancedOverwatch": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkEliminationCatchupLevelAmount%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkGeneration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "teamOverlay": {
+                            "type": "boolean"
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enablePerks": {
+                            "type": "boolean"
+                        },
+                        "setValidControlPoints": {
+                            "type": "string",
+                            "enum": [
+                                "all",
+                                "first",
+                                "second",
+                                "third"
+                            ]
+                        },
+                        "scoreToWin": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 3
+                        },
+                        "scoringSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        }
+                    }
+                },
+                "escortBalancedOverwatch": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkEliminationCatchupLevelAmount%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkGeneration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "teamOverlay": {
+                            "type": "boolean"
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enablePerks": {
+                            "type": "boolean"
+                        },
+                        "payloadSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        }
+                    }
+                },
+                "hybridBalancedOverwatch": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkEliminationCatchupLevelAmount%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkGeneration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "teamOverlay": {
+                            "type": "boolean"
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enablePerks": {
+                            "type": "boolean"
+                        },
+                        "payloadSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        }
+                    }
+                },
+                "pushBalancedOverwatch": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkEliminationCatchupLevelAmount%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "perkGeneration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "teamOverlay": {
+                            "type": "boolean"
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": []
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": []
+                                    }
+                                ]
+                            }
+                        },
+                        "ts1WalkSpeedModifier%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "ts1PushSpeedModifier%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enablePerks": {
+                            "type": "boolean"
+                        }
+                    }
                 }
             }
         },
@@ -19907,9 +20609,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "enableSecondaryFire": {
-                                    "type": "boolean"
-                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -19924,6 +20623,9 @@
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -22001,6 +22703,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -26746,9 +27451,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "enableSecondaryFire": {
-                                    "type": "boolean"
-                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -26763,6 +27465,9 @@
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -28840,6 +29545,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -33585,9 +34293,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "enableSecondaryFire": {
-                                    "type": "boolean"
-                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -33602,6 +34307,9 @@
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -35679,6 +36387,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -40424,9 +41135,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "enableSecondaryFire": {
-                                    "type": "boolean"
-                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
@@ -40441,6 +41149,9 @@
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -42518,6 +43229,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -47404,9 +48118,6 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
-                        "enableSecondaryFire": {
-                            "type": "boolean"
-                        },
                         "secondaryFireCooldown%": {
                             "type": "number",
                             "minimum": 0,
@@ -47421,6 +48132,9 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
                         }
                     }
                 },
@@ -49498,6 +50212,9 @@
                             "maximum": 500
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         }
                     }

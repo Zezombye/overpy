@@ -330,7 +330,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "void"
     },
     "compress": {
-        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompress()` function to get the original array back.",
+        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back.",
         "args": [
             {
                 "name": "array",
@@ -341,7 +341,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         return: "String",
     },
     "compressed": {
-        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nFor some use cases, it might be more effective to use this function instead of `compress()` and `decompressNumbers()`/`decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
         "args": [
             {
                 "name": "array",

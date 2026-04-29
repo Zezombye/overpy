@@ -177,7 +177,7 @@ export function getDecompressionAst(compressedString: Ast, compressionInfo: Comp
         let decompressionFormula = Array(Math.ceil((maxDecimalPlace - minDecimalPlace)/2)).fill(0).map((x, i) => i).map(x => `${Math.pow(100, x+minDecimalPlace/2)}*x.last().strIndex(x[0].charAt(${x}))`).join(" + ");
 
 
-        return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in [[e, ${escapeString(alphabet, false)}] for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+        return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in [e.concat(${escapeString(alphabet, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
     } else {
 
 
@@ -191,7 +191,7 @@ export function getDecompressionAst(compressedString: Ast, compressionInfo: Comp
         });
 
         //Remember: order is X, Z, Y
-        return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in [[e, ${escapeString(alphabet, false)}] for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+        return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in [e.concat(${escapeString(alphabet, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
     }
 
 }

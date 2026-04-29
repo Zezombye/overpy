@@ -19880,6 +19880,9 @@ var customGameSettingsSchema = (
             "guid": "000000005B4B",
             "values": "__boolOnOff__",
             "default": "on",
+            "exclude": [
+              "mauga"
+            ],
             "en-US": "Primary Fire",
             "de-DE": "Prim\xE4rer Feuermodus",
             "es-ES": "Disparo principal",
@@ -20268,7 +20271,6 @@ var customGameSettingsSchema = (
               "orisa",
               "pharah",
               "reinhardt",
-              "roadhog",
               "sierra",
               "sigma",
               "sojourn",
@@ -20403,6 +20405,7 @@ var customGameSettingsSchema = (
             "values": "__boolOnOff__",
             "default": "on",
             "include": [
+              "anran",
               "baptiste",
               "genji",
               "illari",
@@ -20411,6 +20414,7 @@ var customGameSettingsSchema = (
               "mei",
               "mercy",
               "moira",
+              "roadhog",
               "sojourn",
               "symmetra",
               "torbjorn",
@@ -37848,7 +37852,7 @@ function decompileCustomGameSettingsDict(dict, kwObj, options = {}) {
       }
     }
     if (keyName === null || value === null) {
-      error("No translation found for key of element '" + potentialKey + "'");
+      error("No translation found for key of element '" + (options.parent ? options.parent + " > " : "") + potentialKey + "'");
     }
     if (isInvalidButAcceptedProperty) {
       continue;
@@ -37861,6 +37865,10 @@ function decompileCustomGameSettingsDict(dict, kwObj, options = {}) {
       if (!value.endsWith("%")) {
         if (kwObj[keyName]["en-US"] === "Glide Boost Duration Scalar" && keyName === "ability1Duration%") {
           warn("w_dead_workshop", "Juno's 'Glide Boost Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
+          continue;
+        }
+        if (kwObj[keyName]["en-US"] === "Katashiro Return Duration Scalar" && keyName === "ability1Duration%") {
+          warn("w_dead_workshop", "Mizuki's 'Katashiro Return Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
           continue;
         }
         error("Expected a percentage for value of elem '" + elem + "'");
@@ -40527,6 +40535,21 @@ var gamemodeKw = (
       "tr-TR": "Yeti Avc\u0131s\u0131",
       "zh-CN": "\u96EA\u57DF\u72E9\u730E",
       "zh-TW": "\u96EA\u602A\u5927\u4F5C\u6230"
+    },
+    "assaultBalancedOverwatch": {
+      "en-US": "Assault Balanced Overwatch"
+    },
+    "controlBalancedOverwatch": {
+      "en-US": "Control Balanced Overwatch"
+    },
+    "escortBalancedOverwatch": {
+      "en-US": "Escort Balanced Overwatch"
+    },
+    "hybridBalancedOverwatch": {
+      "en-US": "Hybrid Balanced Overwatch"
+    },
+    "pushBalancedOverwatch": {
+      "en-US": "Push Balanced Overwatch"
     }
   }
 );
@@ -43008,21 +43031,7 @@ var heroKw = (
     "sojourn": {
       "secondaryFire": {
         "guid": "00000000796B",
-        "en-US": "Railgun Alt Fire",
-        "de-DE": "Railgun \u2013 Alternativer Feuermodus",
-        "es-ES": "Disparo secundario del ca\xF1\xF3n de riel",
-        "es-MX": "Disparo secundario de Ca\xF1\xF3n de riel",
-        "fr-FR": "Canon \xE9lectrique : tir alternatif",
-        "it-IT": "Fuoco Alternativo Fucile a Rotaia",
-        "ja-JP": "\u30EC\u30FC\u30EB\u30AC\u30F3 - \u30B5\u30D6\u653B\u6483",
-        "ko-KR": "\uB808\uC77C\uAC74 \uBCF4\uC870 \uBC1C\uC0AC",
-        "pl-PL": "Alternatywny atak Karabinu Kinetycznego",
-        "pt-BR": "Canh\xE3o El\xE9trico - Disparo alternativo",
-        "ru-RU": "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 \u0440\u0435\u0436\u0438\u043C \u043E\u0433\u043D\u044F \u0440\u0435\u043B\u044C\u0441\u043E\u0442\u0440\u043E\u043D\u0430",
-        "th-TH": "\u0E2D\u0E32\u0E27\u0E38\u0E18\u0E2A\u0E33\u0E23\u0E2D\u0E07\u0E40\u0E23\u0E25\u0E01\u0E31\u0E19",
-        "tr-TR": "Rayl\u0131 T\xFCfek Alternatif Ate\u015Fi",
-        "zh-CN": "\u5145\u80FD\u5C04\u51FB",
-        "zh-TW": "\u78C1\u8ECC\u69CD\u6B21\u8981\u653B\u64CA"
+        "en-US": "Charged Shot"
       },
       "ability1": {
         "guid": "000000007964",
@@ -46787,14 +46796,14 @@ function getDecompressionAst(compressedString, compressionInfo) {
   let { minDecimalPlace, maxDecimalPlace, offset, arrayType } = compressionInfo;
   if (arrayType === "number") {
     let decompressionFormula = Array(Math.ceil((maxDecimalPlace - minDecimalPlace) / 2)).fill(0).map((x, i) => i).map((x) => `${Math.pow(100, x + minDecimalPlace / 2)}*x.last().strIndex(x[0].charAt(${x}))`).join(" + ");
-    return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in [[e, ${escapeString(alphabet2, false)}] for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+    return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in [e.concat(${escapeString(alphabet2, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
   } else {
     let decompressionFormulas = Array(3).fill(0).map((_, h) => {
       return Array(Math.ceil((maxDecimalPlace - minDecimalPlace) / 2)).fill(0).map((x, i) => i).map((x) => `
                     ${Math.pow(100, x + minDecimalPlace / 2)}*x.last().strIndex(x[0].charAt(${x + Math.ceil((maxDecimalPlace - minDecimalPlace) / 2) * h}))
                 `).join(" + ");
     });
-    return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in [[e, ${escapeString(alphabet2, false)}] for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+    return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in [e.concat(${escapeString(alphabet2, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
   }
 }
 astParsingFunctions.compressed = function(content) {
@@ -60077,7 +60086,9 @@ var valueFuncKw = (
         {
           "name": "index",
           "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
-          "type": "unsigned int"
+          "type": "unsigned int",
+          "canReplace0ByFalse": true,
+          "canReplace1ByTrue": true
         }
       ],
       isConstant: true,
@@ -65191,7 +65202,7 @@ function exportToPoFiles(translatedStrings2) {
     }
     error("Cannot do translations in browsers (fs not found)");
   }
-  translatedStrings2 = translatedStrings2.filter((x) => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => +(b.occurrences.length > 0) - +(a.occurrences.length > 0) || a.occurrences[0].localeCompare(b.occurrences[0]));
+  translatedStrings2 = translatedStrings2.filter((x) => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => +(b.occurrences.length > 0) - +(a.occurrences.length > 0) || (a.occurrences[0] ?? "zzzzz").localeCompare(b.occurrences[0] ?? "zzzzz"));
   for (let language of translationLanguages2.slice(1)) {
     let po = new import_pofile.default();
     po.headers = {
@@ -68814,7 +68825,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "void"
   },
   "compress": {
-    "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompress()` function to get the original array back.",
+    "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back.",
     "args": [
       {
         "name": "array",
@@ -68825,7 +68836,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     return: "String"
   },
   "compressed": {
-    "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nFor some use cases, it might be more effective to use this function instead of `compress()` and `decompressNumbers()`/`decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+    "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
     "args": [
       {
         "name": "array",
@@ -69836,12 +69847,16 @@ function computeCustomGameSettingsSchema() {
     } else {
       Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
     }
+    if (gamemode.endsWith("BalancedOverwatch")) {
+      Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values[gamemode.replace("BalancedOverwatch", "")].values);
+    }
   }
   delete customGameSettingsSchema.gamemodes.values.general.values.enabledMaps;
   delete customGameSettingsSchema.gamemodes.values.general.values.disabledMaps;
   for (var gamemode in customGameSettingsSchema.gamemodes.values) {
     Object.assign(customGameSettingsSchema.gamemodes.values.general.values, customGameSettingsSchema.gamemodes.values[gamemode].values);
   }
+  customGameSettingsSchema.gamemodes.values.general.values.scoreToWin = customGameSettingsSchema.gamemodes.values.ffa.values.scoreToWin;
   customGameSettingsSchema.heroes.values["general"] = { values: {} };
   customGameSettingsSchema.heroes.values["general"].values = Object.assign(
     {},
@@ -71257,7 +71272,7 @@ function decompileCustomGameSettings(content) {
             }
           }
         }
-        Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values));
+        Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values, { parent: gamemode }));
       }
     } else if (opyCategory === "heroes") {
       for (var team of Object.keys(serialized[category])) {
@@ -71287,6 +71302,7 @@ function decompileCustomGameSettings(content) {
               Object.assign(
                 result[opyCategory][opyTeam][opyHero],
                 decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), heroValues, {
+                  parent: property,
                   invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general?.values ?? error("No general values for heroes")
                 })
               );

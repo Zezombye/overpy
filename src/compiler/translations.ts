@@ -145,7 +145,7 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
         error("Cannot do translations in browsers (fs not found)");
     }
 
-    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || a.occurrences[0].localeCompare(b.occurrences[0]));
+    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || (a.occurrences[0] ?? "zzzzz").localeCompare((b.occurrences[0] ?? "zzzzz")));
 
     for (let language of translationLanguages.slice(1)) { //first language is default language
 
