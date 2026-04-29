@@ -1249,7 +1249,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
     "junkerQueen": {
         "secondaryFire": {
             "guid": "00000000D3A4",
-            "en-US": "Jagged Blade",
+            "en-US": "Jagged Blade Gracie",
             "de-DE": "Gezackte Klinge",
             "es-ES": "Cuchilla dentada",
             "es-MX": "Hoja dentada",
@@ -2499,7 +2499,6 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
     },
     "sojourn": {
         "secondaryFire": {
-            "guid": "00000000796B",
             "en-US": "Charged Shot",
         },
         "ability1": {

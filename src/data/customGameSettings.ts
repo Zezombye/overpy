@@ -5456,7 +5456,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "mercy",
                         "moira",
                         "roadhog",
-                        "sojourn",
                         "symmetra",
                         "torbjorn",
                         "winston",

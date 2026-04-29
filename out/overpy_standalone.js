@@ -20415,7 +20415,6 @@ var customGameSettingsSchema = (
               "mercy",
               "moira",
               "roadhog",
-              "sojourn",
               "symmetra",
               "torbjorn",
               "winston",
@@ -41780,7 +41779,7 @@ var heroKw = (
     "junkerQueen": {
       "secondaryFire": {
         "guid": "00000000D3A4",
-        "en-US": "Jagged Blade",
+        "en-US": "Jagged Blade Gracie",
         "de-DE": "Gezackte Klinge",
         "es-ES": "Cuchilla dentada",
         "es-MX": "Hoja dentada",
@@ -43030,7 +43029,6 @@ var heroKw = (
     },
     "sojourn": {
       "secondaryFire": {
-        "guid": "00000000796B",
         "en-US": "Charged Shot"
       },
       "ability1": {
