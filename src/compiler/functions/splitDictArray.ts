@@ -20,41 +20,68 @@
 import { Ast, astParsingFunctions, getAstFor0, getAstForEmptyArray, getAstForNull } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.splitDictArray = function (content) {
-    if (content.args[0].name !== "__dict__") {
-        error("First argument of splitDictArray() must be a dictionary", content.args[0].fileStack);
-    }
-    if (content.args[1].name !== "__array__") {
-        error("Second argument of splitDictArray() must be a literal array", content.args[1].fileStack);
-    }
-    for (let elem of content.args[1].args) {
-        if (elem.name !== "__dict__") {
-            error("Second argument of splitDictArray() must be a literal array of dictionaries", elem.fileStack);
+astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (content) {
+
+    let variables = [];
+    let arrays = [];
+
+    if (content.name === "splitDictArray") {
+        if (content.args[0].name !== "__dict__") {
+            error("First argument of "+content.name+"() must be a dictionary", content.args[0].fileStack);
         }
-    }
-
-    let variableKeys = content.args[0].args.map((x) => x.args[0].name);
-    let variables = content.args[0].args.map((x) => x.args[1]);
-    let arrays = Array(variableKeys.length).fill(0).map(() => getAstForEmptyArray());
-
-    //console.log(variableKeys);
-    //console.log(variables);
-
-    for (let dict of content.args[1].args) {
-        let dictKeys = dict.args.map((x) => x.args[0].name);
-        let dictValues = dict.args.map((x) => x.args[1]);
-        for (let [i, key] of variableKeys.entries()) {
-            if (!dict.args.some((x) => x.args[0].name === key)) {
-                arrays[i].args.push(getAstForNull());
-            } else {
-                arrays[i].args.push(dictValues[dictKeys.findIndex((x) => x === key)]);
+        if (content.args[1].name !== "__array__") {
+            error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
+        }
+        for (let elem of content.args[1].args) {
+            if (elem.name !== "__dict__") {
+                error("Second argument of "+content.name+"() must be a literal array of dictionaries", elem.fileStack);
             }
         }
-        for (let key of dictKeys) {
-            if (!variableKeys.includes(key)) {
-                error("Key '" + key + "' in dictionary is not defined in the first argument of splitDictArray()", dict.fileStack);
+
+
+        variables = content.args[0].args.map((x) => x.args[1]);
+        let variableKeys = content.args[0].args.map((x) => x.args[0].name);
+        arrays = Array(variableKeys.length).fill(0).map(() => getAstForEmptyArray());
+
+        //console.log(variableKeys);
+        //console.log(variables);
+
+        for (let dict of content.args[1].args) {
+            let dictKeys = dict.args.map((x) => x.args[0].name);
+            let dictValues = dict.args.map((x) => x.args[1]);
+            for (let [i, key] of variableKeys.entries()) {
+                if (!dict.args.some((x) => x.args[0].name === key)) {
+                    arrays[i].args.push(getAstForNull());
+                } else {
+                    arrays[i].args.push(dictValues[dictKeys.findIndex((x) => x === key)]);
+                }
+            }
+            for (let key of dictKeys) {
+                if (!variableKeys.includes(key)) {
+                    error("Key '" + key + "' in dictionary is not defined in the first argument of "+content.name+"()", dict.fileStack);
+                }
             }
         }
+
+    } else { //tabular
+        if (content.args[0].name !== "__array__") {
+            error("First argument of "+content.name+"() must be a literal array", content.args[0].fileStack);
+        }
+        if (content.args[1].name !== "__array__") {
+            error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
+        }
+        variables = content.args[0].args;
+        if (content.args[1].args.length % variables.length !== 0) {
+            error("Second argument of "+content.name+"() must have a length that is a multiple of "+variables.length+" (length is "+content.args[1].args.length+")", content.args[1].fileStack);
+        }
+        arrays = content.args[1].args.reduce((acc, x, i) => {
+            let arrayIndex = i % variables.length;
+            if (!acc[arrayIndex]) {
+                acc[arrayIndex] = getAstForEmptyArray();
+            }
+            acc[arrayIndex].args.push(x);
+            return acc;
+        }, []);
     }
 
     if (content.args[2].name === "true") {
@@ -70,7 +97,7 @@ astParsingFunctions.splitDictArray = function (content) {
 
     let assignments = arrays.map((x, i) => new Ast("__assignTo__", [variables[i], x]));
     if (!content.parent) {
-        error("Could not find parent of splitDictArray");
+        error("Could not find parent of "+content.name+"()");
     }
     content.parent!.children.splice(content.parent!.childIndex + 1, 0, ...assignments.slice(1));
     return assignments[0];

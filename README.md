@@ -911,9 +911,9 @@ OverPy will store the array in a string and automatically decompress it, which t
 
 For more control over the compression (eg if you have separate arrays to compress), you can use the `compress` and `decompressNumbers`/`decompressVectors` functions.
 
-## splitDictArray
+## splitDictArray/tabular
 
-Maps an array of dictionaries to variables. For example:
+`splitDictArray` maps an array of dictionaries to variables. For example:
 
 ```python
 splitDictArray({
@@ -931,6 +931,16 @@ Will yield the following:
 ```python
 waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
 waveLengths = [3, 8, null]
+```
+
+For a terser syntax, `tabular` can be used, where the second argument is a raw array (not an array of arrays!)
+
+```
+tabular([waveHeroes, waveLengths], [
+    Hero.ANA, 3,
+    Hero.SOLDIER, 8,
+    Hero.HAMMOND, null,
+])
 ```
 
 If the third argument is specified and set to `true`, string compression is automatically used for number and vector arrays.

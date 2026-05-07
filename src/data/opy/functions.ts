@@ -727,6 +727,8 @@ waveLengths = [3, 8, null]
 \`\`\`
 
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
+
+Also check the \`tabular\` function for a more concise syntax.
         `,
         "args": [
             {
@@ -770,6 +772,47 @@ If the third argument is set to \`true\`, arrays will be compressed if they are 
         ],
         "isConstant": true,
         "return": "unsigned int"
+    },
+    
+    "tabular": {
+        "description": `
+Maps an array of arrays to variables (same as \`splitDictArray()\` with shorter syntax). For example:
+\`\`\`python
+tabular([waveHeroes,waveLengths], [
+    Hero.ANA, 3,
+    Hero.SOLDIER, 8,
+    Hero.HAMMOND, null,
+])
+\`\`\`
+
+Will yield the following:
+
+\`\`\`python
+waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
+waveLengths = [3, 8, null]
+\`\`\`
+
+If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
+        `,
+        "args": [
+            {
+                "name": "variables",
+                "description": "A dictionary mapping the keys to the variables to be assigned to.",
+                "type": "Dict",
+            },{
+                "name": "values",
+                "description": "An array of dictionaries describing the values to be assigned to the variables.",
+                "type": {
+                    "Array": "Dict"
+                },
+            }, {
+                "name": "compress",
+                "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+                "type": "bool",
+                "default": false,
+            }
+        ],
+        "return": "void",
     },
     ".toArray": {
         "description": "Get an array of the values of an enum.",
