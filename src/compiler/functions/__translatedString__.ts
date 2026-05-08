@@ -18,7 +18,7 @@
 "use strict";
 
 import { spaces } from "../../data/opy/blizzardGlobal";
-import { STR_MAX_ARGS, STR_MAX_LENGTH, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
+import { STR_MAX_ARGS, STR_MAX_LENGTH, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations, useTlErr } from "../../globalVars";
 import { Ast, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
@@ -55,7 +55,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
     let replacementMacro = "";
 
     if (content.parent?.name === "spacesForString") {
-        opyMacro += escapeString("ＴＬＥｒｒ\uEC48"+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
+        opyMacro += escapeString((useTlErr ? "ＴＬＥｒｒ\uEC48" : "")+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
         opyMacro += ".split(__overpyTranslationHelper__)";
     } else if (isTranslatedStringLiteral) {
 
@@ -75,7 +75,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
         //\uEC48 is a character from the private use area. Use as separator, as it cannot appear in translated strings
         //__overpyTranslationsHelper__[0] is that character, so we add it to the start of the string so that the translation indexes match when we split it
         //We add "TLERR" at the start to notify the user if the string is stored in a variable then not translated using the "_" function when displayed
-        let rawString = "ＴＬＥｒｒ\uEC48"+translationStrings.join("\uEC48");
+        let rawString = (useTlErr ? "ＴＬＥｒｒ\uEC48" : "") + translationStrings.join("\uEC48");
 
         if (getUtf8Length(rawString) <= STR_MAX_LENGTH && replacements.length <= STR_MAX_ARGS) {
             //We can directly use the built-in formatters

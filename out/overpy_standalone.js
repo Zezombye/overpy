@@ -38569,8 +38569,12 @@ ${scriptText}`, {
     }
     if (content2.startsWith("#!translateWithPlayerVar")) {
       setUsePlayerVarForTranslations(true);
-      if (content2.startsWith("#!translateWithPlayerVar noDetectionRule")) {
+      let args = content2.substring("#!translateWithPlayerVar".length).trim().split(" ");
+      if (args.includes("noDetectionRule")) {
         setGenerateRuleForTranslationsPlayerVar(false);
+      }
+      if (args.includes("noTlErr")) {
+        setTranslationUseTlErr(false);
       }
       return;
     }
@@ -46017,7 +46021,7 @@ function getAstForTranslatedString(content, replacements = []) {
   let replacementNames = [];
   let replacementMacro = "";
   if (content.parent?.name === "spacesForString") {
-    opyMacro += escapeString("\uFF34\uFF2C\uFF25\uFF52\uFF52\uEC48" + content.args.map((x) => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("")).join("\uEC48"), false);
+    opyMacro += escapeString((useTlErr ? "\uFF34\uFF2C\uFF25\uFF52\uFF52\uEC48" : "") + content.args.map((x) => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("")).join("\uEC48"), false);
     opyMacro += ".split(__overpyTranslationHelper__)";
   } else if (isTranslatedStringLiteral) {
     let separators = ["Vector.UP", "Vector.DOWN", "Vector.LEFT", "Vector.RIGHT", "Vector.FORWARD", "Vector.BACKWARD", "1876650.25", "1876651.25", "1876652.25", "1876653.25", "1876654.25", "1876655.25", "1876656.25", "1876657.25", "1876658.25", "1876659.25"];
@@ -46030,7 +46034,7 @@ function getAstForTranslatedString(content, replacements = []) {
       "Vector.BACKWARD": "(0.00, 0.00, -1.00)"
     };
     let translationStrings = content.args.map((x) => x.name.replaceAll("{}", "{0}"));
-    let rawString = "\uFF34\uFF2C\uFF25\uFF52\uFF52\uEC48" + translationStrings.join("\uEC48");
+    let rawString = (useTlErr ? "\uFF34\uFF2C\uFF25\uFF52\uFF52\uEC48" : "") + translationStrings.join("\uEC48");
     if (getUtf8Length(rawString) <= STR_MAX_LENGTH && replacements.length <= STR_MAX_ARGS) {
       if (replacements.length > 0) {
         replacementMacro = ".format(" + replacements.map((x, i) => "$arg" + i).join(", ") + ")";
@@ -65515,7 +65519,7 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
       }
     }).join("0");
     if (usePlayerVarForTranslations) {
-      addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize("1.1")[0].tokens);
+      addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize(useTlErr ? "1.1" : "0.1")[0].tokens);
     }
     addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\uEC480" + translationConstantString, false) + ".split(null[0])")[0].tokens);
   }
@@ -65539,7 +65543,6 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
       fileStackMemberType: "normal"
     }
   ]);
-  astRules.unshift(...getInitDirectivesRules());
   if (usePlayerVarForTranslations) {
     if (translationLanguages2.length === 0) {
       error("Translations must be setup using the #!translations directive");
@@ -65550,10 +65553,10 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
         @Event eachPlayer
         @Condition eventPlayer.hasSpawned()
         @Condition not eventPlayer.isDummy()
-        @Condition eventPlayer.__languageIndex__ == 1.1
+        @Condition eventPlayer.__languageIndex__ == ${useTlErr ? "1.1" : "0.1"}
         eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
         eventPlayer.startFacing(
-            directionFromAngles(10*${escapeString("\uEC480" + translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([])), 5),
+            directionFromAngles(10*__overpyTranslationHelper__.index(${translationLanguageConstantOpy}.split([])), 5),
             Math.INFINITY,
             Relativity.TO_WORLD,
             FacingReeval.DIRECTION_AND_TURN_RATE
@@ -65566,13 +65569,14 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
 
         eventPlayer.stopFacing()
         eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
-        eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__[0]
+        eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__${useTlErr ? "[0]" : " - 1"}
             `;
       translationSetupRule = tokenize(translationSetupRule);
       translationSetupRule = parseLines(translationSetupRule)[0];
       astRules.unshift(translationSetupRule);
     }
   }
+  astRules.unshift(...getInitDirectivesRules());
   if (enableTagsSetup) {
     var txSetupRule = `
 rule "OverPy <\\ztx> / <\\zfg> setup code":
@@ -69578,6 +69582,8 @@ var usePlayerVarForTranslations;
 var setUsePlayerVarForTranslations = (use) => usePlayerVarForTranslations = use;
 var generateRuleForTranslationsPlayerVar;
 var setGenerateRuleForTranslationsPlayerVar = (generate) => generateRuleForTranslationsPlayerVar = generate;
+var useTlErr;
+var setTranslationUseTlErr = (use) => useTlErr = use;
 var excludeVariablesInCompilation;
 var setExcludeVariablesInCompilation = (exclude) => excludeVariablesInCompilation = exclude;
 var globalvarInitRuleName;
@@ -69660,6 +69666,7 @@ function resetGlobalVariables(language) {
   translationLanguageConstantOpy = "";
   usePlayerVarForTranslations = false;
   generateRuleForTranslationsPlayerVar = true;
+  useTlErr = true;
   excludeVariablesInCompilation = false;
   globalvarInitRuleName = "Initialize global variables";
   playervarInitRuleName = "Initialize player variables";
@@ -72114,6 +72121,8 @@ If using translations, this can save a lot of elements. However, it will make tr
 If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once \`eventPlayer.__languageIndex__ != 1.1\`.
 
 You can specify \`noDetectionRule\` to not create the rule which sets the variable to the player's language, in which case you'll have to define the rule yourself; the variable must be set to the language as defined in the order specified in the \`#!translations\` directive, where the first language is index 1, and must be set to 1 by default if no language could be determined.
+
+You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
         `
   },
   "extension": {

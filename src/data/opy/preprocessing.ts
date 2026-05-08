@@ -187,6 +187,8 @@ If using translations, this can save a lot of elements. However, it will make tr
 If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once \`eventPlayer.__languageIndex__ != 1.1\`.
 
 You can specify \`noDetectionRule\` to not create the rule which sets the variable to the player's language, in which case you'll have to define the rule yourself; the variable must be set to the language as defined in the order specified in the \`#!translations\` directive, where the first language is index 1, and must be set to 1 by default if no language could be determined.
+
+You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
         `,
     },
 

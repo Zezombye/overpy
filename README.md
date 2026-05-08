@@ -803,9 +803,6 @@ If a `#!rulePrefix` directive is in an included file, it only takes effect for r
 rule "Spawn particles":
     #compiled rule name: [Effects] Spawn particles
 
-rule "Spawn beams":
-    #compiled rule name: [Effects] Spawn beams
-
 #!rulePrefix ""
 rule "Unprefixed rule":
     #compiled rule name: Unprefixed rule
@@ -1060,9 +1057,11 @@ This also means that, when used in a variable, you cannot use a translated strin
 
 Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable using a rule which uses the `.startFacing()` function when the player spawns (the language is determined based on the player's facing direction).
 
-If using translations, this can save a lot of elements. However, it will make translated strings not display correctly for spectators; you will have to wrap them with the `__` function (which behaves the same as the `_` function, except it will not use the `__languageIndex__` player variable).
+If using translations, this can save a lot of elements. However, it will make translated strings not display correctly for spectators. There are two options if your gamemode must cater to spectators:
+    - Either wrap the strings with the `__` function (which behaves the same as the `_` function, except it will not use the `__languageIndex__` player variable).
+    - Or, if you are short on elements, do `#!translateWithPlayerVar noTlErr`. This disables `TlErr` (which may cause you to badly setup the translations, so test thoroughly if disabling it!) but makes the `__languageIndex__` be 0-indexed, which enables spectators to see the default language (but it will not be translated).
 
-If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once `eventPlayer.__languageIndex__ != 1.1`.
+If your gamemode changes the facing direction on spawn, you must modify it so that it changes it once `eventPlayer.__languageIndex__ != 1.1` or 0.1 if using `noTlErr`.
 
 The `___` function is the same as the `_` function, but will never resolve the translation, even if in a display action. You must wrap it with the `_` function to resolve it.
 
