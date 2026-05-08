@@ -201,6 +201,9 @@ export async function compile(
         } as ScriptFileStackMember,
     ]);
 
+    //Note: the init directive rules must be BEFORE the translation/tx rules, otherwise the variables cannot be initialized with a translated or tx string.
+    astRules.unshift(...getInitDirectivesRules());
+
     if (usePlayerVarForTranslations) {
 
         if (translationLanguages.length === 0) {
@@ -217,7 +220,7 @@ export async function compile(
         @Condition eventPlayer.__languageIndex__ == ${useTlErr ? "1.1" : "0.1"}
         eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
         eventPlayer.startFacing(
-            directionFromAngles(10*__overpyTranslationHelper__.index(${translationLanguageConstantOpy}.split([])), 5),
+            directionFromAngles(10*${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([])), 5),
             Math.INFINITY,
             Relativity.TO_WORLD,
             FacingReeval.DIRECTION_AND_TURN_RATE
@@ -237,8 +240,6 @@ export async function compile(
             astRules.unshift(translationSetupRule);
         }
     }
-
-    astRules.unshift(...getInitDirectivesRules());
 
     if (enableTagsSetup) {
         var txSetupRule: any = `

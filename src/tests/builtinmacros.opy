@@ -18,3 +18,10 @@ rule "splitDictArray":
             hero: Hero.HAMMOND,
         }
     ])
+
+rule "tabular":
+    tabular([waveHeroes, waveLengths], [
+        Hero.ANA, 3,
+        Hero.SOLDIER, 8,
+        Hero.WRECKING_BALL, null,
+    ])

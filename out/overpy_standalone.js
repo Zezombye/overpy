@@ -65543,6 +65543,7 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
       fileStackMemberType: "normal"
     }
   ]);
+  astRules.unshift(...getInitDirectivesRules());
   if (usePlayerVarForTranslations) {
     if (translationLanguages2.length === 0) {
       error("Translations must be setup using the #!translations directive");
@@ -65556,7 +65557,7 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
         @Condition eventPlayer.__languageIndex__ == ${useTlErr ? "1.1" : "0.1"}
         eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
         eventPlayer.startFacing(
-            directionFromAngles(10*__overpyTranslationHelper__.index(${translationLanguageConstantOpy}.split([])), 5),
+            directionFromAngles(10*${escapeString("\uEC480" + translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([])), 5),
             Math.INFINITY,
             Relativity.TO_WORLD,
             FacingReeval.DIRECTION_AND_TURN_RATE
@@ -65576,7 +65577,6 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
       astRules.unshift(translationSetupRule);
     }
   }
-  astRules.unshift(...getInitDirectivesRules());
   if (enableTagsSetup) {
     var txSetupRule = `
 rule "OverPy <\\ztx> / <\\zfg> setup code":
@@ -72272,4 +72272,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map

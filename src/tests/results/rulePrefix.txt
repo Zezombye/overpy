@@ -1,0 +1,91 @@
+variables {
+    global:
+        0: A
+}
+rule ("[RulePrefix] rule 1") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 1);
+    }
+}
+
+rule ("[RulePrefix] rule 2") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 2);
+    }
+}
+
+rule ("") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 3);
+    }
+}
+
+rule ("[RulePrefix] rule 4") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 4);
+    }
+}
+
+rule ("[Test Include/Test Prefix] rule 5") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 5);
+    }
+}
+
+rule ("[Test Include/Test Prefix] rule 6") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 6);
+    }
+}
+
+rule ("[RulePrefix] rule 7") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 7);
+    }
+}
+
+rule ("[Test Include/Include4] 4") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 4);
+    }
+}
+
+rule ("[RulePrefix] rule 8") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 8);
+    }
+}
+
+rule ("---- DELIMITER ----") {
+    event {
+        Ongoing - Global;
+    }
+}
+

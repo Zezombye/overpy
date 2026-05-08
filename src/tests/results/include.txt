@@ -118,6 +118,24 @@ rule ("4") {
     }
 }
 
+rule ("rule 5") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 5);
+    }
+}
+
+rule ("[test prefix 3] rule 6") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 6);
+    }
+}
+
 rule ("5") {
     event {
         Ongoing - Global;

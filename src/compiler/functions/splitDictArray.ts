@@ -74,7 +74,7 @@ astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (con
         if (content.args[1].args.length % variables.length !== 0) {
             error("Second argument of "+content.name+"() must have a length that is a multiple of "+variables.length+" (length is "+content.args[1].args.length+")", content.args[1].fileStack);
         }
-        arrays = content.args[1].args.reduce((acc, x, i) => {
+        arrays = content.args[1].args.reduce((acc: any[], x, i) => {
             let arrayIndex = i % variables.length;
             if (!acc[arrayIndex]) {
                 acc[arrayIndex] = getAstForEmptyArray();
