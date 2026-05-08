@@ -791,6 +791,52 @@ content.toString();
 
 The hook script does not need to declare a wrapper function; writing statements that transform `content` is enough.
 
+## #!rulePrefix
+
+Sets a prefix for all subsequent rules. The prefix is applied to the rule name using a template (by default, `[prefix] ruleName`).
+
+If a `#!rulePrefix` directive is in an included file, it only takes effect for rules within that file (and its child includes, if they don't have their own `#!rulePrefix`), after the directive. When the included file ends, the prefix is restored to what it was before the include.
+
+```hs
+#!rulePrefix "Effects"
+
+rule "Spawn particles":
+    #compiled rule name: [Effects] Spawn particles
+
+rule "Spawn beams":
+    #compiled rule name: [Effects] Spawn beams
+
+#!rulePrefix ""
+rule "Unprefixed rule":
+    #compiled rule name: Unprefixed rule
+```
+
+## #!rulePrefixTemplate
+
+Defines a global template for how rule prefixes are applied to rule names. Can only be defined once and has effect on all rules (even those declared before it).
+
+The template is an OverPy expression with the following variables:
+
+- `$rule`: the current rule name
+- `$isDelimiter`: true if the rule has `@Delimiter`
+- `$prefix`: the current prefix
+- `$file`: the file name without extension
+- `$path`: the relative path to the main file (backslashes replaced by slashes)
+- Titlecase/lower/upper variations: `$prefixTitle`, `$prefixUpper`, `$prefixLower`, `$fileTitle`, `$fileUpper`, `$fileLower`, `$pathTitle`, `$pathUpper`, `$pathLower`
+
+Examples :
+
+- `#!rulePrefixTemplate f"[{$prefix}] {$rule}" if $prefix and $rule else $rule` (default): adds the prefix in square brackets before the rule name, if the prefix and rule name are not empty. This is the default if this directive is unspecified.
+- `#!rulePrefixTemplate f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule`": if you have an `heroes/junker_queen.opy` file, will yield rule names like `"[Heroes/Junker Queen] Spawn particles"`. This is the default if the directive is specified without an expression (just `#!rulePrefixTemplate`).
+
+The expression has to evaluate to a string without arguments.
+
+#!rulePrefix "effects"
+
+rule "Spawn particles":
+    #compiled rule name: (EFFECTS) Spawn particles
+```
+
 # Advanced constructs
 
 ## Switches

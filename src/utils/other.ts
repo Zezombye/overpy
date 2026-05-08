@@ -35,6 +35,10 @@ export function upperCaseToCamelCase(str: string): string {
     return result;
 }
 
+export function toTitleCase(str: string) {
+    return str.replace(/[\p{Letter}']+/gu, (txt) => txt.charAt(0).toUpperCase() + txt.substring(1));
+}
+
 export function shuffleArray<T>(a: T[]): T[] {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {

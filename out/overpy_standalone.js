@@ -38423,9 +38423,9 @@ var LogicalLine = class {
 var Token = class {
   text;
   fileStack;
-  constructor(text, fileStack8) {
+  constructor(text, fileStack7) {
     this.text = text;
-    this.fileStack = fileStack8;
+    this.fileStack = fileStack7;
     this.fileStack[this.fileStack.length - 1].endCol = this.fileStack[this.fileStack.length - 1].startCol + this.text.split("\n")[this.text.split("\n").length - 1].length;
     this.fileStack[this.fileStack.length - 1].endLine = this.fileStack[this.fileStack.length - 1].startLine + this.text.split("\n").length - 1;
   }
@@ -38658,6 +38658,25 @@ ${scriptText}`, {
       );
       return;
     }
+    if (content2.startsWith("#!rulePrefix ")) {
+      let prefix = content2.substring("#!rulePrefix ".length).trim();
+      addToken("__rulePrefix__");
+      addToken("(");
+      addToken(prefix);
+      addToken(")");
+      return;
+    }
+    if (content2.startsWith("#!rulePrefixTemplate")) {
+      if (rulePrefixTemplate !== "") {
+        error("A rule prefix template has already been defined");
+      }
+      let template = content2.substring("#!rulePrefixTemplate".length).trim() || `f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule`;
+      setRulePrefixTemplate(template);
+      let _rulePrefixTemplateFilestack = getFileStackCopy();
+      _rulePrefixTemplateFilestack[_rulePrefixTemplateFilestack.length - 1].startCol = content2.indexOf(template) + 1;
+      setRulePrefixTemplateFilestack(_rulePrefixTemplateFilestack);
+      return;
+    }
     error("Unknown preprocessor directive '" + content2 + "'");
   }
   for (i = 0; i < content.length; moveCursor(1)) {
@@ -38753,7 +38772,11 @@ ${scriptText}`, {
             staticMember: true,
             fileStackMemberType: "normal"
           });
+          let pushLine = new LogicalLine(0, [new Token("__pushRulePrefixStack__", getFileStackCopy())]);
+          let popLine = new LogicalLine(0, [new Token("__popRulePrefixStack__", getFileStackCopy())]);
+          result.push(pushLine);
           result.push(...tokenize(importedFileContent));
+          result.push(popLine);
           fileStack2.pop();
           moveCursor(j2 - i - 1);
         }
@@ -39587,13 +39610,13 @@ function parseAstMacro(macro) {
   if (!(macro.name in astMacros)) {
     error("Unknown macro '" + macro.name + "'", macro.fileStack);
   }
-  function setMacroFilestack(ast, fileStack8) {
-    ast.fileStack = [...fileStack8, ast.fileStack[ast.fileStack.length - 1]];
+  function setMacroFilestack(ast, fileStack7) {
+    ast.fileStack = [...fileStack7, ast.fileStack[ast.fileStack.length - 1]];
     for (var arg of ast.args) {
-      setMacroFilestack(arg, fileStack8);
+      setMacroFilestack(arg, fileStack7);
     }
     for (var child of ast.children) {
-      setMacroFilestack(child, fileStack8);
+      setMacroFilestack(child, fileStack7);
     }
   }
   let result = astMacros[macro.name].lines.map((line) => line.clone());
@@ -39962,31 +39985,31 @@ function getAstForArgDefault(arg) {
 }
 
 // src/utils/varNames.ts
-function translateSubroutineToPy(content, fileStack8) {
+function translateSubroutineToPy(content, fileStack7) {
   content = content.trim();
   content = translateNameToAvoidKeywords(content, "subroutine");
   if (subroutines.map((x) => x.name).includes(content)) {
     return content;
   }
   if (defaultSubroutineNames.includes(content)) {
-    addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack8);
+    addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack7);
     return content;
   }
   error("Unknown subroutine '" + content + "'");
 }
-function translateSubroutineToWs(content, fileStack8) {
+function translateSubroutineToWs(content, fileStack7) {
   for (var i = 0; i < subroutines.length; i++) {
     if (subroutines[i].name === content) {
       return content;
     }
   }
   if (defaultSubroutineNames.includes(content)) {
-    addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack8);
+    addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack7);
     return content;
   }
   error("Undeclared subroutine '" + content + "'");
 }
-function addSubroutine(content, index, fileStack8, isFromDefStatement = false) {
+function addSubroutine(content, index, fileStack7, isFromDefStatement = false) {
   if (reservedSubroutineNames.includes(content)) {
     error("Subroutine name '" + content + "' is a built-in function or keyword");
   }
@@ -39994,7 +40017,7 @@ function addSubroutine(content, index, fileStack8, isFromDefStatement = false) {
   subroutines.push({
     name: content,
     index: index ?? subroutines.length,
-    fileStack: fileStack8,
+    fileStack: fileStack7,
     isFromDefStatement
   });
 }
@@ -40007,20 +40030,20 @@ function translateNameToAvoidKeywords(initialName, nameType) {
   }
   return initialName;
 }
-function translateVarToPy(content, isGlobalVariable, fileStack8) {
+function translateVarToPy(content, isGlobalVariable, fileStack7) {
   content = content.trim();
   content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
   var varArray = isGlobalVariable ? globalVariables : playerVariables;
   if (varArray.map((x) => x.name).includes(content)) {
     return content;
   } else if (defaultVarNames.includes(content)) {
-    addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack8);
+    addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack7);
     return content;
   } else {
     error("Unknown variable '" + content + "'");
   }
 }
-function translateVarToWs(content, isGlobalVariable, fileStack8) {
+function translateVarToWs(content, isGlobalVariable, fileStack7) {
   var varArray = isGlobalVariable ? globalVariables : playerVariables;
   for (var i = 0; i < varArray.length; i++) {
     if (varArray[i].name === content) {
@@ -40028,12 +40051,12 @@ function translateVarToWs(content, isGlobalVariable, fileStack8) {
     }
   }
   if (defaultVarNames.includes(content)) {
-    addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack8);
+    addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack7);
     return content;
   }
   error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + content + "'");
 }
-function addVariable(content, isGlobalVariable, index, fileStack8, initValue = null) {
+function addVariable(content, isGlobalVariable, index, fileStack7, initValue = null) {
   if ((isGlobalVariable ? "" : ".") + content in astConstants) {
     error("Variable name '" + content + "' is already declared as a macro");
   }
@@ -40047,7 +40070,7 @@ function addVariable(content, isGlobalVariable, index, fileStack8, initValue = n
   if (isGlobalVariable) {
     globalVariables.push({
       name: content,
-      fileStack: fileStack8,
+      fileStack: fileStack7,
       index
     });
     if (initValue) {
@@ -40056,7 +40079,7 @@ function addVariable(content, isGlobalVariable, index, fileStack8, initValue = n
   } else {
     playerVariables.push({
       name: content,
-      fileStack: fileStack8,
+      fileStack: fileStack7,
       index
     });
     if (initValue) {
@@ -45604,7 +45627,7 @@ astParsingFunctions.__rule__ = function(content) {
             foundLabel = true;
           }
           computeDistanceTo(content3.children[i3]);
-          if (content3.children[i3].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__"].includes(content3.children[i3].name)) {
+          if (content3.children[i3].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__", "__rulePrefix__", "__pushRulePrefixStack__", "__popRulePrefixStack__"].includes(content3.children[i3].name)) {
             debug("Increasing distanceTo count for label " + label + ": function '" + content3.children[i3].name + "'");
             count++;
           }
@@ -47507,36 +47530,59 @@ astParsingFunctions.spacesForString = function(content) {
 };
 
 // src/compiler/functions/splitDictArray.ts
-astParsingFunctions.splitDictArray = function(content) {
-  if (content.args[0].name !== "__dict__") {
-    error("First argument of splitDictArray() must be a dictionary", content.args[0].fileStack);
-  }
-  if (content.args[1].name !== "__array__") {
-    error("Second argument of splitDictArray() must be a literal array", content.args[1].fileStack);
-  }
-  for (let elem of content.args[1].args) {
-    if (elem.name !== "__dict__") {
-      error("Second argument of splitDictArray() must be a literal array of dictionaries", elem.fileStack);
+astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function(content) {
+  let variables = [];
+  let arrays = [];
+  if (content.name === "splitDictArray") {
+    if (content.args[0].name !== "__dict__") {
+      error("First argument of " + content.name + "() must be a dictionary", content.args[0].fileStack);
     }
-  }
-  let variableKeys = content.args[0].args.map((x) => x.args[0].name);
-  let variables = content.args[0].args.map((x) => x.args[1]);
-  let arrays = Array(variableKeys.length).fill(0).map(() => getAstForEmptyArray());
-  for (let dict of content.args[1].args) {
-    let dictKeys = dict.args.map((x) => x.args[0].name);
-    let dictValues = dict.args.map((x) => x.args[1]);
-    for (let [i, key] of variableKeys.entries()) {
-      if (!dict.args.some((x) => x.args[0].name === key)) {
-        arrays[i].args.push(getAstForNull());
-      } else {
-        arrays[i].args.push(dictValues[dictKeys.findIndex((x) => x === key)]);
+    if (content.args[1].name !== "__array__") {
+      error("Second argument of " + content.name + "() must be a literal array", content.args[1].fileStack);
+    }
+    for (let elem of content.args[1].args) {
+      if (elem.name !== "__dict__") {
+        error("Second argument of " + content.name + "() must be a literal array of dictionaries", elem.fileStack);
       }
     }
-    for (let key of dictKeys) {
-      if (!variableKeys.includes(key)) {
-        error("Key '" + key + "' in dictionary is not defined in the first argument of splitDictArray()", dict.fileStack);
+    variables = content.args[0].args.map((x) => x.args[1]);
+    let variableKeys = content.args[0].args.map((x) => x.args[0].name);
+    arrays = Array(variableKeys.length).fill(0).map(() => getAstForEmptyArray());
+    for (let dict of content.args[1].args) {
+      let dictKeys = dict.args.map((x) => x.args[0].name);
+      let dictValues = dict.args.map((x) => x.args[1]);
+      for (let [i, key] of variableKeys.entries()) {
+        if (!dict.args.some((x) => x.args[0].name === key)) {
+          arrays[i].args.push(getAstForNull());
+        } else {
+          arrays[i].args.push(dictValues[dictKeys.findIndex((x) => x === key)]);
+        }
+      }
+      for (let key of dictKeys) {
+        if (!variableKeys.includes(key)) {
+          error("Key '" + key + "' in dictionary is not defined in the first argument of " + content.name + "()", dict.fileStack);
+        }
       }
     }
+  } else {
+    if (content.args[0].name !== "__array__") {
+      error("First argument of " + content.name + "() must be a literal array", content.args[0].fileStack);
+    }
+    if (content.args[1].name !== "__array__") {
+      error("Second argument of " + content.name + "() must be a literal array", content.args[1].fileStack);
+    }
+    variables = content.args[0].args;
+    if (content.args[1].args.length % variables.length !== 0) {
+      error("Second argument of " + content.name + "() must have a length that is a multiple of " + variables.length + " (length is " + content.args[1].args.length + ")", content.args[1].fileStack);
+    }
+    arrays = content.args[1].args.reduce((acc, x, i) => {
+      let arrayIndex = i % variables.length;
+      if (!acc[arrayIndex]) {
+        acc[arrayIndex] = getAstForEmptyArray();
+      }
+      acc[arrayIndex].args.push(x);
+      return acc;
+    }, []);
   }
   if (content.args[2].name === "true") {
     arrays = arrays.map((x) => {
@@ -47549,7 +47595,7 @@ astParsingFunctions.splitDictArray = function(content) {
   }
   let assignments = arrays.map((x, i) => new Ast2("__assignTo__", [variables[i], x]));
   if (!content.parent) {
-    error("Could not find parent of splitDictArray");
+    error("Could not find parent of " + content.name + "()");
   }
   content.parent.children.splice(content.parent.childIndex + 1, 0, ...assignments.slice(1));
   return assignments[0];
@@ -47727,6 +47773,18 @@ function parseAstRules(rules) {
     }
     if (rule.name === "__enableOptimizeStrict__") {
       setOptimizeStrict2(true);
+      rulesResult.push(rule);
+      continue;
+    }
+    if (rule.name === "__rulePrefix__") {
+      rulesResult.push(rule);
+      continue;
+    }
+    if (rule.name === "__pushRulePrefixStack__") {
+      rulesResult.push(rule);
+      continue;
+    }
+    if (rule.name === "__popRulePrefixStack__") {
       rulesResult.push(rule);
       continue;
     }
@@ -64456,11 +64514,24 @@ function astRulesToWs(rules) {
       compiledRules.push("//Strict optimizations enabled\n");
       continue;
     }
+    if (rule.name === "__rulePrefix__") {
+      setCurrentRulePrefix(rule.args[0].args[0].name);
+      continue;
+    }
+    if (rule.name === "__pushRulePrefixStack__") {
+      pushRulePrefixStack();
+      continue;
+    }
+    if (rule.name === "__popRulePrefixStack__") {
+      popRulePrefixStack();
+      continue;
+    }
     if (rule.ruleAttributes.isDisabled) {
       result += tows("__disabled__", ruleKw) + " ";
     }
+    let finalRuleName = applyRulePrefixTemplate(rule);
     result += tows("__rule__", ruleKw) + " (";
-    result += escapeBadWords(escapeString(rule.ruleAttributes.name, true));
+    result += escapeBadWords(escapeString(finalRuleName, true));
     result += ") {\n";
     result += tabLevel(1) + tows("__event__", ruleKw) + " {\n";
     result += tabLevel(2) + tows(rule.ruleAttributes.event, eventKw) + ";\n";
@@ -65129,6 +65200,70 @@ function splitCustomString(tokens, args) {
   }
   return new Ast2("__customString__", [new Ast2(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
+function applyRulePrefixTemplate(rule) {
+  let ruleName = rule.ruleAttributes.name;
+  let prefix = currentRulePrefix;
+  let fileStackForRule = rule.fileStack;
+  if (!prefix && !rulePrefixTemplate) {
+    return ruleName;
+  }
+  let fileName = "";
+  let filePath = "";
+  for (let k = fileStackForRule.length - 1; k >= 0; k--) {
+    if (fileStackForRule[k].path) {
+      let fullPath = fileStackForRule[k].path.replace(/\\/g, "/");
+      let baseName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
+      fileName = baseName.replace(/\.opy$/i, "");
+      filePath = fullPath.startsWith(rootPath) ? fullPath.substring(rootPath.length) : fullPath;
+      filePath = filePath.replace(/\.opy$/i, "");
+      break;
+    }
+  }
+  let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule else $rule';
+  let argNames = [
+    "$rule",
+    "$prefix",
+    "$file",
+    "$path",
+    "$isDelimiter",
+    "$prefixTitle",
+    "$prefixUpper",
+    "$prefixLower",
+    "$fileTitle",
+    "$fileUpper",
+    "$fileLower",
+    "$pathTitle",
+    "$pathUpper",
+    "$pathLower"
+  ];
+  let argValues = [
+    ruleName,
+    prefix,
+    fileName,
+    filePath,
+    !!rule.ruleAttributes.isDelimiter,
+    toTitleCase(prefix),
+    prefix.toUpperCase(),
+    prefix.toLowerCase(),
+    toTitleCase(fileName),
+    fileName.toUpperCase(),
+    fileName.toLowerCase(),
+    toTitleCase(filePath),
+    filePath.toUpperCase(),
+    filePath.toLowerCase()
+  ];
+  let argAsts = argValues.map((v) => v === true || v === false ? getAstForBool(v) : getAstForCustomString(v));
+  let oldFileStack = getFileStackCopy();
+  fileStack2.push(...rulePrefixTemplateFilestack);
+  let resultAst = parseOpyMacro(template, argNames, argAsts);
+  resultAst.parent = new Ast2("__rulePrefix__");
+  resultAst = parseAst(resultAst);
+  setFileStack(oldFileStack);
+  if (resultAst.name !== "__customString__" || resultAst.args.length > 1) {
+    error("Could not resolve rule prefix template to a plain string");
+  }
+  return resultAst.args[0].name;
+}
 
 // src/compiler/translations.ts
 var import_pofile = __toESM(require_po());
@@ -65140,7 +65275,7 @@ function getLeadingAndTrailingWhitespace(str) {
     trailingWhitespace
   };
 }
-function getTranslatedString(str, context, fileStack8) {
+function getTranslatedString(str, context, fileStack7) {
   let lineNb = null;
   let fileName = null;
   if (translationLanguages2.length === 0) {
@@ -65161,10 +65296,10 @@ function getTranslatedString(str, context, fileStack8) {
   let { leadingWhitespace, actualString: actualStringWithNewlines, trailingWhitespace } = getLeadingAndTrailingWhitespace(str);
   let lines = actualStringWithNewlines.split("\n").map((x) => getLeadingAndTrailingWhitespace(x));
   let actualString = lines.map((x) => x.actualString).join("\n");
-  for (let i = fileStack8.length - 1; i >= 0; i--) {
-    if (fileStack8[i].name.endsWith(".opy")) {
-      lineNb = fileStack8[i].startLine;
-      fileName = fileStack8[i].name.replaceAll(/\\/g, "/").split("/").pop();
+  for (let i = fileStack7.length - 1; i >= 0; i--) {
+    if (fileStack7[i].name.endsWith(".opy")) {
+      lineNb = fileStack7[i].startLine;
+      fileName = fileStack7[i].name.replaceAll(/\\/g, "/").split("/").pop();
       break;
     }
   }
@@ -65318,6 +65453,7 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
   setFileStack([
     {
       name: mainFileName || "<main>",
+      path: rootPath + mainFileName,
       startLine: 1,
       startCol: 1,
       endCol: null,
@@ -67758,10 +67894,10 @@ function parseType(tokens) {
 var OpyError = class _OpyError extends Error {
   fileStack;
   severity = "error";
-  constructor(message, fileStack8) {
+  constructor(message, fileStack7) {
     super(message);
     this.name = "OpyError";
-    this.fileStack = fileStack8;
+    this.fileStack = fileStack7;
     Object.setPrototypeOf(this, _OpyError.prototype);
   }
 };
@@ -67921,12 +68057,12 @@ function getFileStackRange(tokens) {
   result[result.length - 1].endCol = lastTokenFilestack.endCol;
   return result;
 }
-function displayFileStack(fileStack8) {
-  if (!fileStack8 || fileStack8.length === 0) {
+function displayFileStack(fileStack7) {
+  if (!fileStack7 || fileStack7.length === 0) {
     return "";
   }
   let result = "";
-  for (const file of fileStack8.toReversed()) {
+  for (const file of fileStack7.toReversed()) {
     result += `
     | `;
     if (file.startLine !== null && file.startCol !== null) {
@@ -67960,6 +68096,9 @@ function upperCaseToCamelCase(str) {
   var result = str.toLowerCase().replace(/(_\w)/g, (x) => x[1].toUpperCase());
   result = result[0].toLowerCase() + result.substring(1);
   return result;
+}
+function toTitleCase(str) {
+  return str.replace(/[\p{Letter}']+/gu, (txt) => txt.charAt(0).toUpperCase() + txt.substring(1));
 }
 function isNumber(x) {
   if (("" + x).trim() === "" || x === null) {
@@ -68480,6 +68619,23 @@ var opyInternalFuncs = {
       "float",
       "Vector"
     ]
+  },
+  "__popRulePrefixStack__": {
+    "args": null,
+    "return": "void"
+  },
+  "__pushRulePrefixStack__": {
+    "args": null,
+    "return": "void"
+  },
+  "__rulePrefix__": {
+    "args": [
+      {
+        "name": "prefix",
+        "type": "CustomStringLiteral"
+      }
+    ],
+    "return": "void"
   },
   "__rule__": {
     "args": null,
@@ -69220,6 +69376,8 @@ waveLengths = [3, 8, null]
 \`\`\`
 
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
+
+Also check the \`tabular\` function for a more concise syntax.
         `,
     "args": [
       {
@@ -69265,6 +69423,48 @@ If the third argument is set to \`true\`, arrays will be compressed if they are 
     ],
     "isConstant": true,
     "return": "unsigned int"
+  },
+  "tabular": {
+    "description": `
+Maps an array of arrays to variables (same as \`splitDictArray()\` with shorter syntax). For example:
+\`\`\`python
+tabular([waveHeroes,waveLengths], [
+    Hero.ANA, 3,
+    Hero.SOLDIER, 8,
+    Hero.HAMMOND, null,
+])
+\`\`\`
+
+Will yield the following:
+
+\`\`\`python
+waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
+waveLengths = [3, 8, null]
+\`\`\`
+
+If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
+        `,
+    "args": [
+      {
+        "name": "variables",
+        "description": "A dictionary mapping the keys to the variables to be assigned to.",
+        "type": "Dict"
+      },
+      {
+        "name": "values",
+        "description": "An array of dictionaries describing the values to be assigned to the variables.",
+        "type": {
+          "Array": "Dict"
+        }
+      },
+      {
+        "name": "compress",
+        "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+        "type": "bool",
+        "default": false
+      }
+    ],
+    "return": "void"
   },
   ".toArray": {
     "description": "Get an array of the values of an enum.",
@@ -69386,6 +69586,17 @@ var playervarInitRuleName;
 var setPlayervarInitRuleName = (name) => playervarInitRuleName = name;
 var disableInspector = false;
 var setDisableInspector = (disable) => disableInspector = disable;
+var rulePrefixStack = [];
+var currentRulePrefix = "";
+var setCurrentRulePrefix = (prefix) => currentRulePrefix = prefix;
+var pushRulePrefixStack = () => rulePrefixStack.push(currentRulePrefix);
+var popRulePrefixStack = () => {
+  currentRulePrefix = rulePrefixStack.pop() ?? "";
+};
+var rulePrefixTemplate = "";
+var setRulePrefixTemplate = (template) => rulePrefixTemplate = template;
+var rulePrefixTemplateFilestack = [];
+var setRulePrefixTemplateFilestack = (filestack) => rulePrefixTemplateFilestack = filestack;
 var decompilerGotos;
 var resetDecompilerGotos = () => decompilerGotos = [];
 var nbTabs;
@@ -69457,6 +69668,10 @@ function resetGlobalVariables(language) {
   disableTranslationSourceLines = false;
   usedMaps = /* @__PURE__ */ new Set();
   postCompileHook = null;
+  rulePrefixStack = [];
+  currentRulePrefix = "";
+  rulePrefixTemplate = "";
+  rulePrefixTemplateFilestack = [];
 }
 var operatorPrecedence = {
   "=": 1,
@@ -71940,6 +72155,51 @@ content.toString();
 \`\`\`
         `,
     "snippet": 'postCompileHook "$0"'
+  },
+  "rulePrefix": {
+    "description": `
+Sets a prefix for all subsequent rules in the current file and its included child files (unless overridden). The prefix is applied to the rule name using the rule prefix template.
+
+If a \`#!rulePrefix\` directive is in an included file, it only takes effect for the rules within that file (and its child includes, if they don't have their own \`#!rulePrefix\`), after the directive.
+
+Example:
+
+\`\`\`hs
+#!rulePrefix "Effects"
+
+rule "Spawn particles":
+    #compiled rule name: [Effects] Spawn particles
+\`\`\`
+
+To clear the prefix for subsequent rules, use an empty string:
+
+\`\`\`hs
+#!rulePrefix ""
+\`\`\`
+        `,
+    "snippet": 'rulePrefix "$0"'
+  },
+  "rulePrefixTemplate": {
+    "description": `
+Defines a global template for how rule prefixes are applied to rule names. Can only be defined once. Has effect on all rules, even those declared before this directive.
+
+The template is an OverPy expression with the following variables:
+
+- \`$rule\`: the current rule name
+- \`$isDelimiter\`: true if the rule is @Delimiter
+- \`$prefix\`: the current prefix (set via \`#!rulePrefix\`)
+- \`$file\`: the file name without extension
+- \`$path\`: the relative path to the main file (backslashes replaced by slashes)
+- Titlecase/lower/upper variations: \`$prefixTitle\`, \`$prefixUpper\`, \`$prefixLower\`, \`$fileTitle\`, \`$fileUpper\`, \`$fileLower\`, \`$pathTitle\`, \`$pathUpper\`, \`$pathLower\`
+
+Examples :
+
+- \`#!rulePrefixTemplate f"[{$prefix}] {$rule}" if $prefix and $rule else $rule\` (default): adds the prefix in square brackets before the rule name, if the prefix and rule name are not empty. This is the default if this directive is unspecified.
+- \`#!rulePrefixTemplate f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule\`": if you have an \`heroes/junker_queen.opy\` file, will yield rule names like "[Heroes/Junker Queen] Spawn particles". This is the default if the directive is specified without an expression (just \`#!rulePrefixTemplate\`).
+
+The expression has to evaluate to a string without arguments.
+        `,
+    "snippet": "rulePrefixTemplate $0"
   }
 };
 postLoadTasks.push({
@@ -72003,3 +72263,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

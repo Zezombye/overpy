@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook, rulePrefixTemplate, setRulePrefixTemplate, setRulePrefixTemplateFilestack } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -344,6 +344,25 @@ export function tokenize(content: string): LogicalLine[] {
             );
             return;
         }
+        if (content.startsWith("#!rulePrefix ")) {
+            let prefix = content.substring("#!rulePrefix ".length).trim();
+            addToken("__rulePrefix__");
+            addToken("(");
+            addToken(prefix);
+            addToken(")");
+            return;
+        }
+        if (content.startsWith("#!rulePrefixTemplate")) {
+            if (rulePrefixTemplate !== "") {
+                error("A rule prefix template has already been defined");
+            }
+            let template = content.substring("#!rulePrefixTemplate".length).trim() || `f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule`;
+            setRulePrefixTemplate(template);
+            let _rulePrefixTemplateFilestack = getFileStackCopy();
+            _rulePrefixTemplateFilestack[_rulePrefixTemplateFilestack.length - 1].startCol = content.indexOf(template) + 1;
+            setRulePrefixTemplateFilestack(_rulePrefixTemplateFilestack);
+            return;
+        }
         error("Unknown preprocessor directive '" + content + "'");
     }
 
@@ -447,7 +466,11 @@ export function tokenize(content: string): LogicalLine[] {
                         staticMember: true,
                         fileStackMemberType: "normal",
                     } as ScriptFileStackMember);
+                    let pushLine = new LogicalLine(0, [new Token("__pushRulePrefixStack__", getFileStackCopy())]);
+                    let popLine = new LogicalLine(0, [new Token("__popRulePrefixStack__", getFileStackCopy())]);
+                    result.push(pushLine);
                     result.push(...tokenize(importedFileContent));
+                    result.push(popLine);
                     fileStack.pop();
                     moveCursor(j - i - 1);
                 }

@@ -179,6 +179,9 @@ export function parseAstRules(rules: Ast[]) {
         if (rule.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); rulesResult.push(rule); continue;}
         if (rule.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); rulesResult.push(rule); continue;}
         if (rule.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); rulesResult.push(rule); continue;}
+        if (rule.name === "__rulePrefix__") {rulesResult.push(rule); continue;}
+        if (rule.name === "__pushRulePrefixStack__") {rulesResult.push(rule); continue;}
+        if (rule.name === "__popRulePrefixStack__") {rulesResult.push(rule); continue;}
 
         //Resolve macros in case macros have annotations
         for (let i = 0; i < rule.children.length; i++) {

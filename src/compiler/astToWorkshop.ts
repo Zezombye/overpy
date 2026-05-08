@@ -22,16 +22,18 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack } from "../globalVars";
 import { StringToken } from "../types";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString } from "../utils/ast";
-import { trimNb } from "../utils/compilation";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool } from "../utils/ast";
+import { parseOpyMacro, trimNb } from "../utils/compilation";
 import { debug, error, functionNameToString } from "../utils/logging";
-import { tabLevel } from "../utils/other";
+import { getFileStackCopy, tabLevel, toTitleCase } from "../utils/other";
 import { escapeBadWords, escapeString, getUtf8Length } from "../utils/strings";
 import { tows } from "../utils/translation";
 import { isTypeSuitable } from "../utils/types";
 import { translateSubroutineToWs, translateVarToWs } from "../utils/varNames";
+import {parseAst} from "./astParser";
+
 
 export function astRulesToWs(rules: Ast[]) {
     var compiledRules = [];
@@ -50,13 +52,19 @@ export function astRulesToWs(rules: Ast[]) {
         if (rule.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); compiledRules.push("//Optimize for size enabled\n"); continue;}
         if (rule.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); compiledRules.push("//Strict optimizations disabled\n"); continue;}
         if (rule.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); compiledRules.push("//Strict optimizations enabled\n"); continue;}
+        if (rule.name === "__rulePrefix__") {setCurrentRulePrefix(rule.args[0].args[0].name); continue;}
+        if (rule.name === "__pushRulePrefixStack__") {pushRulePrefixStack(); continue;}
+        if (rule.name === "__popRulePrefixStack__") {popRulePrefixStack(); continue;}
 
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw) + " ";
         }
 
+        //Apply rule prefix template to the rule name
+        let finalRuleName = applyRulePrefixTemplate(rule);
+
         result += tows("__rule__", ruleKw) + " (";
-        result += escapeBadWords(escapeString(rule.ruleAttributes.name, true));
+        result += escapeBadWords(escapeString(finalRuleName, true));
         result += ") {\n";
 
         //Rule event
@@ -839,4 +847,57 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
     }
 
     return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
+}
+
+
+export function applyRulePrefixTemplate(rule: Ast): string {
+    let ruleName = rule.ruleAttributes.name;
+    let prefix = currentRulePrefix;
+    let fileStackForRule = rule.fileStack;
+    if (!prefix && !rulePrefixTemplate) {
+        return ruleName;
+    }
+
+    //Get file and path info from the rule's fileStack
+    let fileName = "";
+    let filePath = "";
+    for (let k = fileStackForRule.length - 1; k >= 0; k--) {
+        if (fileStackForRule[k].path) {
+            let fullPath = (fileStackForRule[k].path as string).replace(/\\/g, "/");
+            let baseName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
+            fileName = baseName.replace(/\.opy$/i, "");
+            filePath = fullPath.startsWith(rootPath) ? fullPath.substring(rootPath.length) : fullPath;
+            filePath = filePath.replace(/\.opy$/i, "");
+            break;
+        }
+    }
+
+    let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule else $rule';
+
+    let argNames = [
+        "$rule", "$prefix", "$file", "$path", "$isDelimiter",
+        "$prefixTitle", "$prefixUpper", "$prefixLower",
+        "$fileTitle", "$fileUpper", "$fileLower",
+        "$pathTitle", "$pathUpper", "$pathLower",
+    ];
+
+    let argValues = [
+        ruleName, prefix, fileName, filePath, !!rule.ruleAttributes.isDelimiter,
+        toTitleCase(prefix), prefix.toUpperCase(), prefix.toLowerCase(),
+        toTitleCase(fileName), fileName.toUpperCase(), fileName.toLowerCase(),
+        toTitleCase(filePath), filePath.toUpperCase(), filePath.toLowerCase(),
+    ];
+
+    let argAsts = argValues.map(v => v === true || v === false ? getAstForBool(v) : getAstForCustomString(v));
+
+    let oldFileStack = getFileStackCopy();
+    fileStack.push(...rulePrefixTemplateFilestack);
+    let resultAst = parseOpyMacro(template, argNames, argAsts);
+    resultAst.parent = new Ast("__rulePrefix__");
+    resultAst = parseAst(resultAst);
+    setFileStack(oldFileStack);
+    if (resultAst.name !== "__customString__" || resultAst.args.length > 1) {
+        error("Could not resolve rule prefix template to a plain string");
+    }
+    return resultAst.args[0].name;
 }

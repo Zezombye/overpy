@@ -240,6 +240,19 @@ export const setPlayervarInitRuleName = (name: string) => (playervarInitRuleName
 export var disableInspector: boolean = false;
 export const setDisableInspector = (disable: boolean) => (disableInspector = disable);
 
+/** Stack of rule prefixes, managed by __pushRulePrefixStack__ and __popRulePrefixStack__ around #!include directives. */
+export var rulePrefixStack: string[] = [];
+/** The current rule prefix set by #!rulePrefix. Empty string means no prefix. */
+export var currentRulePrefix: string = "";
+export const setCurrentRulePrefix = (prefix: string) => (currentRulePrefix = prefix);
+export const pushRulePrefixStack = () => rulePrefixStack.push(currentRulePrefix);
+export const popRulePrefixStack = () => { currentRulePrefix = rulePrefixStack.pop() ?? ""; };
+
+export var rulePrefixTemplate: string = '';
+export const setRulePrefixTemplate = (template: string) => (rulePrefixTemplate = template);
+export var rulePrefixTemplateFilestack: FileStackMember[] = [];
+export const setRulePrefixTemplateFilestack = (filestack: FileStackMember[]) => (rulePrefixTemplateFilestack = filestack);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -333,6 +346,10 @@ export function resetGlobalVariables(language: OWLanguage) {
     disableTranslationSourceLines = false;
     usedMaps = new Set();
     postCompileHook = null;
+    rulePrefixStack = [];
+    currentRulePrefix = "";
+    rulePrefixTemplate = "";
+    rulePrefixTemplateFilestack = [];
 }
 
 //Other constants

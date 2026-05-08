@@ -227,7 +227,7 @@ astParsingFunctions.__rule__ = function (content) {
                         foundLabel = true;
                     }
                     computeDistanceTo(content.children[i]);
-                    if (content.children[i].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__"].includes(content.children[i].name)) {
+                    if (content.children[i].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__", "__rulePrefix__", "__pushRulePrefixStack__", "__popRulePrefixStack__"].includes(content.children[i].name)) {
                         debug("Increasing distanceTo count for label " + label + ": function '" + content.children[i].name + "'");
                         count++;
                     }

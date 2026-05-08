@@ -451,6 +451,23 @@ export const opyInternalFuncs: Record<string, {
             "Vector"
         ]
     },
+    "__popRulePrefixStack__": {
+        "args": null,
+        "return": "void",
+    },
+    "__pushRulePrefixStack__": {
+        "args": null,
+        "return": "void",
+    },
+    "__rulePrefix__": {
+        "args": [
+            {
+                "name": "prefix",
+                "type": "CustomStringLiteral"
+            }
+        ],
+        "return": "void",
+    },
     "__rule__": {
         "args": null,
         "return": "void"

@@ -96,6 +96,7 @@ export async function compile(
     setFileStack([
         {
             name: mainFileName || "<main>",
+            path: rootPath + mainFileName,
             startLine: 1,
             startCol: 1,
             endCol: null,
