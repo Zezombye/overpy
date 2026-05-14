@@ -606,7 +606,7 @@ For example:
 
 You can check [here](https://github.com/Zezombye/overpy/issues/33) for a list of optimizations.
 
-The `#!disableOptimizations` directive can be used to disable all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations, or if you want to generate an unoptimize instruction for some reason.
+The `#!disableOptimizations` directive can be used to disable all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations, or if you want to generate an unoptimized instruction for some reason.
 
 The `#!optimizeForSize` directive prioritizes lowering the number of elements over optimizing the runtime (see [here](https://github.com/Zezombye/overpy/issues/238) for a list of optimizations).
 
@@ -823,16 +823,10 @@ The template is an OverPy expression with the following variables:
 
 Examples :
 
-- `#!rulePrefixTemplate f"[{$prefix}] {$rule}" if $prefix and $rule else $rule` (default): adds the prefix in square brackets before the rule name, if the prefix and rule name are not empty. This is the default if this directive is unspecified.
+- `#!rulePrefixTemplate f"[{$prefix}] {$rule}" if $prefix and $rule and not $isDelimiter else $rule` (default): adds the prefix in square brackets before the rule name, if the prefix and rule name are not empty. This is the default if this directive is unspecified.
 - `#!rulePrefixTemplate f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule`": if you have an `heroes/junker_queen.opy` file, will yield rule names like `"[Heroes/Junker Queen] Spawn particles"`. This is the default if the directive is specified without an expression (just `#!rulePrefixTemplate`).
 
 The expression has to evaluate to a string without arguments.
-
-#!rulePrefix "effects"
-
-rule "Spawn particles":
-    #compiled rule name: (EFFECTS) Spawn particles
-```
 
 # Advanced constructs
 

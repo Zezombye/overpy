@@ -872,7 +872,7 @@ export function applyRulePrefixTemplate(rule: Ast): string {
         }
     }
 
-    let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule else $rule';
+    let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule and not $isDelimiter else $rule';
 
     let argNames = [
         "$rule", "$prefix", "$file", "$path", "$isDelimiter",
