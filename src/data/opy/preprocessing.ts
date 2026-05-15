@@ -149,6 +149,16 @@ rule "Integrity check":
 \`\`\`
 `
     },
+    "replaceEmptyStringByEmptyArray": {
+        "description": `
+Replaces all instances of "" (empty string) by [] (empty array). WARNING: This might break your code in some cases (eg, \`.concat([])\` won't work because it unrolls the array)! Only use this if you are sure that it won't cause issues in your gamemode. Size optimizations must be enabled.
+`
+    },
+    "replaceEmptyStringByVariable": {
+        "description": `
+Replaces all instances of "" (empty string) by a global variable \`__emptyString__\`. This takes one more element per empty string than \`#!replaceEmptyStringByEmptyArray\`. Size optimizations must be enabled.
+`
+    },
     "translations": {
         "description": `
 Setups the translation system. Arguments are the language codes separated by spaces.

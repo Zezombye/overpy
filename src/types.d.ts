@@ -155,6 +155,7 @@ export type ReplaceableData = {
     canReplace0ByNull?: boolean;
     canReplace1ByTrue?: boolean;
     canReplaceNullVectorByNull?: boolean;
+    canReplaceEmptyStringByEmptyArray?: boolean;
 };
 
 export type Type = string[] | string | { [key: string]: string | Type[] };

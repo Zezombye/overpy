@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook, rulePrefixTemplate, setRulePrefixTemplate, setRulePrefixTemplateFilestack, setTranslationUseTlErr, setDebugElementCount, setAllowMacroRedeclaration, allowMacroRedeclaration } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook, rulePrefixTemplate, setRulePrefixTemplate, setRulePrefixTemplateFilestack, setTranslationUseTlErr, setDebugElementCount, setAllowMacroRedeclaration, allowMacroRedeclaration, setReplacementForEmptyString, replacementForEmptyString } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -335,6 +335,20 @@ export function tokenize(content: string): LogicalLine[] {
                 error("A replacement for Team.1 has already been defined");
             }
             setReplacementForTeam1("getControlScoringTeam");
+            return;
+        }
+        if (content.startsWith("#!replaceEmptyStringByEmptyArray")) {
+            if (replacementForEmptyString !== "") {
+                error("A replacement for empty string has already been defined");
+            }
+            setReplacementForEmptyString("emptyArray");
+            return;
+        }
+        if (content.startsWith("#!replaceEmptyStringByVariable")) {
+            if (replacementForEmptyString !== "") {
+                error("A replacement for empty string has already been defined");
+            }
+            setReplacementForEmptyString("variable");
             return;
         }
         if (content.startsWith("#!suppressWarnings ")) {

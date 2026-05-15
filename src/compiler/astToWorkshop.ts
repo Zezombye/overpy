@@ -22,9 +22,9 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString } from "../globalVars";
 import { StringToken } from "../types";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool } from "../utils/ast";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool, getAstForEmptyArray } from "../utils/ast";
 import { parseOpyMacro, trimNb } from "../utils/compilation";
 import { debug, error, functionNameToString } from "../utils/logging";
 import { getFileStackCopy, tabLevel, toTitleCase } from "../utils/other";
@@ -319,6 +319,27 @@ function astToWs(content: Ast): string {
             }
 
             if (optimizeForSize && !(x === 0 && y === 0 && z === 0)) {
+
+                //vect(1,1,0) -> Vector.LEFT + Vector.UP and same for other combinations of two 1s or -1s
+                let vectorPairMapping: Record<string, [string, string]> = {
+                    "1,1,0": ["left", "up"],
+                    "1,-1,0": ["left", "down"],
+                    "1,0,1": ["left", "forward"],
+                    "1,0,-1": ["left", "backward"],
+                    "-1,1,0": ["right", "up"],
+                    "-1,-1,0": ["right", "down"],
+                    "-1,0,1": ["right", "forward"],
+                    "-1,0,-1": ["right", "backward"],
+                    "0,1,1": ["up", "forward"],
+                    "0,1,-1": ["up", "backward"],
+                    "0,-1,1": ["down", "forward"],
+                    "0,-1,-1": ["down", "backward"],
+                };
+                let vectorArgs = x + "," + y + "," + z;
+                if (vectorArgs in vectorPairMapping) {
+                    return astToWs(new Ast("__add__", [new Ast("Vector."+vectorPairMapping[vectorArgs][0].toUpperCase()), new Ast("Vector."+vectorPairMapping[vectorArgs][1].toUpperCase())]));
+                }
+
                 //vect(0,A,0) -> A * Vector.UP and same for other vector constants
                 //We already checked for null vector, so we can just check for zeroes
                 if (y === 0 && z === 0) {
@@ -365,6 +386,14 @@ function astToWs(content: Ast): string {
                 }
             } else if (replacementForTeam1 !== "" && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
                 content.args[i] = new Ast(replacementForTeam1);
+            } else if (content.args[i].name === "__customString__" && content.args[i].args[0].name === "") {
+                if (argInfo.canReplaceEmptyStringByEmptyArray || replacementForEmptyString === "emptyArray") {
+                    content.args[i] = getAstForEmptyArray();
+                } else if (replacementForEmptyString === "variable") {
+                    content.args[i] = new Ast("__globalVar__", [new Ast("__emptyString__", [], [], "GlobalVariable")]);
+                } else {
+                    content.args[i] = new Ast(".charAt", [getAstForEmptyArray(), getAstForNull()]);
+                }
             }
         }
     }

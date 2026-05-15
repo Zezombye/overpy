@@ -86,8 +86,24 @@ rule "1 to true":
 rule "null vector to null":
     createDummy(Hero.ANA, Team.2, A, vect(0,0,0), vect(0,0,0))
 
+rule "empty string":
+    hudText(header=A, subheader="", text="")
+    A = "".strIndex(B)
+    A = B.strIndex("")
+    A = "".charAt(B)
+    A = "".replace(B, C)
+    A = B.replace("", C)
+    A = B.replace(C, "")
+    A = B.split("")
+    A = "".split(B)
+    A = "".substring(B, C)
+    A = strContains("", B)
+    A = strContains(B, "")
+    A = ""
+
 rule "other optimizations":
     A = vect(0, 0, 0) #left + right
+
     A = vect(1, 0, 0) #left
     A = Vector.LEFT #left
     A = vect(-1, 0, 0) #right
@@ -100,6 +116,19 @@ rule "other optimizations":
     A = Vector.FORWARD #forward
     A = vect(0, 0, -1) #backward
     A = Vector.BACKWARD #backward
+    
+    A = vect(1, 1, 0) #left + up
+    A = vect(1, -1, 0) #left + down
+    A = vect(1, 0, 1) #left + forward
+    A = vect(1, 0, -1) #left + backward
+    A = vect(-1, 1, 0) #right + up
+    A = vect(-1, -1, 0) #right + down
+    A = vect(-1, 0, 1) #right + forward
+    A = vect(-1, 0, -1) #right + backward
+    A = vect(0, 1, 1) #up + forward
+    A = vect(0, 1, -1) #up + backward
+    A = vect(0, -1, 1) #down + forward
+    A = vect(0, -1, -1) #down + backward
 
     A = vect(B, 0, 0) #B * left
     A = vect(0, B, 0) #B * up

@@ -175,6 +175,8 @@ export var replacementFor1 = "";
 export const setReplacementFor1 = (replacement: string) => (replacementFor1 = replacement);
 export var replacementForTeam1 = "";
 export const setReplacementForTeam1 = (replacement: string) => (replacementForTeam1 = replacement);
+export var replacementForEmptyString = "";
+export const setReplacementForEmptyString = (replacement: string) => (replacementForEmptyString = replacement);
 
 /** The number of elements the gamemode takes. */
 export var nbElements: number;
@@ -334,6 +336,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     replacementFor0 = "";
     replacementFor1 = "";
     replacementForTeam1 = "";
+    replacementForEmptyString = "";
     nbElements = 0;
     activatedExtensions = [];
     availableExtensionPoints = 0;

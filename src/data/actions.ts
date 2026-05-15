@@ -3336,6 +3336,7 @@ export const actionKw: Record<string, Action> =
                 "name": "name",
                 "description": "The name to be forced.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         "return": "void",
@@ -4901,18 +4902,21 @@ export const actionKw: Record<string, Action> =
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
                 "default": null,
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "subheader",
                 "description": "The subheader text to be displayed (can be blank)",
                 "type": "Object",
                 "default": null,
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "text",
                 "description": "The body text to be displayed (can be blank)",
                 "type": "Object",
                 "default": null,
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "location",

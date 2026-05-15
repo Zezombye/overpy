@@ -3610,6 +3610,7 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The String value whose character to acquire.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "index",
@@ -3646,11 +3647,13 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The String Value from which to search for the character.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "character",
                 "description": "The character for which to search",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         isConstant: true,
@@ -3680,16 +3683,19 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The String Value with which to search for replacements.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "pattern",
                 "description": "The String pattern to be replaced.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "replacement",
                 "description": "The String Value with which to replace the pattern String",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         isConstant: true,
@@ -3719,11 +3725,13 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The String Value to split.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "separator",
                 "description": "The separator String with which to split the String Value.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         "return": {
@@ -3755,6 +3763,7 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The string value from which to build the substring.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "substringStartIndex",
@@ -7519,11 +7528,13 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The string in which to search for the specified substring.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "substring",
                 "description": "The substring for which to search.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         "isConstant": true,
@@ -7552,6 +7563,7 @@ export const valueFuncKw: Record<string, Value> =
                 "name": "string",
                 "description": "The string whose characters to count.",
                 "type": "String",
+                canReplaceEmptyStringByEmptyArray: true,
             }
         ],
         "isConstant": true,

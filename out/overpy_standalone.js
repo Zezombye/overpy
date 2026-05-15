@@ -38655,6 +38655,20 @@ ${scriptText}`, {
       setReplacementForTeam1("getControlScoringTeam");
       return;
     }
+    if (content2.startsWith("#!replaceEmptyStringByEmptyArray")) {
+      if (replacementForEmptyString !== "") {
+        error("A replacement for empty string has already been defined");
+      }
+      setReplacementForEmptyString("emptyArray");
+      return;
+    }
+    if (content2.startsWith("#!replaceEmptyStringByVariable")) {
+      if (replacementForEmptyString !== "") {
+        error("A replacement for empty string has already been defined");
+      }
+      setReplacementForEmptyString("variable");
+      return;
+    }
     if (content2.startsWith("#!suppressWarnings ")) {
       var firstSpaceIndex = content2.indexOf(" ");
       globallySuppressedWarningTypes.push(
@@ -51560,7 +51574,8 @@ var actionKw = (
         {
           "name": "name",
           "description": "The name to be forced.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       "return": "void",
@@ -53125,19 +53140,22 @@ var actionKw = (
           "name": "header",
           "description": "The text to be displayed (can be blank)",
           "type": "Object",
-          "default": null
+          "default": null,
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "subheader",
           "description": "The subheader text to be displayed (can be blank)",
           "type": "Object",
-          "default": null
+          "default": null,
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "text",
           "description": "The body text to be displayed (can be blank)",
           "type": "Object",
-          "default": null
+          "default": null,
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "location",
@@ -60153,7 +60171,8 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The String value whose character to acquire.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "index",
@@ -60189,12 +60208,14 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The String Value from which to search for the character.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "character",
           "description": "The character for which to search",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       isConstant: true,
@@ -60223,17 +60244,20 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The String Value with which to search for replacements.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "pattern",
           "description": "The String pattern to be replaced.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "replacement",
           "description": "The String Value with which to replace the pattern String",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       isConstant: true,
@@ -60262,12 +60286,14 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The String Value to split.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "separator",
           "description": "The separator String with which to split the String Value.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       "return": {
@@ -60298,7 +60324,8 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The string value from which to build the substring.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "substringStartIndex",
@@ -64062,12 +64089,14 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The string in which to search for the specified substring.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "substring",
           "description": "The substring for which to search.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       "isConstant": true,
@@ -64095,7 +64124,8 @@ var valueFuncKw = (
         {
           "name": "string",
           "description": "The string whose characters to count.",
-          "type": "String"
+          "type": "String",
+          canReplaceEmptyStringByEmptyArray: true
         }
       ],
       "isConstant": true,
@@ -64781,6 +64811,24 @@ function astToWs(content) {
         return astToWs(new Ast2("Vector.BACKWARD"));
       }
       if (optimizeForSize2 && !(x === 0 && y === 0 && z === 0)) {
+        let vectorPairMapping = {
+          "1,1,0": ["left", "up"],
+          "1,-1,0": ["left", "down"],
+          "1,0,1": ["left", "forward"],
+          "1,0,-1": ["left", "backward"],
+          "-1,1,0": ["right", "up"],
+          "-1,-1,0": ["right", "down"],
+          "-1,0,1": ["right", "forward"],
+          "-1,0,-1": ["right", "backward"],
+          "0,1,1": ["up", "forward"],
+          "0,1,-1": ["up", "backward"],
+          "0,-1,1": ["down", "forward"],
+          "0,-1,-1": ["down", "backward"]
+        };
+        let vectorArgs = x + "," + y + "," + z;
+        if (vectorArgs in vectorPairMapping) {
+          return astToWs(new Ast2("__add__", [new Ast2("Vector." + vectorPairMapping[vectorArgs][0].toUpperCase()), new Ast2("Vector." + vectorPairMapping[vectorArgs][1].toUpperCase())]));
+        }
         if (y === 0 && z === 0) {
           return astToWs(new Ast2("__multiply__", [content.args[0], new Ast2("Vector.LEFT")]));
         }
@@ -64823,6 +64871,14 @@ function astToWs(content) {
         }
       } else if (replacementForTeam1 !== "" && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
         content.args[i] = new Ast2(replacementForTeam1);
+      } else if (content.args[i].name === "__customString__" && content.args[i].args[0].name === "") {
+        if (argInfo.canReplaceEmptyStringByEmptyArray || replacementForEmptyString === "emptyArray") {
+          content.args[i] = getAstForEmptyArray();
+        } else if (replacementForEmptyString === "variable") {
+          content.args[i] = new Ast2("__globalVar__", [new Ast2("__emptyString__", [], [], "GlobalVariable")]);
+        } else {
+          content.args[i] = new Ast2(".charAt", [getAstForEmptyArray(), getAstForNull()]);
+        }
       }
     }
   }
@@ -65576,6 +65632,9 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
   }
   if (enableTagsSetup) {
     addVariable("__holygrail__", true, -1, getInternalFileStack());
+  }
+  if (replacementForEmptyString === "variable") {
+    addVariable("__emptyString__", true, -1, getInternalFileStack(), tokenize("[].charAt(null)")[0].tokens);
   }
   if (translationLanguages2.length > 0) {
     setTranslatedStrings(importFromPoFiles());
@@ -69606,6 +69665,8 @@ var replacementFor1 = "";
 var setReplacementFor1 = (replacement) => replacementFor1 = replacement;
 var replacementForTeam1 = "";
 var setReplacementForTeam1 = (replacement) => replacementForTeam1 = replacement;
+var replacementForEmptyString = "";
+var setReplacementForEmptyString = (replacement) => replacementForEmptyString = replacement;
 var nbElements;
 var incrementNbElements = (amount = 1) => nbElements += amount;
 var decrementNbElements = (amount = 1) => nbElements -= amount;
@@ -69711,6 +69772,7 @@ function resetGlobalVariables(language) {
   replacementFor0 = "";
   replacementFor1 = "";
   replacementForTeam1 = "";
+  replacementForEmptyString = "";
   nbElements = 0;
   activatedExtensions = [];
   availableExtensionPoints = 0;
@@ -72140,6 +72202,16 @@ rule "Integrity check":
     @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
 \`\`\`
+`
+  },
+  "replaceEmptyStringByEmptyArray": {
+    "description": `
+Replaces all instances of "" (empty string) by [] (empty array). WARNING: This might break your code in some cases (eg, \`.concat([])\` won't work because it unrolls the array)! Only use this if you are sure that it won't cause issues in your gamemode. Size optimizations must be enabled.
+`
+  },
+  "replaceEmptyStringByVariable": {
+    "description": `
+Replaces all instances of "" (empty string) by a global variable \`__emptyString__\`. This takes one more element per empty string than \`#!replaceEmptyStringByEmptyArray\`. Size optimizations must be enabled.
 `
   },
   "translations": {
