@@ -60,7 +60,7 @@ rule ("comparison") {
         Set Global Variable(A, False);
         Set Global Variable(A, Compare(Global.B, !=, Null));
         "not B"
-        Set Global Variable(A, Not(Compare(Global.B, !=, Null)));
+        Set Global Variable(A, Compare(Global.B, ==, Null));
         "not isGameInProgress()"
         Set Global Variable(A, Not(Is Game In Progress));
         "true"
@@ -339,6 +339,18 @@ rule ("not") {
         "true"
         Set Global Variable(A, True);
         Set Global Variable(A, Multiply(3, Not(Global.B)));
+        "B != C"
+        Set Global Variable(A, Compare(Global.B, !=, Global.C));
+        "B == C"
+        Set Global Variable(A, Compare(Global.B, ==, Global.C));
+        "B > C"
+        Set Global Variable(A, Compare(Global.B, >, Global.C));
+        "B < C"
+        Set Global Variable(A, Compare(Global.B, <, Global.C));
+        "B >= C"
+        Set Global Variable(A, Compare(Global.B, >=, Global.C));
+        "B <= C"
+        Set Global Variable(A, Compare(Global.B, <=, Global.C));
     }
 }
 

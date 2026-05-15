@@ -21,6 +21,15 @@ import { enableOptimization } from "../../globalVars";
 import { isDefinitelyFalsy, getAstForTrue, isDefinitelyTruthy, getAstForFalse, Ast, astParsingFunctions } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
+let inverseComparisonMapping: Record<string, string> = {
+    "__equals__": "__inequals__",
+    "__inequals__": "__equals__",
+    "__greaterThan__": "__lessThanOrEquals__",
+    "__greaterThanOrEquals__": "__lessThan__",
+    "__lessThan__": "__greaterThanOrEquals__",
+    "__lessThanOrEquals__": "__greaterThan__",
+};
+
 astParsingFunctions.__not__ = function (content) {
     if (enableOptimization) {
         //not false -> true
@@ -42,6 +51,10 @@ astParsingFunctions.__not__ = function (content) {
         //not is dead -> is alive
         if (content.args[0].name === ".isDead") {
             return new Ast(".isAlive", [content.args[0].args[0]]);
+        }
+        //not(A == B) -> A != B and same for other comparisons
+        if (content.args[0].name in inverseComparisonMapping) {
+            return new Ast(inverseComparisonMapping[content.args[0].name], content.args[0].args);
         }
     }
     return content;

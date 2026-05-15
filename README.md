@@ -956,6 +956,8 @@ OverPy will store the array in a string and automatically decompress it, which t
 
 For more control over the compression (eg if you have separate arrays to compress), you can use the `compress` and `decompressNumbers`/`decompressVectors` functions.
 
+You can also use the `#!useVariableForCompressionAlphabet` compiler option to use a global variable `__compressionAlphabet__` instead of a hardcoded string for the alphabet, which will save further elements.
+
 ## splitDictArray/tabular
 
 `splitDictArray` maps an array of dictionaries to variables. For example:

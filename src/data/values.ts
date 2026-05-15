@@ -3087,7 +3087,10 @@ export const valueFuncKw: Record<string, Value> =
             {
                 "name": "condition",
                 "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
-                "type": "bool",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
             }
         ],
         "isConstant": true,

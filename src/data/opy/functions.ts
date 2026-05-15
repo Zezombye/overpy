@@ -341,7 +341,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         return: "String",
     },
     "compressed": {
-        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use \`#!debugElementCount\` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
         "args": [
             {
                 "name": "array",

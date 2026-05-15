@@ -38695,6 +38695,10 @@ ${scriptText}`, {
       setRulePrefixTemplateFilestack(_rulePrefixTemplateFilestack);
       return;
     }
+    if (content2.startsWith("#!useVariableForCompressionAlphabet")) {
+      setUseVariableForCompressionAlphabet(true);
+      return;
+    }
     if (content2.startsWith("#!debugElementCount")) {
       setDebugElementCount(true);
       return;
@@ -45143,8 +45147,9 @@ astParsingFunctions.__if__ = function(content) {
       }
     }
   }
+  let isLoneIf = content.parent.childIndex === content.parent.children.length - 1 || content.parent.childIndex < content.parent.children.length - 1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex + 1].name);
   if (enableOptimization) {
-    if (content.children.length === 1 && (content.parent.childIndex === content.parent.children.length - 1 || content.parent.children[content.parent.childIndex + 1].name !== "__elif__" && content.parent.children[content.parent.childIndex + 1].name !== "__else__") && ["return", "loop", "__skip__"].includes(content.children[0].name)) {
+    if (content.children.length === 1 && isLoneIf && ["return", "loop", "__skip__"].includes(content.children[0].name)) {
       if (currentRuleHasVariableGoto) {
         content.parent.children.splice(content.parent.childIndex + 1, 0, content.children[0], getAstForUselessInstruction());
       }
@@ -45166,7 +45171,7 @@ astParsingFunctions.__if__ = function(content) {
       makeChildrenUseless(content.children);
     }
   }
-  if (content.parent.childIndex === content.parent.children.length - 1 || content.parent.childIndex < content.parent.children.length - 1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex + 1].name)) {
+  if (isLoneIf) {
     var includeEnd = true;
     if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length - 1) {
       var root = content;
@@ -45181,6 +45186,16 @@ astParsingFunctions.__if__ = function(content) {
           break;
         }
       }
+    }
+    if (optimizeForSize2 && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
+      let label = "__label_if_" + getUniqueNumber() + "__";
+      content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, new Ast2(label, [], [], "Label"), getAstForUselessInstruction());
+      if (content.args[0].name === "__not__") {
+        content.args[0] = content.args[0].args[0];
+      } else {
+        content.args[0] = astParsingFunctions.__not__(new Ast2("__not__", [content.args[0]]));
+      }
+      return new Ast2("__skipIf__", [content.args[0], new Ast2("__distanceTo__", [new Ast2(label, [], [], "Label")])]);
     }
     if (includeEnd) {
       content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
@@ -45409,6 +45424,14 @@ astParsingFunctions.__negate__ = function(content) {
 };
 
 // src/compiler/functions/__not__.ts
+var inverseComparisonMapping = {
+  "__equals__": "__inequals__",
+  "__inequals__": "__equals__",
+  "__greaterThan__": "__lessThanOrEquals__",
+  "__greaterThanOrEquals__": "__lessThan__",
+  "__lessThan__": "__greaterThanOrEquals__",
+  "__lessThanOrEquals__": "__greaterThan__"
+};
 astParsingFunctions.__not__ = function(content) {
   if (enableOptimization) {
     if (isDefinitelyFalsy(content.args[0])) {
@@ -45425,6 +45448,9 @@ astParsingFunctions.__not__ = function(content) {
     }
     if (content.args[0].name === ".isDead") {
       return new Ast2(".isAlive", [content.args[0].args[0]]);
+    }
+    if (content.args[0].name in inverseComparisonMapping) {
+      return new Ast2(inverseComparisonMapping[content.args[0].name], content.args[0].args);
     }
   }
   return content;
@@ -46845,16 +46871,18 @@ function compressToString(compressionInfo) {
 }
 function getDecompressionAst(compressedString, compressionInfo) {
   let { minDecimalPlace, maxDecimalPlace, offset, arrayType } = compressionInfo;
+  let formulaAlphabet = useVariableForCompressionAlphabet ? "__compressionAlphabet__" : "x.last()";
+  let formulaCompressedArray = useVariableForCompressionAlphabet ? `$compressedString.split(null[0])` : `[e.concat(${escapeString(alphabet2, false)}) for e in $compressedString.split(null[0])]`;
   if (arrayType === "number") {
-    let decompressionFormula = Array(Math.ceil((maxDecimalPlace - minDecimalPlace) / 2)).fill(0).map((x, i) => i).map((x) => `${Math.pow(100, x + minDecimalPlace / 2)}*x.last().strIndex(x[0].charAt(${x}))`).join(" + ");
-    return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in [e.concat(${escapeString(alphabet2, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+    let decompressionFormula = Array(Math.ceil((maxDecimalPlace - minDecimalPlace) / 2)).fill(0).map((x, i) => i).map((x) => `${Math.pow(100, x + minDecimalPlace / 2)}*${formulaAlphabet}.strIndex(x.charAt(${x}))`).join(" + ");
+    return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
   } else {
     let decompressionFormulas = Array(3).fill(0).map((_, h) => {
       return Array(Math.ceil((maxDecimalPlace - minDecimalPlace) / 2)).fill(0).map((x, i) => i).map((x) => `
-                    ${Math.pow(100, x + minDecimalPlace / 2)}*x.last().strIndex(x[0].charAt(${x + Math.ceil((maxDecimalPlace - minDecimalPlace) / 2) * h}))
+                    ${Math.pow(100, x + minDecimalPlace / 2)}*${formulaAlphabet}.strIndex(x.charAt(${x + Math.ceil((maxDecimalPlace - minDecimalPlace) / 2) * h}))
                 `).join(" + ");
     });
-    return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in [e.concat(${escapeString(alphabet2, false)}) for e in $compressedString.split(null[0])]]`, ["$compressedString"], [compressedString]);
+    return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
   }
 }
 astParsingFunctions.compressed = function(content) {
@@ -59649,7 +59677,10 @@ var valueFuncKw = (
         {
           "name": "condition",
           "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
-          "type": "bool"
+          "type": [
+            "Object",
+            "Array"
+          ]
         }
       ],
       "isConstant": true,
@@ -64618,7 +64649,7 @@ function astRulesToWs(rules) {
     result += "}\n\n";
     incrementNbElements();
     let ruleElements = nbElements - elementsBefore;
-    if (debugElementCount) {
+    if (debugElementCount && ruleElements > 1) {
       let { filePath } = getRuleFilePath(rule.fileStack);
       ruleElementCounts.push({ name: oldRuleName, file: filePath, elements: ruleElements });
       result = "//" + ruleElements + " element" + (ruleElements !== 1 ? "s" : "") + "\n" + result;
@@ -65635,6 +65666,9 @@ async function compile(content, language = "en-US", _rootPath = "", _mainFileNam
   }
   if (replacementForEmptyString === "variable") {
     addVariable("__emptyString__", true, -1, getInternalFileStack(), tokenize("[].charAt(null)")[0].tokens);
+  }
+  if (useVariableForCompressionAlphabet) {
+    addVariable("__compressionAlphabet__", true, -1, getInternalFileStack(), tokenize(escapeString(alphabet2, false))[0].tokens);
   }
   if (translationLanguages2.length > 0) {
     setTranslatedStrings(importFromPoFiles());
@@ -69106,7 +69140,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     return: "String"
   },
   "compressed": {
-    "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+    "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use `#!debugElementCount` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
     "args": [
       {
         "name": "array",
@@ -69721,6 +69755,8 @@ var rulePrefixTemplate = "";
 var setRulePrefixTemplate = (template) => rulePrefixTemplate = template;
 var rulePrefixTemplateFilestack = [];
 var setRulePrefixTemplateFilestack = (filestack) => rulePrefixTemplateFilestack = filestack;
+var useVariableForCompressionAlphabet = false;
+var setUseVariableForCompressionAlphabet = (use) => useVariableForCompressionAlphabet = use;
 var decompilerGotos;
 var resetDecompilerGotos = () => decompilerGotos = [];
 var nbTabs;
@@ -69800,6 +69836,7 @@ function resetGlobalVariables(language) {
   currentRulePrefix = "";
   rulePrefixTemplate = "";
   rulePrefixTemplateFilestack = [];
+  useVariableForCompressionAlphabet = false;
 }
 var operatorPrecedence = {
   "=": 1,
@@ -72261,6 +72298,9 @@ You can specify \`noDetectionRule\` to not create the rule which sets the variab
 
 You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
         `
+  },
+  "useVariableForCompressionAlphabet": {
+    "description": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.`
   },
   "extension": {
     "description": "You shouldn't be reading this. Contact Zezombye if you can see this.",

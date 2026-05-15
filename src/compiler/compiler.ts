@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook, useTlErr, replacementForEmptyString } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook, useTlErr, replacementForEmptyString, useVariableForCompressionAlphabet } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -40,6 +40,7 @@ import { importFromPoFiles, TranslatedString, exportToPoFiles } from "./translat
 import { constantValues } from "../data/constants";
 import { escapeString } from "../utils/strings";
 import { initializeQuickJSRuntime } from "../quickjs";
+import {alphabet} from "./functions/compressed";
 
 /**
  * @returns An object containing the compiled result along with associated metadata
@@ -180,6 +181,9 @@ export async function compile(
     }
     if (replacementForEmptyString === "variable") {
         addVariable("__emptyString__", true, -1, getInternalFileStack(), tokenize("[].charAt(null)")[0].tokens);
+    }
+    if (useVariableForCompressionAlphabet) {
+        addVariable("__compressionAlphabet__", true, -1, getInternalFileStack(), tokenize(escapeString(alphabet, false))[0].tokens);
     }
 
     if (translationLanguages.length > 0) {

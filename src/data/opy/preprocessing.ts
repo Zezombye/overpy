@@ -207,7 +207,9 @@ You can specify \`noDetectionRule\` to not create the rule which sets the variab
 You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
         `,
     },
-
+    "useVariableForCompressionAlphabet": {
+        "description": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.`
+    },
     "extension": {
         "description": "You shouldn't be reading this. Contact Zezombye if you can see this.",
         "snippet": "You shouldn't be reading this. Contact Zezombye if you can see this.",

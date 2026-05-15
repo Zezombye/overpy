@@ -177,6 +177,12 @@ rule "not":
     A = not true #false
     A = not false #true
     A = 3 * not B
+    A = not (B == C) #B != C
+    A = not (B != C) #B == C
+    A = not (B <= C) #B > C
+    A = not (B >= C) #B < C
+    A = not (B < C) #B >= C
+    A = not (B > C) #B <= C
 
 rule "in":
     A = A in B

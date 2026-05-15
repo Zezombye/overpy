@@ -633,7 +633,7 @@ rule ("main dialogue subr") {
         Set Global Variable(line_number, Null);
         For Global Variable(i_vocal, 0, Count Of(Global.active_dialogue_list), True);
             Set Global Variable(main_speaker, First Of(Value In Array(Global.active_dialogue_list, Global.line_number)));
-            If(Not(Compare(Global.phase, ==, 20)));
+            If(Compare(Global.phase, !=, 20));
                 Start Forcing Player To Be Hero(Global.dialogue_bot, If-Then-Else(Global.ana_spawn_fix, Hero(Ana), Global.main_speaker));
             End;
             Set Global Variable(vocalisation, True);
@@ -2164,7 +2164,7 @@ rule ("brig no shield") {
         Brigitte;
     }
     conditions {
-        Compare((Event Player).enemy_ID, ==, 24) == False;
+        (Event Player).enemy_ID != 24;
         Ability Cooldown(Event Player, Button(Secondary Fire)) > False;
     }
     actions {

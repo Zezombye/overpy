@@ -114,7 +114,7 @@ export function astRulesToWs(rules: Ast[]) {
         incrementNbElements();
 
         let ruleElements = nbElements - elementsBefore;
-        if (debugElementCount) {
+        if (debugElementCount && ruleElements > 1) {
             let { filePath } = getRuleFilePath(rule.fileStack);
             ruleElementCounts.push({name: oldRuleName, file: filePath, elements: ruleElements});
             result = "//" + ruleElements + " element"+(ruleElements !== 1 ? "s" : "")+"\n" + result;
