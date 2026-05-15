@@ -594,6 +594,14 @@ Suppresses the specified warnings globally across the program. Warnings must be 
 #!suppressWarnings w_type_check w_unsuitable_event
 ```
 
+## #!allowMacroRedeclaration
+
+If specified, will replace the existing macro instead of throwing an error. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.
+
+## #!debugElementCount
+
+Will generate a summary of the used elements per rule in the output, and add a comment with the number of elements used for each rule/condition/action.
+
 ## Optimizations
 
 By default, OverPy automatically optimizes gamemodes for speed. This means useless code is removed, calculations are done when possible, and function patterns are replaced with builtin functions.

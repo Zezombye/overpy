@@ -5,6 +5,8 @@ globalvar gameStatus
 playervar score
 playervar currentCheckpoint
 
+#!allowMacroRedeclaration
+#!define GAME_FINISHED 3
 #!define GAME_FINISHED 2
 
 #!define participatingPlayers() ([p for p in getAllPlayers() if p.currentCheckpoint > 0])

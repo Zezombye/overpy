@@ -3,7 +3,7 @@
         "module": "Node16",
         "target": "ES2024",
         "outDir": "out",
-        "lib": ["ES2024"],
+        "lib": ["ES2024", "DOM"],
         "paths": {
             "file_utils": ["./src/utils/file.ts", "./src/utils/file_standalone.ts"]
         },

@@ -353,16 +353,16 @@ function compileRules(astRules: Ast[]) {
         console.log(parsedAstRules);
     }
 
-    var compiledRules = astRulesToWs(parsedAstRules).join("");
+    var {compiledRules, elementCountSummary} = astRulesToWs(parsedAstRules);
 
     setFileStack(getInternalFileStack());
 
-    var result = compiledCustomGameSettings;
+    var result = elementCountSummary + compiledCustomGameSettings;
     if (!excludeVariablesInCompilation) {
         result += generateVariablesField();
         result += generateSubroutinesField();
     }
-    result += compiledRules;
+    result += compiledRules.join("");
 
     if (nbElements > ELEMENT_LIMIT) {
         warn("w_element_limit", "The gamemode is over the element limit (" + nbElements + " > " + ELEMENT_LIMIT + " elements)");
@@ -479,7 +479,7 @@ function generateVariablesField() {
     }
 
     if (result) {
-        result = tows("__variables__", ruleKw) + " {\n" + result + "}\n";
+        result = tows("__variables__", ruleKw) + " {\n" + result + "}\n\n";
     }
 
     return result;
@@ -537,7 +537,7 @@ function generateSubroutinesField() {
     }
 
     if (result) {
-        result = tows("__subroutines__", ruleKw) + " {\n" + result + "}\n";
+        result = tows("__subroutines__", ruleKw) + " {\n" + result + "}\n\n";
     }
 
     return result;
@@ -816,5 +816,5 @@ export function compileCustomGameSettings(customGameSettings: any) {
         return result;
     }
 
-    setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n");
+    setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n\n");
 }

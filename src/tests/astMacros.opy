@@ -9,6 +9,11 @@ macro annotations():
     @Event eachPlayer
     @Condition A == B
 
+#!allowMacroRedeclaration
+macro test1():
+    A = 3
+    B = 2
+
 macro test1():
     A = 2
     B = 3

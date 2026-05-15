@@ -242,6 +242,12 @@ export const setPlayervarInitRuleName = (name: string) => (playervarInitRuleName
 export var disableInspector: boolean = false;
 export const setDisableInspector = (disable: boolean) => (disableInspector = disable);
 
+export var debugElementCount: boolean = false;
+export const setDebugElementCount = (debug: boolean) => (debugElementCount = debug);
+
+export var allowMacroRedeclaration: boolean = false;
+export const setAllowMacroRedeclaration = (allow: boolean) => (allowMacroRedeclaration = allow);
+
 /** Stack of rule prefixes, managed by __pushRulePrefixStack__ and __popRulePrefixStack__ around #!include directives. */
 export var rulePrefixStack: string[] = [];
 /** The current rule prefix set by #!rulePrefix. Empty string means no prefix. */
@@ -345,6 +351,8 @@ export function resetGlobalVariables(language: OWLanguage) {
     globalvarInitRuleName = "Initialize global variables";
     playervarInitRuleName = "Initialize player variables";
     disableInspector = false;
+    debugElementCount = false;
+    allowMacroRedeclaration = false;
     keepUnusedTranslations = false;
     disableTranslationSourceLines = false;
     usedMaps = new Set();

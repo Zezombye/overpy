@@ -23,9 +23,15 @@ export const preprocessingDirectives: Record<string, {
     description: string,
     snippet?: string
 }> = {
+    "allowMacroRedeclaration": {
+        "description": "If enabled, redefining a `macro` or `#!define` will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.",
+    },
     "define": {
         "description": "**Warning**: This directive performs a text-based replacement! Use `macro` or `const` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
         "snippet": "define $0",
+    },
+    "debugElementCount": {
+        "description": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action.",
     },
     "disableInspector": {
         "description": "Adds a rule to disable the inspector at the very start of the gamemode.",
@@ -276,7 +282,7 @@ Examples :
 The expression has to evaluate to a string without arguments.
         `,
         "snippet": "rulePrefixTemplate $0"
-    }
+    },
 };
 
 postLoadTasks.push({

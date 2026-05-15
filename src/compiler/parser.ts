@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup, usedMaps } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup, usedMaps, allowMacroRedeclaration } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage, StringToken } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -463,7 +463,9 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
                 //Do not use args as signature (to allow macro overloading), it would make the code too complex and is unnecessary with default values
                 if (name in astMacros) {
-                    error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
+                    if (!allowMacroRedeclaration) {
+                        error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
+                    }
                 }
                 if (name in funcKw) {
                     error("Macro '" + name + "' is already a built-in function", lineMembers[0][1].fileStack);

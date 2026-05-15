@@ -22,7 +22,7 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount } from "../globalVars";
 import { StringToken } from "../types";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool } from "../utils/ast";
 import { parseOpyMacro, trimNb } from "../utils/compilation";
@@ -37,6 +37,7 @@ import {parseAst} from "./astParser";
 
 export function astRulesToWs(rules: Ast[]) {
     var compiledRules = [];
+    var ruleElementCounts: {name: string, file: string, elements: number}[] = [];
 
     for (var rule of rules) {
         setCurrentRuleConditions([]);
@@ -56,11 +57,14 @@ export function astRulesToWs(rules: Ast[]) {
         if (rule.name === "__pushRulePrefixStack__") {pushRulePrefixStack(); continue;}
         if (rule.name === "__popRulePrefixStack__") {popRulePrefixStack(); continue;}
 
+        let elementsBefore = nbElements;
+
         if (rule.ruleAttributes.isDisabled) {
             result += tows("__disabled__", ruleKw) + " ";
         }
 
         //Apply rule prefix template to the rule name
+        let oldRuleName = rule.ruleAttributes.name;
         let finalRuleName = applyRulePrefixTemplate(rule);
 
         result += tows("__rule__", ruleKw) + " (";
@@ -108,13 +112,27 @@ export function astRulesToWs(rules: Ast[]) {
 
         result += "}\n\n";
         incrementNbElements();
+
+        let ruleElements = nbElements - elementsBefore;
+        if (debugElementCount) {
+            let { filePath } = getRuleFilePath(rule.fileStack);
+            ruleElementCounts.push({name: oldRuleName, file: filePath, elements: ruleElements});
+            result = "//" + ruleElements + " element"+(ruleElements !== 1 ? "s" : "")+"\n" + result;
+        }
+
         compiledRules.push(result);
+    }
+
+    let elementCountSummary = "";
+    if (debugElementCount && ruleElementCounts.length > 0) {
+        ruleElementCounts.sort((a, b) => b.elements - a.elements);
+        elementCountSummary = "/* Element count: (total "+nbElements+")\n\n" + ruleElementCounts.map(r => ("" + r.elements).padStart(5, " ") + ": rule " + escapeString(r.name, false) + (r.file ? " (" + r.file + ")" : "")).join("\n") + "\n\n*/\n\n";
     }
 
     setOptimizationEnabled(true);
     setOptimizeStrict(false);
     setOptimizationForSize(false);
-    return compiledRules;
+    return {compiledRules, elementCountSummary};
 }
 
 function astRuleConditionToWs(condition: Ast) {
@@ -127,6 +145,7 @@ function astRuleConditionToWs(condition: Ast) {
         __greaterThan__: ">",
     };
     var result = "";
+    let nbElementsBefore = nbElements;
     if (condition.comment) {
         result += tabLevel(2) + escapeString(condition.comment.trim(), true) + "\n";
     }
@@ -166,22 +185,26 @@ function astRuleConditionToWs(condition: Ast) {
         result += " " + funcToOpMapping[condition.name as keyof typeof funcToOpMapping] + " ";
 
         resetNbHeroesInValue();
-        result += astToWs(condition.args[1]) + ";\n";
+        result += astToWs(condition.args[1]) + ";";
         incrementNbElements(Math.floor(nbHeroesInValue / 2));
     } else {
         resetNbHeroesInValue();
         incrementNbElements();
         if (condition.name === "__not__") {
-            result += tabLevel(2) + astToWs(condition.args[0]) + " == " + tows("false", valueFuncKw) + ";\n";
+            result += tabLevel(2) + astToWs(condition.args[0]) + " == " + tows("false", valueFuncKw) + ";";
         } else if (condition.type === "bool") {
-            result += tabLevel(2) + astToWs(condition) + " == " + tows("true", valueFuncKw) + ";\n";
+            result += tabLevel(2) + astToWs(condition) + " == " + tows("true", valueFuncKw) + ";";
         } else {
-            result += tabLevel(2) + astToWs(condition) + " != " + tows("false", valueFuncKw) + ";\n";
+            result += tabLevel(2) + astToWs(condition) + " != " + tows("false", valueFuncKw) + ";";
         }
         incrementNbElements(Math.floor(nbHeroesInValue / 2));
     }
     // nbElements += 1 - 2;
     decrementNbElements();
+    if (debugElementCount) {
+        result += " // " + (nbElements - nbElementsBefore) + " element"+((nbElements - nbElementsBefore) !== 1 ? "s" : "");
+    }
+    result += "\n";
     return result;
 }
 
@@ -206,6 +229,7 @@ export function astActionToWs(action: Ast, nbTabs: number) {
     if (action.type !== "void") {
         error("Expected an action, but got " + functionNameToString(action) + " which is a value", action.fileStack);
     }
+    let nbElementsBefore = nbElements;
     let result = "";
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
@@ -215,7 +239,11 @@ export function astActionToWs(action: Ast, nbTabs: number) {
         result += `${tabLevel(nbTabs)}${escapeString(action.comment.trim(), true)}\n`;
     }
 
-    result += tabLevel(nbTabs) + astToWs(action) + ";\n";
+    result += tabLevel(nbTabs) + astToWs(action) + ";";
+    if (debugElementCount) {
+        result += " // " + (nbElements - nbElementsBefore) + " element"+((nbElements - nbElementsBefore) !== 1 ? "s" : "");
+    }
+    result += "\n";
 
     let oldEnableOptimization = enableOptimization;
     let oldOptimizeForSize = optimizeForSize;
@@ -850,27 +878,46 @@ function splitCustomString(tokens: StringToken[], args: Ast[]): Ast {
 }
 
 
-export function applyRulePrefixTemplate(rule: Ast): string {
-    let ruleName = rule.ruleAttributes.name;
-    let prefix = currentRulePrefix;
-    let fileStackForRule = rule.fileStack;
-    if (!prefix && !rulePrefixTemplate) {
-        return ruleName;
-    }
-
-    //Get file and path info from the rule's fileStack
+/**
+ * Extracts the file name and relative file path (including file name) from a rule's fileStack.
+ */
+function getRuleFilePath(fileStackForRule: any[]): { fileName: string, filePath: string } {
     let fileName = "";
     let filePath = "";
     for (let k = fileStackForRule.length - 1; k >= 0; k--) {
         if (fileStackForRule[k].path) {
             let fullPath = (fileStackForRule[k].path as string).replace(/\\/g, "/");
-            let baseName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
-            fileName = baseName.replace(/\.opy$/i, "");
+            fileName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
             filePath = fullPath.startsWith(rootPath) ? fullPath.substring(rootPath.length) : fullPath;
-            filePath = filePath.replace(/\.opy$/i, "");
             break;
         }
     }
+    //Resolve path /../
+    let pathParts = filePath.split("/");
+    let resolvedPathParts: string[] = [];
+    for (let part of pathParts) {
+        if (part === "..") {
+            if (resolvedPathParts.length > 0) {
+                resolvedPathParts.pop();
+            }
+        } else if (part !== ".") {
+            resolvedPathParts.push(part);
+        }
+    }
+    filePath = resolvedPathParts.join("/");
+    return { fileName, filePath };
+}
+
+export function applyRulePrefixTemplate(rule: Ast): string {
+    let ruleName = rule.ruleAttributes.name;
+    let prefix = currentRulePrefix;
+    if (!prefix && !rulePrefixTemplate) {
+        return ruleName;
+    }
+
+    let { fileName, filePath } = getRuleFilePath(rule.fileStack);
+    fileName = fileName.replace(/\.opy$/i, "");
+    filePath = filePath.replace(/\.opy$/i, "");
 
     let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule and not $isDelimiter else $rule';
 

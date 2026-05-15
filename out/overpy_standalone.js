@@ -38681,6 +38681,14 @@ ${scriptText}`, {
       setRulePrefixTemplateFilestack(_rulePrefixTemplateFilestack);
       return;
     }
+    if (content2.startsWith("#!debugElementCount")) {
+      setDebugElementCount(true);
+      return;
+    }
+    if (content2.startsWith("#!allowMacroRedeclaration")) {
+      setAllowMacroRedeclaration(true);
+      return;
+    }
     error("Unknown preprocessor directive '" + content2 + "'");
   }
   for (i = 0; i < content.length; moveCursor(1)) {
@@ -38989,7 +38997,11 @@ function parseMacro(initialMacroData) {
     replacement: isFunctionMacro ? trimmedMacroContent.substring(bracketPos[1] + 1).trim() : trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).trim()
   };
   if (macros.some((m) => m.name === macro.name)) {
-    error("Macro '" + macro.name + "' is already defined");
+    if (allowMacroRedeclaration) {
+      macros.splice(macros.findIndex((m) => m.name === macro.name), 1);
+    } else {
+      error("Macro '" + macro.name + "' is already defined");
+    }
   }
   if (macro.text === macro.replacement) {
     error("Macro '" + macro.name + "' references itself");
@@ -64482,6 +64494,7 @@ var valueFuncKw = (
 // src/compiler/astToWorkshop.ts
 function astRulesToWs(rules) {
   var compiledRules = [];
+  var ruleElementCounts = [];
   for (var rule of rules) {
     setCurrentRuleConditions([]);
     var result = "";
@@ -64530,9 +64543,11 @@ function astRulesToWs(rules) {
       popRulePrefixStack();
       continue;
     }
+    let elementsBefore = nbElements;
     if (rule.ruleAttributes.isDisabled) {
       result += tows("__disabled__", ruleKw) + " ";
     }
+    let oldRuleName = rule.ruleAttributes.name;
     let finalRuleName = applyRulePrefixTemplate(rule);
     result += tows("__rule__", ruleKw) + " (";
     result += escapeBadWords(escapeString(finalRuleName, true));
@@ -64572,12 +64587,23 @@ function astRulesToWs(rules) {
     }
     result += "}\n\n";
     incrementNbElements();
+    let ruleElements = nbElements - elementsBefore;
+    if (debugElementCount) {
+      let { filePath } = getRuleFilePath(rule.fileStack);
+      ruleElementCounts.push({ name: oldRuleName, file: filePath, elements: ruleElements });
+      result = "//" + ruleElements + " element" + (ruleElements !== 1 ? "s" : "") + "\n" + result;
+    }
     compiledRules.push(result);
+  }
+  let elementCountSummary = "";
+  if (debugElementCount && ruleElementCounts.length > 0) {
+    ruleElementCounts.sort((a, b) => b.elements - a.elements);
+    elementCountSummary = "/* Element count: (total " + nbElements + ")\n\n" + ruleElementCounts.map((r) => ("" + r.elements).padStart(5, " ") + ": rule " + escapeString(r.name, false) + (r.file ? " (" + r.file + ")" : "")).join("\n") + "\n\n*/\n\n";
   }
   setOptimizationEnabled2(true);
   setOptimizeStrict2(false);
   setOptimizationForSize2(false);
-  return compiledRules;
+  return { compiledRules, elementCountSummary };
 }
 function astRuleConditionToWs(condition) {
   var funcToOpMapping = {
@@ -64589,6 +64615,7 @@ function astRuleConditionToWs(condition) {
     __greaterThan__: ">"
   };
   var result = "";
+  let nbElementsBefore = nbElements;
   if (condition.comment) {
     result += tabLevel(2) + escapeString(condition.comment.trim(), true) + "\n";
   }
@@ -64623,21 +64650,25 @@ function astRuleConditionToWs(condition) {
     incrementNbElements(Math.floor(nbHeroesInValue / 2));
     result += " " + funcToOpMapping[condition.name] + " ";
     resetNbHeroesInValue();
-    result += astToWs(condition.args[1]) + ";\n";
+    result += astToWs(condition.args[1]) + ";";
     incrementNbElements(Math.floor(nbHeroesInValue / 2));
   } else {
     resetNbHeroesInValue();
     incrementNbElements();
     if (condition.name === "__not__") {
-      result += tabLevel(2) + astToWs(condition.args[0]) + " == " + tows("false", valueFuncKw) + ";\n";
+      result += tabLevel(2) + astToWs(condition.args[0]) + " == " + tows("false", valueFuncKw) + ";";
     } else if (condition.type === "bool") {
-      result += tabLevel(2) + astToWs(condition) + " == " + tows("true", valueFuncKw) + ";\n";
+      result += tabLevel(2) + astToWs(condition) + " == " + tows("true", valueFuncKw) + ";";
     } else {
-      result += tabLevel(2) + astToWs(condition) + " != " + tows("false", valueFuncKw) + ";\n";
+      result += tabLevel(2) + astToWs(condition) + " != " + tows("false", valueFuncKw) + ";";
     }
     incrementNbElements(Math.floor(nbHeroesInValue / 2));
   }
   decrementNbElements();
+  if (debugElementCount) {
+    result += " // " + (nbElements - nbElementsBefore) + " element" + (nbElements - nbElementsBefore !== 1 ? "s" : "");
+  }
+  result += "\n";
   return result;
 }
 function astActionToWs(action, nbTabs2) {
@@ -64671,6 +64702,7 @@ function astActionToWs(action, nbTabs2) {
   if (action.type !== "void") {
     error("Expected an action, but got " + functionNameToString(action) + " which is a value", action.fileStack);
   }
+  let nbElementsBefore = nbElements;
   let result = "";
   if (action.name === "pass" && !action.comment) {
     action.comment = "pass";
@@ -64679,7 +64711,11 @@ function astActionToWs(action, nbTabs2) {
     result += `${tabLevel(nbTabs2)}${escapeString(action.comment.trim(), true)}
 `;
   }
-  result += tabLevel(nbTabs2) + astToWs(action) + ";\n";
+  result += tabLevel(nbTabs2) + astToWs(action) + ";";
+  if (debugElementCount) {
+    result += " // " + (nbElements - nbElementsBefore) + " element" + (nbElements - nbElementsBefore !== 1 ? "s" : "");
+  }
+  result += "\n";
   let oldEnableOptimization = enableOptimization;
   let oldOptimizeForSize = optimizeForSize2;
   let oldOptimizeStrict = optimizeStrict;
@@ -65204,26 +65240,41 @@ function splitCustomString(tokens, args) {
   }
   return new Ast2("__customString__", [new Ast2(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
-function applyRulePrefixTemplate(rule) {
-  let ruleName = rule.ruleAttributes.name;
-  let prefix = currentRulePrefix;
-  let fileStackForRule = rule.fileStack;
-  if (!prefix && !rulePrefixTemplate) {
-    return ruleName;
-  }
+function getRuleFilePath(fileStackForRule) {
   let fileName = "";
   let filePath = "";
   for (let k = fileStackForRule.length - 1; k >= 0; k--) {
     if (fileStackForRule[k].path) {
       let fullPath = fileStackForRule[k].path.replace(/\\/g, "/");
-      let baseName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
-      fileName = baseName.replace(/\.opy$/i, "");
+      fileName = fullPath.substring(fullPath.lastIndexOf("/") + 1);
       filePath = fullPath.startsWith(rootPath) ? fullPath.substring(rootPath.length) : fullPath;
-      filePath = filePath.replace(/\.opy$/i, "");
       break;
     }
   }
-  let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule else $rule';
+  let pathParts = filePath.split("/");
+  let resolvedPathParts = [];
+  for (let part of pathParts) {
+    if (part === "..") {
+      if (resolvedPathParts.length > 0) {
+        resolvedPathParts.pop();
+      }
+    } else if (part !== ".") {
+      resolvedPathParts.push(part);
+    }
+  }
+  filePath = resolvedPathParts.join("/");
+  return { fileName, filePath };
+}
+function applyRulePrefixTemplate(rule) {
+  let ruleName = rule.ruleAttributes.name;
+  let prefix = currentRulePrefix;
+  if (!prefix && !rulePrefixTemplate) {
+    return ruleName;
+  }
+  let { fileName, filePath } = getRuleFilePath(rule.fileStack);
+  fileName = fileName.replace(/\.opy$/i, "");
+  filePath = filePath.replace(/\.opy$/i, "");
+  let template = rulePrefixTemplate || 'f"[{$prefix}] {$rule}" if $prefix and $rule and not $isDelimiter else $rule';
   let argNames = [
     "$rule",
     "$prefix",
@@ -65664,7 +65715,7 @@ rule "Disable inspector":
     encounteredWarnings: uniqueEncounteredWarnings,
     hiddenWarnings,
     enumMembers,
-    nbElements: nbElements2,
+    nbElements,
     activatedExtensions,
     spentExtensionPoints,
     availableExtensionPoints,
@@ -65677,16 +65728,16 @@ function compileRules(astRules) {
   if (DEBUG_MODE) {
     console.log(parsedAstRules);
   }
-  var compiledRules = astRulesToWs(parsedAstRules).join("");
+  var { compiledRules, elementCountSummary } = astRulesToWs(parsedAstRules);
   setFileStack(getInternalFileStack());
-  var result = compiledCustomGameSettings;
+  var result = elementCountSummary + compiledCustomGameSettings;
   if (!excludeVariablesInCompilation) {
     result += generateVariablesField();
     result += generateSubroutinesField();
   }
-  result += compiledRules;
-  if (nbElements2 > ELEMENT_LIMIT) {
-    warn("w_element_limit", "The gamemode is over the element limit (" + nbElements2 + " > " + ELEMENT_LIMIT + " elements)");
+  result += compiledRules.join("");
+  if (nbElements > ELEMENT_LIMIT) {
+    warn("w_element_limit", "The gamemode is over the element limit (" + nbElements + " > " + ELEMENT_LIMIT + " elements)");
   }
   var spentExtensionPoints = 0;
   for (var ext of activatedExtensions) {
@@ -65787,7 +65838,7 @@ function generateVariablesField() {
     }
   }
   if (result) {
-    result = tows("__variables__", ruleKw) + " {\n" + result + "}\n";
+    result = tows("__variables__", ruleKw) + " {\n" + result + "}\n\n";
   }
   return result;
 }
@@ -65835,7 +65886,7 @@ function generateSubroutinesField() {
     }
   }
   if (result) {
-    result = tows("__subroutines__", ruleKw) + " {\n" + result + "}\n";
+    result = tows("__subroutines__", ruleKw) + " {\n" + result + "}\n\n";
   }
   return result;
 }
@@ -66091,7 +66142,7 @@ function compileCustomGameSettings(customGameSettings) {
     result2 += tabLevel(nbTabs, true) + "}";
     return result2;
   }
-  setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n");
+  setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n\n");
 }
 
 // src/data/opy/textures.ts
@@ -66580,7 +66631,9 @@ function parseLines(lines) {
         }
         resetAstMacroLocalVariables();
         if (name in astMacros) {
-          error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
+          if (!allowMacroRedeclaration) {
+            error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
+          }
         }
         if (name in funcKw) {
           error("Macro '" + name + "' is already a built-in function", lineMembers[0][1].fileStack);
@@ -69553,9 +69606,9 @@ var replacementFor1 = "";
 var setReplacementFor1 = (replacement) => replacementFor1 = replacement;
 var replacementForTeam1 = "";
 var setReplacementForTeam1 = (replacement) => replacementForTeam1 = replacement;
-var nbElements2;
-var incrementNbElements = (amount = 1) => nbElements2 += amount;
-var decrementNbElements = (amount = 1) => nbElements2 -= amount;
+var nbElements;
+var incrementNbElements = (amount = 1) => nbElements += amount;
+var decrementNbElements = (amount = 1) => nbElements -= amount;
 var nbHeroesInValue;
 var resetNbHeroesInValue = () => nbHeroesInValue = 0;
 var incrementNbHeroesInValue = (amount = 1) => nbHeroesInValue += amount;
@@ -69592,6 +69645,10 @@ var playervarInitRuleName;
 var setPlayervarInitRuleName = (name) => playervarInitRuleName = name;
 var disableInspector = false;
 var setDisableInspector = (disable) => disableInspector = disable;
+var debugElementCount = false;
+var setDebugElementCount = (debug3) => debugElementCount = debug3;
+var allowMacroRedeclaration = false;
+var setAllowMacroRedeclaration = (allow) => allowMacroRedeclaration = allow;
 var rulePrefixStack = [];
 var currentRulePrefix = "";
 var setCurrentRulePrefix = (prefix) => currentRulePrefix = prefix;
@@ -69654,7 +69711,7 @@ function resetGlobalVariables(language) {
   replacementFor0 = "";
   replacementFor1 = "";
   replacementForTeam1 = "";
-  nbElements2 = 0;
+  nbElements = 0;
   activatedExtensions = [];
   availableExtensionPoints = 0;
   enableTagsSetup = false;
@@ -69671,6 +69728,8 @@ function resetGlobalVariables(language) {
   globalvarInitRuleName = "Initialize global variables";
   playervarInitRuleName = "Initialize player variables";
   disableInspector = false;
+  debugElementCount = false;
+  allowMacroRedeclaration = false;
   keepUnusedTranslations = false;
   disableTranslationSourceLines = false;
   usedMaps = /* @__PURE__ */ new Set();
@@ -71957,9 +72016,15 @@ var key;
 
 // src/data/opy/preprocessing.ts
 var preprocessingDirectives = {
+  "allowMacroRedeclaration": {
+    "description": "If enabled, redefining a `macro` or `#!define` will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes."
+  },
   "define": {
     "description": '**Warning**: This directive performs a text-based replacement! Use `macro` or `const` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__("addfive.js")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n',
     "snippet": "define $0"
+  },
+  "debugElementCount": {
+    "description": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action."
   },
   "disableInspector": {
     "description": "Adds a rule to disable the inspector at the very start of the gamemode."
@@ -72272,3 +72337,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

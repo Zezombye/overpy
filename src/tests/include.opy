@@ -6,6 +6,8 @@ rule "1":
 #!include "include5.opy"
 #!define script(a,b) __script__("test include/script.js")
 
+#!debugElementCount
+
 settings "test include/settings.opy.json"
 
 rule "6":
