@@ -21,11 +21,13 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: counter
         127: __holygrail__
 }
+
 rule ("Disable inspector") {
     event {
         Ongoing - Global;

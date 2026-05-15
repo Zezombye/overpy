@@ -16,6 +16,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: A
@@ -24,6 +25,7 @@ variables {
     player:
         127: __languageIndex__
 }
+
 rule ("OverPy <­tx> / <­fg> setup code") {
     event {
         Ongoing - Global;

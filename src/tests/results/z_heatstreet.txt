@@ -330,6 +330,7 @@ settings
 		Spawn More Dummy Bots
 	}
 }
+
 variables {
     global:
         1: gamemode
@@ -547,6 +548,7 @@ variables {
         126: Chain_Reaction_On
         127: Damage_Received
 }
+
 subroutines {
     0: update_combatants
     1: declare_victory
@@ -576,6 +578,7 @@ subroutines {
     32: call_reinforcements
     33: Cancel_Momentum
 }
+
 rule ("Mod by LemonAid#11644, Original mode by Shingen#21859") {
     event {
         Ongoing - Global;

@@ -55,6 +55,7 @@ settings
 		Spawn More Dummy Bots
 	}
 }
+
 variables {
     global:
         0: llIIIIIIIIIl
@@ -266,6 +267,7 @@ variables {
         124: IIIlIIllIlII
         127: IlIIIIIIllIl
 }
+
 subroutines {
     0: lIlIIIIllIII
     2: IllIllIlIIIl
@@ -329,6 +331,7 @@ subroutines {
     115: llIIIIIIllII
     119: lIlIIIIlIlll
 }
+
 //Strict optimizations enabled
 rule ("") {
     event {

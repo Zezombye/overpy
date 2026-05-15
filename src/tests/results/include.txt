@@ -1,3 +1,16 @@
+/* Element count: (total 24)
+
+    3: rule "1" (include.opy)
+    3: rule "2" (test include/include2.opy)
+    3: rule "3" (include3.opy)
+    3: rule "4" (test include/include4.opy)
+    3: rule "rule 5" (test include/test prefix.opy)
+    3: rule "rule 6" (test include/test prefix.opy)
+    3: rule "5" (include5.opy)
+    3: rule "6" (include.opy)
+
+*/
+
 settings
 {
 	main
@@ -78,79 +91,89 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: A
 }
+
+//3 elements
 rule ("1") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 1);
+        Set Global Variable(A, 1); // 2 elements
     }
 }
 
+//3 elements
 rule ("2") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 2);
+        Set Global Variable(A, 2); // 2 elements
     }
 }
 
+//3 elements
 rule ("3") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 3);
+        Set Global Variable(A, 3); // 2 elements
     }
 }
 
+//3 elements
 rule ("4") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 4);
+        Set Global Variable(A, 4); // 2 elements
     }
 }
 
+//3 elements
 rule ("rule 5") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 5);
+        Set Global Variable(A, 5); // 2 elements
     }
 }
 
+//3 elements
 rule ("[test prefix 3] rule 6") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 6);
+        Set Global Variable(A, 6); // 2 elements
     }
 }
 
+//3 elements
 rule ("5") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 5);
+        Set Global Variable(A, 5); // 2 elements
     }
 }
 
+//3 elements
 rule ("6") {
     event {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, 6);
+        Set Global Variable(A, 6); // 2 elements
     }
 }
 

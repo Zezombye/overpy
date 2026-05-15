@@ -92,6 +92,7 @@ settings
 		Spawn More Dummy Bots
 	}
 }
+
 variables {
     global:
         0: _objectVariable_0
@@ -330,6 +331,7 @@ variables {
         114: boss_phase
         115: no_pickup
 }
+
 subroutines {
     0: InitialGlobal_2
     1: InitialGlobal_3
@@ -348,6 +350,7 @@ subroutines {
     16: boss_zoomin
     17: phase_11_spawn
 }
+
 rule ("global init") {
     event {
         Ongoing - Global;

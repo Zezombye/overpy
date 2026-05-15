@@ -307,6 +307,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: timeCounter
@@ -455,6 +456,7 @@ variables {
         65: symIn
         66: sombraHackedPostion
 }
+
 subroutines {
     0: gameModeDescriptionMessages
     1: startNewRound
@@ -462,6 +464,7 @@ subroutines {
     3: symTheColorIsSelectedTrigger
     4: symScoring
 }
+
 rule ("Is in setup {GLOBAL}") {
     event {
         Ongoing - Global;

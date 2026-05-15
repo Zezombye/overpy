@@ -11,6 +11,7 @@ variables {
     player:
         0: A
 }
+
 rule ("array literals") {
     event {
         Ongoing - Global;

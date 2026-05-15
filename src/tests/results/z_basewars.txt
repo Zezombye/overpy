@@ -59,6 +59,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: practiceRangeTranslations
@@ -211,6 +212,7 @@ variables {
         55: sparkboltEffect
         56: scoreArray
 }
+
 subroutines {
     0: settleBalance
     1: setBaseLocation
@@ -218,6 +220,7 @@ subroutines {
     3: baseUpgradeFail
     4: checkUpgradeAvailability
 }
+
 rule ("Initialize global variables") {
     event {
         Ongoing - Global;

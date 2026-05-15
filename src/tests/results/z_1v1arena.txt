@@ -196,6 +196,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: MainCenter
@@ -354,11 +355,13 @@ variables {
         50: BotDifficulty
         51: BotKiriHeal
 }
+
 subroutines {
     0: SpawnLocationCheck
     5: ZenAim
     6: BotHeroList
 }
+
 rule ("Workshop Settings") {
     event {
         Ongoing - Global;

@@ -82,6 +82,7 @@ settings
 		Projectiles
 	}
 }
+
 variables {
     global:
         0: ONFIRE_STREAK
@@ -208,6 +209,7 @@ variables {
         66: Temp
         67: PerfectQSVFX
 }
+
 subroutines {
     0: SleepDarts
     1: SayVoiceline
@@ -229,6 +231,7 @@ subroutines {
     18: RespawnsKANEZAKA
     19: RespawnsLIJANGCONTROL
 }
+
 rule ("Initialize global variables") {
     event {
         Ongoing - Global;

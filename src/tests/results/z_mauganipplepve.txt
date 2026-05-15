@@ -119,6 +119,7 @@ settings
 		Explosion Sounds
 	}
 }
+
 variables {
     global:
         0: nipman
@@ -177,9 +178,11 @@ variables {
         4: botA
         5: botB
 }
+
 subroutines {
     0: mobsInit
 }
+
 rule ("Initialize global variables") {
     event {
         Ongoing - Global;

@@ -26,10 +26,12 @@ settings
 		Spawn More Dummy Bots
 	}
 }
+
 variables {
     global:
         0: Afqdsfdsq
 }
+
 rule ("Rule 1") {
     event {
         Ongoing - Each Player;

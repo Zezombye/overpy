@@ -6,6 +6,7 @@ variables {
     player:
         0: A
 }
+
 //Optimize for size enabled
 rule ("0 to null") {
     event {
@@ -120,6 +121,27 @@ rule ("null vector to null") {
     }
 }
 
+rule ("empty string") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Create HUD Text(All Players(All Teams), Global.A, Null, Null, Left, False, Color(White), Null, Null, Visible To Sort Order String and Color, Default Visibility);
+        Set Global Variable(A, Index Of String Char(Empty Array, Global.B));
+        Set Global Variable(A, Index Of String Char(Global.B, Empty Array));
+        Set Global Variable(A, Char In String(Empty Array, Global.B));
+        Set Global Variable(A, String Replace(Empty Array, Global.B, Global.C));
+        Set Global Variable(A, String Replace(Global.B, Empty Array, Global.C));
+        Set Global Variable(A, String Replace(Global.B, Global.C, Empty Array));
+        Set Global Variable(A, String Split(Global.B, Empty Array));
+        Set Global Variable(A, String Split(Empty Array, Global.B));
+        Set Global Variable(A, String Slice(Empty Array, Global.B, Global.C));
+        Set Global Variable(A, String Contains(Empty Array, Global.B));
+        Set Global Variable(A, String Contains(Global.B, Empty Array));
+        Set Global Variable(A, Char In String(Empty Array, Null));
+    }
+}
+
 rule ("other optimizations") {
     event {
         Ongoing - Global;
@@ -151,6 +173,30 @@ rule ("other optimizations") {
         Set Global Variable(A, Backward);
         "backward"
         Set Global Variable(A, Backward);
+        "left + up"
+        Set Global Variable(A, Add(Left, Up));
+        "left + down"
+        Set Global Variable(A, Add(Left, Down));
+        "left + forward"
+        Set Global Variable(A, Add(Left, Forward));
+        "left + backward"
+        Set Global Variable(A, Add(Left, Backward));
+        "right + up"
+        Set Global Variable(A, Add(Right, Up));
+        "right + down"
+        Set Global Variable(A, Add(Right, Down));
+        "right + forward"
+        Set Global Variable(A, Add(Right, Forward));
+        "right + backward"
+        Set Global Variable(A, Add(Right, Backward));
+        "up + forward"
+        Set Global Variable(A, Add(Up, Forward));
+        "up + backward"
+        Set Global Variable(A, Add(Up, Backward));
+        "down + forward"
+        Set Global Variable(A, Add(Down, Forward));
+        "down + backward"
+        Set Global Variable(A, Add(Down, Backward));
         "B * left"
         Set Global Variable(A, Multiply(Global.B, Left));
         "B * up"

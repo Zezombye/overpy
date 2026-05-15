@@ -6,6 +6,7 @@ variables {
         6: G
         11: L
 }
+
 //Optimize for size enabled
 rule ("") {
     event {

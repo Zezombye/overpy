@@ -16,6 +16,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: A
@@ -34,6 +35,7 @@ variables {
         126: __holygrail__
         127: __overpyTranslationHelper__
 }
+
 rule ("OverPy <­tx> / <­fg> setup code") {
     event {
         Ongoing - Global;

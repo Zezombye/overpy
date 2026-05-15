@@ -8,6 +8,7 @@ variables {
         6: G
         7: H
 }
+
 rule ("compression") {
     event {
         Ongoing - Global;

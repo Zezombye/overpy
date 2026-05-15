@@ -205,6 +205,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: HudT1Visibility
@@ -252,6 +253,7 @@ variables {
         126: ActionIDQueue_Secondary
         127: __iter___
 }
+
 subroutines {
     0: Abi1Attach
     1: Abi2Attach
@@ -262,6 +264,7 @@ subroutines {
     126: CreateMenuButtons
     127: CreateMenuCursor
 }
+
 rule ("1v1 Build your hero by Seita") {
     event {
         Ongoing - Global;

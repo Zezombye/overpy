@@ -44,6 +44,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: Players
@@ -138,6 +139,7 @@ variables {
         24: TempColor
         25: TempNumber
 }
+
 subroutines {
     0: AddColoredSymbolsToDeck
     1: AddUncoloredSymbolsToDeck
@@ -173,6 +175,7 @@ subroutines {
     36: InitMapPositionForAll
     37: UpdateColorCheat
 }
+
 rule ("[Game settings]") {
     event {
         Ongoing - Global;

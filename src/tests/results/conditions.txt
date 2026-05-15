@@ -12,6 +12,7 @@ variables {
         9: J
         10: K
 }
+
 //Optimize for size enabled
 rule ("if/else") {
     event {

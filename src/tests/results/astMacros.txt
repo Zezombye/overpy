@@ -7,6 +7,7 @@ variables {
     player:
         0: A
 }
+
 rule ("1") {
     event {
         Ongoing - Each Player;

@@ -2,6 +2,7 @@ variables {
     global:
         0: A
 }
+
 rule ("[RulePrefix] rule 1") {
     event {
         Ongoing - Global;

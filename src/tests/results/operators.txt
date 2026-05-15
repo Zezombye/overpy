@@ -7,6 +7,7 @@ variables {
     player:
         0: A
 }
+
 //Optimize for size enabled
 rule ("strict optimizations") {
     event {

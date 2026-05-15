@@ -3,11 +3,13 @@ variables {
         0: A
         1: B
 }
+
 subroutines {
     0: Sub0
     1: bar
     2: foo
 }
+
 //Optimize for size enabled
 rule ("my subroutine") {
     event {

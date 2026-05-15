@@ -15,6 +15,7 @@ settings
 		projectiles
 	}
 }
+
 rule ("set player invis") {
     event {
         ongoing - each player;

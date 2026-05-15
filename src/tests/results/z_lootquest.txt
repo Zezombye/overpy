@@ -64,6 +64,7 @@ settings
 		}
 	}
 }
+
 variables {
     global:
         0: llIIIllIllIlllIlllIIIlllll
@@ -272,6 +273,7 @@ variables {
         123: IIllIlIIIIIIllIIIllIlIllII
         124: IIIllIIlIlIIIlllllllIIIlIl
 }
+
 subroutines {
     0: IllIlIlIllIlIlIllIlllIlIIl
     1: lIlIlIIIIllllIlIIIIIIlllIl
@@ -393,6 +395,7 @@ subroutines {
     117: lllIllIlIIllllIlIlIlllllll
     118: lllIIIIIIllIlIIlIIlIIIIIII
 }
+
 rule ("lIIlllllIlIlllIllIIIlIIlll") {
     event {
         Ongoing - Global;

@@ -81,6 +81,7 @@ settings
 		Play More Effects
 	}
 }
+
 variables {
     global:
         0: NightNumber
@@ -137,6 +138,7 @@ variables {
     player:
         0: HasMoved
 }
+
 subroutines {
     0: OutlineFix
     1: CameraShake
@@ -152,6 +154,7 @@ subroutines {
     11: ZenDoor
     12: ZenMove
 }
+
 rule ("[WS] Settings") {
     event {
         Ongoing - Global;

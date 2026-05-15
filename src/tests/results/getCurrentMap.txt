@@ -4,6 +4,7 @@ variables {
         1: B
         2: C
 }
+
 //Optimize for size enabled
 rule ("test current map workaround for colosseo/esperança/samoa") {
     event {

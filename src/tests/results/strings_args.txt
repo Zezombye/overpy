@@ -7,6 +7,7 @@ variables {
         4: E
         5: F
 }
+
 rule ("1 arg") {
     event {
         Ongoing - Global;
