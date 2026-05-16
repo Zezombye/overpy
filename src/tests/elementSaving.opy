@@ -1,4 +1,5 @@
 #!optimizeForSize
+#!optimizeForSizeAggressive
 #!suppressWarnings w_chased_var_in_for
 
 rule "0 to null":
@@ -100,6 +101,24 @@ rule "empty string":
     A = strContains("", B)
     A = strContains(B, "")
     A = ""
+
+rule "if to skip if":
+    if A == B: #should be skip if
+        D = 4
+    if A == B: # should stay if
+        D = 4
+        E = 5
+    if not B: #should be skip if
+        D = 4
+        E = 5
+    if A == B: # should stay if
+        D = 4
+
+rule "auto array compression":
+    A = [B, B, B, B, B, B, B, B, C] #shouldn't be compressed
+    A = [B, B, B, B, B, B, B, B, B] #should be compressed
+    A = ["abc", "def", "ghi"]
+    A = ["abc", "def", "ghi{}".format(B)] #shouldn't be compressed
 
 rule "other optimizations":
     A = vect(0, 0, 0) #left + right

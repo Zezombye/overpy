@@ -24,10 +24,10 @@ export const preprocessingDirectives: Record<string, {
     snippet?: string
 }> = {
     "allowMacroRedeclaration": {
-        "description": "If enabled, redefining a `macro` or `#!define` will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.",
+        "description": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.",
     },
     "define": {
-        "description": "**Warning**: This directive performs a text-based replacement! Use `macro` or `const` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "description": "**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
         "snippet": "define $0",
     },
     "debugElementCount": {
@@ -55,13 +55,16 @@ export const preprocessingDirectives: Record<string, {
         "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will).",
     },
     "disableOptimizations": {
-        "description": "Disables all optimizations done by the compiler for the current block or file, up until the end of the block/file or the next `#!enableOptimizations` directive.",
+        "description": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive.",
     },
     "enableOptimizations": {
         "description": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing.",
     },
     "optimizeForSize": {
-        "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block or file, up until the end of the block/file or the next `#!disableOptimizeForSize` directive."
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive."
+    },
+    "optimizeForSizeAggressive": {
+        "description": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect."
     },
     "disableOptimizeForSize": {
         "description": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing."
@@ -77,7 +80,7 @@ Those optimizations (and others) will be disabled so that the behavior of the ga
 
 This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
 
-This directive is effective for the current block or file, up until the end of the block/file or the next \`#!disableOptimizeStrict\` directive.`,
+This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.`,
     },
     "disableOptimizeStrict": {
         "description": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing."

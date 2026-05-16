@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { currentRuleHasVariableGoto, enableOptimization, currentRuleEvent, optimizeForSize } from "../../globalVars";
+import { currentRuleHasVariableGoto, enableOptimization, currentRuleEvent, optimizeForSize, optimizeForSizeAggressive } from "../../globalVars";
 import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd, astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 import {getUniqueNumber} from "../../utils/other";
@@ -106,7 +106,7 @@ astParsingFunctions.__if__ = function (content) {
         }
 
         //if optimizing for size and replacing with skip if would save an element, do so (either "if not A", or "if A == B" with end and only one instruction)
-        if (optimizeForSize && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
+        if (optimizeForSize && optimizeForSizeAggressive && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
             let label = "__label_if_" + getUniqueNumber() + "__";
             content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, new Ast(label, [], [], "Label"), getAstForUselessInstruction());
 

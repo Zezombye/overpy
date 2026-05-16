@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook, useTlErr, replacementForEmptyString, useVariableForCompressionAlphabet } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook, useTlErr, replacementForEmptyString, useVariableForCompressionAlphabet, setOptimizationEnabled, setOptimizeStrict, setOptimizationForSize, allowMacroRedeclaration } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -359,8 +359,17 @@ function compileRules(astRules: Ast[]) {
     if (DEBUG_MODE) {
         console.log(parsedAstRules);
     }
+    
+    //Reset optimization settings before the second pass astRulesToWs
+    setOptimizationEnabled(true);
+    setOptimizeStrict(false);
+    setOptimizationForSize(false);
 
     var {compiledRules, elementCountSummary} = astRulesToWs(parsedAstRules);
+    
+    setOptimizationEnabled(true);
+    setOptimizeStrict(false);
+    setOptimizationForSize(false);
 
     setFileStack(getInternalFileStack());
 

@@ -114,6 +114,8 @@ export var enableOptimization: boolean;
 export const setOptimizationEnabled = (enabled: boolean) => (enableOptimization = enabled);
 export var optimizeForSize: boolean;
 export const setOptimizationForSize = (size: boolean) => (optimizeForSize = size);
+export var optimizeForSizeAggressive: boolean;
+export const setOptimizationForSizeAggressive = (aggressive: boolean) => (optimizeForSizeAggressive = aggressive);
 export var optimizeStrict: boolean;
 export const setOptimizeStrict = (strict: boolean) => (optimizeStrict = strict);
 
@@ -330,6 +332,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     compiledCustomGameSettings = "";
     enableOptimization = true;
     optimizeForSize = false;
+    optimizeForSizeAggressive = false;
     optimizeStrict = false;
     uniqueNumber = 1;
     globalInitDirectives = [];

@@ -22,7 +22,7 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString, optimizeForSizeAggressive } from "../globalVars";
 import { StringToken } from "../types";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool, getAstForEmptyArray } from "../utils/ast";
 import { parseOpyMacro, trimNb } from "../utils/compilation";
@@ -128,10 +128,6 @@ export function astRulesToWs(rules: Ast[]) {
         ruleElementCounts.sort((a, b) => b.elements - a.elements);
         elementCountSummary = "/* Element count: (total "+nbElements+")\n\n" + ruleElementCounts.map(r => ("" + r.elements).padStart(5, " ") + ": rule " + escapeString(r.name, false) + (r.file ? " (" + r.file + ")" : "")).join("\n") + "\n\n*/\n\n";
     }
-
-    setOptimizationEnabled(true);
-    setOptimizeStrict(false);
-    setOptimizationForSize(false);
     return {compiledRules, elementCountSummary};
 }
 
@@ -488,21 +484,38 @@ function astToWs(content: Ast): string {
         if (content.args.length === 0) {
             incrementNbElements();
             return tows("__emptyArray__", valueKw);
-        } else if (optimizeForSize && content.parent?.name !== "createWorkshopSettingEnum" && content.args.every(x => x.name === "__customString__" && x.args.length === 1)) {
-            //An array of string literals without args can be optimized to one string with string split
-            //["a", "b"] -> "a|b".split("|")
-            let separator = "\uEC51";
-            let separatorAst = getAstForCustomString(separator);
-            let str = content.args.map(x => x.args[0].name).join(separator);
-            if (!str.includes("0")) {
-                separator = "0";
-                separatorAst = new Ast("__firstOf__", [getAstForNull()]);
-            } else if (!str.includes("(1.00, 0.00, 0.00)") && (getUtf8Length(str) % (STR_MAX_LENGTH-"{0}".length)) + content.args.length * ("(1.00, 0.00, 0.00)".length - "\uEC51".length) <= STR_MAX_LENGTH) {
-                separator = "(1.00, 0.00, 0.00)";
-                separatorAst = new Ast("__firstOf__", [new Ast("Vector.LEFT")]);
+        } else if (optimizeForSize && optimizeForSizeAggressive && content.parent?.name !== "createWorkshopSettingEnum") {
+            if (content.args.every(x => x.name === "__customString__" && x.args.length === 1)) {
+                //An array of string literals without args can be optimized to one string with string split
+                //["a", "b"] -> "a|b".split("|")
+                let separator = "\uEC51";
+                let separatorAst = getAstForCustomString(separator);
+                let str = content.args.map(x => x.args[0].name).join(separator);
+                if (!str.includes("0")) {
+                    separator = "0";
+                    separatorAst = new Ast("__firstOf__", [getAstForNull()]);
+                } else if (!str.includes("(1.00, 0.00, 0.00)") && (getUtf8Length(str) % (STR_MAX_LENGTH-"{0}".length)) + content.args.length * ("(1.00, 0.00, 0.00)".length - "\uEC51".length) <= STR_MAX_LENGTH) {
+                    separator = "(1.00, 0.00, 0.00)";
+                    separatorAst = new Ast("__firstOf__", [new Ast("Vector.LEFT")]);
+                }
+                str = str.replaceAll("\uEC51", separator);
+                return astToWs(new Ast(".split", [getAstForCustomString(str), separatorAst]));
+
+
+            //Check if all elements of the array are equal
+            } else if (content.args.length >= 3 && content.args.every(x => areAstsAlwaysEqual(x, content.args[0]))) {
+                let estimatedElementCount = 1 + (content.args[0].name === "__customString__" ? 4 : content.args[0].args.length);
+                //Optimization is worth it if the array length is at least: 11 for 1 element, 5 for 2 elements, 4 for 3 elements, 3 for 4-7 elements, 2 for 8+ elements. Since vectors are 4-7 elements with literal numbers, we can assume a min length of 3, as we aren't calculating the exact length anyway.
+                if (estimatedElementCount === 1 && content.args.length >= 11 || estimatedElementCount === 2 && content.args.length >= 5 || estimatedElementCount === 3 && content.args.length >= 4 || estimatedElementCount >= 4) {
+                    return astToWs(new Ast("__mappedArray__", [
+                        new Ast(".split", [
+                            getAstForCustomString("0".repeat(content.args.length-1)),
+                            new Ast("__firstOf__", [getAstForNull()])
+                        ]),
+                        content.args[0],
+                    ]));
+                }
             }
-            str = str.replaceAll("\uEC51", separator);
-            return astToWs(new Ast(".split", [getAstForCustomString(str), separatorAst]));
 
         }
     } else if (content.name === "chaseAtRate" || content.name === "chaseOverTime") {

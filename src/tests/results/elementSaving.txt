@@ -3,6 +3,8 @@ variables {
         0: A
         1: B
         2: C
+        3: D
+        4: E
     player:
         0: A
 }
@@ -139,6 +141,46 @@ rule ("empty string") {
         Set Global Variable(A, String Contains(Empty Array, Global.B));
         Set Global Variable(A, String Contains(Global.B, Empty Array));
         Set Global Variable(A, Char In String(Empty Array, Null));
+    }
+}
+
+rule ("if to skip if") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "should be skip if"
+        Skip If(Compare(Global.A, !=, Global.B), True);
+        Set Global Variable(D, 4);
+        //__label_if_2__:
+        "should stay if"
+        If(Compare(Global.A, ==, Global.B));
+            Set Global Variable(D, 4);
+            Set Global Variable(E, 5);
+        End;
+        "should be skip if"
+        Skip If(Global.B, 2);
+        Set Global Variable(D, 4);
+        Set Global Variable(E, 5);
+        //__label_if_3__:
+        "should stay if"
+        If(Compare(Global.A, ==, Global.B));
+            Set Global Variable(D, 4);
+    }
+}
+
+rule ("auto array compression") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "shouldn't be compressed"
+        Set Global Variable(A, Array(Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.C));
+        "should be compressed"
+        Set Global Variable(A, Mapped Array(String Split(Custom String("00000000"), First Of(Null)), Global.B));
+        Set Global Variable(A, String Split(Custom String("abc0def0ghi"), First Of(Null)));
+        "shouldn't be compressed"
+        Set Global Variable(A, Array(Custom String("abc"), Custom String("def"), Custom String("ghi{0}", Global.B)));
     }
 }
 

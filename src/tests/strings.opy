@@ -1,4 +1,5 @@
 #!optimizeForSize
+#!optimizeForSizeAggressive
 #!setupTx
 
 globalvar owo

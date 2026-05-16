@@ -596,7 +596,7 @@ Suppresses the specified warnings globally across the program. Warnings must be 
 
 ## #!allowMacroRedeclaration
 
-If specified, will replace the existing macro instead of throwing an error. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.
+If specified, allows redefining a `macro`, `#!define` or `enum` member. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.
 
 ## #!debugElementCount
 
@@ -616,7 +616,7 @@ You can check [here](https://github.com/Zezombye/overpy/issues/33) for a list of
 
 The `#!disableOptimizations` directive can be used to disable all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations, or if you want to generate an unoptimized instruction for some reason.
 
-The `#!optimizeForSize` directive prioritizes lowering the number of elements over optimizing the runtime (see [here](https://github.com/Zezombye/overpy/issues/238) for a list of optimizations).
+The `#!optimizeForSize` directive prioritizes lowering the number of elements over optimizing the runtime (see [here](https://github.com/Zezombye/overpy/issues/238) for a list of optimizations). You can use `#!optimizeForSizeAggressive` (applied codebase-wide and MUST be used alongside `#!optimizeForSize`) for even more optimizations if you really need to squeeze every last element, at the cost of readability.
 
 The `#!optimizeStrict` directive disables some optimizations that may cause issues in extreme cases of type conversion. For example:
 

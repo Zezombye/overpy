@@ -121,9 +121,9 @@ rule ("do/while rule condition") {
     actions {
         Wait(False, Ignore Condition);
         Modify Global Variable(A, Add, True);
-        Skip If(Compare(Global.A, <=, Number Of Players(Team 2)), True);
-        Set Global Variable(A, Null);
-        //__label_if_6__:
+        If(Compare(Global.A, >, Number Of Players(Team 2)));
+            Set Global Variable(A, Null);
+        End;
         Loop If Condition Is True;
     }
 }

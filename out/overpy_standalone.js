@@ -38600,6 +38600,10 @@ ${scriptText}`, {
       setPlayervarInitRuleName(unescapeString(ruleName, true));
       return;
     }
+    if (content2.startsWith("#!optimizeForSizeAggressive")) {
+      setOptimizationForSizeAggressive(true);
+      return;
+    }
     if (content2.startsWith("#!optimizeForSize")) {
       addToken("__enableOptimizeForSize__");
       return;
@@ -45187,7 +45191,7 @@ astParsingFunctions.__if__ = function(content) {
         }
       }
     }
-    if (optimizeForSize2 && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
+    if (optimizeForSize2 && optimizeForSizeAggressive && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
       let label = "__label_if_" + getUniqueNumber() + "__";
       content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, new Ast2(label, [], [], "Label"), getAstForUselessInstruction());
       if (content.args[0].name === "__not__") {
@@ -48011,9 +48015,6 @@ function parseAstRules(rules) {
     }
     rulesResult.push(parseAst(rule));
   }
-  setOptimizationEnabled2(true);
-  setOptimizeStrict2(false);
-  setOptimizationForSize2(false);
   return rulesResult;
 }
 function parseAst(content) {
@@ -64661,9 +64662,6 @@ function astRulesToWs(rules) {
     ruleElementCounts.sort((a, b) => b.elements - a.elements);
     elementCountSummary = "/* Element count: (total " + nbElements + ")\n\n" + ruleElementCounts.map((r) => ("" + r.elements).padStart(5, " ") + ": rule " + escapeString(r.name, false) + (r.file ? " (" + r.file + ")" : "")).join("\n") + "\n\n*/\n\n";
   }
-  setOptimizationEnabled2(true);
-  setOptimizeStrict2(false);
-  setOptimizationForSize2(false);
   return { compiledRules, elementCountSummary };
 }
 function astRuleConditionToWs(condition) {
@@ -64989,19 +64987,32 @@ function astToWs(content) {
     if (content.args.length === 0) {
       incrementNbElements();
       return tows("__emptyArray__", valueKw);
-    } else if (optimizeForSize2 && content.parent?.name !== "createWorkshopSettingEnum" && content.args.every((x) => x.name === "__customString__" && x.args.length === 1)) {
-      let separator = "\uEC51";
-      let separatorAst = getAstForCustomString(separator);
-      let str = content.args.map((x) => x.args[0].name).join(separator);
-      if (!str.includes("0")) {
-        separator = "0";
-        separatorAst = new Ast2("__firstOf__", [getAstForNull()]);
-      } else if (!str.includes("(1.00, 0.00, 0.00)") && getUtf8Length(str) % (STR_MAX_LENGTH - "{0}".length) + content.args.length * ("(1.00, 0.00, 0.00)".length - "\uEC51".length) <= STR_MAX_LENGTH) {
-        separator = "(1.00, 0.00, 0.00)";
-        separatorAst = new Ast2("__firstOf__", [new Ast2("Vector.LEFT")]);
+    } else if (optimizeForSize2 && optimizeForSizeAggressive && content.parent?.name !== "createWorkshopSettingEnum") {
+      if (content.args.every((x) => x.name === "__customString__" && x.args.length === 1)) {
+        let separator = "\uEC51";
+        let separatorAst = getAstForCustomString(separator);
+        let str = content.args.map((x) => x.args[0].name).join(separator);
+        if (!str.includes("0")) {
+          separator = "0";
+          separatorAst = new Ast2("__firstOf__", [getAstForNull()]);
+        } else if (!str.includes("(1.00, 0.00, 0.00)") && getUtf8Length(str) % (STR_MAX_LENGTH - "{0}".length) + content.args.length * ("(1.00, 0.00, 0.00)".length - "\uEC51".length) <= STR_MAX_LENGTH) {
+          separator = "(1.00, 0.00, 0.00)";
+          separatorAst = new Ast2("__firstOf__", [new Ast2("Vector.LEFT")]);
+        }
+        str = str.replaceAll("\uEC51", separator);
+        return astToWs(new Ast2(".split", [getAstForCustomString(str), separatorAst]));
+      } else if (content.args.length >= 3 && content.args.every((x) => areAstsAlwaysEqual(x, content.args[0]))) {
+        let estimatedElementCount = 1 + (content.args[0].name === "__customString__" ? 4 : content.args[0].args.length);
+        if (estimatedElementCount === 1 && content.args.length >= 11 || estimatedElementCount === 2 && content.args.length >= 5 || estimatedElementCount === 3 && content.args.length >= 4 || estimatedElementCount >= 4) {
+          return astToWs(new Ast2("__mappedArray__", [
+            new Ast2(".split", [
+              getAstForCustomString("0".repeat(content.args.length - 1)),
+              new Ast2("__firstOf__", [getAstForNull()])
+            ]),
+            content.args[0]
+          ]));
+        }
       }
-      str = str.replaceAll("\uEC51", separator);
-      return astToWs(new Ast2(".split", [getAstForCustomString(str), separatorAst]));
     }
   } else if (content.name === "chaseAtRate" || content.name === "chaseOverTime") {
     var newName = content.name === "chaseAtRate" ? "AtRate__" : "OverTime__";
@@ -65821,7 +65832,13 @@ function compileRules(astRules) {
   if (DEBUG_MODE) {
     console.log(parsedAstRules);
   }
+  setOptimizationEnabled2(true);
+  setOptimizeStrict2(false);
+  setOptimizationForSize2(false);
   var { compiledRules, elementCountSummary } = astRulesToWs(parsedAstRules);
+  setOptimizationEnabled2(true);
+  setOptimizeStrict2(false);
+  setOptimizationForSize2(false);
   setFileStack(getInternalFileStack());
   var result = elementCountSummary + compiledCustomGameSettings;
   if (!excludeVariablesInCompilation) {
@@ -66650,7 +66667,7 @@ function parseLines(lines) {
             }
           }
           let enumMemberName = childrenLines[k].tokens[0].toString();
-          if (enumMemberName in enumMembers[args[0].name]) {
+          if (enumMemberName in enumMembers[args[0].name] && !allowMacroRedeclaration) {
             error("Duplicate enum member '" + args[0].name + "." + enumMemberName + "''");
           }
           enumMembers[args[0].name][enumMemberName] = enumValue;
@@ -69669,6 +69686,8 @@ var enableOptimization;
 var setOptimizationEnabled2 = (enabled) => enableOptimization = enabled;
 var optimizeForSize2;
 var setOptimizationForSize2 = (size) => optimizeForSize2 = size;
+var optimizeForSizeAggressive;
+var setOptimizationForSizeAggressive = (aggressive) => optimizeForSizeAggressive = aggressive;
 var optimizeStrict;
 var setOptimizeStrict2 = (strict) => optimizeStrict = strict;
 var macros = [];
@@ -69799,6 +69818,7 @@ function resetGlobalVariables(language) {
   compiledCustomGameSettings = "";
   enableOptimization = true;
   optimizeForSize2 = false;
+  optimizeForSizeAggressive = false;
   optimizeStrict = false;
   uniqueNumber = 1;
   globalInitDirectives = [];
@@ -72116,10 +72136,10 @@ var key;
 // src/data/opy/preprocessing.ts
 var preprocessingDirectives = {
   "allowMacroRedeclaration": {
-    "description": "If enabled, redefining a `macro` or `#!define` will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes."
+    "description": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes."
   },
   "define": {
-    "description": '**Warning**: This directive performs a text-based replacement! Use `macro` or `const` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__("addfive.js")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n',
+    "description": '**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__("addfive.js")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n',
     "snippet": "define $0"
   },
   "debugElementCount": {
@@ -72147,13 +72167,16 @@ var preprocessingDirectives = {
     "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will)."
   },
   "disableOptimizations": {
-    "description": "Disables all optimizations done by the compiler for the current block or file, up until the end of the block/file or the next `#!enableOptimizations` directive."
+    "description": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive."
   },
   "enableOptimizations": {
     "description": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing."
   },
   "optimizeForSize": {
-    "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block or file, up until the end of the block/file or the next `#!disableOptimizeForSize` directive."
+    "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive."
+  },
+  "optimizeForSizeAggressive": {
+    "description": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect."
   },
   "disableOptimizeForSize": {
     "description": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing."
@@ -72169,7 +72192,7 @@ Those optimizations (and others) will be disabled so that the behavior of the ga
 
 This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
 
-This directive is effective for the current block or file, up until the end of the block/file or the next \`#!disableOptimizeStrict\` directive.`
+This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.`
   },
   "disableOptimizeStrict": {
     "description": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing."

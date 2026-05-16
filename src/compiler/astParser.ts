@@ -363,9 +363,6 @@ export function parseAstRules(rules: Ast[]) {
 
         rulesResult.push(parseAst(rule));
     }
-    setOptimizationEnabled(true);
-    setOptimizeStrict(false);
-    setOptimizationForSize(false);
     return rulesResult;
 }
 

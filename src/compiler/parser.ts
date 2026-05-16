@@ -382,7 +382,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                         }
                     }
                     let enumMemberName = childrenLines[k].tokens[0].toString();
-                    if (enumMemberName in enumMembers[args[0].name]) {
+                    if (enumMemberName in enumMembers[args[0].name] && !allowMacroRedeclaration) {
                         error("Duplicate enum member '" +args[0].name+"."+ enumMemberName + "''");
                     }
                     enumMembers[args[0].name][enumMemberName] = enumValue;
