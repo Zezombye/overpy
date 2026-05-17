@@ -163,6 +163,19 @@ rule ("if to skip if") {
         Set Global Variable(D, 4);
         Set Global Variable(E, 5);
         //__label_if_3__:
+        If(Compare(Global.A, ==, 2));
+            Skip If(Compare(Global.A, !=, 3), True);
+            Set Global Variable(B, 4);
+            //__label_if_4__:
+            If(True);
+                Skip(Value In Array(Array(1, Null), Add(True, Index Of Array Value(Array(Global.B), Global.A))));
+            //__label_switch_5_0__:
+            Modify Global Variable(C, Add, True);
+            //__label_switch_5_default__:
+            End;
+            Modify Global Variable(D, Add, True);
+            Modify Global Variable(E, Add, True);
+        End;
         "should stay if"
         If(Compare(Global.A, ==, Global.B));
             Set Global Variable(D, 4);
@@ -176,6 +189,8 @@ rule ("auto array compression") {
     actions {
         "shouldn't be compressed"
         Set Global Variable(A, Array(Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.B, Global.C));
+        "shouldn't be compressed, can't nest mapped arrays"
+        Set Global Variable(A, Mapped Array(Global.B, Add(Current Array Element, Array(Global.C, Global.C, Global.C, Global.C, Global.C, Global.C, Global.C))));
         "should be compressed"
         Set Global Variable(A, Mapped Array(String Split(Custom String("00000000"), First Of(Null)), Global.B));
         Set Global Variable(A, String Split(Custom String("abc0def0ghi"), First Of(Null)));

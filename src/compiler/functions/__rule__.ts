@@ -24,7 +24,7 @@ import { astToString, debug, error } from "../../utils/logging";
 astParsingFunctions.__rule__ = function (content) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
-    //Some control flow optimizations with if/elif/else cannot be made safely at all if any goto is encountered.
+    //Some control flow optimizations with if/elif/else cannot be made safely at all if any goto is encountered, unless it is confirmed to be in the same scope.
     var isGotoEncountered = false;
 
     //To check that there is no duplicate label.
@@ -37,10 +37,10 @@ astParsingFunctions.__rule__ = function (content) {
             setFileStack(content.fileStack);
 
             //Check for a dynamic goto.
-            if ((children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__") || (children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__")) {
+            if (((children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__") || (children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__")) && !children[i].isGotoInSameScope) {
                 isRelativeGotoEncountered = true;
             }
-            if (children[i].name === "__skip__" || children[i].name === "__skipIf__") {
+            if ((children[i].name === "__skip__" || children[i].name === "__skipIf__") && !children[i].isGotoInSameScope) {
                 isGotoEncountered = true;
             }
 
@@ -54,7 +54,7 @@ astParsingFunctions.__rule__ = function (content) {
 
             iterateOnRuleActions(children[i].children);
 
-            if (!isRelativeGotoEncountered) {
+            if (!isRelativeGotoEncountered && !children[i].isSwitchIf) {
 
                 //Remove useless instructions
                 if (children[i].name === "pass") {

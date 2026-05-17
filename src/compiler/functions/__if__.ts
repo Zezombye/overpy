@@ -116,7 +116,9 @@ astParsingFunctions.__if__ = function (content) {
                 content.args[0] = astParsingFunctions.__not__(new Ast("__not__", [content.args[0]]));
             }
 
-            return new Ast("__skipIf__", [content.args[0], new Ast("__distanceTo__", [new Ast(label, [], [], "Label")])]);
+            let skip = new Ast("__skipIf__", [content.args[0], new Ast("__distanceTo__", [new Ast(label, [], [], "Label")])]);
+            skip.isGotoInSameScope = true;
+            return skip;
         }
 
         if (includeEnd) {

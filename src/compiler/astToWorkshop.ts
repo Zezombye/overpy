@@ -24,7 +24,7 @@ import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
 import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString, optimizeForSizeAggressive } from "../globalVars";
 import { StringToken } from "../types";
-import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool, getAstForEmptyArray } from "../utils/ast";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool, getAstForEmptyArray, astIsInLambdaFunction } from "../utils/ast";
 import { parseOpyMacro, trimNb } from "../utils/compilation";
 import { debug, error, functionNameToString } from "../utils/logging";
 import { getFileStackCopy, tabLevel, toTitleCase } from "../utils/other";
@@ -503,7 +503,7 @@ function astToWs(content: Ast): string {
 
 
             //Check if all elements of the array are equal
-            } else if (content.args.length >= 3 && content.args.every(x => areAstsAlwaysEqual(x, content.args[0]))) {
+            } else if (!astIsInLambdaFunction(content) && content.args.length >= 3 && content.args.every(x => areAstsAlwaysEqual(x, content.args[0]))) {
                 let estimatedElementCount = 1 + (content.args[0].name === "__customString__" ? 4 : content.args[0].args.length);
                 //Optimization is worth it if the array length is at least: 11 for 1 element, 5 for 2 elements, 4 for 3 elements, 3 for 4-7 elements, 2 for 8+ elements. Since vectors are 4-7 elements with literal numbers, we can assume a min length of 3, as we aren't calculating the exact length anyway.
                 if (estimatedElementCount === 1 && content.args.length >= 11 || estimatedElementCount === 2 && content.args.length >= 5 || estimatedElementCount === 3 && content.args.length >= 4 || estimatedElementCount >= 4) {
@@ -579,13 +579,17 @@ function astToWs(content: Ast): string {
         content.name = newName;
     } else if (content.name === "__globalVar__") {
         incrementNbElements();
+        content.argIndex = 0;
         return tows("__global__", valueKw) + "." + astToWs(content.args[0]);
     } else if (content.name === "__number__") {
         incrementNbElements(2);
         return trimNb(content.args[0].name);
     } else if (content.name === "__playerVar__") {
         incrementNbElements();
-        return "(" + astToWs(content.args[0]) + ")." + astToWs(content.args[1]);
+        content.argIndex = 0;
+        let result = "(" + astToWs(content.args[0]) + ").";
+        content.argIndex = 1;
+        return result + astToWs(content.args[1]);
     } else if (content.name === "ceil") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
@@ -723,6 +727,7 @@ function astToWs(content: Ast): string {
             if (content.args[i].type === "void") {
                 error("Expected a value, but got " + functionNameToString(content.args[i]) + " which is an action", content.args[i].fileStack);
             }
+            content.argIndex = i;
             result += astToWs(content.args[i]);
             if (content.type === "void") {
                 incrementNbElements(Math.floor(nbHeroesInValue / 2));

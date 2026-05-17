@@ -278,19 +278,19 @@ export function tokenize(content: string): LogicalLine[] {
             return;
         }
         if (content.startsWith("#!optimizeForSize")) {
-            addToken("__enableOptimizeForSize__");
+            currentLine.tokens.push(new Token("__enableOptimizeForSize__", getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!disableOptimizeForSize")) {
-            addToken("__disableOptimizeForSize__");
+            currentLine.tokens.push(new Token("__disableOptimizeForSize__", getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!optimizeStrict")) {
-            addToken("__enableOptimizeStrict__");
+            currentLine.tokens.push(new Token("__enableOptimizeStrict__", getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!disableOptimizeStrict")) {
-            addToken("__disableOptimizeStrict__");
+            currentLine.tokens.push(new Token("__disableOptimizeStrict__", getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!setupTx") || content.startsWith("#!setupTags")) {
@@ -368,10 +368,10 @@ export function tokenize(content: string): LogicalLine[] {
         }
         if (content.startsWith("#!rulePrefix ")) {
             let prefix = content.substring("#!rulePrefix ".length).trim();
-            addToken("__rulePrefix__");
-            addToken("(");
-            addToken(prefix);
-            addToken(")");
+            currentLine.tokens.push(new Token("__rulePrefix__", getFileStackCopy()));
+            currentLine.tokens.push(new Token("(", getFileStackCopy()));
+            currentLine.tokens.push(new Token(prefix, getFileStackCopy()));
+            currentLine.tokens.push(new Token(")", getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!rulePrefixTemplate")) {

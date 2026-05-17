@@ -111,11 +111,24 @@ rule "if to skip if":
     if not B: #should be skip if
         D = 4
         E = 5
+
+    if A == 2:
+        if A == 3:
+            B = 4
+        switch A:
+            case B:
+                C++
+        D++
+        E++
+    elif false: #should be removed
+        B = 3
+        
     if A == B: # should stay if
         D = 4
 
 rule "auto array compression":
     A = [B, B, B, B, B, B, B, B, C] #shouldn't be compressed
+    A = B.map(lambda x: x+[C,C,C,C,C,C,C]) #shouldn't be compressed, can't nest mapped arrays
     A = [B, B, B, B, B, B, B, B, B] #should be compressed
     A = ["abc", "def", "ghi"]
     A = ["abc", "def", "ghi{}".format(B)] #shouldn't be compressed

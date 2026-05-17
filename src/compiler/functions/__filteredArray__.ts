@@ -18,9 +18,13 @@
 "use strict";
 
 import { enableOptimization, optimizeForSize } from "../../globalVars";
-import { astContainsFunctions, Ast, getAstForEmptyArray, astParsingFunctions } from "../../utils/ast";
+import { astContainsFunctions, Ast, getAstForEmptyArray, astParsingFunctions, astIsInLambdaFunction } from "../../utils/ast";
+import {error} from "../../utils/logging";
 
 astParsingFunctions.__filteredArray__ = function (content) {
+    if (astIsInLambdaFunction(content)) {
+        error("Cannot nest .filter() or .map()");
+    }
     if (enableOptimization) {
         //filtered array with no constant -> if/else
         if (!optimizeForSize) {

@@ -51,6 +51,8 @@ export class Ast {
     stringTokens?: StringToken[]; //Used for __customString__
     isSpectatorTranslation?: boolean; //Used for translated strings, if set to true then player var won't be used
     forceNotResolvingTranslation?: boolean; //Used for translated strings, if true then the resulting string array won't be indexed and will need to be indexed later on with the _() function
+    isGotoInSameScope?: boolean; //Used for gotos, if true then the goto doesn't jump to another scope and can be optimized more easily. For now, only set on automatically generated gotos
+    isSwitchIf?: boolean; //true if it is the "if true" from a switch
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
@@ -131,6 +133,8 @@ export class Ast {
         clone.numValue = this.numValue;
         clone.stringTokens = structuredClone(this.stringTokens);
         clone.isSpectatorTranslation = this.isSpectatorTranslation;
+        clone.isGotoInSameScope = this.isGotoInSameScope;
+        clone.isSwitchIf = this.isSwitchIf;
         return clone;
     }
 }
@@ -300,6 +304,17 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
     }
 
     return false;
+}
+
+//Returns true if in the 2nd argument of filtered/mapped array, in which case a filtered/mapped array cannot be used
+export function astIsInLambdaFunction(ast: Ast) {
+    if (!ast.parent) {
+        return false;
+    }
+    if (["__filteredArray__", "__mappedArray__"].includes(ast.parent.name) && ast.parent.argIndex === 1) {
+        return true;
+    }
+    return astIsInLambdaFunction(ast.parent);
 }
 
 //See globalvars.ts for the definition of "literal".

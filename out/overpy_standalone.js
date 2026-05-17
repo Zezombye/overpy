@@ -38605,19 +38605,19 @@ ${scriptText}`, {
       return;
     }
     if (content2.startsWith("#!optimizeForSize")) {
-      addToken("__enableOptimizeForSize__");
+      currentLine.tokens.push(new Token("__enableOptimizeForSize__", getFileStackCopy()));
       return;
     }
     if (content2.startsWith("#!disableOptimizeForSize")) {
-      addToken("__disableOptimizeForSize__");
+      currentLine.tokens.push(new Token("__disableOptimizeForSize__", getFileStackCopy()));
       return;
     }
     if (content2.startsWith("#!optimizeStrict")) {
-      addToken("__enableOptimizeStrict__");
+      currentLine.tokens.push(new Token("__enableOptimizeStrict__", getFileStackCopy()));
       return;
     }
     if (content2.startsWith("#!disableOptimizeStrict")) {
-      addToken("__disableOptimizeStrict__");
+      currentLine.tokens.push(new Token("__disableOptimizeStrict__", getFileStackCopy()));
       return;
     }
     if (content2.startsWith("#!setupTx") || content2.startsWith("#!setupTags")) {
@@ -38682,10 +38682,10 @@ ${scriptText}`, {
     }
     if (content2.startsWith("#!rulePrefix ")) {
       let prefix = content2.substring("#!rulePrefix ".length).trim();
-      addToken("__rulePrefix__");
-      addToken("(");
-      addToken(prefix);
-      addToken(")");
+      currentLine.tokens.push(new Token("__rulePrefix__", getFileStackCopy()));
+      currentLine.tokens.push(new Token("(", getFileStackCopy()));
+      currentLine.tokens.push(new Token(prefix, getFileStackCopy()));
+      currentLine.tokens.push(new Token(")", getFileStackCopy()));
       return;
     }
     if (content2.startsWith("#!rulePrefixTemplate")) {
@@ -39686,6 +39686,10 @@ var Ast2 = class _Ast {
   //Used for translated strings, if set to true then player var won't be used
   forceNotResolvingTranslation;
   //Used for translated strings, if true then the resulting string array won't be indexed and will need to be indexed later on with the _() function
+  isGotoInSameScope;
+  //Used for gotos, if true then the goto doesn't jump to another scope and can be optimized more easily. For now, only set on automatically generated gotos
+  isSwitchIf;
+  //true if it is the "if true" from a switch
   argIndex = 0;
   childIndex = 0;
   wasParsed = false;
@@ -39761,6 +39765,8 @@ var Ast2 = class _Ast {
     clone.numValue = this.numValue;
     clone.stringTokens = structuredClone(this.stringTokens);
     clone.isSpectatorTranslation = this.isSpectatorTranslation;
+    clone.isGotoInSameScope = this.isGotoInSameScope;
+    clone.isSwitchIf = this.isSwitchIf;
     return clone;
   }
 };
@@ -39879,6 +39885,15 @@ function astContainsFunctions(ast, functionNames, errorOnTrue = false) {
     }
   }
   return false;
+}
+function astIsInLambdaFunction(ast) {
+  if (!ast.parent) {
+    return false;
+  }
+  if (["__filteredArray__", "__mappedArray__"].includes(ast.parent.name) && ast.parent.argIndex === 1) {
+    return true;
+  }
+  return astIsInLambdaFunction(ast.parent);
 }
 function astIsLiteral(ast) {
   if (typeof ast.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(ast.type)) {
@@ -44948,6 +44963,9 @@ astParsingFunctions.__equals__ = function(content) {
 
 // src/compiler/functions/__filteredArray__.ts
 astParsingFunctions.__filteredArray__ = function(content) {
+  if (astIsInLambdaFunction(content)) {
+    error("Cannot nest .filter() or .map()");
+  }
   if (enableOptimization) {
     if (!optimizeForSize2) {
       if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
@@ -45199,7 +45217,9 @@ astParsingFunctions.__if__ = function(content) {
       } else {
         content.args[0] = astParsingFunctions.__not__(new Ast2("__not__", [content.args[0]]));
       }
-      return new Ast2("__skipIf__", [content.args[0], new Ast2("__distanceTo__", [new Ast2(label, [], [], "Label")])]);
+      let skip = new Ast2("__skipIf__", [content.args[0], new Ast2("__distanceTo__", [new Ast2(label, [], [], "Label")])]);
+      skip.isGotoInSameScope = true;
+      return skip;
     }
     if (includeEnd) {
       content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
@@ -45311,6 +45331,9 @@ astParsingFunctions.__map__ = function(content) {
 
 // src/compiler/functions/__mappedArray__.ts
 astParsingFunctions.__mappedArray__ = function(content) {
+  if (astIsInLambdaFunction(content)) {
+    error("Cannot nest .filter() or .map()");
+  }
   if (enableOptimization) {
     if (content.args[1].name === "__currentArrayElement__") {
       return content.args[0];
@@ -45536,10 +45559,10 @@ astParsingFunctions.__rule__ = function(content) {
   function iterateOnRuleActions(children) {
     for (let i2 = 0; i2 < children.length; i2++) {
       setFileStack(content.fileStack);
-      if (children[i2].name === "__skip__" && children[i2].args[0].name !== "__distanceTo__" || children[i2].name === "__skipIf__" && children[i2].args[1].name !== "__distanceTo__") {
+      if ((children[i2].name === "__skip__" && children[i2].args[0].name !== "__distanceTo__" || children[i2].name === "__skipIf__" && children[i2].args[1].name !== "__distanceTo__") && !children[i2].isGotoInSameScope) {
         isRelativeGotoEncountered = true;
       }
-      if (children[i2].name === "__skip__" || children[i2].name === "__skipIf__") {
+      if ((children[i2].name === "__skip__" || children[i2].name === "__skipIf__") && !children[i2].isGotoInSameScope) {
         isGotoEncountered = true;
       }
       if (content.type === "Label") {
@@ -45549,7 +45572,7 @@ astParsingFunctions.__rule__ = function(content) {
         declaredLabels.push(content.name);
       }
       iterateOnRuleActions(children[i2].children);
-      if (!isRelativeGotoEncountered) {
+      if (!isRelativeGotoEncountered && !children[i2].isSwitchIf) {
         if (children[i2].name === "pass") {
           children.splice(i2, 1);
           i2--;
@@ -45819,7 +45842,10 @@ astParsingFunctions.__switch__ = function(content) {
     error("Parent is undefined in __switch__");
   }
   content.parent.children.splice(content.parent.childIndex + 1, 0, ...casesChildren);
-  var result = new Ast2("__if__", [getAstForTrue()], [new Ast2("__skip__", [new Ast2("__valueInArray__", [new Ast2("__array__", caseOffsets), new Ast2("__add__", [getAstFor1(), new Ast2(".index", [new Ast2("__array__", switchCaseArgs), content.args[0]])])])])]);
+  let skip = new Ast2("__skip__", [new Ast2("__valueInArray__", [new Ast2("__array__", caseOffsets), new Ast2("__add__", [getAstFor1(), new Ast2(".index", [new Ast2("__array__", switchCaseArgs), content.args[0]])])])]);
+  skip.isGotoInSameScope = true;
+  var result = new Ast2("__if__", [getAstForTrue()], [skip]);
+  result.isSwitchIf = true;
   result.doNotReparse = true;
   return result;
 };
@@ -65001,7 +65027,7 @@ function astToWs(content) {
         }
         str = str.replaceAll("\uEC51", separator);
         return astToWs(new Ast2(".split", [getAstForCustomString(str), separatorAst]));
-      } else if (content.args.length >= 3 && content.args.every((x) => areAstsAlwaysEqual(x, content.args[0]))) {
+      } else if (!astIsInLambdaFunction(content) && content.args.length >= 3 && content.args.every((x) => areAstsAlwaysEqual(x, content.args[0]))) {
         let estimatedElementCount = 1 + (content.args[0].name === "__customString__" ? 4 : content.args[0].args.length);
         if (estimatedElementCount === 1 && content.args.length >= 11 || estimatedElementCount === 2 && content.args.length >= 5 || estimatedElementCount === 3 && content.args.length >= 4 || estimatedElementCount >= 4) {
           return astToWs(new Ast2("__mappedArray__", [
@@ -65068,13 +65094,17 @@ function astToWs(content) {
     content.name = newName;
   } else if (content.name === "__globalVar__") {
     incrementNbElements();
+    content.argIndex = 0;
     return tows("__global__", valueKw) + "." + astToWs(content.args[0]);
   } else if (content.name === "__number__") {
     incrementNbElements(2);
     return trimNb(content.args[0].name);
   } else if (content.name === "__playerVar__") {
     incrementNbElements();
-    return "(" + astToWs(content.args[0]) + ")." + astToWs(content.args[1]);
+    content.argIndex = 0;
+    let result2 = "(" + astToWs(content.args[0]) + ").";
+    content.argIndex = 1;
+    return result2 + astToWs(content.args[1]);
   } else if (content.name === "ceil") {
     content.name = "__round__";
     content.args = [content.args[0], new Ast2("__roundUp__", [], [], "__Rounding__")];
@@ -65204,6 +65234,7 @@ function astToWs(content) {
       if (content.args[i].type === "void") {
         error("Expected a value, but got " + functionNameToString(content.args[i]) + " which is an action", content.args[i].fileStack);
       }
+      content.argIndex = i;
       result += astToWs(content.args[i]);
       if (content.type === "void") {
         incrementNbElements(Math.floor(nbHeroesInValue / 2));

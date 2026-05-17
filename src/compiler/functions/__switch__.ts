@@ -70,7 +70,10 @@ astParsingFunctions.__switch__ = function (content) {
     }
     content.parent.children.splice(content.parent.childIndex + 1, 0, ...casesChildren);
 
-    var result = new Ast("__if__", [getAstForTrue()], [new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", switchCaseArgs), content.args[0]])])])])]);
+    let skip = new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", switchCaseArgs), content.args[0]])])])]);
+    skip.isGotoInSameScope = true;
+    var result = new Ast("__if__", [getAstForTrue()], [skip]);
+    result.isSwitchIf = true;
     result.doNotReparse = true;
     return result;
 };
