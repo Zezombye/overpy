@@ -68,6 +68,8 @@ export async function compile(
     translationLanguages: string[];
     translatedStrings: TranslatedString[];
     writeToOutputFile: boolean;
+    mainFileName: string;
+    rootPath: string,
 }> {
     const t0 = performance.now();
 
@@ -352,6 +354,8 @@ rule "Disable inspector":
         translationLanguages,
         translatedStrings,
         writeToOutputFile,
+        mainFileName,
+        rootPath,
     };
 }
 

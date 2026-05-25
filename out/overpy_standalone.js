@@ -65860,7 +65860,9 @@ rule "Disable inspector":
     availableExtensionPoints,
     translationLanguages: translationLanguages2,
     translatedStrings,
-    writeToOutputFile
+    writeToOutputFile,
+    mainFileName,
+    rootPath
   };
 }
 function compileRules(astRules) {

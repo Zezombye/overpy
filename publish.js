@@ -144,7 +144,7 @@ async function getNpmToken() {
 (async () => {
 
     //Delete existing .vsix files
-    /*const vsixFiles = fs.readdirSync(__dirname).filter((f) => f.endsWith(".vsix"));
+    const vsixFiles = fs.readdirSync(__dirname).filter((f) => f.endsWith(".vsix"));
     for (const f of vsixFiles) {
         fs.unlinkSync(path.join(__dirname, f));
         console.log(`Deleted ${f}`);
@@ -157,7 +157,7 @@ async function getNpmToken() {
     }
 
     run("pnpm run package");
-    run("pnpm vsce package --no-dependencies");*/
+    run("pnpm vsce package --no-dependencies");
 
     // Create the npm package.json
 
@@ -189,8 +189,8 @@ async function getNpmToken() {
     fs.copyFileSync(path.join(__dirname, "README.md"), path.join(__dirname, "npm", "README.md"));
     fs.copyFileSync(path.join(__dirname, "LICENSE"), path.join(__dirname, "npm", "LICENSE"));
 
-    /*run("pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version");
-    await uploadToOpenVsx();*/
+    run("pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version");
+    await uploadToOpenVsx();
 
     const npmToken = await getNpmToken();
     execSync(`npm publish --access public --//registry.npmjs.org/:_authToken=${npmToken}`, {

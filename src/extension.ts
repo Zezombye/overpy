@@ -85,7 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
             applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings);
 
             if (compileResult.writeToOutputFile) {
-                const outputPath = mainFilePath.replace(/\.opy$/, "") + ".ws.txt";
+                const outputPath = compileResult.rootPath + "/" + compileResult.mainFileName.replace(/\.opy$/, "") + ".ws.txt";
                 const outputUri = vscode.Uri.file(outputPath);
                 await vscode.workspace.fs.writeFile(outputUri, Buffer.from(compileResult.result, "utf-8"));
                 const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
