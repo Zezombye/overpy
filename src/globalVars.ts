@@ -268,6 +268,9 @@ export const setRulePrefixTemplateFilestack = (filestack: FileStackMember[]) => 
 export var useVariableForCompressionAlphabet: boolean = false;
 export const setUseVariableForCompressionAlphabet = (use: boolean) => (useVariableForCompressionAlphabet = use);
 
+export var writeToOutputFile: boolean = false;
+export const setWriteToOutputFile = (write: boolean) => (writeToOutputFile = write);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -371,6 +374,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     rulePrefixTemplate = "";
     rulePrefixTemplateFilestack = [];
     useVariableForCompressionAlphabet = false;
+    writeToOutputFile = false;
 }
 
 //Other constants

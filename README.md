@@ -602,6 +602,10 @@ If specified, allows redefining a `macro`, `#!define` or `enum` member. Can be u
 
 Will generate a summary of the used elements per rule in the output, and add a comment with the number of elements used for each rule/condition/action.
 
+## #!writeToOutputFile
+
+If specified, the compiled code will not be copied to the clipboard but instead written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`).
+
 ## Optimizations
 
 By default, OverPy automatically optimizes gamemodes for speed. This means useless code is removed, calculations are done when possible, and function patterns are replaced with builtin functions.

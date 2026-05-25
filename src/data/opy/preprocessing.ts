@@ -229,6 +229,9 @@ You can also specify \`noTlErr\` to have spectators view the default language wh
     "disableTranslationSourceLines": {
         "description": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs."
     },
+    "writeToOutputFile": {
+        "description": "If specified, the compiled code will not be copied to the clipboard but instead written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`)."
+    },
     "postCompileHook":{
         "description": `
 Specifies a JavaScript file to be executed after compilation, with the compiled code as a \`content\` variable. The script must return the modified code.

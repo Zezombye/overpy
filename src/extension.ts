@@ -83,10 +83,18 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showWarningMessage(`Warning: ${warning.message}`);
             }
             applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings);
-            vscode.env.clipboard.writeText(compileResult.result);
 
-            const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
-            vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
+            if (compileResult.writeToOutputFile) {
+                const outputPath = mainFilePath.replace(/\.opy$/, "") + ".ws.txt";
+                const outputUri = vscode.Uri.file(outputPath);
+                await vscode.workspace.fs.writeFile(outputUri, Buffer.from(compileResult.result, "utf-8"));
+                const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
+                vscode.window.showInformationMessage(`Successfully compiled! (written to ${outputPath.split("/").pop()}${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
+            } else {
+                vscode.env.clipboard.writeText(compileResult.result);
+                const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
+                vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
+            }
 
             fillAutocompletionMacros(compileResult.macros);
             fillAutocompletionAstMacros(Object.values(compileResult.astMacros));

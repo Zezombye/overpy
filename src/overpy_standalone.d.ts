@@ -18,6 +18,7 @@ declare namespace overpy {
         availableExtensionPoints: number;
         translationLanguages: string[];
         translatedStrings: unknown[];
+        writeToOutputFile: boolean;
     }
 
     function compile(
