@@ -196,7 +196,6 @@ globalvar lol3 125
 globalvar lol4 126
 globalvar mystery_door 127
 
-
 #Player variables
 
 playervar pathfinderCurrent 1
@@ -310,7 +309,6 @@ playervar button_rez 113
 playervar boss_phase 114
 playervar no_pickup 115
 
-
 #Subroutine names
 
 subroutine InitialGlobal_2 0
@@ -330,7 +328,6 @@ subroutine delete_bound_effects 15
 subroutine boss_zoomin 16
 subroutine phase_11_spawn 17
 
-
 #Activated extensions
 
 #!extension beamEffects
@@ -342,9 +339,8 @@ subroutine phase_11_spawn 17
 #!extension spawnMoreDummyBots
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "global init":
     disableInspector()

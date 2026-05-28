@@ -139,7 +139,6 @@ globalvar Rainbow 54
 globalvar BotName 55
 globalvar SlowMo 58
 
-
 #Player variables
 
 playervar ClosestPadIndex 1
@@ -207,7 +206,6 @@ playervar OofText 65
 playervar Temp 66
 playervar PerfectQSVFX 67
 
-
 #Subroutine names
 
 subroutine SleepDarts 0
@@ -230,7 +228,6 @@ subroutine RespawnsBLACKFOREST 16
 subroutine RespawnsKANEZAKA 18
 subroutine RespawnsLIJANGCONTROL 19
 
-
 #Activated extensions
 
 #!extension buffStatusEffects
@@ -241,9 +238,8 @@ subroutine RespawnsLIJANGCONTROL 19
 #!extension projectiles
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Initialize global variables":
     ONFIRE_STREAK = 5
@@ -415,7 +411,7 @@ rule "Define spawn points, play zone and nuke settings depending on map":
         PlayzoneRadius = 75
         NukeImpactPos = vect(44.84, 243.67, 257.17)
         NukeCamPos = vect(93.75, 567.33, 282.32)
-        #if the current map is not supported by the mode, use default spawn system
+    #if the current map is not supported by the mode, use default spawn system
     else:
         SpawnPointSettings = 0
         PlayzoneCenter = 0
@@ -504,7 +500,7 @@ rule "Initial spawn point & message":
     wait(0.7)
     if not strContains("{0}".format(eventPlayer), "ml7"):
         smallMessage(eventPlayer, random.choice(["    {0}  Discord invite up there  {0}".format(iconString(Icon.ARROW_UP)), "    {0}  TikTok: @Jinko_OW".format(iconString(Icon.HEART)), "    {0}  Scoped shots pierce enemies!".format(abilityIconString(Hero.ZARYA, Button.ABILITY_2)), "    {0}  Get a 15 kills streak for a BIG surprise!".format(iconString(Icon.RADIOACTIVE)), "    {0}{1}  Try punching sleeping players!".format(abilityIconString(Hero.ANA, Button.MELEE), abilityIconString(Hero.ANA, Button.ABILITY_1))]))
-        #for ml7
+    #for ml7
     else:
         smallMessage(eventPlayer, random.choice(["    {0}  Guard Check  {0}".format(abilityIconString(Hero.ASHE, Button.ULTIMATE)), "    fun fact: ml7 never got a nuke ml7Point", "    100% nuking this game!! ml7Whoa", "    {0}  Can we get some Guard Check in the chat?".format(abilityIconString(Hero.ASHE, Button.ULTIMATE)), "    {0}  Demmos 1 nuke - ml7 0 nuke".format(iconString(Icon.SAD)), "    ml7 joacă modul meu!! poggies", "    Hewwo. I'm em ewl sewwen (´・ω・`). I wuuve den (^^). I wike cats nyaa~ Owaf pways the game instwead of me, but uwu will{0}".format(" never know (≧ω≦)")]))
     playEffect(eventPlayer, DynamicEffect.BRIGITTE_REPAIR_PACK_ARMOR_SOUND, Color.WHITE, eventPlayer, 200)
@@ -1253,11 +1249,11 @@ rule "Kill logic":
             for i in range(getNumberOfPlayers(Team.ALL) - 1):
                 getAllPlayers().exclude(attacker)[i].MedalQueue = [0].concat(getAllPlayers().exclude(attacker)[i].MedalQueue)
             smallMessage(getAllPlayers().exclude(attacker), "    {0}  {1} got {2} collateral kills!".format(abilityIconString(Hero.ZARYA, Button.ABILITY_2), attacker, attacker.EarnedCollateral))
-        #NOSCOPE KILLS
+    #NOSCOPE KILLS
     elif eventAbility == Button.PRIMARY_FIRE:
         attacker.KillStreak++
         attacker.MedalQueue = [0].concat(attacker.MedalQueue)
-        #MELEE KILLS
+    #MELEE KILLS
     else:
         attacker.KillStreak++
         if victim.isInAir() and attacker.isInAir():
@@ -1579,7 +1575,7 @@ rule "Environement death":
     if not strContains("{0}".format(eventPlayer), "ml7"):
         eventPlayer.MedalQueue = [0].concat(eventPlayer.MedalQueue)
         smallMessage(eventPlayer, random.choice(["    {0}  no wings?".format(heroIcon(random.choice([Hero.ECHO, Hero.MERCY]))), "    {0}  no jetpacks?".format(heroIcon(random.choice([Hero.PHARAH, Hero.WINSTON]))), "    {0}  no translocators?".format(heroIcon(Hero.SOMBRA)), "    {0}  no grapples?".format(heroIcon(random.choice([Hero.WRECKING_BALL, Hero.WIDOWMAKER]))), "    {0}  no teleports?".format(heroIcon(Hero.KIRIKO)), "    {0}  no recalls?".format(heroIcon(Hero.TRACER)), "    {0}  no wallrides?".format(heroIcon(Hero.LUCIO)), "    {0}  no slams?".format(heroIcon(Hero.DOOMFIST)), "    {0}  no mekas?".format(heroIcon(Hero.DVA)), "    {0}  no double jumps?".format(heroIcon(Hero.GENJI)), "    {0}  no wallclimbs?".format(heroIcon(random.choice([Hero.GENJI, Hero.HANZO, Hero.KIRIKO]))), "    {0}  no life grips?".format(heroIcon(Hero.LIFEWEAVER)), "    {0}  no rocket legs?".format(heroIcon(Hero.SOJOURN))]))
-        #for ml7
+    #for ml7
     else:
         eventPlayer.MedalQueue = [0].concat(eventPlayer.MedalQueue)
         smallMessage(eventPlayer, random.choice(["    {0} would have survived this".format(random.choice(["Olaf", "Denn", "Umarrii"])), "    {0} would never die like that".format(random.choice(["Demmos", "Sp33dyal", "Zeldig"])), "    Demmos would have never done this", "    Who put that wall there???", "    Are y'all really subbed to this guy?", "    COOM?!?"]))
@@ -1713,7 +1709,7 @@ rule "Wake slept player if attacker dies after using sleep dart":
         wait(0.5, Wait.ABORT_WHEN_FALSE)
         damage(victim, null, 1)
         victim.communicate(Comms.THANKS)
-        #if the attacker is dead when sleep dart hits
+    #if the attacker is dead when sleep dart hits
     else:
         victim.MedalQueue = [0].concat(victim.MedalQueue)
         smallMessage(victim, "    {0}  {1} died, awaking...".format(abilityIconString(Hero.MERCY, Button.ABILITY_2), attacker))

@@ -151,7 +151,6 @@ globalvar lIIIlIllllll 125
 globalvar IlIIIIIlllll 126
 globalvar lIIlllIlllIl 127
 
-
 #Player variables
 
 playervar llIIIllllIIl 0
@@ -250,7 +249,6 @@ playervar lllIIIIIIIlI 123
 playervar IIIlIIllIlII 124
 playervar IlIIIIIIllIl 127
 
-
 #Subroutine names
 
 subroutine lIlIIIIllIII 0
@@ -315,7 +313,6 @@ subroutine IllllIIIIlIl 114
 subroutine llIIIIIIllII 115
 subroutine lIlIIIIlIlll 119
 
-
 #Activated extensions
 
 #!extension beamEffects
@@ -325,9 +322,8 @@ subroutine lIlIIIIlIlll 119
 #!extension spawnMoreDummyBots
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "":
     disableInspector()

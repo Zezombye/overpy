@@ -113,11 +113,9 @@ globalvar ZenPickedCamAndPos 48
 globalvar BarValue 49
 globalvar BarTextAndColor 50
 
-
 #Player variables
 
 playervar HasMoved 0
-
 
 #Subroutine names
 
@@ -135,7 +133,6 @@ subroutine Night6Call 10
 subroutine ZenDoor 11
 subroutine ZenMove 12
 
-
 #Activated extensions
 
 #!extension beamEffects
@@ -148,9 +145,8 @@ subroutine ZenMove 12
 #!extension playMoreEffects
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "[WS] Settings":
     NightNumber = createWorkshopSettingEnum("GENERAL", "NIGHT NUMBER", 0, ["NIGHT 1", "NIGHT 2", "NIGHT 3", "NIGHT 4", "NIGHT 5", "NIGHT 6", "CUSTOM NIGHT"])

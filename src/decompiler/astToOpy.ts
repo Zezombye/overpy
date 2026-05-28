@@ -17,7 +17,6 @@
 
 "use strict";
 
-import { table } from "console";
 import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventSlotKw } from "../data/other";
@@ -105,7 +104,7 @@ export function astRulesToOpy(rules: Ast[]) {
     }
 
     if (result) {
-        result = "#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, \"am\" == \"**\", etc which would otherwise be optimized out.\n#!optimizeStrict\n\n\n"+result;
+        result = "#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or \"\", \"am\" == \"**\", etc which would otherwise be optimized out.\n#!optimizeStrict\n\n"+result;
     }
 
     return result;
@@ -136,11 +135,9 @@ export function astActionsToOpy(actions: Ast[]): string {
         debug("Parsing AST of action '" + actions[i].name + "'");
 
         let comment = actions[i].comment;
+        let resultComment = "";
         if (comment !== undefined) {
-            result += comment
-                .split("\n")
-                .map((x) => tabLevel(nbTabs) + "#" + x + "\n")
-                .join("");
+            resultComment += comment.split("\n").map((x) => "#" + x + "\n").join("");
         }
         var decompiledAction = "";
         if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name) && !actions[i].isDisabled) {
@@ -171,7 +168,7 @@ export function astActionsToOpy(actions: Ast[]): string {
 
             //Check for a while/for without "end" and convert to "if", as overpy cannot represent those
             if (!isEndFound && actions[i].name !== "__elif__" && actions[i].name !== "__else__") {
-                result += tabLevel(nbTabs) + "#Note: this '" + actions[i].name + "' had no 'end' action.\n";
+                resultComment += "#Note: this '" + actions[i].name + "' had no 'end' action.\n";
                 debug("No end found for " + actions[i].name);
 
                 if (actions[i].name === "__while__") {
@@ -420,6 +417,10 @@ export function astActionsToOpy(actions: Ast[]): string {
             }
         }
 
+        if (resultComment) {
+            //console.log(resultComment);
+            result += resultComment.split("\n").filter(x => x.trim() !== "").map(x => tabLevel(tabLevelForThisAction) + x+"\n").join("");
+        }
         result += tabLevel(tabLevelForThisAction) + decompiledAction + "\n";
     }
 

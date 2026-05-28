@@ -80,10 +80,10 @@ settings
 			}
 			Domina
 			{
-				Sonic Repulsors Knockback Scalar: 125%
 				Reconstruction Heal Scalar: 125%
 				Ultimate Barrier Health Scalar Panopticon: 200%
 				Ammunition Clip Size Scalar: 200%
+				Sonic Repulsors Knockback Scalar: 125%
 			}
 			Emre
 			{

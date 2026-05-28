@@ -151,7 +151,6 @@ globalvar tmpAllPlayers 112
 globalvar scoreboardIterator 113
 globalvar tmpPlayer 114
 
-
 #Player variables
 
 playervar storedMoney 0
@@ -202,7 +201,6 @@ playervar nbSparkbolts 54
 playervar sparkboltEffect 55
 playervar scoreArray 56
 
-
 #Subroutine names
 
 subroutine settleBalance 0
@@ -211,10 +209,8 @@ subroutine playerBaseBuildEffects 2
 subroutine baseUpgradeFail 3
 subroutine checkUpgradeAvailability 4
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Initialize global variables":
     practiceRangeTranslations = ["Practice Range", "Campo de Treinamento"]

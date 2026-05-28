@@ -272,7 +272,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enableEnemyHealthBars": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000005888",
                         "en-US": "Enemy Health Bars",
                         "de-DE": "Gegnerische Trefferpunktebalken",
@@ -293,7 +292,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "gamemodeStartTrigger": {
                         "values": {
                             "allSlotsFilled": {
-                                "default": true,
                                 "guid": "000000005A11",
                                 "en-US": "All Slots Filled",
                                 "de-DE": "Auf volles Spiel warten",
@@ -367,9 +365,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "healthPackRespawnTime%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005889",
                         "en-US": "Health Pack Respawn Time Scalar",
                         "de-DE": "Wiedererscheinungszeit von Medikits",
@@ -389,7 +384,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableKillCam": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000596B",
                         "en-US": "Kill Cam",
                         "de-DE": "Killcam",
@@ -409,7 +403,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableKillFeed": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000588B",
                         "en-US": "Kill Feed",
                         "de-DE": "Killfeed",
@@ -430,7 +423,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "enableSkins": {
                         "guid": "00000000588C",
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "en-US": "Skins",
                         "es-ES": "Aspectos",
                         "es-MX": "Diseños",
@@ -450,7 +442,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "spawnHealthPacks": {
                         "values": {
                             "modeDependent": {
-                                "default": true,
                                 "guid": "0000000059FC",
                                 "en-US": "Determined By Mode",
                                 "de-DE": "Durch Modus vorgegeben",
@@ -524,7 +515,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableHeroSwitching": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000588D",
                         "en-US": "Allow Hero Switching",
                         "de-DE": "Heldenwechsel zulassen",
@@ -563,7 +553,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "it-IT": "Off"
                             },
                             "1PerTeam": {
-                                "default": true,
                                 "guid": "000000005892",
                                 "en-US": "1 Per Team",
                                 "de-DE": "1 pro Team",
@@ -657,7 +646,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "off": {
                                 "guid": "000000002C52",
-                                "default": true,
                                 "en-US": "Off",
                                 "de-DE": "Aus",
                                 "es-ES": "Desactivado",
@@ -730,7 +718,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableRandomHeroes": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "00000000588F",
                         "en-US": "Respawn As Random Hero",
                         "de-DE": "Zufälliger Held nach Tod",
@@ -750,9 +737,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "randomHeroRoleLimitPerTeam": {
                         "values": "__int__",
-                        "default": 6,
-                        "min": 1,
-                        "max": 6,
                         "guid": "000000019F22",
                         "en-US": "Random Hero Role Limit Per Team",
                         "de-DE": "Zufälliges Heldenrollenlimit pro Team",
@@ -772,9 +756,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "respawnTime%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 100,
-                        "default": 100,
                         "guid": "0000000058A8",
                         "en-US": "Respawn Time Scalar",
                         "de-DE": "Wiederbelebungszeit",
@@ -794,23 +775,16 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "perkEliminationCatchupLevelAmount%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 100,
-                        "default": 15,
                         "en-US": "Perk Elimination Catchup Level Amount",
                     },
                     "perkGeneration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Perk Generation",
                         "zh-CN": "威能充能速度",
                     },
                     "tankPassiveHealthBonus": {
                         "values": {
                             "1Tank2Offense2Support": {
-                                "default": true,
                                 "guid": "000000015884",
                                 "en-US": "1 Tank 2 Offense 2 Support",
                                 "de-DE": "1 Tank 2 Offensiv 2 Unterstützung",
@@ -943,9 +917,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -965,7 +936,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -985,7 +955,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1009,9 +978,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -1031,7 +997,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1051,7 +1016,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1073,7 +1037,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "0000000058EE",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todos",
@@ -1165,9 +1128,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000589A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 3,
-                        "default": 2,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -1186,9 +1146,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scoringSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
@@ -1213,9 +1170,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -1235,7 +1189,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1255,7 +1208,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1277,7 +1229,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "0000000058EE",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todos",
@@ -1369,9 +1320,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000589A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 3,
-                        "default": 2,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -1390,9 +1338,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scoringSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
@@ -1416,7 +1361,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1436,7 +1380,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1456,9 +1399,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "payloadSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000589F",
                         "en-US": "Payload Speed Modifier",
                         "de-DE": "Frachtgeschwindigkeit",
@@ -1482,7 +1422,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1502,7 +1441,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1522,9 +1460,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "payloadSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000589F",
                         "en-US": "Payload Speed Modifier",
                         "de-DE": "Frachtgeschwindigkeit",
@@ -1548,9 +1483,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -1570,7 +1502,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1590,7 +1521,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1610,9 +1540,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "payloadSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000589F",
                         "en-US": "Payload Speed Modifier",
                         "de-DE": "Frachtgeschwindigkeit",
@@ -1636,9 +1563,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -1658,7 +1582,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -1678,7 +1601,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1698,9 +1620,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "payloadSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000589F",
                         "en-US": "Payload Speed Modifier",
                         "de-DE": "Frachtgeschwindigkeit",
@@ -1724,9 +1643,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "baseScoreForKillingBountyTarget": {
                         "values": "__int__",
-                        "min": 0,
-                        "max": 1000,
-                        "default": 300,
                         "guid": "000000012847",
                         "en-US": "Base Score for Killing a Bounty Target",
                         "de-DE": "Grundpunktzahl für das Töten eines Kopfgeldziels",
@@ -1746,9 +1662,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "bountyIncreasePerKillAsBountyTarget": {
                         "values": "__int__",
-                        "min": 0,
-                        "max": 1000,
-                        "default": 0,
                         "guid": "000000012AED",
                         "en-US": "Bounty Increase per Kill as Bounty Target",
                         "de-DE": "Anstieg des Kopfgelds pro Kill als Kopfgeldziel",
@@ -1768,7 +1681,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -1788,9 +1700,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "nbBountyTargets": {
                         "values": "__int__",
-                        "min": 1,
-                        "max": 1,
-                        "default": 1,
                         "guid": "00000001284F",
                         "en-US": "Bounty Target Count",
                         "de-DE": "Anzahl an Kopfgeldern",
@@ -1810,9 +1719,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scorePerKill": {
                         "values": "__int__",
-                        "min": 0,
-                        "max": 1000,
-                        "default": 100,
                         "guid": "000000012843",
                         "en-US": "Score per Kill",
                         "de-DE": "Punktzahl pro Kill",
@@ -1832,9 +1738,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scorePerKillAsBountyTarget": {
                         "values": "__int__",
-                        "min": 0,
-                        "max": 1000,
-                        "default": 300,
                         "guid": "000000012846",
                         "en-US": "Score per Kill as Bounty Target",
                         "de-DE": "Punktzahl pro Kill als Kopfgeldziel",
@@ -1855,9 +1758,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "gameLengthInMn": {
                         "guid": "00000000632C",
                         "values": "__int__",
-                        "min": 5,
-                        "max": 15,
-                        "default": 10,
                         "en-US": "Game Length In Minutes",
                         "de-DE": "Spiellänge in Minuten",
                         "es-ES": "Duración de la partida en minutos",
@@ -1877,9 +1777,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000632A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 5000,
-                        "default": 20,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -1898,7 +1795,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableSelfInitiatedRespawn": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
                         "de-DE": "Selbst ausgelöste Wiederbelebung",
@@ -1922,7 +1818,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enableBlitzFlagLocations": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "00000000F405",
                         "en-US": "Blitz Flag Locations",
                         "de-DE": "Blitzflaggenpositionen",
@@ -1942,7 +1837,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableDropFlagOnDmg": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "0000000059B9",
                         "en-US": "Damage Interrupts Flag Interaction",
                         "de-DE": "Schaden unterbricht Flaggeninteraktion",
@@ -1962,7 +1856,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -2019,7 +1912,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "停用所有技能"
                             },
                             "restricted": {
-                                "default": true,
                                 "guid": "0000000059C0",
                                 "en-US": "Restricted",
                                 "de-DE": "Eingeschränkt",
@@ -2057,9 +1949,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "flagDroppedLockTime": {
                         "values": "__float__",
-                        "min": 0,
-                        "max": 10,
-                        "default": 5,
                         "guid": "000000008017",
                         "en-US": "Flag Dropped Lock Time",
                         "de-DE": "Sperrzeit der Flagge nach Fallenlassen",
@@ -2079,9 +1968,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "flagPickupTime": {
                         "values": "__float__",
-                        "min": 0,
-                        "max": 5,
-                        "default": 0,
                         "guid": "0000000059AD",
                         "en-US": "Flag Pickup Time",
                         "de-DE": "Zeit zum Aufnehmen der gegnerischen Flagge",
@@ -2101,9 +1987,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "flagReturnTime": {
                         "values": "__float__",
-                        "min": 0,
-                        "max": 5,
-                        "default": 4,
                         "guid": "0000000059AA",
                         "en-US": "Flag Return Time",
                         "de-DE": "Zeit zum Aufnehmen der eigenen Flagge",
@@ -2123,9 +2006,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "flagScoreRespawnTime": {
                         "values": "__float__",
-                        "min": 0,
-                        "max": 20,
-                        "default": 15,
                         "guid": "000000008015",
                         "en-US": "Flag Score Respawn Time",
                         "de-DE": "Wiedererscheinungszeit der Flagge nach Eroberung",
@@ -2146,9 +2026,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "gameLengthInMn": {
                         "guid": "0000000059D9",
                         "values": "__int__",
-                        "min": 5,
-                        "max": 15,
-                        "default": 8,
                         "en-US": "Game Length Minutes",
                         "de-DE": "Spiellänge in Minuten",
                         "es-ES": "Duración de la partida minutos",
@@ -2167,9 +2044,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "respawnSpeedBuffDuration": {
                         "values": "__float__",
-                        "min": 0,
-                        "max": 60,
-                        "default": 0,
                         "guid": "00000000F408",
                         "en-US": "Respawn Speed Buff Duration",
                         "de-DE": "Dauer des Geschwindigkeitsschubs nach Wiederbelebung",
@@ -2190,9 +2064,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000589A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 9,
-                        "default": 3,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -2211,7 +2082,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "teamNeedsFlagAtBaseToScore": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "0000000058B0",
                         "en-US": "Team Needs Flag At Base To Score",
                         "de-DE": "Punkten nur bei Besitz eigener Flagge",
@@ -2235,7 +2105,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -2255,9 +2124,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "heroSelectionTime": {
                         "values": "__int__",
-                        "min": 20,
-                        "max": 60,
-                        "default": 20,
                         "guid": "000000005A97",
                         "en-US": "Hero Selection Time",
                         "de-DE": "Zeit für Heldenauswahl",
@@ -2278,9 +2144,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000589A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 9,
-                        "default": 3,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -2301,7 +2164,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "off": {
                                 "guid": "000000005FE7",
-                                "default": true,
                                 "en-US": "Off",
                                 "de-DE": "Aus",
                                 "es-ES": "Desactivado",
@@ -2376,7 +2238,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "any": {
                                 "guid": "00000000589C",
-                                "default": true,
                                 "en-US": "Any",
                                 "de-DE": "Frei",
                                 "es-ES": "Cualquiera",
@@ -2504,7 +2365,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "隊伍人數+1"
                             },
                             "teamSize+2": {
-                                "default": true,
                                 "guid": "000000006148",
                                 "en-US": "Team Size +2",
                                 "de-DE": "Teamgröße +2",
@@ -2560,7 +2420,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableTiebreaker": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000005FC9",
                         "en-US": "Capture Objective Tiebreaker",
                         "de-DE": "Zusätzlicher Zielpunkt bei Unentschieden",
@@ -2580,9 +2439,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "tiebreakerTime": {
                         "values": "__int__",
-                        "min": 30,
-                        "max": 300,
-                        "default": 105,
                         "guid": "00000000615D",
                         "en-US": "Tiebreaker After Match Time Elapsed",
                         "de-DE": "Zeit bis zusätzlicher Zielpunkt aktiviert wird",
@@ -2602,9 +2458,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "tiebreakerCaptureTime": {
                         "values": "__int__",
-                        "min": 1,
-                        "max": 7,
-                        "default": 3,
                         "guid": "00000000619C",
                         "en-US": "Time To Capture",
                         "de-DE": "Eroberungszeit",
@@ -2624,9 +2477,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "drawTime": {
                         "values": "__int__",
-                        "min": 60,
-                        "max": 300,
-                        "default": 135,
                         "guid": "00000000615C",
                         "en-US": "Draw After Match Time Elapsed With No Tiebreaker",
                         "de-DE": "Zeit bis zum Unentschieden ohne zusätzlichen Zielpunkt",
@@ -2646,7 +2496,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableWallhack": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005FC8",
                         "en-US": "Reveal Heroes",
                         "de-DE": "Helden aufdecken",
@@ -2666,9 +2515,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "wallhackEnabledTime": {
                         "values": "__int__",
-                        "min": 0,
-                        "max": 180,
-                        "default": 75,
                         "guid": "00000000615B",
                         "en-US": "Reveal Heroes After Match Time Elapsed",
                         "de-DE": "Spielzeit bis Helden aufgedeckt werden",
@@ -2692,7 +2538,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -2713,9 +2558,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "gameLengthInMn": {
                         "guid": "00000000617D",
                         "values": "__int__",
-                        "min": 5,
-                        "max": 15,
-                        "default": 10,
                         "en-US": "Game Length In Minutes",
                         "de-DE": "Spiellänge in Minuten",
                         "es-ES": "Duración de la partida en minutos",
@@ -2734,7 +2576,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableMercyRezKillCancel": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000688A",
                         "en-US": "Mercy Resurrect Counteracts Kills",
                         "de-DE": "Mercys Wiederauferstehung macht Kills ungültig",
@@ -2755,9 +2596,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000616E",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 200,
-                        "default": 30,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -2776,7 +2614,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableSelfInitiatedRespawn": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
                         "de-DE": "Selbst ausgelöste Wiederbelebung",
@@ -2796,7 +2633,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "needsImbalancedTeamScoreToWin": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000006D65",
                         "en-US": "Imbalanced Team Score To Win",
                         "de-DE": "Unterschiedliche Teampunktzahl für Sieg",
@@ -2816,9 +2652,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "team1ScoreToWin": {
                         "values": "__int__",
-                        "min": 1,
-                        "max": 200,
-                        "default": 30,
                         "guid": "000000006D66",
                         "en-US": "Team 1 Score To Win",
                         "de-DE": "Siegpunktzahl für Team 1",
@@ -2838,9 +2671,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "team2ScoreToWin": {
                         "values": "__int__",
-                        "min": 1,
-                        "max": 200,
-                        "default": 30,
                         "guid": "000000006D67",
                         "en-US": "Team 2 Score To Win",
                         "de-DE": "Siegpunktzahl für Team 2",
@@ -2864,7 +2694,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -2886,7 +2715,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "0000000058EE",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todos",
@@ -3017,7 +2845,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -3037,7 +2864,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "spawnTrainingBots": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000EC7E",
                         "en-US": "Spawn Training Bots",
                         "de-DE": "Trainingsbots erscheinen lassen",
@@ -3057,9 +2883,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "trainingBotsRespawnTime%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000F0CC",
                         "en-US": "Training Bot Respawn Time Scalar",
                         "de-DE": "Wiederbelebungszeit von Trainingsbots",
@@ -3079,7 +2902,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableTrainingPartner": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "0000000105D8",
                         "en-US": "Training Partner",
                         "de-DE": "Trainingspartner",
@@ -3103,7 +2925,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "spawnTrainingBots": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000EC7E",
                         "en-US": "Spawn Training Bots",
                         "de-DE": "Trainingsbots erscheinen lassen",
@@ -3123,9 +2944,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "trainingBotsRespawnTime%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000F0CC",
                         "en-US": "Training Bot Respawn Time Scalar",
                         "de-DE": "Wiederbelebungszeit von Trainingsbots",
@@ -3145,7 +2963,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableTrainingPartner": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "0000000105D8",
                         "en-US": "Training Partner",
                         "de-DE": "Trainingspartner",
@@ -3170,7 +2987,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "difficulty": {
                         "values": {
                             "normal": {
-                                "default": true,
                                 "guid": "0000000068C6",
                                 "en-US": "NORMAL",
                                 "it-IT": "NORMALE",
@@ -3262,9 +3078,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "doorHealth%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000007077",
                         "en-US": "Door Health Scalar",
                         "de-DE": "Tortrefferpunkte",
@@ -3284,7 +3097,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableEndless": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000006FB1",
                         "en-US": "Endless Mode",
                         "de-DE": "Endlosmodus",
@@ -3308,9 +3120,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -3330,7 +3139,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointA": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C885",
                         "en-US": "Control Point A",
                         "de-DE": "Kontrollpunkt A",
@@ -3350,7 +3158,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointB": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C886",
                         "en-US": "Control Point B",
                         "de-DE": "Kontrollpunkt B",
@@ -3370,7 +3177,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointC": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C887",
                         "en-US": "Control Point C",
                         "de-DE": "Kontrollpunkt C",
@@ -3390,7 +3196,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointD": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C888",
                         "en-US": "Control Point D",
                         "de-DE": "Kontrollpunkt D",
@@ -3410,7 +3215,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointE": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C889",
                         "en-US": "Control Point E",
                         "de-DE": "Kontrollpunkt E",
@@ -3430,7 +3234,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -3450,7 +3253,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -3471,7 +3273,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "firstActiveControlPoint": {
                         "values": {
                             "a": {
-                                "default": true,
                                 "guid": "00000000025C",
                                 "en-US": "A",
                                 "fr-FR": "Q",
@@ -3490,7 +3291,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "A"
                             },
                             "b": {
-                                "default": false,
                                 "guid": "00000000026C",
                                 "en-US": "B",
                                 "de-DE": "B",
@@ -3509,7 +3309,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "B"
                             },
                             "c": {
-                                "default": false,
                                 "guid": "00000000026D",
                                 "en-US": "C",
                                 "de-DE": "C",
@@ -3528,7 +3327,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "C"
                             },
                             "d": {
-                                "default": false,
                                 "guid": "00000000025E",
                                 "en-US": "D",
                                 "de-DE": "D",
@@ -3547,7 +3345,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "D"
                             },
                             "e": {
-                                "default": false,
                                 "guid": "00000000026E",
                                 "en-US": "E",
                                 "de-DE": "E",
@@ -3566,7 +3363,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "E"
                             },
                             "random": {
-                                "default": false,
                                 "guid": "000000002C57",
                                 "en-US": "Random",
                                 "de-DE": "Zufällig",
@@ -3605,9 +3401,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000632A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 10,
-                        "default": 3,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -3626,9 +3419,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scoringSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
@@ -3652,9 +3442,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -3674,7 +3461,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointA": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C885",
                         "en-US": "Control Point A",
                         "de-DE": "Kontrollpunkt A",
@@ -3694,7 +3480,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointB": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C886",
                         "en-US": "Control Point B",
                         "de-DE": "Kontrollpunkt B",
@@ -3714,7 +3499,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointC": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C887",
                         "en-US": "Control Point C",
                         "de-DE": "Kontrollpunkt C",
@@ -3734,7 +3518,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointD": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C888",
                         "en-US": "Control Point D",
                         "de-DE": "Kontrollpunkt D",
@@ -3754,7 +3537,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "controlPointE": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001C889",
                         "en-US": "Control Point E",
                         "de-DE": "Kontrollpunkt E",
@@ -3774,7 +3556,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -3794,7 +3575,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -3815,7 +3595,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "firstActiveControlPoint": {
                         "values": {
                             "a": {
-                                "default": true,
                                 "guid": "00000000025C",
                                 "en-US": "A",
                                 "fr-FR": "Q",
@@ -3834,7 +3613,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "A"
                             },
                             "b": {
-                                "default": false,
                                 "guid": "00000000026C",
                                 "en-US": "B",
                                 "de-DE": "B",
@@ -3853,7 +3631,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "B"
                             },
                             "c": {
-                                "default": false,
                                 "guid": "00000000026D",
                                 "en-US": "C",
                                 "de-DE": "C",
@@ -3872,7 +3649,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "C"
                             },
                             "d": {
-                                "default": false,
                                 "guid": "00000000025E",
                                 "en-US": "D",
                                 "de-DE": "D",
@@ -3891,7 +3667,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "D"
                             },
                             "e": {
-                                "default": false,
                                 "guid": "00000000026E",
                                 "en-US": "E",
                                 "de-DE": "E",
@@ -3910,7 +3685,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "zh-TW": "E"
                             },
                             "random": {
-                                "default": false,
                                 "guid": "000000002C57",
                                 "en-US": "Random",
                                 "de-DE": "Zufällig",
@@ -3949,9 +3723,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000632A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 10,
-                        "default": 3,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -3970,9 +3741,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "scoringSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
@@ -3996,7 +3764,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -4017,9 +3784,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "gameLengthInMn": {
                         "guid": "00000000632C",
                         "values": "__int__",
-                        "min": 5,
-                        "max": 15,
-                        "default": 10,
                         "en-US": "Game Length In Minutes",
                         "de-DE": "Spiellänge in Minuten",
                         "es-ES": "Duración de la partida en minutos",
@@ -4039,9 +3803,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "scoreToWin": {
                         "guid": "00000000632A",
                         "values": "__int__",
-                        "min": 1,
-                        "max": 5000,
-                        "default": 20,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
                         "es-ES": "Puntuación para ganar",
@@ -4060,7 +3821,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableSelfInitiatedRespawn": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000006884",
                         "en-US": "Self Initiated Respawn",
                         "de-DE": "Selbst ausgelöste Wiederbelebung",
@@ -4084,9 +3844,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ts1WalkSpeedModifier%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000015850",
                         "en-US": "TS-1 Walk Speed Modifier",
                         "de-DE": "TS-1 – Modifikator für Lauf<hy>geschwindigkeit",
@@ -4106,9 +3863,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ts1PushSpeedModifier%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001584F",
                         "en-US": "TS-1 Push Speed Modifier",
                         "de-DE": "TS-1 – Modifikator für Schub<hy>geschwindigkeit",
@@ -4128,7 +3882,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -4148,7 +3901,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -4172,9 +3924,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ts1WalkSpeedModifier%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000015850",
                         "en-US": "TS-1 Walk Speed Modifier",
                         "de-DE": "TS-1 – Modifikator für Lauf<hy>geschwindigkeit",
@@ -4194,9 +3943,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ts1PushSpeedModifier%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001584F",
                         "en-US": "TS-1 Push Speed Modifier",
                         "de-DE": "TS-1 – Modifikator für Schub<hy>geschwindigkeit",
@@ -4216,7 +3962,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -4236,7 +3981,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -4260,9 +4004,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "captureSpeed%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 45,
                         "guid": "000000005898",
                         "en-US": "Capture Speed Modifier",
                         "de-DE": "Eroberungsgeschwindigkeit",
@@ -4282,7 +4023,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005897",
                         "en-US": "Competitive Rules",
                         "de-DE": "Ranglistenregeln",
@@ -4302,7 +4042,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePerks": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "000000025AEF",
                         "en-US": "Enable Perks",
                         "de-DE": "Boni aktivieren",
@@ -4419,9 +4158,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "__generalButNotEachHero__": {
                 "abilityCooldown%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "guid": "0000000058A0",
                     "en-US": "Ability Cooldown Time",
                     "de-DE": "Abklingzeit",
@@ -4441,9 +4177,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "ultGen%": {
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "guid": "0000000058AA",
                     "en-US": "Ultimate Generation",
                     "de-DE": "Ultimeteraufladung",
@@ -4463,9 +4196,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "combatUltGen%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "guid": "00000000765B",
                     "en-US": "Ultimate Generation - Combat",
                     "de-DE": "Ultimeteraufladung – Kampf",
@@ -4485,9 +4215,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "passiveUltGen%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "guid": "00000000765C",
                     "en-US": "Ultimate Generation - Passive",
                     "de-DE": "Ultimeteraufladung – Passiv",
@@ -4508,7 +4235,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableUlt": {
                     "guid": "0000000058A9",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "en-US": "Ultimate Ability",
                     "de-DE": "Ultimative Fähigkeit",
                     "es-ES": "Habilidad definitiva",
@@ -4529,7 +4255,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "__generalAndEachHero__": {
                 "enableMelee": {
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "guid": "000000005B4C",
                     "en-US": "Quick Melee",
                     "de-DE": "Nahkampfangriff",
@@ -4549,7 +4274,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "enableSpawningWithUlt": {
                     "values": "__boolOnOff__",
-                    "default": "off",
                     "guid": "00000000765F",
                     "en-US": "Spawn With Ultimate Ready",
                     "de-DE": "Mit aufgeladenem Ultimate starten",
@@ -4569,9 +4293,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "ultDuration%": {
                     "values": "__percent__",
-                    "min": 25,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "ashe",
                         "baptiste",
@@ -4609,7 +4330,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "enableInfiniteUlt": {
                     "values": "__boolOnOff__",
-                    "default": "off",
                     "include": [
                         "ashe",
                         "baptiste",
@@ -4646,9 +4366,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "damageDealt%": {
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "guid": "0000000058A1",
                     "en-US": "Damage Dealt",
                     "de-DE": "Verursachter Schaden",
@@ -4668,9 +4385,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "damageReceived%": {
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "guid": "0000000058A2",
                     "en-US": "Damage Received",
                     "de-DE": "Erlittener Schaden",
@@ -4690,9 +4404,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "healingDealt%": {
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "guid": "0000000058A3",
                     "en-US": "Healing Dealt",
                     "de-DE": "Verursachte Heilung",
@@ -4713,9 +4424,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "healingReceived%": {
                     "guid": "0000000058A4",
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "en-US": "Healing Received",
                     "de-DE": "Erhaltene Heilung",
                     "es-ES": "Sanación recibida",
@@ -4735,9 +4443,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "health%": {
                     "guid": "0000000059FA",
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "en-US": "Health",
                     "de-DE": "Trefferpunkte",
                     "es-ES": "Salud",
@@ -4756,9 +4461,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "jumpVerticalSpeed%": {
                     "values": "__percent__",
-                    "min": 25,
-                    "max": 800,
-                    "default": 100,
                     "guid": "00000000631A",
                     "en-US": "Jump Vertical Speed",
                     "de-DE": "Vertikale Sprunggeschwindigkeit",
@@ -4778,9 +4480,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "movementGravity%": {
                     "values": "__percent__",
-                    "min": 25,
-                    "max": 400,
-                    "default": 100,
                     "guid": "0000000058C0",
                     "en-US": "Movement Gravity",
                     "de-DE": "Schwerkraft bei Bewegungen",
@@ -4800,9 +4499,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "movementSpeed%": {
                     "values": "__percent__",
-                    "min": 50,
-                    "max": 300,
-                    "default": 100,
                     "guid": "0000000058A6",
                     "en-US": "Movement Speed",
                     "de-DE": "Bewegungsgeschwindigkeit",
@@ -4822,9 +4518,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "projectileGravity%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "exclude": [
                         "ana",
                         "bastion",
@@ -4872,9 +4565,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "projectileSpeed%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "exclude": [
                         "brigitte",
                         "reaper",
@@ -4899,7 +4589,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "enableHeadshotsOnly": {
                     "values": "__boolOnOff__",
-                    "default": "off",
                     "guid": "0000000058A5",
                     "en-US": "Receive Headshots Only",
                     "de-DE": "Nur Kopfschüsse",
@@ -4920,7 +4609,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enablePrimaryFire": {
                     "guid": "000000005B4B",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "exclude": [
                         "mauga",
                     ],
@@ -4942,9 +4630,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "ammoClipSize%": {
                     "values": "__percent__",
-                    "min": 25,
-                    "max": 500,
-                    "default": 100,
                     "exclude": [
                         "brigitte",
                         "dva",
@@ -4975,7 +4660,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "enableInfiniteAmmo": {
                     "values": "__boolOnOff__",
-                    "default": "off",
                     "exclude": [
                         "brigitte",
                         "dva",
@@ -5007,7 +4691,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "passiveHealthRegen": {
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "en-US": "Passive Health Regeneration",
                     "guid": "000000024034",
                     "de-DE": "Passive TP-Regeneration",
@@ -5027,7 +4710,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "enableRolePassive": {
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "en-US": "Role Passives",
                     "zh-CN": "职责被动"
                 }
@@ -5036,7 +4718,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableAbility1": {
                     "guid": "000000008669",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
                     "es-ES": "%1$s",
@@ -5056,9 +4737,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "ability1Cooldown%": {
                     "guid": "000000005B84",
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "exclude": [
                         "lucio",
                         "soldier",
@@ -5084,7 +4762,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableAbility2": {
                     "guid": "000000008669",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "exclude": [
                         "bastion",
                         "venture"
@@ -5108,9 +4785,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "exclude": [
                         "bastion",
                         "venture",
@@ -5135,7 +4809,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableAbility3": {
                     "guid": "000000008669",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "include": [
                         "brigitte",
                         "hanzo",
@@ -5160,9 +4833,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "ability3Cooldown%": {
                     "guid": "000000005B84",
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "wreckingBall"
                     ],
@@ -5184,9 +4854,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "ultGen%": {
                     "values": "__percent__",
-                    "min": 10,
-                    "max": 500,
-                    "default": 100,
                     "guid": "000000005B86",
                     "en-US": "Ultimate Generation %1$s",
                     "de-DE": "Ultimeteraufladung %1$s",
@@ -5206,9 +4873,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "combatUltGen%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "guid": "00000000765D",
                     "en-US": "Ultimate Generation - Combat %1$s",
                     "de-DE": "Ultimeteraufladung – Kampf %1$s",
@@ -5228,9 +4892,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "passiveUltGen%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "guid": "00000000765E",
                     "en-US": "Ultimate Generation - Passive %1$s",
                     "de-DE": "Ultimeteraufladung – Passiv %1$s",
@@ -5251,7 +4912,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableUlt": {
                     "guid": "000000005B85",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "en-US": "Ultimate Ability %1$s",
                     "de-DE": "Ultimative Fähigkeit %1$s",
                     "es-ES": "Habilidad definitiva %1$s",
@@ -5271,7 +4931,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enablePassive": {
                     "guid": "000000008669",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "include": [
                         "mercy",
                         "echo",
@@ -5297,7 +4956,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableSecondaryFire": {
                     "guid": "000000008669",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "include": [
                         "bastion",
                         "brigitte",
@@ -5342,9 +5000,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "secondaryFireCooldown%": {
                     "guid": "000000005B84",
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "bastion",
                         "brigitte",
@@ -5386,9 +5041,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "secondaryFireMaximumTime%": {
                     "values": "__percent__",
-                    "min": 20,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "dva",
                         "roadhog"
@@ -5412,9 +5064,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "secondaryFireRechargeRate%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "brigitte",
                         "dva",
@@ -5444,7 +5093,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableGenericSecondaryFire": {
                     "guid": "000000006029",
                     "values": "__boolOnOff__",
-                    "default": "on",
                     "include": [
                         "anran",
                         "baptiste",
@@ -5481,7 +5129,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableAutomaticFire": {
                     "guid": "0000000060EB",
                     "values": "__boolReverseOnOff__",
-                    "default": "off",
                     "include": [
                         "ana",
                         "ashe",
@@ -5506,7 +5153,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "enableScoping": {
                     "guid": "00000000A2B0",
                     "values": "__boolReverseOnOff__",
-                    "default": "off",
                     "include": [
                         "ana",
                         "ashe",
@@ -5530,9 +5176,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 },
                 "secondaryFireEnergyChargeRate%": {
                     "values": "__percent__",
-                    "min": 0,
-                    "max": 500,
-                    "default": 100,
                     "include": [
                         "sojourn"
                     ],
@@ -5594,9 +5237,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1EnemyKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000A2E7",
                         "en-US": "Coach Gun Knockback Scalar Enemy",
                         "de-DE": "Doppelflinte – Rückstoß Gegner",
@@ -5616,9 +5256,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1SelfKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000A2E5",
                         "en-US": "Coach Gun Knockback Scalar Self",
                         "de-DE": "Doppelflinte – Rückstoß selbst",
@@ -5638,9 +5275,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability2FuseTime%": {
                         "values": "__percent__",
-                        "min": 1,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000A2E6",
                         "en-US": "Dynamite Fuse Time Scalar",
                         "de-DE": "Dynamit – Zeit bis zur Explosion",
@@ -5664,9 +5298,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000001BF9D",
                         "en-US": "A-36 Tactical Grenade Knockback Scalar",
                         "de-DE": "Taktische Granate A-36 – Rückstoß",
@@ -5690,9 +5321,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "shieldBashCooldown%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000819C",
                         "en-US": "Shield Bash Cooldown Time",
                         "de-DE": "Schildstoß – Abklingzeit",
@@ -5712,9 +5340,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "shieldBashKb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000819F",
                         "en-US": "Shield Bash Knockback Scalar",
                         "de-DE": "Schildstoß – Rückstoß",
@@ -5734,9 +5359,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "0000000081A0",
                         "en-US": "Whip Shot Knockback Scalar",
                         "de-DE": "Flegelstoß – Rückstoß",
@@ -5760,9 +5382,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000006333",
                         "en-US": "Boosters Knockback Scalar",
                         "de-DE": "Booster – Rückstoß",
@@ -5782,9 +5401,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "callMechKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "0000000065A5",
                         "en-US": "Call Mech Knockback Scalar",
                         "de-DE": "Mech anfordern – Rückstoß",
@@ -5804,9 +5420,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "selfDestructKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 200,
-                        "default": 100,
                         "guid": "00000000636F",
                         "en-US": "Self Destruct Knockback Scalar",
                         "de-DE": "Selbstzerstörung – Rückstoß",
@@ -5826,7 +5439,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "spawnWithoutMech": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "0000000072AF",
                         "en-US": "Spawn Without Mech",
                         "de-DE": "Ohne Mech starten",
@@ -5850,9 +5462,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1ChargeRate%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000176EF",
                         "en-US": "Power Block Charge Rate",
                         "de-DE": "Aufladungsrate von Faustschild",
@@ -5872,9 +5481,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "000000006666",
                         "en-US": "Rocket Punch Knockback Scalar",
                         "de-DE": "Dampfhammer – Rückstoß",
@@ -5894,9 +5500,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ultKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "000000006667",
                         "en-US": "Meteor Strike Knockback Scalar",
                         "de-DE": "Meteorschlag – Rückstoß",
@@ -5916,9 +5519,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ammoRegenerationTime%": {
                         "values": "__percent__",
-                        "min": 33,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000665B",
                         "en-US": "Ammunition Regeneration Time Scalar",
                         "de-DE": "Munition – Regeneration",
@@ -5940,29 +5540,20 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "domina": {
                 "values": {
-                    "ability1KB%": {
+                    "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "en-US": "Sonic Repulsors Knockback Scalar",
                         "zh-CN": "音速斥力场击退倍率",
                         "zh-TW": "音波反斥器擊退距離"
                     },
                     "passiveHeal%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Reconstruction Heal Scalar",
                         "zh-CN": "护盾重构治疗量倍率",
                         "zh-TW": "重組治療量"
                     },
                     "ultBarrierHealth%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Ultimate Barrier Health Scalar Panopticon",
                         "zh-CN": "终极技能屏障生命值倍率（全景牢笼）"
                     }
@@ -5972,33 +5563,21 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "en-US": "Cyber Frag Knockback Scalar",
                         "zh-CN": "赛博手雷击退倍率"
                     },
                     "ability1Duration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Siphon Blaster Duration Scalar",
                         "zh-CN": "虹吸冲击枪持续时间倍率"
                     },
                     "ability1Heat%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Siphon Blaster Heat Scalar",
                         "zh-CN": "虹吸冲击枪热量倍率"
                     },
                     "ultKb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "en-US": "Override Protocol Knockback Scalar",
                         "zh-CN": "覆盖协议击退倍率"
                     }
@@ -6008,25 +5587,16 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireDuration%": {
                         "values": "__percent__",
-                        "min": 50,
-                        "max": 300,
-                        "default": 100,
                         "en-US": "Take Aim Duration",
                         "zh-CN": "瞄准射击持续时间"
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
-                        "min": 50,
-                        "max": 200,
-                        "default": 100,
                         "en-US": "Quick Dash Distance",
                         "zh-CN": "疾冲距离"
                     },
                     "ability2Height%": {
                         "values": "__percent__",
-                        "min": 75,
-                        "max": 150,
-                        "default": 100,
                         "en-US": "Updraft Height",
                         "zh-CN": "上升气流高度"
                     }
@@ -6036,9 +5606,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability3Cooldown%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000088D2",
                         "en-US": "Lunge Cooldown Time",
                         "de-DE": "Ninjasprung – Abklingzeit",
@@ -6058,9 +5625,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability3Distance%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 300,
-                        "default": 100,
                         "guid": "0000000088D3",
                         "en-US": "Lunge Distance Scalar",
                         "de-DE": "Ninjasprung – Distanz",
@@ -6080,9 +5644,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability2Quantity%": {
                         "values": "__int__",
-                        "min": 3,
-                        "max": 12,
-                        "default": 5,
                         "guid": "000000008900",
                         "en-US": "Storm Arrows Quantity",
                         "de-DE": "Sturmpfeile – Anzahl",
@@ -6106,9 +5667,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "solarEnergyMax%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001DF67",
                         "en-US": "Solar Energy Maximum",
                         "de-DE": "Max. Solarenergie",
@@ -6128,9 +5686,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "solarEnergyRecharge%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001DF66",
                         "en-US": "Solar Energy Recharge Rate",
                         "de-DE": "Aufladerate für Solarenergie",
@@ -6154,23 +5709,16 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "primaryFireRange%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Biotic Pawjectile Range",
                         "zh-CN": "生物猫爪弹射程"
                     },
                     "secondaryFireMaximumTime%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Frenetic Flight Maximum Time",
                         "zh-CN": "咻咻飞最大时间",
                     },
                     "enablePassiveUnlimitedFuel": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "en-US": "Frenetic Flight Unlimited Fuel",
                         "zh-CN": "咻咻飞无限燃料",
                         "zh-TW": "狂飆飛貓無限燃料"
@@ -6181,18 +5729,12 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireCooldown%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Jagged Blade Gracie Cooldown Time",
                         "zh-CN": "锯齿利刃（格雷西）冷却时间",
                         "zh-TW": "鋸刃（格雷西）冷卻時間"
                     },
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "0000000172C6",
                         "en-US": "Jagged Blade Knockback Scalar",
                         "de-DE": "Gezackte Klinge – Rückstoß",
@@ -6212,9 +5754,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "secondaryFireRecallDelay%": {
                         "values": "__percent__",
-                        "min": 40,
-                        "max": 400,
-                        "default": 100,
                         "guid": "0000000172CB",
                         "en-US": "Jagged Blade Delay Before Automatic Recall",
                         "de-DE": "Gezackte Klinge – Verzögerung vor automatischem Rückruf",
@@ -6238,9 +5777,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 200,
-                        "default": 100,
                         "guid": "000000006335",
                         "en-US": "Concussion Mine Knockback Scalar",
                         "de-DE": "Ferngezündete Mine – Rückstoß",
@@ -6260,9 +5796,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "00000000636D",
                         "en-US": "Frag Launcher Knockback Scalar",
                         "de-DE": "Granatwerfer – Rückstoß",
@@ -6286,9 +5819,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Distance%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000001586F",
                         "en-US": "Swift Step Distance Scalar",
                         "de-DE": "Schneller Schritt – Distanz",
@@ -6312,9 +5842,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000633C",
                         "en-US": "Soundwave Knockback Scalar",
                         "de-DE": "Schallwelle – Rückstoß",
@@ -6338,7 +5865,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enablePrimaryFire": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000001EE91",
                         "en-US": "Incendiary Chaingun",
                         "de-DE": "Brand-Chain-Gun",
@@ -6358,9 +5884,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireIgniteDamage": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001F623",
                         "en-US": "Incendiary Chaingun Ignite Damage",
                         "de-DE": "Brand-Chain-Gun Entzündungsschaden",
@@ -6380,9 +5903,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireIgniteDuration": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001F622",
                         "en-US": "Incendiary Chaingun Ignite Duration",
                         "de-DE": "Brand-Chain-Gun Entzündungsdauer",
@@ -6402,9 +5922,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireIgniteRate": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001F621",
                         "en-US": "Incendiary Chaingun Ignite Rate",
                         "de-DE": "Brand-Chain-Gun Entzündungsrate",
@@ -6424,9 +5941,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000001F61A",
                         "en-US": "Overrun Knockback",
                         "de-DE": "Tackle-Rückstoß",
@@ -6446,9 +5960,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability2Healing%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "00000001E400",
                         "en-US": "Cardiac Overdrive Healing",
                         "de-DE": "Heilung mit Overdrive",
@@ -6472,9 +5983,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ultFreezeMinimum%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 100,
-                        "default": 50,
                         "guid": "0000000070D4",
                         "en-US": "Blizzard Freeze Minimum",
                         "de-DE": "Blizzard – Einfrierminimum",
@@ -6494,9 +6002,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ultFreezeRate%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000070D3",
                         "en-US": "Blizzard Freeze Rate Scalar",
                         "de-DE": "Blizzard – Einfrierrate",
@@ -6516,7 +6021,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePrimaryFireFreezeStack": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000007113",
                         "en-US": "Freeze Stacking",
                         "de-DE": "Einfriereffekt stapelbar",
@@ -6536,9 +6040,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireFreezeDuration%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000007100",
                         "en-US": "Weapon Freeze Duration Scalar",
                         "de-DE": "Endothermischer Strahler – Einfrierdauer",
@@ -6558,9 +6059,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireFreezeMinimum%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 100,
-                        "default": 30,
                         "guid": "0000000070D2",
                         "en-US": "Weapon Freeze Minimum",
                         "de-DE": "Endothermischer Strahler – Einfrierminimum",
@@ -6580,9 +6078,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireFreezeRate%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000070CF",
                         "en-US": "Weapon Freeze Rate Scalar",
                         "de-DE": "Endothermischer Strahler – Einfrierrate",
@@ -6608,7 +6103,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "000000006019",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
@@ -6685,9 +6179,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Duration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Katashiro Return Duration Scalar",
                         "zh-CN": "替魂纸人持续时间倍率"
                     }
@@ -6697,9 +6188,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2MaxDamage%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000073E7",
                         "en-US": "Biotic Orb Max Damage Scalar",
                         "de-DE": "Biotische Sphäre – Maximaler Schaden",
@@ -6719,9 +6207,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability2MaxHealing%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000073E6",
                         "en-US": "Biotic Orb Max Healing Scalar",
                         "de-DE": "Biotische Sphäre – Maximale Heilung",
@@ -6741,9 +6226,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireMaximumTime%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000705C",
                         "en-US": "Biotic Energy Maximum",
                         "de-DE": "Biotische Energie – Maximum",
@@ -6763,9 +6245,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireRechargeRate%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000705B",
                         "en-US": "Biotic Energy Recharge Rate",
                         "de-DE": "Biotische Energie – Aufladungsrate",
@@ -6789,9 +6268,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000633D",
                         "en-US": "Concussive Blast Knockback Scalar",
                         "de-DE": "Erschütterungsimpuls – Rückstoß",
@@ -6811,7 +6287,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "enablePassiveUnlimitedFuel": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "000000005B51",
                         "en-US": "Hover Jets Unlimited Fuel",
                         "de-DE": "Schwebedüsen – Endlostreibstoff",
@@ -6831,9 +6306,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "passiveVerticalSpeed%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000631C",
                         "en-US": "Hover Jets Vertical Speed Scalar",
                         "de-DE": "Schwebedüsen – Vertikale Geschwindigkeit",
@@ -6853,9 +6325,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "passiveMaximumTime%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000631B",
                         "en-US": "Jump Jet Acceleration Scalar",
                         "de-DE": "Senkrechtstarter – Beschleunigung",
@@ -6875,9 +6344,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "passiveExtraFuel%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 200,
-                        "default": 100,
                         "en-US": "Hover Jets Extra Fuel Scalar",
                         "guid": "00000002091B",
                         "de-DE": "Schwebedüsen-Zusatztreibstoff",
@@ -6897,9 +6363,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "passiveRechargeRate%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Hover Jets Recharge Rate",
                         "guid": "000000005B52",
                         "de-DE": "Schwebedüsen – Aufladungsrate",
@@ -6919,9 +6382,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "passiveMaxTime%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Hover Jets Maximum Time",
                         "guid": "000000005B53",
                         "de-DE": "Schwebedüsen – Maximale Dauer",
@@ -6941,9 +6401,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Acceleration%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000631B",
                         "en-US": "Jump Jet Acceleration Scalar",
                         "de-DE": "Senkrechtstarter – Beschleunigung",
@@ -6963,9 +6420,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1RefuelScalar": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "en-US": "Jump Jet Refuel Scalar",
                         "guid": "00000002091A",
                         "de-DE": "Senkrechtstarter-Treibstoff",
@@ -6985,9 +6439,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000006341",
                         "en-US": "Rocket Launcher Knockback Scalar",
                         "de-DE": "Raketenwerfer – Rückstoß",
@@ -7011,7 +6462,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireAlternateForm": {
                         "values": "__boolOnOff__",
-                        "default": "on",
                         "guid": "00000000D2A8",
                         "en-US": "Block Nemesis Form",
                         "de-DE": "Blocken Nemesisform",
@@ -7035,9 +6485,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "000000006371",
                         "en-US": "Charge Knockback Scalar",
                         "de-DE": "Ansturm – Rückstoß",
@@ -7057,9 +6504,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "0000000065A4",
                         "en-US": "Rocket Hammer Knockback Scalar",
                         "de-DE": "Raketenhammer – Rückstoß",
@@ -7083,9 +6527,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ultKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000633E",
                         "en-US": "Whole Hog Knockback Scalar",
                         "de-DE": "Fleischwolf – Rückstoß",
@@ -7109,9 +6550,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "en-US": "Tremor Charge Knockback Scalar",
                         "zh-CN": "震地手雷击退倍率",
                     }
@@ -7121,9 +6559,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000C865",
                         "en-US": "Accretion Knockback Scalar",
                         "de-DE": "Akkretion – Rückstoß",
@@ -7147,9 +6582,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000006362",
                         "en-US": "Helix Rockets Knockback Scalar",
                         "de-DE": "Helix-Raketen – Rückstoß",
@@ -7173,9 +6605,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Duration%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000000A43D",
                         "en-US": "Overload Duration Scalar",
                         "de-DE": "Überladung – Dauer",
@@ -7198,7 +6627,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "000000006024",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
@@ -7274,9 +6702,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Acceleration%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000631D",
                         "en-US": "Jump Pack Acceleration Scalar",
                         "de-DE": "Sprungantrieb – Beschleunigung",
@@ -7296,9 +6721,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000006373",
                         "en-US": "Jump Pack Knockback Scalar",
                         "de-DE": "Sprungantrieb – Rückstoß",
@@ -7318,9 +6740,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ultKb%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000000633F",
                         "en-US": "Primal Rage Melee Knockback Scalar",
                         "de-DE": "Dschungelwut – Rückstoß des Nahkampfangriffs",
@@ -7344,7 +6763,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "enableRollOnly": {
                         "values": "__boolOnOff__",
-                        "default": "off",
                         "guid": "00000000928D",
                         "en-US": "Roll Always Active",
                         "de-DE": "Einkugeln immer aktiv",
@@ -7364,9 +6782,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000009288",
                         "en-US": "Grappling Claw Knockback Scalar",
                         "de-DE": "Abrissbirne – Rückstoß",
@@ -7386,9 +6801,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ultKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "00000000928B",
                         "en-US": "Minefield Knockback Scalar",
                         "de-DE": "Minenfeld – Rückstoß",
@@ -7412,9 +6824,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireKb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "guid": "000000006340",
                         "en-US": "Particle Cannon Secondary Knockback Scalar",
                         "de-DE": "Partikelkanone – Sekundärer Rückstoß",
@@ -7438,9 +6847,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ultHealth%": {
                         "values": "__percent__",
-                        "min": 50,
-                        "max": 300,
-                        "default": 100,
                         "guid": "00000001AB26",
                         "en-US": "Tree of Life Health",
                         "de-DE": "Baum des Lebens – Trefferpunkte",
@@ -7460,9 +6866,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Health%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001AB1E",
                         "en-US": "Rejuvenating Dash Healing",
                         "de-DE": "Heilung mit Regenerativem Spurt",
@@ -7482,9 +6885,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "secondaryFireHealth%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 500,
-                        "default": 100,
                         "guid": "00000001AB25",
                         "en-US": "Petal Platform Health",
                         "de-DE": "Blütenplattform – Trefferpunkte",
@@ -7504,9 +6904,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "primaryFireRange%": {
                         "values": "__percent__",
-                        "min": 20,
-                        "max": 200,
-                        "default": 100,
                         "guid": "00000001AB17",
                         "en-US": "Life Grip and Healing Blossom Range",
                         "de-DE": "Rettungsanker und Heilende Blüte – Reichweite",
@@ -7528,7 +6925,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "values": {
                             "all": {
                                 "guid": "000000006019",
-                                "default": true,
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
@@ -7605,25 +7001,16 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "secondaryFireRechargeRate%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Warding Stance Regen Scalar",
                         "zh-CN": "招架姿态恢复倍率"
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Whirlwind Dash Distance",
                         "zh-CN": "旋风疾步距离"
                     },
                     "ability2Distance%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Soaring Slice Distance",
                         "zh-CN": "飞空斩击距离"
                     },
@@ -7633,9 +7020,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Duration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "000000020B47",
                         "en-US": "Burrow Duration Scalar",
                         "de-DE": "Graben – Dauer",
@@ -7659,9 +7043,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability1Duration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "guid": "0000000212D3",
                         "de-DE": "Gleitboost – Dauer",
                         "en-US": "Glide Boost Duration Scalar",
@@ -7685,9 +7066,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 400,
-                        "default": 100,
                         "en-US": "Jagged Wall Knockback",
                         "guid": "00000002356E",
                         "de-DE": "Zackenwall – Rückstoß",
@@ -7707,9 +7085,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability2Health%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 400,
-                        "default": 100,
                         "en-US": "Jagged Wall Health",
                         "guid": "00000002356D",
                         "de-DE": "Zackenwall – Trefferpunkte",
@@ -7729,16 +7104,10 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "secondaryFireMovementSpeedPenalty%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 150,
-                        "default": 100,
                         "en-US": "Spike Guard Movement Speed Penalty",
                     },
                     "secondaryFireCost%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 200,
-                        "default": 100,
                         "en-US": "Spike Guard Resource Cost",
                         "guid": "000000023571",
                         "de-DE": "Stachelschutz – Ressourcenkosten",
@@ -7758,9 +7127,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "secondaryFireRegen%": {
                         "values": "__percent__",
-                        "min": 25,
-                        "max": 200,
-                        "default": 100,
                         "en-US": "Spike Guard Resource Regeneration",
                         "guid": "000000023574",
                         "de-DE": "Stachelschutz – Regenerierte Ressourcen",
@@ -7780,9 +7146,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
-                        "min": 100,
-                        "max": 200,
-                        "default": 100,
                         "en-US": "Violent Leap Distance",
                         "guid": "00000002356B",
                         "de-DE": "Sturzsprung – Distanz",
@@ -7804,27 +7167,22 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "wuyang": {
                 "values": {
+                    "primaryFireOrbTurnRate%": {
+                        "values": "__percent__",
+                        "en-US": "Water Staff Orb Turn Rate",
+                    },
                     "secondaryFireCost%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Restorative Stream Drain Rate",
                         "zh-CN": "养神泉消耗速度"
                     },
                     "ability1Duration%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Rushing Torrent Duration Scalar",
                         "zh-CN": "飞流步持续时间倍率"
                     },
                     "ability2Kb%": {
                         "values": "__percent__",
-                        "min": 10,
-                        "max": 500,
-                        "default": 100,
                         "en-US": "Guardian Wave Knockback Scalar",
                         "zh-CN": "翻江浪击退倍率"
                     }
@@ -7854,7 +7212,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "afterMirrorMatch": {
                         "guid": "000000004123",
-                        "default": true,
                         "en-US": "After A Mirror Match",
                         "de-DE": "Nach Hin- und Rückmatch",
                         "es-ES": "Después de una revancha",
@@ -7964,7 +7321,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-TW": "在每場對戰結束後"
                     },
                     "afterMirrorMatch": {
-                        "default": true,
                         "guid": "000000002C5C",
                         "en-US": "After A Mirror Match",
                         "de-DE": "Nach Hin- und Rückmatch",
@@ -8004,7 +7360,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "values": {
                     "off": {
                         "guid": "000000002C52",
-                        "default": true,
                         "en-US": "Off",
                         "de-DE": "Aus",
                         "es-ES": "Desactivado",
@@ -8078,7 +7433,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "swapTeamsAfterMatch": {
                 "guid": "00000000705F",
                 "values": "__boolYesNo__",
-                "default": "yes",
                 "en-US": "Swap Teams After Match",
                 "de-DE": "Seitenwechsel nach Match",
                 "es-ES": "Cambiar equipos tras la partida",
@@ -8098,9 +7452,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "team1Slots": {
                 "guid": "000000005A91",
                 "values": "__int__",
-                "min": 0,
-                "max": 12,
-                "default": 5,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
                 "es-ES": "Máximo de jugadores de %1$s",
@@ -8120,9 +7471,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "team2Slots": {
                 "guid": "000000005A91",
                 "values": "__int__",
-                "min": 0,
-                "max": 12,
-                "default": 5,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
                 "es-ES": "Máximo de jugadores de %1$s",
@@ -8142,9 +7490,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "ffaSlots": {
                 "guid": "000000006ABB",
                 "values": "__int__",
-                "min": 0,
-                "max": 12,
-                "default": 12,
                 "en-US": "Max FFA Players",
                 "de-DE": "Max. Anzahl Spieler FFA",
                 "es-ES": "Máx. de jugadores para TcT",
@@ -8163,9 +7508,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "spectatorSlots": {
                 "values": "__int__",
-                "min": 0,
-                "max": 12,
-                "default": 2,
                 "guid": "000000005A92",
                 "en-US": "Max Spectators",
                 "de-DE": "Max. Anzahl Zuschauer",
@@ -8185,7 +7527,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "allowPlayersInQueue": {
                 "values": "__boolYesNo__",
-                "default": "no",
                 "guid": "00000000F25B",
                 "description": "Whether to allow players in 'While you wait'.",
 
@@ -8207,7 +7548,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "useExperimentalUpdate": {
                 "values": "__boolYesNo__",
-                "default": "no",
                 "guid": "0000000102F5",
                 "en-US": "Use Experimental Update If Available",
                 "de-DE": "Testlabor-Update verwenden wenn möglich",
@@ -8227,7 +7567,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "enableMatchVoiceChat": {
                 "values": "__boolEnabled__",
-                "default": "disabled",
                 "guid": "000000006A04",
                 "en-US": "Match Voice Chat",
                 "de-DE": "Voicechat Match",
@@ -8247,7 +7586,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "pauseGameOnDisconnect": {
                 "values": "__boolYesNo__",
-                "default": "no",
                 "guid": "000000007110",
                 "en-US": "Pause Game On Player Disconnect",
                 "de-DE": "Bei Verbindungsabbruch Spiel pausieren",
@@ -8268,7 +7606,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "dataCenterPreference": {
                 "values": {
                     "bestAvailable": {
-                        "default": true,
                         "guid": "00000000AA5A",
                         "en-US": "Best Available",
                         "de-DE": "Bestes verfügbares",
@@ -8918,9 +8255,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "minimumLatencyInNs": {
                 "values": "__int__",
-                "min": 0,
-                "max": 150000000,
-                "default": 0,
                 "guid": "00000001249D",
                 "en-US": "Minimum Latency milliseconds",
                 "de-DE": "Minimale Latenz Millisekunden",
@@ -8961,7 +8295,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "description": {
                 "guid": "00000001007F",
                 "values": "__string__",
-                "default": "",
                 "maxChars": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
@@ -8981,7 +8314,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "modeName": {
                 "values": "__string__",
-                "default": "",
                 "maxBytes": 129,
                 "guid": "000000013E36",
                 "en-US": "Mode Name",
@@ -9050,28 +8382,22 @@ export type WorkshopExtension = {
 
 type CustomGameSetting_OnOff = {
     values: "__boolOnOff__" | "__boolReverseOnOff__",
-    default: "on" | "off"
 };
 
 type CustomGameSetting_YesNo = {
     values: "__boolYesNo__",
-    default: "yes" | "no"
 };
 
 type CustomGameSetting_EnableDisable = {
     values: "__boolEnabled__",
-    default: "enabled" | "disabled"
 };
 
 type CustomGameSetting_Combo = {
-    values: Record<string, { default?: boolean } & Partial<LocalizableString>>
+    values: Record<string, Partial<LocalizableString>>
 };
 
 type CustomGameSetting_Percent = {
     values: "__percent__" | "__int__" | "__float__",
-    min: number,
-    max: number,
-    default: number
 };
 
 export type CustomGameSetting = Partial<CustomGameSetting_OnOff | CustomGameSetting_YesNo | CustomGameSetting_EnableDisable | CustomGameSetting_Combo | CustomGameSetting_Percent> & Partial<LocalizableString>;
@@ -9110,7 +8436,6 @@ export type CustomGameSettingSchema = {
     main: {
         values: Record<string, LocalizableString & {
             values: "__string__",
-            default: string
             maxChars?: number,
             maxBytes?: number
         }>

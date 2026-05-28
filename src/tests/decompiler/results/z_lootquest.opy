@@ -137,7 +137,6 @@ globalvar IIIllIIIlllIllIIlIIIllllII 76
 globalvar lIIIIIllllIlIIIIlIIIlIIIll 77
 globalvar IIIlIIlIIIIIlIlIIIlIllIlII 78
 
-
 #Player variables
 
 playervar IIIIIlIlIlIllIlllllIIllIll 0
@@ -266,7 +265,6 @@ playervar IIIIlIIIIllllIlllIIIlllIIl 122
 playervar IIllIlIIIIIIllIIIllIlIllII 123
 playervar IIIllIIlIlIIIlllllllIIIlIl 124
 
-
 #Subroutine names
 
 subroutine IllIlIlIllIlIlIllIlllIlIIl 0
@@ -389,10 +387,8 @@ subroutine lllIlllllIlIIIllIlIlIIIlIl 116
 subroutine lllIllIlIIllllIlIlIlllllll 117
 subroutine lllIIIIIIllIlIIlIIlIIIIIII 118
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "lIIlllllIlIlllIllIIIlIIlll":
     disableInspector()

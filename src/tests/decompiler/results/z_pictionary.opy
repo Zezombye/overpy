@@ -51,7 +51,6 @@ globalvar WordText 17
 globalvar HiddenWord 19
 globalvar BannedWords 20
 
-
 #Player variables
 
 playervar Points 0
@@ -59,7 +58,6 @@ playervar BulletEffect 2
 playervar Firing 3
 playervar WordArray 4
 playervar GuessedWord 6
-
 
 #Subroutine names
 
@@ -70,15 +68,13 @@ subroutine Scoreboard 3
 subroutine NewDrawer 4
 subroutine Winner 5
 
-
 #Activated extensions
 
 #!extension playMoreEffects
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Debug Hud":
     @Event eachPlayer

@@ -53,7 +53,6 @@ globalvar draftPriorityList 19
 globalvar i 20
 globalvar p 21
 
-
 #Player variables
 
 playervar trueHero 0
@@ -70,7 +69,6 @@ playervar preparingUltEvent 10
 playervar ultimateEvent 11
 playervar pos 12
 playervar facing 13
-
 
 #Subroutine names
 
@@ -92,10 +90,8 @@ subroutine PreparingUltEventHandler_Stallin 14
 subroutine PreparingUltEventHandler_Activat 15
 subroutine PreparingUltEventHandler_Casting 16
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Initial Global":
     SHOULD_RESET_HEROES_ON_DESPAWN = true

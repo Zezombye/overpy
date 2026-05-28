@@ -767,6 +767,10 @@ export function compileCustomGameSettings(customGameSettings: any) {
 
                 for (let hero of Object.keys(customGameSettings.heroes[team])) {
                     var wsHero = tows(hero, heroKw);
+                    if ("ability1KB%" in customGameSettings.heroes[team][hero]) {
+                        customGameSettings.heroes[team][hero]["ability1Kb%"] = customGameSettings.heroes[team][hero]["ability1KB%"];
+                        delete customGameSettings.heroes[team][hero]["ability1KB%"];
+                    }
                     for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
                         // @ts-ignore
                         if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {

@@ -54,7 +54,7 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
             if (match.indices === undefined) {
                 error("Failed to get indices for element '" + elem + "'. This shouldn't happen!");
             }
-            keyValueSplitLocation = match.indices[1][0];
+            keyValueSplitLocation = match.indices[1]![0];
         }
 
         const potentialKey = elem.substring(0, keyValueSplitLocation).trim();
@@ -128,6 +128,10 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
                 }
                 if (kwObj[keyName]["en-US"] === "Katashiro Return Duration Scalar" && keyName === "ability1Duration%") {
                     warn("w_dead_workshop", "Mizuki's 'Katashiro Return Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
+                    continue;
+                }
+                if (kwObj[keyName]["en-US"] === "Soaring Slice Distance" && keyName === "ability2Distance%") {
+                    warn("w_dead_workshop", "Vendetta's 'Soaring Slice Distance' cannot be copied from text settings and has been reset to defaults.");
                     continue;
                 }
                 error("Expected a percentage for value of elem '" + elem + "'");

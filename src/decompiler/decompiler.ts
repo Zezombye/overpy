@@ -70,7 +70,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
             }
         }
         if (globalVariableDeclarations !== "") {
-            variableDeclarations += "#Global variables\n\n" + globalVariableDeclarations + "\n\n";
+            variableDeclarations += "#Global variables\n\n" + globalVariableDeclarations + "\n";
         }
     }
     if (playerVariables.length > 0) {
@@ -86,7 +86,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
             }
         }
         if (playerVariableDeclarations !== "") {
-            variableDeclarations += "#Player variables\n\n" + playerVariableDeclarations + "\n\n";
+            variableDeclarations += "#Player variables\n\n" + playerVariableDeclarations + "\n";
         }
     }
 
@@ -103,7 +103,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
             }
         }
         if (subroutineDeclarations !== "") {
-            subroutineDeclarations = "#Subroutine names\n\n" + subroutineDeclarations + "\n\n";
+            subroutineDeclarations = "#Subroutine names\n\n" + subroutineDeclarations + "\n";
         }
     }
     result += variableDeclarations + subroutineDeclarations;

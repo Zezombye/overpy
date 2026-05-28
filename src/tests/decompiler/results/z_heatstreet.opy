@@ -372,7 +372,6 @@ globalvar mut_low_blow 91
 globalvar gazed____ 92
 globalvar length 93
 
-
 #Player variables
 
 playervar ab_player 0
@@ -503,7 +502,6 @@ playervar Chain_Reaction_Immune 125
 playervar Chain_Reaction_On 126
 playervar Damage_Received 127
 
-
 #Subroutine names
 
 subroutine update_combatants 0
@@ -534,7 +532,6 @@ subroutine set_map_cg 28
 subroutine call_reinforcements 32
 subroutine Cancel_Momentum 33
 
-
 #Activated extensions
 
 #!extension buffStatusEffects
@@ -542,9 +539,8 @@ subroutine Cancel_Momentum 33
 #!extension spawnMoreDummyBots
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Mod by LemonAid#11644, Original mode by Shingen#21859":
     disableInspector()

@@ -144,7 +144,6 @@ globalvar mobs 45
 globalvar threatFx 46
 globalvar antiCrashOn 47
 
-
 #Player variables
 
 playervar mobTarget 0
@@ -154,11 +153,9 @@ playervar cacheC 3
 playervar botA 4
 playervar botB 5
 
-
 #Subroutine names
 
 subroutine mobsInit 0
-
 
 #Activated extensions
 
@@ -170,9 +167,8 @@ subroutine mobsInit 0
 #!extension explosionSounds
 
 
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Initialize global variables":
     objDescs = ["collect pages", "defeat the mini maugas", "slay enemies", "slay the miniboss", "capture the point"]

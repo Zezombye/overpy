@@ -179,7 +179,6 @@ globalvar WaitTest 2
 globalvar StartHud 3
 globalvar StartHud2 4
 
-
 #Player variables
 
 playervar UsingAbi1 0
@@ -221,7 +220,6 @@ playervar CurrActionID_Secondary 125
 playervar ActionIDQueue_Secondary 126
 playervar __iter___ 127
 
-
 #Subroutine names
 
 subroutine Abi1Attach 0
@@ -233,10 +231,8 @@ subroutine CreateMenuFrame 125
 subroutine CreateMenuButtons 126
 subroutine CreateMenuCursor 127
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "1v1 Build your hero by Seita":
     StartHud = -1

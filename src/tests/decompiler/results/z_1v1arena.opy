@@ -281,7 +281,6 @@ globalvar Juno2 125
 globalvar Freja 126
 globalvar Freja2 127
 
-
 #Player variables
 
 playervar OneHeroPlayerVariable 0
@@ -322,17 +321,14 @@ playervar BotCassDif 49
 playervar BotDifficulty 50
 playervar BotKiriHeal 51
 
-
 #Subroutine names
 
 subroutine SpawnLocationCheck 0
 subroutine ZenAim 5
 subroutine BotHeroList 6
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Workshop Settings":
     disableInspector()
@@ -1510,7 +1506,7 @@ rule "Hero locking":
                 Arena1Q.remove(eventPlayer)
         else:
             Arena1Q.remove(eventPlayer)
-        #In Arena Q 2
+    #In Arena Q 2
     elif eventPlayer in Arena2Q == true:
         #If playing
         if eventPlayer == Arena2Q[1] or eventPlayer == Arena2Q[2]:
@@ -1547,7 +1543,7 @@ rule "Hero locking":
                 Arena2Q.remove(eventPlayer)
         else:
             Arena2Q.remove(eventPlayer)
-        #In Arena Q 3
+    #In Arena Q 3
     elif eventPlayer in Arena3Q == true:
         #If playing
         if eventPlayer == Arena3Q[1] or eventPlayer == Arena3Q[2]:

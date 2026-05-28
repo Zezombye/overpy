@@ -60,14 +60,11 @@ export function compileCustomGameSettingsDict(providedSettings: Record<string, a
             }
             result[wsKey] = escapeBadWords(escapeString(providedSettings[key], true));
         } else if (refValues === "__percent__" || refValues === "__int__" || refValues === "__float__") {
-            if (!("min" in refEntry && typeof refEntry.min === "number" && "max" in refEntry && typeof refEntry.max === "number")) {
-                error("Setting '" + key + "' has no min or max value");
-            }
 
-            if (providedSettings[key] > refEntry.max) {
+            if ("max" in refEntry && refEntry.max !== undefined && providedSettings[key] > refEntry.max!) {
                 error("Value for '" + key + "' must not exceed " + refEntry.max + "%");
             }
-            if (providedSettings[key] < refEntry.min) {
+            if ("min" in refEntry && refEntry.min !== undefined && providedSettings[key] < refEntry.min!) {
                 error("Value for '" + key + "' must be higher than " + refEntry.min + "%");
             }
             if (refEntry.values === "__int__") {

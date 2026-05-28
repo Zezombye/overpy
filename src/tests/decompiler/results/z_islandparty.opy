@@ -357,7 +357,6 @@ globalvar symTimeToReachTheColorHud 76
 globalvar symColoredSpheresEffectsAndText 77
 globalvar symVictims 78
 
-
 #Player variables
 
 playervar queenPoints 0
@@ -427,7 +426,6 @@ playervar symOrdinalPosHud 64
 playervar symIn 65
 playervar sombraHackedPostion 66
 
-
 #Subroutine names
 
 subroutine gameModeDescriptionMessages 0
@@ -436,10 +434,8 @@ subroutine restartStats 2
 subroutine symTheColorIsSelectedTrigger 3
 subroutine symScoring 4
 
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, A or "", "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
-
 
 rule "Is in setup {GLOBAL}":
     @Condition isInSetup() == true
