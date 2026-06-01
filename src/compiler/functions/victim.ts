@@ -21,10 +21,4 @@ import { currentRuleEvent } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.victim = function (content) {
-    if (["global", "eachPlayer", "playerDealtHealing", "playerReceivedHealing", "playerJoined", "playerLeft"].includes(currentRuleEvent)) {
-        error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
-    }
-
-    return content;
-};
+astParsingFunctions.victim = astParsingFunctions.eventPlayer;

@@ -17,8 +17,10 @@
 
 "use strict";
 
-import { currentRuleEvent } from "../../globalVars";
-import { astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { enableOptimization, subroutines } from "../../globalVars";
+import {Subroutine} from "../../types";
+import { areAstsAlwaysEqual, Ast, astContainsRandom, astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
+import { parseOpyMacro } from "../../utils/compilation";
+import { astToString, error } from "../../utils/logging";
 
-astParsingFunctions.healee = astParsingFunctions.eventPlayer;
+astParsingFunctions.async = astParsingFunctions.__callSubroutine__;

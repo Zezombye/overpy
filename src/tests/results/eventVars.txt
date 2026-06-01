@@ -1,0 +1,102 @@
+variables {
+    global:
+        0: A
+}
+
+subroutines {
+    0: epSub2
+    1: epSub
+    2: globalSub
+    3: actuallyEpSub
+    4: recursion2
+    5: recursion1
+}
+
+rule ("Subroutine epSub2") {
+    event {
+        Subroutine;
+        epSub2;
+    }
+    actions {
+        Set Global Variable(A, Event Player);
+    }
+}
+
+rule ("Subroutine epSub") {
+    event {
+        Subroutine;
+        epSub;
+    }
+    actions {
+        Set Global Variable(A, Event Player);
+    }
+}
+
+rule ("Subroutine globalSub") {
+    event {
+        Subroutine;
+        globalSub;
+    }
+    actions {
+        Call Subroutine(epSub2);
+    }
+}
+
+rule ("Subroutine actuallyEpSub") {
+    event {
+        Subroutine;
+        actuallyEpSub;
+    }
+    actions {
+        Call Subroutine(epSub2);
+    }
+}
+
+rule ("Subroutine recursion1") {
+    event {
+        Subroutine;
+        recursion1;
+    }
+    actions {
+        Call Subroutine(recursion2);
+    }
+}
+
+rule ("Subroutine recursion2") {
+    event {
+        Subroutine;
+        recursion2;
+    }
+    actions {
+        Set Global Variable(A, Event Damage);
+        Call Subroutine(recursion1);
+    }
+}
+
+rule ("global") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "should throw warning"
+        Call Subroutine(epSub);
+        "should also throw warning"
+        Call Subroutine(globalSub);
+    }
+}
+
+rule ("ep") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        "should not throw warning"
+        Call Subroutine(actuallyEpSub);
+        Set Global Variable(A, Event Was Critical Hit);
+        "should throw warning"
+        Call Subroutine(recursion1);
+    }
+}
+

@@ -17,14 +17,66 @@
 
 "use strict";
 
-import { currentRuleEvent } from "../../globalVars";
+import { currentRuleEvent, subroutines } from "../../globalVars";
+import {Subroutine} from "../../types";
 import { astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { error, warn } from "../../utils/logging";
+import {getRuleEventCategories} from "../../utils/other";
 
+//Generic function for all the event-related values
 astParsingFunctions.eventPlayer = function (content) {
-    if (currentRuleEvent === "global") {
-        error("Cannot use 'eventPlayer' with rule event 'global'");
-    }
 
+    let categories = {
+        eventPlayer: ["player"],
+
+        attacker: ["damage"],
+        victim: ["damage"],
+        eventDamage: ["damage"],
+        eventWasEnvironment: ["damage"],
+
+        healer: ["healing"],
+        healee: ["healing"],
+        eventHealing: ["healing"],
+        eventWasHealthPack: ["healing"],
+
+        eventWasCriticalHit: ["damageOrHealing"],
+        eventAbility: ["damageOrHealing"],
+        eventDirection: ["damageOrHealing"],
+    }[content.name];
+
+    let ruleEventCategories: string[] | undefined = getRuleEventCategories(currentRuleEvent);
+
+    if (currentRuleEvent === "__subroutine__") {
+        let parent = content.parent;
+        while (parent?.parent) {
+            parent = parent.parent;
+        }
+    
+        if (parent?.name === "__rule__") {
+            if (parent.ruleAttributes?.subroutineName) {
+                let subroutine: Subroutine = subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
+                if (categories?.includes("player")) {
+                    subroutine.hasEventPlayerVars = true;
+                }
+                if (categories?.includes("damage")) {
+                    subroutine.hasEventDamageVars = true;
+                }
+                if (categories?.includes("healing")) {
+                    subroutine.hasEventHealingVars = true;
+                }
+                if (categories?.includes("damageOrHealing")) {
+                    subroutine.hasEventDamageOrHealingVars = true;
+                }
+            }
+        }
+    } else {
+        if (ruleEventCategories && categories && !categories.some(c => ruleEventCategories.includes(c))) {
+            if (["eventPlayer", "attacker", "victim", "healer", "healee"].includes(content.name)) {
+                error("Cannot use '"+content.name+"' with rule event '"+currentRuleEvent+"'");
+            } else {
+                warn("w_mismatched_event", "Cannot use '"+content.name+"' with rule event '"+currentRuleEvent+"'");
+            }
+        }
+    }
     return content;
 };

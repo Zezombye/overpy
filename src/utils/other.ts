@@ -120,3 +120,22 @@ export function getUniqueNumber(): number {
     incrementUniqueNumber();
     return uniqueNumber;
 }
+
+export function getRuleEventCategories(ruleEvent: string): ("player" | "damage" | "healing" | "damageOrHealing")[] {
+    return {
+        global: [],
+        eachPlayer: ["player"],
+        playerDealtDamage: ["player", "damage"],
+        playerDealtFinalBlow: ["player", "damage"],
+        playerDealtHealing: ["player", "healing"],
+        playerDealtKnockback: ["player", "damageOrHealing", "damage", "healing"],
+        playerDied: ["player", "damage"],
+        playerEarnedElimination: ["player", "damage"],
+        playerJoined: ["player"],
+        playerLeft: ["player"],
+        playerTookDamage: ["player", "damage"],
+        playerReceivedHealing: ["player", "healing"],
+        playerReceivedKnockback: ["player", "damageOrHealing", "damage", "healing"],
+        __subroutine__: ["player", "damageOrHealing", "damage", "healing"],
+    }[ruleEvent] as ("player" | "damage" | "healing" | "damageOrHealing")[] || [];
+}

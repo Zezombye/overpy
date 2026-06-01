@@ -73,7 +73,7 @@ export async function compile(
 }> {
     const t0 = performance.now();
 
-    if (DEBUG_PROFILER) console.profile();
+    if (DEBUG_PROFILER) (console as any).profile();
     await initializeQuickJSRuntime();
     resetGlobalVariables(language);
     _rootPath = _rootPath.trim().replaceAll("\\", "/");
@@ -293,7 +293,7 @@ rule "Disable inspector":
         spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
     }
 
-    if (DEBUG_PROFILER) console.profileEnd();
+    if (DEBUG_PROFILER) (console as any).profileEnd();
     if (DEBUG_MODE || DEBUG_PROFILER) {
         var t1 = performance.now();
         console.log("Compilation time: " + (t1 - t0) + "ms");
@@ -365,6 +365,26 @@ function compileRules(astRules: Ast[]) {
     if (DEBUG_MODE) {
         console.log(parsedAstRules);
     }
+    
+    //Propagate the subroutine event info to the calling subroutines
+    let hasModification = false;
+    do {
+        hasModification = false;
+        for (let subroutine of subroutines) {
+            for (let calledSubroutineName of subroutine.callsSubroutines) {
+                let calledSubroutine = subroutines.find((s) => s.name === calledSubroutineName);
+                if (!calledSubroutine) {
+                    error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
+                }
+                for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars"] as const) {
+                    if (calledSubroutine![key] && !subroutine[key]) {
+                        subroutine[key] = true;
+                        hasModification = true;
+                    }
+                }
+            }
+        }
+    } while (hasModification);
     
     //Reset optimization settings before the second pass astRulesToWs
     setOptimizationEnabled(true);

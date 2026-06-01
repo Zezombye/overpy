@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros, setOptimizationEnabled, setOptimizationForSize, setOptimizeStrict, enableOptimization, optimizeForSize, optimizeStrict } from "../globalVars";
+import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros, setOptimizationEnabled, setOptimizationForSize, setOptimizeStrict, enableOptimization, optimizeForSize, optimizeStrict, defaultSubroutineNames } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, astParsingFunctions, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
@@ -28,6 +28,7 @@ import "./functions/__add__.ts";
 import "./functions/__and__.ts";
 import "./functions/__arrayContains__";
 import "./functions/__assignTo__.ts";
+import "./functions/__callSubroutine__.ts";
 import "./functions/__customString__";
 import "./functions/__del__.ts";
 import "./functions/__dict__.ts";
@@ -103,9 +104,9 @@ import "./functions/any.ts";
 import "./functions/arrayToString.ts";
 import "./functions/asin.ts";
 import "./functions/asinDeg.ts";
+import "./functions/async.ts";
 import "./functions/atan2.ts";
 import "./functions/atan2Deg.ts";
-import "./functions/attacker.ts";
 import "./functions/break.ts";
 import "./functions/ceil.ts";
 import "./functions/chaseAtRate";
@@ -127,14 +128,26 @@ import "./functions/decompressVectors";
 import "./functions/directionTowards.ts";
 import "./functions/distance.ts";
 import "./functions/dotProduct.ts";
+
+//Note: eventPlayer MUST be before the other event-related functions otherwise the overrides don't work
 import "./functions/eventPlayer.ts";
+import "./functions/attacker.ts";
+import "./functions/eventAbility.ts";
+import "./functions/eventDamage.ts";
+import "./functions/eventDirection.ts";
+import "./functions/eventHealing.ts";
+import "./functions/eventWasCriticalHit.ts";
+import "./functions/eventWasEnvironment.ts";
+import "./functions/eventWasHealthPack.ts";
+import "./functions/healee.ts";
+import "./functions/healer.ts";
+import "./functions/victim.ts";
+
 import "./functions/floor.ts";
 import "./functions/getClosestPlayer";
 import "./functions/getCurrentMap";
 import "./functions/getFarthestPlayer";
 import "./functions/getOppositeTeam.ts";
-import "./functions/healee.ts";
-import "./functions/healer.ts";
 import "./functions/hsl";
 import "./functions/hudText";
 import "./functions/len.ts";
@@ -161,12 +174,12 @@ import "./functions/tan.ts";
 import "./functions/tanDeg.ts";
 import "./functions/vect.ts";
 import "./functions/vectorTowards.ts";
-import "./functions/victim.ts";
 import "./functions/wait";
 import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
 import { parseAstMacro, parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 import { upperCaseToCamelCase } from "../utils/other";
+import {addSubroutine} from "../utils/varNames.ts";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
@@ -335,6 +348,12 @@ export function parseAstRules(rules: Ast[]) {
             }
             if (rule.ruleAttributes.name === undefined) {
                 rule.ruleAttributes.name = "Subroutine " + rule.ruleAttributes.subroutineName;
+            }
+            
+            if (defaultSubroutineNames.includes(rule.ruleAttributes.subroutineName)) {
+                //Add the subroutine as it doesn't already exist (else it would've been caught by the for)
+                //However, only do this if it is a default subroutine name
+                addSubroutine(rule.ruleAttributes.subroutineName, defaultSubroutineNames.indexOf(rule.ruleAttributes.subroutineName), rule.fileStack);
             }
             rule.name = "__rule__";
             rule.originalName = "__def__";

@@ -39408,7 +39408,8 @@ function addSubroutine(content, index, fileStack7, isFromDefStatement = false) {
     name: content,
     index: index ?? subroutines.length,
     fileStack: fileStack7,
-    isFromDefStatement
+    isFromDefStatement,
+    callsSubroutines: []
   });
 }
 function translateNameToAvoidKeywords(initialName, nameType) {
@@ -43906,6 +43907,23 @@ astParsingFunctions.__assignTo__ = function(content) {
   return content;
 };
 
+// src/compiler/functions/__callSubroutine__.ts
+astParsingFunctions.__callSubroutine__ = function(content) {
+  let parent = content.parent;
+  while (parent?.parent) {
+    parent = parent.parent;
+  }
+  if (parent?.name === "__rule__") {
+    if (parent.ruleAttributes?.subroutineName) {
+      let subroutine = subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName);
+      if (!subroutine.callsSubroutines.includes(content.args[0].name)) {
+        subroutine.callsSubroutines.push(content.args[0].name);
+      }
+    }
+  }
+  return content;
+};
+
 // src/compiler/functions/__customString__.ts
 astParsingFunctions.__customString__ = function(content) {
   if (!content.stringTokens) {
@@ -46022,6 +46040,9 @@ astParsingFunctions.asinDeg = function(content) {
   return content;
 };
 
+// src/compiler/functions/async.ts
+astParsingFunctions.async = astParsingFunctions.__callSubroutine__;
+
 // src/compiler/functions/atan2.ts
 astParsingFunctions.atan2 = function(content) {
   if (enableOptimization) {
@@ -46038,14 +46059,6 @@ astParsingFunctions.atan2Deg = function(content) {
     if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
       return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue) * (Math.PI / 180));
     }
-  }
-  return content;
-};
-
-// src/compiler/functions/attacker.ts
-astParsingFunctions.attacker = function(content) {
-  if (["global", "eachPlayer", "playerDealtHealing", "playerReceivedHealing", "playerJoined", "playerLeft"].includes(currentRuleEvent)) {
-    error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
   }
   return content;
 };
@@ -46595,11 +46608,87 @@ astParsingFunctions.dotProduct = function(content) {
 
 // src/compiler/functions/eventPlayer.ts
 astParsingFunctions.eventPlayer = function(content) {
-  if (currentRuleEvent === "global") {
-    error("Cannot use 'eventPlayer' with rule event 'global'");
+  let categories = {
+    eventPlayer: ["player"],
+    attacker: ["damage"],
+    victim: ["damage"],
+    eventDamage: ["damage"],
+    eventWasEnvironment: ["damage"],
+    healer: ["healing"],
+    healee: ["healing"],
+    eventHealing: ["healing"],
+    eventWasHealthPack: ["healing"],
+    eventWasCriticalHit: ["damageOrHealing"],
+    eventAbility: ["damageOrHealing"],
+    eventDirection: ["damageOrHealing"]
+  }[content.name];
+  let ruleEventCategories = getRuleEventCategories(currentRuleEvent);
+  if (currentRuleEvent === "__subroutine__") {
+    let parent = content.parent;
+    while (parent?.parent) {
+      parent = parent.parent;
+    }
+    if (parent?.name === "__rule__") {
+      if (parent.ruleAttributes?.subroutineName) {
+        let subroutine = subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName);
+        if (categories?.includes("player")) {
+          subroutine.hasEventPlayerVars = true;
+        }
+        if (categories?.includes("damage")) {
+          subroutine.hasEventDamageVars = true;
+        }
+        if (categories?.includes("healing")) {
+          subroutine.hasEventHealingVars = true;
+        }
+        if (categories?.includes("damageOrHealing")) {
+          subroutine.hasEventDamageOrHealingVars = true;
+        }
+      }
+    }
+  } else {
+    if (ruleEventCategories && categories && !categories.some((c) => ruleEventCategories.includes(c))) {
+      if (["eventPlayer", "attacker", "victim", "healer", "healee"].includes(content.name)) {
+        error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
+      } else {
+        warn("w_mismatched_event", "Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
+      }
+    }
   }
   return content;
 };
+
+// src/compiler/functions/attacker.ts
+astParsingFunctions.attacker = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventAbility.ts
+astParsingFunctions.eventAbility = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventDamage.ts
+astParsingFunctions.eventDamage = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventDirection.ts
+astParsingFunctions.eventDirection = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventHealing.ts
+astParsingFunctions.eventHealing = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventWasCriticalHit.ts
+astParsingFunctions.eventWasCriticalHit = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventWasEnvironment.ts
+astParsingFunctions.eventWasEnvironment = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/eventWasHealthPack.ts
+astParsingFunctions.eventWasHealthPack = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/healee.ts
+astParsingFunctions.healee = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/healer.ts
+astParsingFunctions.healer = astParsingFunctions.eventPlayer;
+
+// src/compiler/functions/victim.ts
+astParsingFunctions.victim = astParsingFunctions.eventPlayer;
 
 // src/compiler/functions/floor.ts
 astParsingFunctions.floor = function(content) {
@@ -46651,22 +46740,6 @@ astParsingFunctions.getOppositeTeam = function(content) {
         error("Unknown team '" + content.args[0].args[0].name + "'", content.args[0].fileStack);
       }
     }
-  }
-  return content;
-};
-
-// src/compiler/functions/healee.ts
-astParsingFunctions.healee = function(content) {
-  if (["global", "eachPlayer", "playerTookDamage", "playerDealtDamage", "playerDealtFinalBlow", "playerDied", "playerEarnedElimination", "playerJoined", "playerLeft", "playerDealtKnockback", "playerReceivedKnockback"].includes(currentRuleEvent)) {
-    error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
-  }
-  return content;
-};
-
-// src/compiler/functions/healer.ts
-astParsingFunctions.healer = function(content) {
-  if (["global", "eachPlayer", "playerTookDamage", "playerDealtDamage", "playerDealtFinalBlow", "playerDied", "playerEarnedElimination", "playerJoined", "playerLeft", "playerDealtKnockback", "playerReceivedKnockback"].includes(currentRuleEvent)) {
-    error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
   }
   return content;
 };
@@ -47134,14 +47207,6 @@ astParsingFunctions.vectorTowards = function(content) {
   return content;
 };
 
-// src/compiler/functions/victim.ts
-astParsingFunctions.victim = function(content) {
-  if (["global", "eachPlayer", "playerDealtHealing", "playerReceivedHealing", "playerJoined", "playerLeft"].includes(currentRuleEvent)) {
-    error("Cannot use '" + content.name + "' with rule event '" + currentRuleEvent + "'");
-  }
-  return content;
-};
-
 // src/compiler/functions/wait.ts
 astParsingFunctions.wait = function(content) {
   if (enableOptimization && optimizeForSize2) {
@@ -47354,6 +47419,9 @@ function parseAstRules(rules) {
       }
       if (rule.ruleAttributes.name === void 0) {
         rule.ruleAttributes.name = "Subroutine " + rule.ruleAttributes.subroutineName;
+      }
+      if (defaultSubroutineNames.includes(rule.ruleAttributes.subroutineName)) {
+        addSubroutine(rule.ruleAttributes.subroutineName, defaultSubroutineNames.indexOf(rule.ruleAttributes.subroutineName), rule.fileStack);
       }
       rule.name = "__rule__";
       rule.originalName = "__def__";
@@ -63979,6 +64047,7 @@ function astRulesToWs(rules) {
     result += ") {\n";
     result += tabLevel(1) + tows("__event__", ruleKw) + " {\n";
     result += tabLevel(2) + tows(rule.ruleAttributes.event, eventKw) + ";\n";
+    setCurrentRuleEvent(rule.ruleAttributes.event);
     if (rule.ruleAttributes.eventTeam) {
       result += tabLevel(2) + tows(rule.ruleAttributes.eventTeam, eventTeamKw) + ";\n";
     }
@@ -64282,6 +64351,22 @@ function astToWs(content) {
       }
       if (literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > literalMax) {
         content.args[i] = new Ast2("abs", [content.args[i]]);
+      }
+    }
+  }
+  if (content.name === "async" || content.name === "__callSubroutine__") {
+    let subroutineName = content.args[0].name;
+    let subroutine = subroutines.find((s) => s.name === subroutineName);
+    if (subroutine) {
+      let categories = getRuleEventCategories(currentRuleEvent);
+      if (subroutine.hasEventPlayerVars && !categories.includes("player")) {
+        warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event player variables, from a " + currentRuleEvent + " rule", content.fileStack);
+      } else if (subroutine.hasEventDamageOrHealingVars && !categories.includes("damageOrHealing")) {
+        warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage or healing variables, from a " + currentRuleEvent + " rule", content.fileStack);
+      } else if (subroutine.hasEventDamageVars && !categories.includes("damage")) {
+        warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage variables, from a " + currentRuleEvent + " rule", content.fileStack);
+      } else if (subroutine.hasEventHealingVars && !categories.includes("healing")) {
+        warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event healing variables, from a " + currentRuleEvent + " rule", content.fileStack);
       }
     }
   }
@@ -65203,6 +65288,24 @@ function compileRules(astRules) {
   if (DEBUG_MODE) {
     console.log(parsedAstRules);
   }
+  let hasModification = false;
+  do {
+    hasModification = false;
+    for (let subroutine of subroutines) {
+      for (let calledSubroutineName of subroutine.callsSubroutines) {
+        let calledSubroutine = subroutines.find((s) => s.name === calledSubroutineName);
+        if (!calledSubroutine) {
+          error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
+        }
+        for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars"]) {
+          if (calledSubroutine[key] && !subroutine[key]) {
+            subroutine[key] = true;
+            hasModification = true;
+          }
+        }
+      }
+    }
+  } while (hasModification);
   setOptimizationEnabled2(true);
   setOptimizeStrict2(false);
   setOptimizationForSize2(false);
@@ -67674,6 +67777,24 @@ function isVarChar(c) {
 function getUniqueNumber() {
   incrementUniqueNumber();
   return uniqueNumber;
+}
+function getRuleEventCategories(ruleEvent) {
+  return {
+    global: [],
+    eachPlayer: ["player"],
+    playerDealtDamage: ["player", "damage"],
+    playerDealtFinalBlow: ["player", "damage"],
+    playerDealtHealing: ["player", "healing"],
+    playerDealtKnockback: ["player", "damageOrHealing", "damage", "healing"],
+    playerDied: ["player", "damage"],
+    playerEarnedElimination: ["player", "damage"],
+    playerJoined: ["player"],
+    playerLeft: ["player"],
+    playerTookDamage: ["player", "damage"],
+    playerReceivedHealing: ["player", "healing"],
+    playerReceivedKnockback: ["player", "damageOrHealing", "damage", "healing"],
+    __subroutine__: ["player", "damageOrHealing", "damage", "healing"]
+  }[ruleEvent] || [];
 }
 
 // src/types.d.ts

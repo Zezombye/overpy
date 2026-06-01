@@ -31,6 +31,11 @@ export type Subroutine = {
     fileStack: FileStackMember[];
     index: number;
     isFromDefStatement: boolean;
+    hasEventPlayerVars?: boolean;
+    hasEventDamageVars?: boolean;
+    hasEventHealingVars?: boolean;
+    hasEventDamageOrHealingVars?: boolean;
+    callsSubroutines: string[];
 };
 
 export type LocalizableString = { guid?: string } & {

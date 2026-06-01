@@ -22,12 +22,12 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString, optimizeForSizeAggressive } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled, funcKw, valueKw, setOptimizeStrict, setOptimizationForSize, optimizeStrict, STR_MAX_LENGTH, STR_MAX_ARGS, currentRulePrefix, setCurrentRulePrefix, pushRulePrefixStack, popRulePrefixStack, rulePrefixTemplate, rootPath, rulePrefixTemplateFilestack, debugElementCount, replacementForEmptyString, optimizeForSizeAggressive, subroutines, currentRuleEvent, setCurrentRuleEvent } from "../globalVars";
 import { StringToken } from "../types";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0, numValue, areAstsAlwaysEqual, getAstForCustomString, isDefinitelyTruthy, isDefinitelyFalsy, getAstForBool, getAstForEmptyArray, astIsInLambdaFunction } from "../utils/ast";
 import { parseOpyMacro, trimNb } from "../utils/compilation";
-import { debug, error, functionNameToString } from "../utils/logging";
-import { getFileStackCopy, tabLevel, toTitleCase } from "../utils/other";
+import { debug, error, functionNameToString, warn } from "../utils/logging";
+import { getFileStackCopy, getRuleEventCategories, tabLevel, toTitleCase } from "../utils/other";
 import { escapeBadWords, escapeString, getUtf8Length } from "../utils/strings";
 import { tows } from "../utils/translation";
 import { isTypeSuitable } from "../utils/types";
@@ -74,6 +74,7 @@ export function astRulesToWs(rules: Ast[]) {
         //Rule event
         result += tabLevel(1) + tows("__event__", ruleKw) + " {\n";
         result += tabLevel(2) + tows(rule.ruleAttributes.event, eventKw) + ";\n";
+        setCurrentRuleEvent(rule.ruleAttributes.event);
         if (rule.ruleAttributes.eventTeam) {
             result += tabLevel(2) + tows(rule.ruleAttributes.eventTeam, eventTeamKw) + ";\n";
         }
@@ -403,6 +404,24 @@ function astToWs(content: Ast): string {
             }
             if (literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > literalMax) {
                 content.args[i] = new Ast("abs", [content.args[i]]);
+            }
+        }
+    }
+
+    //Check for subroutine event mismatching
+    if (content.name === "async" || content.name === "__callSubroutine__") {
+        let subroutineName = content.args[0].name;
+        let subroutine = subroutines.find(s => s.name === subroutineName);
+        if (subroutine) {
+            let categories = getRuleEventCategories(currentRuleEvent);
+            if (subroutine.hasEventPlayerVars && !categories.includes("player")) {
+                warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event player variables, from a "+currentRuleEvent+" rule", content.fileStack);
+            } else if (subroutine.hasEventDamageOrHealingVars && !categories.includes("damageOrHealing")) {
+                warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage or healing variables, from a "+currentRuleEvent+" rule", content.fileStack);
+            } else if (subroutine.hasEventDamageVars && !categories.includes("damage")) {
+                warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage variables, from a "+currentRuleEvent+" rule", content.fileStack);
+            } else if (subroutine.hasEventHealingVars && !categories.includes("healing")) {
+                warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event healing variables, from a "+currentRuleEvent+" rule", content.fileStack);
             }
         }
     }

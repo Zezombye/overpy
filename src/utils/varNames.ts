@@ -67,6 +67,7 @@ export function addSubroutine(content: string, index: number | null, fileStack: 
         index: index ?? subroutines.length,
         fileStack: fileStack,
         isFromDefStatement: isFromDefStatement,
+        callsSubroutines: [],
     });
 }
 
