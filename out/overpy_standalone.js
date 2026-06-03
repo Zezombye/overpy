@@ -4187,8 +4187,7 @@ var mapKw = (
         "skirmish"
       ],
       "variants": {
-        "evening": "972777519512068292",
-        "morning": "972777519512068154"
+        "default": "972777519512099996"
       },
       "en-US": "Watchpoint: Gibraltar",
       "es-ES": "Observatorio: Gibraltar",
@@ -65582,9 +65581,10 @@ function compileCustomGameSettings(customGameSettings) {
               let mapVariants = mapKw[mapName].variants ?? {};
               for (var variant of map[mapName]) {
                 if (!(variant in mapVariants)) {
-                  error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                  variants.push(variant + "");
+                } else {
+                  variants.push(mapVariants[variant]);
                 }
-                variants.push(mapVariants[variant]);
               }
               encounteredMaps.push(mapName);
               result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));
@@ -71155,11 +71155,12 @@ function decompileCustomGameSettings(content) {
                   for (var variant of variants) {
                     var variantName = Object.keys(mapKw[mapName].variants).filter((x) => mapKw[mapName].variants[x] === variant);
                     if (variantName.length === 0) {
-                      error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                      mapVariants.push(variant);
+                    } else {
+                      mapVariants.push(variantName[0]);
                     }
-                    mapVariants.push(variantName[0]);
                   }
-                  if (mapVariants.length === Object.keys(mapKw[mapName].variants).length) {
+                  if (mapVariants.length === Object.keys(mapKw[mapName].variants).length && mapVariants.every((x) => Object.keys(mapKw[mapName].variants).includes(x))) {
                     result[opyCategory][opyGamemode][opyPropName].push(mapName);
                   } else {
                     var mapObj = {};

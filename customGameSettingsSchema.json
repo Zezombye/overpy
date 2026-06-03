@@ -1367,8 +1367,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -2733,8 +2732,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -4147,8 +4145,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -4291,8 +4288,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -10644,8 +10640,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -11389,8 +11384,7 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "evening",
-                                                                "morning"
+                                                                "default"
                                                             ]
                                                         }
                                                     }

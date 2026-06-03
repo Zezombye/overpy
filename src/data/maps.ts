@@ -2220,8 +2220,7 @@ export const mapKw: Record<string, import("../types").Map> =
             "skirmish"
         ],
         "variants": {
-            "evening": "972777519512068292",
-            "morning": "972777519512068154"
+            "default": "972777519512099996",
         },
         "en-US": "Watchpoint: Gibraltar",
         "es-ES": "Observatorio: Gibraltar",

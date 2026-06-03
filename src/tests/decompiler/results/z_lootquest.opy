@@ -34,7 +34,12 @@ settings {
                 "route66",
                 "templeOfAnubis",
                 "volskaya",
-                "watchpointGibraltar"
+                {
+                    "watchpointGibraltar": [
+                        "972777519512068154",
+                        "972777519512068292"
+                    ]
+                }
             ]
         },
         "general": {

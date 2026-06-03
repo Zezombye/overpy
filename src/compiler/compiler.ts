@@ -702,9 +702,11 @@ export function compileCustomGameSettings(customGameSettings: any) {
                             let mapVariants = mapKw[mapName].variants ?? {};
                             for (var variant of map[mapName]) {
                                 if (!(variant in mapVariants)) {
-                                    error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                                    variants.push(variant+"");
+                                    //error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                                } else {
+                                    variants.push(mapVariants[variant]);
                                 }
-                                variants.push(mapVariants[variant]);
                             }
                             encounteredMaps.push(mapName);
                             result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));

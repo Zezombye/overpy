@@ -342,11 +342,13 @@ function decompileCustomGameSettings(content: string) {
                                     for (var variant of variants) {
                                         var variantName = Object.keys(mapKw[mapName].variants as Record<string, string>).filter((x) => (mapKw[mapName].variants as Record<string, string>)[x] === variant);
                                         if (variantName.length === 0) {
-                                            error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                                            //error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                                            mapVariants.push(variant);
+                                        } else {
+                                            mapVariants.push(variantName[0]);
                                         }
-                                        mapVariants.push(variantName[0]);
                                     }
-                                    if (mapVariants.length === Object.keys(mapKw[mapName].variants as Record<string, string>).length) {
+                                    if (mapVariants.length === Object.keys(mapKw[mapName].variants as Record<string, string>).length && mapVariants.every((x) => Object.keys(mapKw[mapName].variants as Record<string, string>).includes(x))) {
                                         result[opyCategory][opyGamemode][opyPropName].push(mapName);
                                     } else {
                                         var mapObj: Record<string, string[]> = {};
