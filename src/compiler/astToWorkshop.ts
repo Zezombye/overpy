@@ -575,9 +575,9 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
         }
         content.args = content.args[0].args;
         content.name = {
-            ".getHitPosition": "__raycastHitPosition__",
-            ".getPlayerHit": "__raycastHitPlayer__",
-            ".getNormal": "__raycastHitNormal__",
+            ".getHitPosition": "raycastHitPosition",
+            ".getPlayerHit": "raycastHitPlayer",
+            ".getNormal": "raycastHitNormal",
         }[content.name as ".getHitPosition" | ".getPlayerHit" | ".getNormal"];
     } else if (content.name === "__for__") {
         var newName = "";
@@ -692,7 +692,7 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
             this.nbElements += this.currentRuleConditions.length - 1;
             return result;
         }
-    } else if (content.name === "stopChasingVariable") {
+    } else if (content.name === "stopChasing") {
         var newName = "";
         if (content.args[0].name === "__globalVar__") {
             newName = "GlobalVariable";

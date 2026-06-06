@@ -303,7 +303,7 @@ def RestoreTrueHeroAndReturnToNormal():
     eventPlayer.startForcingHero(eventPlayer.trueHero)
     waitUntil(eventPlayer.getHero() == eventPlayer.trueHero, 1000000)
     eventPlayer.setUltCharge(0)
-    async(OverwriteHeroSwapUltTransfer, AsyncBehavior.NOOP)
+    startRule(OverwriteHeroSwapUltTransfer, StartRuleBehavior.NOOP)
     eventPlayer.stopForcingCurrentHero()
     awaitingReturnPlayers.remove(eventPlayer)
     ProcessNewPriorityList()
@@ -322,7 +322,7 @@ def UltEventHandler_Preparing():
     eventPlayer.ultimateState = "USING_ULT"
     goto lbl_0
     eventPlayer.ultimateState = "DEAD"
-    async(RestoreTrueHeroAndReturnToNormal, AsyncBehavior.NOOP)
+    startRule(RestoreTrueHeroAndReturnToNormal, StartRuleBehavior.NOOP)
     lbl_0:
 
 
@@ -366,10 +366,10 @@ def UltEventHandler_Using():
     if eventPlayer.extendedUltDuration > 0:
         eventPlayer.ultimateState = "LINGERING"
         goto lbl_0
-    async(RestoreTrueHeroAndReturnToNormal, AsyncBehavior.NOOP)
+    startRule(RestoreTrueHeroAndReturnToNormal, StartRuleBehavior.NOOP)
     goto lbl_1
     eventPlayer.ultimateState = "DEAD"
-    async(RestoreTrueHeroAndReturnToNormal, AsyncBehavior.NOOP)
+    startRule(RestoreTrueHeroAndReturnToNormal, StartRuleBehavior.NOOP)
     lbl_0:
     lbl_1:
 
@@ -379,7 +379,7 @@ def UltEventHandler_Lingering():
     
     goto loc+[2, 0, 0][["LINGER_EXPIRED", "DIED"].index(eventPlayer.ultimateEvent) + 1]
     eventPlayer.disallowButton(Button.ULTIMATE)
-    async(RestoreTrueHeroAndReturnToNormal, AsyncBehavior.NOOP)
+    startRule(RestoreTrueHeroAndReturnToNormal, StartRuleBehavior.NOOP)
 
 
 def UltimateEventHandler():
@@ -609,7 +609,7 @@ rule "[trackAbilityLockout.del] When a player becomes hacked, start ability lock
     @Event eachPlayer
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
     
-    stopChasingVariable(eventPlayer.hackAbilityLockout)
+    stopChasing(eventPlayer.hackAbilityLockout)
     #Ensure that we don't overwrite the EMP lockout duration
     if eventPlayer.hackAbilityLockout < 1.5:
         eventPlayer.hackAbilityLockout = 1.5
@@ -617,7 +617,7 @@ rule "[trackAbilityLockout.del] When a player becomes hacked, start ability lock
     #Handle cleansing
     waitUntil(not eventPlayer.hasStatus(Status.HACKED) or eventPlayer.hackAbilityLockout <= 0, 1000000)
     eventPlayer.hackAbilityLockout = 0
-    stopChasingVariable(eventPlayer.hackAbilityLockout)
+    stopChasing(eventPlayer.hackAbilityLockout)
 
 
 rule "[trackAbilityLockout.del] When a player is hit by EMP, start ability lockout timer":
@@ -625,7 +625,7 @@ rule "[trackAbilityLockout.del] When a player is hit by EMP, start ability locko
     @Condition attacker.getHero() == Hero.SOMBRA
     @Condition eventAbility == Button.ULTIMATE
     
-    stopChasingVariable(eventPlayer.hackAbilityLockout)
+    stopChasing(eventPlayer.hackAbilityLockout)
     eventPlayer.hackAbilityLockout = 3
     chaseAtRate(eventPlayer.hackAbilityLockout, 0, 1, ChaseRateReeval.NONE)
 
@@ -634,7 +634,7 @@ rule "[trackAbilityLockout.del] When hackAbilityLockout reaches 0, stop chasing 
     @Event eachPlayer
     @Condition eventPlayer.hackAbilityLockout <= 0
     
-    stopChasingVariable(eventPlayer.hackAbilityLockout)
+    stopChasing(eventPlayer.hackAbilityLockout)
 
 
 rule "[stateMachine.del] Perform actions when stalling is activated":
@@ -804,7 +804,7 @@ rule "When the lingering state begins, start a timer":
     waitUntil(eventPlayer.extendedUltPercentLeft == 0 or eventPlayer.ultimateState != "LINGERING", 1000000)
     if eventPlayer.extendedUltPercentLeft > 0:
         eventPlayer.extendedUltPercentLeft = 0
-        stopChasingVariable(eventPlayer.extendedUltPercentLeft)
+        stopChasing(eventPlayer.extendedUltPercentLeft)
     else:
         eventPlayer.ultimateEvent = "LINGER_EXPIRED"
         UltimateEventHandler()

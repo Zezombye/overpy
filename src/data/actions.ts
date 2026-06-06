@@ -5525,7 +5525,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Skip",
         "zh-TW": "Skip"
     },
-    "async": {
+    "startRule": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
@@ -5536,7 +5536,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "ifAlreadyExecuting",
                 "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
-                "type": "AsyncBehavior",
+                "type": "StartRuleBehavior",
                 "default": "RESTART"
             }
         ],

@@ -463,11 +463,11 @@ rule "lIIlllllIlIlllIllIIIlIIlll":
     IlllIllIIIlIIlIIIIlIlIIIIl = [[1, 3, 5, 4, 7, 2, 6, 8, 9], [1, 7, 5, 4, 6, 4, 3, 2, 9]]
     for lIIlllIllllIlIIIIlIllIIIlI in range(2):
         createEffect(getPlayers(Team.2), Effect.LIGHT_SHAFT, [Color.GREEN, Color.PURPLE][lIIlllIllllIlIIIIlIllIIIlI], IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], 1.75, EffectReeval.VISIBILITY)
-        createInWorldText(getPlayers(Team.2), "Teleporter {0}".format(lIIlllIllllIlIIIIlIllIIIlI + 1), raycast(IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI] + 2 * lllIllIlIlllIIIIlIIlIIllII, IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], null, null, false).getHitPosition() + lllIllIlIlllIIIIlIIlIIllII, 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+        createInWorldText(getPlayers(Team.2), "Teleporter {0}".format(lIIlllIllllIlIIIIlIllIIIlI + 1), raycastHitPosition(IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI] + 2 * lllIllIlIlllIIIIlIIlIIllII, IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], null, null, false) + lllIllIlIlllIIIIlIIlIIllII, 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     for lIIlllIllllIlIIIIlIllIIIlI in range(2, 10):
         createEffect(getPlayers(Team.2), Effect.RING, [Color.WHITE, Color.YELLOW, Color.BLUE, Color.RED, Color.GREEN, Color.SKY_BLUE, Color.ORANGE, Color.PURPLE][lIIlllIllllIlIIIIlIllIIIlI - 2], IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], 1.75, EffectReeval.VISIBILITY)
     for lIIlllIllllIlIIIIlIllIIIlI in range(2, 10):
-        createInWorldText(getPlayers(Team.2), ["Load Save State\r\n(Reload + Crouch: Load Item)", "Soul Stones\r\n(Summon Boss)", "Gamble\r\n(Buy Random Item)", "Imbue\r\n(Upgrade Equipped Item)", "Create Save Code\r\n(Reload + Crouch: Item Quick Save)", "Reroll Equipped Item\r\n(Reload + Crouch: Roll Back)", "Buy Back", "Start / Turn In Quest\r\n(Reload + Crouch: Abandon)"][lIIlllIllllIlIIIIlIllIIIlI - 2], raycast(IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI] + 2 * lllIllIlIlllIIIIlIIlIIllII, IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], null, null, false).getHitPosition() + lllIllIlIlllIIIIlIIlIIllII, 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+        createInWorldText(getPlayers(Team.2), ["Load Save State\r\n(Reload + Crouch: Load Item)", "Soul Stones\r\n(Summon Boss)", "Gamble\r\n(Buy Random Item)", "Imbue\r\n(Upgrade Equipped Item)", "Create Save Code\r\n(Reload + Crouch: Item Quick Save)", "Reroll Equipped Item\r\n(Reload + Crouch: Roll Back)", "Buy Back", "Start / Turn In Quest\r\n(Reload + Crouch: Abandon)"][lIIlllIllllIlIIIIlIllIIIlI - 2], raycastHitPosition(IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI] + 2 * lllIllIlIlllIIIIlIIlIIllII, IllIlIIIlIlIIIlIlllIIIllII[lIIlllIllllIlIIIIlIllIIIlI], null, null, false) + lllIllIlIlllIIIIlIIlIIllII, 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     createEffect(getPlayers(Team.2), Effect.RING, Color.AQUA, IlIlIIIlIIllllIllIlllllIll, 1.75, EffectReeval.VISIBILITY)
     createInWorldText(getPlayers(Team.2).filter(lambda player: player.IIIlIlIllIlllIllllIlIllIll <= 3), "Crouch here\r\nfor Instructions", IlIlIIIlIIllllIllIlllllIll + lllIllIlIlllIIIIlIIlIIllII, 3, Clip.NONE, WorldTextReeval.VISIBILITY, Color.AQUA)
     hudSubtext(getPlayers(Team.2).filter(lambda player: player.IlllIllIlIlllIlIlIIlIllIlI == 1 and not player.IIlIIIIIIllIIlIlIIIlllllIl), "{0}{1}{2}".format(" \r\nControl Scheme: Gamepad\r\n(Change with Reload + Jump)\r\n\r\nPick number: Primary Fire\r\n\r\n", "Increase current digit: Crouch\r\nLower current digit: Secondary Fire\r\n(Hold Jump to increase/lower by 2)\r\n\r\n", "{0}{1}{2}".format("Go to next digit: Ability 2\r\nGo to previous digit: Ability 1\r\n(Hold Jump to jump 4 digits)\r\n\r\n", "Confirm Code: Melee\r\nCancel: Ultimate\r\nReset Code: Reload + Ultimate\r\n\r\n", "Adjust for Field of View:\r\nAim at the center of the '0'\r\nand press Interact")), HudPosition.RIGHT, -2, Color.AQUA, HudReeval.VISIBILITY)
@@ -501,7 +501,7 @@ rule "IlIIIIIIlIIlIIIlIlIIIlIIlI":
         eventPlayer.lIIIIllIIIIIlIIIIllllIlIlI[IlllllIIlIIllIlIlIIIlIlIlI] = lIllIIlIlIIIIIlIIIlIlIlllI
     if not IllIIlIllllIIIllIlllIIlIIl:
         IllIIlIllllIIIllIlllIIlIIl = 1
-        async(lIIllIllllIlIIIlllIIllIllI, AsyncBehavior.NOOP)
+        startRule(lIIllIllllIlIIIlllIIllIllI, StartRuleBehavior.NOOP)
     startDamageModification(eventPlayer, eventPlayer, 0, DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.teleport(IlIlIIIlIIllllIllIlllllIll)
     IIIlllllIIIllllllIIllIlIIl = getTotalTimeElapsed() + 5
@@ -709,7 +709,7 @@ rule "IllIIIllllIlllIlIIllIlIlII":
     @Team 1
     @Condition eventPlayer.getHealth() == false
     
-    eventPlayer.IIllIIlllllllIlIIllIIIIIll = raycast(eventPlayer.getPosition() + Vector.UP, eventPlayer.getPosition() + vect(0, -29, 0), null, null, false).getHitPosition()
+    eventPlayer.IIllIIlllllllIlIIllIIIIIll = raycastHitPosition(eventPlayer.getPosition() + Vector.UP, eventPlayer.getPosition() + vect(0, -29, 0), null, null, false)
 
 
 rule "IllIlIlIllIllllIlIIllIIIII":
@@ -909,7 +909,7 @@ rule "IIllllIlIIlIIlIllllIllIIIl":
         return
     if eventPlayer.hasStatus(Status.ASLEEP) or eventPlayer.hasStatus(Status.FROZEN) or eventPlayer.hasStatus(Status.HACKED) or eventPlayer.hasStatus(Status.KNOCKED_DOWN) or eventPlayer.hasStatus(Status.STUNNED):
         return
-    eventPlayer.IIIIIlIlIlIllIlllllIIllIll = nearestWalkablePosition(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (eventPlayer.getFacingDirection() * (10 + eventPlayer.llllllIllIIlllllIlIIlIIllI[6] * 0.9)), null, null, false).getHitPosition() + eventPlayer.getFacingDirection() * -0.5)
+    eventPlayer.IIIIIlIlIlIllIlllllIIllIll = nearestWalkablePosition(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (eventPlayer.getFacingDirection() * (10 + eventPlayer.llllllIllIIlllllIlIIlIIllI[6] * 0.9)), null, null, false) + eventPlayer.getFacingDirection() * -0.5)
     lIIlIIlIlllIIlllIlIllIllIl()
     llIlIIIlIIlIIIIIllIlIIllIl()
     lllIlllIIIlIllllIIIIIIlIlI()
@@ -1472,10 +1472,10 @@ rule "lIIIlIIIlllIIlIlIllllIIlII":
         eventPlayer.lIllIlIIlllIllIlIlllllIIII += 30 * IlllllIIlIIllIlIlIIIlIlIlI * (1 - 2 * (IlllllIIlIIllIlIlIIIlIlIlI % 2))
         eventPlayer.IlIlIIIlIIllIIIIllIlIIllll = directionFromAngles(eventPlayer.lIllIlIIlllIllIlIlllllIIII, 0)
         if eventPlayer.isInAir():
-            if distance(raycast(eventPlayer + Vector.UP, eventPlayer + Vector.UP + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, null, null, false).getHitPosition(), eventPlayer + Vector.UP + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2) <= 0.1:
+            if distance(raycastHitPosition(eventPlayer + Vector.UP, eventPlayer + Vector.UP + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, null, null, false), eventPlayer + Vector.UP + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2) <= 0.1:
                 break
-        elif (raycast(eventPlayer + vect(0, 2.5, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, eventPlayer + vect(0, -10, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, null, null, false).getHitPosition()).y >= lIIIIIllllIlIIIIlIIIlIIIll:
-            if isInLoS(eventPlayer + Vector.UP, Vector.UP + (raycast(eventPlayer + vect(0, 2.5, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 4, eventPlayer + vect(0, -10, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 4, null, null, false).getHitPosition())):
+        elif (raycastHitPosition(eventPlayer + vect(0, 2.5, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, eventPlayer + vect(0, -10, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 2, null, null, false)).y >= lIIIIIllllIlIIIIlIIIlIIIll:
+            if isInLoS(eventPlayer + Vector.UP, Vector.UP + (raycastHitPosition(eventPlayer + vect(0, 2.5, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 4, eventPlayer + vect(0, -10, 0) + eventPlayer.IlIlIIIlIIllIIIIllIlIIllll * 4, null, null, false))):
                 break
 
 
@@ -1995,7 +1995,7 @@ def lIIlllIIlIIlIlIIllIllIIIIl():
     lIllIlIlIllIIIIIlIlllIllIl()
     if IlllllIIlIIllIlIlIIIlIlIlI >= 5:
         lIIlIlIlllllIllIIllIlllIIl++
-        async(lIIlIllllIIlIlIIIIIIlIIlII, AsyncBehavior.RESTART)
+        startRule(lIIlIllllIIlIlIIIIIIlIIlII)
     eventPlayer.lIlIIIIlIIlIIlIIlIIIllllII[4] = eventPlayer.lIllIIlIllllIlIIIllIIllIlI
     if IlllllIIlIIllIlIlIIIlIlIlI < 8:
         eventPlayer.lIllIIlIllllIlIIIllIIllIlI = "Item Power {0}".format(eventPlayer.lIllIIlIllllIlIIIllIIllIlI)
@@ -4550,7 +4550,7 @@ def lIIIlllIlIIllIlllllllIlllI():
     eventPlayer.IllIlllllIIIlIllIllllllIII = getTotalTimeElapsed() + 0.25
     if not eventPlayer.IIIlIlIllIlllIllllIlIllIll:
         return
-    IIIlIlllIllllIlllllllIIlII = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1.5, getPlayers(Team.2), eventPlayer, false).getHitPosition() + vect(0, -1.25, 0)
+    IIIlIlllIllllIlllllllIIlII = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1.5, getPlayers(Team.2), eventPlayer, false) + vect(0, -1.25, 0)
     eventPlayer.IIIIlIIlIIlIlIIllIIlIIIIII = (sorted(getPlayers(Team.2).exclude(eventPlayer).filter(lambda x: x.IIIlIlIllIlllIllllIlIllIll and distance(x, IIIlIlllIllllIlllllllIIlII) <= 1.25), lambda x: distance(x, IIIlIlllIllllIlllllllIIlII)))[0]
     if not eventPlayer.IIIIlIIlIIlIlIIllIIlIIIIII in getPlayers(Team.2):
         return

@@ -307,11 +307,20 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content: strin
         } else if (opyCategory === "gamemodes") {
             for (var gamemode of Object.keys(serialized[category])) {
                 var isCurrentGamemodeDisabled = false;
+                let opyGamemode;
                 if (gamemode.startsWith(wsDisabled)) {
                     isCurrentGamemodeDisabled = true;
-                    var opyGamemode = this.topy(gamemode.substring(wsDisabled.length), customGameSettingsSchema.gamemodes.values);
+                    try {
+                        opyGamemode = this.topy(gamemode.substring(wsDisabled.length), customGameSettingsSchema.gamemodes.values);
+                    } catch (e) {
+                        opyGamemode = gamemode.substring(wsDisabled.length);
+                    }
                 } else {
-                    var opyGamemode = this.topy(gamemode, customGameSettingsSchema.gamemodes.values);
+                    try {
+                        opyGamemode = this.topy(gamemode, customGameSettingsSchema.gamemodes.values);
+                    } catch (e) {
+                        opyGamemode = gamemode;
+                    }
                 }
 
                 result[opyCategory][opyGamemode] = {};
@@ -338,9 +347,6 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content: strin
                                     var variants = [...map.matchAll(/\b972777\d+\b/g)].map((x) => x[0]);
                                     var mapName = this.topy(map.replace(/\b972777\d+\b/g, ""), mapKw);
                                     var mapVariants = [];
-                                    if (!("variants" in mapKw[mapName])) {
-                                        this.error("Map '" + mapName + "' should have no variants");
-                                    }
                                     for (var variant of variants) {
                                         var variantName = Object.keys(mapKw[mapName].variants as Record<string, string>).filter((x) => (mapKw[mapName].variants as Record<string, string>)[x] === variant);
                                         if (variantName.length === 0) {
@@ -365,7 +371,7 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content: strin
                     }
                 }
 
-                Object.assign(result[opyCategory][opyGamemode], this.decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values, {parent: gamemode}));
+                Object.assign(result[opyCategory][opyGamemode], this.decompileCustomGameSettingsDict(dict, (customGameSettingsSchema[opyCategory].values[opyGamemode] || customGameSettingsSchema[opyCategory].values.general).values, {parent: gamemode}));
             }
         } else if (opyCategory === "heroes") {
             for (var team of Object.keys(serialized[category])) {

@@ -2340,7 +2340,7 @@ rule "Strafing to a wall left side":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.BotLeft == true
-    @Condition distance(eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false).getHitPosition()) <= 1
+    @Condition distance(eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false)) <= 1
     
     eventPlayer.startThrottleInDirection(Vector.RIGHT, 1, Relativity.TO_PLAYER)
 
@@ -2353,7 +2353,7 @@ rule "Strafing to a wall right side":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotPathing == true
     @Condition eventPlayer.BotRight == true
-    @Condition distance(eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(-90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false).getHitPosition()) <= 1
+    @Condition distance(eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (3.5 * (directionFromAngles(-90 + horizontalAngleOfDirection(directionTowards(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition())), 0))), null, eventPlayer, false)) <= 1
     
     eventPlayer.startThrottleInDirection(Vector.LEFT, 1, Relativity.TO_PLAYER)
 
@@ -3833,7 +3833,7 @@ rule "Bot Tracer First Blink":
     @Condition Arena1Match == true
     @Condition eventPlayer.BotTracerFirstBlink == true
     @Condition eventPlayer.BotShoot == true
-    @Condition distance(eventPlayer.getEyePosition(), raycast(Arena1Q[eventPlayer.TargetNumber].getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition() + Arena1Q[eventPlayer.TargetNumber].getFacingDirection() * distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), getAllPlayers(), Arena1Q[eventPlayer.TargetNumber], true).getHitPosition()) <= 2
+    @Condition distance(eventPlayer.getEyePosition(), raycastHitPosition(Arena1Q[eventPlayer.TargetNumber].getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition() + Arena1Q[eventPlayer.TargetNumber].getFacingDirection() * distance(eventPlayer.getEyePosition(), Arena1Q[eventPlayer.TargetNumber].getEyePosition()), getAllPlayers(), Arena1Q[eventPlayer.TargetNumber], true)) <= 2
     
     #wait(1)
     #waitUntil(Arena1Q[eventPlayer.TargetNumber].isInViewAngle(eventPlayer.getEyePosition(), 25), 20)
@@ -4831,7 +4831,7 @@ rule "Bot Hanzo not Loading":
     @Condition eventPlayer.isFiringPrimaryFire() == false
     @Condition eventPlayer.isUsingAbility2() == false
     
-    stopChasingVariable(eventPlayer.BotZoom)
+    stopChasing(eventPlayer.BotZoom)
     eventPlayer.BotZoom = 0
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     #if eventPlayer.isUsingAbility2() == false:
@@ -5086,7 +5086,7 @@ rule "Bot Widow Not zooming":
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isFiringSecondaryFire() == false
     
-    stopChasingVariable(eventPlayer.BotZoom)
+    stopChasing(eventPlayer.BotZoom)
     eventPlayer.BotZoom = 0
 
 

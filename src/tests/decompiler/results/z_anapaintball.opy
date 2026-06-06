@@ -1188,7 +1188,7 @@ rule "Sleep Dart hits":
     @Condition eventWasEnvironment == false
     
     #Using the async thingie to keep the wait in the logic while allowing other rules to run
-    async(SleepDarts, AsyncBehavior.RESTART)
+    startRule(SleepDarts)
 
 
 rule "detect movement bug":
@@ -1214,7 +1214,7 @@ rule "Kill logic":
     chaseOverTime(victim.HonorBar, 0, CUSTOM_RESPAWN_TIME + 0.9)
     if attacker.ComebackCount > 3:
         attacker.ComebackCount = 0
-        async(SayVoiceline, AsyncBehavior.NOOP)
+        startRule(SayVoiceline, StartRuleBehavior.NOOP)
         if attacker.ComebackCount < 10:
             attacker.MedalQueue.append(10)
         else:
@@ -1223,7 +1223,7 @@ rule "Kill logic":
     if not FirstBlood:
         FirstBlood = not FirstBlood
         attacker.MedalQueue.append(8)
-        async(SayVoiceline, AsyncBehavior.NOOP)
+        startRule(SayVoiceline, StartRuleBehavior.NOOP)
     #SCOPED KILLS
     if attacker.isFiringPrimaryFire() and attacker.isFiringSecondaryFire():
         attacker.ScopedHits++
@@ -1232,8 +1232,8 @@ rule "Kill logic":
         #COLLATERALS
         while attacker.RaycastLastHitPlayer != null:
             #if DEBUG_MODE: createBeam(getAllPlayers(), Beam.GRAPPLE, attacker.RaycastLastHitPos, raycast(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getAllPlayers(), [victim, attacker.RaycastLastHitPlayer], true).ge
-            attacker.Temp = raycast(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getLivingPlayers(Team.ALL), [victim, attacker.RaycastLastHitPlayer], true).getHitPosition()
-            attacker.RaycastLastHitPlayer = raycast(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getLivingPlayers(Team.ALL), [victim, attacker.RaycastLastHitPlayer], true).getPlayerHit()
+            attacker.Temp = raycastHitPosition(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getLivingPlayers(Team.ALL), [victim, attacker.RaycastLastHitPlayer], true)
+            attacker.RaycastLastHitPlayer = raycastHitPlayer(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getLivingPlayers(Team.ALL), [victim, attacker.RaycastLastHitPlayer], true)
             attacker.RaycastLastHitPos = attacker.Temp
             kill(attacker.RaycastLastHitPlayer, attacker)
             attacker.MedalQueue = [0].concat(attacker.MedalQueue)
@@ -1268,7 +1268,7 @@ rule "Kill logic":
         if victim.getScore() >= attacker.getScore():
             attacker.DemotionVictim = victim
             attacker.MedalQueue.append(3)
-            async(SaySorry, AsyncBehavior.NOOP)
+            startRule(SaySorry, StartRuleBehavior.NOOP)
             #For loop required for SYSMSG that target multiple players
             for i in range(getNumberOfPlayers(Team.ALL) - 2):
                 getAllPlayers().exclude([victim, attacker])[i].MedalQueue = [0].concat(getAllPlayers().exclude([victim, attacker])[i].MedalQueue)
@@ -1293,10 +1293,10 @@ rule "Kill logic":
             attacker.PunchDrunk = 0
     if victim.KillStreak == ONFIRE_STREAK - 1 or victim.KillStreak == RAMPAGE_STREAK - 1:
         attacker.MedalQueue.append(19)
-        async(SaySorry, AsyncBehavior.NOOP)
+        startRule(SaySorry, StartRuleBehavior.NOOP)
     if victim.KillStreak == NUCLEAR_STREAK - 1:
         attacker.MedalQueue.append(23)
-        async(SaySorry, AsyncBehavior.NOOP)
+        startRule(SaySorry, StartRuleBehavior.NOOP)
         bigMessage(getAllPlayers().exclude(attacker), "{0} saved everyone from {1}'s nuke!".format(attacker, victim))
         bigMessage(attacker, "{0}  You saved everyone from {1}'s nuke!  {0}".format(abilityIconString(Hero.MERCY, Button.ULTIMATE), victim))
     if victim.IsNuclear:
@@ -1328,12 +1328,12 @@ rule "Kill logic":
             bigMessage(attacker, "{0}  Sleep thief:  {0}".format(abilityIconString(Hero.MOIRA, Button.SECONDARY_FIRE)))
         attacker.StolenFrom = [0].concat(attacker.StolenFrom)
         smallMessage(attacker.StolenFrom, "    {0}  {1} stole your kill".format(abilityIconString(Hero.ROADHOG, Button.ABILITY_1), attacker))
-        async(SayThanks, AsyncBehavior.NOOP)
+        startRule(SayThanks, StartRuleBehavior.NOOP)
     if attacker.isDead():
-        async(FromTheGrave, AsyncBehavior.NOOP)
+        startRule(FromTheGrave, StartRuleBehavior.NOOP)
     attacker.setUltCharge(attacker.getScore() / NANO_SCORE * 100)
     if attacker.getScore() == NANO_SCORE - 2:
-        async(SayUltStatus, AsyncBehavior.NOOP)
+        startRule(SayUltStatus, StartRuleBehavior.NOOP)
     attacker.ComebackCount = 0
 
 
@@ -1843,7 +1843,7 @@ rule "Nuclear victory":
     wait(2)
     #Winner cam
     destroyAllInWorldTexts()
-    getAllPlayers().startCamera(raycast(updateEveryFrame(Winner.getEyePosition()), updateEveryFrame(Winner.getFacingDirection()) + updateEveryFrame(Winner.getEyePosition()), null, null, true).getHitPosition(), updateEveryFrame(Winner.getEyePosition()))
+    getAllPlayers().startCamera(raycastHitPosition(updateEveryFrame(Winner.getEyePosition()), updateEveryFrame(Winner.getFacingDirection()) + updateEveryFrame(Winner.getEyePosition()), null, null, true), updateEveryFrame(Winner.getEyePosition()))
     getAllPlayers().setStatusEffect(null, Status.ROOTED, 999)
     getAllPlayers().setAimSpeed(10)
     getAllPlayers().setMoveSpeed(10)
@@ -1956,13 +1956,13 @@ rule "Sleep Dart victory":
     getAllPlayers().setAimSpeed(10)
     getAllPlayers().setMoveSpeed(10)
     setSlowMotion(5)
-    getAllPlayers().startCamera(raycast(attacker.getPosition(), attacker.getPosition() + directionTowards(victim, attacker.getPosition()) * 3 + Vector.UP * 1.5, null, null, true).getHitPosition(), victim.getPosition())
+    getAllPlayers().startCamera(raycastHitPosition(attacker.getPosition(), attacker.getPosition() + directionTowards(victim, attacker.getPosition()) * 3 + Vector.UP * 1.5, null, null, true), victim.getPosition())
     wait(0.35)
-    getAllPlayers().startCamera(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0), 25)
+    getAllPlayers().startCamera(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0), 25)
     wait(0.5)
     #Amazing in-world text code by josbird https://workshop.codes/wiki/articles/rendering-an-inworld-text-at-a-specific-onscreen-position
-    createInWorldText(getAllPlayers(), "longshot victory! {0}m hit!".format(("{0}".format(victim.OofDistance + 0.001)).substring(0, strLen("{0}".format(victim.OofDistance + 0.001)) - 1)) if victim.OofDistance >= LONGSHOT_DISTANCE else "{0}m sleep dart hit!".format(("{0}".format(victim.OofDistance + 0.001)).substring(0, strLen("{0}".format(victim.OofDistance + 0.001)) - 1)), updateEveryFrame(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition() + (100 * (0.6 * (directionFromAngles(horizontalAngleOfDirection(directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))), verticalAngleOfDirection(directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))) - 90)) + (3 * (directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, rgb(min(max(abs(getTotalTimeElapsed() * 500 % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 280.5) % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 561) % 841.5 - 420.75) - 25.5, 114.75), 255)) if victim.OofDistance >= LONGSHOT_DISTANCE else rgb(63, 191, 116), SpecVisibility.NEVER)
-    createInWorldText(getAllPlayers(), "join the discord server!\n        jinko.dev/discord", updateEveryFrame(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition() + (100 * (-1 * (directionFromAngles(horizontalAngleOfDirection(directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))), verticalAngleOfDirection(directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))) - 90)) + (3 * (directionTowards(raycast(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true).getHitPosition(), victim.getEyePosition() + vect(0, -1, 0))))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, rgb(min(max(abs(getTotalTimeElapsed() * 500 % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 280.5) % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 561) % 841.5 - 420.75) - 25.5, 114.75), 255)), SpecVisibility.NEVER)
+    createInWorldText(getAllPlayers(), "longshot victory! {0}m hit!".format(("{0}".format(victim.OofDistance + 0.001)).substring(0, strLen("{0}".format(victim.OofDistance + 0.001)) - 1)) if victim.OofDistance >= LONGSHOT_DISTANCE else "{0}m sleep dart hit!".format(("{0}".format(victim.OofDistance + 0.001)).substring(0, strLen("{0}".format(victim.OofDistance + 0.001)) - 1)), updateEveryFrame(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true) + (100 * (0.6 * (directionFromAngles(horizontalAngleOfDirection(directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))), verticalAngleOfDirection(directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))) - 90)) + (3 * (directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, rgb(min(max(abs(getTotalTimeElapsed() * 500 % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 280.5) % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 561) % 841.5 - 420.75) - 25.5, 114.75), 255)) if victim.OofDistance >= LONGSHOT_DISTANCE else rgb(63, 191, 116), SpecVisibility.NEVER)
+    createInWorldText(getAllPlayers(), "join the discord server!\n        jinko.dev/discord", updateEveryFrame(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true) + (100 * (-1 * (directionFromAngles(horizontalAngleOfDirection(directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))), verticalAngleOfDirection(directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))) - 90)) + (3 * (directionTowards(raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() + directionTowards(attacker, victim) * -2 + Vector.UP * 0.5, null, null, true), victim.getEyePosition() + vect(0, -1, 0))))))), 10, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, rgb(min(max(abs(getTotalTimeElapsed() * 500 % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 280.5) % 841.5 - 420.75) - 25.5, 114.75), 255), min(max(abs((getTotalTimeElapsed() * 500 + 561) % 841.5 - 420.75) - 25.5, 114.75), 255)), SpecVisibility.NEVER)
     wait(0.95)
     playEffect(getAllPlayers(), DynamicEffect.DVA_SELF_DESTRUCT_EXPLOSION, Color.ROSE, victim.getPosition(), 999)
     wait(18.5)

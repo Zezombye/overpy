@@ -298,7 +298,7 @@ rule "Bots: Phased out, Invisible, Movement collision, Facing":
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 9999)
     eventPlayer.setInvisibility(Invis.ALL)
     eventPlayer.disablePlayerCollision()
-    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition(), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), 50000)
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition(), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), 50000)
 
 
 rule "Ability 1:":
@@ -368,7 +368,7 @@ rule "Using ability 1: LW & JQ & Hanzo":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_1) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD == 0
     
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     if eventPlayer.getHero() == Hero.LIFEWEAVER:
@@ -402,11 +402,11 @@ rule "Using ability 1: Ana":
     eventPlayer.setInvisibility(Invis.NONE)
     getPlayersInSlot(0, eventPlayer.getTeam()).stopForcingButton(Button.PRIMARY_FIRE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(false)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(0.25)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait(0.1)
     eventPlayer.setInvisibility(Invis.ALL)
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(true)
@@ -431,7 +431,7 @@ rule "Using ability 1: Hog hook":
     getPlayersInSlot(0, eventPlayer.getTeam()).setMoveSpeed(50)
     getPlayersInSlot(0, eventPlayer.getTeam()).stopForcingButton(Button.PRIMARY_FIRE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(false)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     getPlayersInSlot(0, eventPlayer.getTeam()).Abi1CD = 10
@@ -464,7 +464,7 @@ rule "Using ability 1: Genji, Dva, Pharah":
     #eventPlayer.teleport(getPlayersInSlot(0, eventPlayer.getTeam()).getPosition())
     wait(0.05)
     getPlayersInSlot(0, eventPlayer.getTeam()).attachTo(eventPlayer, vect(0, 0, 0))
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     if eventPlayer.getHero() == Hero.DVA:
@@ -579,7 +579,7 @@ rule "Using ability 2: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
     
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     if eventPlayer.getHero() == Hero.ANA:
@@ -617,7 +617,7 @@ rule "Using ability 2: Sig":
     eventPlayer.setInvisibility(Invis.NONE)
     getPlayersInSlot(0, eventPlayer.getTeam()).stopForcingButton(Button.PRIMARY_FIRE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(false)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD = 8
@@ -642,7 +642,7 @@ rule "Using ability 2: Sym":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ABILITY_2) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).Abi2CD == 0
     
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.1)
@@ -794,7 +794,7 @@ rule "Using ultimate: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.ULTIMATE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).getUltCharge() == 100
     
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     eventPlayer.setUltCharge(100)
     wait()
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -840,7 +840,7 @@ rule "Using ultimate: JQ":
     
     eventPlayer.setInvisibility(Invis.NONE)
     eventPlayer.detach()
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     eventPlayer.setUltCharge(100)
     wait()
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -867,7 +867,7 @@ rule "Using ultimate: Doom":
     
     eventPlayer.setInvisibility(Invis.NONE)
     eventPlayer.detach()
-    eventPlayer.DoomUlt = raycast(getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition(), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()
+    eventPlayer.DoomUlt = raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition(), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setUltCharge(25)
@@ -953,7 +953,7 @@ rule "Using secondary: Most heroes":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).isHoldingButton(Button.SECONDARY_FIRE) == true
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
     
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     if eventPlayer.getHero() == Hero.ORISA:
@@ -984,8 +984,8 @@ rule "Using secondary: Hog":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
     
     getPlayersInSlot(0, eventPlayer.getTeam()).setPrimaryFireEnabled(false)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), vect((raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).x, (raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).y - 0.4, (raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()).z)), Relativity.TO_WORLD)
-    #eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), vect((raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)).x, (raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)).y - 0.4, (raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)).z)), Relativity.TO_WORLD)
+    #eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD = 2
@@ -1011,7 +1011,7 @@ rule "Using secondary: Dva":
     getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD = 6
     getPlayersInSlot(0, eventPlayer.getTeam()).setAbilityCooldown(Button.SECONDARY_FIRE, 6)
     chaseAtRate(getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD, 0, 1)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(1.2)
@@ -1032,7 +1032,7 @@ rule "Using secondary: Ram":
     @Condition getPlayersInSlot(0, eventPlayer.getTeam()).SecoCD == 0
     
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
-    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycast(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false).getHitPosition()), Relativity.TO_WORLD)
+    eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(getPlayersInSlot(0, eventPlayer.getTeam()), getPlayersInSlot(0, eventPlayer.getTeam()).getEyePosition() + getPlayersInSlot(0, eventPlayer.getTeam()).getFacingDirection() * 100, getAllPlayers(), getPlayers(eventPlayer.getTeam()), false)), Relativity.TO_WORLD)
     wait()
     eventPlayer.forceButtonPress(Button.SECONDARY_FIRE)
     getPlayersInSlot(0, eventPlayer.getTeam()).setAbilityCooldown(Button.SECONDARY_FIRE, 13)
@@ -1571,10 +1571,10 @@ rule "Menu deactivated > Clean up":
     eventPlayer.enableGamemodeHud()
     eventPlayer.enableHeroHud()
     #Stop all active chases
-    stopChasingVariable(eventPlayer.MenuEyePos)
-    stopChasingVariable(eventPlayer.CursorPos)
-    stopChasingVariable(eventPlayer.CursorX)
-    stopChasingVariable(eventPlayer.CursorY)
+    stopChasing(eventPlayer.MenuEyePos)
+    stopChasing(eventPlayer.CursorPos)
+    stopChasing(eventPlayer.CursorX)
+    stopChasing(eventPlayer.CursorY)
     #Loops through all the components of the menu, destroying each one. Note that there is currently no wait in here, so if the array has a lot of elements, the server may be under a lot of stress for a moment. This may be a good place to reduce load if needed.
     for eventPlayer.__iter___ in range(len(eventPlayer.MenuVFX)):
         #Since trying to destroy the wrong type of entity doesn't cause any errors, we simply try each type on the current entity, allowing for any type of effect or icon to be placed in MenuVFX for cleanup when the menu is closed.
@@ -2219,7 +2219,7 @@ rule "Abi 1 Hud: Icon cd 0":
     @Slot 0
     @Condition eventPlayer.Abi1CD == 0
     
-    stopChasingVariable(eventPlayer.Abi1CD)
+    stopChasing(eventPlayer.Abi1CD)
     eventPlayer.Abi1Hud = abilityIconString(getPlayersInSlot(1, eventPlayer.getTeam()).getHero(), Button.ABILITY_1)
 
 
@@ -2239,7 +2239,7 @@ rule "Abi 2 Hud: Icon cd 0":
     @Slot 0
     @Condition eventPlayer.Abi2CD == 0
     
-    stopChasingVariable(eventPlayer.Abi2CD)
+    stopChasing(eventPlayer.Abi2CD)
     eventPlayer.Abi2Hud = abilityIconString(getPlayersInSlot(2, eventPlayer.getTeam()).getHero(), Button.ABILITY_2)
 
 
@@ -2259,7 +2259,7 @@ rule "Seco Hud: Icon cd 0":
     @Slot 0
     @Condition eventPlayer.SecoCD == 0
     
-    stopChasingVariable(eventPlayer.SecoCD)
+    stopChasing(eventPlayer.SecoCD)
     eventPlayer.SecoHud = abilityIconString(getPlayersInSlot(4, eventPlayer.getTeam()).getHero(), Button.SECONDARY_FIRE)
 
 

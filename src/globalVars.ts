@@ -20,9 +20,7 @@ import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { Constant, constantValues } from "./data/constants";
-import { Argument, AstConstantData, AstMacroData, CompilationDiagnostic, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, Subroutine, Type, Value, Variable } from "./types.d.js";
-import { Ast } from "./utils/ast";
-import { TranslatedString, TranslationLanguage } from "./compiler/translations";
+import { Overwatch2Heroes, ow_languages, OWLanguage, Value } from "./types.d.js";
 import { heroKw } from "./data/heroes";
 import { gamemodeKw } from "./data/gamemodes";
 import { valueFuncKw } from "./data/values";
@@ -143,8 +141,9 @@ export const defaultSubroutineNames = Array(128)
     .map((x) => "Sub" + x);
 
 //Names that cannot be used for global variables or subroutines.
-export const reservedNames = Object.keys(opyKeywords);
+export const reservedNames = Object.keys(opyKeywords).concat("AsyncBehavior");
 export const reservedSubroutineNames = Object.keys(opyKeywords);
+export const reservedMemberNames = ["x", "y", "z"];
 
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.
@@ -645,7 +644,6 @@ export function postInitialLoad() {
     postLoadTasks.sort((task) => task.priority).forEach((task) => task.task());
 }
 
-export const reservedMemberNames = ["x", "y", "z"];
 
 export const overpyTemplate = `
 #OverPy starter pack

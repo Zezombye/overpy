@@ -296,7 +296,6 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Loop If(A == 2)</code>                                     | <code>if A == 2:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
 <code>Loop If Condition Is False</code>                  | <code>if not ruleCondition:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
 <code>Loop If Condition Is True</code>                   | <code>if ruleCondition:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
-<code>Magnitude Of</code>                                | <code>magnitude()</code>
 <code>Map(Workshop Island)</code>                                         | <code>Map.WORKSHOP_ISLAND</code>
 <code>Mapped Array(<i>array</i>, Current Array Element + 2)</code><br><code>Mapped Array(<i>array</i>, Current Array Element * Current Array Index)</code> | <code><i>array</i>.map(lambda <i>elem</i>: <i>elem</i>+2)</code><br><code><i>array</i>.map(lambda <i>elem</i>, <i>idx</i>: <i>elem</i> * <i>idx</i>)</code><br>Python-style comprehension syntax also works but is not recommended: <code>[<i>elem</i>+2 for <i>elem</i> in <i>array</i>]</code>
 <code>Modify Global Variable(A, Add, 2)</code>                      | <code>A += 2</code>
@@ -321,7 +320,6 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Not(<i>a</i>)</code>                                         | <code>not <i>a</i></code>
 <code>Number(1234)</code>                                      | <code>1234</code>
 <code>Objective Index</code>                             | <code>getCurrentObjective()</code>
-<code>Objective Position</code>                          | <code>getObjectivePosition()</code>
 <code>Opposite Team Of(Team Of(Event Player))</code>                            | <code>getOppositeTeam(eventPlayer.getTeam())</code><br>Or for a player: `eventPlayer.getOppositeTeam()`
 <code>Or(A == 2, B == 4)</code>                                          | <code>A == 2 or B == 4</code>
 <code>Player Carrying Flag</code>                        | <code>getFlagCarrier()</code>
@@ -332,9 +330,6 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Random Real</code>                                 | <code>random.uniform()</code>
 <code>Random Value In Array</code>                       | <code>random.choice()</code>
 <code>Randomized Array</code>                            | <code>random.shuffle()</code>
-<code>Raycast Hit Normal(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayerObjects</i>)</code> | <code>raycast(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayersObjects</i>).getNormal()</code>
-<code>Raycast Hit Player(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayerObjects</i>)</code> | <code>raycast(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayersObjects</i>).getPlayerHit()</code>
-<code>Raycast Hit Position(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayerObjects</i>)</code> | <code>raycast(<i>start</i>, <i>end</i>, <i>include</i>, <i>exclude</i>, <i>includePlayersObjects</i>).getHitPosition()</code>
 <code>Remove From Array(<i>array</i>, 2)</code>                           | <code><i>array</i>.exclude(2)</code>
 <code>Remove Player</code>                               | <code><i>player</i>.removeFromGame()</code>
 <code>Right</code>                                       | <code>Vector.RIGHT</code>
@@ -419,7 +414,7 @@ settings {
 
 Note that every value has to eventually resolve to a dict/array/string/number/boolean through the optimizer (you can't do `200 * A` where `A` is a variable).
 
-There are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch, then use the decompile command to convert to OverPy.
+Because I made the unfortunate mistake of trying to rename pretty much all settings (and because Overwatch periodically renames a setting or two), unknown settings are accepted by the compiler, so you can just put what Overwatch accepts (but they won't be translated if you are compiling for another language).
 
 You can also put the settings in a .json file and then import it with `settings "gamesettings.opy.json"`. This has the advantage of adding autocompletion (if ending with .opy.json), although it will display syntax errors if it doesn't perfectly conform to the JSON syntax (trailing comma, comment, etc).
 

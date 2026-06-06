@@ -892,9 +892,9 @@ rule "Global (Next Wave): Revive Players, Scale Values, Set Level, Set Mutators"
     @Condition getNumberOfLivingPlayers(Team.2) == 0
     
     if wave_number >= 15 and length == 0:
-        async(declare_victory, AsyncBehavior.NOOP)
+        startRule(declare_victory, StartRuleBehavior.NOOP)
     elif wave_number >= 22 and length == 1:
-        async(declare_victory, AsyncBehavior.NOOP)
+        startRule(declare_victory, StartRuleBehavior.NOOP)
     objective_phase_number = false
     (combatants.filter(lambda x: x.downed_start_t and x.downed_start_t + 0.1 < getTotalTimeElapsed())).downed_start_t = false
     bigMessage(getAllPlayers(), "Wave cleared!")
@@ -1751,7 +1751,7 @@ rule "Team 1 Button: Hold Reload, Change Hero, Set Last Position (1), Last Eye P
     eventPlayer.ab_var_2 = eventPlayer.getEyePosition()
     eventPlayer.ab_var_3 = eventPlayer.getFacingDirection()
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer.ab_var_1, 1)
-    eventPlayer.startCamera(raycast(eventPlayer.ab_var_2, eventPlayer.ab_var_2 - 8.25 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.ab_var_3), 20), null, null, false).getHitPosition() + 0.25 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.ab_var_3), 20), eventPlayer.ab_var_2)
+    eventPlayer.startCamera(raycastHitPosition(eventPlayer.ab_var_2, eventPlayer.ab_var_2 - 8.25 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.ab_var_3), 20), null, null, false) + 0.25 * directionFromAngles(horizontalAngleOfDirection(eventPlayer.ab_var_3), 20), eventPlayer.ab_var_2)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
     kill(eventPlayer)
     #Lower values might cause the player to fall through the map when respawning
@@ -1784,7 +1784,7 @@ rule "Team 1 (Death): Start Camera, Play Sounds, Set is Downed, Revive Timer, Kn
         eventPlayer.disableMessages()
         smallMessage(getAllPlayers(), "{0} was downed!".format(eventPlayer))
         eventPlayer.death_cam_target = eventPlayer.getEyePosition() + 1000 * directionFromAngles(eventPlayer.getHorizontalFacingAngle(), 0)
-        eventPlayer.startCamera((raycast(eventPlayer.spectated_player.getEyePosition(), eventPlayer.spectated_player.getEyePosition() - (6.25 * directionTowards(eventPlayer.spectated_player.getEyePosition(), eventPlayer.death_cam_target) if eventPlayer.death_cam_target else 8.25 * directionFromAngles(eventPlayer.spectated_player.getHorizontalFacingAngle(), 20)), null, null, false).getHitPosition()) + (0.25 * (directionTowards(eventPlayer.spectated_player.getEyePosition(), eventPlayer.death_cam_target) if eventPlayer.death_cam_target else directionFromAngles(eventPlayer.spectated_player.getHorizontalFacingAngle(), 20))), eventPlayer.spectated_player.getEyePosition(), 10 if eventPlayer.death_cam_target else 20)
+        eventPlayer.startCamera((raycastHitPosition(eventPlayer.spectated_player.getEyePosition(), eventPlayer.spectated_player.getEyePosition() - (6.25 * directionTowards(eventPlayer.spectated_player.getEyePosition(), eventPlayer.death_cam_target) if eventPlayer.death_cam_target else 8.25 * directionFromAngles(eventPlayer.spectated_player.getHorizontalFacingAngle(), 20)), null, null, false)) + (0.25 * (directionTowards(eventPlayer.spectated_player.getEyePosition(), eventPlayer.death_cam_target) if eventPlayer.death_cam_target else directionFromAngles(eventPlayer.spectated_player.getHorizontalFacingAngle(), 20))), eventPlayer.spectated_player.getEyePosition(), 10 if eventPlayer.death_cam_target else 20)
         for temp_1 in range(combatants_count):
             playEffect(combatants[temp_1], DynamicEffect.RING_EXPLOSION_SOUND, Color.WHITE, combatants[temp_1], 200)
             playEffect(combatants[temp_1], DynamicEffect.RING_EXPLOSION_SOUND, Color.WHITE, combatants[temp_1], 200)
@@ -2023,7 +2023,7 @@ rule "Team 1 Button: Hold or double tap Melee, Use active Ability":
         eventPlayer.active_ab_is_frenzied = false
         eventPlayer.active_ab_cooldown = 30
     elif eventPlayer.active_ab_number == 5:
-        eventPlayer.active_ab_var = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 2 * Vector.DOWN, null, null, false).getHitPosition() + 2 * Vector.UP
+        eventPlayer.active_ab_var = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 2 * Vector.DOWN, null, null, false) + 2 * Vector.UP
         for eventPlayer.active_ab_cooldown in range(-10, 0, 0.5):
             (combatants.filter(lambda x: distance(x.getEyePosition(), vect(eventPlayer.active_ab_var.x, x.getEyePosition().y, eventPlayer.active_ab_var.z)) <= 10 and abs(x.getEyePosition().y - eventPlayer.active_ab_var.y) <= 5)).active_ab_is_smoked = true
             wait(0.5)
@@ -2037,7 +2037,7 @@ rule "Team 1 Button: Hold or double tap Melee, Use active Ability":
             wait(0.25)
         eventPlayer.active_ab_cooldown = 25
     elif eventPlayer.active_ab_number == 7:
-        eventPlayer.active_ab_var = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 100 * eventPlayer.getFacingDirection(), getPlayers(Team.2), null, true).getHitPosition()
+        eventPlayer.active_ab_var = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 100 * eventPlayer.getFacingDirection(), getPlayers(Team.2), null, true)
         playEffect(getAllPlayers(), DynamicEffect.GOOD_EXPLOSION, Color.WHITE, eventPlayer.active_ab_var, 8)
         playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer.active_ab_var, 200)
         for eventPlayer.active_ab_cooldown in range(-6, 0):
@@ -2686,7 +2686,7 @@ def find_wp_near_nav():
         eventPlayer.nav_pos = temp_1
     else:
         #If original destination is not walkable
-        if distance(eventPlayer.nav_pos + Vector.UP, raycast(eventPlayer.nav_pos + Vector.UP, eventPlayer.nav_pos + 2 * Vector.DOWN, null, null, false).getHitPosition()) >= 3:
+        if distance(eventPlayer.nav_pos + Vector.UP, raycastHitPosition(eventPlayer.nav_pos + Vector.UP, eventPlayer.nav_pos + 2 * Vector.DOWN, null, null, false)) >= 3:
             #Ranged bots stand still
             if is_load_limit_reached or eventPlayer.is_ranged or distance(eventPlayer, eventPlayer.target) < 2:
                 eventPlayer.nav_pos = eventPlayer.getPosition()
@@ -2695,7 +2695,7 @@ def find_wp_near_nav():
                 eventPlayer.nav_pos = eventPlayer.getPosition() + ((min(3.5, distance(eventPlayer, eventPlayer.target) - 2)) * directionTowards(eventPlayer, eventPlayer.target))
                 if eventPlayer.isOnGround():
                     #Check if destination is not walkable
-                    if distance(eventPlayer.nav_pos + Vector.UP, raycast(eventPlayer.nav_pos + Vector.UP, eventPlayer.nav_pos + 2 * Vector.DOWN, null, null, false).getHitPosition()) >= 3:
+                    if distance(eventPlayer.nav_pos + Vector.UP, raycastHitPosition(eventPlayer.nav_pos + Vector.UP, eventPlayer.nav_pos + 2 * Vector.DOWN, null, null, false)) >= 3:
                         eventPlayer.nav_pos = eventPlayer.getPosition()
                         eventPlayer.is_using_combat_pathfinding--
                         return
@@ -2703,7 +2703,7 @@ def find_wp_near_nav():
     if eventPlayer.isOnGround():
         temp_1 = eventPlayer.getPosition() + 1.75 * directionTowards(eventPlayer, eventPlayer.nav_pos) + Vector.UP
         #If bot is near a ledge
-        if distance(temp_1, raycast(temp_1, temp_1 + 3 * Vector.DOWN, null, null, false).getHitPosition()) >= 3:
+        if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 3 * Vector.DOWN, null, null, false)) >= 3:
             eventPlayer.nav_pos = eventPlayer.getPosition()
             if not eventPlayer.is_ranged:
                 eventPlayer.is_using_combat_pathfinding--
@@ -2718,12 +2718,12 @@ def check_drop():
         eventPlayer.nav_pos = eventPlayer.getPosition()
         return
     temp_1 = eventPlayer.getPosition() + 1.75 * directionTowards(eventPlayer, vect(eventPlayer.nav_pos.x, eventPlayer.getPosition().y, eventPlayer.nav_pos.z)) + Vector.UP
-    if distance(temp_1, raycast(temp_1, temp_1 + 30 * Vector.DOWN, null, null, false).getHitPosition()) >= temp_1.y - eventPlayer.target.getPosition().y + 5:
+    if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 30 * Vector.DOWN, null, null, false)) >= temp_1.y - eventPlayer.target.getPosition().y + 5:
         eventPlayer.nav_pos = eventPlayer.getPosition()
         eventPlayer.is_using_combat_pathfinding--
         return
     temp_1 = eventPlayer.getPosition() + 3.5 * directionTowards(eventPlayer, vect(eventPlayer.nav_pos.x, eventPlayer.getPosition().y, eventPlayer.nav_pos.z)) + Vector.UP
-    if distance(temp_1, raycast(temp_1, temp_1 + 30 * Vector.DOWN, null, null, false).getHitPosition()) >= temp_1.y - eventPlayer.target.getPosition().y + 5:
+    if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 30 * Vector.DOWN, null, null, false)) >= temp_1.y - eventPlayer.target.getPosition().y + 5:
         eventPlayer.nav_pos = eventPlayer.getPosition()
         eventPlayer.is_using_combat_pathfinding--
         return
@@ -2832,7 +2832,7 @@ rule "Team 2 (Death): Field Resurrection":
             bigMessage(getAllPlayers(), "Killed both guards! Gained bonus health")
             enable_normal_spawns = true
             call_reinforcements()
-            async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+            startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
             upgrade_health_and_healing()
         else:
             bigMessage(getAllPlayers(), "Killed a guard!")
@@ -3234,7 +3234,7 @@ rule "Team 2: Set Nav (in Combat)":
         if isInLoS(eventPlayer.getEyePosition(), eventPlayer.target.getEyePosition() + eventPlayer.target.eye_offset):
             eventPlayer.target_last_seen_pos = eventPlayer.target.getPosition()
             if eventPlayer.is_flying:
-                eventPlayer.nav_pos = raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + (12 * (directionFromAngles(eventPlayer.target.getHorizontalFacingAngle() + (-45 if random.randint(0, 1) else 45), -60))), null, null, false).getHitPosition()
+                eventPlayer.nav_pos = raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + (12 * (directionFromAngles(eventPlayer.target.getHorizontalFacingAngle() + (-45 if random.randint(0, 1) else 45), -60))), null, null, false)
                 wait(0.5)
             elif eventPlayer.target.is_flying and eventPlayer.combat_pathfinding_type != 4:
                 #Roam
@@ -3836,7 +3836,7 @@ rule "Team 2 Kiriko: Swift Step":
     eventPlayer.ab_var_1 = 1
     chaseOverTime(eventPlayer.ab_var_1, 0, 3)
     wait(3)
-    stopChasingVariable(eventPlayer.ab_var_1)
+    stopChasing(eventPlayer.ab_var_1)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.TURQUOISE, eventPlayer.getPosition(), 1)
     playEffect(getAllPlayers(), DynamicEffect.BAD_PICKUP_EFFECT, Color.WHITE, eventPlayer.getPosition(), 200)
     wait()
@@ -3948,8 +3948,8 @@ rule "Team 2 Cassidy: Combat Roll":
         return
     if random.randint(1, 100) > 30:
         return
-    temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (6 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false).getHitPosition()
-    if distance(temp_1, raycast(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false).getHitPosition()) < 5:
+    temp_1 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (6 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false)
+    if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false)) < 5:
         eventPlayer.forceButtonPress(Button.ABILITY_1)
         wait(10)
     else:
@@ -4696,12 +4696,12 @@ rule "Team 2 Reaper: Cancel Wraith Form, Stop Forcing Position":
     @Condition distance(eventPlayer, eventPlayer.target) <= 3
     @Condition isInLoS(eventPlayer.target, eventPlayer.getPosition()) == true
     
-    if distance(eventPlayer, raycast(eventPlayer, eventPlayer + 5 * Vector.DOWN, null, null, false).getHitPosition()) >= 5:
+    if distance(eventPlayer, raycastHitPosition(eventPlayer, eventPlayer + 5 * Vector.DOWN, null, null, false)) >= 5:
         wait(0.15)
         if not eventPlayer.is_wraith:
             return
     eventPlayer.forceButtonPress(Button.ABILITY_1)
-    stopChasingVariable(eventPlayer.ab_wraith_pos)
+    stopChasing(eventPlayer.ab_wraith_pos)
     eventPlayer.stopForcingPosition()
     eventPlayer.enableEnvironmentCollision()
     eventPlayer.is_wraith = false
@@ -4717,7 +4717,7 @@ rule "Team 2 Reaper: Wraith Form Timed out / Target left / Target is invisible, 
     @Condition eventPlayer.is_wraith == true
     @Condition (not eventPlayer.isUsingAbility1() or not eventPlayer.target.is_combatant or eventPlayer.target.active_ab_is_cloaked) == true
     
-    stopChasingVariable(eventPlayer.ab_wraith_pos)
+    stopChasing(eventPlayer.ab_wraith_pos)
     eventPlayer.stopForcingPosition()
     eventPlayer.enableEnvironmentCollision()
     eventPlayer.is_wraith = false
@@ -5131,8 +5131,8 @@ rule "Team 2 Tracer: Blink":
     @Condition abs(horizontalAngleTowards(eventPlayer.target, eventPlayer)) <= 45
     
     if not is_load_limit_reached and eventPlayer.getAbilityCharge(Button.ABILITY_1):
-        temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (7.5 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false).getHitPosition()
-        if distance(temp_1, raycast(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false).getHitPosition()) < 5:
+        temp_1 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (7.5 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false)
+        if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false)) < 5:
             eventPlayer.forceButtonPress(Button.ABILITY_1)
     wait(1)
     if ruleCondition:
@@ -5154,7 +5154,7 @@ rule "Team 2 Tracer: Recall to enemy on high ground":
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(0.8)
     if eventPlayer.isUsingAbility2() and eventPlayer.is_target_in_los:
-        eventPlayer.teleport(raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getPosition() - 2.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false), null, null, false).getHitPosition() + 0.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false))
+        eventPlayer.teleport(raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getPosition() - 2.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false), null, null, false) + 0.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false))
         eventPlayer.is_nav_reachable_node = false
         wait(15)
     wait(5)
@@ -5195,7 +5195,7 @@ rule "Team 2 Tracer: Pulse Bomb, Has Used Pulse Bomb (1)":
     wait(0.8)
     if not (eventPlayer.isUsingAbility2() and eventPlayer.is_target_in_los):
         return
-    eventPlayer.teleport(raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getPosition() - 2.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false), null, null, false).getHitPosition() + 0.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false))
+    eventPlayer.teleport(raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getPosition() - 2.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false), null, null, false) + 0.5 * directionFromAngles(eventPlayer.target.getHorizontalFacingAngle(), false))
     eventPlayer.is_nav_reachable_node = false
     wait(2.8)
 
@@ -5243,8 +5243,8 @@ rule "Team 2 Genji: Swift Strike":
     @Condition eventPlayer.isUsingAbility2() == false
     
     if not is_load_limit_reached:
-        temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 15 * eventPlayer.getFacingDirection(), null, null, false).getHitPosition()
-        if distance(temp_1, raycast(temp_1, temp_1 + 20 * Vector.DOWN, null, null, false).getHitPosition()) < 20:
+        temp_1 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 15 * eventPlayer.getFacingDirection(), null, null, false)
+        if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 20 * Vector.DOWN, null, null, false)) < 20:
             eventPlayer.forceButtonPress(Button.ABILITY_1)
             wait(2)
     wait(2)
@@ -5307,8 +5307,8 @@ rule "Team 2 Hanzo: Lunge":
         return
     eventPlayer.forceButtonPress(Button.JUMP)
     wait(0.4)
-    temp_1 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (7.85 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false).getHitPosition()
-    if distance(temp_1, raycast(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false).getHitPosition()) < 5:
+    temp_1 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + (7.85 * (worldVector(Vector.FORWARD if eventPlayer.getThrottle() == vect(false, false, false) else eventPlayer.getThrottle(), eventPlayer, Transform.ROTATION))), null, null, false)
+    if distance(temp_1, raycastHitPosition(temp_1, temp_1 + 5 * Vector.DOWN, null, null, false)) < 5:
         eventPlayer.forceButtonPress(Button.JUMP)
         wait(5.5)
     else:
@@ -5673,7 +5673,7 @@ def iv_defend_portal():
     if objective_phase_number == 1:
         enable_normal_spawns = true
         call_reinforcements()
-        async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+        startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
         eventPlayer.ab_var_2 = getTotalTimeElapsed() + 10
     temp_2 = getPlayersInRadius(iv_dom_objective_pos, 15, Team.1, LosCheck.SURFACES).filter(lambda player: player.is_combatant and not player.hasStatus(Status.PHASED_OUT) and isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS))
     for temp_1 in range(len(temp_2)):
@@ -5725,7 +5725,7 @@ rule "IV Team 2 Slot 0: Portal Closing (Phase 2) -> Kill remaining (Phase 3)":
     for objective_progress in range(100, 25, -1):
         wait(0.096)
     enable_normal_spawns = true
-    async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+    startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
     for objective_progress in range(25, 10, -1):
         wait(0.096)
     enable_objective_enemy_spawn = true
@@ -5832,7 +5832,7 @@ rule "HVT Team 2 Slot 1: Call Reinforcements":
     if objective_phase_number == 2:
         enable_normal_spawns = true
         call_reinforcements()
-        async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+        startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
     else:
         playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.RED, eventPlayer, 1)
         hvt_call_reinforcements_end_t = getTotalTimeElapsed() + 10
@@ -5841,7 +5841,7 @@ rule "HVT Team 2 Slot 1: Call Reinforcements":
         wait(1)
         enable_normal_spawns = true
         call_reinforcements()
-        async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+        startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
         wait(4)
         eventPlayer.setDamageReceived(50)
     waitUntil(objective_phase_number == 3, 99999)
@@ -5858,7 +5858,7 @@ rule "HVT Team 2 Slot 1: Capture Breakpoints":
     waitUntil(objective_progress >= 140, 99999)
     enable_normal_spawns = true
     call_reinforcements()
-    async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+    startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
     waitUntil(objective_phase_number == 3, 99999)
     money_amount += 105
 
@@ -5898,7 +5898,7 @@ rule "DOM Team 2 Slot 2: Contest Control Point A":
                 objective_phase_number = 2
                 enable_normal_spawns = true
                 call_reinforcements()
-                async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+                startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
                 wait(2)
                 start_kill_remaining_phase()
         wait(0.25)
@@ -5929,7 +5929,7 @@ rule "DOM Team 2 Slot 2: Contest Control Point B":
                 objective_phase_number = 2
                 enable_normal_spawns = true
                 call_reinforcements()
-                async(play_incoming_sound_twice, AsyncBehavior.NOOP)
+                startRule(play_incoming_sound_twice, StartRuleBehavior.NOOP)
                 wait(2)
                 start_kill_remaining_phase()
         wait(0.25)
@@ -6536,7 +6536,7 @@ rule "Sigma: String Theory":
     
     wait(1.8, Wait.ABORT_WHEN_FALSE)
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
-    eventPlayer.Ability_End = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, getPlayers(Team.2), eventPlayer, true).getHitPosition()
+    eventPlayer.Ability_End = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, getPlayers(Team.2), eventPlayer, true)
     chaseAtRate(eventPlayer.Ability_Projectile1, eventPlayer.Ability_End, 40)
     createEffect(getAllPlayers(), Effect.SPHERE, Color.VIOLET, eventPlayer.Ability_Projectile1, 0.6, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[1] = getLastCreatedEntity()
@@ -6545,7 +6545,7 @@ rule "Sigma: String Theory":
     wait(0.25)
     eventPlayer.Ability_Countdown = eventPlayer.getHealthOfType(Health.SHIELDS)
     waitUntil(not eventPlayer.Talent2 or eventPlayer.Ability_Projectile1 == eventPlayer.Ability_End, 5)
-    stopChasingVariable(eventPlayer.Ability_Projectile1)
+    stopChasing(eventPlayer.Ability_Projectile1)
     destroyEffect(eventPlayer.Effects__[1])
     destroyEffect(eventPlayer.Effects__[2])
     damage(getPlayersInRadius(eventPlayer.Ability_Projectile1, min(10, 1.5 + eventPlayer.Ability_Countdown * 0.017), Team.2), eventPlayer, min(200, 100 + eventPlayer.Ability_Countdown / 5))
@@ -6834,10 +6834,10 @@ rule "Mercy: Holy Light Missiles":
     eventPlayer.Effects__[1] = getLastCreatedEntity()
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
     chaseAtRate(eventPlayer.Ability_Projectile1, eventPlayer.Ability_End, 100)
-    eventPlayer.Ability_End = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 60, getLivingPlayers(Team.2), getPlayers(Team.1), true).getHitPosition()
+    eventPlayer.Ability_End = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 60, getLivingPlayers(Team.2), getPlayers(Team.1), true)
     waitUntil(not eventPlayer.Talent2 or eventPlayer.Ability_End == eventPlayer.Ability_Projectile1, 1)
     destroyEffect(eventPlayer.Effects__[1])
-    stopChasingVariable(eventPlayer.Ability_Countdown)
+    stopChasing(eventPlayer.Ability_Countdown)
     playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION_SOUND, Color.GREEN, eventPlayer.Ability_Projectile1, 100)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.YELLOW, eventPlayer.Ability_Projectile1, 6)
     playEffect(getAllPlayers(), DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer.Ability_Projectile1, 6)
@@ -7000,7 +7000,7 @@ rule "Hanzo: Stormbreak - Boost":
     waitUntil(eventPlayer.isDead() or not eventPlayer.Ability_Countdown or not eventPlayer.Talent2, 99999)
     eventPlayer.Ability_Countdown = false
     destroyEffect(eventPlayer.Effects__[1])
-    stopChasingVariable(eventPlayer.Ability_Countdown)
+    stopChasing(eventPlayer.Ability_Countdown)
 
 
 rule "Hanzo: Stormbreak - Reset Cooldowns For Storm Arrows":
@@ -7203,7 +7203,7 @@ rule "[Pharah] Weaponized Storm":
     @Condition eventPlayer.getAmmo(false) % 6 == false
     
     eventPlayer.setProjectileSpeed(125)
-    eventPlayer.Ability_End = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, getLivingPlayers(Team.ALL), eventPlayer, true).getHitPosition()
+    eventPlayer.Ability_End = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, getLivingPlayers(Team.ALL), eventPlayer, true)
     eventPlayer.Ability_Projectile1 = eventPlayer.getEyePosition()
     createEffect(getAllPlayers(), Effect.BAD_AURA, Color.ORANGE, eventPlayer.Ability_Projectile1, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.Effects__[7] = getLastCreatedEntity()
@@ -7216,7 +7216,7 @@ rule "[Pharah] Weaponized Storm":
         damage(getPlayersInRadius(eventPlayer.Ability_Projectile1, 4, Team.2, LosCheck.SURFACES), eventPlayer, 20)
         wait(0.1)
     eventPlayer.setProjectileSpeed(100)
-    stopChasingVariable(eventPlayer.Ability_Projectile1)
+    stopChasing(eventPlayer.Ability_Projectile1)
 
 
 rule "Junkrat: Pyromania":
@@ -7718,7 +7718,7 @@ rule "Cassidy: Standoff - Set root":
         wait(1, Wait.ABORT_WHEN_FALSE)
         playEffect(eventPlayer, DynamicEffect.EXPLOSION_SOUND, Color.WHITE, eventPlayer, 15)
         (eventPlayer.getPlayersInViewAngle(Team.2, 103).filter(lambda player: player.getHealth() <= eventPlayer.Ability_Countdown and isInLoS(eventPlayer, player))).setStatusEffect(eventPlayer, Status.ROOTED, 2)
-    stopChasingVariable(eventPlayer.Ability_Countdown)
+    stopChasing(eventPlayer.Ability_Countdown)
 
 
 rule "Cassidy: Flashpoint":

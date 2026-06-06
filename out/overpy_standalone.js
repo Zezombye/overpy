@@ -2117,7 +2117,7 @@ var OverPyDecompiler = class {
   currentLanguage = "en-US";
   currentArrayElementName = "";
   currentArrayIndexName = "";
-  fileStack = getInternalFileStack();
+  fileStack = [];
   encounteredWarnings = [];
   /** Global variable used to mark the action number of the last loop in the rule.
    *
@@ -4970,7 +4970,7 @@ var constantValues = (
         "zh-TW": "None"
       }
     },
-    "AsyncBehavior": {
+    "StartRuleBehavior": {
       "RESTART": {
         "guid": "000000010025",
         "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
@@ -22424,7 +22424,7 @@ var valueFuncKw = (
       "th-TH": "Raise To Power",
       "zh-TW": "Raise To Power"
     },
-    "__raycastHitNormal__": {
+    "raycastHitNormal": {
       "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
       "args": [
         {
@@ -22476,7 +22476,7 @@ var valueFuncKw = (
       "th-TH": "Ray Cast Hit Normal",
       "zh-TW": "Ray Cast Hit Normal"
     },
-    "__raycastHitPlayer__": {
+    "raycastHitPlayer": {
       "description": "The player hit by the ray cast (or null if no player is hit).",
       "args": [
         {
@@ -22528,7 +22528,7 @@ var valueFuncKw = (
       "th-TH": "Ray Cast Hit Player",
       "zh-TW": "Ray Cast Hit Player"
     },
-    "__raycastHitPosition__": {
+    "raycastHitPosition": {
       "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
       "args": [
         {
@@ -24525,7 +24525,7 @@ var valueFuncKw = (
       "th-TH": "Flag Position",
       "zh-TW": "Flag Position"
     },
-    "getLastAssistID": {
+    "getLastAssistId": {
       "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
       "args": [],
       "return": "AssistId",
@@ -32536,7 +32536,7 @@ var actionKw = (
       "ru-RU": "Skip",
       "zh-TW": "Skip"
     },
-    "async": {
+    "startRule": {
       "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
       "args": [
         {
@@ -32547,7 +32547,7 @@ var actionKw = (
         {
           "name": "ifAlreadyExecuting",
           "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
-          "type": "AsyncBehavior",
+          "type": "StartRuleBehavior",
           "default": "RESTART"
         }
       ],
@@ -36992,7 +36992,8 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       }
     ],
     class: "Raycast",
-    return: "Direction"
+    return: "Direction",
+    hideFromAutocomplete: true
   },
   ".getPlayerHit": {
     "description": "The player hit by the raycast (or null if no player is hit).",
@@ -37003,7 +37004,8 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       }
     ],
     class: "Raycast",
-    return: "Player"
+    return: "Player",
+    hideFromAutocomplete: true
   },
   ".getHitPosition": {
     "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
@@ -37014,7 +37016,8 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       }
     ],
     class: "Raycast",
-    return: "Position"
+    return: "Position",
+    hideFromAutocomplete: true
   },
   "hsl": {
     "description": "A custom color in HSL/HSLA format.",
@@ -37122,7 +37125,8 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "default": true
       }
     ],
-    "return": "Raycast"
+    "return": "Raycast",
+    hideFromAutocomplete: true
   },
   ".remove": {
     "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
@@ -37249,7 +37253,7 @@ Also check the \`tabular\` function for a more concise syntax.
     ],
     "return": "void"
   },
-  "stopChasingVariable": {
+  "stopChasing": {
     "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
     "args": [
       {
@@ -48678,15 +48682,15 @@ OverPyCompiler.prototype.parse = function(content, kwargs = {}) {
     }
     return result2;
   }
-  if (name === "async") {
+  if (name === "async" || name === "startRule") {
     if (args.length !== 2) {
-      this.error("Function 'async' takes 2 arguments, received " + args.length);
+      this.error("Function '" + name + "' takes 2 arguments, received " + args.length);
     }
     var subroutineArg = args[0][0].text;
     if (!this.isSubroutineName(subroutineArg)) {
       this.error("Expected subroutine name as first argument");
     }
-    let result2 = this.Ast("async", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
+    let result2 = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
     result2.fileStack = this.getFileStackRange(content);
     return result2;
   }
@@ -48809,6 +48813,7 @@ OverPyCompiler.prototype.parse = function(content, kwargs = {}) {
     "enableEnvironmentCollision": ".enableEnvironmentCollision",
     "enablePlayerCollision": ".enablePlayerCollision",
     "horizontalAngleFromDirection": "horizontalAngleOfDirection",
+    "getLastAssistID": "getLastAssistId",
     "getLastDoT": "getLastDamageOverTimeId",
     "getLastHoT": "getLastHealingOverTimeId",
     "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
@@ -48822,6 +48827,7 @@ OverPyCompiler.prototype.parse = function(content, kwargs = {}) {
     "buttonString": "inputBindingString",
     "teamHasHero": "isHeroBeingPlayed",
     "removeFromGame": ".removeFromGame",
+    "stopChasingVariable": "stopChasing",
     "stopDoT": "stopDamageOverTime",
     "stopHoT": "stopHealingOverTime"
   };
@@ -48863,6 +48869,9 @@ OverPyCompiler.prototype.parseMember = function(object, member) {
       return result2;
     }
     if (object.length === 1) {
+      if (object[0].text === "AsyncBehavior") {
+        object[0].text = "StartRuleBehavior";
+      }
       if (object[0].text in this.enumMembers && name in this.enumMembers[object[0].text]) {
         return this.enumMembers[object[0].text][name].clone();
       }
@@ -49801,7 +49810,12 @@ OverPyCompiler.prototype.getAstForArgDefault = OverPyDecompiler.prototype.getAst
 OverPyCompiler.prototype.compileCustomGameSettingsDict = function(providedSettings, refDict) {
   var result = {};
   for (var key_ of Object.keys(providedSettings)) {
-    var wsKey = this.tows(key_, refDict);
+    try {
+      var wsKey = this.tows(key_, refDict);
+    } catch (e) {
+      result[key_] = providedSettings[key_];
+      continue;
+    }
     if (!(key_ in refDict)) {
       this.error("Unknown setting '" + key_ + "'");
     }
@@ -49812,7 +49826,11 @@ OverPyCompiler.prototype.compileCustomGameSettingsDict = function(providedSettin
     }
     let refValues = refEntry.values;
     if (typeof refValues === "object") {
-      result[wsKey] = this.tows(providedSettings[key], refValues);
+      try {
+        result[wsKey] = this.tows(providedSettings[key], refValues);
+      } catch (e) {
+        result[wsKey] = providedSettings[key];
+      }
     } else if (refValues === "__string__") {
       if ("maxChars" in refEntry && typeof refEntry.maxChars === "number") {
         if (getUtf8Length(providedSettings[key]) > refEntry.maxChars) {
@@ -49988,13 +50006,17 @@ OverPyDecompiler.prototype.decompileCustomGameSettingsDict = function(dict, kwOb
       }
     }
     if (keyName === null || value === null) {
-      throw this.error("No translation found for key of element '" + (options.parent ? options.parent + " > " : "") + potentialKey + "'");
+      result[potentialKey] = potentialValue;
+      continue;
     }
     if (isInvalidButAcceptedProperty) {
       continue;
     }
     if (typeof kwObj[keyName].values === "object") {
-      value = this.topy(value, kwObj[keyName].values);
+      try {
+        value = this.topy(value, kwObj[keyName].values);
+      } catch (e) {
+      }
     } else if (kwObj[keyName].values === "__string__") {
       value = this.unescapeString(value, false);
     } else if (kwObj[keyName].values === "__percent__") {
@@ -63693,8 +63715,9 @@ var Button = {${Object.keys(constantValues.ButtonLiteral).map((x) => `${camelCas
 var builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 var defaultVarNames = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BK", "BL", "BM", "BN", "BO", "BP", "BQ", "BR", "BS", "BT", "BU", "BV", "BW", "BX", "BY", "BZ", "CA", "CB", "CC", "CD", "CE", "CF", "CG", "CH", "CI", "CJ", "CK", "CL", "CM", "CN", "CO", "CP", "CQ", "CR", "CS", "CT", "CU", "CV", "CW", "CX", "CY", "CZ", "DA", "DB", "DC", "DD", "DE", "DF", "DG", "DH", "DI", "DJ", "DK", "DL", "DM", "DN", "DO", "DP", "DQ", "DR", "DS", "DT", "DU", "DV", "DW", "DX"];
 var defaultSubroutineNames = Array(128).fill("").map((e, i) => i).map((x) => "Sub" + x);
-var reservedNames = Object.keys(opyKeywords);
+var reservedNames = Object.keys(opyKeywords).concat("AsyncBehavior");
 var reservedSubroutineNames = Object.keys(opyKeywords);
+var reservedMemberNames = ["x", "y", "z"];
 var bigLettersMappings = {
   a: "\u0391",
   A: "\u0391",
@@ -64144,7 +64167,6 @@ function postInitialLoad() {
   });
   postLoadTasks.sort((task) => task.priority).forEach((task) => task.task());
 }
-var reservedMemberNames = ["x", "y", "z"];
 var overpyTemplate = `
 #OverPy starter pack
 
@@ -64833,9 +64855,9 @@ OverPyDecompiler.prototype.astActionsToOpy = function(actions) {
     } else if (actions[i].name === "async") {
       decompiledAction += "async(" + actions[i].args[0].name + ", " + this.astToOpy(actions[i].args[1]) + ")";
     } else if (actions[i].name === "__stopChasingGlobalVariable__") {
-      decompiledAction += "stopChasingVariable(" + actions[i].args[0].name + ")";
+      decompiledAction += "stopChasing(" + actions[i].args[0].name + ")";
     } else if (actions[i].name === "__stopChasingPlayerVariable__") {
-      decompiledAction += "stopChasingVariable(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
+      decompiledAction += "stopChasing(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
     } else if (actions[i].name === "__skip__") {
       if (actions[i].args[0].name === "__number__") {
         var labelName = "lbl_" + this.decompilationLabelNumber;
@@ -65148,15 +65170,6 @@ OverPyDecompiler.prototype.astToOpy = function(content) {
       return "round(" + this.astToOpy(content.args[0]) + ")";
     }
   }
-  if (content.name === "__raycastHitNormal__") {
-    return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getNormal()";
-  }
-  if (content.name === "__raycastHitPosition__") {
-    return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getHitPosition()";
-  }
-  if (content.name === "__raycastHitPlayer__") {
-    return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getPlayerHit()";
-  }
   if (!(content.name in funcKw)) {
     this.error("Unregistered function '" + content.name + "'");
   }
@@ -65389,11 +65402,20 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content) {
     } else if (opyCategory === "gamemodes") {
       for (var gamemode of Object.keys(serialized[category])) {
         var isCurrentGamemodeDisabled = false;
+        let opyGamemode;
         if (gamemode.startsWith(wsDisabled)) {
           isCurrentGamemodeDisabled = true;
-          var opyGamemode = this.topy(gamemode.substring(wsDisabled.length), customGameSettingsSchema.gamemodes.values);
+          try {
+            opyGamemode = this.topy(gamemode.substring(wsDisabled.length), customGameSettingsSchema.gamemodes.values);
+          } catch (e) {
+            opyGamemode = gamemode.substring(wsDisabled.length);
+          }
         } else {
-          var opyGamemode = this.topy(gamemode, customGameSettingsSchema.gamemodes.values);
+          try {
+            opyGamemode = this.topy(gamemode, customGameSettingsSchema.gamemodes.values);
+          } catch (e) {
+            opyGamemode = gamemode;
+          }
         }
         result[opyCategory][opyGamemode] = {};
         if (isCurrentGamemodeDisabled) {
@@ -65415,9 +65437,6 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content) {
                   var variants = [...map.matchAll(/\b972777\d+\b/g)].map((x) => x[0]);
                   var mapName = this.topy(map.replace(/\b972777\d+\b/g, ""), mapKw);
                   var mapVariants = [];
-                  if (!("variants" in mapKw[mapName])) {
-                    this.error("Map '" + mapName + "' should have no variants");
-                  }
                   for (var variant of variants) {
                     var variantName = Object.keys(mapKw[mapName].variants).filter((x) => mapKw[mapName].variants[x] === variant);
                     if (variantName.length === 0) {
@@ -65440,7 +65459,7 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content) {
             }
           }
         }
-        Object.assign(result[opyCategory][opyGamemode], this.decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values, { parent: gamemode }));
+        Object.assign(result[opyCategory][opyGamemode], this.decompileCustomGameSettingsDict(dict, (customGameSettingsSchema[opyCategory].values[opyGamemode] || customGameSettingsSchema[opyCategory].values.general).values, { parent: gamemode }));
       }
     } else if (opyCategory === "heroes") {
       for (var team of Object.keys(serialized[category])) {
@@ -68116,8 +68135,8 @@ astParsingFunctions.asinDeg = function(content, compiler) {
   return content;
 };
 
-// src/compiler/functions/async.ts
-astParsingFunctions.async = astParsingFunctions.__callSubroutine__;
+// src/compiler/functions/startRule.ts
+astParsingFunctions.startRule = astParsingFunctions.__callSubroutine__;
 
 // src/compiler/functions/atan2.ts
 astParsingFunctions.atan2 = function(content, compiler) {
@@ -70230,9 +70249,9 @@ OverPyCompiler.prototype.astToWs = function(content) {
     }
     content.args = content.args[0].args;
     content.name = {
-      ".getHitPosition": "__raycastHitPosition__",
-      ".getPlayerHit": "__raycastHitPlayer__",
-      ".getNormal": "__raycastHitNormal__"
+      ".getHitPosition": "raycastHitPosition",
+      ".getPlayerHit": "raycastHitPlayer",
+      ".getNormal": "raycastHitNormal"
     }[content.name];
   } else if (content.name === "__for__") {
     var newName = "";
@@ -70342,7 +70361,7 @@ OverPyCompiler.prototype.astToWs = function(content) {
       this.nbElements += this.currentRuleConditions.length - 1;
       return result;
     }
-  } else if (content.name === "stopChasingVariable") {
+  } else if (content.name === "stopChasing") {
     var newName = "";
     if (content.args[0].name === "__globalVar__") {
       newName = "GlobalVariable";
@@ -71087,15 +71106,17 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
       result[wsGamemodes] = {};
       for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
         if (gamemode !== "general") {
-          if (!(gamemode in gamemodeKw)) {
-            this.error("Unknown gamemode '" + gamemode + "'");
-          } else if (gamemodeKw[gamemode].onlyInOw1) {
+          if (gamemodeKw[gamemode]?.onlyInOw1) {
             this.error("The gamemode '" + gamemode + "' is not available in OW2");
           }
         }
-        var wsGamemode = this.tows(gamemode, customGameSettingsSchema.gamemodes.values);
+        try {
+          var wsGamemode = this.tows(gamemode, customGameSettingsSchema.gamemodes.values);
+        } catch (e) {
+          var wsGamemode = gamemode;
+        }
         var isGamemodeEnabled = true;
-        if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
+        if (customGameSettings.gamemodes[gamemode].enabled === false) {
           wsGamemode = this.tows("__disabled__", ruleKw) + " " + wsGamemode;
           isGamemodeEnabled = false;
         }
@@ -71106,7 +71127,7 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
             this.error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '" + gamemode + "'");
           }
           var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
-          var wsMapsKey = this.tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+          var wsMapsKey = this.tows(mapsKey, customGameSettingsSchema.gamemodes.values.skirmish.values);
           var encounteredMaps = [];
           result[wsGamemodes][wsGamemode][wsMapsKey] = [];
           for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
@@ -71155,7 +71176,7 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
           this.compileCustomGameSettingsDict(
             customGameSettings.gamemodes[gamemode],
             // @ts-ignore - customGameSettingsSchema should always has the correct schema
-            customGameSettingsSchema.gamemodes.values[gamemode].values
+            customGameSettingsSchema.gamemodes.values[gamemode]?.values || {}
           )
         );
       }
@@ -71202,11 +71223,6 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
           if ("ability1KB%" in customGameSettings.heroes[team][hero]) {
             customGameSettings.heroes[team][hero]["ability1Kb%"] = customGameSettings.heroes[team][hero]["ability1KB%"];
             delete customGameSettings.heroes[team][hero]["ability1KB%"];
-          }
-          for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
-            if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
-              this.error("'" + hero + "' has no property '" + key + "'");
-            }
           }
           result[wsHeroes][wsTeam][wsHero] = this.compileCustomGameSettingsDict(
             customGameSettings.heroes[team][hero],

@@ -262,10 +262,10 @@ rule "loop":
     #has to be unfroze early bc his hitbox desyncs with model
     nipman.clearStatusEffect(Status.FROZEN)
     pauseMatchTime()
-    stopChasingVariable(area1)
-    stopChasingVariable(area2)
-    stopChasingVariable(twisterPos)
-    stopChasingVariable(missilePos)
+    stopChasing(area1)
+    stopChasing(area2)
+    stopChasing(twisterPos)
+    stopChasing(missilePos)
     stopAllDamageModifications()
     #getPlayers(Team.1).stopAcceleration()
     getPlayers(Team.1).setGravity(100)
@@ -662,8 +662,8 @@ rule "grab":
             grabRightPlayer = grabRightPlayer.getPosition() + Vector.UP * 0.5
             chaseOverTime(grabRight, grabRightPlayer, 4, ChaseTimeReeval.NONE)
         wait(4)
-        stopChasingVariable(grabLeft)
-        stopChasingVariable(grabRight)
+        stopChasing(grabLeft)
+        stopChasing(grabRight)
         if obj == -1:
             return
         #check landing
@@ -687,8 +687,8 @@ rule "grab":
         grabLeftPlayer.startDamageOverTime(null, 1.2, 10)
         grabRightPlayer.startDamageOverTime(null, 1.2, 10)
         wait(1.2)
-        stopChasingVariable(grabLeft)
-        stopChasingVariable(grabRight)
+        stopChasing(grabLeft)
+        stopChasing(grabRight)
         wait(0.08)
         grabLeftPlayer.stopForcingPosition()
         grabRightPlayer.stopForcingPosition()
@@ -758,7 +758,7 @@ rule "milk wall + collision":
             wait()
         destroyEffect(wallEffects)
         wallEffects = []
-        stopChasingVariable(wallPos)
+        stopChasing(wallPos)
 
 
 rule "rain":
@@ -979,7 +979,7 @@ rule "nuke":
                     missileFx = []
                     break
             wait(0.24)
-        stopChasingVariable(missilePos)
+        stopChasing(missilePos)
         missilePos -= Vector.UP
         createProjectileEffect(getAllPlayers(), Projectile.ZARYA_GRAVITON, null, missilePos + Vector.UP, Vector.UP, 0.1 + (0.1 * (getTotalTimeElapsed() - missileTemp)), ProjectileEffectReeval.VISIBILITY_POSITION_DIRECTION_AND_SIZE)
         missileFx.append(getLastCreatedEntity())
@@ -1566,7 +1566,7 @@ rule "hook no breaky":
     @Hero roadhog
     @Condition obj != -1
     @Condition eventPlayer.isUsingAbility1() == true
-    @Condition raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 35 * eventPlayer.getFacingDirection(), getPlayers(Team.2), getPlayersOnHero(Hero.LIFEWEAVER, Team.2), true).getPlayerHit() == nipman
+    @Condition raycastHitPlayer(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + 35 * eventPlayer.getFacingDirection(), getPlayers(Team.2), getPlayersOnHero(Hero.LIFEWEAVER, Team.2), true) == nipman
     @Disabled
     
     eventPlayer.setStatusEffect(null, Status.HACKED, 0.5)

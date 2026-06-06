@@ -344,9 +344,9 @@ OverPyDecompiler.prototype.astActionsToOpy = function(actions: Ast[]): string {
         } else if (actions[i].name === "async") {
             decompiledAction += "async(" + actions[i].args[0].name + ", " + this.astToOpy(actions[i].args[1]) + ")";
         } else if (actions[i].name === "__stopChasingGlobalVariable__") {
-            decompiledAction += "stopChasingVariable(" + actions[i].args[0].name + ")";
+            decompiledAction += "stopChasing(" + actions[i].args[0].name + ")";
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
-            decompiledAction += "stopChasingVariable(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
+            decompiledAction += "stopChasing(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
         } else if (actions[i].name === "__skip__") {
             if (actions[i].args[0].name === "__number__") {
                 var labelName = "lbl_" + this.decompilationLabelNumber;
@@ -717,16 +717,6 @@ OverPyDecompiler.prototype.astToOpy = function(content: Ast): string {
         if (content.args[1].name === "__roundToNearest__") {
             return "round(" + this.astToOpy(content.args[0]) + ")";
         }
-    }
-
-    if (content.name === "__raycastHitNormal__") {
-        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getNormal()";
-    }
-    if (content.name === "__raycastHitPosition__") {
-        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getHitPosition()";
-    }
-    if (content.name === "__raycastHitPlayer__") {
-        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getPlayerHit()";
     }
 
     if (!(content.name in funcKw)) {

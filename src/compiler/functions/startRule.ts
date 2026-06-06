@@ -19,4 +19,4 @@
 
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.async = astParsingFunctions.__callSubroutine__;
+astParsingFunctions.startRule = astParsingFunctions.__callSubroutine__;

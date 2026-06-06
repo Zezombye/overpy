@@ -609,7 +609,7 @@ rule "":
         lIlllllIIIII++
     lIlllllIIIII = false
     wait(0.1)
-    async(IlIIIIIllIll, AsyncBehavior.RESTART)
+    startRule(IlIIIIIllIll)
     while true:
         if not entityExists(lIllIlIIIIIl):
             createDummy(Hero.TORBJORN, Team.ALL, 12, null, null)
@@ -679,7 +679,7 @@ def IlIIIIIllIll():
     lIIIIIlllIlI.append("Avoid the Trains!#Go to the Color!#Target Practice!#Dropper!#Dodgeball!#Hot Potato!#Spleef!#Bowling Blowout!#Basketbomb!".split(lIllIlllIlll))
     lIIIIIlllIlI.append("Rocket Turret!#Monkey see Monkey do!#Space Battle!#Exploding Ball!#Snowball Fight!".split(lIllIlllIlll))
     wait(0.1)
-    async(llIIIIIIllII, AsyncBehavior.RESTART)
+    startRule(llIIIIIIllII)
 
 
 def llIIIIIIllII():
@@ -702,7 +702,7 @@ def llIIIIIIllII():
     lIIlIlllllII.append("Bowling à risque !#Basket-bombe !#Tourelle à roquettes !#Jeu d'imitation !#Bataille spatiale !#Explo-balle !".split(lIllIlllIlll))
     lIIlIlllllII.append("Bataille de boules de neige !")
     wait(0.1)
-    async(IllIIIIllIll, AsyncBehavior.RESTART)
+    startRule(IllIIIIllIll)
 
 
 def IllIIIIllIll():
@@ -723,7 +723,7 @@ def IllIIIIllIll():
     IIllIIIlIIlI.append("Weiche den Zügen aus!#Gehe zur Farbe!#Zielübung!#Abwurf!#Völkerball!#Heiße Kartoffel!#Spleef!#Bowling Blowout!#Körbchenbombe!".split(lIllIlllIlll))
     IIllIIIlIIlI.append("Raketenwerfer!#Affe sehen Affe tun!#Weltraumkampf!#Explosionsartige Kugel!#Schneeballschlacht!".split(lIllIlllIlll))
     wait(0.1)
-    async(llllIIIIlIIl, AsyncBehavior.RESTART)
+    startRule(llllIIIIlIIl)
 
 
 def llllIIIIlIIl():
@@ -744,7 +744,7 @@ def llllIIIIlIIl():
     IIlIlIIllIll.append("Esquiva los trenes!#Ve al color!#Práctica de tiro!#Dropper!#Balón Prisionero!#Patata Caliente!#Spleef!#Bolos!".split(lIllIlllIlll))
     IIlIlIIllIll.append("Basquet Bombástico!#Torreta Cohete!#Mono ver Mono hacer!#Batalla Espacial!#Bomba Explosiva!#Batalla de Bolas de Nieve!".split(lIllIlllIlll))
     wait(0.1)
-    async(lIllIIlIlIIl, AsyncBehavior.RESTART)
+    startRule(lIllIIlIlIIl)
 
 
 def lIllIIlIlIIl():
@@ -766,7 +766,7 @@ def lIllIIlIlIIl():
     IIlIlllllIll.append("¡Esquiva los trenes!#¡Ve al color!#¡Práctica de tiro!#¡Dropper!#¡Quemados!#¡Papa Caliente!#¡Spleef!#¡Bolos Explosivos!".split(lIllIlllIlll))
     IIlIlllllIll.append("¡Basquet Bomba!#¡Torreta Cohete!#¡Mono ver, Mono hacer!#¡BatallaEspacial!#¡Bomba Explosiva!#¡Lucha de Bolas de Nieve!".split(lIllIlllIlll))
     wait(0.1)
-    async(IIlIIllIIlll, AsyncBehavior.RESTART)
+    startRule(IIlIIllIIlll)
 
 
 def IIlIIllIIlll():
@@ -786,7 +786,7 @@ def IIlIIllIIlll():
     IlIIlllIlIll.append("Уворачивайся от поездов!#Беги к цвету!#Стрельба по мишеням!#Парашютист!#Отрази шар!#Горячая картошка!#Поджигай землю!".split(lIllIlllIlll))
     IlIIlllIlIll.append("Раскатывающий боулинг!#Баскетбомба!#Рокетная турель!#Повторялки!#Космическая битва!#Взрывающиеся шары!#Снежный бой!".split(lIllIlllIlll))
     wait(0.1)
-    async(llllllIllllI, AsyncBehavior.RESTART)
+    startRule(llllllIllllI)
 
 
 def llllllIllllI():
@@ -840,7 +840,7 @@ def IlIllllIlIlI():
     eventPlayer.IllIIIIllIll = "] to dismiss this message.#] pour cacher ce message.#], um diese Nachricht ausblenden.#] para ocultar este mensaje.".split(lIllIlllIlll)
     eventPlayer.IllIIIIllIll.append("] para ocultar este aviso.#], чтобы убрать это сообщение.#] para dispensar essa mensagem.".split(lIllIlllIlll))
     wait(0.1)
-    async(lIIlIllIlIll, AsyncBehavior.RESTART)
+    startRule(lIIlIllIlIll)
 
 
 def lIIlIllIlIll():
@@ -897,7 +897,7 @@ def lIIlIllIlIll():
     wait()
     createBeam(localPlayer if localPlayer.hasSpawned() and not getMatchTime() and not llIlIlllIIll and not IlIllIlIIllI and llIlIIllIIll <= 0.35 and not localPlayer.IllIIllIIlII and not localPlayer.lIIlIIIlIIlI and localPlayer.isAlive() and not localPlayer.isCommunicatingEmote() else [], Beam.ZARYA_PARTICLE, updateEveryFrame(localPlayer.getEyePosition() + (1.1 * (0.728 * worldVector(Vector.RIGHT, localPlayer, Transform.ROTATION) + (1.547 * (directionFromAngles(horizontalAngleOfDirection(localPlayer.getFacingDirection()), verticalAngleOfDirection(localPlayer.getFacingDirection()) - 90))) + 3 * localPlayer.getFacingDirection()))), updateEveryFrame(localPlayer.getEyePosition() + (1.1 * (0.723 * worldVector(Vector.RIGHT, localPlayer, Transform.ROTATION) + (1.547 * (directionFromAngles(horizontalAngleOfDirection(localPlayer.getFacingDirection()), verticalAngleOfDirection(localPlayer.getFacingDirection()) - 90))) + 3 * localPlayer.getFacingDirection()))), Color.TEAM_2, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     wait(0.1)
-    async(lIllIllllIll, AsyncBehavior.RESTART)
+    startRule(lIllIllllIll)
 
 
 def lIllIllllIll():
@@ -923,8 +923,8 @@ def lIllIllllIll():
     eventPlayer.lIlIIIlIIllI.append("] para abrir el menu\nde comandos del lider.#] para abrir el menu\nde comandos del Host.#], чтобы открыть\nкомманды в меню.".split(lIllIlllIlll))
     eventPlayer.lIlIIIlIIllI.append("] para abrir o\nmenu de comandos de Dono.")
     wait(0.1)
-    async(lIlIIIIlIlll, AsyncBehavior.RESTART)
-    async(IIIlIIllIlll, AsyncBehavior.RESTART)
+    startRule(lIlIIIIlIlll)
+    startRule(IIIlIIllIlll)
     wait(true)
     eventPlayer.IllIIllllIII = " Land the most hits to win! # Réussissez le plus de tirs pour gagner ! # Erziele die meisten Treffer, um zu gewinnen! ".split(lIllIlllIlll)
     eventPlayer.IllIIllllIII.append(" Acierta la mayor cantidad de golpes para ganar! # ¡Acierta la mayor cantidad de golpes para ganar! ".split(lIllIlllIlll))
@@ -948,7 +948,7 @@ def lIllIllllIll():
     eventPlayer.IIIlIlllIIlI.append(Hero.LUCIO)
     eventPlayer.IIIlIlllIIlI.append(Hero.MERCY)
     eventPlayer.IIIlIlllIIlI.append(Hero.MOIRA)
-    async(lllIIIIlllll, AsyncBehavior.RESTART)
+    startRule(lllIIIIlllll)
 
 
 def lIlIIIIlIlll():
@@ -994,7 +994,7 @@ def lIlIIIIlIlll():
     eventPlayer.IlIllIlIIllI.append("Stay away from the {0} bombs before it explodes!".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.IlIllIlIIllI.append("Pick up snowball & eliminate enemies!")
     wait(0.1)
-    async(lIlIllIlIlIl, AsyncBehavior.RESTART)
+    startRule(lIlIllIlIlIl)
 
 
 def lIlIllIlIlIl():
@@ -1041,7 +1041,7 @@ def lIlIllIlIlIl():
     eventPlayer.llIllIllIlll.append("Restez à distance des {0} Bombes\navant qu'elles n'explosent !".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.llIllIllIlll.append("Ramassez une boule de neige et\nutilisez la pour éliminer les ennemis !")
     wait(0.1)
-    async(IlIIlllIlllI, AsyncBehavior.RESTART)
+    startRule(IlIIlllIlllI)
 
 
 def IlIIlllIlllI():
@@ -1088,7 +1088,7 @@ def IlIIlllIlllI():
     eventPlayer.lIIlIIlIIlII.append("Entferne dich von {0} Bombe, bevor Sie explodiert!".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.lIIlIIlIIlII.append("H\ze\zb\ze einen Schneeball auf und\nbenutze Ihn um den Gegner auszuschalten!")
     wait(0.1)
-    async(IlIllIlIlIll, AsyncBehavior.RESTART)
+    startRule(IlIllIlIlIll)
 
 
 def IlIllIlIlIll():
@@ -1136,7 +1136,7 @@ def IlIllIlIlIll():
     eventPlayer.lIllllIIIllI.append("Evita las {0} bombas antes de que exploten!".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.lIllllIIIllI.append("Recoge una bola de nieve y\nelemina a los enemigos con ella!")
     wait(0.1)
-    async(IllIIllllIII, AsyncBehavior.RESTART)
+    startRule(IllIIllllIII)
 
 
 def IllIIllllIII():
@@ -1184,7 +1184,7 @@ def IllIIllllIII():
     eventPlayer.IlIlllIIllIl.append("¡Alejate de las {0} bombas antes de que exploten!".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.IlIlllIIllIl.append("¡Agarra bolas de nieve y elimina enemigos!")
     wait(0.1)
-    async(IllIlIllIlIl, AsyncBehavior.RESTART)
+    startRule(IllIlIllIlIl)
 
 
 def IllIlIllIlIl():
@@ -1231,7 +1231,7 @@ def IllIlIllIlIl():
     eventPlayer.llIlllIlllII.append("Держись на расстоянии от {0} бомб до того,\nкак они взорвутся!".format(heroIcon(Hero.WRECKING_BALL)))
     eventPlayer.llIlllIlllII.append("Подбирай снежок и попадай в противников!")
     wait(0.1)
-    async(IIIIllllIIIl, AsyncBehavior.RESTART)
+    startRule(IIIIllllIIIl)
 
 
 def IIIIllllIIIl():
@@ -1313,7 +1313,7 @@ def IIIlIIllIlll():
     eventPlayer.IlllIlIllIlI.append(eventPlayer.IlllIlIllIlI[12])
     eventPlayer.IlllIlIllIlI.append("{0} cooldown: 4 sec".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(lIIIlIllllll, AsyncBehavior.RESTART)
+    startRule(lIIIlIllllll)
 
 
 def lIIIlIllllll():
@@ -1350,7 +1350,7 @@ def lIIIlIllllll():
     eventPlayer.IllllIIIIIII.append(eventPlayer.IllllIIIIIII[12])
     eventPlayer.IllllIIIIIII.append("Cooldown de {0} : 4 sec".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(lIlIIIlIIllI, AsyncBehavior.RESTART)
+    startRule(lIlIIIlIIllI)
 
 
 def lIlIIIlIIllI():
@@ -1387,7 +1387,7 @@ def lIlIIIlIIllI():
     eventPlayer.IIlIllIlIllI.append(eventPlayer.IIlIllIlIllI[12])
     eventPlayer.IIlIllIlIllI.append("{0} Abklingzeit: 4 Sekunden".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(lllIllIIllIl, AsyncBehavior.RESTART)
+    startRule(lllIllIIllIl)
 
 
 def lllIllIIllIl():
@@ -1425,7 +1425,7 @@ def lllIllIIllIl():
     eventPlayer.IlIIIIIlIlll.append(eventPlayer.IlIIIIIlIlll[12])
     eventPlayer.IlIIIIIlIlll.append("Tiempo de reutilización de {0}: 4 segundos".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(IllllIIIIlIl, AsyncBehavior.RESTART)
+    startRule(IllllIIIIlIl)
 
 
 def IllllIIIIlIl():
@@ -1462,7 +1462,7 @@ def IllllIIIIlIl():
     eventPlayer.lIllIlIIIIlI.append(eventPlayer.lIllIlIIIIlI[12])
     eventPlayer.lIllIlIIIIlI.append("Tiempo de reutilización de {0}: 4 Segundos".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(IlllIlllIIIl, AsyncBehavior.RESTART)
+    startRule(IlllIlllIIIl)
 
 
 def IlllIlllIIIl():
@@ -1499,7 +1499,7 @@ def IlllIlllIIIl():
     eventPlayer.IlllIIIIlIIl.append(eventPlayer.IlllIIIIlIIl[12])
     eventPlayer.IlllIIIIlIIl.append("Восстановление {0}: 4 сек".format(abilityIconString(Hero.MEI, Button.ABILITY_1)))
     wait(0.1)
-    async(llIIllllIIll, AsyncBehavior.RESTART)
+    startRule(llIIllllIIll)
 
 
 def llIIllllIIll():
@@ -1564,7 +1564,7 @@ def lllIIIIlllll():
     eventPlayer.IlIlIllIlIlI.append("O vencedor será o jogador com a menor pontuação.#Jogadores são invisíveis para os outros.#Todo movimento é 25% mais lento.".split(lIllIlllIlll))
     eventPlayer.IlIlIllIlIlI.append("Velocidade de movimento de jogadores aumentada por 50%.")
     wait(0.1)
-    async(llllIlIIIlll, AsyncBehavior.RESTART)
+    startRule(llllIlIIIlll)
 
 
 def llllIlIIIlll():
@@ -1652,7 +1652,7 @@ rule "":
     pauseMatchTime()
     if __getCurrentMap__() == Map.WORKSHOP_ISLAND_NIGHT:
         hudText(IlIlllIIllIl, "{0}{1} ".format(" Match Starting in # Le match commence dans # Spielstart in # Partida empezando en # La partida comienza en ".split(lIllIlllIlll).concat(" Матч начнется через # Partida começa em ".split(lIllIlllIlll))[localPlayer.IllIIllIllII], IlIIIIIlIlll), lllIIllllIIl, lllIIllllIIl, HudPosition.TOP, 4, Color.WHITE, null, null, HudReeval.VISIBILITY_AND_STRING)
-        async(IIIIlIIIllIl, AsyncBehavior.RESTART)
+        startRule(IIIIlIIIllIl)
     else:
         wait(10)
         setMatchTime(99999)
@@ -1686,7 +1686,7 @@ def IIIIlIIIllIl():
     IlIlllIIllIl.resurrect()
     llIIllllIIll = []
     llIllIIlllll = 2 if IIlllllIIIlI == 1 else false
-    async(lIIlllIlllIl, AsyncBehavior.RESTART)
+    startRule(lIIlllIlllIl)
     unpauseMatchTime()
     if IIlllllIIIlI == 3:
         pauseMatchTime()
@@ -1729,19 +1729,19 @@ rule "":
     @Event playerLeft
     
     wait(0.5)
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
     if getTotalTimeElapsed() > 30:
-        async(llIlIIllIIll, AsyncBehavior.RESTART)
+        startRule(llIlIIllIIll)
 
 
 rule "":
     @Condition getTotalTimeElapsed() > 30
     
     if len(IlIlllIIllIl.filter(lambda x: not x.isDummy())) and (not (IlIlllIIllIl.filter(lambda x: not x.lIllIllllIll and not x.getSlot()))):
-        async(llIlIIllIIll, AsyncBehavior.RESTART)
+        startRule(llIlIIllIIll)
     wait(2)
     if (len(IlIlllIIllIl.filter(lambda x: not x.isDummy()))) < 12 and (IlIlllIIllIl.filter(lambda x: not x.lIllIllllIll and x.getSlot() == 11)):
-        async(llIlIIllIIll, AsyncBehavior.RESTART)
+        startRule(llIlIIllIIll)
     wait(2)
     loop()
 
@@ -1839,7 +1839,7 @@ def lIIlllIlllIl():
     elif IIIlIIllIlll:
         IllIIlIllIII = IIIlIIllIlll
     else:
-        async(lIlIIIIllIII, AsyncBehavior.RESTART)
+        startRule(lIlIIIIllIII)
     wait()
     llIllIIIlIlI()
     if len(IlllIlIlIllI) == true:
@@ -1934,7 +1934,7 @@ rule "":
     llIlllIlllII = IlIlllIIllIl.filter(lambda x: x.getSlot() < 12 and x.lIIlllIlllIl and x.isAlive())
     if eventPlayer.isDummy():
         return
-    async(IIllIIIIlIlI, AsyncBehavior.NOOP)
+    startRule(IIllIIIIlIlI, StartRuleBehavior.NOOP)
     if lIlIIIlIIllI == eventPlayer and not IlllIlllIIIl:
         hostPlayer.removeFromGame()
 
@@ -1945,7 +1945,7 @@ rule "":
     IlIlllIIllIl = getAllPlayers()
     if eventPlayer.isDummy():
         return
-    async(IIllIIIIlIlI, AsyncBehavior.NOOP)
+    startRule(IIllIIIIlIlI, StartRuleBehavior.NOOP)
 
 
 rule "":
@@ -1960,9 +1960,9 @@ rule "":
             eventPlayer.lllIIIIIIIlI = IIIIIllllIlI
             eventPlayer.lIIllIlIIIlI = IIIIIllllIlI
         else:
-            async(IllIIlIllIII, AsyncBehavior.RESTART)
-        async(IlIllIlIIllI, AsyncBehavior.RESTART)
-        async(IlIllllIlIlI, AsyncBehavior.RESTART)
+            startRule(IllIIlIllIII)
+        startRule(IlIllIlIIllI)
+        startRule(IlIllllIlIlI)
     while not isGameInProgress():
         wait(0.03)
     if not eventPlayer.isDummy():
@@ -1984,7 +1984,7 @@ rule "":
     eventPlayer.setMoveSpeed(false)
     eventPlayer.setGravity(false)
     eventPlayer.teleport(vect(false, 900, -3))
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
     wait(0.05)
     if ruleCondition:
         loop()
@@ -2012,7 +2012,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.09, llIIIlllIlll) <= 0.4
     
     eventPlayer.IllIIllIllII = false
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2023,7 +2023,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[3]) <= 0.25
     
     eventPlayer.IllIIllIllII = 1
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2034,7 +2034,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[4]) <= 0.25
     
     eventPlayer.IllIIllIllII = 2
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2045,7 +2045,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.11, llIIIlllIlll[true]) <= 0.25
     
     eventPlayer.IllIIllIllII = 3
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2056,7 +2056,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.19, llIIIlllIlll[2]) <= 0.25
     
     eventPlayer.IllIIllIllII = 4
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2067,7 +2067,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.31, llIIIlllIlll[5]) <= 0.25
     
     eventPlayer.IllIIllIllII = 5
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2078,7 +2078,7 @@ rule "":
     @Condition distance(eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 3.39, llIIIlllIlll[6]) <= 0.25
     
     eventPlayer.IllIIllIllII = 6
-    async(IllIIlIllIII, AsyncBehavior.RESTART)
+    startRule(IllIIlIllIII)
 
 
 rule "":
@@ -2109,7 +2109,7 @@ rule "":
         chaseAtRate(eventPlayer.IIIIllllIIlI, 100, 166 * IlIIIIIlllll, ChaseRateReeval.NONE)
         wait(0.8)
         if eventPlayer.IIIIllllIIlI == 100:
-            stopChasingVariable(eventPlayer.IIIIllllIIlI)
+            stopChasing(eventPlayer.IIIIllllIIlI)
             eventPlayer.IIIIllllIIlI = false
     wait(true)
 
@@ -2119,7 +2119,7 @@ rule "":
     @Condition eventPlayer.IlIIIIIIllIl == true
     @Condition (not eventPlayer.isHoldingButton(Button.INTERACT) or eventPlayer.IIIIllllIIlI == 100 or IlIllIlIIllI) == true
     
-    stopChasingVariable(eventPlayer.IIIIllllIIlI)
+    stopChasing(eventPlayer.IIIIllllIIlI)
     if eventPlayer.IIIIllllIIlI == 100:
         eventPlayer.startForcingHero(Hero.TORBJORN)
         eventPlayer.IlIIIIIIllIl = false
@@ -2173,7 +2173,7 @@ rule "":
             eventPlayer.setGravity(false)
             eventPlayer.setInvisibility(Invis.ALL)
             eventPlayer.teleport(Vector.UP * 800)
-            async(IllllllIIIIl, AsyncBehavior.RESTART)
+            startRule(IllllllIIIIl)
             eventPlayer.IllIIllIllII = false
             eventPlayer.lIllIllllIll = true
             wait(true)
@@ -2191,7 +2191,7 @@ rule "":
             eventPlayer.IllIIllIllII = [1500, 3000, 4500, 6000, 7500, 9000, 10500].index(round(eventPlayer.getHorizontalFacingAngle() * 100))
             wait(0.05)
         eventPlayer.startFacing(Vector.FORWARD, 9999, Relativity.TO_WORLD, FacingReeval.NONE)
-        async(IllIIlIllIII, AsyncBehavior.RESTART)
+        startRule(IllIIlIllIII)
         while not eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) and not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) and not eventPlayer.isHoldingButton(Button.INTERACT):
             wait(0.03)
         eventPlayer.stopFacing()
@@ -2221,8 +2221,8 @@ rule "":
         wait(0.5)
         smallMessage(eventPlayer, "{0}{1}{0}".format(iconString(Icon.NO), " Wait for next round! # Attendez la prochaine manche ! # Warte bis zur nächsten Runde! # Esperando para la siguiente ronda! ".split(lIllIlllIlll).concat(" ¡Espera la siguiente ronda! # Дождитесь следующего раунда! # Espere pela próxima rodada! ".split(lIllIlllIlll))[localPlayer.IllIIllIllII]))
     else:
-        async(IIlIlllIllII, AsyncBehavior.RESTART)
-        async(lIIllIlIllII, AsyncBehavior.RESTART)
+        startRule(IIlIlllIllII)
+        startRule(lIIllIlIllII)
     if eventPlayer.isDummy():
         return
     wait(0.1, Wait.ABORT_WHEN_FALSE)
@@ -2258,7 +2258,7 @@ def IIlIlllIllII():
         eventPlayer.stopThrottleInDirection()
         eventPlayer.stopForcingThrottle()
         wait(0.1)
-        async(IllllllIIIIl, AsyncBehavior.RESTART)
+        startRule(IllllllIIIIl)
         eventPlayer.setDamageDealt(100)
         eventPlayer.setSecondaryFireEnabled(true)
         eventPlayer.setAbility1Enabled(true)
@@ -2289,7 +2289,7 @@ def IIlIlllIllII():
         eventPlayer.IlllIIlIIIIl = false
         eventPlayer.IlIIIlIIllll = null
         if eventPlayer.isDead():
-            async(lIIllIlIllII, AsyncBehavior.RESTART)
+            startRule(lIIllIlIllII)
             eventPlayer.resurrect()
         if eventPlayer.lIIlIIIlIIlI >= 2:
             smallMessage(eventPlayer, "{0}{1}{0}".format(iconString(Icon.CLUB), ([" You still won {0} score for surviving more than {1} seconds! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " Vous gagnez tout de même {0} points pour avoir survécu plus de {1} secondes ! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " Du hast immer noch {0} gewonnen, weil du mehr als {1} Sekunden überlebt hast! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " Ganaste {0} puntos por sobrevivir mas de {1} segundos! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " ¡Has ganado {0} puntos por aguantar más de {1} Segundos! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " Вы заработали {0} очков за то, что продержались дольше {1} секунд! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20), " Você ainda conseguiu {0} pontos por sobreviver mais de {1} segundos! ".format(eventPlayer.lIIlIIIlIIlI - true, 10 if eventPlayer.lIIlIIIlIIlI == 2 else 20)])[localPlayer.IllIIllIllII]))
@@ -2301,7 +2301,7 @@ def lIIllIlIllII():
     @Name ""
     
     eventPlayer.teleport(random.choice(lIIlIIIIlIIl) + vect(random.uniform(-5, 5), true, random.uniform(-5, 5)))
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
     while distance(eventPlayer, IllllllIIIIl) > 2.5 and not eventPlayer.isInViewAngle(Vector.UP, 45):
         eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), Vector.UP), Relativity.TO_WORLD)
         wait()
@@ -2352,7 +2352,7 @@ rule "":
     wait(0.05)
     if ruleCondition:
         loop()
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
 
 
 rule "":
@@ -2369,7 +2369,7 @@ rule "":
     wait(0.05)
     if ruleCondition:
         loop()
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
 
 
 rule "":
@@ -2386,7 +2386,7 @@ rule "":
     wait(0.05)
     if ruleCondition:
         loop()
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
 
 
 rule "":
@@ -2403,7 +2403,7 @@ rule "":
     wait(0.05)
     if ruleCondition:
         loop()
-    async(IllllllIIIIl, AsyncBehavior.RESTART)
+    startRule(IllllllIIIIl)
 
 
 rule "":
@@ -2454,7 +2454,7 @@ rule "":
     if IIlIIllIIlll != 1:
         IIlIIllIIlll = true
     else:
-        async(lIlIllIIIllI, AsyncBehavior.RESTART)
+        startRule(lIlIllIIIllI)
 
 
 def lIlIllIIIllI():
@@ -2491,7 +2491,7 @@ rule "":
         elif llllllIllllI == 5:
             IIlIIllIIlll = 5
     elif IIlIIllIIlll == 2:
-        async(lIlIllIIIllI, AsyncBehavior.RESTART)
+        startRule(lIlIllIIIllI)
         if lIlIIIIlIlll:
             smallMessage(IlIlllIIllIl, (["{0} Host: Forcing microgame on next round! {0}\n{1}".format(iconString(Icon.BOLT), "                  {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, lIIIIIlllIlI[IlIllIlIlIll])), "{0} Hôte : Mini-jeu imposé pour la prochaine manche ! {0}\n{1}".format(iconString(Icon.BOLT), "                  {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, lIIlIlllllII[IlIllIlIlIll])), "{0} Veranstalter: Erzwinge Mikrospiel für die kommende Runde! {0}\n{1}".format(iconString(Icon.BOLT), "                                  {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, IIllIIIlIIlI[IlIllIlIlIll])), "{0} Lider: Forzando microjuego en la ronda siguiente! {0}\n{1}".format(iconString(Icon.BOLT), "                  {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, IIlIlIIllIll[IlIllIlIlIll])), "{0} Host: ¡Forzando Microjuego en la próxima ronda! {0}\n{1}".format(iconString(Icon.BOLT), "                  {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, IIlIlllllIll[IlIllIlIlIll])), "{0} Владелец: Микро-игра будет запущена в следующем раунде! {0}\n{1}".format(iconString(Icon.BOLT), "                           {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, IlIIlllIlIll[IlIllIlIlIll])), "{0} Dono: Forçando minijogo na próxima rodada! {0}\n{1}".format(iconString(Icon.BOLT), "                    {0} {1} ".format(" {0}".format(heroIcon(IlllIllIIIIl[IlIllIlIlIll])) if IlllIllIIIIl[IlIllIlIlIll] else IIIIIllllIlI, IllIIIIIIlll[IlIllIlIlIll]))])[localPlayer.IllIIllIllII])
             lIlIIIIlIlll = false
@@ -2518,15 +2518,15 @@ rule "":
         elif lIIlIIlIIlII >= 29:
             smallMessage(hostPlayer, ["Please wait until the timer is below 29 seconds!", "Veuillez attendre jusqu'à ce que le temps passe en dessous de 29 secondes !", "Bitte warte, bis der Timer unter 29 Sekunden liegt!", "Por favor, espera a que el tiempo esté a menos de 29 segundos!", "¡Por favor, espera hasta que el tiempo esté a menos de 29 segundos!", "Пожалуйста, подождите пока таймер не дойдёт отметки в 29 секунд!", "Por favor espere até o tempo estar abaixo de 29 segundos!"][localPlayer.IllIIllIllII])
         else:
-            async(lIlIllIIIllI, AsyncBehavior.RESTART)
+            startRule(lIlIllIIIllI)
             smallMessage(IlIlllIIllIl, "{0}{1}{0}".format(iconString(Icon.BOLT), " Host: Skipped boss stage! # Hôte : Boss Stage passé ! # Veranstalter: Überspringe Boss-Phase! # Lider: Fase de Jefe saltada! ".split(lIllIlllIlll).concat(" Host: ¡Ronda de Jefe salteada! # Владелец: Босс-раунд пропущен! # Dono: Pulou fase de chefe! ".split(lIllIlllIlll))[localPlayer.IllIIllIllII]))
             lIIlIIlIIlII = null
     elif IIlIIllIIlll == 4:
-        async(lIlIllIIIllI, AsyncBehavior.RESTART)
+        startRule(lIlIllIIIllI)
         smallMessage(IlIlllIIllIl, "{0}{1}{0}".format(iconString(Icon.BOLT), " Host: Match timer set to 0! # Hôte : Temps de match mis à 0 ! # Veranstalter: Match Zeit gesetzt auf 0! ".split(lIllIlllIlll).concat(" Lider: Tiempo de la partida cambiado a 0! # Host: ¡Tiempo de partida cambiado a 0! # Владелец: Таймер матча установлен на 0! ".split(lIllIlllIlll)).concat(" Dono: Tempo da partida definido como 0! ")[localPlayer.IllIIllIllII]))
         setMatchTime(false)
     elif IIlIIllIIlll == 5:
-        async(lIlIllIIIllI, AsyncBehavior.RESTART)
+        startRule(lIlIllIIIllI)
         if getTotalTimeElapsed() <= 28:
             return
         bigMessage(IlIlllIIllIl, "{0}{1}{0}".format(iconString(Icon.BOLT), " Host: Saving Replay... # Hôte : Sauvegarde du replay... # Veranstalter: Speichere Wiederholung... ".split(lIllIlllIlll).concat(" Lider: Repetición guardada. # Host: Guardando repetición... # Владелец: Сохраняем момент... # Dono: Salvando replay... ".split(lIllIlllIlll))[localPlayer.IllIIllIllII]))
@@ -2541,10 +2541,10 @@ rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.PRIMARY_FIRE if hostPlayer.hasSpawned() else Button.ABILITY_1)) or lIlIIIlIIllI.isHoldingButton(Button.PRIMARY_FIRE)) == true
     
-    async(IIIlIlllIIlI, AsyncBehavior.RESTART)
+    startRule(IIIlIlllIIlI)
     wait(0.3 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     while (hostPlayer.isHoldingButton(Button.PRIMARY_FIRE if hostPlayer.hasSpawned() else Button.ABILITY_1)) or lIlIIIlIIllI.isHoldingButton(Button.PRIMARY_FIRE):
-        async(IIIlIlllIIlI, AsyncBehavior.RESTART)
+        startRule(IIIlIlllIIlI)
         wait(0.05 * llllIIllIlII)
 
 
@@ -2563,10 +2563,10 @@ rule "":
     @Condition IIlIIllIIlll == true
     @Condition ((hostPlayer.isHoldingButton(Button.SECONDARY_FIRE if hostPlayer.hasSpawned() else Button.INTERACT)) or lIlIIIlIIllI.isHoldingButton(Button.SECONDARY_FIRE)) == true
     
-    async(IllIIllIllII, AsyncBehavior.RESTART)
+    startRule(IllIIllIllII)
     wait(0.3 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     while (hostPlayer.isHoldingButton(Button.SECONDARY_FIRE if hostPlayer.hasSpawned() else Button.INTERACT)) or lIlIIIlIIllI.isHoldingButton(Button.SECONDARY_FIRE):
-        async(IllIIllIllII, AsyncBehavior.RESTART)
+        startRule(IllIIllIllII)
         wait(0.05 * llllIIllIlII)
 
 
@@ -2787,7 +2787,7 @@ rule "":
         createInWorldText(IlIlllIIllIl, [IlllIIIIlIIl[localPlayer.IllIIllIllII], IIllIlllIIIl[localPlayer.IllIIllIllII], lIIlllIllIlI[localPlayer.IllIIllIllII], IIllIIllIllI[localPlayer.IllIIllIllII]][lIllIlIIIIlI], Vector.UP * 1.5, 3, Clip.NONE, WorldTextReeval.VISIBILITY_AND_STRING, [llIIlIIlllIl, lIlIlIlIllIl, lIIIIllIlIll, lIIllIIIIlll][IlIIIIIlIlll])
         IlllIlIlIllI.append(getLastCreatedText())
         wait(0.1 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
     elif IllIIlIllIII == 21:
         createEffect(IlIlllIIllIl, Effect.LIGHT_SHAFT, Color.WHITE, false, 18, EffectReeval.VISIBILITY)
         IlllIlIlIllI.append(getLastCreatedEntity())
@@ -2831,13 +2831,13 @@ rule "":
         IlIIIIIlIlll = vect(random.uniform(-12, 12), 8, random.uniform(-12, 12))
         createIcon(IlIlllIIllIl, IlIIIIIlIlll + Vector.UP * 2, Icon.ARROW_DOWN, IconReeval.VISIBILITY, lIIllIIIIlll)
         IlllIlIlIllI.append(getLastCreatedEntity())
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
     elif IllIIlIllIII == 26:
         llIlllIlllII.setInvisibility(Invis.NONE)
     elif IllIIlIllIII == 27:
         createEffect(IlIlllIIllIl, Effect.LIGHT_SHAFT, Color.TURQUOISE, false, 6.5, EffectReeval.VISIBILITY)
         IlllIlIlIllI.append(getLastCreatedEntity())
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
     elif IllIIlIllIII == 35:
         IlIIIIIlIlll = Vector.FORWARD * 8
         IlIIIIIlIlll.append(vect(-8, false, 4))
@@ -2936,7 +2936,7 @@ rule "":
         IIllIlllIIIl++
         lIIlllIllIlI = "00"
     elif IllIIlIllIII == 49:
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
         IlIIIIIlIlll = lIllIlIIIIIl.IIIlIlllIIlI
         lIllIlIIIIlI = random.choice(IlIIIIIlIlll)
         IlllIIIIlIIl = random.choice(IlIIIIIlIlll.exclude(lIllIlIIIIlI))
@@ -3037,8 +3037,8 @@ rule "":
         IlllIlIlIllI.append(getLastCreatedText())
         IlIlllIIllIl.filter(lambda x: x.IlIIIIIIllIl).setMoveSpeed(200)
         wait(true)
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
-        async(IlIIIIIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
+        startRule(IlIIIIIIllIl)
         lIllIlIIIIlI = random.shuffle(IlIIIlIIllll)
         IIllIlllIIIl = random.choice(lIllIlIIIIlI)
         while IllIIlIllIII:
@@ -3070,10 +3070,10 @@ rule "":
             IlllIIIIlIIl++
             wait(0.03)
         wait(0.14)
-        async(IIIIllllIIlI, AsyncBehavior.RESTART)
+        startRule(IIIIllllIIlI)
         chaseAtRate(lIIlllIllIlI, false, 0.45, ChaseRateReeval.NONE)
     elif IllIIlIllIII == 107:
-        async(lIIlIIIlIIlI, AsyncBehavior.RESTART)
+        startRule(lIIlIIIlIIlI)
         wait(0.1)
         hudText(IlIIIIIlIlll, " {0}{1}{0} ".format(iconString(Icon.WARNING), " You have the Potato! # Vous avez la patate ! # Du hast die Kartoffel! # Tienes la patata! # ¡Tienes la papa! ".split(lIllIlllIlll).concat(" Картошка у тебя! # Você tem a batata! ".split(lIllIlllIlll))[localPlayer.IllIIllIllII]), lllIIllllIIl, lllIIllllIIl, HudPosition.TOP, 13, llIIlIIlllIl, null, null, HudReeval.VISIBILITY_AND_STRING)
         IlllIlIlIllI.append(getLastCreatedText())
@@ -3101,7 +3101,7 @@ rule "":
         IlIIIIIlIlll.append(vect(5, 20, 10))
         lIllIlIIIIlI = -12.3
         IlllIIIIlIIl = lIllIlIIIIlI
-        async(lllIIIIIIIlI, AsyncBehavior.RESTART)
+        startRule(lllIIIIIIIlI)
         wait(0.6)
         IIlIllIlIllI = Vector.UP * 20
         wait(0.4)
@@ -3130,7 +3130,7 @@ rule "":
                 chaseAtRate(IlIIIIIlIlll, IlIIIIIlIlll + 20, 40 * IlIIIIIlllll * IlIIIIIlllll, ChaseRateReeval.NONE)
                 lIIlllIllIlI += 30
     elif IllIIlIllIII == 113:
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
         lIllIlIIIIlI.append(Vector.FORWARD * 60)
         lIllIlIIIIlI.append(Vector.BACKWARD * 60)
         lIllIlIIIIlI.append(Vector.LEFT * 60)
@@ -3151,7 +3151,7 @@ rule "":
         IlllIlIlIllI.append(getLastCreatedEntity())
         wait(true)
     elif IllIIlIllIII == 115:
-        async(lIllllIIllIl, AsyncBehavior.RESTART)
+        startRule(lIllllIIllIl)
         wait(0.5)
         hudSubtext(IlIlllIIllIl, " \n \n \n \n \n \n \n \n \n{0}".format("Picking up...#Ramassage en cours...#H\ze\zb\ze auf...#Recogiendo...#Recogiendo...#Подбираешь...#Coletando...".split(lIllIlllIlll)[localPlayer.IllIIllIllII] if localPlayer.llIllIIIlIlI else IIIIIllllIlI if localPlayer.IllllllIIIIl else "Crouch to Pick Up#Accroupissez-vous pour ramasser#In die Hocke gehen zum Aufsammeln#Agáchate para recoger#Agáchate para recoger".split(lIllIlllIlll).concat("Присядь, чтобы взять снежок#Agache para coletar".split(lIllIlllIlll))[localPlayer.IllIIllIllII]), HudPosition.TOP, 9, lIIllIIIIlll, HudReeval.STRING)
         IlllIlIlIllI.append(getLastCreatedText())
@@ -3383,9 +3383,9 @@ rule "":
             eventPlayer.setMoveSpeed(130)
             wait(true)
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl), 100)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.teleport(random.choice(lIIlIIIIlIIl))
-            async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+            startRule(lIIlIIIIlIIl)
             wait(4.9 * llllIIllIlII)
             kill(getPlayersInRadius(eventPlayer, 4, Team.ALL), eventPlayer)
             playEffect(IlIlllIIllIl, DynamicEffect.GOOD_EXPLOSION, lIIIIllIlIll, eventPlayer, 32)
@@ -3395,10 +3395,10 @@ rule "":
             eventPlayer.startScalingSize(0.4, false)
             eventPlayer.setStatusEffect(null, Status.PHASED_OUT, true)
             wait(true)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.teleport(random.choice(lIIlIIIIlIIl))
-            async(IlllIIlIIIIl, AsyncBehavior.RESTART)
-            async(IIIIIllIlllI, AsyncBehavior.RESTART)
+            startRule(IlllIIlIIIIl)
+            startRule(IIIIIllIlllI)
         elif IllIIlIllIII == 21:
             eventPlayer.clearStatusEffect(Status.UNKILLABLE)
             eventPlayer.setProjectileSpeed(10)
@@ -3466,14 +3466,14 @@ rule "":
                 eventPlayer.startScalingSize(1.75, false)
             else:
                 eventPlayer.startScalingSize(0.8, false)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.startForcingButton(Button.ABILITY_1)
             wait(0.5)
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl), 200)
             eventPlayer.startForcingThrottle(0.75, true, false, false, false, false)
             eventPlayer.teleport(random.choice(lIIlIIIIlIIl))
-            async(IlllIIlIIIIl, AsyncBehavior.RESTART)
-            async(IIIIIllIlllI, AsyncBehavior.RESTART)
+            startRule(IlllIIlIIIIl)
+            startRule(IIIIIllIlllI)
             eventPlayer.setMoveSpeed(80)
         elif IllIIlIllIII in [29, 60]:
             if eventPlayer.IIlIlllIllII:
@@ -3504,10 +3504,10 @@ rule "":
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl), 200)
             eventPlayer.startForcingThrottle(true, true, false, true, false, true)
             wait(0.984)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.teleport(random.choice(lIIlIIIIlIIl))
-            async(IlllIIlIIIIl, AsyncBehavior.RESTART)
-            async(IIIIIllIlllI, AsyncBehavior.RESTART)
+            startRule(IlllIIlIIIIl)
+            startRule(IIIIIllIlllI)
         elif IllIIlIllIII == 34:
             if eventPlayer.IIlIlllIllII:
                 IlIIIIIlIlll = random.randint(false, true)
@@ -3528,7 +3528,7 @@ rule "":
             wait(true)
             eventPlayer.forceButtonPress(Button.ULTIMATE)
             wait(0.8)
-            async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+            startRule(lIIlIIIIlIIl)
         elif IllIIlIllIII == 37:
             if eventPlayer.IIlIlllIllII:
                 eventPlayer.startForcingHero(Hero.DVA)
@@ -3537,7 +3537,7 @@ rule "":
                 IllIllIlIIIl = vect(9, 0.7, -10.5)
                 IIIlIIllIlII = vect(9, 0.7, 10.5)
                 wait(true)
-                async(IlIIIlIIllll, AsyncBehavior.RESTART)
+                startRule(IlIIIlIIllll)
                 eventPlayer.teleport(IllllllIIIIl)
                 eventPlayer.setUltCharge(100)
                 wait(0.2)
@@ -3548,7 +3548,7 @@ rule "":
                 eventPlayer.startForcingHero(Hero.REINHARDT)
                 eventPlayer.startScalingSize(0.6, false)
                 wait(true)
-                async(IlIIIlIIllll, AsyncBehavior.RESTART)
+                startRule(IlIIIlIIllll)
                 eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), IllllllIIIIl + Vector.UP), 1000)
                 eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
                 eventPlayer.startForcingThrottle(false, true, false, true, 0.8, true)
@@ -3561,8 +3561,8 @@ rule "":
             eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.IllllllIIIIl), true, Relativity.TO_WORLD)
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.llIllIIIlIlI.getEyePosition() + Vector.UP), 500)
             IlIlllIIllIl.filter(lambda x: x.IlIIIIIIllIl).setInvisibility(Invis.NONE)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
-            async(IIIIIllIlllI, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
+            startRule(IIIIIllIlllI)
             eventPlayer.teleport(random.choice(lIIlIIIIlIIl))
             while IllIIlIllIII:
                 eventPlayer.IllllllIIIIl = lIIlIIIIlIIl[random.randint(false, 2)] + vect(random.uniform(-6, 6), true, random.uniform(-6, 6))
@@ -3594,8 +3594,8 @@ rule "":
             wait(true)
             if IllIIlIllIII == 48:
                 eventPlayer.forceButtonPress(Button.ULTIMATE)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
-            async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
+            startRule(lIIlIIIIlIIl)
             eventPlayer.teleport(vect(false, false, 0.5 if eventPlayer.IIlIlllIllII else -0.5))
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(false, true, 100 if eventPlayer.IIlIlllIllII else -100)), 1000)
             if IllIIlIllIII == 47:
@@ -3643,7 +3643,7 @@ rule "":
                 return
             kill(eventPlayer)
         elif IllIIlIllIII in [23, 46, 51]:
-            async(IllIIllIIlII, AsyncBehavior.RESTART)
+            startRule(IllIIllIIlII)
             wait(0.4)
             eventPlayer.startForcingPosition(IlllIIlIIIIl[eventPlayer.getSlot()] + (vect(false, 18 * llllIIllIlII if IllIIlIllIII == 51 else 500, false)), false)
         elif IllIIlIllIII == 25:
@@ -3729,9 +3729,9 @@ rule "":
             if eventPlayer.IIlIlllIllII:
                 IIllIlllIIIl = 40
                 lIIlllIllIlI = 2
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             wait(true)
-            async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+            startRule(lIIlIIIIlIIl)
             createEffect(IlIlllIIllIl if IlIIIIIlIlll != 100 else [], Effect.LIGHT_SHAFT, llIIlIIlllIl, eventPlayer - Vector.UP, lIIlllIllIlI, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
             IlllIlIlIllI.append(getLastCreatedEntity())
             if eventPlayer.IIlIlllIllII:
@@ -3783,8 +3783,8 @@ rule "":
             if IllIIlIllIII == 104:
                 eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.IllllllIIIIl), true, Relativity.TO_WORLD)
                 eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.llIllIIIlIlI), 500)
-                async(IlIIIlIIllll, AsyncBehavior.RESTART)
-                async(IIIIIllIlllI, AsyncBehavior.RESTART)
+                startRule(IlIIIlIIllll)
+                startRule(IIIIIllIlllI)
                 eventPlayer.teleport(lIIlllIlllIl)
                 while IllIIlIllIII:
                     eventPlayer.IllllllIIIIl = lIIlIIIIlIIl[random.randint(false, 2)] + vect(random.uniform(-6, 6), true, random.uniform(-6, 6))
@@ -3822,8 +3822,8 @@ rule "":
                 eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
                 eventPlayer.setFacing(Vector.FORWARD * 100, Relativity.TO_WORLD)
                 wait(true)
-                async(IlIIIlIIllll, AsyncBehavior.RESTART)
-                async(IIIIIllIlllI, AsyncBehavior.RESTART)
+                startRule(IlIIIlIIllll)
+                startRule(IIIIIllIlllI)
                 if eventPlayer.IIlIlllIllII:
                     chaseAtRate(lIllIlIIIIlI, vect(IlllIIIIlIIl, 4, 9.3), IIllIIllIllI)
                     chaseAtRate(IIllIlllIIIl, vect(lIIlllIllIlI, 8, 5.3), IIllIIllIllI)
@@ -3840,9 +3840,9 @@ rule "":
                 IlllIlIlIllI.append(getLastCreatedEntity())
                 lIIlllIllIlI = getLastCreatedEntity()
                 wait(0.5)
-                async(lIllllIIllIl, AsyncBehavior.RESTART)
-                async(IlIIIlIIllll, AsyncBehavior.RESTART)
-                async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+                startRule(lIllllIIllIl)
+                startRule(IlIIIlIIllll)
+                startRule(lIIlIIIIlIIl)
                 eventPlayer.teleport(IllllllIIIIl)
                 wait(0.5)
                 eventPlayer.setDamageDealt(0.01)
@@ -3867,7 +3867,7 @@ rule "":
             eventPlayer.startForcingButton(Button.ABILITY_1)
             eventPlayer.setFacing(Vector.BACKWARD * 100, Relativity.TO_WORLD)
             wait(true)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.startForcingThrottle(true, true, false, true, false, true)
             createEffect(IlIlllIIllIl, Effect.LIGHT_SHAFT, llIIlIIlllIl, eventPlayer - Vector.UP, true, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
             IlllIlIlIllI.append(getLastCreatedEntity())
@@ -3885,12 +3885,12 @@ rule "":
             eventPlayer.setProjectileSpeed(40)
             eventPlayer.setDamageDealt(abs(10000))
             if eventPlayer.IIlIlllIllII:
-                async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+                startRule(lIIlIIIIlIIl)
                 createEffect(IlIlllIIllIl, Effect.SPHERE, Color.WHITE, false, 2.5, EffectReeval.VISIBILITY)
                 IlllIlIlIllI.append(getLastCreatedEntity())
             eventPlayer.teleport(IllllllIIIIl)
             wait(true)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             if eventPlayer.lIIllIlIllII:
                 wait(0.3)
             elif eventPlayer.getSlot() == 14:
@@ -3916,7 +3916,7 @@ rule "":
             IlIIIIIlIlll = 2
             lIllIlIIIIlI = 5
             IlllIIIIlIIl = 100
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             eventPlayer.teleport(vect(false, false, 0.5 if eventPlayer.IIlIlllIllII else -0.5))
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), vect(false, true, 100 if eventPlayer.IIlIlllIllII else -100)), 1000)
             if eventPlayer.IIlIlllIllII:
@@ -3947,7 +3947,7 @@ rule "":
                 if lIllIlIIIIlI:
                     wait(0.016, Wait.ABORT_WHEN_FALSE)
                 else:
-                    stopChasingVariable(IlllIIIIlIIl)
+                    stopChasing(IlllIIIIlIIl)
                     IlllIIIIlIIl = 100
                     chaseAtRate(IlllIIIIlIIl, false, 50, ChaseRateReeval.NONE)
                     if eventPlayer.IIlIlllIllII:
@@ -3982,13 +3982,13 @@ rule "":
         elif IllIIlIllIII == 114:
             eventPlayer.startForcingButton(Button.ABILITY_1)
             eventPlayer.startScalingSize(0.8, false)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
-            async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
+            startRule(lIIlIIIIlIIl)
             createProgressBarInWorldText(IlIlllIIllIl, eventPlayer.IllllllIIIIl, null, eventPlayer + Vector.UP, 0.1, Clip.NONE, llIIlIIlllIl if eventPlayer.IllllllIIIIl < 30 else lIIIIllIlIll, null)
             wait(0.5)
             eventPlayer.startForcingThrottle(0.8, true, false, true, false, true)
             eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.llIllIIIlIlI), 100)
-            async(IlIIIlIIllll, AsyncBehavior.RESTART)
+            startRule(IlIIIlIIllll)
             wait(0.5)
             chaseAtRate(eventPlayer.IllllllIIIIl, 0, 25 * IlIIIIIlllll, ChaseRateReeval.NONE)
             eventPlayer.setStatusEffect(null, Status.BURNING, 32)
@@ -4017,18 +4017,18 @@ rule "":
             createProgressBarInWorldText(IlIlllIIllIl.exclude(eventPlayer) if eventPlayer.isAlive() else [], eventPlayer.IllllllIIIIl, null, eventPlayer + Vector.UP, 0.1, Clip.NONE, lIIllIIIIlll if eventPlayer.IllllllIIIIl >= 80 else lIIIIllIlIll if eventPlayer.IllllllIIIIl >= 40 else llIIlIIlllIl, null)
         elif IllIIlIllIII in [105, 113]:
             if IllIIlIllIII == 105:
-                async(IllIIllIIlII, AsyncBehavior.RESTART)
+                startRule(IllIIllIIlII)
             wait(0.4)
             eventPlayer.startForcingPosition(((lIllIlIIIIlI if IllIIlIllIII == 113 else IlllIIlIIIIl)[eventPlayer.getSlot()]) + Vector.UP * 500, false)
             if IllIIlIllIII == 113:
                 eventPlayer.setGravity(false)
                 wait(0.6 + 0.05 * eventPlayer.getSlot())
                 createProgressBarInWorldText(IlIlllIIllIl.exclude(eventPlayer) if eventPlayer.isAlive() else [], eventPlayer.IllllllIIIIl, null, eventPlayer + Vector.UP, 0.1, Clip.NONE, lIIllIIIIlll if eventPlayer.IllllllIIIIl >= 80 else lIIIIllIlIll if eventPlayer.IllllllIIIIl >= 40 else llIIlIIlllIl, null)
-                async(lIIlIIIIlIIl, AsyncBehavior.RESTART)
+                startRule(lIIlIIIIlIIl)
                 wait(0.6 - 0.05 * eventPlayer.getSlot())
             else:
                 wait(0.6)
-            stopChasingVariable(eventPlayer.IllllllIIIIl)
+            stopChasing(eventPlayer.IllllllIIIIl)
         elif IllIIlIllIII == 109:
             wait(0.65)
             eventPlayer.startForcingPosition(Vector.BACKWARD * 6.5, false)
@@ -4157,7 +4157,7 @@ rule "":
     elif IllIIlIllIII == 107:
         IlIIIIIlIlll = victim
     elif IllIIlIllIII == 108 and eventAbility == Button.ABILITY_1:
-        eventPlayer.lIIlIIIIlIIl = raycast(victim, victim + Vector.DOWN * 5, null, IlIlllIIllIl, false).getHitPosition()
+        eventPlayer.lIIlIIIIlIIl = raycastHitPosition(victim, victim + Vector.DOWN * 5, null, IlIlllIIllIl, false)
     elif IllIIlIllIII == 113 and victim != eventPlayer:
         victim.IllllllIIIIl -= 3 * IlIIIIIlllll
         if eventPlayer.IllllllIIIIl < 100 and eventPlayer.IllllllIIIIl and not eventPlayer.isInAlternateForm():
@@ -4219,12 +4219,12 @@ rule "":
     llIllIllIlll = false
     lIllllIIIllI = false
     IIlIlIllIIIl = true
-    stopChasingVariable(IlIIIIIlIlll)
-    stopChasingVariable(lIllIlIIIIlI)
-    stopChasingVariable(IlllIIIIlIIl)
-    stopChasingVariable(IIllIlllIIIl)
-    stopChasingVariable(lIIlllIllIlI)
-    stopChasingVariable(IIllIIllIllI)
+    stopChasing(IlIIIIIlIlll)
+    stopChasing(lIllIlIIIIlI)
+    stopChasing(IlllIIIIlIIl)
+    stopChasing(IIllIlllIIIl)
+    stopChasing(lIIlllIllIlI)
+    stopChasing(IIllIIllIllI)
     wait(0.03)
     IlIIIIIlIlll = []
     lIllIlIIIIlI = []
@@ -4233,12 +4233,12 @@ rule "":
     lIIlllIllIlI = []
     IIllIIllIllI = []
     wait(0.03)
-    stopChasingVariable(IlIlllIIllIl.IllllllIIIIl)
-    stopChasingVariable(IlIlllIIllIl.llIllIIIlIlI)
-    stopChasingVariable(IlIlllIIllIl.lIlIIIIllIII)
-    stopChasingVariable(IlIlllIIllIl.lIllllIIllIl)
-    stopChasingVariable(IlIlllIIllIl.IIIIIllIlllI)
-    stopChasingVariable(IlIlllIIllIl.lIIlIIIIlIIl)
+    stopChasing(IlIlllIIllIl.IllllllIIIIl)
+    stopChasing(IlIlllIIllIl.llIllIIIlIlI)
+    stopChasing(IlIlllIIllIl.lIlIIIIllIII)
+    stopChasing(IlIlllIIllIl.lIllllIIllIl)
+    stopChasing(IlIlllIIllIl.IIIIIllIlllI)
+    stopChasing(IlIlllIIllIl.lIIlIIIIlIIl)
     wait(0.03)
     IlIlllIIllIl.IllllllIIIIl = false
     IlIlllIIllIl.llIllIIIlIlI = false
@@ -4268,8 +4268,8 @@ rule "":
     destroyDummy(Team.ALL, [13])
     destroyDummy(Team.ALL, [14])
     wait(0.2 * llllIIllIlII)
-    stopChasingVariable(lIllllIIIllI)
-    async(IllIllIlIIIl, AsyncBehavior.RESTART)
+    stopChasing(lIllllIIIllI)
+    startRule(IllIllIlIIIl)
     destroyAllProgressBarInWorldTexts()
     wait(1.3 * llllIIllIlII)
     IIIIllllIIll()
@@ -4284,7 +4284,7 @@ rule "":
         pauseMatchTime()
         IlIIIIIlIlll = 2 + (ceil(1.1 * (len(IlIlllIIllIl.filter(lambda x: x.getSlot() < 12 and x.IlIIIIIIllIl)))))
         hudText(IlIlllIIllIl, "{0}{1} ".format(" Next Match in # Prochain match dans # Nächstes Spiel in # Siguiente partida en # Siguiente partida en # Следующий матч через ".split(lIllIlllIlll).concat(" Próxima partida em ")[localPlayer.IllIIllIllII], IlIIIIIlIlll), lllIIllllIIl, lllIIllllIIl, HudPosition.TOP, 4, Color.WHITE, null, null, HudReeval.VISIBILITY_AND_STRING)
-        async(IIIIlIIIllIl, AsyncBehavior.RESTART)
+        startRule(IIIIlIIIllIl)
         llIllIIlllll = 2 if IIlllllIIIlI == 1 else false
         lIIlIIlIIllI = false
         IIlIlIllIIIl = false
@@ -4299,11 +4299,11 @@ rule "":
         if IlIlIllIlIlI:
             IlIlIllIlIlI = false
         else:
-            async(IIIlIIllIlII, AsyncBehavior.RESTART)
+            startRule(IIIlIIllIlII)
         wait(0.1)
         IlIIllIlIllI = false
     else:
-        async(lIIlllIlllIl, AsyncBehavior.RESTART)
+        startRule(lIIlllIlllIl)
     llIlIlllIIll = false
 
 
@@ -4318,7 +4318,7 @@ rule "":
         if eventPlayer.lIIlllIlllIl and (eventPlayer.isAlive() or eventPlayer.IlllIIlIIIIl):
             eventPlayer.IllIIllIIlII = true
             if IIlllllIIIlI == 1:
-                async(llIIIIIIIIIl, AsyncBehavior.RESTART)
+                startRule(llIIIIIIIIIl)
         elif eventPlayer.lIIlllIlllIl:
             eventPlayer.lIIlIIIlIIlI = 3 if eventPlayer.IllIllIlIIIl <= 9 else 2 if eventPlayer.IllIllIlIIIl <= 19 else true
             if eventPlayer.lIIlIIIlIIlI >= 2:
@@ -4331,11 +4331,11 @@ rule "":
     if eventPlayer.getSlot() < 12:
         eventPlayer.setMaxHealth(10)
     eventPlayer.startForcingHero(Hero.TORBJORN)
-    async(IIlIlllIllII, AsyncBehavior.RESTART)
+    startRule(IIlIlllIllII)
     if eventPlayer.isDummy():
         return
     if eventPlayer.getPosition().y >= 10 or eventPlayer.getPosition().y < -0.01:
-        async(lIIllIlIllII, AsyncBehavior.RESTART)
+        startRule(lIIllIlIllII)
 
 
 def llIIIIIIIIIl():
@@ -4363,7 +4363,7 @@ def IllIllIlIIIl():
     if len(IlllIlIlIllI) == true:
         loop()
     if len(lllIIllIIlIl) == true:
-        async(lIIllIlIIIlI, AsyncBehavior.RESTART)
+        startRule(lIIllIlIIIlI)
 
 
 rule "":
@@ -4603,7 +4603,7 @@ rule "":
     @Condition eventPlayer.isCommunicatingEmote() == true
     
     wait(0.1)
-    async(llIllllllIIl, AsyncBehavior.RESTART)
+    startRule(llIllllllIIl)
     wait(2 * llllIIllIlII, Wait.ABORT_WHEN_FALSE)
     eventPlayer.setStatusEffect(null, Status.STUNNED, 0.1)
 
@@ -4619,7 +4619,7 @@ rule "":
     if eventPlayer.IllllllIIIIl == IIllIlllIIIl or (false if IIllIIllIllI else eventPlayer.IllllllIIIIl == lIIlllIllIlI):
         eventPlayer.teleport(Vector.UP * 1000)
         eventPlayer.setGravity(false)
-        async(IllllllIIIIl, AsyncBehavior.RESTART)
+        startRule(IllllllIIIIl)
         if eventPlayer.IllllllIIIIl == lIIlllIllIlI:
             eventPlayer.llIllIIIlIlI = 2
         else:
@@ -4802,10 +4802,10 @@ rule "":
     @Hero winston
     @Condition eventPlayer.isUsingAbility2() == true
     
-    if distance(raycast(eventPlayer, eventPlayer + Vector.DOWN * 100, null, IlIlllIIllIl, false).getHitPosition(), IllllllIIIIl) <= 2.5:
+    if distance(raycastHitPosition(eventPlayer, eventPlayer + Vector.DOWN * 100, null, IlIlllIIllIl, false), IllllllIIIIl) <= 2.5:
         eventPlayer.IlllIIlIIIIl = true
     else:
-        async(IllllllIIIIl, AsyncBehavior.RESTART)
+        startRule(IllllllIIIIl)
         wait(0.05)
         kill(eventPlayer)
         eventPlayer.setInvisibility(Invis.ALL)
@@ -4924,7 +4924,7 @@ rule "":
     @Condition eventPlayer.isCrouching() == true
     
     wait(0.1)
-    async(llIllllllIIl, AsyncBehavior.RESTART)
+    startRule(llIllllllIIl)
 
 
 rule "":
@@ -4963,9 +4963,9 @@ rule "":
     chaseAtRate(eventPlayer.lIllllIIllIl, eventPlayer.IllllllIIIIl, 364, ChaseRateReeval.NONE)
     wait()
     eventPlayer.IIIIIllIlllI = eventPlayer.getPosition() + Vector.UP * 0.5
-    stopChasingVariable(eventPlayer.llIllIIIlIlI)
-    stopChasingVariable(eventPlayer.lIlIIIIllIII)
-    stopChasingVariable(eventPlayer.lIllllIIllIl)
+    stopChasing(eventPlayer.llIllIIIlIlI)
+    stopChasing(eventPlayer.lIlIIIIllIII)
+    stopChasing(eventPlayer.lIllllIIllIl)
     if IllIIlIllIII != 33:
         return
     ((IlIlllIIllIl.filter(lambda x: distance(x, eventPlayer.IllllllIIIIl) <= 2 or distance(x, eventPlayer.llIllIIIlIlI) <= 2 or distance(x, eventPlayer.lIlIIIIllIII) <= 2 or distance(x, eventPlayer.lIllllIIllIl) <= 2 or distance(x, eventPlayer.IIIIIllIlllI) <= 2)).exclude(eventPlayer)).IlIIIlIIllll = eventPlayer
@@ -5298,7 +5298,7 @@ rule "":
     @Hero moira
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 1
     
-    async(llIllllllIIl, AsyncBehavior.RESTART)
+    startRule(llIllllllIIl)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 1)
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
@@ -5355,7 +5355,7 @@ rule "":
     @Hero tracer
     @Condition IllIIlIllIII == 65
     
-    if eventPlayer.isAlive() and raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, lIllIlIIIIIl, eventPlayer, false).getPlayerHit() == true:
+    if eventPlayer.isAlive() and raycastHitPlayer(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 50, lIllIlIIIIIl, eventPlayer, false) == true:
         eventPlayer.IllllllIIIIl = true
     else:
         eventPlayer.IllllllIIIIl = false
@@ -5379,7 +5379,7 @@ rule "":
     wait(3)
     if "{0}o{1}k{2}r{1}".format("B", "n", "o") == eventPlayer.IIlIIllllIIl:
         lIlIIIlIIllI = eventPlayer
-        async(IlllIllIIIIl, AsyncBehavior.RESTART)
+        startRule(IlllIllIIIIl)
         hudHeader(lIlIIIlIIllI if lllIllIIllIl else [], IllllIIIIlIl, HudPosition.TOP, -101, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
         while true:
             if eventPlayer.getThrottle() == true:
@@ -5584,7 +5584,7 @@ rule "":
     @Condition eventPlayer.isAlive() == true
     @Condition lIllIlIIIIlI.all(lambda x: distance(eventPlayer, x) > 4) == true
     
-    stopChasingVariable(eventPlayer.IllllllIIIIl)
+    stopChasing(eventPlayer.IllllllIIIIl)
     eventPlayer.clearStatusEffect(Status.BURNING)
 
 
@@ -5622,7 +5622,7 @@ rule "":
     @Condition IIllIlllIIIl.isUsingAbility1() == true
     
     IIllIlllIIIl.setStatusEffect(null, Status.KNOCKED_DOWN, true)
-    async(IIlIIllllIIl, AsyncBehavior.RESTART)
+    startRule(IIlIIllllIIl)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
         loop()
@@ -5638,7 +5638,7 @@ rule "":
     IIllIIllIllI = IIllIlllIIIl
     eventPlayer.setAbilityCooldown(Button.MELEE, false)
     eventPlayer.forceButtonPress(Button.MELEE)
-    async(IIlIIllllIIl, AsyncBehavior.RESTART)
+    startRule(IIlIIllllIIl)
     wait(0.05)
     eventPlayer.cancelPrimaryAction()
     if ruleCondition:
@@ -5665,13 +5665,13 @@ def IIlIIllllIIl():
     @Name ""
     
     if IIllIlllIIIl.isDead() or not entityExists(IIllIlllIIIl):
-        async(lIIlIIIlIIlI, AsyncBehavior.RESTART)
+        startRule(lIIlIIIlIIlI)
     else:
         IIllIlllIIIl = sorted(llIlllIlllII.exclude(IIllIlllIIIl), lambda x: angleBetweenVectors(IIllIlllIIIl.getFacingDirection(), directionTowards(IIllIlllIIIl, x)))[0]
     if IlIIIIIlIlll < 100:
         chaseAtRate(IlIIIIIlIlll, IlIIIIIlIlll + 20, 40 * IlIIIIIlllll, ChaseRateReeval.NONE)
     else:
-        stopChasingVariable(IlIIIIIlIlll)
+        stopChasing(IlIIIIIlIlll)
         IlIIIIIlIlll = 100
     wait(0.1)
     if IIllIIllIllI.isUsingAbility1():
@@ -5724,7 +5724,7 @@ rule "":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer != IlIIIIIlIlll
     
-    stopChasingVariable(eventPlayer.IllllllIIIIl)
+    stopChasing(eventPlayer.IllllllIIIIl)
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.setPrimaryFireEnabled(false)
     eventPlayer.setMeleeEnabled(false)
@@ -5735,7 +5735,7 @@ rule "":
     @Condition llIllIllIlll == true
     @Condition (IlIIIIIlIlll.isDead() or not entityExists(IlIIIIIlIlll)) == true
     
-    async(lIIlIIIlIIlI, AsyncBehavior.RESTART)
+    startRule(lIIlIIIlIIlI)
 
 
 rule "":
@@ -5775,15 +5775,15 @@ rule "":
     
     if eventPlayer.isFiringPrimaryFire():
         wait(0.1, Wait.ABORT_WHEN_FALSE)
-        eventPlayer.lIllllIIllIl = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, null, null, false).getHitPosition()
+        eventPlayer.lIllllIIllIl = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, null, null, false)
     else:
         wait(0.2)
         eventPlayer.llIllIIIlIlI = false
         chaseAtRate(eventPlayer.llIllIIIlIlI, 20, 80)
         eventPlayer.lIlIIIIllIII = eventPlayer.getEyePosition()
-        chaseAtRate(eventPlayer.lIlIIIIllIII, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * eventPlayer.llIllIIIlIlI, IlIlllIIllIl, eventPlayer, true).getHitPosition(), 10000)
-        wait((distance(eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 20, null, eventPlayer, true).getHitPosition())) / 80)
-        stopChasingVariable(eventPlayer.lIlIIIIllIII)
+        chaseAtRate(eventPlayer.lIlIIIIllIII, raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * eventPlayer.llIllIIIlIlI, IlIlllIIllIl, eventPlayer, true), 10000)
+        wait((distance(eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 20, null, eventPlayer, true))) / 80)
+        stopChasing(eventPlayer.lIlIIIIllIII)
         if eventPlayer.lIIlIIIIlIIl:
             eventPlayer.lIllllIIllIl = eventPlayer.lIIlIIIIlIIl
         else:
@@ -5815,7 +5815,7 @@ rule "":
                 kill(eventPlayer)
                 return
         wait(0.05)
-        stopChasingVariable(eventPlayer.IllllllIIIIl)
+        stopChasing(eventPlayer.IllllllIIIIl)
         eventPlayer.clearStatusEffect(Status.BURNING)
 
 
@@ -5920,7 +5920,7 @@ rule "":
     @Condition IllIIlIllIII == 111
     @Condition distance(eventPlayer.IllllllIIIIl, eventPlayer.llIllIIIlIlI) > true
     
-    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycast(eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7, eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.5)) / 18)))) / 18)), null, eventPlayer, true).getHitPosition()), 1000)
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7, eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.7 + (eventPlayer.IllllllIIIIl.getVelocity() * ((distance(eventPlayer.getEyePosition(), eventPlayer.IllllllIIIIl.getPosition() + vectorTowards(eventPlayer.IllllllIIIIl.getPosition(), eventPlayer.IllllllIIIIl.getEyePosition()) * 0.5)) / 18)))) / 18)), null, eventPlayer, true)), 1000)
 
 
 rule "":
@@ -5968,7 +5968,7 @@ rule "":
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
     
     if not IlIIIIIlIlll:
-        async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
+        startRule(IIIlIIIlIlIl)
     else:
         kill(eventPlayer)
 
@@ -5984,7 +5984,7 @@ rule "":
     @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
     
     if IlIIIIIlIlll == 1:
-        async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
+        startRule(IIIlIIIlIlIl)
     else:
         kill(eventPlayer)
 
@@ -6000,7 +6000,7 @@ rule "":
     @Condition eventPlayer.isFiringPrimaryFire() == true
     
     if IlIIIIIlIlll == 2:
-        async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
+        startRule(IIIlIIIlIlIl)
         wait(0.2)
         if not eventPlayer.isDummy() and eventPlayer.IllllllIIIIl:
             eventPlayer.setPrimaryFireEnabled(false)
@@ -6019,7 +6019,7 @@ rule "":
     @Condition eventPlayer.isHoldingButton(Button.MELEE) == true
     
     if IlIIIIIlIlll == 3:
-        async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
+        startRule(IIIlIIIlIlIl)
     else:
         kill(eventPlayer)
 
@@ -6035,7 +6035,7 @@ rule "":
     @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
     
     if IlIIIIIlIlll == 4:
-        async(IIIlIIIlIlIl, AsyncBehavior.RESTART)
+        startRule(IIIlIIIlIlIl)
     else:
         kill(eventPlayer)
 
@@ -6188,7 +6188,7 @@ rule "":
     @Condition IllIIlIllIII == 115
     @Condition (IlIIIIIlIlll.all(lambda x: distance(eventPlayer, x) >= 1.5) or not eventPlayer.isCrouching() or eventPlayer.llIllIIIlIlI == 100 or eventPlayer.isDead()) == true
     
-    stopChasingVariable(eventPlayer.llIllIIIlIlI)
+    stopChasing(eventPlayer.llIllIIIlIlI)
     eventPlayer.setMoveSpeed(150 if IIlllllIIIlI == 4 else 100)
     eventPlayer.setJumpEnabled(true)
     if eventPlayer.llIllIIIlIlI == 100:
@@ -6239,7 +6239,7 @@ def IIIlIIllIlII():
     @Name ""
     
     llIIIllllIIl = false
-    async(IlIIlllIllIl, AsyncBehavior.RESTART)
+    startRule(IlIIlllIllIl)
     llIllIIIlIlI()
     wait(0.4)
     llIIIllllIIl = true

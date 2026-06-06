@@ -289,7 +289,7 @@ rule "[G] Main Setup":
     disableInspector()
     NightPhase = 999
     waitUntil(isGameInProgress() and getPlayersInSlot(0, Team.1).hasSpawned(), 99999)
-    async(OutlineFix, AsyncBehavior.RESTART)
+    startRule(OutlineFix)
     pauseMatchTime()
     Player_ = getPlayersInSlot(0, Team.1)
     Power = 100
@@ -587,7 +587,7 @@ rule "[G] Update Last Cam / Zen Chance":
     LastCam = CurrentCam
     if random.randint(1, 100) > ZenAI or NightNumber == 5:
         return
-    async(ZenSequence, AsyncBehavior.NOOP)
+    startRule(ZenSequence, StartRuleBehavior.NOOP)
 
 
 rule "NIGHTS":
@@ -1065,7 +1065,7 @@ def BastionJumpscare():
         Bastion.teleport(Player_.getPosition())
         wait(0.025)
         Player_.startCamera(updateEveryFrame(Bastion.getEyePosition() + Bastion.getFacingDirection() * 0.7), updateEveryFrame(Bastion.getEyePosition()) + CamShake)
-        async(CameraShake, AsyncBehavior.RESTART)
+        startRule(CameraShake)
         wait(1.5)
         kill(Player_, Bastion)
     else:
@@ -1247,7 +1247,7 @@ def EchoJumpscare():
         wait()
         Player_.startCamera(updateEveryFrame(Echo.getEyePosition() + Echo.getFacingDirection() * 0.6), updateEveryFrame(Echo.getEyePosition()) + CamShake)
         Echo.forceButtonPress(Button.ABILITY_2)
-        async(CameraShake, AsyncBehavior.RESTART)
+        startRule(CameraShake)
         wait(1.5)
         kill(Player_, Echo)
     else:
@@ -1386,7 +1386,7 @@ rule "[G] Echo Phase 4 and -4":
             if isInLoS(Player_.getEyePosition(), Echo.getEyePosition()):
                 loop()
         elif not Player_.isInViewAngle(Echo.getEyePosition(), 75):
-            async(CamsJammed, AsyncBehavior.RESTART)
+            startRule(CamsJammed)
             Power = max(0, Power - 3)
         EchoPhase = random.choice([-1, 1]) if random.randint(1, 100) <= EchoAI else 0
     else:
@@ -1431,7 +1431,7 @@ def OrisaJumpscare():
         wait()
         Player_.startCamera(updateEveryFrame(Orisa.getEyePosition() + Orisa.getFacingDirection() * 1.2), updateEveryFrame(Orisa.getEyePosition()) + CamShake)
         damage(Orisa, null, 390)
-        async(CameraShake, AsyncBehavior.RESTART)
+        startRule(CameraShake)
         wait(1.5)
         kill(Player_, Orisa)
     else:
@@ -1490,7 +1490,7 @@ rule "[G] Orisa Stall Start":
     @Condition OrisaAI != 0
     @Condition OrisaMeter > 0
     
-    stopChasingVariable(OrisaMeter)
+    stopChasing(OrisaMeter)
     wait(random.uniform(1.4, 2.2), Wait.ABORT_WHEN_FALSE)
     OrisaMeter = min(100, OrisaMeter + 0.9)
     if ruleCondition:
@@ -1539,7 +1539,7 @@ def GenjiJumpscare():
     
     destroyAllInWorldTexts()
     if not NoJumpscares:
-        Genji.teleport(raycast(Player_.getEyePosition(), Player_.getEyePosition() + Player_.getFacingDirection() * vect(-3, 0, -3), null, Player_, false).getHitPosition())
+        Genji.teleport(raycastHitPosition(Player_.getEyePosition(), Player_.getEyePosition() + Player_.getFacingDirection() * vect(-3, 0, -3), null, Player_, false))
         Genji.startFacing(directionTowards(Genji.getEyePosition(), Player_.getEyePosition()), 360)
         waitUntil(not CurrentCam, random.uniform(4, 8))
         waitUntil(Player_.isInViewAngle(Genji.getEyePosition(), 50), random.uniform(4, 8))
@@ -1551,12 +1551,12 @@ def GenjiJumpscare():
         damage(Player_, null, 300)
         wait()
         Player_.startCamera(updateEveryFrame(Genji.getEyePosition() + Genji.getFacingDirection() * 1.2), updateEveryFrame(Genji.getEyePosition()) + CamShake)
-        async(CameraShake, AsyncBehavior.RESTART)
+        startRule(CameraShake)
         Genji.forceButtonPress(Button.ULTIMATE)
         wait(1.5)
         kill(Player_, Genji)
     else:
-        Genji.teleport(raycast(Player_.getEyePosition(), Player_.getEyePosition() + Player_.getFacingDirection() * vect(-3, 0, -3), null, Player_, false).getHitPosition())
+        Genji.teleport(raycastHitPosition(Player_.getEyePosition(), Player_.getEyePosition() + Player_.getFacingDirection() * vect(-3, 0, -3), null, Player_, false))
         Genji.startFacing(directionTowards(Genji.getEyePosition(), Player_.getEyePosition()), 360)
         waitUntil(not CurrentCam, random.uniform(4, 8))
         waitUntil(Player_.isInViewAngle(Genji.getEyePosition(), 50), random.uniform(4, 8))
@@ -1672,7 +1672,7 @@ def ZenSequence():
                 damage(Player_, null, 300)
                 wait()
                 Player_.startCamera(updateEveryFrame(Zen.getEyePosition() + Zen.getFacingDirection()), updateEveryFrame(Zen.getEyePosition()) + CamShake)
-                async(CameraShake, AsyncBehavior.RESTART)
+                startRule(CameraShake)
                 Zen.forceButtonPress(Button.ULTIMATE)
                 wait(1.5)
                 kill(Player_, Zen)
@@ -1734,7 +1734,7 @@ def ZenJumpscare():
         Zen.teleport(Player_.getPosition())
         wait(0.025)
         Player_.startCamera(updateEveryFrame(Zen.getEyePosition() + Zen.getFacingDirection() * 0.7), updateEveryFrame(Zen.getEyePosition()) + CamShake)
-        async(CameraShake, AsyncBehavior.RESTART)
+        startRule(CameraShake)
         wait(1.5)
         kill(Player_, Zen)
     else:
@@ -1921,15 +1921,15 @@ rule "[G] Fire Overload":
     PowerUsage--
     playEffect(getAllPlayers(), DynamicEffect.BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION_SOUND, Color.TEAM_1, CamPositions[CurrentCam], 50)
     playEffect(getAllPlayers(), DynamicEffect.SOMBRA_LOGO_SOUND, Color.TEAM_1, CamPositions[CurrentCam], 50)
-    playEffect(getAllPlayers(), DynamicEffect.SOMBRA_LOGO, Color.TEAM_2, raycast(CamPositions[CurrentCam], CamPositions[CurrentCam] + Player_.getFacingDirection() * 100, getAllPlayers(), null, false).getHitPosition(), 1)
-    if raycast(CamPositions[CurrentCam], CamPositions[CurrentCam] + Player_.getFacingDirection() * 100, getPlayers(Team.2), null, false).getPlayerHit() == Zen:
+    playEffect(getAllPlayers(), DynamicEffect.SOMBRA_LOGO, Color.TEAM_2, raycastHitPosition(CamPositions[CurrentCam], CamPositions[CurrentCam] + Player_.getFacingDirection() * 100, getAllPlayers(), null, false), 1)
+    if raycastHitPlayer(CamPositions[CurrentCam], CamPositions[CurrentCam] + Player_.getFacingDirection() * 100, getPlayers(Team.2), null, false) == Zen:
         Player_.setDamageDealt(100)
         if ZenAI > 2:
             goto lbl_0
         smallMessage(getAllPlayers(), "[MEI] THAT'S IT! JUST A FEW MORE HITS...")
         lbl_0:
         damage(Zen, Player_, 41)
-        async(CamsJammed, AsyncBehavior.NOOP)
+        startRule(CamsJammed, StartRuleBehavior.NOOP)
         ZenMove()
         wait(0.2)
         CamsJammed = 4.8

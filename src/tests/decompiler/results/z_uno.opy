@@ -766,7 +766,7 @@ def InitMapPositionForAll():
         Players[TempPlayerIndex].Angle = 360 / len(Players) * (-1 * DirectionOfPlay * TempPlayerIndex % len(Players)) + StartingAngle
         #The players' positions are placed in a circle centered on the map position, equally spaced from one another
         Players[TempPlayerIndex].MapPosition = directionFromAngles(Players[TempPlayerIndex].Angle, 0) * 6 + MapPosition
-        Players[TempPlayerIndex].MapPosition = raycast(Vector.UP * 1.5 + Players[TempPlayerIndex].MapPosition, Vector.UP * -1.5 + Players[TempPlayerIndex].MapPosition, [], [], false).getHitPosition()
+        Players[TempPlayerIndex].MapPosition = raycastHitPosition(Vector.UP * 1.5 + Players[TempPlayerIndex].MapPosition, Vector.UP * -1.5 + Players[TempPlayerIndex].MapPosition, [], [], false)
 
 
 def UpdateMapPositionForAll():
@@ -780,7 +780,7 @@ def UpdateMapPositionForAll():
             Players[TempPlayerIndex].Angle = 360 / len(Players) * (-1 * DirectionOfPlay * TempPlayerIndex % len(Players)) + StartingAngle
             #The players' positions are placed in a circle centered on the map position, equally spaced from one another
             Players[TempPlayerIndex].MapPosition = directionFromAngles(Players[TempPlayerIndex].Angle, 0) * 6 + MapPosition
-            Players[TempPlayerIndex].MapPosition = raycast(Vector.UP * 1.5 + Players[TempPlayerIndex].MapPosition, Vector.UP * -1.5 + Players[TempPlayerIndex].MapPosition, [], [], false).getHitPosition()
+            Players[TempPlayerIndex].MapPosition = raycastHitPosition(Vector.UP * 1.5 + Players[TempPlayerIndex].MapPosition, Vector.UP * -1.5 + Players[TempPlayerIndex].MapPosition, [], [], false)
 
 
 def SetPlayerSelectionQueueForAll():
@@ -1407,7 +1407,7 @@ def ToggleFloatingCamera():
     #The player is not using the camera
     else:
         #I don't even know
-        eventPlayer.startCamera(raycast(MapPosition + Vector.UP * 2, MapPosition + (vect(9 * (cosDeg(getTotalTimeElapsed() * 4)), 3.5 + 1.5 * (cosDeg(3 * getTotalTimeElapsed())), 9 * (sinDeg(getTotalTimeElapsed() * 4)))), [], [], false).getHitPosition() - ((vect(9 * (cosDeg(getTotalTimeElapsed() * 4)), 3.5 + 1.5 * (cosDeg(3 * getTotalTimeElapsed())), 9 * (sinDeg(getTotalTimeElapsed() * 4)))) * 0.1), MapPosition + Vector.UP * 2, 4)
+        eventPlayer.startCamera(raycastHitPosition(MapPosition + Vector.UP * 2, MapPosition + (vect(9 * (cosDeg(getTotalTimeElapsed() * 4)), 3.5 + 1.5 * (cosDeg(3 * getTotalTimeElapsed())), 9 * (sinDeg(getTotalTimeElapsed() * 4)))), [], [], false) - ((vect(9 * (cosDeg(getTotalTimeElapsed() * 4)), 3.5 + 1.5 * (cosDeg(3 * getTotalTimeElapsed())), 9 * (sinDeg(getTotalTimeElapsed() * 4)))) * 0.1), MapPosition + Vector.UP * 2, 4)
     #Update the isUsingCamera variable
     eventPlayer.IsUsingCamera = not eventPlayer.IsUsingCamera
 

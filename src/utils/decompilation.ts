@@ -106,7 +106,9 @@ OverPyDecompiler.prototype.decompileCustomGameSettingsDict = function(dict: stri
         }
 
         if (keyName === null || value === null) {
-            throw this.error("No translation found for key of element '" + (options.parent ? options.parent + " > " : "") + potentialKey + "'");
+            //throw this.error("No translation found for key of element '" + (options.parent ? options.parent + " > " : "") + potentialKey + "'");
+            result[potentialKey] = potentialValue;
+            continue;
         }
 
         if (isInvalidButAcceptedProperty) {
@@ -114,7 +116,9 @@ OverPyDecompiler.prototype.decompileCustomGameSettingsDict = function(dict: stri
         }
 
         if (typeof kwObj[keyName].values === "object") {
-            value = this.topy(value, kwObj[keyName].values);
+            try {
+                value = this.topy(value, kwObj[keyName].values);
+            } catch (e) {}
         } else if (kwObj[keyName].values === "__string__") {
             value = this.unescapeString(value, false);
         } else if (kwObj[keyName].values === "__percent__") {

@@ -104,7 +104,7 @@ import "./functions/any.ts";
 import "./functions/arrayToString.ts";
 import "./functions/asin.ts";
 import "./functions/asinDeg.ts";
-import "./functions/async.ts";
+import "./functions/startRule.ts";
 import "./functions/atan2.ts";
 import "./functions/atan2Deg.ts";
 import "./functions/break.ts";

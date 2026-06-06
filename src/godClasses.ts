@@ -314,7 +314,7 @@ export class OverPyDecompiler {
     currentArrayElementName: string = "";
     currentArrayIndexName: string = "";
 
-    fileStack: FileStackMember[] = getInternalFileStack();
+    fileStack: FileStackMember[] = [];
     encounteredWarnings: CompilationDiagnostic[] = [];
     /** Global variable used to mark the action number of the last loop in the rule.
      *

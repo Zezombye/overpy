@@ -496,6 +496,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         ],
         class: "Raycast",
         return: "Direction",
+        hideFromAutocomplete: true,
     },
     ".getPlayerHit": {
         "description": "The player hit by the raycast (or null if no player is hit).",
@@ -507,6 +508,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         ],
         class: "Raycast",
         return: "Player",
+        hideFromAutocomplete: true,
     },
     ".getHitPosition": {
         "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
@@ -518,6 +520,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         ],
         class: "Raycast",
         return: "Position",
+        hideFromAutocomplete: true,
     },
     "hsl": {
         "description": "A custom color in HSL/HSLA format.",
@@ -625,7 +628,8 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
                 "default": true
             }
         ],
-        "return": "Raycast"
+        "return": "Raycast",
+        hideFromAutocomplete: true,
     },
     ".remove": {
         "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
@@ -750,7 +754,7 @@ Also check the \`tabular\` function for a more concise syntax.
         ],
         "return": "void",
     },
-    "stopChasingVariable": {
+    "stopChasing": {
         "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
         "args": [
             {

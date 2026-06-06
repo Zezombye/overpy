@@ -3342,7 +3342,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Raise To Power",
         "zh-TW": "Raise To Power"
     },
-    "__raycastHitNormal__": {
+    "raycastHitNormal": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
@@ -3394,7 +3394,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ray Cast Hit Normal",
         "zh-TW": "Ray Cast Hit Normal"
     },
-    "__raycastHitPlayer__": {
+    "raycastHitPlayer": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
@@ -3446,7 +3446,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ray Cast Hit Player",
         "zh-TW": "Ray Cast Hit Player"
     },
-    "__raycastHitPosition__": {
+    "raycastHitPosition": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
@@ -5443,7 +5443,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Flag Position",
         "zh-TW": "Flag Position"
     },
-    "getLastAssistID": {
+    "getLastAssistId": {
         "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
         "args": [],
         "return": "AssistId",

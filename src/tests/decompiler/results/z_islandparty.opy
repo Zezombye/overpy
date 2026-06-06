@@ -527,7 +527,7 @@ rule "Is game in progress {PLAYER}":
     @Event eachPlayer
     @Condition isGameInProgress() == true
     
-    async(gameModeDescriptionMessages, AsyncBehavior.NOOP)
+    startRule(gameModeDescriptionMessages, StartRuleBehavior.NOOP)
     eventPlayer.enableDeathSpectateAllPlayers()
     eventPlayer.disableRespawn()
     eventPlayer.setRespawnTime(60)
@@ -550,7 +550,7 @@ rule "Player join with game in progress":
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
     
-    async(gameModeDescriptionMessages, AsyncBehavior.NOOP)
+    startRule(gameModeDescriptionMessages, StartRuleBehavior.NOOP)
     eventPlayer.disableRespawn()
     eventPlayer.setRespawnTime(60)
     wait(0.512)
@@ -855,21 +855,21 @@ rule "Create new round {OUT OF TIME}":
     @Condition roundTimer <= 0
     @Condition isGameInProgress() == true
     
-    async(startNewRound, AsyncBehavior.NOOP)
+    startRule(startNewRound, StartRuleBehavior.NOOP)
 
 
 rule "Create new round {LAST PLAYER ALIVE}":
     @Condition getNumberOfLivingPlayers(Team.ALL) <= 1
     @Condition isGameInProgress() == true
     
-    async(startNewRound, AsyncBehavior.NOOP)
+    startRule(startNewRound, StartRuleBehavior.NOOP)
 
 
 def startNewRound():
     @Name "startNewRound()"
     
     roundTimer = 60
-    async(restartStats, AsyncBehavior.NOOP)
+    startRule(restartStats, StartRuleBehavior.NOOP)
     if len(heroesOfPreviousRounds) == len(heroList) - 1:
         heroesOfPreviousRounds = []
     heroOfLastRound = heroOfTheRound
@@ -1859,43 +1859,43 @@ rule "LUCIO Snot":
     snotEffects = []
     snotPosRandomXComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[0] + Vector.FORWARD, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomXComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[1] + Vector.FORWARD, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomXComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[2] + Vector.BACKWARD, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomXComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[3] + Vector.BACKWARD, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     wait(1)
     snotPosRandomZComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[4] + Vector.LEFT, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomZComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[5] + Vector.LEFT, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomZComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[6] + Vector.RIGHT, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
     snotPosRandomZComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
-    snotPos.append(raycast(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition())
+    snotPos.append(raycastHitPosition(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false))
     createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, snotPos[7] + Vector.RIGHT, 1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     snotEffects.append(getLastCreatedEntity())
 
@@ -1918,17 +1918,17 @@ rule "LUCIO point":
     snotPosRandomXComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
     goto loc+random.choice([0, 2])
-    snotPos[eventPlayer.lucioClosestSnot] = raycast(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false).getHitPosition() + Vector.FORWARD
+    snotPos[eventPlayer.lucioClosestSnot] = raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, 35), vect(snotPosRandomXComp, snotPosRandomYComp, -35), null, getAllPlayers(), false) + Vector.FORWARD
     goto lbl_0
-    snotPos[eventPlayer.lucioClosestSnot] = raycast(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false).getHitPosition() + Vector.BACKWARD
+    snotPos[eventPlayer.lucioClosestSnot] = raycastHitPosition(vect(snotPosRandomXComp, snotPosRandomYComp, -35), vect(snotPosRandomXComp, snotPosRandomYComp, 35), null, getAllPlayers(), false) + Vector.BACKWARD
     lbl_0:
     goto lbl_1
     snotPosRandomZComp = random.uniform(-18, 18)
     snotPosRandomYComp = random.uniform(-4, -14)
     goto loc+random.choice([0, 2])
-    snotPos[eventPlayer.lucioClosestSnot] = raycast(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition() + Vector.LEFT
+    snotPos[eventPlayer.lucioClosestSnot] = raycastHitPosition(vect(35, snotPosRandomYComp, snotPosRandomZComp), vect(-35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false) + Vector.LEFT
     goto lbl_2
-    snotPos[eventPlayer.lucioClosestSnot] = raycast(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false).getHitPosition() + Vector.RIGHT
+    snotPos[eventPlayer.lucioClosestSnot] = raycastHitPosition(vect(-35, snotPosRandomYComp, snotPosRandomZComp), vect(35, snotPosRandomYComp, snotPosRandomZComp), null, getAllPlayers(), false) + Vector.RIGHT
     lbl_1:
     lbl_2:
     wait()
@@ -3327,21 +3327,21 @@ rule "SYM init global":
     symColoredSpheresEffectsAndText.append(getLastCreatedEntity())
     createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, symColorsPositions[8], 5, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     symColoredSpheresEffectsAndText.append(getLastCreatedEntity())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[1]) <= 5), "BLUE", symColorsPositions[1] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false), symColorsPositions[1]) <= 5), "BLUE", symColorsPositions[1] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[2]) <= 5), "GREEN", symColorsPositions[2] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false), symColorsPositions[2]) <= 5), "GREEN", symColorsPositions[2] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[3]) <= 5), "ORANGE", symColorsPositions[3] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false), symColorsPositions[3]) <= 5), "ORANGE", symColorsPositions[3] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[4]) <= 5), "PURPLE", symColorsPositions[4] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false), symColorsPositions[4]) <= 5), "PURPLE", symColorsPositions[4] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[5]) <= 5), "RED", symColorsPositions[5] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false), symColorsPositions[5]) <= 5), "RED", symColorsPositions[5] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[6]) <= 5), "TURQUOISE", symColorsPositions[6] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false), symColorsPositions[6]) <= 5), "TURQUOISE", symColorsPositions[6] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[7]) <= 5), "WHITE", symColorsPositions[7] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 15, null, getAllPlayers(), false), symColorsPositions[7]) <= 5), "WHITE", symColorsPositions[7] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
-    createInWorldText(getAllPlayers().filter(lambda player: distance(raycast(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false).getHitPosition(), symColorsPositions[8]) <= 5), "YELLOW", symColorsPositions[8] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
+    createInWorldText(getAllPlayers().filter(lambda player: distance(raycastHitPosition(player.getEyePosition(), player.getEyePosition() + player.getFacingDirection() * 21.21, null, getAllPlayers(), false), symColorsPositions[8]) <= 5), "YELLOW", symColorsPositions[8] + vect(0, 1.5, 0), 2, Clip.SURFACES, WorldTextReeval.VISIBILITY)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
     hudSubtext(getAllPlayers().filter(lambda _: symColorDeciding == 1), "THE COLOR IS...", HudPosition.TOP, 3, Color.BLUE, HudReeval.VISIBILITY_AND_STRING)
     symColoredSpheresEffectsAndText.append(getLastCreatedText())
@@ -3526,7 +3526,7 @@ rule "SYM innerRoundTimerIsOver PHASE":
     @Condition heroOfTheRound == Hero.SYMMETRA
     @Condition symPhase == "innerTimeRoundIsOver"
     
-    stopChasingVariable(symTimeToReachTheColor)
+    stopChasing(symTimeToReachTheColor)
     destroyHudText(symSelectedColorHud)
     #smallMessage(getAllPlayers(), "destroyed symSelectedColorHud")
     destroyHudText(symTimeToReachTheColorHud)
@@ -3700,7 +3700,7 @@ rule "SYM end of the round {GLOBAL}":
     symColorDeciding = 0
     symColorSelected = 0
     symTimeToReachTheColor = 5
-    stopChasingVariable(symTimeToReachTheColor)
+    stopChasing(symTimeToReachTheColor)
 
 
 rule "TRACER create crown":
@@ -3945,7 +3945,7 @@ rule "Set Third Person":
     @Condition ((eventPlayer.getHero() == Hero.WIDOWMAKER or eventPlayer.getHero() == Hero.ASHE or eventPlayer.getHero() == Hero.ANA) and eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)) != true
     @Condition eventPlayer.isOnThirdCamera == true
     
-    eventPlayer.startCamera(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + worldVector(vect(eventPlayer.thirdCameraDirection * (min(eventPlayer.thirdCameraZoom / 2.5, -0.75)), 0, 0), eventPlayer, Transform.ROTATION) + eventPlayer.getFacingDirection() * eventPlayer.thirdCameraZoom, getAllPlayers(), eventPlayer, false).getHitPosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), eventPlayer, false).getHitPosition(), 60)
+    eventPlayer.startCamera(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + worldVector(vect(eventPlayer.thirdCameraDirection * (min(eventPlayer.thirdCameraZoom / 2.5, -0.75)), 0, 0), eventPlayer, Transform.ROTATION) + eventPlayer.getFacingDirection() * eventPlayer.thirdCameraZoom, getAllPlayers(), eventPlayer, false), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), eventPlayer, false), 60)
 
 
 rule "Unset Third Person for specific conditions":
@@ -4086,9 +4086,9 @@ rule "Ray Cast Detector (TEST)":
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Disabled
     
-    hudHeader(getAllPlayers(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false).getHitPosition(), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY)
-    createEffect(eventPlayer, Effect.ORB, Color.YELLOW, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false).getHitPosition(), 1, EffectReeval.NONE)
-    createBeam(getAllPlayers(), Beam.GOOD, eventPlayer.getEyePosition(), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), getAllPlayers(), false).getHitPosition(), Color.RED, EffectReeval.NONE)
+    hudHeader(getAllPlayers(), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY)
+    createEffect(eventPlayer, Effect.ORB, Color.YELLOW, raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, null, getAllPlayers(), false), 1, EffectReeval.NONE)
+    createBeam(getAllPlayers(), Beam.GOOD, eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 200, getAllPlayers(), getAllPlayers(), false), Color.RED, EffectReeval.NONE)
 
 
 rule "Destroy all the HUD (TEST)":

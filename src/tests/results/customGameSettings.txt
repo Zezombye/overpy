@@ -9,8 +9,9 @@ settings
 	{
 		Map Rotation: Paused
 		Max Spectators: 6
-		Return To Lobby: Never
+		Return To Lobby: unknown value
 		Swap Teams After Match: No
+		unknownSetting: abc
 	}
 	modes
 	{
@@ -21,6 +22,15 @@ settings
 				Temple of Anubis
 			}
 			Capture Speed Modifier: 60%
+			unknown value: 60
+		}
+		unknown gamemode
+		{
+			enabled maps
+			{
+				Temple of Anubis
+			}
+			captureSpeed%: 60
 		}
 		Escort
 		{
@@ -58,6 +68,7 @@ settings
 				Ice Wall Cooldown Time: 200%
 				Secondary Fire: Off
 				Weapon Freeze Rate Scalar: 50%
+				unknown value: 123%
 			}
 		}
 		General

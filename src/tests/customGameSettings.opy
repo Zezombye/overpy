@@ -13,11 +13,19 @@ settings {
     "lobby": {
         "mapRotation": "paused",
         "spectatorSlots": 6,
-        "returnToLobby": "never",
-        "swapTeamsAfterMatch": false
+        "returnToLobby": "unknown value",
+        "swapTeamsAfterMatch": false,
+        "unknownSetting": "abc",
     },
     "gamemodes": {
         "assault": {
+            "enabledMaps": [
+                "templeOfAnubis"
+            ],
+            "captureSpeed%": 60,
+            "unknown value": 60,
+        },
+        "unknown gamemode": {
             "enabledMaps": [
                 "templeOfAnubis"
             ],
@@ -50,7 +58,8 @@ settings {
                 "ability1Cooldown%": 200,
                 "ability2Cooldown%": 200,
                 "enableSecondaryFire": false,
-                "primaryFireFreezeRate%": 50
+                "primaryFireFreezeRate%": 50,
+                "unknown value": "123%",
             }
         },
         "allTeams": {

@@ -104,7 +104,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
-    "AsyncBehavior": {
+    "StartRuleBehavior": {
         "RESTART": {
             "guid": "000000010025",
             "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",

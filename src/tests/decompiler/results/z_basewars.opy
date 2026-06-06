@@ -292,7 +292,7 @@ rule "LOOT FIND SPAWNPOINTS":
     while lootSpawnpointIterator <= 200 and len(tmpLootSpawnpointProximity) < 128:
         tmpLootSpawnpointRandomPointWP = mapOrigin + mapRotationVector * random.uniform(0, mapXYZ.x) + vect(mapRotationVector.z, 0, mapRotationVector.x * -1) * random.uniform(0, mapXYZ.z) + vect(0, random.uniform(0, mapXYZ.y), 0)
         if disableNwpCheck:
-            tmpLootSpawnpoint = raycast(tmpLootSpawnpointRandomPointWP, tmpLootSpawnpointRandomPointWP - vect(0, 100, 0), [], [], false).getHitPosition()
+            tmpLootSpawnpoint = raycastHitPosition(tmpLootSpawnpointRandomPointWP, tmpLootSpawnpointRandomPointWP - vect(0, 100, 0), [], [], false)
             if tmpLootSpawnpoint == tmpLootSpawnpointRandomPointWP - vect(0, 100, 0):
                 goto lbl_0
         else:
@@ -401,7 +401,7 @@ rule "LOOT SPAWN":
             if distance(tmpLootSpawnpointRandomPointWP, tmpLootSpawnpointRandomPoint) >= 1.5:
                 wait(0.064)
                 goto lbl_0
-        tmpLootSpawnpointRandomPointWP = raycast(tmpLootSpawnpointRandomPointWP + vect(0, 2, 0), tmpLootSpawnpointRandomPointWP - vect(0, 10, 0), null, null, false).getHitPosition() + vect(0, 0.35, 0)
+        tmpLootSpawnpointRandomPointWP = raycastHitPosition(tmpLootSpawnpointRandomPointWP + vect(0, 2, 0), tmpLootSpawnpointRandomPointWP - vect(0, 10, 0), null, null, false) + vect(0, 0.35, 0)
         if (disableNwpCheck or distance(tmpLootSpawnpointRandomPointWP, nearestWalkablePosition(tmpLootSpawnpointRandomPointWP)) <= 0.1) and (lootBlockerVolumePos == null or lootBlockerVolumePos != null and distance(tmpLootSpawnpointRandomPointWP, lootBlockerVolumePos) > lootBlockerVolumeRadius):
             break
         wait(0.064)
@@ -483,12 +483,12 @@ rule "LOOT POWERUP SPAWN":
     while true:
         tmpPowerupSpawnpointRandomPoint = normalize(vect(random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1))) * random.uniform(2, 10) + lootSpawnPoints[sparkboltSpawnpointIndex]
         if disableNwpCheck:
-            tmpPowerupSpawnpointRandomPointW = raycast(tmpPowerupSpawnpointRandomPoint, tmpPowerupSpawnpointRandomPoint - vect(0, 100, 0), [], [], false).getHitPosition()
+            tmpPowerupSpawnpointRandomPointW = raycastHitPosition(tmpPowerupSpawnpointRandomPoint, tmpPowerupSpawnpointRandomPoint - vect(0, 100, 0), [], [], false)
         else:
             tmpPowerupSpawnpointRandomPointW = nearestWalkablePosition(tmpPowerupSpawnpointRandomPoint)
             if distance(tmpPowerupSpawnpointRandomPointW, tmpPowerupSpawnpointRandomPoint) >= 1.5:
                 goto lbl_0
-        tmpPowerupSpawnpointRandomPointW = raycast(tmpPowerupSpawnpointRandomPointW + vect(0, 2, 0), tmpPowerupSpawnpointRandomPointW - vect(0, 10, 0), null, null, false).getHitPosition() + vect(0, 0.35, 0)
+        tmpPowerupSpawnpointRandomPointW = raycastHitPosition(tmpPowerupSpawnpointRandomPointW + vect(0, 2, 0), tmpPowerupSpawnpointRandomPointW - vect(0, 10, 0), null, null, false) + vect(0, 0.35, 0)
         if distance(tmpPowerupSpawnpointRandomPointW, nearestWalkablePosition(tmpPowerupSpawnpointRandomPointW)) <= 0.1 or disableNwpCheck:
             break
         lbl_0:
@@ -535,7 +535,7 @@ rule "GAME WIN CONDITION":
     destroyAllIcons()
     destroyAllDummies()
     wait()
-    gameScorePositions[0] = raycast(gameEndCamera + Vector.FORWARD * 2, gameEndCamera + Vector.FORWARD * 2 - vect(0, 10, 0), [], [], false).getHitPosition()
+    gameScorePositions[0] = raycastHitPosition(gameEndCamera + Vector.FORWARD * 2, gameEndCamera + Vector.FORWARD * 2 - vect(0, 10, 0), [], [], false)
     #createDummy(random.choice(getAllHeroes()), Team.ALL, -1, gameScorePositions[0], Vector.BACKWARD)
     #gameWinner = getLastCreatedEntity()
     gameWinner.setFacing(Vector.BACKWARD, Relativity.TO_WORLD)
@@ -1188,7 +1188,7 @@ rule "player enters base":
     @Condition eventPlayer.isCloaked == false
     
     eventPlayer.playerObjectInBase = eventPlayer
-    stopChasingVariable(eventPlayer.baseProtectionTimer)
+    stopChasing(eventPlayer.baseProtectionTimer)
     eventPlayer.baseProtectionTimer = eventPlayer.statsBaseDelay
     hudHeader(eventPlayer, ["{0} ENTERING BASE {0} \n           IN {1} SEC".format(iconString(Icon.WARNING), eventPlayer.baseProtectionTimer), "{0} Entrando na base {0} \n              em {1} seg".format(iconString(Icon.WARNING), eventPlayer.baseProtectionTimer)][max(false, practiceRangeTranslations.index("{0}".format(Map.PRACTICE_RANGE)))], HudPosition.TOP, -3, Color.ORANGE, HudReeval.VISIBILITY_AND_STRING)
     eventPlayer.hudBaseProtection = getLastCreatedText()
@@ -1201,7 +1201,7 @@ rule "BASE ENTER ABORT":
     @Condition eventPlayer.isInBase == false
     @Condition (eventPlayer.isCloaked or eventPlayer.hasStatus(Status.ASLEEP) or eventPlayer.hasStatus(Status.FROZEN) or eventPlayer.hasStatus(Status.UNKILLABLE) or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT) or eventPlayer.isUsingUltimate()) == true
     
-    stopChasingVariable(eventPlayer.baseProtectionTimer)
+    stopChasing(eventPlayer.baseProtectionTimer)
     destroyHudText(eventPlayer.hudBaseProtection)
     eventPlayer.playerObjectInBase = null
 
@@ -1215,7 +1215,7 @@ rule "BASE EXIT":
     
     eventPlayer.playerObjectInBase = null
     eventPlayer.setDamageDealt(100)
-    stopChasingVariable(eventPlayer.baseProtectionTimer)
+    stopChasing(eventPlayer.baseProtectionTimer)
     destroyHudText(eventPlayer.hudBaseProtection)
     if not eventPlayer.isInBase:
         return
@@ -1251,7 +1251,7 @@ rule "player finished entering base":
     eventPlayer.setMoveSpeed(100)
     stopHealingOverTime(eventPlayer.regenID)
     eventPlayer.regenID = null
-    stopChasingVariable(eventPlayer.baseProtectionTimer)
+    stopChasing(eventPlayer.baseProtectionTimer)
     destroyHudText(eventPlayer.hudBaseProtection)
     hudText(eventPlayer, ["         {0} PROTECTED AND INVISIBLE {0}\n\nTo upgrade, look at white center orb".format(iconString(Icon.CHECKMARK)), "{0} PROTEGIDO(A) E INVISÍVEL {0}\n\n  PARA APRIMORAR, OLHE PARA\n      \u202fO ORBE BRANCO CENTRAL".format(iconString(Icon.CHECKMARK))][max(false, practiceRangeTranslations.index("{0}".format(Map.PRACTICE_RANGE)))], ["Controls:", "Controles:"][max(false, practiceRangeTranslations.index("{0}".format(Map.PRACTICE_RANGE)))], "{0}\n{1}".format(["{0}{1} : navigate menu\n[{2}]    : buy upgrade".format(inputBindingString(Button.PRIMARY_FIRE), inputBindingString(Button.SECONDARY_FIRE), inputBindingString(Button.INTERACT)), "{0}{1} : navegar pelo menu\n[{2}]    : comprar melhoria".format(inputBindingString(Button.PRIMARY_FIRE), inputBindingString(Button.SECONDARY_FIRE), inputBindingString(Button.INTERACT))][max(false, practiceRangeTranslations.index("{0}".format(Map.PRACTICE_RANGE)))], ["[{0}]   : use sparkbolt\n[{1} {2} remaining]".format(inputBindingString(Button.ULTIMATE), eventPlayer.nbSparkbolts, iconString(Icon.BOLT)), "[{0}]   : usar faísca\n[{1} {2} restando]".format(inputBindingString(Button.ULTIMATE), eventPlayer.nbSparkbolts, iconString(Icon.BOLT))][max(false, practiceRangeTranslations.index("{0}".format(Map.PRACTICE_RANGE)))]), HudPosition.TOP, -3, Color.GREEN, Color.GREEN, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     eventPlayer.hudBaseProtection = getLastCreatedText()
@@ -1446,7 +1446,7 @@ rule "player kill":
         destroyEffect(bountyArrayEffects[victim.getSlot()])
         bountyArrayEffects[victim.getSlot()] = null
         bountyArrayNum--
-    bountyArrayLocations[victim.getSlot()] = raycast(victim.getEyePosition(), victim.getEyePosition() - vect(0, 15, 0), null, null, false).getHitPosition() + vect(0, 0.35, 0)
+    bountyArrayLocations[victim.getSlot()] = raycastHitPosition(victim.getEyePosition(), victim.getEyePosition() - vect(0, 15, 0), null, null, false) + vect(0, 0.35, 0)
     bountyArrayMoney[victim.getSlot()] = victim.statsMoney
     if victim.statsMoney <= 25:
         createEffect(getAllPlayers(), Effect.ORB, Color.GREEN, bountyArrayLocations[victim.getSlot()], 1, EffectReeval.NONE)
@@ -1655,7 +1655,7 @@ rule "upgrade - use sparkbolt":
     @Condition eventPlayer.isSparkboltOnCooldown == false
     
     eventPlayer.isSparkboltOnCooldown = true
-    eventPlayer.tmpBaseSparkboltTarget = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 10, getAllPlayers(), eventPlayer, true).getPlayerHit()
+    eventPlayer.tmpBaseSparkboltTarget = raycastHitPlayer(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 10, getAllPlayers(), eventPlayer, true)
     if entityExists(eventPlayer.tmpBaseSparkboltTarget):
         if distance(eventPlayer.playerBaseLocation, eventPlayer.tmpBaseSparkboltTarget.getPosition()) < 8:
             eventPlayer.nbSparkbolts--
@@ -1770,13 +1770,13 @@ def setBaseLocation():
     if eventPlayer.playerBaseProximityIterator < getNumberOfPlayers(Team.ALL):
         loop()
     eventPlayer.playerBaseProximityIterator = 0
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(2, 0, 0))) * 40), [], [], false).getHitPosition(), eventPlayer.getPosition() + vect(2, 0, 0)) > 0.6:
+    if distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(2, 0, 0))) * 40), [], [], false), eventPlayer.getPosition() + vect(2, 0, 0)) > 0.6:
         goto lbl_0
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(-2, 0, 0))) * 40), [], [], false).getHitPosition(), eventPlayer.getPosition() + vect(-2, 0, 0)) > 0.6:
+    if distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(-2, 0, 0))) * 40), [], [], false), eventPlayer.getPosition() + vect(-2, 0, 0)) > 0.6:
         goto lbl_1
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(0, 0, 2))) * 40), [], [], false).getHitPosition(), eventPlayer.getPosition() + vect(0, 0, 2)) > 0.6:
+    if distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(0, 0, 2))) * 40), [], [], false), eventPlayer.getPosition() + vect(0, 0, 2)) > 0.6:
         goto lbl_2
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(0, 0, -2))) * 40), [], [], false).getHitPosition(), eventPlayer.getPosition() + vect(0, 0, -2)) > 0.6:
+    if distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getPosition() + ((directionTowards(eventPlayer.getEyePosition(), eventPlayer.getPosition() + vect(0, 0, -2))) * 40), [], [], false), eventPlayer.getPosition() + vect(0, 0, -2)) > 0.6:
         goto lbl_3
     if eventPlayer.hasStatus(Status.INVINCIBLE):
         goto lbl_4

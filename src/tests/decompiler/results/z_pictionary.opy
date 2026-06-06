@@ -83,7 +83,7 @@ rule "Debug Hud":
     
     hudSubheader(eventPlayer, eventPlayer.getFacingDirection(), HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudSubheader(eventPlayer, eventPlayer.getPosition(), HudPosition.LEFT, 0, Color.RED, HudReeval.VISIBILITY_AND_STRING)
-    hudSubheader(eventPlayer, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), HudPosition.LEFT, 0, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
+    hudSubheader(eventPlayer, raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), HudPosition.LEFT, 0, Color.GREEN, HudReeval.VISIBILITY_AND_STRING)
 
 
 rule "Banned Words":
@@ -661,7 +661,7 @@ rule "Primary Fire":
     @Condition eventPlayer.GuessedWord == false
     
     eventPlayer.Firing = true
-    #createEffect(eventPlayer, Effect.SPHERE, Color.RED, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, eventPlayer, true).getHitPosition(), 0.2, EffectReeval.NONE)
+    #createEffect(eventPlayer, Effect.SPHERE, Color.RED, raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, eventPlayer, true), 0.2, EffectReeval.NONE)
     #eventPlayer.BulletEffect = getLastCreatedEntity()
     playEffect(eventPlayer, DynamicEffect.RING_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 100)
     wait()
@@ -672,7 +672,7 @@ rule "Primary Fire":
 
 rule "Start Pictionary":
     @Event eachPlayer
-    @Condition distance(vect(20, 5.75, 0), raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * distance(eventPlayer.getEyePosition(), vect(20, 5.75, 0)), null, getAllPlayers(), false).getHitPosition()) <= 1
+    @Condition distance(vect(20, 5.75, 0), raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * distance(eventPlayer.getEyePosition(), vect(20, 5.75, 0)), null, getAllPlayers(), false)) <= 1
     @Condition eventPlayer.Firing == true
     @Condition StartPictionary == false
     
@@ -834,30 +834,30 @@ rule "QWERTYUIOP":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 5.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 7.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -10
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 10
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 5.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 7.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -10
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 10
     @Condition eventPlayer.Firing == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -8:
         eventPlayer.WordArray = "{0}Q".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -6:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -6:
         eventPlayer.WordArray = "{0}W".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -4:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -4:
         eventPlayer.WordArray = "{0}E".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -2:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -2:
         eventPlayer.WordArray = "{0}R".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 0:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 0:
         eventPlayer.WordArray = "{0}T".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 2:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 2:
         eventPlayer.WordArray = "{0}Y".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 4:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 4:
         eventPlayer.WordArray = "{0}U".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 6:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 6:
         eventPlayer.WordArray = "{0}I".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 8:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 8:
         eventPlayer.WordArray = "{0}O".format(eventPlayer.WordArray)
     else:
         eventPlayer.WordArray = "{0}P".format(eventPlayer.WordArray)
@@ -867,28 +867,28 @@ rule "ASDFGHJKL":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 3.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 5.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -9
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 9
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 3.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 5.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -9
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 9
     @Condition eventPlayer.Firing == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -7:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -7:
         eventPlayer.WordArray = "{0}A".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -5:
         eventPlayer.WordArray = "{0}S".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -3:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -3:
         eventPlayer.WordArray = "{0}D".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -1:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -1:
         eventPlayer.WordArray = "{0}F".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 1:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 1:
         eventPlayer.WordArray = "{0}G".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 3:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 3:
         eventPlayer.WordArray = "{0}H".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 5:
         eventPlayer.WordArray = "{0}J".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 7:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 7:
         eventPlayer.WordArray = "{0}K".format(eventPlayer.WordArray)
     else:
         eventPlayer.WordArray = "{0}L".format(eventPlayer.WordArray)
@@ -898,24 +898,24 @@ rule "ZXCVBNM":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 1.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 3.5
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -7
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 7
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 1.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 3.5
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -7
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 7
     @Condition eventPlayer.Firing == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -5:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -5:
         eventPlayer.WordArray = "{0}Z".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -3:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -3:
         eventPlayer.WordArray = "{0}X".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -1:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -1:
         eventPlayer.WordArray = "{0}C".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 1:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 1:
         eventPlayer.WordArray = "{0}V".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 3:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 3:
         eventPlayer.WordArray = "{0}B".format(eventPlayer.WordArray)
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 5:
         eventPlayer.WordArray = "{0}N".format(eventPlayer.WordArray)
     else:
         eventPlayer.WordArray = "{0}M".format(eventPlayer.WordArray)
@@ -923,7 +923,7 @@ rule "ZXCVBNM":
 
 rule "SPACE":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 0.5, 0)) <= 1
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 0.5, 0)) <= 1
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.Firing == true
@@ -933,7 +933,7 @@ rule "SPACE":
 
 rule "SUBMIT":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 2.5, 10)) <= 1
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 2.5, 10)) <= 1
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.Firing == true
@@ -959,7 +959,7 @@ rule "SUBMIT":
 
 rule "DEL":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 6.5, 11)) <= 1
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 6.5, 11)) <= 1
     @Condition StartPictionary == true
     @Condition Drawer != eventPlayer
     @Condition eventPlayer.Firing == true
@@ -971,14 +971,14 @@ rule "DrawTool":
     @Event eachPlayer
     @Condition Drawer == eventPlayer
     @Condition StartPictionary == true
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 8
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 24
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -8
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 24
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 8
     @Condition ChoosingWord == true
     
-    createEffect(eventPlayer, Effect.SPHERE, DrawerColor, updateEveryFrame(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()), DrawerRadius, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    createEffect(eventPlayer, Effect.SPHERE, DrawerColor, updateEveryFrame(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)), DrawerRadius, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     DrawTool = getLastCreatedEntity()
 
 
@@ -986,7 +986,7 @@ rule "DrawTool Destroy":
     @Event eachPlayer
     @Condition Drawer == eventPlayer
     @Condition StartPictionary == true
-    @Condition ((raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 24 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 8 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8 or (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > 8) == true
+    @Condition ((raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 24 or (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 8 or (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -8 or (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > 8) == true
     @Condition ChoosingWord == true
     
     destroyEffect(DrawTool)
@@ -996,15 +996,15 @@ rule "Drawer Draw":
     @Event eachPlayer
     @Condition Drawer == eventPlayer
     @Condition StartPictionary == true
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 8
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 24
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -8
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 24
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 8
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
     
-    createEffect(getAllPlayers(), Effect.SPHERE, DrawerColor, raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), DrawerRadius, EffectReeval.NONE)
+    createEffect(getAllPlayers(), Effect.SPHERE, DrawerColor, raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), DrawerRadius, EffectReeval.NONE)
     NumOfEffects++
     wait(0.1)
     if NumOfEffects >= 230:
@@ -1017,21 +1017,21 @@ rule "Drawer Select Size":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 8
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 24
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > -12
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < -8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 8
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 24
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > -12
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < -8
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 11.5:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 11.5:
         DrawerRadius = 0.2
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 14.5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 14.5:
         DrawerRadius = 0.4
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 17.5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 17.5:
         DrawerRadius = 0.6
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 20.5:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 20.5:
         DrawerRadius = 0.8
     else:
         DrawerRadius = 1
@@ -1041,23 +1041,23 @@ rule "Drawer Select Color 1":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 11
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 24
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > 9
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 11
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 11
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 24
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > 9
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 11
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 13:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 13:
         DrawerColor = Color.LIME_GREEN
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 15:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 15:
         DrawerColor = Color.YELLOW
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 17:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 17:
         DrawerColor = Color.ORANGE
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 19:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 19:
         DrawerColor = Color.RED
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 21:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 21:
         DrawerColor = Color.WHITE
     else:
         DrawerColor = Color.GRAY
@@ -1067,23 +1067,23 @@ rule "Drawer Select Color 2":
     @Event eachPlayer
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).x == 20
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y > 11
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 24
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z > 11
-    @Condition (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).z < 13
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).x == 20
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y > 11
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 24
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z > 11
+    @Condition (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).z < 13
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
     @Condition ChoosingWord == true
     
-    if (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 13:
+    if (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 13:
         DrawerColor = Color.PURPLE
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 15:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 15:
         DrawerColor = Color.BLUE
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 17:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 17:
         DrawerColor = Color.SKY_BLUE
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 19:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 19:
         DrawerColor = Color.GREEN
-    elif (raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition()).y < 21:
+    elif (raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true)).y < 21:
         DrawerColor = Color.BLACK
     else:
         DrawerColor = Color.ROSE
@@ -1091,7 +1091,7 @@ rule "Drawer Select Color 2":
 
 rule "Trash":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 9.5, 11)) <= 1
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 9.5, 11)) <= 1
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
@@ -1108,7 +1108,7 @@ rule "Trash":
 
 rule "Drawer Select Word 0":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 18.4, 0)) <= 0.8
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 18.4, 0)) <= 0.8
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
@@ -1132,7 +1132,7 @@ rule "Drawer Select Word 0":
 
 rule "Drawer Select Word 1":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 15.35, 0)) <= 0.8
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 15.35, 0)) <= 0.8
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
@@ -1155,7 +1155,7 @@ rule "Drawer Select Word 1":
 
 rule "Drawer Select Word 2":
     @Event eachPlayer
-    @Condition distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true).getHitPosition(), vect(20, 12.35, 0)) <= 0.8
+    @Condition distance(raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 1000, null, eventPlayer, true), vect(20, 12.35, 0)) <= 0.8
     @Condition StartPictionary == true
     @Condition Drawer == eventPlayer
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
@@ -1181,7 +1181,7 @@ rule "Times Up or Everyone Guesses":
     @Condition StartPictionary == true
     
     Drawer = null
-    stopChasingVariable(Timer)
+    stopChasing(Timer)
     Timer = -1
     playEffect(getAllPlayers(), DynamicEffect.DEBUFF_IMPACT_SOUND, Color.WHITE, vect(0, 0, 0), 200)
     getAllPlayers().clearStatusEffect(Status.PHASED_OUT)

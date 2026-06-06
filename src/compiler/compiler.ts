@@ -637,15 +637,17 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
             result[wsGamemodes] = {};
             for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
                 if (gamemode !== "general") {
-                    if (!(gamemode in gamemodeKw)) {
-                        this.error("Unknown gamemode '" + gamemode + "'");
-                    } else if (gamemodeKw[gamemode].onlyInOw1) {
+                    if (gamemodeKw[gamemode]?.onlyInOw1) {
                         this.error("The gamemode '" + gamemode + "' is not available in OW2");
                     }
                 }
-                var wsGamemode = this.tows(gamemode, customGameSettingsSchema.gamemodes.values);
+                try {
+                    var wsGamemode = this.tows(gamemode, customGameSettingsSchema.gamemodes.values);
+                } catch (e) {
+                    var wsGamemode = gamemode;
+                }
                 var isGamemodeEnabled = true;
-                if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
+                if (customGameSettings.gamemodes[gamemode].enabled === false) {
                     wsGamemode = this.tows("__disabled__", ruleKw) + " " + wsGamemode;
                     isGamemodeEnabled = false;
                 }
@@ -656,7 +658,7 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
                         this.error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '" + gamemode + "'");
                     }
                     var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
-                    var wsMapsKey = this.tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+                    var wsMapsKey = this.tows(mapsKey, customGameSettingsSchema.gamemodes.values.skirmish.values);
                     var encounteredMaps = [];
                     result[wsGamemodes][wsGamemode][wsMapsKey] = [];
                     for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
@@ -709,7 +711,7 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
                     this.compileCustomGameSettingsDict(
                         customGameSettings.gamemodes[gamemode],
                         // @ts-ignore - customGameSettingsSchema should always has the correct schema
-                        customGameSettingsSchema.gamemodes.values[gamemode].values,
+                        customGameSettingsSchema.gamemodes.values[gamemode]?.values || {},
                     ),
                 );
             }
@@ -759,12 +761,6 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
                     if ("ability1KB%" in customGameSettings.heroes[team][hero]) {
                         customGameSettings.heroes[team][hero]["ability1Kb%"] = customGameSettings.heroes[team][hero]["ability1KB%"];
                         delete customGameSettings.heroes[team][hero]["ability1KB%"];
-                    }
-                    for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
-                        // @ts-ignore
-                        if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
-                            this.error("'" + hero + "' has no property '" + key + "'");
-                        }
                     }
                     result[wsHeroes][wsTeam][wsHero] = this.compileCustomGameSettingsDict(
                         customGameSettings.heroes[team][hero],

@@ -1000,9 +1000,9 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
 
     }
 
-    if (name === "async") {
+    if (name === "async" || name === "startRule") {
         if (args.length !== 2) {
-            this.error("Function 'async' takes 2 arguments, received " + args.length);
+            this.error("Function '"+name+"' takes 2 arguments, received " + args.length);
         }
         //Check if first arg is indeed a subroutine
         var subroutineArg = args[0][0].text;
@@ -1010,7 +1010,7 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
             this.error("Expected subroutine name as first argument");
         }
 
-        let result = this.Ast("async", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
+        let result = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
         result.fileStack = this.getFileStackRange(content);
         return result;
     }
@@ -1150,6 +1150,7 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
         "enableEnvironmentCollision": ".enableEnvironmentCollision",
         "enablePlayerCollision": ".enablePlayerCollision",
         "horizontalAngleFromDirection": "horizontalAngleOfDirection",
+        "getLastAssistID": "getLastAssistId",
         "getLastDoT": "getLastDamageOverTimeId",
         "getLastHoT": "getLastHealingOverTimeId",
         "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
@@ -1163,6 +1164,7 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
         "buttonString": "inputBindingString",
         "teamHasHero": "isHeroBeingPlayed",
         "removeFromGame": ".removeFromGame",
+        "stopChasingVariable": "stopChasing",
         "stopDoT": "stopDamageOverTime",
         "stopHoT": "stopHealingOverTime",
     };
@@ -1214,6 +1216,9 @@ OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]
         if (object.length === 1) {
 
 
+            if (object[0].text === "AsyncBehavior") {
+                object[0].text = "StartRuleBehavior"
+            }
             //Check for member of a user-declared enum
             //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
             if (object[0].text in this.enumMembers && name in this.enumMembers[object[0].text]) {

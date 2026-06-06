@@ -365,7 +365,7 @@ rule "global init":
     pauseMatchTime()
     hudHeader(getAllPlayers().filter(lambda player: not objective_complete and not no_hud and not player.shop), " {0}   OBJECTIVE: {1}   {0}".format(newline, objective), HudPosition.TOP, false, rgb(obj_color_r, obj_color_g, obj_color_b), HudReeval.VISIBILITY_STRING_AND_COLOR)
     objective = "Wait for players to assemble."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     createEffect(getAllPlayers(), Effect.RING, Color.AQUA, skip_cutscene_pos, 2, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     createInWorldText(getAllPlayers() if skip_cutscene_pos.y < 900 else [], "Group up here to skip the dialogue!", skip_cutscene_pos, 1.2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.AQUA)
     createEffect(getAllPlayers(), Effect.RING, Color.GREEN, objective_pos, 4, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
@@ -757,7 +757,7 @@ rule "player downed":
             eventPlayer.death_timer = 40
             chaseAtRate(eventPlayer.death_timer, false, true)
             eventPlayer.revive_timer = 8
-            stopChasingVariable(eventPlayer.revive_timer)
+            stopChasing(eventPlayer.revive_timer)
             playEffect(getAllPlayers(), DynamicEffect.RING_EXPLOSION_SOUND, Color.WHITE, eventPlayer, 200)
             _tempNodes = eventPlayer
         else:
@@ -797,7 +797,7 @@ rule "player pause death timer":
     @Condition eventPlayer.zomnic == false
     @Condition eventPlayer.revive_timer < 8
     
-    stopChasingVariable(eventPlayer.death_timer)
+    stopChasing(eventPlayer.death_timer)
     waitUntil(eventPlayer.revive_timer == 8 or not eventPlayer.is_downed, 100)
     chaseAtRate(eventPlayer.death_timer, false, true)
 
@@ -823,8 +823,8 @@ rule "player alive again":
     playEffect(getAllPlayers(), DynamicEffect.DEBUFF_IMPACT_SOUND, Team.2, eventPlayer, 200)
     playEffect(getAllPlayers(), DynamicEffect.BAD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 1)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, true)
-    stopChasingVariable(eventPlayer.death_timer)
-    stopChasingVariable(eventPlayer.revive_timer)
+    stopChasing(eventPlayer.death_timer)
+    stopChasing(eventPlayer.revive_timer)
     if difficulty == -1:
         eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 99999)
     if eventPlayer.getHero() == Hero.ROADHOG:
@@ -888,7 +888,7 @@ rule "do\ufeffwned dialogue":
             active_dialogue_list = [[Hero.REINHARDT, random.choice(["With a thunderous crash, the monster fell to the ground, all semblance of life, extinguished.", "Dr.\u200b Junkenstein's creation had been slain, its eyes as lifeless as pale stone.", "The spark of life within the monster was gone, and its fearsome body became inanimate once more."]), 2]]
         elif _tempNodes.getHero() == Hero.REAPER:
             active_dialogue_list = [[Hero.REINHARDT, random.choice(["The Reaper's body faded into the darkness of the night.", "The Reaper had been felled. But the Lord felt sure that he'd return.", "Accursed smoke dissipated into harmless mist as the Reaper was dispatched."]), 2]]
-    async(main_dialogue, AsyncBehavior.RESTART)
+    startRule(main_dialogue)
     _tempNodes = null
 
 
@@ -910,7 +910,7 @@ rule "revive dialogue":
         active_dialogue_list = [[Hero.REINHARDT, random.choice(["The ground shook and shuddered once again; the monster had returned.", "Dr.\u200b Junkenstein was not yet finished - his monster rose again!", "A looming shadow reappeared - Junkenstein's monster was alive once more!"]), 2]]
     elif _tempSegments.getHero() == Hero.REAPER:
         active_dialogue_list = [[Hero.REINHARDT, random.choice(["To the heroes' dismay, the Reaper was not so easily defeated.", "The shadows took shape, and coalesced back into the form of the Reaper.", "Out of the night, the Reaper returned."]), 2]]
-    async(main_dialogue, AsyncBehavior.RESTART)
+    startRule(main_dialogue)
     _tempSegments = null
 
 
@@ -925,7 +925,7 @@ rule "extra life dialogue":
     waitUntil(not main_dialogue, 99999)
     is_dialoguing = false
     active_dialogue_list = [[Hero.REINHARDT, "The Merchant's concoction did not disappoint, and {0} cheated the icy grip of death.".format(t2_names_array[t2_heroes_array.index(_tempAttributes.getHero())]), 2]]
-    async(main_dialogue, AsyncBehavior.RESTART)
+    startRule(main_dialogue)
     _tempAttributes = null
 
 
@@ -939,7 +939,7 @@ rule "final death dialogue":
     is_dialoguing = false
     defeat = true
     last_player_to_die.startFacing(last_player_to_die.getFacingDirection(), false)
-    getPlayers(Team.2).startCamera(raycast(last_player_to_die.getEyePosition(), evalOnce(worldVector(vect(false, 2, 4), last_player_to_die, Transform.ROTATION_AND_TRANSLATION)), null, last_player_to_die, true).getHitPosition(), last_player_to_die.getPosition(), 30)
+    getPlayers(Team.2).startCamera(raycastHitPosition(last_player_to_die.getEyePosition(), evalOnce(worldVector(vect(false, 2, 4), last_player_to_die, Transform.ROTATION_AND_TRANSLATION)), null, last_player_to_die, true), last_player_to_die.getPosition(), 30)
     setSlowMotion(20)
     dialogue_priority = 3
     wait(0.7)
@@ -956,7 +956,7 @@ rule "final death dialogue":
     elif last_player_to_die.getHero() == Hero.REINHARDT and last_player_to_die == boss:
         active_dialogue_list = [[Hero.REINHARDT, "But alas, this story was not one of triumph. This was a story of tragedy.", 0.3], [Hero.REINHARDT, "As the once-mighty Lord of Adlersbrunn toppled over, exhaling his last breath on this mortal coil,", 0.3], [Hero.REINHARDT, "A single tear rolled down his cheek, for he knew that Brazil was inevitable." if sombra_egg == 69 else "A single tear rolled down his cheek, for he knew that Adlersbrunn was doomed.", 0.3], [Hero.REINHARDT, "Dr.\u200b Junkenstein had his revenge, and the vuvuzelas sounded throughout the night." if sombra_egg == 69 else "Tonight, Dr.\u200b Junkenstein had his revenge, and the indomitable villains celebrated.", 0.3], [Hero.REINHARDT, "Olé. Olé. Olé. Eu sou brasileiro." if sombra_egg == 69 else "This was their terrible, bitter victory.", 0.6]]
     setSlowMotion(40)
-    async(main_dialogue, AsyncBehavior.RESTART)
+    startRule(main_dialogue)
     wait(0.1)
     waitUntil(not main_dialogue, 99999)
     if last_player_to_die.getHero() == Hero.REINHARDT and last_player_to_die == boss:
@@ -1587,7 +1587,7 @@ rule "chernobyllager falloff":
         wait(0.2)
     chaseAtRate(eventPlayer.falloff, false, 10, ChaseRateReeval.NONE)
     wait(true)
-    stopChasingVariable(eventPlayer.falloff)
+    stopChasing(eventPlayer.falloff)
     while eventPlayer.falloff_effect != []:
         destroyEffect(eventPlayer.falloff_effect[0])
         del eventPlayer.falloff_effect[false]
@@ -1993,7 +1993,7 @@ def genji_pet_strike():
     eventPlayer.boss_pet[true].setInvisibility(Invis.NONE)
     playEffect(getAllPlayers(), DynamicEffect.WIDOWMAKER_VENOM_MINE_EXPLOSION, Team.1, worldVector(Vector.UP, eventPlayer.boss_pet[true], Transform.ROTATION_AND_TRANSLATION), 1)
     wait(false)
-    eventPlayer.boss_target_location_2 = raycast(eventPlayer.boss_target_location, eventPlayer.boss_target_location + directionFromAngles(random.uniform(0, 360), 0) * 7.5, null, eventPlayer, true).getHitPosition()
+    eventPlayer.boss_target_location_2 = raycastHitPosition(eventPlayer.boss_target_location, eventPlayer.boss_target_location + directionFromAngles(random.uniform(0, 360), 0) * 7.5, null, eventPlayer, true)
     eventPlayer.boss_pet[true].teleport(eventPlayer.boss_target_location_2)
     wait(false)
     eventPlayer.boss_pet[true].setFacing(directionTowards(eventPlayer.boss_target_location_2, eventPlayer.boss_target_location), Relativity.TO_WORLD)
@@ -2064,9 +2064,9 @@ def obj_color():
     obj_color_r = 255
     obj_color_g = 255
     obj_color_b = 255
-    stopChasingVariable(obj_color_r)
-    stopChasingVariable(obj_color_g)
-    stopChasingVariable(obj_color_b)
+    stopChasing(obj_color_r)
+    stopChasing(obj_color_g)
+    stopChasing(obj_color_b)
     wait(0.03)
     for i3 in range(0, 3, true):
         wait(0.1)
@@ -2123,9 +2123,9 @@ rule "return cam":
     chaseOverTime(eventPlayer.cutscene_cam_lookat, eventPlayer.getEyePosition() + eventPlayer.getFacingDirection(), true)
     wait(true)
     eventPlayer.stopCamera()
-    stopChasingVariable(eventPlayer.cutscene_cam_pos)
-    stopChasingVariable(eventPlayer.cutscene_cam_lookat)
-    stopChasingVariable(eventPlayer.cutscene_cam_speedup)
+    stopChasing(eventPlayer.cutscene_cam_pos)
+    stopChasing(eventPlayer.cutscene_cam_lookat)
+    stopChasing(eventPlayer.cutscene_cam_speedup)
 
 
 rule "in spawn check":
@@ -2192,7 +2192,7 @@ rule "phase 1+ cannot re-enter spawn":
     elif eventPlayer.egg == 121:
         smallMessage(eventPlayer, "You must really like that warping sound.")
     elif eventPlayer.egg == 161:
-        async(egg, AsyncBehavior.NOOP)
+        startRule(egg, StartRuleBehavior.NOOP)
     eventPlayer.egg++
 
 
@@ -2220,7 +2220,7 @@ rule "first cutscene":
     skip_cutscene_pos = _extendedGlobalCollection
     phase = 1
     objective = "Reach the Village of Adlersbrunn."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_pos = vect(8.302, 6, -68.151)
     objective_complete = false
     getPlayers(Team.2).late_join_check = true
@@ -2300,7 +2300,7 @@ rule "second cutscene":
     skip_cutscene_pos = _extendedGlobalCollection
     phase = 3
     objective = "Kill everyone in the village."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     enemy_spawn = [vect(-1.299, 8.147, -71.937), vect(-8.77, 4.938, -76.42), vect(4.709, 6.497, -92.627), vect(15.987, 7.642, -87.65), vect(23.792, 11.636, -87.842), vect(28.715, 7.662, -73.329), vect(35.771, 6.875, -53.8), vect(13.89, 7.639, -61.233), vect(1.177, 7.623, -49.463), vect(6.328, 11.639, -41.476), vect(18.923, 5.715, -36.519), vect(26.77, 6.626, -43.5), vect(34.607, 12.418, -54.705), vect(29.591, 13.128, -66.596)]
     objective_complete = false
 
@@ -2482,7 +2482,7 @@ rule "end of slaughter + genji intro cutscene":
     skip_cutscene_pos = _extendedGlobalCollection
     phase = 5
     objective = "Kill the Swordsman."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     dialogue_bot.startForcingHero(Hero.GENJI)
 
@@ -2514,7 +2514,7 @@ rule "genji dead cutscene":
     dialogue_priority = false
     skip_cutscene_pos = _extendedGlobalCollection
     objective = "Reach the castle."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     phase = 7
     destroyDummy(Team.1, boss.getSlot())
@@ -2552,13 +2552,13 @@ rule "regrouped after merchant":
     boundary_corners = [vect(103.485, 13.9, -66.421), vect(74.555, 13.9, -59.152)]
     objective_pos = vect(77.842, 13.935, -98.146)
     boundary_line = vectorTowards(boundary_corners[0], boundary_corners.last())
-    async(delete_bound_effects, AsyncBehavior.RESTART)
+    startRule(delete_bound_effects)
     merchant.forceButtonPress(Button.ABILITY_1)
     destroyDummy(Team.1, merchant.attack.getSlot())
     shop_open = false
     wait(0.4)
     destroyDummy(Team.2, 9)
-    stopChasingVariable(shop_angle)
+    stopChasing(shop_angle)
 
 
 rule "phase 9 spawning event 1":
@@ -2599,7 +2599,7 @@ rule "seventh cutscene":
     dragon_blood_qty = 5
     objective_complete = true
     phase = 10
-    async(delete_bound_effects, AsyncBehavior.RESTART)
+    startRule(delete_bound_effects)
     wait(false)
     destroyEffect(skull_effect[0])
     objective_pos = _extendedGlobalCollection
@@ -2613,7 +2613,7 @@ rule "seventh cutscene":
     dialogue_priority = false
     skip_cutscene_pos = _extendedGlobalCollection
     objective = "Collect {0} bottles of dragon's blood.".format(dragon_blood_qty)
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     enemy_spawn = [vect(58.274, 21.751, -71.81), vect(54.145, 7.089, -75.357), vect(30.489, 15.015, -76.676), vect(33.676, 9.065, -79.304), vect(57.437, 12.678, -64.421), vect(52.025, 12.356, -81.899), vect(67.905, 14.28, -74.618), vect(41.302, 11.422, -96.339), vect(58.101, 7.812, -105.398), vect(45.303, 15.651, -106.795), vect(62.496, 5.856, -81.776), vect(53.88, 18.975, -106.78), vect(51.306, 19.218, -83.228), vect(77.969, 13.38, -58.986), vect(97.55, 12.73, -66.2), vect(101.811, 11.2, -93.285)]
     enemy_spawn_2 = enemy_spawn
@@ -2640,7 +2640,7 @@ rule "phase 11 spawning event":
     
     wait(false)
     dragon_blood_cache = dragon_blood_qty
-    async(phase_11_spawn, AsyncBehavior.RESTART)
+    startRule(phase_11_spawn)
 
 
 rule "collect blood":
@@ -2679,7 +2679,7 @@ rule "collect blood":
                     main_dialogue()
                     dialogue_priority = false
                     phase = 12
-                    async(obj_color, AsyncBehavior.RESTART)
+                    startRule(obj_color)
                     objective_complete = false
                     objective = "Perform the ritual at the bridge."
                     destroyIcon(dragon_blood_hint_icon)
@@ -2688,10 +2688,10 @@ rule "collect blood":
                         del dragon_blood_effects[false]
                         wait(false)
                 else:
-                    async(obj_color, AsyncBehavior.RESTART)
+                    startRule(obj_color)
                     objective = "Collect {0} {1} of dragon's blood.".format(dragon_blood_qty, "bottles" if dragon_blood_qty > true else "bottle")
                 if not mercy_drop:
-                    async(mercy_drop_blood, AsyncBehavior.NOOP)
+                    startRule(mercy_drop_blood, StartRuleBehavior.NOOP)
     wait(wait)
     if ruleCondition:
         loop()
@@ -2747,7 +2747,7 @@ rule "drop blood 2":
     dragon_blood_qty++
     wait(false)
     objective = "Collect {0} bottles of dragon's blood.".format(dragon_blood_qty)
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
 
 
 rule "junkrat faster mines":
@@ -2780,8 +2780,8 @@ rule "cowboy intro cutscene":
     @Condition objective_pos.y < 100
     @Condition (getPlayers(Team.2).filter(lambda player: not player.isDummy()).all(lambda x: distance(x, objective_pos) < 4)) == true
     
-    stopChasingVariable(hint)
-    async(delete_bound_effects, AsyncBehavior.RESTART)
+    stopChasing(hint)
+    startRule(delete_bound_effects)
     enemy_spawn = [vect(62.041, 7.129, -109.873), vect(59.642, 18.42, -108.625), vect(83.877, 11.406, -112.18), vect(96.234, 13.366, -105.924), vect(67.331, 18.722, -74.665), vect(57.966, 12.388, -83.679), vect(61.097, 10.048, -68.022), vect(81.906, 13.167, -56.006), vect(96.078, 13.167, -58.029)]
     phase = 13
     objective_pos = _extendedGlobalCollection
@@ -2830,7 +2830,7 @@ rule "cowboy intro cutscene":
     skip_cutscene_pos = _extendedGlobalCollection
     phase = 14
     objective = "Kill the Gunslinger."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     dialogue_bot.startForcingHero(Hero.CASSIDY)
 
@@ -3016,7 +3016,7 @@ rule "cowboy dead cutscene":
     dialogue_priority = false
     skip_cutscene_pos = _extendedGlobalCollection
     objective = "Perform the ritual at the bridge."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     phase = 16
     destroyDummy(Team.1, boss.getSlot())
@@ -3024,7 +3024,7 @@ rule "cowboy dead cutscene":
     merchant = getLastCreatedEntity()
     wait(5)
     objective_pos = vect(84.923, 14.448, -100.295)
-    pentagram_pos = raycast(vect(77.842, 13.935, -98.146), vect(77.842, 13.935, -98.146) + Vector.DOWN, null, null, true).getHitPosition() + Vector.DOWN * 0.1
+    pentagram_pos = raycastHitPosition(vect(77.842, 13.935, -98.146), vect(77.842, 13.935, -98.146) + Vector.DOWN, null, null, true) + Vector.DOWN * 0.1
 
 
 rule "tp dead body":
@@ -3044,7 +3044,7 @@ rule "summoner intro cutscene":
     @Condition objective_pos.y < 100
     @Condition (getPlayers(Team.2).filter(lambda player: not player.isDummy()).all(lambda x: distance(x, objective_pos) < 4)) == true
     
-    stopChasingVariable(shop_angle)
+    stopChasing(shop_angle)
     door_color = Color.WHITE
     summoner_color = Color.ORANGE
     door_health = 100
@@ -3111,7 +3111,7 @@ rule "summoner intro cutscene":
     dialogue_priority = false
     skip_cutscene_pos = _extendedGlobalCollection
     objective = "Protect The Zomnics."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     wait(true)
     playEffect(getAllPlayers(), DynamicEffect.SOMBRA_EMP_EXPLOSION_SOUND, Color.ORANGE, pentagram_pos, 200)
@@ -3256,7 +3256,7 @@ rule "zomnic dead":
             eventPlayer.clearStatusEffect(Status.ROOTED)
             eventPlayer.stopScalingSize()
             destroyEffect(eventPlayer.trail)
-            stopChasingVariable(eventPlayer.exploding)
+            stopChasing(eventPlayer.exploding)
 
 
 rule "first zomnic rises":
@@ -3456,7 +3456,7 @@ rule "ana init":
     createEffect(getAllPlayers(), Effect.CLOUD, Color.VIOLET, eventPlayer.gas_pos, eventPlayer.gas_radius, EffectReeval.POSITION_AND_RADIUS)
     createEffect(getAllPlayers(), Effect.RING, Color.VIOLET, eventPlayer.gas_pos, eventPlayer.gas_radius, EffectReeval.POSITION_AND_RADIUS)
     eventPlayer.startForcingPosition(vect(89.137, 20, -63.627), false)
-    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + Vector.DOWN * 10, null, null, true).getHitPosition() if eventPlayer.attack > false else eventPlayer.target.getEyePosition()), 1000)
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + Vector.DOWN * 10, null, null, true) if eventPlayer.attack > false else eventPlayer.target.getEyePosition()), 1000)
 
 
 rule "ana normal attack":
@@ -3499,7 +3499,7 @@ rule "ana gas destroy":
     chaseAtRate(eventPlayer.gas_radius, false, 6)
     wait(1.1)
     eventPlayer.gas_pos = _extendedGlobalCollection
-    stopChasingVariable(eventPlayer.gas_radius)
+    stopChasing(eventPlayer.gas_radius)
 
 
 rule "player poisoned":
@@ -3550,7 +3550,7 @@ rule "speed boost":
     waitUntil(not eventPlayer.speed_boosted, 99999)
     eventPlayer.setMoveSpeed(eventPlayer.speed)
     destroyEffect(eventPlayer.speed_effect)
-    stopChasingVariable(eventPlayer.speed_boosted)
+    stopChasing(eventPlayer.speed_boosted)
 
 
 rule "blinded":
@@ -3579,8 +3579,8 @@ rule "blinded":
     while eventPlayer.boss_effects != []:
         destroyEffect(eventPlayer.boss_effects[0])
         del eventPlayer.boss_effects[false]
-    stopChasingVariable(eventPlayer.blind)
-    stopChasingVariable(eventPlayer.blind_radius)
+    stopChasing(eventPlayer.blind)
+    stopChasing(eventPlayer.blind_radius)
 
 
 rule "door <36% health":
@@ -3622,7 +3622,7 @@ rule "nano effect":
     waitUntil(not eventPlayer.nano, 99999)
     eventPlayer.setDamageDealt(eventPlayer.damage_dealt)
     eventPlayer.setDamageReceived(eventPlayer.damage_received)
-    stopChasingVariable(eventPlayer.nano)
+    stopChasing(eventPlayer.nano)
     while eventPlayer.nano_effect != []:
         destroyEffect(eventPlayer.nano_effect[0])
         del eventPlayer.nano_effect[false]
@@ -3709,7 +3709,7 @@ rule "door 0 health - ana dies cutscene":
     skip_cutscene_pos = _extendedGlobalCollection
     phase = 22
     objective = "Storm the castle."
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     objective_complete = false
     createDummy(Hero.MOIRA, Team.2, 5, _extendedGlobalCollection, vect(0.22, false, 0.95))
     merchant = getLastCreatedEntity()
@@ -3861,7 +3861,7 @@ rule "enter castle":
     getPlayers(Team.2).exclude(merchant).teleport(vect(89.583, 13.378, -61.666))
     boundary_corners_2 = [boundary_corners.last(), boundary_corners[0]]
     boundary_line_2 = vectorTowards(boundary_corners_2[0], boundary_corners_2.last())
-    async(delete_bound_effects, AsyncBehavior.RESTART)
+    startRule(delete_bound_effects)
     phase = 23
     objective_pos = _extendedGlobalCollection
     destroyDummy(Team.1, merchant.attack.getSlot())
@@ -4070,7 +4070,7 @@ rule "phase 23 waves":
     skip_cutscene_pos = _extendedGlobalCollection
     objective = "Await the arrival of the Lord."
     objective_complete = false
-    async(obj_color, AsyncBehavior.RESTART)
+    startRule(obj_color)
     phase = 24
     enemy_spawn = [vect(97.971, 13.452, -62.684), vect(79.364, 13.451, -59.84), vect(93.31, 11.086, -28.6), vect(97.314, 16.182, -20.648), vect(111.103, 13.061, -55.326), vect(130.767, 12.611, -58.283), vect(137.603, 15.285, -35.069), vect(110.655, 15.243, -33.718), vect(125.91, 11.275, -17.257), vect(113.1, 11.379, -3.929), vect(143.906, 11.377, -11.433)]
     for i7 in range(0, 4, true):
@@ -4198,7 +4198,7 @@ rule "phase 23 waves":
     else:
         phase = 26
         objective = "Take the Lord to Brazil." if sombra_egg == 69 else "Attain Junkenstein's revenge."
-        async(obj_color, AsyncBehavior.RESTART)
+        startRule(obj_color)
         objective_complete = false
 
 
@@ -4540,7 +4540,7 @@ rule "boss special attack followup":
             eventPlayer.stopFacing()
             eventPlayer.setMoveSpeed(false)
             eventPlayer.startForcingButton(Button.CROUCH)
-            eventPlayer.boss_target_location = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, null, eventPlayer, true).getHitPosition()
+            eventPlayer.boss_target_location = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 8, null, eventPlayer, true)
             wait(true)
             waitUntil(not eventPlayer.has_status, 10)
             eventPlayer.stopForcingButton(Button.CROUCH)
@@ -4548,7 +4548,7 @@ rule "boss special attack followup":
             for eventPlayer.i in range(0, 2, true):
                 playEffect(getAllPlayers(), DynamicEffect.WIDOWMAKER_VENOM_MINE_EXPLOSION, Team.1, worldVector(Vector.UP, eventPlayer, Transform.ROTATION_AND_TRANSLATION), 1)
                 wait(false)
-                eventPlayer.boss_target_location_2 = raycast(eventPlayer.boss_target_location, eventPlayer.boss_target_location + directionFromAngles(random.uniform(0, 360), 0) * 7.5, null, eventPlayer, true).getHitPosition()
+                eventPlayer.boss_target_location_2 = raycastHitPosition(eventPlayer.boss_target_location, eventPlayer.boss_target_location + directionFromAngles(random.uniform(0, 360), 0) * 7.5, null, eventPlayer, true)
                 eventPlayer.teleport(eventPlayer.boss_target_location_2)
                 wait(false)
                 eventPlayer.setFacing(directionTowards(eventPlayer.boss_target_location_2, eventPlayer.boss_target_location), Relativity.TO_WORLD)
@@ -4557,7 +4557,7 @@ rule "boss special attack followup":
                     eventPlayer.forceButtonPress(Button.ABILITY_1)
                 if eventPlayer.i < 2:
                     wait(0.2)
-                    async(genji_pet_strike, AsyncBehavior.RESTART)
+                    startRule(genji_pet_strike)
                 waitUntil(not eventPlayer.isUsingAbility1(), 1)
             wait(0.2)
             eventPlayer.boss_pet[true].setInvisibility(Invis.ALL)
@@ -4593,7 +4593,7 @@ rule "boss special attack followup":
             eventPlayer.no_jump = false
     elif eventPlayer.boss_ID == 2:
         if eventPlayer.attack == 1:
-            eventPlayer.pos_cache[true] = nearestWalkablePosition(raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true).getHitPosition())
+            eventPlayer.pos_cache[true] = nearestWalkablePosition(raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true))
             cowboy_tp()
             wait(0.7)
             while not eventPlayer.isFiringSecondaryFire():
@@ -4615,7 +4615,7 @@ rule "boss special attack followup":
                 if cowboy_tp_array.any(lambda x: isInLoS(x + Vector.UP, eventPlayer.target.getEyePosition())):
                     eventPlayer.pos_cache[true] = random.choice((cowboy_tp_array.filter(lambda x: isInLoS(eventPlayer.target.getEyePosition(), x + Vector.UP))).exclude(eventPlayer.pos_cache))
                 else:
-                    eventPlayer.pos_cache[true] = nearestWalkablePosition(raycast(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true).getHitPosition())
+                    eventPlayer.pos_cache[true] = nearestWalkablePosition(raycastHitPosition(eventPlayer.target.getEyePosition(), eventPlayer.target.getEyePosition() + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true))
                 cowboy_tp()
                 eventPlayer.stopThrottleInDirection()
                 while not eventPlayer.isUsingUltimate():
@@ -4640,7 +4640,7 @@ rule "boss special attack followup":
             wait(0.2)
             eventPlayer.cancelPrimaryAction()
             eventPlayer.boss_target_location = eventPlayer.getEyePosition()
-            eventPlayer.boss_target_location_2 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true).getHitPosition()
+            eventPlayer.boss_target_location_2 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true)
             chaseAtRate(eventPlayer.boss_target_location, eventPlayer.boss_target_location_2, 40)
             createEffect(getAllPlayers(), Effect.ORB, Color.VIOLET, updateEveryFrame(eventPlayer.boss_target_location), 0.2, EffectReeval.POSITION_AND_RADIUS)
             eventPlayer.boss_effects.append(getLastCreatedEntity())
@@ -4671,7 +4671,7 @@ rule "boss special attack followup":
             wait(0.2)
             eventPlayer.cancelPrimaryAction()
             eventPlayer.boss_target_location = eventPlayer.getEyePosition()
-            eventPlayer.boss_target_location_2 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true).getHitPosition()
+            eventPlayer.boss_target_location_2 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true)
             chaseAtRate(eventPlayer.boss_target_location, eventPlayer.boss_target_location_2, 40)
             createEffect(getAllPlayers(), Effect.ORB, Color.AQUA, updateEveryFrame(eventPlayer.boss_target_location), 0.2, EffectReeval.POSITION_AND_RADIUS)
             eventPlayer.boss_effects.append(getLastCreatedEntity())
@@ -4697,7 +4697,7 @@ rule "boss special attack followup":
             wait(0.2)
             eventPlayer.cancelPrimaryAction()
             eventPlayer.boss_target_location = eventPlayer.getEyePosition()
-            eventPlayer.boss_target_location_2 = raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true).getHitPosition()
+            eventPlayer.boss_target_location_2 = raycastHitPosition(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 100, null, null, true)
             chaseAtRate(eventPlayer.boss_target_location, eventPlayer.boss_target_location_2, 40)
             createEffect(getAllPlayers(), Effect.ORB, Color.BLACK, updateEveryFrame(eventPlayer.boss_target_location), 0.2, EffectReeval.POSITION_AND_RADIUS)
             eventPlayer.boss_effects.append(getLastCreatedEntity())
@@ -5067,8 +5067,8 @@ rule "rein stand charge":
     wait(random.uniform(1, 2) if eventPlayer.bright >= 3 else random.uniform(3, 5))
     waitUntil(not boss.hasStatus(Status.ROOTED), 99999)
     eventPlayer.target = random.choice(getLivingPlayers(Team.2).filter(lambda player: not player.isDummy()))
-    eventPlayer.boss_target_location = raycast(worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION), worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION) + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true).getHitPosition()
-    eventPlayer.boss_target_location_2 = raycast(worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION), worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION) + directionTowards(eventPlayer.boss_target_location, worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION)) * 100, null, eventPlayer, true).getHitPosition()
+    eventPlayer.boss_target_location = raycastHitPosition(worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION), worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION) + directionFromAngles(random.uniform(0, 360), 0) * 10, null, eventPlayer, true)
+    eventPlayer.boss_target_location_2 = raycastHitPosition(worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION), worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION) + directionTowards(eventPlayer.boss_target_location, worldVector(Vector.UP, eventPlayer.target, Transform.ROTATION_AND_TRANSLATION)) * 100, null, eventPlayer, true)
     createBeam(getAllPlayers(), Beam.ECHO_FOCUSING, eventPlayer.boss_target_location, eventPlayer.boss_target_location_2, Team.1, EffectReeval.VISIBILITY)
     eventPlayer.boss_effects[false] = getLastCreatedEntity()
     eventPlayer.startFacing(directionTowards(eventPlayer.boss_target_location, eventPlayer.boss_target_location_2), 1000)
@@ -5170,7 +5170,7 @@ rule "electrify effect":
     eventPlayer.setStatusEffect(null, Status.STUNNED, 99999)
     waitUntil(not eventPlayer.electrify, 99999)
     eventPlayer.clearStatusEffect(Status.STUNNED)
-    stopChasingVariable(eventPlayer.electrify)
+    stopChasing(eventPlayer.electrify)
     while eventPlayer.electrify_effect != []:
         destroyEffect(eventPlayer.electrify_effect[0])
         del eventPlayer.electrify_effect[false]
@@ -5329,7 +5329,7 @@ rule "hex effect":
     chaseAtRate(eventPlayer.hex, false, true, ChaseRateReeval.NONE)
     eventPlayer.target = random.choice(getPlayers(Team.1).exclude(dialogue_bot))
     waitUntil(not eventPlayer.hex, 99999)
-    stopChasingVariable(eventPlayer.hex)
+    stopChasing(eventPlayer.hex)
     eventPlayer.clearStatusEffect(Status.HACKED)
     if eventPlayer.boss_ID in [4.2, 4.3] or eventPlayer.enemy_ID == 24:
         eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
@@ -5493,7 +5493,7 @@ rule "roadhog roar":
     eventPlayer.setDamageReceived(eventPlayer.damage_received * (1.5 if eventPlayer.nano else 1))
     getPlayers(Team.1).target = eventPlayer
     waitUntil(not roar, 99999)
-    stopChasingVariable(roar)
+    stopChasing(roar)
     eventPlayer.damage_received = 100
     eventPlayer.setDamageReceived(eventPlayer.damage_received * (1.5 if eventPlayer.nano else 1))
     while eventPlayer.roar_effect != []:
@@ -5571,8 +5571,8 @@ rule "reaper the reapers scythe visual":
     wait(0.4)
     chaseOverTime(eventPlayer.scythe_length, false, 0.1, ChaseTimeReeval.NONE)
     wait(0.1)
-    stopChasingVariable(eventPlayer.scythe_angle)
-    stopChasingVariable(eventPlayer.scythe_length)
+    stopChasing(eventPlayer.scythe_angle)
+    stopChasing(eventPlayer.scythe_length)
 
 
 rule "reaper vengeful ghost":

@@ -27,7 +27,12 @@ import { escapeBadWords, escapeString, getUtf8ByteLength, getUtf8Length } from "
 OverPyCompiler.prototype.compileCustomGameSettingsDict = function(providedSettings: Record<string, any>, refDict: { [key: string]: { values: string | Record<string, any> } }) {
     var result: Record<string, any> = {};
     for (var key_ of Object.keys(providedSettings)) {
-        var wsKey = this.tows(key_, refDict);
+        try {
+            var wsKey = this.tows(key_, refDict);
+        } catch (e) {
+            result[key_] = providedSettings[key_];
+            continue;
+        }
 
         if (!(key_ in refDict)) {
             this.error("Unknown setting '" + key_ + "'");
@@ -40,7 +45,11 @@ OverPyCompiler.prototype.compileCustomGameSettingsDict = function(providedSettin
         let refValues = refEntry.values;
 
         if (typeof refValues === "object") {
-            result[wsKey] = this.tows(providedSettings[key], refValues);
+            try {
+                result[wsKey] = this.tows(providedSettings[key], refValues);
+            } catch (e) {
+                result[wsKey] = providedSettings[key];
+            }
         } else if (refValues === "__string__") {
             if ("maxChars" in refEntry && typeof refEntry.maxChars === "number") {
                 if (getUtf8Length(providedSettings[key]) > refEntry.maxChars) {
