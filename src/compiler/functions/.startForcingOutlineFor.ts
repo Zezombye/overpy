@@ -17,14 +17,12 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNull, isDefinitelyFalsy } from "../../utils/ast";
-import { warn } from "../../utils/logging";
+import { astParsingFunctions, isDefinitelyFalsy } from "../../utils/ast";
 
-astParsingFunctions[".startForcingOutlineFor"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".startForcingOutlineFor"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (isDefinitelyFalsy(content.args[2])) {
-            content.args[3] = getAstForNull();
+            content.args[3] = compiler.getAstForNull();
         }
     }
     return content;

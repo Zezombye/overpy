@@ -17,17 +17,12 @@
 
 "use strict";
 
-import { enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT, STR_MAX_LENGTH} from "../../globalVars";
-import { Token } from "../../compiler/tokenizer";
-import { getAstForNull, Ast, astParsingFunctions } from "../../utils/ast";
-import { error, warn } from "../../utils/logging";
-import { getUtf8Length } from "../../utils/strings";
-import { getAstForTranslatedString } from "./__translatedString__";
+import { astParsingFunctions } from "../../utils/ast";
 
 
-astParsingFunctions[".format"] = function (content) {
+astParsingFunctions[".format"] = function (content, compiler) {
     if (content.args[0].name === "__translatedString__") {
-        return getAstForTranslatedString(content.args[0], content.args.slice(1));
+        return compiler.getAstForTranslatedString(content.args[0], content.args.slice(1));
     }
-    error("Unexpected function '" + content.name + "' for custom string, please report to Zezombye");
+    throw compiler.error("Unexpected function '" + content.name + "' for custom string, please report to Zezombye");
 };

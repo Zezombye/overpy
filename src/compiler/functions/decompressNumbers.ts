@@ -18,10 +18,9 @@
 "use strict";
 
 import { astParsingFunctions } from "../../utils/ast";
-import { getDecompressionAst } from "./compressed";
 
-astParsingFunctions.decompressNumbers = function (content) {
-    return getDecompressionAst(content.args[0], {
+astParsingFunctions.decompressNumbers = function (content, compiler) {
+    return compiler.getDecompressionAst(content.args[0], {
         arrayType: "number",
         minDecimalPlace: -3,
         maxDecimalPlace: 5,

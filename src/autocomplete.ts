@@ -7,15 +7,14 @@ import { opyModules } from "./data/opy/modules";
 import { opyStringEntities } from "./data/opy/stringEntities";
 import { valueFuncKw } from "./data/values";
 import { showOverPyExtensionError } from "./extension";
-import { DEBUG_MODE, enumMembers, postLoadTasks } from "./globalVars";
+import { DEBUG_MODE, postLoadTasks } from "./globalVars";
+import { OverPyCompiler, OverPyDecompiler } from "./godClasses";
 import { Argument, Value, Type, MacroData, Variable, Subroutine, AstMacroData, AstConstantData } from "./types";
 import { opyFuncs } from "./data/opy/functions";
 import { opyKeywords } from "./data/opy/keywords";
 import { opyAnnotations } from "./data/opy/annotations";
 import { preprocessingDirectives } from "./data/opy/preprocessing";
 import { opyMemberFuncs } from "./data/opy/memberFunctions";
-import { astToOpy } from "./decompiler/astToOpy";
-import { typeToString } from "./utils/logging";
 import { Ast } from "./utils/ast";
 import { builtInEnumNameToAstInfo } from "./compiler/parser";
 import { opyMacros } from "./data/opy/macros";
@@ -167,6 +166,7 @@ postLoadTasks.push({
 
 export function refreshAutoComplete() {
     constantValuesCompLists = { ...defaultConstCompletionLists };
+    let decompiler = new OverPyDecompiler();
     for (let userEnum in userEnums) {
         if (!(userEnum in defaultConstValues)) {
             constantValuesCompLists[userEnum] = new vscode.CompletionList();
@@ -175,7 +175,7 @@ export function refreshAutoComplete() {
         for (let userEnumMember in userEnums[userEnum]) {
             let description = "A user-defined enum member.";
             try {
-                description += `\n\nValue: \`${astToOpy(userEnums[userEnum][userEnumMember] as Ast)}\``;
+                description += `\n\nValue: \`${decompiler.astToOpy(userEnums[userEnum][userEnumMember] as Ast)}\``;
             } catch (e) {}
 
             constantValuesCompLists[userEnum].items.push(
@@ -273,6 +273,7 @@ function makeCompItem(itemName: string, item: OverpyModule): vscode.CompletionIt
 }
 
 function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.MarkdownString {
+    let compiler = new OverPyCompiler();
     let isMemberFunctionFlag = false;
     if ("isMember" in item) {
         isMemberFunctionFlag = item.isMember === true;
@@ -316,7 +317,7 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     }
 
     if ("return" in item) {
-        infoStr += "Returns: `" + typeToString(item.return as Type) + "`  \n";
+        infoStr += "Returns: `" + compiler.typeToString(item.return as Type) + "`  \n";
     }
 
     if ("extension" in item) {
@@ -402,6 +403,8 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
         return new vscode.SignatureHelp();
     }
 
+    let compiler = new OverPyCompiler();
+
     let isMemberFunction = false;
     if ("isMember" in func) {
         isMemberFunction = func.isMember as boolean;
@@ -428,7 +431,7 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
             if (func.args[i].default !== undefined) {
                 argSignature +="=" + argDefaultToString(func.args[i]);
             }
-            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString((func.args[i].description ? func.args[i].description+"\n\n" : "")+"Type: `"+typeToString(func.args[i].type)+"`")));
+            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString((func.args[i].description ? func.args[i].description+"\n\n" : "")+"Type: `"+compiler.typeToString(func.args[i].type)+"`")));
             sigStr += argSignature;
             if (i < func.args.length - 1) {
                 sigStr += ", ";
@@ -439,7 +442,7 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
     sigStr += ")";
 
     if ("return" in func) {
-        sigStr += " -> " + typeToString(func.return as Type);
+        sigStr += " -> " + compiler.typeToString(func.return as Type);
         //throw new Error("Function '"+funcName+"' has no Return type");
     }
 
@@ -504,6 +507,7 @@ export function fillAutocompletionMacros(macros: MacroData[]) {
 }
 
 export function fillAutocompletionAstMacros(macros: AstMacroData[]) {
+    let compiler = new OverPyCompiler();
     normalAstMacros = {};
     memberAstMacros = {};
     for (let macro of macros) {
@@ -520,7 +524,7 @@ export function fillAutocompletionAstMacros(macros: AstMacroData[]) {
                 if (arg.name !== "self") {
                     (convertedMacro.args as Array<any>).push({
                         name: arg.name,
-                        type: typeToString(arg.type),
+                        type: compiler.typeToString(arg.type),
                         default: arg.defaultStr,
                     });
                 }
@@ -577,6 +581,6 @@ export function fillAutocompletionSubroutines(subroutineNames: Subroutine[]) {
     }
 }
 
-export function fillAutocompletionEnums(enums: typeof enumMembers) {
+export function fillAutocompletionEnums(enums: OverPyCompiler["enumMembers"]) {
     userEnums = enums;
 }

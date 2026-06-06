@@ -18,12 +18,11 @@
 "use strict";
 
 import { Ast, astParsingFunctions } from "../../utils/ast";
-import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions[".setUltCharge"] = function (content) {
+astParsingFunctions[".setUltCharge"] = function (content, compiler) {
     //Literal limit bypass if the literal is a float
-    if (content.args[1].name === "__number__" && !isTypeSuitable("int", content.args[1].type)) {
-        content.args[1] = new Ast("abs", [content.args[1]]);
+    if (content.args[1].name === "__number__" && !compiler.isTypeSuitable("int", content.args[1].type)) {
+        content.args[1] = compiler.Ast("abs", [content.args[1]]);
     }
 
     return content;

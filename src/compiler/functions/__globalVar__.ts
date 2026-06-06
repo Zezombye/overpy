@@ -17,12 +17,11 @@
 
 "use strict";
 
-import { globalVariables, playerVariables, defaultVarNames } from "../../globalVars";
+import { defaultVarNames } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
-import { error, functionNameToString, warn } from "../../utils/logging";
-import { addVariable } from "../../utils/varNames";
+import { functionNameToString } from "../../utils/logging";
 
-astParsingFunctions.__globalVar__ = function (content) {
+astParsingFunctions.__globalVar__ = function (content, compiler) {
     var isInRuleCondition = false;
     var contentParent = content.parent;
     while (contentParent) {
@@ -41,16 +40,16 @@ astParsingFunctions.__globalVar__ = function (content) {
             var isGlobalVariable = true;
             var varName = content.args[0].name;
         } else {
-            error("Expected variable, but got " + functionNameToString(content));
+            throw compiler.error("Expected variable, but got " + functionNameToString(content));
         }
 
-        var varArray = isGlobalVariable ? globalVariables : playerVariables;
+        var varArray = isGlobalVariable ? compiler.globalVariables : compiler.playerVariables;
         var isFound = false;
         for (var variable of varArray) {
             if (variable.name === varName) {
                 variable["isUsedInRuleCondition"] = true;
                 if (variable["isChased"]) {
-                    warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased.");
+                    compiler.warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased.");
                 }
                 isFound = true;
                 break;
@@ -60,9 +59,9 @@ astParsingFunctions.__globalVar__ = function (content) {
             if (defaultVarNames.includes(varName)) {
                 //Add the variable as it doesn't already exist (else it would've been caught by the for)
                 //However, only do this if it is a default variable name
-                addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), content.fileStack);
+                compiler.addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), content.fileStack);
             } else {
-                error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
+                compiler.error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
             }
             for (var variable of varArray) {
                 if (variable.name === varName) {

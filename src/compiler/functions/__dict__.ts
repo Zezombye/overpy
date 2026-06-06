@@ -18,9 +18,8 @@
 "use strict";
 
 import { astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
 
-astParsingFunctions.__dict__ = function (content) {
+astParsingFunctions.__dict__ = function (content, compiler) {
     if (content.parent?.name === "splitDictArray" || content.parent?.parent?.name === "splitDictArray") {
         return content;
     }
@@ -32,7 +31,7 @@ astParsingFunctions.__dict__ = function (content) {
         parent = parent.parent;
     }
     if (content.parent?.name !== "__valueInArray__") {
-        error("Cannot use a dictionary without accessing it");
+        compiler.error("Cannot use a dictionary without accessing it");
     }
 
     //The processing happens in the __valueInArray__ function

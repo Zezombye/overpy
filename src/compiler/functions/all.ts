@@ -19,10 +19,10 @@
 
 import { Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.all = function (content) {
+astParsingFunctions.all = function (content, compiler) {
     if (content.args[0].name === "__mappedArray__") {
-        return new Ast("__all__", [content.args[0].args[0], content.args[0].args[1]]);
+        return compiler.Ast("__all__", [content.args[0].args[0], content.args[0].args[1]]);
     } else {
-        return new Ast("__all__", [content.args[0], new Ast("__currentArrayElement__")]);
+        return compiler.Ast("__all__", [content.args[0], compiler.Ast("__currentArrayElement__")]);
     }
 };

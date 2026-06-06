@@ -17,13 +17,8 @@
 
 "use strict";
 
-import { translationLanguageConstantOpy, translationLanguages } from "../../globalVars";
-import { Ast, astParsingFunctions } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
-import { escapeString } from "../../utils/strings";
-import { getAstForTranslatedString } from "./__translatedString__";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__translateString__ = function (content) {
-    return getAstForTranslatedString(content, []);
+astParsingFunctions.__translateString__ = function (content, compiler) {
+    return compiler.getAstForTranslatedString(content, []);
 };

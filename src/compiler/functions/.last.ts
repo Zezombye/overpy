@@ -17,11 +17,10 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".last"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".last"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__array__" && content.args[0].args.length > 0) {
             return content.args[0].args[content.args[0].args.length - 1];
         }

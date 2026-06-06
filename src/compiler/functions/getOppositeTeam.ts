@@ -17,12 +17,12 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
 
-astParsingFunctions.getOppositeTeam = function (content) {
-    if (enableOptimization) {
+import { astParsingFunctions } from "../../utils/ast";
+
+
+astParsingFunctions.getOppositeTeam = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__team__") {
             if (content.args[0].args[0].name === "1") {
                 content.args[0].args[0].name = "2";
@@ -34,7 +34,7 @@ astParsingFunctions.getOppositeTeam = function (content) {
                 //content.args[0].args[0].name = "ALL";
                 return content.args[0];
             } else {
-                error("Unknown team '" + content.args[0].args[0].name + "'", content.args[0].fileStack);
+                compiler.error("Unknown team '" + content.args[0].args[0].name + "'", content.args[0].fileStack);
             }
         }
     }

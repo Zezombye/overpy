@@ -17,19 +17,19 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForNumber, Ast, getAstFor10000, getAstFor0_0001, getAstFor1, astParsingFunctions } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
 
-astParsingFunctions.log = function (content) {
+import { astParsingFunctions } from "../../utils/ast";
+
+
+astParsingFunctions.log = function (content, compiler) {
     //log(x) = (10000 * (x ** (0.0001) - 1))
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === Math.E) {
         //log(e) = 1
-        if (enableOptimization && content.args[0].name === "__number__") {
-            return getAstForNumber(Math.log(content.args[0].args[0].numValue));
+        if (compiler.enableOptimization && content.args[0].name === "__number__") {
+            return compiler.getAstForNumber(Math.log(content.args[0].args[0].numValue));
         }
-        return parseOpyMacro(`10000 * ($nb1 ** 0.0001 - 1)`, ["$nb1"], content.args);
+        return compiler.parseOpyMacro(`10000 * ($nb1 ** 0.0001 - 1)`, ["$nb1"], content.args);
     } else {
-        return parseOpyMacro(`log($nb1) / log($nb2)`, ["$nb1", "$nb2"], content.args);
+        return compiler.parseOpyMacro(`log($nb1) / log($nb2)`, ["$nb1", "$nb2"], content.args);
     }
 };

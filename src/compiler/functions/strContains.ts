@@ -17,16 +17,16 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForBool, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.strContains = function (content) {
-    if (enableOptimization) {
+import { astParsingFunctions } from "../../utils/ast";
+
+astParsingFunctions.strContains = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__customString__" && content.args[1].name === "__customString__" && content.args[0].args.length === 1 && content.args[1].args.length === 1) {
             // If both strings are static and do not contain formatters, we can optimize
             const str1 = content.args[0].args[0].name;
             const str2 = content.args[1].args[0].name;
-            return getAstForBool(str1.includes(str2));
+            return compiler.getAstForBool(str1.includes(str2));
         }
     }
 

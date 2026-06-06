@@ -17,22 +17,21 @@
 
 "use strict";
 
-import { enableOptimization, enableTagsSetup, NUMBER_LIMIT } from "../../globalVars";
+import { NUMBER_LIMIT } from "../../globalVars";
 import { StringToken } from "../../types";
-import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, astParsingFunctions, Ast, numValue } from "../../utils/ast";
-import { error, warn } from "../../utils/logging";
+import { astParsingFunctions, Ast, numValue } from "../../utils/ast";
 
-astParsingFunctions.__customString__ = function (content) {
+astParsingFunctions.__customString__ = function (content, compiler) {
 
     if (!content.stringTokens) {
-        error("Custom string has no stringTokens, please report to Zezombye");
+        throw compiler.error("Custom string has no stringTokens, please report to Zezombye");
     }
     if (content.stringTokens.some(t => t.type === "arg" && t.argIndex === null)) {
         if (content.stringTokens.some(t => t.type === "arg" && t.argIndex !== null)) {
-            error("Cannot use both numbered and unnumbered formatters in a custom string");
+            compiler.error("Cannot use both numbered and unnumbered formatters in a custom string");
         }
         if (content.stringTokens.filter(t => t.type === "arg").length !== content.args.length - 1) {
-            error("Too few arguments in .format() function: expected " + (content.stringTokens.filter(t => t.type === "arg").length) + ", got " + (content.args.length - 1));
+            compiler.error("Too few arguments in .format() function: expected " + (content.stringTokens.filter(t => t.type === "arg").length) + ", got " + (content.args.length - 1));
         }
     }
 
@@ -49,8 +48,8 @@ astParsingFunctions.__customString__ = function (content) {
             return token;
         });
     } else {
-        if (!enableTagsSetup && content.args[0].name.match(/<(tx\s*|fg\s*#?)([0-9a-fA-F]+>)|(<\/fg>)/)) {
-            warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
+        if (!compiler.enableTagsSetup && content.args[0].name.match(/<(tx\s*|fg\s*#?)([0-9a-fA-F]+>)|(<\/fg>)/)) {
+            compiler.warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
         }
     }
 
@@ -64,7 +63,7 @@ astParsingFunctions.__customString__ = function (content) {
                 //Transform to a tag, it will be converted in that function
                 token.type = "tag";
             } else {
-                stringArgs.push(new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")]));
+                stringArgs.push(compiler.Ast("__globalVar__", [compiler.Ast("__holygrail__", [], [], "GlobalVariable")]));
                 token.type = "arg";
                 token.text = "{}";
                 token.argIndex = null;
@@ -75,7 +74,7 @@ astParsingFunctions.__customString__ = function (content) {
                 stringArgIndex++;
             } else {
                 if (content.args.length-1 <= token.argIndex!) {
-                    error("Too few arguments in .format() function: expected " + (token.argIndex! + 1) + ", got " + (content.args.length-1));
+                    compiler.error("Too few arguments in .format() function: expected " + (token.argIndex! + 1) + ", got " + (content.args.length-1));
                 }
                 stringArgs.push(content.args[token.argIndex! + 1].clone()); // +1 because the first arg is the string itself
                 token.argIndex = null; //make it unnumbered
@@ -88,10 +87,10 @@ astParsingFunctions.__customString__ = function (content) {
     }
 
     if (stringArgs.length !== content.stringTokens.filter(t => t.type === "arg").length) {
-        error("String args doesn't match stringTokens args length: " + stringArgs.length + " vs " + content.stringTokens.filter(t => t.type === "arg").length+", please report to Zezombye");
+        compiler.error("String args doesn't match stringTokens args length: " + stringArgs.length + " vs " + content.stringTokens.filter(t => t.type === "arg").length+", please report to Zezombye");
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //When possible, convert the arguments to text.
         let argIndex = 0;
         for (let i = 0; i < content.stringTokens.length; i++) {
@@ -112,7 +111,7 @@ astParsingFunctions.__customString__ = function (content) {
             //The rest of the optimizations must convert directly to text, so that there is no duplicated code when replacing the arg token by a text token.
             let text = null;
             if (stringArgs[argIndex].name === "__array__") {
-                warn("w_array_in_string", "Cannot directly display an array in a string, as only the first value will be shown. Use the arrayToString() function.", stringArgs[argIndex].fileStack);
+                compiler.warn("w_array_in_string", "Cannot directly display an array in a string, as only the first value will be shown. Use the arrayToString() function.", stringArgs[argIndex].fileStack);
                 if (stringArgs[argIndex].args.length === 0) {
                     text = "";
                 } else {
@@ -155,7 +154,7 @@ astParsingFunctions.__customString__ = function (content) {
 
     //texture tag autocorrect
     //we have to manually check the arg content to find what used to be holygrail tokens, as they are now arg tokens
-    if (enableTagsSetup) {
+    if (compiler.enableTagsSetup) {
         let argIndex = 0;
         for (let [i, token] of content.stringTokens.entries()) {
             if (token.type === "arg") {
@@ -172,7 +171,7 @@ astParsingFunctions.__customString__ = function (content) {
                     token.text = "txC00000000000000".substring(0, "txC00000000000000".length - match[1].length) + match[1] + token.text.substring(token.text.indexOf(">"));
                 }
                 if (token.text.match(/^tx\s*0*C[0-9a-fA-F]{6,}>/i) && !token.text.match(/^tx\s*0*C[0-9a-fA-F]{14}>/i)) {
-                    warn("w_malformatted_tx", "Malformatted <tx> tag '<" + token.text.substring(0, token.text.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
+                    compiler.warn("w_malformatted_tx", "Malformatted <tx> tag '<" + token.text.substring(0, token.text.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
                 }
             }
         }

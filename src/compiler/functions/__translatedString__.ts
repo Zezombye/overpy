@@ -18,18 +18,16 @@
 "use strict";
 
 import { spaces } from "../../data/opy/blizzardGlobal";
-import { STR_MAX_ARGS, STR_MAX_LENGTH, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations, useTlErr } from "../../globalVars";
+import { STR_MAX_ARGS, STR_MAX_LENGTH } from "../../globalVars";
+import { OverPyCompiler } from "../../godClasses";
 import { Ast, astParsingFunctions } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
 import { escapeString, getUtf8ByteLength, getUtf8Length } from "../../utils/strings";
 import { getBestSpaces } from "./createCasedProgressBarIwt";
-import { getStrVisualLength } from "./strVisualLength";
 
-export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []): Ast {
+OverPyCompiler.prototype.getAstForTranslatedString = function(content: Ast, replacements: Ast[] = []): Ast {
 
     if (content.name !== "__translatedString__" && content.name !== "__translateString__") {
-        error("Invalid function '"+content.name+"' for translated string, please report to Zezombye");
+        this.error("Invalid function '"+content.name+"' for translated string, please report to Zezombye");
     }
 
     let action = content;
@@ -37,17 +35,17 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
         action = action.parent;
     }
     if (action.type !== "void") {
-        error("Could not find parent action of translated string");
+        this.error("Could not find parent action of translated string");
     }
     //console.log("action name: ",action.name);
     let isReevaluatedClientSide = action.clientSideReevaluatedArgIndexes.includes(action.argIndex);
     let isTranslatedStringLiteral = (content.name === "__translatedString__");
 
     if (!isReevaluatedClientSide && !isTranslatedStringLiteral) {
-        error("Translated string must be a string literal if used in a non-reevaluated action");
+        this.error("Translated string must be a string literal if used in a non-reevaluated action");
     }
     if (!isReevaluatedClientSide && action.name !== "__assignTo__") {
-        error("Cannot use translated string if not assigned to a variable or displayed in a reevaluated field");
+        this.error("Cannot use translated string if not assigned to a variable or displayed in a reevaluated field");
     }
 
     let opyMacro = "";
@@ -55,7 +53,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
     let replacementMacro = "";
 
     if (content.parent?.name === "spacesForString") {
-        opyMacro += escapeString((useTlErr ? "ＴＬＥｒｒ\uEC48" : "")+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
+        opyMacro += escapeString((this.useTlErr ? "ＴＬＥｒｒ\uEC48" : "")+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), this.getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
         opyMacro += ".split(__overpyTranslationHelper__)";
     } else if (isTranslatedStringLiteral) {
 
@@ -75,7 +73,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
         //\uEC48 is a character from the private use area. Use as separator, as it cannot appear in translated strings
         //__overpyTranslationsHelper__[0] is that character, so we add it to the start of the string so that the translation indexes match when we split it
         //We add "TLERR" at the start to notify the user if the string is stored in a variable then not translated using the "_" function when displayed
-        let rawString = (useTlErr ? "ＴＬＥｒｒ\uEC48" : "") + translationStrings.join("\uEC48");
+        let rawString = (this.useTlErr ? "ＴＬＥｒｒ\uEC48" : "") + translationStrings.join("\uEC48");
 
         if (getUtf8Length(rawString) <= STR_MAX_LENGTH && replacements.length <= STR_MAX_ARGS) {
             //We can directly use the built-in formatters
@@ -92,7 +90,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
             for (let h = 0; h < rawString.split("\uec48").length; h++) {
 
                 if (getUtf8ByteLength(rawString.split("\uec48")[h]) > 511) {
-                    error("Translated string for language '"+translationLanguages[h]+"' "+escapeString(rawString.split("\uec48")[h], false)+" is too long, maximum length is 511 bytes");
+                    this.error("Translated string for language '"+this.translationLanguages[h]+"' "+escapeString(rawString.split("\uec48")[h], false)+" is too long, maximum length is 511 bytes");
                 }
             }
 
@@ -117,10 +115,10 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
 
     if (isReevaluatedClientSide && !content.forceNotResolvingTranslation) {
-        if (usePlayerVarForTranslations && !content.isSpectatorTranslation) {
+        if (this.usePlayerVarForTranslations && !content.isSpectatorTranslation) {
             opyMacro += "[localPlayer.__languageIndex__]";
         } else {
-            opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";
+            opyMacro += "[abs(__overpyTranslationHelper__.index("+this.translationLanguageConstantOpy+".split([])))]";
         }
         if (!replacementMacro.startsWith(".format(")) {
             opyMacro += replacementMacro;
@@ -131,14 +129,14 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
         }
     }
 
-    return parseOpyMacro(opyMacro, replacementNames, replacements);
+    return this.parseOpyMacro(opyMacro, replacementNames, replacements);
 
 }
 
-astParsingFunctions.__translatedString__ = function (content) {
+astParsingFunctions.__translatedString__ = function (content, compiler) {
     for (let arg of content.args) {
         if (arg.type !== "CustomStringLiteral") {
-            error("Argument of __translatedString__ is not a string literal, please report to Zezombye");
+            compiler.error("Argument of __translatedString__ is not a string literal, please report to Zezombye");
         }
     }
     if (content.parent?.name === ".format" && content.parent.argIndex === 0) {
@@ -149,5 +147,5 @@ astParsingFunctions.__translatedString__ = function (content) {
         //Likewise, this function needs to know that it is a translated string
         return content;
     }
-    return getAstForTranslatedString(content);
+    return compiler.getAstForTranslatedString(content);
 };

@@ -18,14 +18,13 @@
 "use strict";
 
 import { Ast, astParsingFunctions } from "../../utils/ast";
-import { error, warn } from "../../utils/logging";
-import { getUniqueNumber } from "../../utils/other";
 
-astParsingFunctions.break = function (content) {
+
+astParsingFunctions.break = function (content, compiler) {
     //Determine the innermost loop or switch
     let innermostStructure = content.parent;
     if (innermostStructure === undefined) {
-        error("immediate parent of break statement is undefined?");
+        throw compiler.error("immediate parent of break statement is undefined?");
     }
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__switch__", "__doWhile__"].includes(innermostStructure.name)) {
@@ -37,26 +36,26 @@ astParsingFunctions.break = function (content) {
 
     if (innermostStructure.name === "__doWhile__") {
         if (innermostStructure.parent === undefined) {
-            error("Do/While loop has no parent?");
+            throw compiler.error("Do/While loop has no parent?");
         }
 
         //Place a label at the end
-        var labelName = "__label_break_" + getUniqueNumber() + "__";
-        var label = new Ast(labelName, [], [], "Label");
+        var labelName = "__label_break_" + compiler.getUniqueNumber() + "__";
+        var label = compiler.Ast(labelName, [], [], "Label");
         label.parent = innermostStructure.parent;
         innermostStructure.parent.children.splice(innermostStructure.parent.childIndex + 1, 0, label);
 
         //Convert the break to a goto
-        return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
+        return compiler.Ast("__skip__", [compiler.Ast("__distanceTo__", [compiler.Ast(labelName, [], [], "Label")])]);
     } else if (innermostStructure.name === "__switch__") {
-        var result = new Ast("__else__");
+        var result = compiler.Ast("__else__");
         result.doNotReparse = true;
         return result;
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         return content;
     } else {
-        warn("w_break_outside_loop", "Found 'break' instruction, but not within a loop");
+        compiler.warn("w_break_outside_loop", "Found 'break' instruction, but not within a loop");
         //breaks outside loops act like aborts
-        return new Ast("return");
+        return compiler.Ast("return");
     }
 };

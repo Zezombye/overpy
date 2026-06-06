@@ -17,16 +17,15 @@
 
 "use strict";
 // @ts-check
-import { astMacros, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw, optimizeStrict } from "../globalVars";
-import { error, functionNameToString } from "./logging";
+import { funcKw } from "../globalVars";
+import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
+import { functionNameToString } from "./logging";
 import { Argument, FileStackMember, StringToken, Type } from "../types";
-import { isTypeSuitable } from "./types";
 import { constantValues } from "../data/constants";
-import { builtInEnumNameToAstInfo, parseStringTokens } from "../compiler/parser";
-import { parseOpyMacro } from "./compilation";
+import { builtInEnumNameToAstInfo } from "../compiler/parser";
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
-export var astParsingFunctions: Record<string, (content: Ast) => Ast> = {};
+export var astParsingFunctions: Record<string, (content: Ast, compiler: OverPyCompiler) => Ast> = {};
 
 export class RuleAttributes {
     isDelimiter = false;
@@ -41,6 +40,7 @@ export class RuleAttributes {
 }
 
 export class Ast {
+    compiler: OverPyCompiler | OverPyDecompiler;
     name: string;
     args: Ast[];
     children: Ast[];
@@ -70,10 +70,11 @@ export class Ast {
     isDisabled: boolean = false;
     clientSideReevaluatedArgIndexes: number[] = [];
 
-    constructor(name: string, args?: any[], children?: Ast[], type?: any) {
+    constructor(compiler: OverPyCompiler | OverPyDecompiler, name: string, args?: any[], children?: Ast[], type?: any) {
         if (name === null || name === undefined) {
-            error("Got no name for AST");
+            compiler.error("Got no name for AST");
         }
+        this.compiler = compiler;
         this.name = name;
         this.args = args ? args : [];
         this.children = children ? children : [];
@@ -81,38 +82,39 @@ export class Ast {
         if (!type) {
             if (name in funcKw) {
                 this.type = funcKw[name].return;
-            } else if (name in astMacros) {
-                this.type = (astMacros[name].lines.length > 2 ? "void" : astMacros[name].lines[0].type);
+            } else if (this.compiler instanceof OverPyCompiler && name in this.compiler.astMacros) {
+                this.type = (this.compiler.astMacros[name].lines.length > 2 ? "void" : this.compiler.astMacros[name].lines[0].type);
             } else if (name.startsWith("$")) {
                 //macro arg
                 this.type = "Value";
             } else {
-                error("Unknown function name '" + name + "'");
+                throw this.compiler.error("Unknown function name '" + name + "'");
             }
         } else {
             this.type = type;
         }
-        if (isTypeSuitable("FloatLiteral", this.type, false)) {
+        if (this.compiler.isTypeSuitable("FloatLiteral", this.type, false)) {
             this.numValue = Number(name);
         }
 
         for (var arg of this.args) {
             if (!(arg instanceof Ast)) {
-                error("Arg '" + arg + "' of '" + name + "' is not an AST");
+                compiler.error("Arg '" + arg + "' of '" + name + "' is not an AST");
             }
             arg.parent = this;
         }
         for (var child of this.children) {
             if (!(child instanceof Ast)) {
-                error("Child '" + child + "' of '" + name + "' is not an AST");
+                compiler.error("Child '" + child + "' of '" + name + "' is not an AST");
             }
             child.parent = this;
         }
-        this.fileStack = fileStack;
+        this.fileStack = compiler.fileStack;
     }
 
     clone() {
         var clone: Ast = new Ast(
+            this.compiler,
             this.name,
             this.args.map((x) => x.clone()),
             this.children.map((x) => x.clone()),
@@ -139,28 +141,26 @@ export class Ast {
     }
 }
 
-//Used for when the body of a control flow statement will never execute, such as "if false".
-export function makeChildrenUseless(children: Ast[]) {
-    /*for (var i = 0; i < children.length; i++) {
-        makeChildrenUseless(children[i].children);
-        children[i].isPotentiallyUseless = true;
-    }
-    return;*/
+OverPyCompiler.prototype.Ast = OverPyDecompiler.prototype.Ast = function(name: string, args?: any[], children?: Ast[], type?: any) {
+    return new Ast(this, name, args, children, type);
+}
 
+//Used for when the body of a control flow statement will never execute, such as "if false".
+OverPyCompiler.prototype.makeChildrenUseless = function(children: Ast[]) {
     var foundLabel = false;
 
     //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
-    function checkForDistanceTo(content: Ast) {
+    const checkForDistanceTo = (content: Ast) => {
         for (var arg of content.args) {
             if (arg.name === "__distanceTo__") {
-                currentRuleLabelAccess[arg.args[0].name]--;
+                this.currentRuleLabelAccess[arg.args[0].name]--;
             } else {
                 checkForDistanceTo(arg);
             }
         }
     }
 
-    function _makeChildrenUseless(children: Ast[]) {
+    const _makeChildrenUseless = (children: Ast[]) => {
         for (var i = 0; i < children.length; i++) {
             //Check if there is a label that is accessed at least once. If yes, then the actions below could still be executed; therefore, don't make them useless.
 
@@ -168,19 +168,19 @@ export function makeChildrenUseless(children: Ast[]) {
                 break;
             }
             checkForDistanceTo(children[i]);
-            makeChildrenUseless(children[i].children);
+            this.makeChildrenUseless(children[i].children);
             if (children[i].type === "Label") {
-                if (currentRuleLabelAccess[children[i].name] > 0) {
+                if (this.currentRuleLabelAccess[children[i].name] > 0) {
                     foundLabel = true;
                 }
             } else {
-                children[i] = getAstForUselessInstruction();
+                children[i] = this.getAstForUselessInstruction();
             }
         }
     }
 
     //If the current rule has a variable goto, then we cannot make the instructions useless, as we don't know whether they will execute.
-    if (!currentRuleHasVariableGoto) {
+    if (children.length > 0 && !this.currentRuleHasVariableGoto) {
         _makeChildrenUseless(children);
     }
 
@@ -275,29 +275,29 @@ export function areAstsAlwaysEqual(a: Ast, b: Ast) {
 
 //Should check for any function which can return a different value if called twice within the same action.
 //For now, only random functions fit that criteria
-export function astContainsRandom(ast: Ast) {
-    return astContainsFunctions(ast, ["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
+OverPyCompiler.prototype.astContainsRandom = function(ast: Ast) {
+    return this.astContainsFunctions(ast, ["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
 }
 
-export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnTrue = false) {
+OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astContainsFunctions = function(ast: Ast, functionNames: string[], errorOnTrue = false) {
     if (functionNames.includes(ast.name)) {
         if (errorOnTrue) {
-            error("Cannot have the " + functionNameToString(ast) + " in this context", ast.fileStack);
+            this.error("Cannot have the " + functionNameToString(ast) + " in this context", ast.fileStack);
         }
         return true;
     }
     for (var arg of ast.args) {
-        if (astContainsFunctions(arg, functionNames)) {
+        if (this.astContainsFunctions(arg, functionNames)) {
             if (errorOnTrue) {
-                error("Cannot have the " + functionNameToString(ast) + " in this context", arg.fileStack);
+                this.error("Cannot have the " + functionNameToString(ast) + " in this context", arg.fileStack);
             }
             return true;
         }
     }
     for (var child of ast.children) {
-        if (astContainsFunctions(child, functionNames)) {
+        if (this.astContainsFunctions(child, functionNames)) {
             if (errorOnTrue) {
-                error("Cannot have the " + functionNameToString(ast) + " in this context", child.fileStack);
+                this.error("Cannot have the " + functionNameToString(ast) + " in this context", child.fileStack);
             }
             return true;
         }
@@ -332,13 +332,13 @@ export function astIsLiteral(ast: Ast) {
     }
 
     if (!(ast.name in funcKw)) {
-        error("Unknown function name '"+ast.name+"'", ast.fileStack);
+        ast.compiler.error("Unknown function name '"+ast.name+"'", ast.fileStack);
     }
     if (!funcKw[ast.name].isLiteral) {
         //Custom strings with no formatters are considered literals
         //...unless they're not. Eg in Turkish, the "am" string is censored. Owware compares "am" to "**" to check if the censor is active.
         //This is so niche that I'm putting it behind optimizeStrict.
-        if (ast.name === "__customString__" && ast.args.length === 1 && !optimizeStrict) {
+        if (ast.name === "__customString__" && ast.args.length === 1 && !(ast.compiler as OverPyCompiler).optimizeStrict) {
             return true;
         }
         return false;
@@ -374,125 +374,125 @@ export function replaceFunctionInAst(ast: Ast, functionName: string, newAst: Ast
 }
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
-export function getAstFor0() {
-    return new Ast("__number__", [new Ast("0", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor0 = OverPyDecompiler.prototype.getAstFor0 = function() {
+    return this.Ast("__number__", [this.Ast("0", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstFor1() {
-    return new Ast("__number__", [new Ast("1", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor1 = function() {
+    return this.Ast("__number__", [this.Ast("1", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstForMinus1() {
-    return new Ast("__number__", [new Ast("-1", [], [], "SignedIntLiteral")], [], "signed int");
+OverPyCompiler.prototype.getAstForMinus1 = function() {
+    return this.Ast("__number__", [this.Ast("-1", [], [], "SignedIntLiteral")], [], "signed int");
 }
-export function getAstFor2() {
-    return new Ast("__number__", [new Ast("2", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor2 = function() {
+    return this.Ast("__number__", [this.Ast("2", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstFor0_016() {
-    return new Ast("__number__", [new Ast("0.016", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+OverPyCompiler.prototype.getAstFor0_016 = function() {
+    return this.Ast("__number__", [this.Ast("0.016", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-export function getAstFor0_001() {
-    return new Ast("__number__", [new Ast("0.001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+OverPyCompiler.prototype.getAstFor0_001 = function() {
+    return this.Ast("__number__", [this.Ast("0.001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-export function getAstFor0_0001() {
-    return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+OverPyCompiler.prototype.getAstFor0_0001 = function() {
+    return this.Ast("__number__", [this.Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-export function getAstFor255() {
-    return new Ast("__number__", [new Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor255 = function() {
+    return this.Ast("__number__", [this.Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstFor10000() {
-    return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor10000 = function() {
+    return this.Ast("__number__", [this.Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstFor10Million() {
-    return new Ast("__number__", [new Ast("10000000", [], [], "UnsignedIntLiteral")], [], "int");
+OverPyCompiler.prototype.getAstFor10Million = function() {
+    return this.Ast("__number__", [this.Ast("10000000", [], [], "UnsignedIntLiteral")], [], "int");
 }
-export function getAstForInfinity() {
-    return new Ast("__number__", [new Ast("999999999999", [], [], "UnsignedIntLiteral")], [], "unsigned int");
+OverPyCompiler.prototype.getAstForInfinity = OverPyDecompiler.prototype.getAstForInfinity = function() {
+    return this.Ast("__number__", [this.Ast("999999999999", [], [], "UnsignedIntLiteral")], [], "unsigned int");
 }
-export function getAstForMinusInfinity() {
-    return new Ast("__number__", [new Ast("-999999999999", [], [], "SignedIntLiteral")], [], "signed int");
+OverPyCompiler.prototype.getAstForMinusInfinity = function() {
+    return this.Ast("__number__", [this.Ast("-999999999999", [], [], "SignedIntLiteral")], [], "signed int");
 }
-export function getAstForE() {
-    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+OverPyCompiler.prototype.getAstForE = OverPyDecompiler.prototype.getAstForE = function() {
+    return this.Ast("__number__", [this.Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-export function getAstForNumber(nb: number) {
+OverPyCompiler.prototype.getAstForNumber = OverPyDecompiler.prototype.getAstForNumber = function(nb: number) {
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " " + (Number.isInteger(nb) ? "int" : "float");
-    return new Ast("__number__", [new Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed") + (Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
+    return this.Ast("__number__", [this.Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed") + (Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
-export function getAstForBool(bool: boolean) {
+OverPyCompiler.prototype.getAstForBool = function(bool: boolean) {
     if (bool) {
-        return getAstForTrue();
+        return this.getAstForTrue();
     } else {
-        return getAstForFalse();
+        return this.getAstForFalse();
     }
 }
-export function getAstForNull() {
-    return new Ast("null");
+OverPyCompiler.prototype.getAstForNull = OverPyDecompiler.prototype.getAstForNull = function() {
+    return this.Ast("null");
 }
-export function getAstForFalse() {
-    return new Ast("false");
+OverPyCompiler.prototype.getAstForFalse = OverPyDecompiler.prototype.getAstForFalse = function() {
+    return this.Ast("false");
 }
-export function getAstForTrue() {
-    return new Ast("true");
+OverPyCompiler.prototype.getAstForTrue = OverPyDecompiler.prototype.getAstForTrue = function() {
+    return this.Ast("true");
 }
-export function getAstForColorWhite() {
-    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")]);
+OverPyCompiler.prototype.getAstForColorWhite = function() {
+    return this.Ast("__color__", [this.Ast("WHITE", [], [], "ColorLiteral")]);
 }
-export function getAstForTeamAll() {
-    return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")]);
+OverPyCompiler.prototype.getAstForTeamAll = OverPyDecompiler.prototype.getAstForTeamAll = function() {
+    return this.Ast("__team__", [this.Ast("ALL", [], [], "TeamLiteral")]);
 }
-export function getAstForUselessInstruction() {
-    return new Ast("pass");
+OverPyCompiler.prototype.getAstForUselessInstruction = function() {
+    return this.Ast("pass");
 }
-export function getAstForEnd() {
-    return new Ast("__end__");
+OverPyCompiler.prototype.getAstForEnd = function() {
+    return this.Ast("__end__");
 }
-export function getAstForEmptyArray() {
-    return new Ast("__array__");
+OverPyCompiler.prototype.getAstForEmptyArray = function() {
+    return this.Ast("__array__");
 }
-export function getAstForNullVector() {
-    return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor0()]);
+OverPyCompiler.prototype.getAstForNullVector = OverPyDecompiler.prototype.getAstForNullVector = function() {
+    return this.Ast("vect", [this.getAstFor0(), this.getAstFor0(), this.getAstFor0()]);
 }
-export function getAstForVector(x: number, y: number, z: number) {
-    return new Ast("vect", [getAstForNumber(x), getAstForNumber(y), getAstForNumber(z)]);
+OverPyCompiler.prototype.getAstForVector = function(x: number, y: number, z: number) {
+    return this.Ast("vect", [this.getAstForNumber(x), this.getAstForNumber(y), this.getAstForNumber(z)]);
 }
-export function getAstForCurrentArrayIndex() {
-    return new Ast("__currentArrayIndex__");
+OverPyCompiler.prototype.getAstForCurrentArrayIndex = function() {
+    return this.Ast("__currentArrayIndex__");
 }
-export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
-    let result = new Ast("__customString__", [new Ast(content, [], [], "CustomStringLiteral"), ...formatArgs]);
-    result.stringTokens = parseStringTokens(content);
-    return astParsingFunctions.__customString__(result);
+OverPyCompiler.prototype.getAstForCustomString = function(content: string, formatArgs: Ast[] = []) {
+    let result = this.Ast("__customString__", [this.Ast(content, [], [], "CustomStringLiteral"), ...formatArgs]);
+    result.stringTokens = this.parseStringTokens(content);
+    return astParsingFunctions.__customString__(result, this);
 }
-export function getAstForFucktonOfSpaces() {
-    return getAstForCustomString("\u2003".repeat(170));
+OverPyCompiler.prototype.getAstForFucktonOfSpaces = function() {
+    return this.getAstForCustomString("\u2003".repeat(170));
 }
 
-export function getAstForArgDefault(arg: Argument) {
+OverPyCompiler.prototype.getAstForArgDefault = OverPyDecompiler.prototype.getAstForArgDefault = function(arg: Argument) {
     let defaultAst;
     if (arg.default === true) {
-        defaultAst = getAstForTrue();
+        defaultAst = this.getAstForTrue();
     } else if (arg.default === false) {
-        defaultAst = getAstForFalse();
+        defaultAst = this.getAstForFalse();
     } else if (arg.default === null) {
-        defaultAst = getAstForNull();
+        defaultAst = this.getAstForNull();
     } else if (typeof arg.default === "number") {
-        defaultAst = getAstForNumber(arg.default);
+        defaultAst = this.getAstForNumber(arg.default);
     } else if (arg.default === "getAllPlayers()") {
-        defaultAst = new Ast("getPlayers", [getAstForTeamAll()]);
+        defaultAst = this.Ast("getPlayers", [this.getAstForTeamAll()]);
     } else if (arg.default === "vect(0,0,0)") {
-        defaultAst = getAstForNullVector();
+        defaultAst = this.getAstForNullVector();
     } else if (arg.default === "Math.INFINITY") {
-        defaultAst = getAstForInfinity();
+        defaultAst = this.getAstForInfinity();
     } else if (arg.default === "Math.E") {
-        defaultAst = getAstForE();
+        defaultAst = this.getAstForE();
     } else if (arg.type in constantValues) {
-        defaultAst = new Ast(arg.default, [], [], arg.type);
+        defaultAst = this.Ast(arg.default, [], [], arg.type);
     } else if (arg.type in builtInEnumNameToAstInfo) {
-        defaultAst = new Ast(builtInEnumNameToAstInfo[arg.type].name, [new Ast(arg.default, [], [], builtInEnumNameToAstInfo[arg.type].type)]);
+        defaultAst = this.Ast(builtInEnumNameToAstInfo[arg.type].name, [this.Ast(arg.default, [], [], builtInEnumNameToAstInfo[arg.type].type)]);
     } else if (arg.default instanceof Ast) {
         defaultAst = arg.default.clone();
     } else {
-        defaultAst = parseOpyMacro(arg.default, [], []);
+        defaultAst = new OverPyCompiler().parseOpyMacro(arg.default, [], []);
     }
     return defaultAst;
 }

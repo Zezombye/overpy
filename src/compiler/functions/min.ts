@@ -17,22 +17,22 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.min = function (content) {
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
-    if (enableOptimization) {
+astParsingFunctions.min = function (content, compiler) {
+
+    if (compiler.enableOptimization) {
         let numbers = content.args.filter(arg => arg.name === "__number__").map(arg => arg.args[0].numValue);
         if (numbers.length === content.args.length) {
-            return getAstForNumber(Math.min(...numbers));
+            return compiler.getAstForNumber(Math.min(...numbers));
         }
         let minNumber = Math.min(...numbers);
         content.args = content.args.filter(x => x.name !== "__number__" || x.args[0].numValue === minNumber);
     }
 
     if (content.args.length > 2) {
-        return new Ast("min", [content.args[0], astParsingFunctions.min(new Ast("min", content.args.slice(1)))]);
+        return compiler.Ast("min", [content.args[0], astParsingFunctions.min(compiler.Ast("min", content.args.slice(1)), compiler)]);
     }
 
     return content;

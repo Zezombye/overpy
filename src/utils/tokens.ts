@@ -19,12 +19,12 @@
 
 import { Token } from "../compiler/tokenizer";
 import { operatorPrecedence } from "../globalVars";
-import { error } from "./logging";
+import { OverPyCompiler } from "../godClasses";
 /**
  * Same as splitStrOnDelimiter but for a token list.
  * If getAllTokens = false, this will only split on the first occurrence of the token.
  */
-export function splitTokens(tokens: Token[], str: string, getAllTokens = true, rtl = false): Token[][] {
+OverPyCompiler.prototype.splitTokens = function(tokens: Token[], str: string, getAllTokens = true, rtl = false): Token[][] {
     var result: Token[][] = [];
     var bracketsLevel = 0;
 
@@ -59,7 +59,7 @@ export function splitTokens(tokens: Token[], str: string, getAllTokens = true, r
     }
 
     if (bracketsLevel !== 0) {
-        error("Lexer broke (bracket level is " + bracketsLevel + ")");
+        this.error("Lexer broke (bracket level is " + bracketsLevel + ")");
     }
 
     if (rtl) {
@@ -76,7 +76,7 @@ export function splitTokens(tokens: Token[], str: string, getAllTokens = true, r
 }
 
 //Same as getBracketPositions but for tokens.
-export function getTokenBracketPos(tokens: Token[], returnFirstPair = false) {
+OverPyCompiler.prototype.getTokenBracketPos = function(tokens: Token[], returnFirstPair = false) {
     var bracketsPos: number[] = [];
     var bracketsLevel = 0;
     var currentPositionIsString = false;
@@ -98,7 +98,7 @@ export function getTokenBracketPos(tokens: Token[], returnFirstPair = false) {
         }
     }
     if (bracketsLevel > 0) {
-        error("Brackets level above 0! (missing closing bracket)");
+        this.error("Brackets level above 0! (missing closing bracket)");
     }
 
     return bracketsPos;
@@ -133,12 +133,11 @@ export function dispTokens(content: Token | Token[] | string, prettyPrint = fals
         return content;
     } else if (typeof content === "object") {
         if (content.text === undefined) {
-            error("Object is not a token or token list");
+            throw new Error("Object is not a token or token list");
         } else {
             return content.text;
         }
     } else {
-        error("Undefined content " + content);
-        return "";
+        throw new Error("Undefined content " + content);
     }
 }

@@ -17,18 +17,15 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astIsLiteral, astParsingFunctions, getAstForFalse, getAstForTrue, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { areAstsAlwaysEqual, astIsLiteral, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__arrayContains__ = function (content) {
+astParsingFunctions.__arrayContains__ = function (content, compiler) {
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__array__") {
             //Check if the value is in the array
             if (content.args[0].args.some(x => areAstsAlwaysEqual(x, content.args[1]))) {
-                return getAstForTrue();
+                return compiler.getAstForTrue();
             }
             if (astIsLiteral(content.args[1])) {
                 //Remove the literal values, as we know that they are not equal to the compared value
@@ -37,13 +34,13 @@ astParsingFunctions.__arrayContains__ = function (content) {
             }
 
             if (content.args[0].args.length === 0) {
-                return getAstForFalse();
+                return compiler.getAstForFalse();
             }
             if (content.args[0].args.length === 1) {
                 //If the array has only one element, we can just return a comparison
                 //Note that A in B -> A == B and not B == A. This is checked because vect(0,0,0) == [][0], [][0] != vect(0,0,0), and vect(0,0,0) in [[][0]] is true.
                 //And note that __arrayContains__ has the array first.
-                return new Ast("__equals__", [content.args[1], content.args[0].args[0]]);
+                return compiler.Ast("__equals__", [content.args[1], content.args[0].args[0]]);
             }
         }
     }

@@ -18,12 +18,11 @@
 "use strict";
 
 import { constantValues } from "../../data/constants";
-import { enableOptimization, optimizeStrict } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstForNumber, numValue } from "../../utils/ast";
+import { Ast, astParsingFunctions, numValue } from "../../utils/ast";
 
-astParsingFunctions.rgb = function (content) {
-    if (enableOptimization) {
-        if (!optimizeStrict) {
+astParsingFunctions.rgb = function (content, compiler) {
+    if (compiler.enableOptimization) {
+        if (!compiler.optimizeStrict) {
             //Convert colors to built-in values. This is a non-strict optimization as it differs in comparisons, truthiness, and string casting.
             let [r, g, b, a] = content.args.map(arg => numValue(arg));
             if ([r, g, b, a].every(num => num !== null)) {
@@ -36,7 +35,7 @@ astParsingFunctions.rgb = function (content) {
                     }
                     let [vr, vg, vb, va] = [value.red ?? 0, value.green ?? 0, value.blue ?? 0, value.alpha ?? 255];
                     if (r === vr && g === vg && b === vb && a === va) {
-                        return new Ast("__color__", [new Ast(key, [], [], "ColorLiteral")]);
+                        return compiler.Ast("__color__", [compiler.Ast(key, [], [], "ColorLiteral")]);
                     }
                 }
             }

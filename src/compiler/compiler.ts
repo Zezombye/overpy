@@ -17,30 +17,28 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants, generateRuleForTranslationsPlayerVar, globalvarInitRuleName, playervarInitRuleName, disableInspector, postCompileHook, useTlErr, replacementForEmptyString, useVariableForCompressionAlphabet, setOptimizationEnabled, setOptimizeStrict, setOptimizationForSize, allowMacroRedeclaration, writeToOutputFile } from "../globalVars";
+import { DEBUG_MODE, ELEMENT_LIMIT, DEBUG_PROFILER } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { ruleKw, customGameSettingsKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
-import { Ast, getAstForFalse, getAstForNull } from "../utils/ast";
-import { getFilePaths, getFileContent } from "file_utils";
-import { astToString, warn, error, getInternalFileStack } from "../utils/logging";
-import { tows } from "../utils/translation";
-import { parseAstRules } from "./astParser";
-import { astRulesToWs } from "./astToWorkshop";
-import { parseLines } from "./parser";
-import { Token, tokenize } from "./tokenizer";
-import { addVariable } from "../utils/varNames";
+import { Ast } from "../utils/ast";
+import { astToString, getInternalFileStack } from "../utils/logging";
 import { AstConstantData, AstMacroData, CompilationDiagnostic, MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
-import { compileCustomGameSettingsDict } from "../utils/compilation";
-import PO from "pofile";
-import { importFromPoFiles, TranslatedString, exportToPoFiles } from "./translations";
+import { TranslatedString } from "./translations";
 import { constantValues } from "../data/constants";
 import { escapeString } from "../utils/strings";
 import { initializeQuickJSRuntime } from "../quickjs";
 import {alphabet} from "./functions/compressed";
+
+import "./tokenizer";
+import "./parser";
+import "./translations";
+import "./astParser";
+import "./astToWorkshop";
 
 /**
  * @returns An object containing the compiled result along with associated metadata
@@ -75,32 +73,34 @@ export async function compile(
 
     if (DEBUG_PROFILER) (console as any).profile();
     await initializeQuickJSRuntime();
-    resetGlobalVariables(language);
     _rootPath = _rootPath.trim().replaceAll("\\", "/");
     if (!_rootPath.endsWith("/")) {
         _rootPath += "/";
     }
-    setRootPath(_rootPath);
+
+    const compiler = new OverPyCompiler();
+    compiler.currentLanguage = language;
+    compiler.rootPath = _rootPath;
 
     //Handle #!mainfile directive
     if (content.startsWith("#!mainFile ")) {
-        let mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")), _rootPath)[0];
-        setMainFileName(mainFilePath.split("/").pop() as string);
-        setRootPath(mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1));
-        content = getFileContent(mainFilePath);
+        let mainFilePath = compiler.getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")), _rootPath)[0];
+        compiler.mainFileName = mainFilePath.split("/").pop() as string;
+        compiler.rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1);
+        content = compiler.getFileContent(mainFilePath);
         if (DEBUG_MODE) {
             console.log("content = ");
             console.log(content);
         }
     } else {
-        setMainFileName(_mainFileName);
+        compiler.mainFileName = _mainFileName;
     }
-    importedFiles.push(rootPath);
+    compiler.importedFiles.push(compiler.rootPath);
 
-    setFileStack([
+    compiler.fileStack = ([
         {
-            name: mainFileName || "<main>",
-            path: rootPath + mainFileName,
+            name: compiler.mainFileName || "<main>",
+            path: compiler.rootPath + compiler.mainFileName,
             startLine: 1,
             startCol: 1,
             endCol: null,
@@ -110,51 +110,40 @@ export async function compile(
             fileStackMemberType: "normal",
         } as ScriptFileStackMember,
     ]);
-    resetMacros();
+    compiler.macros = [];
 
-    var lines = tokenize(content);
+    var lines = compiler.tokenize(content);
 
     //console.log("tokens:",structuredClone(lines));
 
-    setFileStack([
-        {
-            name: "<internal>",
-            startLine: 1,
-            startCol: 1,
-            endCol: null,
-            endLine: null,
-            remainingChars: 99999999999, //does not matter
-            staticMember: true,
-            fileStackMemberType: "normal",
-        } as ScriptFileStackMember,
-    ]);
+    compiler.fileStack = getInternalFileStack();
 
     var translationConstantString = null;
 
-    if (translationLanguages.length > 0) {
-        if (translationLanguages.includes("zh") && translationLanguages.includes("es_mx") && translationLanguages.includes("es_es")) {
+    if (compiler.translationLanguages.length > 0) {
+        if (compiler.translationLanguages.includes("zh") && compiler.translationLanguages.includes("es_mx") && compiler.translationLanguages.includes("es_es")) {
             //There is no constant that is different in all languages except zh
-            error("Cannot use language combination zh, es_mx and es_es at the same time");
-        } else if (!(translationLanguages.includes("zh_cn") && translationLanguages.includes("zh_tw")) && !(translationLanguages.includes("es_mx") && translationLanguages.includes("es_es"))) {
+            compiler.error("Cannot use language combination zh, es_mx and es_es at the same time");
+        } else if (!(compiler.translationLanguages.includes("zh_cn") && compiler.translationLanguages.includes("zh_tw")) && !(compiler.translationLanguages.includes("es_mx") && compiler.translationLanguages.includes("es_es"))) {
             //Constant that is the same in all Chinese and Spanish languages
             //Use that by default as color constants can be put in strings without wrapping with updateEveryFrame(), so it saves one element
-            setTranslationLanguageConstantOpy("Color.WHITE");
-            setTranslationLanguageConstant(constantValues.ColorLiteral.WHITE);
-        } else if (translationLanguages.includes("es")) {
+            compiler.translationLanguageConstantOpy = "Color.WHITE";
+            compiler.translationLanguageConstant = constantValues.ColorLiteral.WHITE;
+        } else if (compiler.translationLanguages.includes("es")) {
             //Constant that is different in all languages except both Spanish languages
-            setTranslationLanguageConstantOpy("updateEveryFrame(Map.ILIOS_RUINS)");
-            setTranslationLanguageConstant(mapKw.iliosRuins);
+            compiler.translationLanguageConstantOpy = "updateEveryFrame(Map.ILIOS_RUINS)";
+            compiler.translationLanguageConstant = mapKw.iliosRuins;
         } else {
             //Constant that is different in all languages
-            setTranslationLanguageConstantOpy("updateEveryFrame(Map.PRACTICE_RANGE)");
-            setTranslationLanguageConstant(mapKw.practiceRange);
+            compiler.translationLanguageConstantOpy = "updateEveryFrame(Map.PRACTICE_RANGE)";
+            compiler.translationLanguageConstant = mapKw.practiceRange;
         }
 
-        translationConstantString = translationLanguages.map((lang) => {
+        translationConstantString = compiler.translationLanguages.map((lang) => {
             if (lang.includes("_")) {
-                return translationLanguageConstant[lang.split("_")[0]+"-"+lang.split("_")[1].toUpperCase()];
+                return compiler.translationLanguageConstant![lang.split("_")[0]+"-"+lang.split("_")[1].toUpperCase() as OWLanguage];
             } else {
-                return translationLanguageConstant[({
+                return compiler.translationLanguageConstant![({
                     "en": "en-US",
                     "es": "es-MX",
                     "fr": "fr-FR",
@@ -168,69 +157,58 @@ export async function compile(
                     "ko": "ko-KR",
                     "pl": "pl-PL",
                     "ru": "ru-RU",
-                } as Record<string, string>)[lang]];
+                } as Record<string, string>)[lang] as OWLanguage];
             }
         }).join("0");
 
-        if (usePlayerVarForTranslations) {
+        if (compiler.usePlayerVarForTranslations) {
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
-            addVariable("__languageIndex__", false, -1, getInternalFileStack(), tokenize(useTlErr ? "1.1" : "0.1")[0].tokens);
+            compiler.addVariable("__languageIndex__", false, -1, getInternalFileStack(), compiler.tokenize(compiler.useTlErr ? "1.1" : "0.1")[0].tokens);
         }
-        addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
+        compiler.addVariable("__overpyTranslationHelper__", true, -1, getInternalFileStack(), compiler.tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
     }
 
-    if (enableTagsSetup) {
-        addVariable("__holygrail__", true, -1, getInternalFileStack());
+    if (compiler.enableTagsSetup) {
+        compiler.addVariable("__holygrail__", true, -1, getInternalFileStack());
     }
-    if (replacementForEmptyString === "variable") {
-        addVariable("__emptyString__", true, -1, getInternalFileStack(), tokenize("[].charAt(null)")[0].tokens);
+    if (compiler.replacementForEmptyString === "variable") {
+        compiler.addVariable("__emptyString__", true, -1, getInternalFileStack(), compiler.tokenize("[].charAt(null)")[0].tokens);
     }
-    if (useVariableForCompressionAlphabet) {
-        addVariable("__compressionAlphabet__", true, -1, getInternalFileStack(), tokenize(escapeString(alphabet, false))[0].tokens);
+    if (compiler.useVariableForCompressionAlphabet) {
+        compiler.addVariable("__compressionAlphabet__", true, -1, getInternalFileStack(), compiler.tokenize(escapeString(alphabet, false))[0].tokens);
     }
 
-    if (translationLanguages.length > 0) {
-        setTranslatedStrings(importFromPoFiles());
+    if (compiler.translationLanguages.length > 0) {
+        compiler.translatedStrings = compiler.importFromPoFiles();
     }
 
 
     //console.log(structuredClone(translatedStrings));
 
-    var astRules = parseLines(lines);
+    var astRules = compiler.parseLines(lines);
 
-    setFileStack([
-        {
-            name: "<internal>",
-            startLine: 1,
-            startCol: 1,
-            endCol: null,
-            endLine: null,
-            remainingChars: 99999999999, //does not matter
-            staticMember: true,
-            fileStackMemberType: "normal",
-        } as ScriptFileStackMember,
-    ]);
+    compiler.fileStack = getInternalFileStack();
 
     //Note: the init directive rules must be BEFORE the translation/tx rules, otherwise the variables cannot be initialized with a translated or tx string.
-    astRules.unshift(...getInitDirectivesRules());
+    astRules.unshift(...compiler.getInitDirectivesRules());
 
-    if (usePlayerVarForTranslations) {
+    if (compiler.usePlayerVarForTranslations) {
 
-        if (translationLanguages.length === 0) {
-            error("Translations must be setup using the #!translations directive");
+        if (compiler.translationLanguages.length === 0) {
+            compiler.error("Translations must be setup using the #!translations directive");
         }
 
-        if (generateRuleForTranslationsPlayerVar) {
+        if (compiler.generateRuleForTranslationsPlayerVar) {
             let translationSetupRule: any =
             `
     rule "OverPy translation setup - Determine the player's language":
         @Event eachPlayer
         @Condition eventPlayer.hasSpawned()
         @Condition not eventPlayer.isDummy()
-        @Condition eventPlayer.__languageIndex__ == ${useTlErr ? "1.1" : "0.1"}
+        @Condition eventPlayer.__languageIndex__ == ${compiler.useTlErr ? "1.1" : "0.1"}
         eventPlayer.__languageIndex__.append(eventPlayer.getFacingDirection())
         eventPlayer.startFacing(
-            directionFromAngles(10*${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([])), 5),
+            directionFromAngles(10*${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${compiler.translationLanguageConstantOpy}.split([])), 5),
             Math.INFINITY,
             Relativity.TO_WORLD,
             FacingReeval.DIRECTION_AND_TURN_RATE
@@ -243,15 +221,15 @@ export async function compile(
 
         eventPlayer.stopFacing()
         eventPlayer.setFacing(eventPlayer.__languageIndex__.last(), Relativity.TO_WORLD)
-        eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__${useTlErr ? "[0]" : " - 1"}
+        eventPlayer.__languageIndex__ = eventPlayer.__languageIndex__${compiler.useTlErr ? "[0]" : " - 1"}
             `;
-            translationSetupRule = tokenize(translationSetupRule);
-            translationSetupRule = parseLines(translationSetupRule)[0];
+            translationSetupRule = compiler.tokenize(translationSetupRule);
+            translationSetupRule = compiler.parseLines(translationSetupRule)[0];
             astRules.unshift(translationSetupRule);
         }
     }
 
-    if (enableTagsSetup) {
+    if (compiler.enableTagsSetup) {
         var txSetupRule: any = `
 rule "OverPy <\\ztx> / <\\zfg> setup code":
     #By Zezombye
@@ -263,18 +241,18 @@ rule "OverPy <\\ztx> / <\\zfg> setup code":
     __holygrail__ = "______________________________________________________________________________________________________________________________\u303C".replace(__holygrail__, getLastCreatedEntity()[0]).substring(126, true)
     destroyAllDummies()
         `;
-        txSetupRule = tokenize(txSetupRule);
-        txSetupRule = parseLines(txSetupRule)[0];
+        txSetupRule = compiler.tokenize(txSetupRule);
+        txSetupRule = compiler.parseLines(txSetupRule)[0];
         astRules.unshift(txSetupRule);
     }
 
-    if (disableInspector) {
+    if (compiler.disableInspector) {
         var inspectorRule: any = `
 rule "Disable inspector":
     disableInspector()
 `;
-        inspectorRule = tokenize(inspectorRule);
-        inspectorRule = parseLines(inspectorRule)[0];
+        inspectorRule = compiler.tokenize(inspectorRule);
+        inspectorRule = compiler.parseLines(inspectorRule)[0];
         astRules.unshift(inspectorRule);
     }
 
@@ -286,10 +264,10 @@ rule "Disable inspector":
         console.log(astRules);
     }
 
-    var result = compileRules(astRules);
+    var result = compiler.compileRules(astRules);
 
     var spentExtensionPoints = 0;
-    for (var ext of activatedExtensions) {
+    for (var ext of compiler.activatedExtensions) {
         spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
     }
 
@@ -299,17 +277,17 @@ rule "Disable inspector":
         console.log("Compilation time: " + (t1 - t0) + "ms");
     }
 
-    if (translationLanguages.length > 0) {
-        exportToPoFiles(translatedStrings);
+    if (compiler.translationLanguages.length > 0) {
+        compiler.exportToPoFiles(compiler.translatedStrings);
     }
 
     //Remove duplicated warnings
-    let uniqueEncounteredWarnings = encounteredWarnings.filter((warning, index, self) => {
+    let uniqueEncounteredWarnings = compiler.encounteredWarnings.filter((warning, index, self) => {
         return index === self.findIndex((w) => JSON.stringify(w) === JSON.stringify(warning));
     });
 
-    if (postCompileHook) {
-        setFileStack([
+    if (compiler.postCompileHook) {
+        compiler.fileStack = [
             {
                 name: "<postCompileHook>",
                 startLine: 1,
@@ -320,47 +298,36 @@ rule "Disable inspector":
                 staticMember: true,
                 fileStackMemberType: "normal",
             } as ScriptFileStackMember,
-        ]);
-        result = ""+postCompileHook(result);
-        setFileStack([
-            {
-                name: "<internal>",
-                startLine: 1,
-                startCol: 1,
-                endCol: null,
-                endLine: null,
-                remainingChars: 99999999999, //does not matter
-                staticMember: true,
-                fileStackMemberType: "normal",
-            } as ScriptFileStackMember,
-        ]);
+        ];
+        result = ""+compiler.postCompileHook(result);
+        compiler.fileStack = getInternalFileStack();
     }
 
     return {
         result,
-        macros,
-        astMacros,
-        astConstants,
-        globalVariables,
-        playerVariables,
-        subroutines,
+        macros: compiler.macros,
+        astMacros: compiler.astMacros,
+        astConstants: compiler.astConstants,
+        globalVariables: compiler.globalVariables,
+        playerVariables: compiler.playerVariables,
+        subroutines: compiler.subroutines,
         encounteredWarnings: uniqueEncounteredWarnings,
-        hiddenWarnings,
-        enumMembers,
-        nbElements,
-        activatedExtensions,
+        hiddenWarnings: compiler.hiddenWarnings,
+        enumMembers: compiler.enumMembers,
+        nbElements: compiler.nbElements,
+        activatedExtensions: compiler.activatedExtensions,
         spentExtensionPoints,
-        availableExtensionPoints,
-        translationLanguages,
-        translatedStrings,
-        writeToOutputFile,
-        mainFileName,
-        rootPath,
+        availableExtensionPoints: compiler.availableExtensionPoints,
+        translationLanguages: compiler.translationLanguages,
+        translatedStrings: compiler.translatedStrings,
+        writeToOutputFile: compiler.writeToOutputFile,
+        mainFileName: compiler.mainFileName,
+        rootPath: compiler.rootPath,
     };
 }
 
-function compileRules(astRules: Ast[]) {
-    var parsedAstRules = parseAstRules(astRules);
+OverPyCompiler.prototype.compileRules = function(astRules: Ast[]) {
+    var parsedAstRules = this.parseAstRules(astRules);
 
     if (DEBUG_MODE) {
         console.log(parsedAstRules);
@@ -370,11 +337,11 @@ function compileRules(astRules: Ast[]) {
     let hasModification = false;
     do {
         hasModification = false;
-        for (let subroutine of subroutines) {
+        for (let subroutine of this.subroutines) {
             for (let calledSubroutineName of subroutine.callsSubroutines) {
-                let calledSubroutine = subroutines.find((s) => s.name === calledSubroutineName);
+                let calledSubroutine = this.subroutines.find((s) => s.name === calledSubroutineName);
                 if (!calledSubroutine) {
-                    error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
+                    this.error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
                 }
                 for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars"] as const) {
                     if (calledSubroutine![key] && !subroutine[key]) {
@@ -387,98 +354,98 @@ function compileRules(astRules: Ast[]) {
     } while (hasModification);
     
     //Reset optimization settings before the second pass astRulesToWs
-    setOptimizationEnabled(true);
-    setOptimizeStrict(false);
-    setOptimizationForSize(false);
+    this.enableOptimization = true;
+    this.optimizeStrict = false;
+    this.optimizeForSize = false;
 
-    var {compiledRules, elementCountSummary} = astRulesToWs(parsedAstRules);
+    var {compiledRules, elementCountSummary} = this.astRulesToWs(parsedAstRules);
     
-    setOptimizationEnabled(true);
-    setOptimizeStrict(false);
-    setOptimizationForSize(false);
+    this.enableOptimization = true;
+    this.optimizeStrict = false;
+    this.optimizeForSize = false;
 
-    setFileStack(getInternalFileStack());
+    this.fileStack = getInternalFileStack();
 
-    var result = elementCountSummary + compiledCustomGameSettings;
-    if (!excludeVariablesInCompilation) {
-        result += generateVariablesField();
-        result += generateSubroutinesField();
+    var result = elementCountSummary + this.compiledCustomGameSettings;
+    if (!this.excludeVariablesInCompilation) {
+        result += this.generateVariablesField();
+        result += this.generateSubroutinesField();
     }
     result += compiledRules.join("");
 
-    if (nbElements > ELEMENT_LIMIT) {
-        warn("w_element_limit", "The gamemode is over the element limit (" + nbElements + " > " + ELEMENT_LIMIT + " elements)");
+    if (this.nbElements > ELEMENT_LIMIT) {
+        this.warn("w_element_limit", "The gamemode is over the element limit (" + this.nbElements + " > " + ELEMENT_LIMIT + " elements)");
     }
 
     //Check for extension points
     var spentExtensionPoints = 0;
-    for (var ext of activatedExtensions) {
+    for (var ext of this.activatedExtensions) {
         spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
     }
-    if (compiledCustomGameSettings !== "") {
-        if (spentExtensionPoints > availableExtensionPoints) {
-            warn("w_extension_points", "The extension points spent (" + spentExtensionPoints + ") are over the available points (" + availableExtensionPoints + ")");
+    if (this.compiledCustomGameSettings !== "") {
+        if (spentExtensionPoints > this.availableExtensionPoints) {
+            this.warn("w_extension_points", "The extension points spent (" + spentExtensionPoints + ") are over the available points (" + this.availableExtensionPoints + ")");
         }
     } else {
-        setAvailableExtensionPoints(-1);
+        this.availableExtensionPoints = -1;
     }
 
     return result;
 }
 
-function getInitDirectivesRules() {
+OverPyCompiler.prototype.getInitDirectivesRules = function() {
     var result = [];
-    if (globalInitDirectives.length > 0) {
-        var rule = new Ast("__rule__");
+    if (this.globalInitDirectives.length > 0) {
+        var rule = this.Ast("__rule__");
         rule.ruleAttributes = {
-            name: globalvarInitRuleName,
+            name: this.globalvarInitRuleName,
             event: "global",
         };
-        rule.children = globalInitDirectives;
+        rule.children = this.globalInitDirectives;
         result.push(rule);
     }
-    if (playerInitDirectives.length > 0) {
-        var rule = new Ast("__rule__");
+    if (this.playerInitDirectives.length > 0) {
+        var rule = this.Ast("__rule__");
         rule.ruleAttributes = {
-            name: playervarInitRuleName,
+            name: this.playervarInitRuleName,
             event: "eachPlayer",
             eventPlayer: "all",
             eventTeam: "all",
         };
-        rule.children = playerInitDirectives;
+        rule.children = this.playerInitDirectives;
         result.push(rule);
     }
     return result;
 }
 
-function generateVariablesField() {
+OverPyCompiler.prototype.generateVariablesField = function() {
     var result = "";
 
     for (var varType of ["global", "player"]) {
         var outputVariables = Array(128);
         var varNames: string[] = [];
-        var varList = varType === "global" ? globalVariables : playerVariables;
+        var varList = varType === "global" ? this.globalVariables : this.playerVariables;
         var unassignedVariables = [];
 
         for (let variable of varList) {
             //check name
             if (!/[A-Za-z_]\w*/.test(variable.name)) {
-                error("Unauthorized name for " + varType + " variable: '" + variable.name + "'", variable.fileStack);
+                this.error("Unauthorized name for " + varType + " variable: '" + variable.name + "'", variable.fileStack);
             }
             //check duplication
             if (varNames.includes(variable.name)) {
-                error("Duplicate declaration of " + varType + " variable '" + variable.name + "'", variable.fileStack);
+                this.error("Duplicate declaration of " + varType + " variable '" + variable.name + "'", variable.fileStack);
             }
 
             if (outputVariables[variable.index] !== undefined) {
-                error("Duplicate use of index " + variable.index + " for " + varType + " variables '" + variable.name + "' and '" + outputVariables[variable.index] + "'", variable.fileStack[variable.fileStack.length - 1].startCol !== null ? variable.fileStack : outputVariables[variable.index].fileStack);
+                this.error("Duplicate use of index " + variable.index + " for " + varType + " variables '" + variable.name + "' and '" + outputVariables[variable.index] + "'", variable.fileStack[variable.fileStack.length - 1].startCol !== null ? variable.fileStack : outputVariables[variable.index].fileStack);
             }
             varNames.push(variable.name);
             if (variable.index === -1) {
                 unassignedVariables.push(variable.name);
             } else {
                 if (variable.index >= 128 || variable.index < 0) {
-                    error("Invalid index '" + variable.index + "' for " + varType + " variable '" + variable.name + "', must be from 0 to 127", variable.fileStack);
+                    this.error("Invalid index '" + variable.index + "' for " + varType + " variable '" + variable.name + "', must be from 0 to 127", variable.fileStack);
                 }
                 outputVariables[variable.index] = variable.name;
             }
@@ -504,7 +471,7 @@ function generateVariablesField() {
                 }
             }
             if (!foundSpot) {
-                error("More than 128 " + varType + " variables have been declared");
+                this.error("More than 128 " + varType + " variables have been declared");
             }
         }
 
@@ -515,44 +482,44 @@ function generateVariablesField() {
             }
         }
         if (varTypeResult !== "") {
-            varTypeResult = tabLevel(1) + tows("__" + varType + "__", ruleKw) + ":\n" + varTypeResult;
+            varTypeResult = tabLevel(1) + this.tows("__" + varType + "__", ruleKw) + ":\n" + varTypeResult;
             result += varTypeResult;
         }
     }
 
     if (result) {
-        result = tows("__variables__", ruleKw) + " {\n" + result + "}\n\n";
+        result = this.tows("__variables__", ruleKw) + " {\n" + result + "}\n\n";
     }
 
     return result;
 }
 
-function generateSubroutinesField() {
+OverPyCompiler.prototype.generateSubroutinesField = function() {
     var result = "";
 
     var outputSubroutines = Array(128);
     var subNames: string[] = [];
     var unassignedSubroutines = [];
 
-    for (let subroutine of subroutines) {
+    for (let subroutine of this.subroutines) {
         //check name
         if (!/[A-Za-z_]\w*/.test(subroutine.name)) {
-            error("Unauthorized name for subroutine: '" + subroutine.name + "'");
+            this.error("Unauthorized name for subroutine: '" + subroutine.name + "'");
         }
         //check duplication
         if (subNames.includes(subroutine.name)) {
-            error("Duplicate declaration of subroutine '" + subroutine.name + "'");
+            this.error("Duplicate declaration of subroutine '" + subroutine.name + "'");
         }
 
         if (outputSubroutines[subroutine.index] !== undefined) {
-            error("Duplicate use of index " + subroutine.index + " for subroutines '" + subroutine.name + "' and '" + outputSubroutines[subroutine.index] + "'");
+            this.error("Duplicate use of index " + subroutine.index + " for subroutines '" + subroutine.name + "' and '" + outputSubroutines[subroutine.index] + "'");
         }
         subNames.push(subroutine.name);
         if (subroutine.index === undefined || subroutine.index === -1) {
             unassignedSubroutines.push(subroutine.name);
         } else {
             if (isNaN(subroutine.index) || subroutine.index >= 128 || subroutine.index < 0) {
-                error("Invalid index '" + subroutine.index + "' for subroutine '" + subroutine.name + "', must be from 0 to 127");
+                this.error("Invalid index '" + subroutine.index + "' for subroutine '" + subroutine.name + "', must be from 0 to 127");
             }
             outputSubroutines[subroutine.index] = subroutine.name;
         }
@@ -568,7 +535,7 @@ function generateSubroutinesField() {
             }
         }
         if (!foundSpot) {
-            error("More than 128 subroutines have been declared");
+            this.error("More than 128 subroutines have been declared");
         }
     }
 
@@ -579,24 +546,24 @@ function generateSubroutinesField() {
     }
 
     if (result) {
-        result = tows("__subroutines__", ruleKw) + " {\n" + result + "}\n\n";
+        result = this.tows("__subroutines__", ruleKw) + " {\n" + result + "}\n\n";
     }
 
     return result;
 }
 
-export function compileCustomGameSettings(customGameSettings: any) {
+OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings: any) {
     if (typeof customGameSettings !== "object") {
-        error("Custom game settings must be an object");
+        this.error("Custom game settings must be an object");
     }
 
-    if (compiledCustomGameSettings !== "") {
-        error("Custom game settings have already been declared");
+    if (this.compiledCustomGameSettings !== "") {
+        this.error("Custom game settings have already been declared");
     }
 
     var result: Record<string, any> = {};
     if (!("gamemodes" in customGameSettings)) {
-        error("Custom game settings must specify a gamemode");
+        this.error("Custom game settings must specify a gamemode");
     }
 
     var areOnlyWorkshopMapsEnabled = true;
@@ -607,7 +574,7 @@ export function compileCustomGameSettings(customGameSettings: any) {
             if (key === "lobby" && customGameSettings["lobby"].dataCenterPreference === "bestAvailable") {
                 delete customGameSettings["lobby"].dataCenterPreference;
             }
-            result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(
+            result[this.tows(key, customGameSettingsSchema)] = this.compileCustomGameSettingsDict(
                 customGameSettings[key],
                 // @ts-ignore - lobby/main settings in src/data/customGameSettings always have the correct schema
                 customGameSettingsSchema[key].values,
@@ -661,41 +628,41 @@ export function compileCustomGameSettings(customGameSettings: any) {
 
                 var maxSlots = Math.max(maxTeam1Slots + maxTeam2Slots, maxFfaSlots);
                 if (maxSlots > 12) {
-                    error("The maximum number of slots cannot be over 12 (currently " + maxSlots + ")");
+                    this.error("The maximum number of slots cannot be over 12 (currently " + maxSlots + ")");
                 }
-                setAvailableExtensionPoints(availableExtensionPoints + 4 * (12 - maxSlots));
+                this.availableExtensionPoints = this.availableExtensionPoints + 4 * (12 - maxSlots);
             }
         } else if (key === "gamemodes") {
-            var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
+            var wsGamemodes = this.tows("gamemodes", customGameSettingsSchema);
             result[wsGamemodes] = {};
             for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
                 if (gamemode !== "general") {
                     if (!(gamemode in gamemodeKw)) {
-                        error("Unknown gamemode '" + gamemode + "'");
+                        this.error("Unknown gamemode '" + gamemode + "'");
                     } else if (gamemodeKw[gamemode].onlyInOw1) {
-                        error("The gamemode '" + gamemode + "' is not available in OW2");
+                        this.error("The gamemode '" + gamemode + "' is not available in OW2");
                     }
                 }
-                var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
+                var wsGamemode = this.tows(gamemode, customGameSettingsSchema.gamemodes.values);
                 var isGamemodeEnabled = true;
                 if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
-                    wsGamemode = tows("__disabled__", ruleKw) + " " + wsGamemode;
+                    wsGamemode = this.tows("__disabled__", ruleKw) + " " + wsGamemode;
                     isGamemodeEnabled = false;
                 }
                 delete customGameSettings.gamemodes[gamemode].enabled;
                 result[wsGamemodes][wsGamemode] = {};
                 if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
                     if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
-                        error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '" + gamemode + "'");
+                        this.error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '" + gamemode + "'");
                     }
                     var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
-                    var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+                    var wsMapsKey = this.tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
                     var encounteredMaps = [];
                     result[wsGamemodes][wsGamemode][wsMapsKey] = [];
                     for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
                         if (typeof map === "object" && !Array.isArray(map)) {
                             if (Object.keys(map).length !== 1) {
-                                error("Malformed map object, should only have 1 key");
+                                this.error("Malformed map object, should only have 1 key");
                             }
                             var mapName = Object.keys(map)[0];
                             var variants = [];
@@ -703,21 +670,21 @@ export function compileCustomGameSettings(customGameSettings: any) {
                             for (var variant of map[mapName]) {
                                 if (!(variant in mapVariants)) {
                                     variants.push(variant+"");
-                                    //error("Unknown variant '" + variant + "' for map '" + mapName + "'");
+                                    //this.error("Unknown variant '" + variant + "' for map '" + mapName + "'");
                                 } else {
                                     variants.push(mapVariants[variant]);
                                 }
                             }
                             encounteredMaps.push(mapName);
-                            result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));
+                            result[wsGamemodes][wsGamemode][wsMapsKey].push(this.tows(mapName, mapKw) + " " + variants.join(" "));
                         } else {
                             if (!(map in mapKw)) {
-                                error("Unknown map '" + map + "'");
+                                this.error("Unknown map '" + map + "'");
                             } else if (mapKw[map].onlyInOw1) {
-                                error("The map '" + map + "' is not available in OW2");
+                                this.error("The map '" + map + "' is not available in OW2");
                             }
                             encounteredMaps.push(map);
-                            result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw));
+                            result[wsGamemodes][wsGamemode][wsMapsKey].push(this.tows(map, mapKw));
                         }
                     }
                     //Test if there are only workshop maps (for extension points)
@@ -739,7 +706,7 @@ export function compileCustomGameSettings(customGameSettings: any) {
 
                 Object.assign(
                     result[wsGamemodes][wsGamemode],
-                    compileCustomGameSettingsDict(
+                    this.compileCustomGameSettingsDict(
                         customGameSettings.gamemodes[gamemode],
                         // @ts-ignore - customGameSettingsSchema should always has the correct schema
                         customGameSettingsSchema.gamemodes.values[gamemode].values,
@@ -747,21 +714,21 @@ export function compileCustomGameSettings(customGameSettings: any) {
                 );
             }
         } else if (key === "heroes") {
-            var wsHeroes = tows("heroes", customGameSettingsSchema);
+            var wsHeroes = this.tows("heroes", customGameSettingsSchema);
             result[wsHeroes] = {};
             for (var team of Object.keys(customGameSettings.heroes)) {
-                var wsTeam = tows(team, customGameSettingsSchema.heroes.teams);
+                var wsTeam = this.tows(team, customGameSettingsSchema.heroes.teams);
                 result[wsHeroes][wsTeam] = {};
                 var wsHeroesKey = null;
                 var wsHeroesKeyObj = [];
                 if ("enabledHeroes" in customGameSettings.heroes[team] || "disabledHeroes" in customGameSettings.heroes[team]) {
                     if ("enabledHeroes" in customGameSettings.heroes[team] && "disabledHeroes" in customGameSettings.heroes[team]) {
-                        error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '" + team + "'");
+                        this.error("Cannot have both 'enabledHeroes' and 'disabledHeroes' in team '" + team + "'");
                     }
                     var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
-                    wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
+                    wsHeroesKey = this.tows(heroesKey, customGameSettingsSchema.heroes.values);
                     for (let hero of customGameSettings.heroes[team][heroesKey]) {
-                        wsHeroesKeyObj.push(tows(hero === "mccree" ? "cassidy" : hero === "hammond" ? "wreckingBall" : hero, heroKw));
+                        wsHeroesKeyObj.push(this.tows(hero === "mccree" ? "cassidy" : hero === "hammond" ? "wreckingBall" : hero, heroKw));
                     }
                     delete customGameSettings.heroes[team][heroesKey];
                 }
@@ -769,7 +736,7 @@ export function compileCustomGameSettings(customGameSettings: any) {
                 if ("general" in customGameSettings.heroes[team]) {
                     Object.assign(
                         result[wsHeroes][wsTeam],
-                        compileCustomGameSettingsDict(
+                        this.compileCustomGameSettingsDict(
                             customGameSettings.heroes[team].general,
                             // @ts-ignore - customGameSettingsSchema should always has the correct schema
                             customGameSettingsSchema.heroes.values.general.values,
@@ -788,7 +755,7 @@ export function compileCustomGameSettings(customGameSettings: any) {
                 }
 
                 for (let hero of Object.keys(customGameSettings.heroes[team])) {
-                    var wsHero = tows(hero, heroKw);
+                    var wsHero = this.tows(hero, heroKw);
                     if ("ability1KB%" in customGameSettings.heroes[team][hero]) {
                         customGameSettings.heroes[team][hero]["ability1Kb%"] = customGameSettings.heroes[team][hero]["ability1KB%"];
                         delete customGameSettings.heroes[team][hero]["ability1KB%"];
@@ -796,10 +763,10 @@ export function compileCustomGameSettings(customGameSettings: any) {
                     for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
                         // @ts-ignore
                         if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
-                            error("'" + hero + "' has no property '" + key + "'");
+                            this.error("'" + hero + "' has no property '" + key + "'");
                         }
                     }
-                    result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(
+                    result[wsHeroes][wsTeam][wsHero] = this.compileCustomGameSettingsDict(
                         customGameSettings.heroes[team][hero],
                         // @ts-ignore
                         customGameSettingsSchema.heroes.values[hero].values,
@@ -811,58 +778,58 @@ export function compileCustomGameSettings(customGameSettings: any) {
                 }
             }
         } else if (key === "workshop") {
-            var wsWorkshop = tows(key, customGameSettingsSchema);
+            var wsWorkshop = this.tows(key, customGameSettingsSchema);
             result[wsWorkshop] = {};
             for (var workshopSetting of Object.keys(customGameSettings.workshop)) {
                 if (customGameSettings.workshop[workshopSetting] === true) {
-                    result[wsWorkshop][workshopSetting] = tows("__on__", customGameSettingsKw);
+                    result[wsWorkshop][workshopSetting] = this.tows("__on__", customGameSettingsKw);
                 } else if (customGameSettings.workshop[workshopSetting] === false) {
-                    result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
+                    result[wsWorkshop][workshopSetting] = this.tows("__off__", customGameSettingsKw);
                 } else if (Array.isArray(customGameSettings.workshop[workshopSetting])) {
                     //Enum value
                     if (customGameSettings.workshop[workshopSetting].length !== 1) {
-                        error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "', must be of length 1");
+                        this.error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "', must be of length 1");
                     }
                     result[wsWorkshop][workshopSetting] = "[" + customGameSettings.workshop[workshopSetting] + "]";
                 } else if (isNumber(customGameSettings.workshop[workshopSetting])) {
                     result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
                 } else if (customGameSettings.workshop[workshopSetting] in heroKw) {
-                    result[wsWorkshop][workshopSetting] = tows(customGameSettings.workshop[workshopSetting], heroKw);
+                    result[wsWorkshop][workshopSetting] = this.tows(customGameSettings.workshop[workshopSetting], heroKw);
                 } else {
-                    error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "'");
+                    this.error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "'");
                 }
             }
         } else {
-            error("Unknown key '" + key + "'");
+            this.error("Unknown key '" + key + "'");
         }
     }
 
-    if (activatedExtensions.length > 0) {
-        setActivatedExtensions([...new Set(activatedExtensions)]);
-        result[tows("extensions", customGameSettingsSchema)] = activatedExtensions.map((x) => tows(x, customGameSettingsSchema.extensions.values));
+    if (this.activatedExtensions.length > 0) {
+        this.activatedExtensions = [...new Set(this.activatedExtensions)];
+        result[this.tows("extensions", customGameSettingsSchema)] = this.activatedExtensions.map((x) => this.tows(x, customGameSettingsSchema.extensions.values));
     }
     if (areOnlyWorkshopMapsEnabled) {
-        setAvailableExtensionPoints(availableExtensionPoints + 16);
+        this.availableExtensionPoints = this.availableExtensionPoints + 16;
     }
 
-    resetNbTabs();
-    function deserializeObject(obj: Record<string, any>) {
-        var result = "\n" + tabLevel(nbTabs, true) + "{\n";
-        incrementNbTabs();
+    this.nbTabs = 0;
+    const deserializeObject = (obj: Record<string, any>) => {
+        var result = "\n" + tabLevel(this.nbTabs, true) + "{\n";
+        this.nbTabs++;
         for (var key of Object.keys(obj)) {
             if (obj[key].constructor === Array) {
-                result += tabLevel(nbTabs, true) + key + "\n" + tabLevel(nbTabs, true) + "{\n" + obj[key].map((x: any) => tabLevel(nbTabs + 1, true) + x + "\n").join("");
-                result += tabLevel(nbTabs, true) + "}\n";
+                result += tabLevel(this.nbTabs, true) + key + "\n" + tabLevel(this.nbTabs, true) + "{\n" + obj[key].map((x: any) => tabLevel(this.nbTabs + 1, true) + x + "\n").join("");
+                result += tabLevel(this.nbTabs, true) + "}\n";
             } else if (typeof obj[key] === "object" && obj[key] !== null) {
-                result += tabLevel(nbTabs, true) + key + deserializeObject(obj[key]) + "\n";
+                result += tabLevel(this.nbTabs, true) + key + deserializeObject(obj[key]) + "\n";
             } else {
-                result += tabLevel(nbTabs, true) + key + ": " + obj[key] + "\n";
+                result += tabLevel(this.nbTabs, true) + key + ": " + obj[key] + "\n";
             }
         }
-        decrementNbTabs();
-        result += tabLevel(nbTabs, true) + "}";
+        this.nbTabs--;
+        result += tabLevel(this.nbTabs, true) + "}";
         return result;
     }
 
-    setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n\n");
+    this.compiledCustomGameSettings = this.tows("__settings__", ruleKw) + deserializeObject(result) + "\n\n";
 }

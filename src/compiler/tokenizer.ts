@@ -16,16 +16,14 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath, setOptimizeStrict, setGenerateRuleForTranslationsPlayerVar, setGlobalvarInitRuleName, setPlayervarInitRuleName, setDisableInspector, setKeepUnusedTranslations, setDisableTranslationSourceLines, setPostCompileHook, postCompileHook, rulePrefixTemplate, setRulePrefixTemplate, setRulePrefixTemplateFilestack, setTranslationUseTlErr, setDebugElementCount, setAllowMacroRedeclaration, allowMacroRedeclaration, setReplacementForEmptyString, replacementForEmptyString, setUseVariableForCompressionAlphabet, setOptimizationForSizeAggressive, setWriteToOutputFile } from "../globalVars";
-import { getArgs, getBracketPositions } from "../utils/decompilation";
-import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
-import { debug, error, warn } from "../utils/logging";
-import { getFileStackCopy, isVarChar } from "../utils/other";
+import { DEBUG_MODE, builtInJsFunctions, builtInJsFunctionsNbLines, reservedNames } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
+import { debug } from "../utils/logging";
+import { isVarChar } from "../utils/other";
 import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
-import { dispTokens } from "../utils/tokens";
 import { TranslationLanguage } from "./translations";
-import { unescapeString } from "../utils/strings";
 import { executeQuickJSScript } from "../quickjs";
+import {dispTokens} from "../utils/tokens";
 export class Macro {
     isFunction: boolean;
     args: unknown[];
@@ -74,7 +72,7 @@ export class Token {
 Returns an array of logical lines, with their indentation level.
 Logical lines are separated by a '\n', if it is not backslashed, and not within brackets.
 */
-export function tokenize(content: string): LogicalLine[] {
+OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
     if (!content.endsWith("\n")) {
         content += "\n";
     }
@@ -94,14 +92,14 @@ export function tokenize(content: string): LogicalLine[] {
     // This allows us to report accurate error locations instead of the current (modified) fileStack
     let unclosedBracketFileStack: FileStackMember[] | undefined = undefined;
 
-    function addToken(text: string) {
+    const addToken = (text: string) => {
         if (text.length === 0) {
-            error("Token is empty, lexer broke");
+            this.error("Token is empty, lexer broke");
         }
 
         //debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
 
-        currentLine.tokens.push(new Token(text, getFileStackCopy()));
+        currentLine.tokens.push(new Token(text, this.getFileStackCopy()));
 
         moveCursor(text.length - 1);
     }
@@ -115,8 +113,8 @@ export function tokenize(content: string): LogicalLine[] {
      * @param startingCol the col of the macro start in the file it is declared
      * @param startingLine the line of the macro start in the file it is declared
      */
-    function addFile(length: number, callNbChars: number, callCols: number, callLines: number, name: string, startingCol: number, startingLine: number) {
-        fileStack.push({
+    const addFile = (length: number, callNbChars: number, callCols: number, callLines: number, name: string, startingCol: number, startingLine: number) => {
+        this.fileStack.push({
             name,
             remainingChars: length,
             callNbChars,
@@ -140,20 +138,20 @@ export function tokenize(content: string): LogicalLine[] {
 
     newLogicalLine();
 
-    function moveCursor(amount: number) {
+    const moveCursor = (amount: number) => {
         for (let j = 0; j < amount; j++) {
-            let currentFile = fileStack[fileStack.length - 1];
+            let currentFile = this.fileStack[this.fileStack.length - 1];
             if (!currentFile.staticMember && currentFile.remainingChars > 0) {
                 currentFile.remainingChars--;
                 if (currentFile.remainingChars === 0) {
-                    let nextFile = fileStack[fileStack.length - 2];
+                    let nextFile = this.fileStack[this.fileStack.length - 2];
                     //debug("macro lines = "+macroLines+", macro cols = "+macroCols);
                     (nextFile.startLine as number) += currentFile.callLines;
                     (nextFile.startCol as number) += currentFile.callLines - 1;
                     if (!nextFile.staticMember) {
                         (nextFile as MacroFileStackMember).remainingChars -= currentFile.callNbChars;
                     }
-                    fileStack.pop();
+                    this.fileStack.pop();
                 }
             }
 
@@ -166,12 +164,12 @@ export function tokenize(content: string): LogicalLine[] {
         i += amount;
     }
 
-    function parsePreprocessingDirective(content: string) {
+    const parsePreprocessingDirective = (content: string) => {
         debug("Parsing preprocessing directive '" + content + "'");
         if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
-            macros.push(
-                parseMacro({
-                    fileStack: getFileStackCopy(),
+            this.macros.push(
+                this.parseMacro({
+                    fileStack: this.getFileStackCopy(),
                     content: content,
                 }),
             );
@@ -192,18 +190,18 @@ export function tokenize(content: string): LogicalLine[] {
         if (content.startsWith("#!extension ")) {
             var addedExtension = content.substring("#!extension ".length).trim();
             if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
-                error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
+                this.error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
             }
-            activatedExtensions.push(addedExtension);
+            this.activatedExtensions.push(addedExtension);
             return;
         }
         if(content.startsWith("#!postCompileHook ")) {
-            if (postCompileHook) {
-                error("Post-compile hook is already defined");
+            if (this.postCompileHook) {
+                throw this.error("Post-compile hook is already defined");
             }
-            let hookPath = getFilePaths(content.substring("#!postCompileHook ".length).trim(), rootPath)[0];
-            const scriptText = getFileContent(hookPath);
-            setPostCompileHook((content: string) => {
+            let hookPath = this.getFilePaths(content.substring("#!postCompileHook ".length).trim(), this.rootPath)[0];
+            const scriptText = this.getFileContent(hookPath);
+            this.postCompileHook = ((content: string) => {
                 try {
                     return executeQuickJSScript(`var content = ${JSON.stringify(content)};\n${scriptText}`, {
                         filename: hookPath,
@@ -211,116 +209,116 @@ export function tokenize(content: string): LogicalLine[] {
                     });
                 }  catch (e: any) {
                     if (e instanceof Error) {
-                        addScriptErrorFileStack(e, hookPath, 1);
+                        this.addScriptErrorFileStack(e, hookPath, 1);
                     }
-                    error(e);
+                    throw this.error(e);
                 };
             });
             return;
         }
         if (content.startsWith("#!excludeVariablesInCompilation")) {
-            setExcludeVariablesInCompilation(true);
+            this.excludeVariablesInCompilation = true;
             return;
         }
         if (content.startsWith("#!translations ")) {
             let translations = content.substring("#!translations ".length).split(" ").map(x => x.replaceAll("-", "_").toLowerCase().trim());
             for (let translation of translations) {
                 if (!["de","en","es","es_es","es_mx","fr","it","ja","ko","pl","pt","ru","th","tr","zh","zh_cn","zh_tw"].includes(translation)) {
-                    error("Invalid language '" + translation + "'");
+                    this.error("Invalid language '" + translation + "'");
                 }
             }
             if (translations.includes("es") && (translations.includes("es_es") || translations.includes("es_mx"))) {
-                error("Cannot use 'es' with 'es_es' or 'es_mx'");
+                this.error("Cannot use 'es' with 'es_es' or 'es_mx'");
             }
             if (translations.includes("zh") && (translations.includes("zh_cn") || translations.includes("zh_tw"))) {
-                error("Cannot use 'zh' with 'zh_cn' or 'zh_tw'");
+                this.error("Cannot use 'zh' with 'zh_cn' or 'zh_tw'");
             }
 
-            setTranslationLanguages(translations as TranslationLanguage[]);
+            this.translationLanguages = translations as TranslationLanguage[];
             return;
 
         }
         if (content.startsWith("#!translateWithPlayerVar")) {
-            setUsePlayerVarForTranslations(true);
+            this.usePlayerVarForTranslations = true;
             let args = content.substring("#!translateWithPlayerVar".length).trim().split(" ");
             if (args.includes("noDetectionRule")) {
-                setGenerateRuleForTranslationsPlayerVar(false);
+                this.generateRuleForTranslationsPlayerVar = false;
             }
             if (args.includes("noTlErr")) {
-                setTranslationUseTlErr(false);
+                this.useTlErr = false;
             }
             return;
         }
         if (content.startsWith("#!disableInspector")) {
-            setDisableInspector(true);
+            this.disableInspector = true;
             return;
         }
         if (content.startsWith("#!writeToOutputFile")) {
-            setWriteToOutputFile(true);
+            this.writeToOutputFile = true;
             return;
         }
         if (content.startsWith("#!disableTranslationSourceLines")) {
-            setDisableTranslationSourceLines(true);
+            this.disableTranslationSourceLines = true;
             return;
         }
         if (content.startsWith("#!keepUnusedTranslations")) {
-            setKeepUnusedTranslations(true);
+            this.keepUnusedTranslations = true;
             return;
         }
         if (content.startsWith("#!globalvarInitRuleName ")) {
             let ruleName = content.substring("#!globalvarInitRuleName ".length).trim();
-            setGlobalvarInitRuleName(unescapeString(ruleName, true));
+            this.globalvarInitRuleName = this.unescapeString(ruleName, true);
             return;
         }
         if (content.startsWith("#!playervarInitRuleName ")) {
             let ruleName = content.substring("#!playervarInitRuleName ".length).trim();
-            setPlayervarInitRuleName(unescapeString(ruleName, true));
+            this.playervarInitRuleName = this.unescapeString(ruleName, true);
             return;
         }
         if (content.startsWith("#!optimizeForSizeAggressive")) {
-            setOptimizationForSizeAggressive(true);
+            this.optimizeForSizeAggressive = true;
             return;
         }
         if (content.startsWith("#!optimizeForSize")) {
-            currentLine.tokens.push(new Token("__enableOptimizeForSize__", getFileStackCopy()));
+            currentLine.tokens.push(new Token("__enableOptimizeForSize__", this.getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!disableOptimizeForSize")) {
-            currentLine.tokens.push(new Token("__disableOptimizeForSize__", getFileStackCopy()));
+            currentLine.tokens.push(new Token("__disableOptimizeForSize__", this.getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!optimizeStrict")) {
-            currentLine.tokens.push(new Token("__enableOptimizeStrict__", getFileStackCopy()));
+            currentLine.tokens.push(new Token("__enableOptimizeStrict__", this.getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!disableOptimizeStrict")) {
-            currentLine.tokens.push(new Token("__disableOptimizeStrict__", getFileStackCopy()));
+            currentLine.tokens.push(new Token("__disableOptimizeStrict__", this.getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!setupTx") || content.startsWith("#!setupTags")) {
-            setEnableTagsSetup(true);
+            this.enableTagsSetup = true;
             return;
         }
 
         if (content.startsWith("#!replace0ByCapturePercentage")) {
-            if (replacementFor0 !== "") {
-                error("A replacement for 0 has already been defined");
+            if (this.replacementFor0 !== "") {
+                this.error("A replacement for 0 has already been defined");
             }
-            setReplacementFor0("getCapturePercentage");
+            this.replacementFor0 = "getCapturePercentage";
             return;
         }
         if (content.startsWith("#!replace0ByIsMatchComplete")) {
-            if (replacementFor0 !== "") {
-                error("A replacement for 0 has already been defined");
+            if (this.replacementFor0 !== "") {
+                this.error("A replacement for 0 has already been defined");
             }
-            setReplacementFor0("isMatchComplete");
+            this.replacementFor0 = "isMatchComplete";
             return;
         }
         if (content.startsWith("#!replace0ByPayloadProgressPercentage")) {
-            if (replacementFor0 !== "") {
-                error("A replacement for 0 has already been defined");
+            if (this.replacementFor0 !== "") {
+                this.error("A replacement for 0 has already been defined");
             }
-            setReplacementFor0("getPayloadProgressPercentage");
+            this.replacementFor0 = "getPayloadProgressPercentage";
 
             /* Could also use:
 			- isAssemblingHeroes()
@@ -332,36 +330,36 @@ export function tokenize(content: string): LogicalLine[] {
             return;
         }
         if (content.startsWith("#!replace1ByMatchRound")) {
-            if (replacementFor1 !== "") {
-                error("A replacement for 1 has already been defined");
+            if (this.replacementFor1 !== "") {
+                this.error("A replacement for 1 has already been defined");
             }
-            setReplacementFor1("getMatchRound");
+            this.replacementFor1 = "getMatchRound";
             return;
         }
         if (content.startsWith("#!replaceTeam1ByControlScoringTeam")) {
-            if (replacementForTeam1 !== "") {
-                error("A replacement for Team.1 has already been defined");
+            if (this.replacementForTeam1 !== "") {
+                this.error("A replacement for Team.1 has already been defined");
             }
-            setReplacementForTeam1("getControlScoringTeam");
+            this.replacementForTeam1 = "getControlScoringTeam";
             return;
         }
         if (content.startsWith("#!replaceEmptyStringByEmptyArray")) {
-            if (replacementForEmptyString !== "") {
-                error("A replacement for empty string has already been defined");
+            if (this.replacementForEmptyString !== "") {
+                this.error("A replacement for empty string has already been defined");
             }
-            setReplacementForEmptyString("emptyArray");
+            this.replacementForEmptyString = "emptyArray";
             return;
         }
         if (content.startsWith("#!replaceEmptyStringByVariable")) {
-            if (replacementForEmptyString !== "") {
-                error("A replacement for empty string has already been defined");
+            if (this.replacementForEmptyString !== "") {
+                this.error("A replacement for empty string has already been defined");
             }
-            setReplacementForEmptyString("variable");
+            this.replacementForEmptyString = "variable";
             return;
         }
         if (content.startsWith("#!suppressWarnings ")) {
             var firstSpaceIndex = content.indexOf(" ");
-            globallySuppressedWarningTypes.push(
+            this.globallySuppressedWarningTypes.push(
                 ...content
                     .substring(firstSpaceIndex)
                     .trim()
@@ -372,36 +370,36 @@ export function tokenize(content: string): LogicalLine[] {
         }
         if (content.startsWith("#!rulePrefix ")) {
             let prefix = content.substring("#!rulePrefix ".length).trim();
-            currentLine.tokens.push(new Token("__rulePrefix__", getFileStackCopy()));
-            currentLine.tokens.push(new Token("(", getFileStackCopy()));
-            currentLine.tokens.push(new Token(prefix, getFileStackCopy()));
-            currentLine.tokens.push(new Token(")", getFileStackCopy()));
+            currentLine.tokens.push(new Token("__rulePrefix__", this.getFileStackCopy()));
+            currentLine.tokens.push(new Token("(", this.getFileStackCopy()));
+            currentLine.tokens.push(new Token(prefix, this.getFileStackCopy()));
+            currentLine.tokens.push(new Token(")", this.getFileStackCopy()));
             return;
         }
         if (content.startsWith("#!rulePrefixTemplate")) {
-            if (rulePrefixTemplate !== "") {
-                error("A rule prefix template has already been defined");
+            if (this.rulePrefixTemplate !== "") {
+                this.error("A rule prefix template has already been defined");
             }
             let template = content.substring("#!rulePrefixTemplate".length).trim() || `f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule`;
-            setRulePrefixTemplate(template);
-            let _rulePrefixTemplateFilestack = getFileStackCopy();
+            this.rulePrefixTemplate = template;
+            let _rulePrefixTemplateFilestack = this.getFileStackCopy();
             _rulePrefixTemplateFilestack[_rulePrefixTemplateFilestack.length - 1].startCol = content.indexOf(template) + 1;
-            setRulePrefixTemplateFilestack(_rulePrefixTemplateFilestack);
+            this.rulePrefixTemplateFilestack = _rulePrefixTemplateFilestack;
             return;
         }
         if (content.startsWith("#!useVariableForCompressionAlphabet")) {
-            setUseVariableForCompressionAlphabet(true);
+            this.useVariableForCompressionAlphabet = true;
             return;
         }
         if (content.startsWith("#!debugElementCount")) {
-            setDebugElementCount(true);
+            this.debugElementCount = true;
             return;
         }
         if (content.startsWith("#!allowMacroRedeclaration")) {
-            setAllowMacroRedeclaration(true);
+            this.allowMacroRedeclaration = true;
             return;
         }
-        error("Unknown preprocessor directive '" + content + "'");
+        this.error("Unknown preprocessor directive '" + content + "'");
     }
 
     for (i = 0; i < content.length; moveCursor(1)) {
@@ -435,7 +433,7 @@ export function tokenize(content: string): LogicalLine[] {
                 if (content[j] === "\n") {
                     break;
                 } else if (content[j] !== " " && content[j] !== "\r") {
-                    error("A backslash can only be put at the end of a line");
+                    this.error("A backslash can only be put at the end of a line");
                 }
             }
             moveCursor(j - i - 1 + "\n".length);
@@ -446,7 +444,7 @@ export function tokenize(content: string): LogicalLine[] {
             // Record the fileStack position when opening a bracket at level 0
             // This is used to report accurate error locations for unclosed brackets
             if (bracketsLevel === 1) {
-                unclosedBracketFileStack = getFileStackCopy();
+                unclosedBracketFileStack = this.getFileStackCopy();
             }
             addToken(content[i]);
             continue;
@@ -454,7 +452,7 @@ export function tokenize(content: string): LogicalLine[] {
         if (content[i] === ")" || content[i] === "]" || content[i] === "}") {
             bracketsLevel--;
             if (bracketsLevel < 0) {
-                error("Brackets level below 0 (extraneous closing bracket)");
+                this.error("Brackets level below 0 (extraneous closing bracket)");
             }
             addToken(content[i]);
             continue;
@@ -481,20 +479,20 @@ export function tokenize(content: string): LogicalLine[] {
 
             if (preprocessingDirectiveContent.startsWith("#!include ")) {
                 let space = preprocessingDirectiveContent.indexOf(" ");
-                let basePath = rootPath;
-                for (let k = fileStack.length - 1; k >= 0; k--) {
-                    if (fileStack[k].path) {
-                        basePath = fileStack[k].path as string;
+                let basePath = this.rootPath;
+                for (let k = this.fileStack.length - 1; k >= 0; k--) {
+                    if (this.fileStack[k].path) {
+                        basePath = this.fileStack[k].path as string;
                         break;
                     }
                 }
-                let paths = getFilePaths(preprocessingDirectiveContent.substring(space), basePath);
+                let paths = this.getFilePaths(preprocessingDirectiveContent.substring(space), basePath);
 
                 for (let path of paths) {
 
-                    let importedFileContent = getFileContent(path);
-                    fileStack.push({
-                        name: getFilenameFromPath(path),
+                    let importedFileContent = this.getFileContent(path);
+                    this.fileStack.push({
+                        name: this.getFilenameFromPath(path),
                         path: path,
                         startLine: 1,
                         startCol: 1,
@@ -504,12 +502,12 @@ export function tokenize(content: string): LogicalLine[] {
                         staticMember: true,
                         fileStackMemberType: "normal",
                     } as ScriptFileStackMember);
-                    let pushLine = new LogicalLine(0, [new Token("__pushRulePrefixStack__", getFileStackCopy())]);
-                    let popLine = new LogicalLine(0, [new Token("__popRulePrefixStack__", getFileStackCopy())]);
+                    let pushLine = new LogicalLine(0, [new Token("__pushRulePrefixStack__", this.getFileStackCopy())]);
+                    let popLine = new LogicalLine(0, [new Token("__popRulePrefixStack__", this.getFileStackCopy())]);
                     result.push(pushLine);
-                    result.push(...tokenize(importedFileContent));
+                    result.push(...this.tokenize(importedFileContent));
                     result.push(popLine);
-                    fileStack.pop();
+                    this.fileStack.pop();
                     moveCursor(j - i - 1);
                 }
             } else {
@@ -542,13 +540,13 @@ export function tokenize(content: string): LogicalLine[] {
             }
 
             if (!foundEndOfComment) {
-                error("Multiline comment isn't terminated (found end of file while searching for end of comment)");
+                this.error("Multiline comment isn't terminated (found end of file while searching for end of comment)");
             }
             j += "*/".length;
             moveCursor(j - i - 1);
         } else if (content.startsWith("*/", i)) {
             //All ends should be found when a multiline comment start is found.
-            error("Found end of multiline comment, but no matching beginning");
+            this.error("Found end of multiline comment, but no matching beginning");
         } else if (content[i] === '"' || content[i] === "'") {
             var strDelimiter = content[i];
             var foundEndOfString = false;
@@ -569,7 +567,7 @@ export function tokenize(content: string): LogicalLine[] {
             }
 
             if (!foundEndOfString) {
-                error("String isn't terminated (found end of file while searching for end of string)");
+                this.error("String isn't terminated (found end of file while searching for end of string)");
             }
 
             j += strDelimiter.length; //account for closing delimiter
@@ -585,24 +583,24 @@ export function tokenize(content: string): LogicalLine[] {
                 let macroWasFound = false;
 
                 //Test each macro
-                for (var k = 0; k < macros.length; k++) {
-                    if (content.substring(i, j) === macros[k].name) {
+                for (var k = 0; k < this.macros.length; k++) {
+                    if (content.substring(i, j) === this.macros[k].name) {
                         let text;
                         let replacement;
                         let macroCols = 0;
                         let macroLines = 0;
 
-                        if (macros[k].isFunction) {
-                            //debug("Resolving function macro "+macros[k].name);
-                            let bracketPos = getBracketPositions(content.substring(i), true, true);
+                        if (this.macros[k].isFunction) {
+                            //debug("Resolving function macro "+this.macros[k].name);
+                            let bracketPos = this.getBracketPositions(content.substring(i), true, true);
                             text = content.substring(i, i + bracketPos[1] + 1);
-                            let macroArgs = getArgs(content.substring(i + bracketPos[0] + 1, i + bracketPos[1]));
-                            replacement = resolveMacro(macros[k], macroArgs, currentLine.indentLevel);
+                            let macroArgs = this.getArgs(content.substring(i + bracketPos[0] + 1, i + bracketPos[1]));
+                            replacement = this.resolveMacro(this.macros[k], macroArgs, currentLine.indentLevel);
                         } else {
-                            //debug("Resolving normal macro "+macros[k].name);
-                            text = macros[k].name;
-                            //replacement = macros[k].replacement;
-                            replacement = resolveMacro(macros[k], [], currentLine.indentLevel);
+                            //debug("Resolving normal macro "+this.macros[k].name);
+                            text = this.macros[k].name;
+                            //replacement = this.macros[k].replacement;
+                            replacement = this.resolveMacro(this.macros[k], [], currentLine.indentLevel);
                         }
 
                         content = content.substring(0, i) + replacement + content.substring(i + text.length);
@@ -615,17 +613,17 @@ export function tokenize(content: string): LogicalLine[] {
                         }
 
                         if (replacement === undefined) {
-                            error("Replacement is undefined");
+                            this.error("Replacement is undefined");
                         }
 
-                        addFile(replacement.length, text.length, macroCols, macroLines, macros[k].name, macros[k].startingCol, (macros[k].fileStack[macros[k].fileStack.length - 1] as BaseNormalFileStackMember).startLine as number);
+                        addFile(replacement.length, text.length, macroCols, macroLines, this.macros[k].name, this.macros[k].startingCol, (this.macros[k].fileStack[this.macros[k].fileStack.length - 1] as BaseNormalFileStackMember).startLine as number);
 
                         //debug("Text: "+text);
                         //debug("Replacement: "+replacement);
 
                         k = 0;
                         i--;
-                        let currentFile = fileStack[fileStack.length - 1];
+                        let currentFile = this.fileStack[this.fileStack.length - 1];
                         if (currentFile.staticMember === false) {
                             currentFile.remainingChars++;
                         }
@@ -652,7 +650,7 @@ export function tokenize(content: string): LogicalLine[] {
                 }
 
                 if (!hasTokenBeenFound) {
-                    error("Unknown token '" + content[i] + "'");
+                    this.error("Unknown token '" + content[i] + "'");
                 }
             }
         }
@@ -661,7 +659,7 @@ export function tokenize(content: string): LogicalLine[] {
     if (bracketsLevel > 0) {
         // Use the recorded fileStack to report accurate line numbers
         // The current fileStack has been modified by moveCursor() during tokenization
-        error("Found end of file, but a bracket isn't closed", unclosedBracketFileStack);
+        this.error("Found end of file, but a bracket isn't closed", unclosedBracketFileStack);
     }
 
     if (DEBUG_MODE) {
@@ -671,17 +669,17 @@ export function tokenize(content: string): LogicalLine[] {
     return result;
 }
 
-function addScriptErrorFileStack(errorObject: Error, scriptPath: string, lineOffset: number) {
+OverPyCompiler.prototype.addScriptErrorFileStack = function(errorObject: Error, scriptPath: string, lineOffset: number) {
     if (!errorObject.stack) {
         return;
     }
 
     const scriptPathPattern = scriptPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const matchRegex = new RegExp(`${scriptPathPattern}:(\\d+):(\\d+)`, "g");
-    const fileName = getFilenameFromPath(scriptPath);
+    const fileName = this.getFilenameFromPath(scriptPath);
     let match: RegExpExecArray | null = null;
     while ((match = matchRegex.exec(errorObject.stack)) !== null) {
-        fileStack.push({
+        this.fileStack.push({
             name: fileName,
             startLine: Math.max(1, parseInt(match[1]) - lineOffset),
             startCol: parseInt(match[2]),
@@ -692,17 +690,17 @@ function addScriptErrorFileStack(errorObject: Error, scriptPath: string, lineOff
     }
 }
 
-function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number): string {
+OverPyCompiler.prototype.resolveMacro = function(macro: MacroData, args: string[] = [], indentLevel: number): string {
     var result = "";
 
     if (macro.isFunction) {
         //debug("Args: "+args);
         if (args.length !== macro.args.length) {
-            error("Wrong number of arguments for macro " + macro.name);
+            this.error("Wrong number of arguments for macro " + macro.name);
         }
 
         if (macro.isScript) {
-            let scriptContent = getFileContent(macro.scriptPath);
+            let scriptContent = this.getFileContent(macro.scriptPath);
             let vars = "";
             for (let i = 0; i < args.length; i++) {
                 vars += "var " + macro.args[i] + "=" + args[i] + ";";
@@ -717,9 +715,9 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
                 });
             } catch (e: any) {
                 if (e instanceof Error) {
-                    addScriptErrorFileStack(e, macro.scriptPath, builtInJsFunctionsNbLines);
+                    this.addScriptErrorFileStack(e, macro.scriptPath, builtInJsFunctionsNbLines);
                 }
-                error(e);
+                this.error(e);
             }
         } else {
             result = macro.replacement;
@@ -742,15 +740,15 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
     return result;
 }
 
-function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: string }): MacroData {
+OverPyCompiler.prototype.parseMacro = function (initialMacroData: { fileStack: FileStackMember[]; content: string }): MacroData {
     let trimmedMacroContent = initialMacroData.content.substring(initialMacroData.content.indexOf(" ") + 1);
-    let bracketPos = getBracketPositions(trimmedMacroContent, false, true);
+    let bracketPos = this.getBracketPositions(trimmedMacroContent, false, true);
     const isFunctionMacro = bracketPos.length > 0 && trimmedMacroContent.indexOf(" ") >= bracketPos[0];
 
-    let basePath = rootPath;
-    for (let k = fileStack.length - 1; k >= 0; k--) {
-        if (fileStack[k].path) {
-            basePath = fileStack[k].path as string;
+    let basePath = this.rootPath;
+    for (let k = this.fileStack.length - 1; k >= 0; k--) {
+        if (this.fileStack[k].path) {
+            basePath = this.fileStack[k].path as string;
             break;
         }
     }
@@ -768,41 +766,41 @@ function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: s
         replacement: isFunctionMacro ? trimmedMacroContent.substring(bracketPos[1] + 1).trim() : trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).trim(),
     };
 
-    if (macros.some((m) => m.name === macro.name)) {
-        if (allowMacroRedeclaration) {
-            macros.splice(macros.findIndex((m) => m.name === macro.name), 1);
+    if (this.macros.some((m) => m.name === macro.name)) {
+        if (this.allowMacroRedeclaration) {
+            this.macros.splice(this.macros.findIndex((m) => m.name === macro.name), 1);
         } else {
-            error("Macro '" + macro.name + "' is already defined");
+            this.error("Macro '" + macro.name + "' is already defined");
         }
     }
 
     //Not sure how to handle the general case of multiple macros referencing each other
     if (macro.text === macro.replacement) {
-        error("Macro '" + macro.name + "' references itself");
+        this.error("Macro '" + macro.name + "' references itself");
     }
 
     if (!macro.isFunction) {
         //Not a function macro
         if (reservedNames.includes(macro.name)) {
-            warn("w_redefining_keyword", "The macro name '" + macro.name + "' is a keyword");
+            this.warn("w_redefining_keyword", "The macro name '" + macro.name + "' is a keyword");
         }
     } else {
         let functionMacro = macro as FunctionMacroData;
         functionMacro.isFunction = true;
         //Function macro
-        functionMacro.args = getArgs(functionMacro.content.substring(bracketPos[0] + 1, bracketPos[1]));
+        functionMacro.args = this.getArgs(functionMacro.content.substring(bracketPos[0] + 1, bracketPos[1]));
 
         //Test for script macro
         if (functionMacro.replacement.startsWith("__script__(")) {
             functionMacro.isScript = true;
-            functionMacro.scriptPath = getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1), basePath)[0];
+            functionMacro.scriptPath = this.getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1), basePath)[0];
         } else {
             functionMacro.isScript = false;
         }
     }
 
     if (!macro.text || !macro.replacement) {
-        error("Expected a macro declaration (eg: #!define myVar A)");
+        this.error("Expected a macro declaration (eg: #!define myVar A)");
     }
 
     return macro;

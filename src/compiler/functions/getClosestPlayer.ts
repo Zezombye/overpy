@@ -18,9 +18,8 @@
 "use strict";
 
 import { astParsingFunctions } from "../../utils/ast";
-import { warn } from "../../utils/logging";
 
-astParsingFunctions.getClosestPlayer = function (content) {
-    warn("w_closest_player", "The getClosestPlayer() function targets dead and unspawned players (at 0,0,0). Use getRealClosestPlayer() instead.");
+astParsingFunctions.getClosestPlayer = function (content, compiler) {
+    compiler.warn("w_closest_player", "The getClosestPlayer() function targets dead and unspawned players (at 0,0,0). Use getRealClosestPlayer() instead.");
     return content;
 };

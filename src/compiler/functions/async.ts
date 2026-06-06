@@ -17,10 +17,6 @@
 
 "use strict";
 
-import { enableOptimization, subroutines } from "../../globalVars";
-import {Subroutine} from "../../types";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { astToString, error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.async = astParsingFunctions.__callSubroutine__;

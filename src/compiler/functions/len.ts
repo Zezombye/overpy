@@ -17,38 +17,38 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForNumber, getAstFor0, Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.len = function (content) {
+import { astParsingFunctions } from "../../utils/ast";
+
+astParsingFunctions.len = function (content, compiler) {
     if (content.args[0].name === "__enumType__") {
-        return getAstForNumber(content.args[0].args.length);
-    } else if (enableOptimization) {
+        return compiler.getAstForNumber(content.args[0].args.length);
+    } else if (compiler.enableOptimization) {
         if (content.args[0].name === "__array__") {
-            return getAstForNumber(content.args[0].args.length);
+            return compiler.getAstForNumber(content.args[0].args.length);
         }
         if (content.args[0].name === "__emptyArray__") {
-            return getAstFor0();
+            return compiler.getAstFor0();
         }
         //len(getPlayers(A)) -> getNumberOfPlayers(A)
         if (content.args[0].name === "getPlayers") {
-            return new Ast("getNumberOfPlayers", [content.args[0].args[0]]);
+            return compiler.Ast("getNumberOfPlayers", [content.args[0].args[0]]);
         }
         //len(getLivingPlayers(A)) -> getNumberOfLivingPlayers(A)
         if (content.args[0].name === "getLivingPlayers") {
-            return new Ast("getNumberOfLivingPlayers", [content.args[0].args[0]]);
+            return compiler.Ast("getNumberOfLivingPlayers", [content.args[0].args[0]]);
         }
         //len(getDeadPlayers(A)) -> getNumberOfDeadPlayers(A)
         if (content.args[0].name === "getDeadPlayers") {
-            return new Ast("getNumberOfDeadPlayers", [content.args[0].args[0]]);
+            return compiler.Ast("getNumberOfDeadPlayers", [content.args[0].args[0]]);
         }
         //len(getPlayersOnObjective(A)) -> getNumberOfPlayersOnObjective(A)
         if (content.args[0].name === "getPlayersOnObjective") {
-            return new Ast("getNumberOfPlayersOnObjective", [content.args[0].args[0]]);
+            return compiler.Ast("getNumberOfPlayersOnObjective", [content.args[0].args[0]]);
         }
         //len(getPlayersOnHero(A,B)) -> getNumberOfHeroes(A,B)
         if (content.args[0].name === "getPlayersOnHero") {
-            return new Ast("getNumberOfHeroes", [content.args[0].args[0], content.args[0].args[1]]);
+            return compiler.Ast("getNumberOfHeroes", [content.args[0].args[0], content.args[0].args[1]]);
         }
     }
 

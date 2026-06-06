@@ -17,18 +17,17 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, astParsingFunctions } from "../../utils/ast";
+import { areAstsAlwaysEqual, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__lessThan__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__lessThan__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their comparison.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForBool(content.args[0].args[0].numValue < content.args[1].args[0].numValue);
+            return compiler.getAstForBool(content.args[0].args[0].numValue < content.args[1].args[0].numValue);
         }
         //A < A -> false
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return getAstForFalse();
+            return compiler.getAstForFalse();
         }
     }
     return content;

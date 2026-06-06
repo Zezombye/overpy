@@ -18,20 +18,19 @@
 "use strict";
 
 import { constantValues } from "../../data/constants";
-import { activatedExtensions, enableOptimization, optimizeForSize } from "../../globalVars";
-import { astParsingFunctions, getAstForNull } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.createBeam = function (content) {
+
+astParsingFunctions.createBeam = function (content, compiler) {
     if (!(content.args[1].name in constantValues[content.args[1].type as string])) {
-        error("Unknown beam '" + content.args[1].name + "'", content.args[1].fileStack);
+        compiler.error("Unknown beam '" + content.args[1].name + "'", content.args[1].fileStack);
     }
-    if (constantValues[content.args[1].type as string][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type as string][content.args[1].name].extension ?? error("Check for workshop extension while creating beam failed"))) {
-        error("You must activate the extension '" + constantValues[content.args[1].type as string][content.args[1].name].extension + "' to use '" + content.args[1].type + "." + content.args[1].name + "'", content.args[1].fileStack);
+    if (constantValues[content.args[1].type as string][content.args[1].name].extension && !compiler.activatedExtensions.includes(constantValues[content.args[1].type as string][content.args[1].name].extension ?? compiler.error("Check for workshop extension while creating beam failed"))) {
+        compiler.error("You must activate the extension '" + constantValues[content.args[1].type as string][content.args[1].name].extension + "' to use '" + content.args[1].type + "." + content.args[1].name + "'", content.args[1].fileStack);
     }
-    if (enableOptimization && optimizeForSize) {
+    if (compiler.enableOptimization && compiler.optimizeForSize) {
         if (content.args[1].name === "GRAPPLE") {
-            content.args[4] = getAstForNull();
+            content.args[4] = compiler.getAstForNull();
         }
     }
 

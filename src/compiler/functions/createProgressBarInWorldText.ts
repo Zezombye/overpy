@@ -17,19 +17,17 @@
 
 "use strict";
 
-import { constantValues } from "../../data/constants";
-import { activatedExtensions, enableOptimization, optimizeForSize } from "../../globalVars";
-import { astParsingFunctions, getAstForNull, isDefinitelyFalsy } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { astParsingFunctions, isDefinitelyFalsy } from "../../utils/ast";
 
-astParsingFunctions.createProgressBarInWorldText = function (content) {
-    if (enableOptimization && optimizeForSize) {
+
+astParsingFunctions.createProgressBarInWorldText = function (content, compiler) {
+    if (compiler.enableOptimization && compiler.optimizeForSize) {
         //Set color to null if empty progress bar or empty text
         if (isDefinitelyFalsy(content.args[1])) {
-            content.args[6] = getAstForNull();
+            content.args[6] = compiler.getAstForNull();
         }
         if (isDefinitelyFalsy(content.args[2])) {
-            content.args[7] = getAstForNull();
+            content.args[7] = compiler.getAstForNull();
         }
     }
 

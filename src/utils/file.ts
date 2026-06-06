@@ -17,25 +17,24 @@
 
 "use strict";
 
-import { importedFiles } from "../globalVars";
-import { debug, error, warn } from "./logging";
-import { unescapeString } from "./strings";
+import {OverPyCompiler} from "../godClasses";
+import { debug } from "./logging";
 
-export function getFilenameFromPath(filename: string) {
+OverPyCompiler.prototype.getFilenameFromPath = function(filename: string) {
     try {
         var path = require("path");
     } catch (e) {
-        error("Cannot import files in browsers (path not found)");
+        this.error("Cannot import files in browsers (path not found)");
     }
     return path.parse(filename).base;
 }
 
-export function getFilePaths(pathStr: string, basePath: string): string[] {
+OverPyCompiler.prototype.getFilePaths = function(pathStr: string, basePath: string): string[] {
     try {
         var fs = require("fs");
         var path = require("path");
     } catch (e) {
-        error("Cannot import files in browsers (fs not found)");
+        this.error("Cannot import files in browsers (fs not found)");
     }
     //console.log("basePath = " + basePath);
     if (!basePath.endsWith("/")) {
@@ -43,7 +42,7 @@ export function getFilePaths(pathStr: string, basePath: string): string[] {
     }
     pathStr = pathStr.trim();
     debug("path str = " + pathStr);
-    pathStr = unescapeString(pathStr, false);
+    pathStr = this.unescapeString(pathStr, false);
 
     //convert backslashes to normal slashes
     pathStr = pathStr.replace(/\\/g, "/");
@@ -60,7 +59,7 @@ export function getFilePaths(pathStr: string, basePath: string): string[] {
         matchingFiles = (fs.readdirSync(pathStr) as string[]).map((f) => pathStr + f);
         matchingFiles = matchingFiles.filter((f) => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
         if (matchingFiles.length === 0) {
-            error("The directory '" + pathStr + "' does not have any .opy files.");
+            this.error("The directory '" + pathStr + "' does not have any .opy files.");
         }
     } else {
         matchingFiles = [pathStr];
@@ -69,21 +68,21 @@ export function getFilePaths(pathStr: string, basePath: string): string[] {
     return matchingFiles;
 }
 
-export function getFileContent(path: string): string {
+OverPyCompiler.prototype.getFileContent = function(path: string): string {
     try {
         var fs = require("fs");
     } catch (e) {
-        error("Cannot import files in browsers (fs not found)");
+        this.error("Cannot import files in browsers (fs not found)");
     }
-    if (path.endsWith(".opy") && importedFiles.includes(path)) {
-        warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
+    if (path.endsWith(".opy") && this.importedFiles.includes(path)) {
+        this.warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
         return "";
     }
     try {
-        importedFiles.push(path);
+        this.importedFiles.push(path);
         return fs.readFileSync(path) + "\n";
     } catch (e) {
         // @ts-ignore
-        error(e);
+        throw this.error(e);
     }
 }

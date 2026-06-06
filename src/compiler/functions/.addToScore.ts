@@ -17,13 +17,12 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".addToScore"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".addToScore"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
-            return getAstForUselessInstruction();
+            return compiler.getAstForUselessInstruction();
         }
     }
 

@@ -17,16 +17,15 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber } from "../../utils/ast";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".substring"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".substring"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__customString__" && content.args[0].args.length === 1 && content.args[1].name === "__number__" && content.args[2].name === "__number__") {
             const str = content.args[0].args[0].name;
             const start = Math.max(0, content.args[1].args[0].numValue);
             const length = Math.max(0, content.args[2].args[0].numValue);
-            return getAstForCustomString(str.substring(start, start + length));
+            return compiler.getAstForCustomString(str.substring(start, start + length));
         }
     }
 

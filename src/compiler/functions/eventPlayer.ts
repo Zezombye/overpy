@@ -17,14 +17,13 @@
 
 "use strict";
 
-import { currentRuleEvent, subroutines } from "../../globalVars";
 import {Subroutine} from "../../types";
 import { astParsingFunctions } from "../../utils/ast";
-import { error, warn } from "../../utils/logging";
+
 import {getRuleEventCategories} from "../../utils/other";
 
 //Generic function for all the event-related values
-astParsingFunctions.eventPlayer = function (content) {
+astParsingFunctions.eventPlayer = function (content, compiler) {
 
     let categories = {
         eventPlayer: ["player"],
@@ -44,9 +43,9 @@ astParsingFunctions.eventPlayer = function (content) {
         eventDirection: ["damageOrHealing"],
     }[content.name];
 
-    let ruleEventCategories: string[] | undefined = getRuleEventCategories(currentRuleEvent);
+    let ruleEventCategories: string[] | undefined = getRuleEventCategories(compiler.currentRuleEvent);
 
-    if (currentRuleEvent === "__subroutine__") {
+    if (compiler.currentRuleEvent === "__subroutine__") {
         let parent = content.parent;
         while (parent?.parent) {
             parent = parent.parent;
@@ -54,7 +53,7 @@ astParsingFunctions.eventPlayer = function (content) {
     
         if (parent?.name === "__rule__") {
             if (parent.ruleAttributes?.subroutineName) {
-                let subroutine: Subroutine = subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
+                let subroutine: Subroutine = compiler.subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
                 if (categories?.includes("player")) {
                     subroutine.hasEventPlayerVars = true;
                 }
@@ -72,9 +71,9 @@ astParsingFunctions.eventPlayer = function (content) {
     } else {
         if (ruleEventCategories && categories && !categories.some(c => ruleEventCategories.includes(c))) {
             if (["eventPlayer", "attacker", "victim", "healer", "healee"].includes(content.name)) {
-                error("Cannot use '"+content.name+"' with rule event '"+currentRuleEvent+"'");
+                compiler.error("Cannot use '"+content.name+"' with rule event '"+compiler.currentRuleEvent+"'");
             } else {
-                warn("w_mismatched_event", "Cannot use '"+content.name+"' with rule event '"+currentRuleEvent+"'");
+                compiler.warn("w_mismatched_event", "Cannot use '"+content.name+"' with rule event '"+compiler.currentRuleEvent+"'");
             }
         }
     }

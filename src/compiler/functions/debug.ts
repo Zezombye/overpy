@@ -17,48 +17,43 @@
 
 "use strict";
 
-import { astToOpy } from "../../decompiler/astToOpy";
-import { enableTagsSetup } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
-import { escapeString } from "../../utils/strings";
-import { isTypeSuitable } from "../../utils/types";
-import { getStrVisualLength } from "./strVisualLength";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.debug = function (content) {
+import { escapeString } from "../../utils/strings";
+
+astParsingFunctions.debug = function (content, compiler) {
     let contentStr = content.tokenArgsStr;
     if (!contentStr) {
-        error("Could not get token content of debug function");
+        throw compiler.error("Could not get token content of debug function");
     }
 
     //Prevent formatters in the source code from being taken as actual formatters
     contentStr = contentStr.replaceAll("{", "\u{E007B}");
     contentStr = contentStr.replaceAll("}", "\u{E007D}");
 
-    if (!contentStr.startsWith("arrayToString(") && isTypeSuitable("Array", content.args[0].type)) {
+    if (!contentStr.startsWith("arrayToString(") && compiler.isTypeSuitable("Array", content.args[0].type)) {
         //Automatically display arrays. Keep the max length low to not take too many elements
-        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(6)]));
+        content.args[0] = astParsingFunctions.arrayToString(compiler.Ast("arrayToString", [content.args[0], compiler.getAstForNumber(6)]), compiler);
     }
 
     let contentStrTrimmed = "";
     for (let char of contentStr) {
-        if (getStrVisualLength(contentStrTrimmed + char) <= 20000) {
+        if (compiler.getStrVisualLength(contentStrTrimmed + char) <= 20000) {
             contentStrTrimmed += char;
         } else {
             break;
         }
     }
     if (contentStrTrimmed.length < contentStr.length) {
-        contentStrTrimmed += (enableTagsSetup ? "</FG>" : "") + "…";
+        contentStrTrimmed += (compiler.enableTagsSetup ? "</FG>" : "") + "…";
     }
     contentStr = contentStrTrimmed;
-    if (enableTagsSetup) {
+    if (compiler.enableTagsSetup) {
         contentStr = "<FGD0FF00FF>" + contentStr + "\u2028<FG99F3FFFF>= <FGFFFF00FF>{}" + " ".repeat(170);
     } else {
         contentStr = contentStr + "\u2028= {}" + " ".repeat(170);
     }
 
     //console.log(contentStr);
-    return parseOpyMacro("hudSubheader(getAllPlayers(), c"+escapeString(contentStr, false)+".format($debugContent), HudPosition.LEFT, -9999, Color.WHITE)", ["$debugContent"], [content.args[0]]);
+    return compiler.parseOpyMacro("hudSubheader(getAllPlayers(), c"+escapeString(contentStr, false)+".format($debugContent), HudPosition.LEFT, -9999, Color.WHITE)", ["$debugContent"], [content.args[0]]);
 };

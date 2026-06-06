@@ -17,36 +17,34 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { isDefinitelyFalsy, getAstForUselessInstruction, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__doWhile__ = function (content) {
+astParsingFunctions.__doWhile__ = function (content, compiler) {
     if (content.parent === undefined) {
-        error("Cannot use 'do while' without a parent context.");
+        throw compiler.error("Cannot use 'do while' without a parent context.");
     }
 
     if (content.parent?.name !== "__rule__" && content.parent?.name !== "__def__" && content.parent?.name !== "__doWhile__") {
-        error("Do/While loops can only be at the beginning of a rule: parent is '" + content.parent.name + "' and childIndex is " + content.parent.childIndex);
+        compiler.error("Do/While loops can only be at the beginning of a rule: parent is '" + content.parent.name + "' and childIndex is " + content.parent.childIndex);
     }
 
     for (var i = 0; i < content.parent.childIndex; i++) {
         if (content.parent.children[i].name !== "pass") {
-            error("Do/While loops can only be at the beginning of a rule: parent is '" + content.parent.name + "' and childIndex is " + content.parent.childIndex);
+            compiler.error("Do/While loops can only be at the beginning of a rule: parent is '" + content.parent.name + "' and childIndex is " + content.parent.childIndex);
         }
     }
 
     var loopFunc = null;
-    if (enableOptimization && isDefinitelyFalsy(content.args[0])) {
-        loopFunc = getAstForUselessInstruction();
-    } else if (enableOptimization && isDefinitelyTruthy(content.args[0])) {
-        loopFunc = new Ast("loop");
+    if (compiler.enableOptimization && isDefinitelyFalsy(content.args[0])) {
+        loopFunc = compiler.getAstForUselessInstruction();
+    } else if (compiler.enableOptimization && isDefinitelyTruthy(content.args[0])) {
+        loopFunc = compiler.Ast("loop");
     } else if (content.args[0].name === "ruleCondition") {
-        loopFunc = new Ast("__loopIfConditionIsTrue__");
+        loopFunc = compiler.Ast("__loopIfConditionIsTrue__");
     } else if (content.args[0].name === "__not__" && content.args[0].args[0].name === "ruleCondition") {
-        loopFunc = new Ast("__loopIfConditionIsFalse__");
+        loopFunc = compiler.Ast("__loopIfConditionIsFalse__");
     } else {
-        loopFunc = new Ast("__loopIf__", content.args);
+        loopFunc = compiler.Ast("__loopIf__", content.args);
     }
     loopFunc.originalName = "__doWhile__";
     loopFunc.comment = content.comment;
@@ -57,5 +55,5 @@ astParsingFunctions.__doWhile__ = function (content) {
     }
     content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, loopFunc);
 
-    return getAstForUselessInstruction();
+    return compiler.getAstForUselessInstruction();
 };

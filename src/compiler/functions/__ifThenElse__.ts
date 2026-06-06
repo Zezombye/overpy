@@ -17,11 +17,10 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
 import { isDefinitelyTruthy, isDefinitelyFalsy, areAstsAlwaysEqual, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__ifThenElse__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__ifThenElse__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //ifThenElse(true, A, B) -> A
         if (isDefinitelyTruthy(content.args[0])) {
             return content.args[1];

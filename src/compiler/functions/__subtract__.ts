@@ -17,25 +17,23 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, Ast, astParsingFunctions, numValue } from "../../utils/ast";
-import { warn, getTypeCheckFailedMessage } from "../../utils/logging";
-import { isTypeSuitable } from "../../utils/types";
+import { NUMBER_LIMIT } from "../../globalVars";
+import { areAstsAlwaysEqual, astParsingFunctions, numValue } from "../../utils/ast";
 
-astParsingFunctions.__subtract__ = function (content) {
+astParsingFunctions.__subtract__ = function (content, compiler) {
     //Check if we are subtracting both numbers, or both vectors.
     //If not, throw a type warning.
-    if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
-        warn("w_type_check", getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
+    if (!compiler.isTypeSuitable(content.args[0].type, content.args[1].type) && !compiler.isTypeSuitable(content.args[1].type, content.args[0].type)) {
+        compiler.warn("w_type_check", compiler.getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
         //return content;
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their subtraction.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             let result = content.args[0].args[0].numValue - content.args[1].args[0].numValue;
             if (Math.abs(result) < NUMBER_LIMIT) {
-                return getAstForNumber(result);
+                return compiler.getAstForNumber(result);
             }
         }
 
@@ -52,12 +50,12 @@ astParsingFunctions.__subtract__ = function (content) {
         //A-A -> A*0
         //We cannot convert that to 0 because it can be a vector
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return new Ast("__multiply__", [content.args[0], getAstFor0()]);
+            return compiler.Ast("__multiply__", [content.args[0], compiler.getAstFor0()]);
         }
 
         //Check if both arguments are vectors containing numbers.
         if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue), compiler.getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue)]);
         }
     }
 

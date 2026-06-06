@@ -17,17 +17,16 @@
 
 "use strict";
 
-import { enableOptimization, optimizeStrict } from "../../globalVars";
-import { isDefinitelyFalsy, isDefinitelyTruthy, areAstsAlwaysEqual, getAstForFalse, astParsingFunctions, Ast } from "../../utils/ast";
+import { isDefinitelyFalsy, isDefinitelyTruthy, areAstsAlwaysEqual, astParsingFunctions, Ast } from "../../utils/ast";
 
-astParsingFunctions.__and__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__and__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //falsy and A -> falsy
         if (isDefinitelyFalsy(content.args[0])) {
             return content.args[0];
         }
         //A and falsy -> falsy (only if non-strict optimization, as A could be falsy too, in which case A must be returned)
-        if (!optimizeStrict && isDefinitelyFalsy(content.args[1])) {
+        if (!compiler.optimizeStrict && isDefinitelyFalsy(content.args[1])) {
             return content.args[1];
         }
         //truthy and A -> A
@@ -35,7 +34,7 @@ astParsingFunctions.__and__ = function (content) {
             return content.args[1];
         }
         //A and truthy -> A (only if non-strict optimization, as A could be truthy too, in which case the second argument must be returned)
-        if (!optimizeStrict && isDefinitelyTruthy(content.args[1])) {
+        if (!compiler.optimizeStrict && isDefinitelyTruthy(content.args[1])) {
             return content.args[0];
         }
         //A and A -> A
@@ -43,16 +42,16 @@ astParsingFunctions.__and__ = function (content) {
             return content.args[0];
         }
         //A and not A -> false
-        if (!optimizeStrict && content.args[1].name === "__not__" && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
-            return getAstForFalse();
+        if (!compiler.optimizeStrict && content.args[1].name === "__not__" && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
+            return compiler.getAstForFalse();
         }
         //(not A) and A -> false
-        if (!optimizeStrict && content.args[0].name === "__not__" && areAstsAlwaysEqual(content.args[0].args[0], content.args[1])) {
-            return getAstForFalse();
+        if (!compiler.optimizeStrict && content.args[0].name === "__not__" && areAstsAlwaysEqual(content.args[0].args[0], content.args[1])) {
+            return compiler.getAstForFalse();
         }
         //not A and not B -> not (A or B)
         if (content.args[0].name === "__not__" && content.args[1].name === "__not__") {
-            return new Ast("__not__", [new Ast("__or__", [content.args[0].args[0], content.args[1].args[0]])]);
+            return compiler.Ast("__not__", [compiler.Ast("__or__", [content.args[0].args[0], content.args[1].args[0]])]);
         }
     }
     return content;

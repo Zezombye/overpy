@@ -17,19 +17,19 @@
 
 "use strict";
 
-import { error } from "../../utils/logging";
+
 import { blizzGlobalDefaultWidth, blizzGlobalWidths, spaces } from "../../data/opy/blizzardGlobal";
-import { astParsingFunctions, getAstForCustomString } from "../../utils/ast";
+import { astParsingFunctions } from "../../utils/ast";
 import { getBestSpaces } from "./createCasedProgressBarIwt";
 
-astParsingFunctions.spacesForLength = function (content) {
+astParsingFunctions.spacesForLength = function (content, compiler) {
     console.log(content);
     if (content.args[0].name !== "__number__") {
-        error("Length must be a literal number", content.args[0].fileStack);
+        compiler.error("Length must be a literal number", content.args[0].fileStack);
     }
     let length = content.args[0].args[0].numValue;
 
-    return getAstForCustomString(
+    return compiler.getAstForCustomString(
         getBestSpaces(Object.keys(spaces).map(Number), length)
             .map((j) => spaces[j])
             .join(""),

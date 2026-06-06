@@ -17,11 +17,10 @@
 
 "use strict";
 
-import { fileStack, enableOptimization, setFileStack } from "../../globalVars";
-import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions, getAstForTrue } from "../../utils/ast";
-import { astToString, debug, error } from "../../utils/logging";
+import { isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
+import { debug } from "../../utils/logging";
 
-astParsingFunctions.__rule__ = function (content) {
+astParsingFunctions.__rule__ = function (content, compiler) {
     //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
     var isRelativeGotoEncountered = false;
     //Some control flow optimizations with if/elif/else cannot be made safely at all if any goto is encountered, unless it is confirmed to be in the same scope.
@@ -34,7 +33,7 @@ astParsingFunctions.__rule__ = function (content) {
         //Remove useless instructions and optimize if/elif/else structure.
 
         for (let i = 0; i < children.length; i++) {
-            setFileStack(content.fileStack);
+            compiler.fileStack = content.fileStack;
 
             //Check for a dynamic goto.
             if (((children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__") || (children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__")) && !children[i].isGotoInSameScope) {
@@ -47,7 +46,7 @@ astParsingFunctions.__rule__ = function (content) {
             //Check that the label isn't already declared.
             if (content.type === "Label") {
                 if (declaredLabels.includes(content.name)) {
-                    error("Label '" + content.name + "' is already declared in this rule");
+                    compiler.error("Label '" + content.name + "' is already declared in this rule");
                 }
                 declaredLabels.push(content.name);
             }
@@ -90,7 +89,7 @@ astParsingFunctions.__rule__ = function (content) {
                         } else if (children[i+1].name === "__else__") {
                             //Remove the current if and replace else by if true (easier then to optimize for further else/elifs)
                             children[i+1].name = "__if__";
-                            children[i+1].args = [getAstForTrue()];
+                            children[i+1].args = [compiler.getAstForTrue()];
                             children.splice(i, 1);
                             i--;
                             continue;
@@ -159,11 +158,11 @@ astParsingFunctions.__rule__ = function (content) {
                     "break",
                     "continue",
                     "__disableOptimizations__",
-                    "__disableOptimizeForSize__",
-                    "__disableOptimizeStrict__",
-                    "__enableOptimizations__",
-                    "__enableOptimizeForSize__",
-                    "__enableOptimizeStrict__",
+                    "__disablecompiler.optimizeForSize__",
+                    "__disablecompiler.optimizeStrict__",
+                    "__compiler.enableOptimizations__",
+                    "__enablecompiler.optimizeForSize__",
+                    "__enablecompiler.optimizeStrict__",
                     "__else__",
                     "__elif__",
                     "__end__",
@@ -196,17 +195,17 @@ astParsingFunctions.__rule__ = function (content) {
     }
 
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         iterateOnRuleActions(content.children);
     }
 
-    if (enableOptimization && !checkForMeaningfulInstructions(content.children) && !content.ruleAttributes.isDelimiter) {
-        return getAstForUselessInstruction();
+    if (compiler.enableOptimization && !checkForMeaningfulInstructions(content.children) && !content.ruleAttributes.isDelimiter) {
+        return compiler.getAstForUselessInstruction();
     }
 
     //Now that we have removed all useless instructions, compute each __distanceTo__ function.
     function resolveDistanceTo(content: Ast) {
-        setFileStack(content.fileStack);
+        compiler.fileStack = content.fileStack;
 
         for (var i = 0; i < content.args.length; i++) {
             content.args[i] = resolveDistanceTo(content.args[i]);
@@ -227,7 +226,7 @@ astParsingFunctions.__rule__ = function (content) {
                         foundLabel = true;
                     }
                     computeDistanceTo(content.children[i]);
-                    if (content.children[i].type !== "Label" && !["__enableOptimizations__", "__disableOptimizations__", "__enableOptimizeForSize__", "__disableOptimizeForSize__", "__enableOptimizeStrict__", "__disableOptimizeStrict__", "__rulePrefix__", "__pushRulePrefixStack__", "__popRulePrefixStack__"].includes(content.children[i].name)) {
+                    if (content.children[i].type !== "Label" && !["__compiler.enableOptimizations__", "__disableOptimizations__", "__enablecompiler.optimizeForSize__", "__disablecompiler.optimizeForSize__", "__enablecompiler.optimizeStrict__", "__disablecompiler.optimizeStrict__", "__rulePrefix__", "__pushRulePrefixStack__", "__popRulePrefixStack__"].includes(content.children[i].name)) {
                         debug("Increasing distanceTo count for label " + label + ": function '" + content.children[i].name + "'");
                         count++;
                     }
@@ -244,26 +243,26 @@ astParsingFunctions.__rule__ = function (content) {
                 if (root.type === "void") {
                     count--;
                 }
-                root = root.parent ?? error("Could not find root of tree while processing distance to label '" + label + "'");
+                root = root.parent ?? compiler.error("Could not find root of tree while processing distance to label '" + label + "'");
             }
             count++; //account for "__rule__"
             count--; //account for the action in which the __distanceTo__ is
 
             computeDistanceTo(root);
             if (!foundLabel) {
-                error("Could not find label '" + label + "'");
+                compiler.error("Could not find label '" + label + "'");
             }
 
             if (count < 0) {
-                error("Error while calculating distance to label '" + label + "': count is " + count);
+                compiler.error("Error while calculating distance to label '" + label + "': count is " + count);
             }
 
-            return getAstForNumber(count);
+            return compiler.getAstForNumber(count);
         } else {
             //optimize out skip(0)
-            if (enableOptimization) {
+            if (compiler.enableOptimization) {
                 if ((content.name === "__skip__" && content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.name === "__skipIf__" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
-                    return getAstForUselessInstruction();
+                    return compiler.getAstForUselessInstruction();
                 }
             }
             return content;
@@ -273,12 +272,12 @@ astParsingFunctions.__rule__ = function (content) {
     resolveDistanceTo(content);
 
     //Optimize rule conditions
-    if (enableOptimization && content.ruleAttributes.conditions) {
+    if (compiler.enableOptimization && content.ruleAttributes.conditions) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
                 debug("rule has false condition");
                 if (!content.ruleAttributes.isDelimiter) {
-                    return getAstForUselessInstruction();
+                    return compiler.getAstForUselessInstruction();
                 }
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);

@@ -17,21 +17,18 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astParsingFunctions, getAstForCustomString, getAstForNumber } from "../../utils/ast";
-
 //Do not implement this optimization, as it is commonly used to compress strings and save elements
-/*astParsingFunctions[".split"] = function (content) {
-    if (enableOptimization) {
+/*astParsingFunctions[".split"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__customString__" && !stringAstContainsFormatters(content.args[0]) && content.args[1].name === "__customString__" && !stringAstContainsFormatters(content.args[1])) {
             const str = content.args[0].args[0].name;
             const separator = content.args[1].args[0].name;
 
             if (separator === "") {
                 //Unlike most programming languages, the workshop will simply not split the string at all if the separator is empty
-                return new Ast("__array__", [content.args[0]]);
+                return compiler.Ast("__array__", [content.args[0]]);
             }
-            return new Ast("__array__", str.split(separator).map(part => getAstForCustomString(part)));
+            return compiler.Ast("__array__", str.split(separator).map(part => compiler.getAstForCustomString(part)));
 
         }
     }

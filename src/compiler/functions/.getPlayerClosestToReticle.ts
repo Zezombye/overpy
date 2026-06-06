@@ -18,9 +18,8 @@
 "use strict";
 
 import { astParsingFunctions } from "../../utils/ast";
-import { warn } from "../../utils/logging";
 
-astParsingFunctions[".getPlayerClosestToReticle"] = function (content) {
-    warn("w_player_closest_to_reticle", "The .getPlayerClosestToReticle() function targets dead and unspawned players (at 0,0,0). Use .getRealPlayerClosestToReticle() instead.");
+astParsingFunctions[".getPlayerClosestToReticle"] = function (content, compiler) {
+    compiler.warn("w_player_closest_to_reticle", "The .getPlayerClosestToReticle() function targets dead and unspawned players (at 0,0,0). Use .getRealPlayerClosestToReticle() instead.");
     return content;
 };

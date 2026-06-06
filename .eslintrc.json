@@ -14,7 +14,7 @@
                 "format": ["camelCase", "PascalCase"]
             }
         ],
-        "@typescript-eslint/semi": "warn",
+        "@typescript-eslint/semi": "off",
         "curly": ["warn", "multi-line"],
         "eqeqeq": ["warn", "always", { "null": "ignore" }],
         "no-throw-literal": "warn",

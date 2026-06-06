@@ -17,18 +17,17 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForEmptyArray, Ast, astParsingFunctions } from "../../utils/ast";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".slice"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".slice"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         var sliceStart = null;
         var sliceLength = null;
 
         if (content.args[2].name === "__number__") {
             sliceLength = Math.round(content.args[2].args[0].numValue);
             if (sliceLength <= 0) {
-                return getAstForEmptyArray();
+                return compiler.getAstForEmptyArray();
             }
         }
 
@@ -38,7 +37,7 @@ astParsingFunctions[".slice"] = function (content) {
                 sliceLength += sliceStart;
                 sliceStart = 0;
             }
-            return new Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart + sliceLength));
+            return compiler.Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart + sliceLength));
         }
     }
 

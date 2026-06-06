@@ -17,33 +17,30 @@
 
 "use strict";
 
-import { parse } from "../compiler/parser";
-import { astConstants, defaultSubroutineNames, defaultVarNames, globalInitDirectives, globalVariables, playerInitDirectives, playerVariables, reservedMemberNames, reservedNames, reservedSubroutineNames, subroutines } from "../globalVars";
+import { defaultSubroutineNames, defaultVarNames, reservedMemberNames, reservedNames, reservedSubroutineNames } from "../globalVars";
+import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
 import { Token } from "../compiler/tokenizer";
-import { Ast } from "./ast";
-import { error } from "./logging";
 import { FileStackMember } from "../types";
-import { checkVarNameForBadWords } from "./strings";
 
 /** Translates a subroutine name from Overwatch to its OverPy version */
-export function translateSubroutineToPy(content: string, fileStack: FileStackMember[]): string {
+OverPyDecompiler.prototype.translateSubroutineToPy = function(content: string, fileStack: FileStackMember[]): string {
     content = content.trim();
-    content = translateNameToAvoidKeywords(content, "subroutine");
+    content = this.translateNameToAvoidKeywords(content, "subroutine");
 
-    if (subroutines.map((x) => x.name).includes(content)) {
+    if (this.subroutines.map((x) => x.name).includes(content)) {
         return content;
     }
     if (defaultSubroutineNames.includes(content)) {
         //Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
-        addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
+        this.addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
         return content;
     }
-    error("Unknown subroutine '" + content + "'");
+    throw this.error("Unknown subroutine '" + content + "'");
 }
 
-export function translateSubroutineToWs(content: string, fileStack: FileStackMember[]): string {
-    for (var i = 0; i < subroutines.length; i++) {
-        if (subroutines[i].name === content) {
+OverPyCompiler.prototype.translateSubroutineToWs = function(content: string, fileStack: FileStackMember[]): string {
+    for (var i = 0; i < this.subroutines.length; i++) {
+        if (this.subroutines[i].name === content) {
             return content;
         }
     }
@@ -51,20 +48,22 @@ export function translateSubroutineToWs(content: string, fileStack: FileStackMem
     if (defaultSubroutineNames.includes(content)) {
         //Add the subroutine as it doesn't already exist (else it would've been caught by the for)
         //However, only do this if it is a default subroutine name
-        addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
+        this.addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
         return content;
     }
-    error("Undeclared subroutine '" + content + "'");
+    throw this.error("Undeclared subroutine '" + content + "'");
 }
 
-export function addSubroutine(content: string, index: number | null, fileStack: FileStackMember[], isFromDefStatement = false) {
+OverPyCompiler.prototype.addSubroutine = OverPyDecompiler.prototype.addSubroutine = function(content: string, index: number | null, fileStack: FileStackMember[], isFromDefStatement = false) {
     if (reservedSubroutineNames.includes(content)) {
-        error("Subroutine name '" + content + "' is a built-in function or keyword");
+        throw this.error("Subroutine name '" + content + "' is a built-in function or keyword");
     }
-    checkVarNameForBadWords(content);
-    subroutines.push({
+    if (this instanceof OverPyCompiler) {
+        this.checkVarNameForBadWords(content);
+    }
+    this.subroutines.push({
         name: content,
-        index: index ?? subroutines.length,
+        index: index ?? this.subroutines.length,
         fileStack: fileStack,
         isFromDefStatement: isFromDefStatement,
         callsSubroutines: [],
@@ -72,35 +71,35 @@ export function addSubroutine(content: string, index: number | null, fileStack: 
 }
 
 /** Transform an input name to a valid name which does not collide with other keywords. */
-export function translateNameToAvoidKeywords(initialName: string, nameType: string) {
+OverPyDecompiler.prototype.translateNameToAvoidKeywords = function(initialName: string, nameType: string) {
     //modify the name
     if (initialName.endsWith("_") || (nameType === "globalvar" && reservedNames.includes(initialName)) || (nameType === "playervar" && reservedMemberNames.includes(initialName)) || (nameType === "subroutine" && reservedSubroutineNames.includes(initialName))) {
         initialName += "_";
     }
     if (!/[A-Za-z_]\w*/.test(initialName)) {
-        error("Unauthorized name for " + nameType + ": '" + initialName + "'");
+        this.error("Unauthorized name for " + nameType + ": '" + initialName + "'");
     }
     return initialName;
 }
 
-export function translateVarToPy(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
+OverPyDecompiler.prototype.translateVarToPy = function(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
     content = content.trim();
-    content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
+    content = this.translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
 
-    var varArray = isGlobalVariable ? globalVariables : playerVariables;
+    var varArray = isGlobalVariable ? this.globalVariables : this.playerVariables;
     if (varArray.map((x) => x.name).includes(content)) {
         return content;
     } else if (defaultVarNames.includes(content)) {
         //Add the variable as it doesn't already exist (else it would've been caught by the first if)
-        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
+        this.addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
         return content;
     } else {
-        error("Unknown variable '" + content + "'");
+        throw this.error("Unknown variable '" + content + "'");
     }
 }
 
-export function translateVarToWs(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
-    var varArray = isGlobalVariable ? globalVariables : playerVariables;
+OverPyCompiler.prototype.translateVarToWs = function(content: string, isGlobalVariable: boolean, fileStack: FileStackMember[]) {
+    var varArray = isGlobalVariable ? this.globalVariables : this.playerVariables;
     for (var i = 0; i < varArray.length; i++) {
         if (varArray[i].name === content) {
             return content;
@@ -109,49 +108,51 @@ export function translateVarToWs(content: string, isGlobalVariable: boolean, fil
     if (defaultVarNames.includes(content)) {
         //Add the variable as it doesn't already exist (else it would've been caught by the for)
         //However, only do this if it is a default variable name
-        addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
+        this.addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
         return content;
     }
-    error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + content + "'");
+    throw this.error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + content + "'");
 }
 
 //Adds a variable to the global/player variable arrays.
-export function addVariable(content: string, isGlobalVariable: boolean, index: number, fileStack: FileStackMember[], initValue: Token[] | null = null) {
-    if ((isGlobalVariable ? "" : ".")+content in astConstants) {
-        error("Variable name '" + content + "' is already declared as a macro");
-    }
+OverPyCompiler.prototype.addVariable = OverPyDecompiler.prototype.addVariable = function(content: string, isGlobalVariable: boolean, index: number, fileStack: FileStackMember[], initValue: Token[] | null = null) {
     if ((isGlobalVariable && reservedNames.includes(content)) || (!isGlobalVariable && reservedMemberNames.includes(content))) {
-        error("Variable name '" + content + "' is a reserved word");
+        this.error("Variable name '" + content + "' is a reserved word");
     }
-    checkVarNameForBadWords(content);
+    if (this instanceof OverPyCompiler) {
+        if ((isGlobalVariable ? "" : ".")+content in this.astConstants) {
+            this.error("Variable name '" + content + "' is already declared as a macro");
+        }
+        this.checkVarNameForBadWords(content);
+    }
     if (initValue && initValue.length === 1 && ["null", "0"].includes(initValue[0].text)) {
         // Variables are initialized to null/0 by default
         initValue = null;
     }
     if (isGlobalVariable) {
-        globalVariables.push({
+        this.globalVariables.push({
             name: content,
             fileStack: fileStack,
             index: index,
         });
-        if (initValue) {
-            globalInitDirectives.push(new Ast("__assignTo__", [new Ast("__globalVar__", [new Ast(content, [], [], "GlobalVariable")]), parse(initValue)]));
+        if (this instanceof OverPyCompiler && initValue) {
+            this.globalInitDirectives.push(this.Ast("__assignTo__", [this.Ast("__globalVar__", [this.Ast(content, [], [], "GlobalVariable")]), this.parse(initValue)]));
         }
     } else {
-        playerVariables.push({
+        this.playerVariables.push({
             name: content,
             fileStack: fileStack,
             index: index,
         });
-        if (initValue) {
-            playerInitDirectives.push(new Ast("__assignTo__", [new Ast("__playerVar__", [new Ast("eventPlayer"), new Ast(content, [], [], "PlayerVariable")]), parse(initValue)]));
+        if (this instanceof OverPyCompiler && initValue) {
+            this.playerInitDirectives.push(this.Ast("__assignTo__", [this.Ast("__playerVar__", [this.Ast("eventPlayer"), this.Ast(content, [], [], "PlayerVariable")]), this.parse(initValue)]));
         }
     }
 }
 
 /** Checks if the given name is a variable name */
-export function isVarName(nameToCheck: string, checkForGlobalVar: boolean) {
-    var varArray = checkForGlobalVar ? globalVariables : playerVariables;
+OverPyCompiler.prototype.isVarName = OverPyDecompiler.prototype.isVarName = function(nameToCheck: string, checkForGlobalVar: boolean) {
+    var varArray = checkForGlobalVar ? this.globalVariables : this.playerVariables;
     if (defaultVarNames.includes(nameToCheck)) {
         return true;
     }
@@ -164,11 +165,11 @@ export function isVarName(nameToCheck: string, checkForGlobalVar: boolean) {
 }
 
 /* Checks if the given name is a subroutine name */
-export function isSubroutineName(nameToCheck: string) {
+OverPyCompiler.prototype.isSubroutineName = OverPyDecompiler.prototype.isSubroutineName = function(nameToCheck: string) {
     if (defaultSubroutineNames.includes(nameToCheck)) {
         return true;
     }
-    for (var subroutine of subroutines) {
+    for (var subroutine of this.subroutines) {
         if (subroutine.name === nameToCheck) {
             return true;
         }

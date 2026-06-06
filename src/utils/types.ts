@@ -17,13 +17,11 @@
 
 "use strict";
 
-import { parse } from "../compiler/parser";
 import { typeMatrix } from "../globalVars";
+import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
 import { Type } from "../types";
 import { Token } from "../compiler/tokenizer";
-import { Ast, getAstForNumber } from "./ast";
-import { error, warn } from "./logging";
-import { splitTokens } from "./tokens";
+import { Ast } from "./ast";
 
 /**
  *
@@ -40,17 +38,17 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 
 The special "Value" type is suitable for any child type of object or array.
 */
-export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable = true): boolean {
+OverPyCompiler.prototype.isTypeSuitable = OverPyDecompiler.prototype.isTypeSuitable = function(expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable = true): boolean {
     let receivedTypeName = typeof receivedType === "string" ? receivedType : Object.keys(receivedType)[0];
 
     if (receivedType instanceof Array) {
         //Check if each of the received type is valid for the expected type.
-        return receivedType.every((x) => isTypeSuitable(expectedType, x, valueTypeIsSuitable));
+        return receivedType.every((x) => this.isTypeSuitable(expectedType, x, valueTypeIsSuitable));
     }
 
     if (expectedType instanceof Array) {
         //Check if the received type is valid for any of the expected types.
-        return expectedType.some((x) => isTypeSuitable(x, receivedType, valueTypeIsSuitable));
+        return expectedType.some((x) => this.isTypeSuitable(x, receivedType, valueTypeIsSuitable));
     }
 
     if (typeof receivedType === "string") {
@@ -67,7 +65,7 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
             } else {
                 //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
                 if (!(expectedType in typeMatrix)) {
-                    error("Unhandled type '" + expectedType + "'");
+                    this.error("Unhandled type '" + expectedType + "'");
                 }
                 return typeMatrix[expectedType].includes(receivedType);
             }
@@ -77,7 +75,7 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
                 //The only string type that would be suitable for Array is the special "value" type.
                 return receivedType === "Value" && valueTypeIsSuitable;
             } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
-                return isTypeSuitable(expectedTypeName, receivedType);
+                return this.isTypeSuitable(expectedTypeName, receivedType);
             }
         }
     } else if (typeof receivedType === "object") {
@@ -88,7 +86,7 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
             } else if (typeof expectedType === "object") {
                 var expectedTypeName = Object.keys(expectedType)[0];
                 if (expectedTypeName === "Array") {
-                    return isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
+                    return this.isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
                 } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
                     //An array cannot be suitable for a vector
                     return false;
@@ -97,19 +95,19 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
         } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
             if (typeof expectedType === "string" && typeof receivedType[receivedTypeName] !== "string") {
                 //The default type for vectors is float.
-                return isTypeSuitable(expectedType, receivedTypeName) && (receivedType[receivedTypeName] as Type[]).every((x) => isTypeSuitable("float", x));
+                return this.isTypeSuitable(expectedType, receivedTypeName) && (receivedType[receivedTypeName] as Type[]).every((x) => this.isTypeSuitable("float", x));
             } else if (typeof expectedType === "object") {
                 var expectedTypeName = Object.keys(expectedType)[0];
                 if (expectedTypeName === "Array") {
                     //An vector cannot be suitable for a array
                     return false;
                 } else if (["Vector", "Direction", "Position", "Velocity"].includes(expectedTypeName)) {
-                    if (isTypeSuitable(expectedTypeName, receivedTypeName)) {
+                    if (this.isTypeSuitable(expectedTypeName, receivedTypeName)) {
                         if (expectedType[expectedTypeName].length !== receivedType[receivedTypeName].length) {
                             return false;
                         } else {
                             for (var i = 0; i < expectedType[expectedTypeName].length; i++) {
-                                if (!isTypeSuitable(expectedType[expectedTypeName][i], receivedType[receivedTypeName][i])) {
+                                if (!this.isTypeSuitable(expectedType[expectedTypeName][i], receivedType[receivedTypeName][i])) {
                                     return false;
                                 }
                             }
@@ -123,55 +121,55 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
         }
     }
 
-    error("Unhandled expected type '" + JSON.stringify(expectedType) + "' or received type '" + JSON.stringify(receivedTypeName) + "'");
+    throw this.error("Unhandled expected type '" + JSON.stringify(expectedType) + "' or received type '" + JSON.stringify(receivedTypeName) + "'");
 }
 
-export function parseType(tokens: Token[]): Ast {
+OverPyCompiler.prototype.parseType = function(tokens: Token[]): Ast {
     if (tokens.length === 0) {
-        error("Content is empty (expected a type)");
+        this.error("Content is empty (expected a type)");
     }
     if (!Object.keys(typeMatrix).includes(tokens[0].text)) {
         // This used to be an error, but considering the above condition was previously
         // bugged to never fire, and doing the correct checking actually results in
         // Workshop setting enums
-        warn("w_type_check", "Expected a type, but got '" + tokens[0].text + "'");
+        this.warn("w_type_check", "Expected a type, but got '" + tokens[0].text + "'");
     }
     if (tokens.length === 1) {
-        return new Ast(tokens[0].text, [], [], "Type");
+        return this.Ast(tokens[0].text, [], [], "Type");
     }
 
     if (tokens.length >= 3 && tokens[tokens.length - 2].text === "[" && tokens[tokens.length - 1].text === "]") {
-        return new Ast("Array", [parseType(tokens.slice(0, tokens.length - 2))], [], "Type");
+        return this.Ast("Array", [this.parseType(tokens.slice(0, tokens.length - 2))], [], "Type");
     }
 
     if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
         if (tokens[1].text !== "int" && tokens[1].text !== "float") {
-            error("Expected 'int' or 'float' after '" + tokens[0].text + "', but got '" + tokens[1].text + "'");
+            this.error("Expected 'int' or 'float' after '" + tokens[0].text + "', but got '" + tokens[1].text + "'");
         }
         if (tokens.length !== 2) {
-            error("Expected end of type after '" + tokens[0].text + " " + tokens[1].text + "', but got '" + tokens[2].text + "'");
+            this.error("Expected end of type after '" + tokens[0].text + " " + tokens[1].text + "', but got '" + tokens[2].text + "'");
         }
-        return new Ast(tokens[0].text + " " + tokens[1].text, [], [], "Type");
+        return this.Ast(tokens[0].text + " " + tokens[1].text, [], [], "Type");
     }
 
     if (tokens[1].text !== "<" && tokens[1].text !== "[") {
-        error("Expected '[' after '" + tokens[0].text + "', but got '" + tokens[1].text + "'");
+        this.error("Expected '[' after '" + tokens[0].text + "', but got '" + tokens[1].text + "'");
     }
     if (tokens[tokens.length - 1].text !== ">" && tokens[tokens.length - 1].text !== "]") {
-        error("Expected ']' at end of type, but got '" + tokens[tokens.length - 1].text + "'");
+        this.error("Expected ']' at end of type, but got '" + tokens[tokens.length - 1].text + "'");
     }
 
     if (tokens[0].text !== "int" && tokens[0].text !== "float" && tokens[0].text !== "enum") {
-        error("Expected 'int', 'float' or 'enum' before '[', but got '" + tokens[0].text + "'");
+        this.error("Expected 'int', 'float' or 'enum' before '[', but got '" + tokens[0].text + "'");
     }
 
     var typeParams = tokens.slice(2, tokens.length - 1);
 
     if (tokens[0].text === "int" || tokens[0].text === "float") {
         //There should be a ":" delimiter.
-        var tokenMinAndMax = splitTokens(typeParams, ":", true);
+        var tokenMinAndMax = this.splitTokens(typeParams, ":", true);
         if (tokenMinAndMax.length !== 2) {
-            error("Expected one ':' in parameters for '" + tokens[0].text + "'");
+            throw this.error("Expected one ':' in parameters for '" + tokens[0].text + "'");
         }
         var tokenMin = tokenMinAndMax[0];
         var tokenMax = tokenMinAndMax[1];
@@ -195,26 +193,26 @@ export function parseType(tokens: Token[]): Ast {
         }
 
         if (min > max) {
-            error("Minimum for type '" + tokens[0].text + "' (" + min + ") is higher than maximum (" + max + ")");
+            this.error("Minimum for type '" + tokens[0].text + "' (" + min + ") is higher than maximum (" + max + ")");
         }
 
-        return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
+        return this.Ast(tokens[0].text, [this.getAstForNumber(min), this.getAstForNumber(max)], [], "Type");
     } else if (tokens[0].text === "enum") {
-        var enumMembers = splitTokens(typeParams, ",", true);
+        var enumMembers = this.splitTokens(typeParams, ",", true);
 
         if (enumMembers[enumMembers.length - 1].length === 0) {
             enumMembers.pop();
         }
         if (enumMembers.length === 0) {
-            error("Cannot declare an enum without specifying values");
+            throw this.error("Cannot declare an enum without specifying values");
         }
-        return new Ast(
+        return this.Ast(
             "__enumType__",
-            enumMembers.map((x) => parse(x)),
+            enumMembers.map((x) => this.parse(x)),
             [],
             "Type",
         );
     }
 
-    error(`Failed to parse tokens ${JSON.stringify(tokens)} as type`);
+    throw this.error(`Failed to parse tokens ${JSON.stringify(tokens)} as type`);
 }

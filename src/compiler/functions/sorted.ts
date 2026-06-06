@@ -19,7 +19,7 @@
 
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.sorted = function (content) {
+astParsingFunctions.sorted = function (content, compiler) {
 
     //console.log(astToString(content));
 

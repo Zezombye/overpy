@@ -17,17 +17,14 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astIsLiteral, astParsingFunctions, getAstForFalse, getAstForMinus1, getAstForNumber, getAstForTrue, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { areAstsAlwaysEqual, astIsLiteral, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".index"] = function (content) {
+astParsingFunctions[".index"] = function (content, compiler) {
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__array__") {
             if (content.args[0].args.length === 0) {
-                return getAstForMinus1();
+                return compiler.getAstForMinus1();
             }
             let isSearchedValueLiteral = astIsLiteral(content.args[1]);
             let areAllArrayValuesLiteral = true;
@@ -40,7 +37,7 @@ astParsingFunctions[".index"] = function (content) {
                 if (areAstsAlwaysEqual(currentValue, content.args[1])) {
                     if (isSearchedValueLiteral && areAllArrayValuesLiteral) {
                         //We can return the index, as we know that no prior value matches (as all prior values are literals)
-                        return getAstForNumber(i);
+                        return compiler.getAstForNumber(i);
                     }
                     //We can break and slice the array up to this point, as the index cannot be greater than this
                     break;
@@ -49,7 +46,7 @@ astParsingFunctions[".index"] = function (content) {
             content.args[0].args = content.args[0].args.slice(0, i+1);
             if (isSearchedValueLiteral && areAllArrayValuesLiteral) {
                 //No value matches
-                return getAstForMinus1();
+                return compiler.getAstForMinus1();
             }
         }
 

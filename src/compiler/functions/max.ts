@@ -17,21 +17,21 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.max = function (content) {
-    if (enableOptimization) {
+import { Ast, astParsingFunctions } from "../../utils/ast";
+
+astParsingFunctions.max = function (content, compiler) {
+    if (compiler.enableOptimization) {
         let numbers = content.args.filter(arg => arg.name === "__number__").map(arg => arg.args[0].numValue);
         if (numbers.length === content.args.length) {
-            return getAstForNumber(Math.max(...numbers));
+            return compiler.getAstForNumber(Math.max(...numbers));
         }
         let maxNumber = Math.max(...numbers);
         content.args = content.args.filter(x => x.name !== "__number__" || x.args[0].numValue === maxNumber);
     }
 
     if (content.args.length > 2) {
-        return new Ast("max", [content.args[0], astParsingFunctions.max(new Ast("max", content.args.slice(1)))]);
+        return compiler.Ast("max", [content.args[0], astParsingFunctions.max(compiler.Ast("max", content.args.slice(1)), compiler)]);
     }
 
     return content;

@@ -6,7 +6,7 @@ import * as vscode from "vscode";
 // ! Yes, this sucks. Too bad!
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
-import { postInitialLoad, rootPath, overpyTemplate } from "./globalVars";
+import { postInitialLoad, overpyTemplate } from "./globalVars";
 import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionAstMacros, fillAutocompletionConstants, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
 import { Argument, CompilationDiagnostic, OWLanguage, ow_languages } from "./types.d";
 import { OpyError as OverpyError } from "./utils/logging";
@@ -62,6 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     vscode.commands.registerCommand("overpy.compile", async () => {
+        let rootPath = "";
         try {
             diagnostics.clear();
             let activeEditor = vscode.window.activeTextEditor;
@@ -71,7 +72,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
             let mainFilePath = activeEditor.document.fileName.replace(/\\/g, "/");
             let mainFileName = mainFilePath.split("/").pop();
-            let rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1);
+            rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1);
 
             const configuredLanguage = vscode.workspace.getConfiguration("overpy").workshopLanguage;
             if (Object.values(ow_languages).includes(configuredLanguage) === false) {
@@ -79,10 +80,11 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
             const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage, rootPath, mainFileName);
+            rootPath = compileResult.rootPath;
             for (let warning of compileResult.encounteredWarnings) {
                 vscode.window.showWarningMessage(`Warning: ${warning.message}`);
             }
-            applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings);
+            applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings, { rootPath });
 
             if (compileResult.writeToOutputFile) {
                 const outputPath = compileResult.rootPath + "/" + compileResult.mainFileName.replace(/\.opy$/, "") + ".ws.txt";
@@ -112,7 +114,7 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showErrorMessage("Error: " + e.message);
 
                 if (e instanceof OverpyError) {
-                    applyCompilationDiagnostics(diagnostics, [e]);
+                    applyCompilationDiagnostics(diagnostics, [e], { rootPath });
                 }
             } else {
                 console.error(e);
@@ -283,7 +285,7 @@ export function showOverPyExtensionError(message: string): void {
     vscode.window.showErrorMessage(`Error: ${message}. Please ensure the code is copied directly from Overwatch. If so, send a message in #hll-scripting about this.`);
 }
 
-function applyCompilationDiagnostics(diagnostics: vscode.DiagnosticCollection, content: CompilationDiagnostic[]) {
+function applyCompilationDiagnostics(diagnostics: vscode.DiagnosticCollection, content: CompilationDiagnostic[], {rootPath = ""}) {
     const apply = new Map<string, vscode.Diagnostic[]>;
 
     // Collect all diagnostics first.

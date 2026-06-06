@@ -17,13 +17,10 @@
 
 "use strict";
 
-import { enableOptimization, subroutines } from "../../globalVars";
 import {Subroutine} from "../../types";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { astToString, error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__callSubroutine__ = function (content) {
+astParsingFunctions.__callSubroutine__ = function (content, compiler) {
 
     let parent = content.parent;
     while (parent?.parent) {
@@ -32,7 +29,7 @@ astParsingFunctions.__callSubroutine__ = function (content) {
 
     if (parent?.name === "__rule__") {
         if (parent.ruleAttributes?.subroutineName) {
-            let subroutine: Subroutine = subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
+            let subroutine: Subroutine = compiler.subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
             if (!subroutine.callsSubroutines.includes(content.args[0].name)) {
                 subroutine.callsSubroutines.push(content.args[0].name);
             }

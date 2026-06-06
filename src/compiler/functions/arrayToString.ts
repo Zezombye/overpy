@@ -17,14 +17,13 @@
 
 "use strict";
 
-import { Ast, astContainsRandom, astParsingFunctions, getAstForCustomString, getAstForEmptyArray, getAstForNull, getAstForNumber } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
+
 import { escapeString } from "../../utils/strings";
 
-astParsingFunctions.arrayToString = function (content) {
+astParsingFunctions.arrayToString = function (content, compiler) {
     if (content.args[1].name !== "__number__") {
-        error("Max length of arrayToString must be a literal number", content.args[1].fileStack);
+        compiler.error("Max length of arrayToString must be a literal number", content.args[1].fileStack);
     }
 
     let maxLength = Math.min(1000, content.args[1].args[0].numValue);
@@ -80,5 +79,5 @@ astParsingFunctions.arrayToString = function (content) {
 
     //console.log(macro);
 
-    return parseOpyMacro(macro, ["$array"], content.args);
+    return compiler.parseOpyMacro(macro, ["$array"], content.args);
 };

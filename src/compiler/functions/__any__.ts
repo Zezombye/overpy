@@ -17,22 +17,21 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForTrue, getAstForFalse, getAstFor0, isDefinitelyTruthy, isDefinitelyFalsy, Ast, astContainsFunctions } from "../../utils/ast";
+import { astParsingFunctions, isDefinitelyTruthy, isDefinitelyFalsy, Ast } from "../../utils/ast";
 
-astParsingFunctions["__any__"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__any__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //[].any(...) -> false
         if (content.args[0].name === "__array__" && content.args[0].args.length === 0) {
-            return getAstForFalse();
+            return compiler.getAstForFalse();
         }
         //.any(falsy) -> false
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"]) && isDefinitelyFalsy(content.args[1])) {
-            return getAstForFalse();
+        if (!compiler.astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"]) && isDefinitelyFalsy(content.args[1])) {
+            return compiler.getAstForFalse();
         }
         //.any(truthy) -> len(array) > 0
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"]) && isDefinitelyTruthy(content.args[1])) {
-            return new Ast("__greaterThan__", [new Ast("len", [content.args[0]]), getAstFor0()]);
+        if (!compiler.astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"]) && isDefinitelyTruthy(content.args[1])) {
+            return compiler.Ast("__greaterThan__", [compiler.Ast("len", [content.args[0]]), compiler.getAstFor0()]);
         }
     }
     content.name = "__any__";

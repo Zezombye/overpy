@@ -17,46 +17,45 @@
 
 "use strict";
 
-import { enableOptimization, optimizeForSize } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces, getAstForNull, getAstForUselessInstruction } from "../../utils/ast";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.hudText = function (content) {
+astParsingFunctions.hudText = function (content, compiler) {
     if (content.args[4].name === "ACTUALLY_LEFT") {
         if (content.args[2].name !== "null") {
-            content.args[2] = getAstForCustomString("{}{}", [content.args[2], getAstForFucktonOfSpaces()]);
+            content.args[2] = compiler.getAstForCustomString("{}{}", [content.args[2], compiler.getAstForFucktonOfSpaces()]);
         } else if (content.args[3].name !== "null") {
-            content.args[3] = getAstForCustomString("{}{}", [content.args[3], getAstForFucktonOfSpaces()]);
+            content.args[3] = compiler.getAstForCustomString("{}{}", [content.args[3], compiler.getAstForFucktonOfSpaces()]);
         } else {
             //hud header only, so don't put spaces in the header
-            content.args[3] = getAstForFucktonOfSpaces();
+            content.args[3] = compiler.getAstForFucktonOfSpaces();
         }
         content.args[4].name = "LEFT";
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
 
         //Empty strings are equivalent to null
         for (let i = 1; i <= 3; i++) {
             if (content.args[i].name === "__customString__" && content.args[i].args[0].name === "") {
-                content.args[i] = getAstForNull();
+                content.args[i] = compiler.getAstForNull();
             }
         }
 
         if (content.args[1].name === "null" && content.args[2].name === "null" && content.args[3].name === "null") {
             //Hud texts with all null texts do nothing (not even empty space)
-            return getAstForUselessInstruction();
+            return compiler.getAstForUselessInstruction();
         }
 
-        if (optimizeForSize) {
+        if (compiler.optimizeForSize) {
             //Nullify the colors for null texts
             if (content.args[1].name === "null") {
-                content.args[6] = getAstForNull();
+                content.args[6] = compiler.getAstForNull();
             }
             if (content.args[2].name === "null") {
-                content.args[7] = getAstForNull();
+                content.args[7] = compiler.getAstForNull();
             }
             if (content.args[3].name === "null") {
-                content.args[8] = getAstForNull();
+                content.args[8] = compiler.getAstForNull();
             }
         }
     }

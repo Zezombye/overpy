@@ -17,24 +17,23 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, astParsingFunctions } from "../../utils/ast";
+import { areAstsAlwaysEqual,  astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__modulo__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__modulo__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their modulo.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(content.args[0].args[0].numValue % Math.abs(content.args[1].args[0].numValue));
+            return compiler.getAstForNumber(content.args[0].args[0].numValue % Math.abs(content.args[1].args[0].numValue));
         }
 
         //A%A -> 0
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return getAstFor0();
+            return compiler.getAstFor0();
         }
 
         //A%0 = 0%A = 0
         if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
-            return getAstFor0();
+            return compiler.getAstFor0();
         }
     }
 

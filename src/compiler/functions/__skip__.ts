@@ -17,12 +17,11 @@
 
 "use strict";
 
-import { currentRuleHasVariableGoto, setRuleHasVariableGoto } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__skip__ = function (content) {
+astParsingFunctions.__skip__ = function (content, compiler) {
     if (content.args[0].name !== "__distanceTo__") {
-        setRuleHasVariableGoto(true);
+        compiler.currentRuleHasVariableGoto = true;
     }
     return content;
 };

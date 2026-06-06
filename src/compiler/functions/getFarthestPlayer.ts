@@ -18,9 +18,9 @@
 "use strict";
 
 import { astParsingFunctions } from "../../utils/ast";
-import { warn } from "../../utils/logging";
 
-astParsingFunctions.getFarthestPlayer = function (content) {
-    warn("w_farthest_player", "The getFarthestPlayer() function targets dead and unspawned players (at 0,0,0). Use getRealFarthestPlayer() instead.");
+
+astParsingFunctions.getFarthestPlayer = function (content, compiler) {
+    compiler.warn("w_farthest_player", "The getFarthestPlayer() function targets dead and unspawned players (at 0,0,0). Use getRealFarthestPlayer() instead.");
     return content;
 };

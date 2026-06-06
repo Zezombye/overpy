@@ -17,56 +17,53 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForBool, areAstsAlwaysEqual, getAstForTrue, isDefinitelyFalsy, Ast, astParsingFunctions, astIsLiteral, getAstForFalse } from "../../utils/ast";
-import {parseOpyMacro} from "../../utils/compilation";
-import { isTypeSuitable } from "../../utils/types";
+import { areAstsAlwaysEqual, isDefinitelyFalsy, Ast, astParsingFunctions, astIsLiteral } from "../../utils/ast";
 
-astParsingFunctions.__equals__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__equals__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their comparison.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForBool(content.args[0].args[0].numValue === content.args[1].args[0].numValue);
+            return compiler.getAstForBool(content.args[0].args[0].numValue === content.args[1].args[0].numValue);
         }
 
         //A == A -> true
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return getAstForTrue();
+            return compiler.getAstForTrue();
         }
 
         //literal == literal -> false (we already checked if they are equal)
         if (astIsLiteral(content.args[0]) && astIsLiteral(content.args[1])) {
-            return getAstForFalse();
+            return compiler.getAstForFalse();
         }
 
         //A == falsy -> not A
         //Quick fix: only do that if A is bool, because of value restrictions
-        if (isDefinitelyFalsy(content.args[0]) && isTypeSuitable("bool", content.args[1].type, false)) {
-            return new Ast("__not__", [content.args[1]]);
+        if (isDefinitelyFalsy(content.args[0]) && compiler.isTypeSuitable("bool", content.args[1].type, false)) {
+            return compiler.Ast("__not__", [content.args[1]]);
         }
-        if (isDefinitelyFalsy(content.args[1]) && isTypeSuitable("bool", content.args[0].type, false)) {
-            return new Ast("__not__", [content.args[0]]);
+        if (isDefinitelyFalsy(content.args[1]) && compiler.isTypeSuitable("bool", content.args[0].type, false)) {
+            return compiler.Ast("__not__", [content.args[0]]);
         }
 
         //A == true -> A if A is bool
-        if (content.args[1].name === "true" && isTypeSuitable("bool", content.args[0].type, false)) {
+        if (content.args[1].name === "true" && compiler.isTypeSuitable("bool", content.args[0].type, false)) {
             return content.args[0];
         }
-        if (content.args[0].name === "true" && isTypeSuitable("bool", content.args[1].type, false)) {
+        if (content.args[0].name === "true" && compiler.isTypeSuitable("bool", content.args[1].type, false)) {
             return content.args[1];
         }
     }
 
     if (content.args[0].name === "getCurrentMap" && content.args[1].name === "__map__") {
         if (["COLOSSEO", "ESPERANCA", "SAMOA"].includes(content.args[1].args[0].name)) {
-            return parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[1].args[0].name})`, [], []);
+            return compiler.parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[1].args[0].name})`, [], []);
         } else {
             content.args[0].name = "__getCurrentMap__";
         }
     }
     if (content.args[1].name === "getCurrentMap" && content.args[0].name === "__map__") {
         if (["COLOSSEO", "ESPERANCA", "SAMOA"].includes(content.args[0].args[0].name)) {
-            return parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[0].args[0].name})`, [], []);
+            return compiler.parseOpyMacro(`"{}".format(__getCurrentMap__()) == "{}".format(Map.${content.args[0].args[0].name})`, [], []);
         } else {
             content.args[1].name = "__getCurrentMap__";
         }

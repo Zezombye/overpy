@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { currentRuleEvent } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
+
 
 astParsingFunctions.eventWasCriticalHit = astParsingFunctions.eventPlayer;

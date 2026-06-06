@@ -20,7 +20,7 @@
 import { astParsingFunctions } from "../../utils/ast";
 
 
-astParsingFunctions.__hero__ = function (content) {
+astParsingFunctions.__hero__ = function (content, compiler) {
     if (content.expectedType === "HeroLiteral" || content.parent?.name === "__createWorkshopSetting__" || content.parent?.name === "createWorkshopSettingHero") {
         return content.args[0];
     } else {

@@ -17,24 +17,22 @@
 
 "use strict";
 
-import { currentRuleHasVariableGoto, enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForEnd, getAstForUselessInstruction, isDefinitelyFalsy, makeChildrenUseless } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { astParsingFunctions, isDefinitelyFalsy } from "../../utils/ast";
 
-astParsingFunctions.__while__ = function (content) {
+astParsingFunctions.__while__ = function (content, compiler) {
     if (content.parent === undefined) {
-        error("__while__'s parent is undefined");
+        throw compiler.error("__while__'s parent is undefined");
     }
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //if false -> remove the instruction, but only if no variable goto
         //TODO: this will fail with non-variable gotos but I'm sick of handling shit code caused by gotos. If an issue is raised I'll add a `astContainsLabel` function
-        if (!currentRuleHasVariableGoto && isDefinitelyFalsy(content.args[0])) {
-            return getAstForUselessInstruction();
+        if (!compiler.currentRuleHasVariableGoto && isDefinitelyFalsy(content.args[0])) {
+            return compiler.getAstForUselessInstruction();
         }
     }
 
     //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
+    content.parent.children.splice(content.parent.childIndex + 1, 0, compiler.getAstForEnd());
 
     content.doNotReparse = true; //prevent calling this function again, else it would add multiple "end"s
 

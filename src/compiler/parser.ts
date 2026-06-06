@@ -18,23 +18,17 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, DEBUG_MODE, enableTagsSetup, usedMaps, allowMacroRedeclaration } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, fullwidthMappings, operatorPrecedence, funcKw, notConstantFunctions, reservedNames, reservedMemberNames, DEBUG_MODE } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
 import { BaseNormalFileStackMember, OWLanguage, StringToken } from "../types";
-import { Token, tokenize } from "./tokenizer";
-import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
-import { getFileContent, getFilePaths } from "file_utils";
-import { debug, error, functionNameToString, getFileStackRange, getInternalFileStack, warn } from "../utils/logging";
+import { Token } from "./tokenizer";
+import { Ast, areAstsAlwaysEqual, replaceFunctionInAst } from "../utils/ast";
+import { debug, functionNameToString, getInternalFileStack } from "../utils/logging";
 import { isNumber } from "../utils/other";
-import { escapeString, getUtf8Length, unescapeString } from "../utils/strings";
-import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
-import { parseType } from "../utils/types";
-import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../utils/varNames";
-import { compileCustomGameSettings } from "./compiler";
+import { escapeString, getUtf8Length } from "../utils/strings";
 import { LogicalLine } from "./tokenizer";
 import { opyTextures } from "../data/opy/textures";
-import { parseOpyMacro } from "../utils/compilation";
-import { getTranslatedString } from "./translations";
-import { parseAst } from "./astParser";
+import {dispTokens} from "../utils/tokens";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -63,7 +57,7 @@ export const builtInEnumNameToAstInfo: Record<string, {name: string, type: strin
     },
 };
 
-export function parseLines(lines: LogicalLine[]): Ast[] {
+OverPyCompiler.prototype.parseLines = function(lines: LogicalLine[]): Ast[] {
     var result: Ast[] = [];
     let currentComments: string[] = [];
 
@@ -71,9 +65,9 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
         let currentLine = lines[i];
 
         if (currentLine.tokens.length === 0) {
-            error("Received an empty line");
+            this.error("Received an empty line");
         }
-        setFileStack(getFileStackRange(currentLine.tokens));
+        this.fileStack = this.getFileStackRange(currentLine.tokens);
 
         if (currentLine.tokens[0].text.startsWith("#")) {
             currentComments.push(currentLine.tokens[0].text.substring(1));
@@ -99,22 +93,22 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             }
 
             if (currentLine.tokens.length < 2 || currentLine.tokens.length > 3) {
-                error("Malformed " + currentLine.tokens[0].text + " declaration");
+                this.error("Malformed " + currentLine.tokens[0].text + " declaration");
             }
             if (currentLine.indentLevel !== 0) {
-                error(currentLine.tokens[0].text + " directive cannot be indented");
+                this.error(currentLine.tokens[0].text + " directive cannot be indented");
             }
             var index: number = currentLine.tokens.length > 2 ? Number.parseInt(currentLine.tokens[2].text) : -1;
             if (Number.isNaN(index)) {
-                error("Invalid index for " + currentLine.tokens[0].text + " directive:" + currentLine.tokens[2].text);
+                this.error("Invalid index for " + currentLine.tokens[0].text + " directive:" + currentLine.tokens[2].text);
             }
 
             if (currentLine.tokens[0].text === "globalvar") {
-                addVariable(currentLine.tokens[1].text, true, index, getFileStackRange(currentLine.tokens), initDirective);
+                this.addVariable(currentLine.tokens[1].text, true, index, this.getFileStackRange(currentLine.tokens), initDirective);
             } else if (currentLine.tokens[0].text === "playervar") {
-                addVariable(currentLine.tokens[1].text, false, index, getFileStackRange(currentLine.tokens), initDirective);
+                this.addVariable(currentLine.tokens[1].text, false, index, this.getFileStackRange(currentLine.tokens), initDirective);
             } else {
-                addSubroutine(currentLine.tokens[1].text, index, getFileStackRange(currentLine.tokens), false);
+                this.addSubroutine(currentLine.tokens[1].text, index, this.getFileStackRange(currentLine.tokens), false);
             }
             currentComments = [];
             continue;
@@ -123,10 +117,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
         //Handle macro constants
         if (currentLine.tokens[0].text === "macro" && currentLine.tokens.length >= 4 && currentLine.tokens[currentLine.tokens.length - 1].text !== ":") {
             if (currentLine.indentLevel !== 0) {
-                error("Macro directive cannot be indented");
+                this.error("Macro directive cannot be indented");
             }
             if (currentLine.tokens.length < 4) {
-                error("Malformed macro declaration");
+                this.error("Malformed macro declaration");
             }
             let name = currentLine.tokens[1].text;
             let class_;
@@ -134,27 +128,27 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 class_ = name;
                 name = "."+currentLine.tokens[3].text;
                 if (currentLine.tokens.length < 6) {
-                    error("Malformed macro declaration");
+                    this.error("Malformed macro declaration");
                 }
             }
             if (currentLine.tokens[class_ ? 4 : 2].text !== "=") {
-                error("Malformed macro declaration");
+                this.error("Malformed macro declaration");
             }
             if (class_) {
-                astMacroLocalVariables.push("self");
+                this.astMacroLocalVariables.push("self");
             }
-            let value = parse(currentLine.tokens.slice(class_ ? 5 : 3));
-            resetAstMacroLocalVariables();
+            let value = this.parse(currentLine.tokens.slice(class_ ? 5 : 3));
+            this.astMacroLocalVariables = [];
             if ((class_ ? reservedMemberNames : reservedNames).includes(name.replace(".", ""))) {
-                error("Macro name '" + name + "' is a reserved word", currentLine.tokens[1].fileStack);
+                this.error("Macro name '" + name + "' is a reserved word", currentLine.tokens[1].fileStack);
             }
-            if (name in astConstants) {
-                error("Macro '" + name + "' already exists", currentLine.tokens[1].fileStack);
+            if (name in this.astConstants) {
+                this.error("Macro '" + name + "' already exists", currentLine.tokens[1].fileStack);
             }
-            if (isVarName(name.replace(".", ""), (class_ ? false : true))) {
-                error("Macro '" + name + "' is already a " + (class_ ? "player" : "global")+" variable", currentLine.tokens[1].fileStack);
+            if (this.isVarName(name.replace(".", ""), (class_ ? false : true))) {
+                this.error("Macro '" + name + "' is already a " + (class_ ? "player" : "global")+" variable", currentLine.tokens[1].fileStack);
             }
-            astConstants[name] = {
+            this.astConstants[name] = {
                 name: name,
                 value: value,
                 class_: class_,
@@ -170,17 +164,17 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             try {
                 if (currentLine.tokens.length === 2) {
 
-                    let basePath = rootPath;
-                    for (let k = fileStack.length - 1; k >= 0; k--) {
-                        if (fileStack[k].path) {
-                            basePath = fileStack[k].path as string;
+                    let basePath = this.rootPath;
+                    for (let k = this.fileStack.length - 1; k >= 0; k--) {
+                        if (this.fileStack[k].path) {
+                            basePath = this.fileStack[k].path as string;
                             break;
                         }
                     }
-                    var path = getFilePaths(currentLine.tokens[1].text, basePath)[0];
-                    let customGameSettingsLines = tokenize(getFileContent(path));
+                    var path = this.getFilePaths(currentLine.tokens[1].text, basePath)[0];
+                    let customGameSettingsLines = this.tokenize(this.getFileContent(path));
                     if (customGameSettingsLines.length !== 1) {
-                        error("Could not parse custom game settings (got " + customGameSettingsLines.length + " logical lines, expected 1)");
+                        this.error("Could not parse custom game settings (got " + customGameSettingsLines.length + " logical lines, expected 1)");
                     }
                     customGameSettings = customGameSettingsLines[0].tokens;
                 } else {
@@ -188,14 +182,14 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
             } catch (e) {
                 // @ts-ignore
-                error(e);
+                throw this.error(e);
             }
 
-            let customGameSettingsAst = parseAst(new Ast("__settings__", [parse(customGameSettings)]));
+            let customGameSettingsAst = this.parseAst(this.Ast("__settings__", [this.parse(customGameSettings)]));
             if (DEBUG_MODE) {
                 console.log("Settings AST: ", customGameSettingsAst);
             }
-            compileCustomGameSettings(customGameSettingsAstToObject(customGameSettingsAst));
+            this.compileCustomGameSettings(this.customGameSettingsAstToObject(customGameSettingsAst));
             currentComments = [];
             continue;
         }
@@ -203,11 +197,11 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
         // Handle directives
         if (currentLine.tokens[0].text.startsWith("@")) {
             if (["@Condition", "@Name", "@NewPage"].includes(currentLine.tokens[0].text)) {
-                var currentLineAst = new Ast(currentLine.tokens[0].text, currentLine.tokens[0].text === "@NewPage" && currentLine.tokens.length === 1 ? [] : [parse(currentLine.tokens.slice(1))], [], "__Annotation__");
+                var currentLineAst = this.Ast(currentLine.tokens[0].text, currentLine.tokens[0].text === "@NewPage" && currentLine.tokens.length === 1 ? [] : [this.parse(currentLine.tokens.slice(1))], [], "__Annotation__");
             } else {
-                var currentLineAst = new Ast(
+                var currentLineAst = this.Ast(
                     currentLine.tokens[0].text,
-                    currentLine.tokens.slice(1).map((x) => new Ast(x.text, [], [], "__AnnotationArg__")),
+                    currentLine.tokens.slice(1).map((x) => this.Ast(x.text, [], [], "__AnnotationArg__")),
                     [],
                     "__Annotation__",
                 );
@@ -237,47 +231,47 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             var args: string[] | Ast[] = [];
             var children = [];
             var instructionRuleAttributes: null | Record<string, string> = null;
-            var lineMembers = splitTokens(currentLine.tokens, ":", true);
+            var lineMembers = this.splitTokens(currentLine.tokens, ":", true);
             if (lineMembers.length === 1) {
-                error("Expected a ':' at the end of the line");
+                this.error("Expected a ':' at the end of the line");
             }
 
             if (funcName === "__rule__") {
                 if (lineMembers[0].length < 2) {
-                    error("Malformatted 'rule' declaration");
+                    this.error("Malformatted 'rule' declaration");
                 }
                 instructionRuleAttributes = {};
-                instructionRuleAttributes.name = lineMembers[0].slice(1).map((x) => unescapeString(x.text, true)).join("");
-                setCurrentRuleName(instructionRuleAttributes.name);
+                instructionRuleAttributes.name = lineMembers[0].slice(1).map((x) => this.unescapeString(x.text, true)).join("");
+                this.currentRuleName = instructionRuleAttributes.name;
             } else if (funcName === "__enum__") {
                 if (lineMembers[0].length !== 2) {
-                    error("Malformatted 'enum' declaration");
+                    this.error("Malformatted 'enum' declaration");
                 }
-                args = [new Ast(lineMembers[0][1].text, [], [], "__EnumName__")];
+                args = [this.Ast(lineMembers[0][1].text, [], [], "__EnumName__")];
             } else if (funcName === "__def__") {
                 if (lineMembers[0].length !== 4 || lineMembers[0][2].text !== "(" || lineMembers[0][3].text !== ")") {
-                    error("Malformatted 'def' declaration");
+                    this.error("Malformatted 'def' declaration");
                 }
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
-                setCurrentRuleName("Subroutine "+instructionRuleAttributes.subroutineName);
-                if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
-                    for (var subroutine of subroutines) {
+                this.currentRuleName = "Subroutine "+instructionRuleAttributes.subroutineName;
+                if (this.isSubroutineName(instructionRuleAttributes.subroutineName)) {
+                    for (var subroutine of this.subroutines) {
                         if (subroutine.name === instructionRuleAttributes.subroutineName) {
                             if (subroutine.isFromDefStatement) {
-                                error("Duplicate definition of subroutine '" + instructionRuleAttributes.subroutineName + "'", lineMembers[0][1].fileStack);
+                                this.error("Duplicate definition of subroutine '" + instructionRuleAttributes.subroutineName + "'", lineMembers[0][1].fileStack);
                             } else {
                                 break;
                             }
                         }
                     }
                 } else {
-                    addSubroutine(instructionRuleAttributes.subroutineName, null, lineMembers[0][1].fileStack, true);
+                    this.addSubroutine(instructionRuleAttributes.subroutineName, null, lineMembers[0][1].fileStack, true);
                 }
             }
 
             if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__", "__macro__"].includes(funcName)) {
-                args = [parse(lineMembers[0].slice(1))];
+                args = [this.parse(lineMembers[0].slice(1))];
             }
 
             var currentLineIndent = currentLine.indentLevel;
@@ -292,13 +286,13 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             var nextIndentLevel = null;
             var j = i + 1;
             for (; j < lines.length; j++) {
-                setFileStack(lines[j].tokens[0].fileStack);
+                this.fileStack = lines[j].tokens[0].fileStack;
 
                 if (lines[j].indentLevel <= currentLineIndent) {
                     break;
                 }
                 if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
-                    error("Indentation does not match any outer indentation level");
+                    this.error("Indentation does not match any outer indentation level");
                 }
 
                 if ((nextIndentLevel = null)) {
@@ -317,25 +311,25 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                         currentComments.push(lines[j].tokens[lines[j].tokens.length - 1].text.substring(1));
                         lines[j].tokens.pop();
                     }
-                    args = [parse(lines[j].tokens.slice(1))];
+                    args = [this.parse(lines[j].tokens.slice(1))];
                     j++;
                 } else {
-                    error("Found 'do', but no matching 'while'");
+                    this.error("Found 'do', but no matching 'while'");
                 }
             }
 
             if (funcName === "__enum__") {
                 if (typeof args[0] === "string") {
-                    error("First argument for enum must be an instance of Ast, but got a string instead.");
+                    throw this.error("First argument for enum must be an instance of Ast, but got a string instead.");
                 }
 
                 //Implement our own mini-parser to not get "function does not exist" errors.
-                if (!(args[0].name in enumMembers)) {
-                    enumMembers[args[0].name] = {};
+                if (!(args[0].name in this.enumMembers)) {
+                    this.enumMembers[args[0].name] = {};
                 }
                 var lastIntValue: number | Ast = 0;
                 for (var k = 0; k < childrenLines.length; k++) {
-                    setFileStack(childrenLines[k].tokens[0].fileStack);
+                    this.fileStack = childrenLines[k].tokens[0].fileStack;
                     //Skip comments
                     if (childrenLines[k].tokens[0].text[0] === "#") {
                         continue;
@@ -348,44 +342,44 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text === ",") {
                         childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length - 1);
                     }
-                    var assignOperands = splitTokens(childrenLines[k].tokens, "=", false);
+                    var assignOperands = this.splitTokens(childrenLines[k].tokens, "=", false);
                     let enumValue = null;
                     if (assignOperands.length === 1) {
                         //Enum member was not assigned a value
                         if (typeof lastIntValue === "number") {
-                            enumValue = getAstForNumber(lastIntValue);
+                            enumValue = this.getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else if (lastIntValue instanceof Ast && lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
                             lastIntValue = -lastIntValue.args[0].args[0].numValue + 1;
-                            enumValue = getAstForNumber(lastIntValue);
+                            enumValue = this.getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else {
-                            error("Cannot auto-increment enum member, as last value was " + functionNameToString(lastIntValue));
+                            throw this.error("Cannot auto-increment enum member, as last value was " + functionNameToString(lastIntValue));
                         }
                     } else {
-                        enumValue = parse(assignOperands[1]);
+                        enumValue = this.parse(assignOperands[1]);
                         if (enumValue.name === "__number__") {
                             lastIntValue = enumValue.args[0].numValue + 1;
                         } else {
                             //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
                             if (
-                                astContainsFunctions(
+                                this.astContainsFunctions(
                                     enumValue,
                                     notConstantFunctions,
                                     false,
                                 )
                             ) {
-                                warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.");
+                                this.warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.");
                             }
 
                             lastIntValue = enumValue;
                         }
                     }
                     let enumMemberName = childrenLines[k].tokens[0].toString();
-                    if (enumMemberName in enumMembers[args[0].name] && !allowMacroRedeclaration) {
-                        error("Duplicate enum member '" +args[0].name+"."+ enumMemberName + "''");
+                    if (enumMemberName in this.enumMembers[args[0].name] && !this.allowMacroRedeclaration) {
+                        throw this.error("Duplicate enum member '" +args[0].name+"."+ enumMemberName + "''");
                     }
-                    enumMembers[args[0].name][enumMemberName] = enumValue;
+                    this.enumMembers[args[0].name][enumMemberName] = enumValue;
                 }
                 //We do not care about enums in the AST
                 i += j - i - 1;
@@ -394,10 +388,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             } else if (funcName === "__macro__") {
 
                 if (lineMembers[0].length < 4) {
-                    error("Malformatted 'macro' declaration");
+                    this.error("Malformatted 'macro' declaration");
                 }
                 if (currentLine.indentLevel !== 0) {
-                    error("Macro declaration cannot be indented");
+                    this.error("Macro declaration cannot be indented");
                 }
                 let name = lineMembers[0][1].text;
                 let class_;
@@ -407,10 +401,10 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
                 let macroArgTokens = lineMembers[0].slice((class_ ? 4 : 2));
                 if (macroArgTokens[0].text !== "(" || macroArgTokens[macroArgTokens.length - 1].text !== ")") {
-                    error("Malformatted macro arguments");
+                    this.error("Malformatted macro arguments");
                 }
                 macroArgTokens = macroArgTokens.slice(1, macroArgTokens.length - 1);
-                let macroArgsTokens = splitTokens(macroArgTokens, ",", true);
+                let macroArgsTokens = this.splitTokens(macroArgTokens, ",", true);
                 let macroArgs = [];
                 if (macroArgsTokens.length === 0 && class_) {
                     macroArgs.push({name: "self", type: "Value"});
@@ -418,14 +412,14 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
                 for (let [argTokensIdx, argTokens] of Object.entries(macroArgsTokens)) {
                     if (argTokens.length === 0) {
-                        error("Empty argument in macro declaration");
+                        this.error("Empty argument in macro declaration");
                     }
                     if (argTokens.length === 1) {
                         if (argTokens[0].text === "self" && !class_) {
-                            error("Cannot use 'self' in a non-class macro", argTokens[0].fileStack);
+                            this.error("Cannot use 'self' in a non-class macro", argTokens[0].fileStack);
                         }
                         if (argTokens[0].text === "self" && argTokensIdx !== "0") {
-                            error("The 'self' argument must be the first argument in a class macro", argTokens[0].fileStack);
+                            this.error("The 'self' argument must be the first argument in a class macro", argTokens[0].fileStack);
                         }
                         macroArgs.push({
                             name: argTokens[0].text,
@@ -433,14 +427,14 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                         });
                     } else {
                         if (argTokens[1].text !== "=") {
-                            error("Malformed macro argument '"+argTokens[0].text+"'", argTokens[0].fileStack);
+                            this.error("Malformed macro argument '"+argTokens[0].text+"'", argTokens[0].fileStack);
                         }
                         if (argTokens[0].text === "self") {
-                            error("Cannot assign default value to 'self'", argTokens[0].fileStack);
+                            this.error("Cannot assign default value to 'self'", argTokens[0].fileStack);
                         }
                         macroArgs.push({
                             name: argTokens[0].text,
-                            default: parse(argTokens.slice(2)),
+                            default: this.parse(argTokens.slice(2)),
                             defaultStr: dispTokens(argTokens.slice(2), true),
                             type: "Value",
                         });
@@ -450,28 +444,28 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     macroArgs.unshift({name: "self", type: "Value"});
                 }
 
-                astMacroLocalVariables.push(...macroArgs.map(x => x.name));
-                let macroLines = parseLines(childrenLines);
-                setFileStack(getFileStackRange(currentLine.tokens));
+                this.astMacroLocalVariables.push(...macroArgs.map(x => x.name));
+                let macroLines = this.parseLines(childrenLines);
+                this.fileStack = this.getFileStackRange(currentLine.tokens);
                 if (macroLines.length === 0) {
-                    error("Macro '" + name + "' cannot be empty (use 'pass' for a no-op macro)");
+                    this.error("Macro '" + name + "' cannot be empty (use 'pass' for a no-op macro)");
                 }
                 if (macroLines[0].name === "__elif__" || macroLines[0].name === "__else__") {
-                    error("Macro '" + name + "' cannot start with an 'elif' or 'else' statement");
+                    this.error("Macro '" + name + "' cannot start with an 'elif' or 'else' statement");
                 }
-                resetAstMacroLocalVariables();
+                this.astMacroLocalVariables = [];
 
                 //Do not use args as signature (to allow macro overloading), it would make the code too complex and is unnecessary with default values
-                if (name in astMacros) {
-                    if (!allowMacroRedeclaration) {
-                        error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
+                if (name in this.astMacros) {
+                    if (!this.allowMacroRedeclaration) {
+                        this.error("Macro '" + name + "' already exists", lineMembers[0][1].fileStack);
                     }
                 }
                 if (name in funcKw) {
-                    error("Macro '" + name + "' is already a built-in function", lineMembers[0][1].fileStack);
+                    this.error("Macro '" + name + "' is already a built-in function", lineMembers[0][1].fileStack);
                 }
 
-                astMacros[name] = {
+                this.astMacros[name] = {
                     name: name,
                     class_: class_,
                     lines: macroLines,
@@ -483,11 +477,11 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 i += j - i - 1;
                 continue;
             } else {
-                children = parseLines(childrenLines);
+                children = this.parseLines(childrenLines);
             }
 
-            setFileStack(currentLine.tokens[0].fileStack);
-            let instruction = new Ast(funcName, args, children);
+            this.fileStack = currentLine.tokens[0].fileStack;
+            let instruction = this.Ast(funcName, args, children);
             if (currentComments.length > 0) {
                 instruction.comment = commentArrayToString(currentComments);
             }
@@ -498,7 +492,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             result.push(instruction);
             i += j - i - 1;
         } else {
-            var currentLineAst = parse(currentLine.tokens);
+            var currentLineAst = this.parse(currentLine.tokens);
             if (currentComments.length > 0) {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
@@ -530,7 +524,7 @@ export function commentArrayToString(comments: string[]) {
     return result;
 }
 
-function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
+OverPyCompiler.prototype.getOperator = function(tokens: Token[], operators: string[], rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
     var operatorFound = null;
     var operatorPosition = -1;
     var bracketsLevel = 0;
@@ -564,7 +558,7 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
     }
 
     if (bracketsLevel !== 0) {
-        error("Lexer broke (bracket level is " + bracketsLevel + ")");
+        this.error("Lexer broke (bracket level is " + bracketsLevel + ")");
     }
 
     return {
@@ -573,24 +567,24 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
     };
 }
 
-export function parseArgs(funcName: string, args: Token[][]) {
+OverPyCompiler.prototype.parseArgs = function(funcName: string, args: Token[][]) {
     let funcInfo;
     if (funcName in funcKw) {
         funcInfo = funcKw[funcName];
-    } else if (funcName in astMacros) {
-        funcInfo = astMacros[funcName];
+    } else if (funcName in this.astMacros) {
+        funcInfo = this.astMacros[funcName];
     } else {
-        error("Unknown function '"+funcName+"'");
+        throw this.error("Unknown function '"+funcName+"'");
     }
     if (funcInfo.args === null) {
         if (args.length > 0) {
-            error("Function '"+funcName+"' takes no argument");
+            this.error("Function '"+funcName+"' takes no argument");
         }
         return [];
     }
     if ([".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "range"].includes(funcName)) {
         //Those functions take infinite arguments or a wacky number of arguments
-        return args.map(x => parse(x));
+        return args.map(x => this.parse(x));
     }
 
     let funcArgsDict = Object.fromEntries(funcInfo.args!.map((x, i) => [x.name, {index: i, ...x}]));
@@ -599,17 +593,17 @@ export function parseArgs(funcName: string, args: Token[][]) {
     for (let [i, arg] of args.entries()) {
         if (arg.length > 2 && arg[1].text === "=") {
             if (!(arg[0].text in funcArgsDict)) {
-                error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'", arg[0].fileStack);
+                this.error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'", arg[0].fileStack);
             }
             hasKwArg = true;
             let argIndex = funcArgsDict[arg[0].text].index;
             if (positionalArgs[argIndex] !== null) {
-                error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice", arg[0].fileStack);
+                this.error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice", arg[0].fileStack);
             }
             positionalArgs[argIndex] = arg.slice(2);
         } else {
             if (hasKwArg) {
-                error("Cannot use positional arguments after keyword arguments", getFileStackRange(arg));
+                this.error("Cannot use positional arguments after keyword arguments", this.getFileStackRange(arg));
             }
             positionalArgs[i] = arg;
         }
@@ -619,71 +613,71 @@ export function parseArgs(funcName: string, args: Token[][]) {
         if (positionalArgs[i] === null) {
             if (arg.default !== undefined) {
 
-                positionalArgs[i] = getAstForArgDefault(arg);
+                positionalArgs[i] = this.getAstForArgDefault(arg);
             } else {
-                error("Missing argument '"+arg.name+"' for function '"+funcName+"'");
+                this.error("Missing argument '"+arg.name+"' for function '"+funcName+"'");
             }
         }
     }
 
-    return positionalArgs.map(x => x instanceof Ast ? x : parse(x));
+    return positionalArgs.map(x => x instanceof Ast ? x : this.parse(x));
 }
 
-export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
+OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<string, any> = {}): Ast {
     if (content === undefined) {
-        error("Content is undefined");
+        this.error("Content is undefined");
     } else if (content.length === 0) {
-        error("Content is empty (missing operand or argument?)");
+        this.error("Content is empty (missing operand or argument?)");
     }
 
-    setFileStack(content[0].fileStack);
+    this.fileStack = content[0].fileStack;
     debug("Parsing '" + dispTokens(content) + "'");
 
     //Handle the "del" directive.
     if (content[0].text === "del") {
-        let result = new Ast("__del__", [parse(content.slice(1))]);
-        result.fileStack = getFileStackRange(content);
+        let result = this.Ast("__del__", [this.parse(content.slice(1))]);
+        result.fileStack = this.getFileStackRange(content);
         return result;
     }
 
     //Parse the "goto" directive.
     if (content[0].text === "goto") {
         if (content.length < 2) {
-            error("Expected a label or a formula after 'goto'");
+            this.error("Expected a label or a formula after 'goto'");
         }
         if (content.length === 2) {
             //Check for the special "RULE_START" and convert to the "Loop" instruction.
             if (content[1].text === "RULE_START") {
-                return new Ast("loop");
+                return this.Ast("loop");
             }
             //The goto goes to a label.
-            return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])]);
+            return this.Ast("__skip__", [this.Ast("__distanceTo__", [this.Ast(content[1].text, [], [], "Label")])]);
         } else {
             //The goto should be of the format "loc+XXX".
             if (content[1].text !== "loc" || content[2].text !== "+") {
-                error("Expected a label or 'loc+XXX' after 'goto'");
+                this.error("Expected a label or 'loc+XXX' after 'goto'");
             }
-            let result = new Ast("__skip__", [parse(content.slice(3))]);
-            result.fileStack = getFileStackRange(content);
+            let result = this.Ast("__skip__", [this.parse(content.slice(3))]);
+            result.fileStack = this.getFileStackRange(content);
             return result;
         }
     }
 
     //Parse labels. We do not need to care about 'else:' as they are already parsed in the parseLines function.
     if (content.length === 2 && content[1].text === ":") {
-        return new Ast(content[0].text, [], [], "Label");
+        return this.Ast(content[0].text, [], [], "Label");
     }
 
     //Check for ++/--.
     if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
-        var op1 = parse(content.slice(0, content.length - 2));
-        setFileStack(getFileStackRange(content));
-        return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])]);
+        var op1 = this.parse(content.slice(0, content.length - 2));
+        this.fileStack = this.getFileStackRange(content);
+        return this.Ast("__assignTo__", [op1, this.Ast("__add__", [op1, this.getAstFor1()])]);
     }
     if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
-        var op1 = parse(content.slice(0, content.length - 2));
-        setFileStack(getFileStackRange(content));
-        return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])]);
+        var op1 = this.parse(content.slice(0, content.length - 2));
+        this.fileStack = this.getFileStackRange(content);
+        return this.Ast("__assignTo__", [op1, this.Ast("__subtract__", [op1, this.getAstFor1()])]);
     }
 
     //Parse operators, according to the operator precedence in operatorPrecedence.
@@ -702,7 +696,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
         var rtlPrecedence = precedence === operatorPrecedence["**"] || precedence === operatorPrecedence["if"] || allowUnary === true;
 
-        var operatorCheck = getOperator(content, operatorsToCheck, rtlPrecedence, allowUnary);
+        var operatorCheck = this.getOperator(content, operatorsToCheck, rtlPrecedence, allowUnary);
         if (operatorCheck.operatorFound === null) {
             continue;
         }
@@ -712,48 +706,48 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + 1, content.length)];
 
         if (operator === "=") {
-            let result = new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
-            result.fileStack = getFileStackRange(content);
+            let result = this.Ast("__assignTo__", [this.parse(operands[0]), this.parse(operands[1])]);
+            result.fileStack = this.getFileStackRange(content);
             return result;
         } else if (operator === "if") {
             //"true if condition else false"
 
-            var trueExpr = parse(operands[0]);
-            var elseOperands = splitTokens(operands[1], "else", false, false);
+            var trueExpr = this.parse(operands[0]);
+            var elseOperands = this.splitTokens(operands[1], "else", false, false);
             if (elseOperands.length !== 2) {
-                error("Found 'if', but no 'else'");
+                this.error("Found 'if', but no 'else'");
             }
-            var falseExpr = parse(elseOperands[1]);
-            var condition = parse(elseOperands[0]);
+            var falseExpr = this.parse(elseOperands[1]);
+            var condition = this.parse(elseOperands[0]);
 
-            setFileStack(getFileStackRange(content));
-            return new Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
         } else if (["or", "and"].includes(operator)) {
-            var op1 = parse(operands[0]);
-            var op2 = parse(operands[1]);
-            setFileStack(getFileStackRange(content));
-            return new Ast("__" + operator + "__", [op1, op2]);
+            var op1 = this.parse(operands[0]);
+            var op2 = this.parse(operands[1]);
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast("__" + operator + "__", [op1, op2]);
         } else if (operator === "not") {
-            var op1 = parse(operands[1]);
-            setFileStack(getFileStackRange(content));
-            return new Ast("__not__", [op1]);
+            var op1 = this.parse(operands[1]);
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast("__not__", [op1]);
         } else if (operator === "in") {
             var isNotInOperator = false;
             if (operands[0].length > 1 && operands[0][operands[0].length - 1].text === "not") {
                 isNotInOperator = true;
                 operands[0].pop();
             }
-            var value = parse(operands[0]);
-            var array = parse(operands[1]);
-            setFileStack(getFileStackRange(content));
+            var value = this.parse(operands[0]);
+            var array = this.parse(operands[1]);
+            this.fileStack = this.getFileStackRange(content);
             if (isNotInOperator) {
-                return new Ast("__not__", [new Ast("__arrayContains__", [array, value])]);
+                return this.Ast("__not__", [this.Ast("__arrayContains__", [array, value])]);
             } else {
-                return new Ast("__arrayContains__", [array, value]);
+                return this.Ast("__arrayContains__", [array, value]);
             }
         } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
-            var op1 = parse(operands[0]);
-            var op2 = parse(operands[1]);
+            var op1 = this.parse(operands[0]);
+            var op2 = this.parse(operands[1]);
             let opToFuncMapping = {
                 "==": "__equals__",
                 "!=": "__inequals__",
@@ -762,8 +756,8 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "<": "__lessThan__",
                 ">": "__greaterThan__",
             };
-            setFileStack(getFileStackRange(content));
-            return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
             //Actually de-optimize so we can keep the logic in one place.
             //Transform "A += 1" to "A = A + 1".
@@ -779,18 +773,18 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "max=": "max",
             };
 
-            const variable = parse(operands[0]);
+            const variable = this.parse(operands[0]);
             const opName = opToFuncMapping[operator as keyof typeof opToFuncMapping];
-            const value = parse(operands[1]);
+            const value = this.parse(operands[1]);
 
-            setFileStack(getFileStackRange(content));
+            this.fileStack = this.getFileStackRange(content);
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
             if (!areAstsAlwaysEqual(variable, variable)) {
                 // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
-                return new Ast("__modifyVar__", [variable, new Ast(opName, [], [], "__Operation__"), value]);
+                return this.Ast("__modifyVar__", [variable, this.Ast(opName, [], [], "__Operation__"), value]);
             }
 
-            return new Ast("__assignTo__", [variable, new Ast(opName, [variable, value])]);
+            return this.Ast("__assignTo__", [variable, this.Ast(opName, [variable, value])]);
         } else if (["+", "-"].includes(operator)) {
             if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
                 //unary plus/minus
@@ -799,20 +793,20 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     continue;
                 }
                 if (operator === "+") {
-                    return parse(operands[1]);
+                    return this.parse(operands[1]);
                 } else {
-                    let result = new Ast("__negate__", [parse(operands[1])]);
-                    result.fileStack = getFileStackRange(content);
+                    let result = this.Ast("__negate__", [this.parse(operands[1])]);
+                    result.fileStack = this.getFileStackRange(content);
                     return result;
                 }
             } else {
                 if (operator === "+") {
-                    let result = new Ast("__add__", [parse(operands[0]), parse(operands[1])]);
-                    result.fileStack = getFileStackRange(content);
+                    let result = this.Ast("__add__", [this.parse(operands[0]), this.parse(operands[1])]);
+                    result.fileStack = this.getFileStackRange(content);
                     return result;
                 } else {
-                    let result = new Ast("__subtract__", [parse(operands[0]), parse(operands[1])]);
-                    result.fileStack = getFileStackRange(content);
+                    let result = this.Ast("__subtract__", [this.parse(operands[0]), this.parse(operands[1])]);
+                    result.fileStack = this.getFileStackRange(content);
                     return result;
                 }
             }
@@ -823,55 +817,55 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "%": "__modulo__",
                 "**": "__raiseToPower__",
             };
-            var op1 = parse(operands[0]);
-            var op2 = parse(operands[1]);
-            setFileStack(getFileStackRange(content));
-            return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
+            var op1 = this.parse(operands[0]);
+            var op2 = this.parse(operands[1]);
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
         }
-        error("Unhandled operator " + operator);
+        this.error("Unhandled operator " + operator);
     }
 
     //Parse array
     if (content[content.length - 1].text === "]") {
-        var bracketPos = getTokenBracketPos(content);
+        var bracketPos = this.getTokenBracketPos(content);
 
         if (bracketPos.length === 2 && bracketPos[0] === 0) {
             //It is a literal array such as [1,2,3] or [i for i in A if x].
-            return parseLiteralArray(content);
+            return this.parseLiteralArray(content);
         } else {
-            var array = parse(content.slice(0, bracketPos[bracketPos.length - 2]));
-            var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
-            setFileStack(getFileStackRange(content));
-            return new Ast("__valueInArray__", [array, value]);
+            var array = this.parse(content.slice(0, bracketPos[bracketPos.length - 2]));
+            var value = this.parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
+            this.fileStack = this.getFileStackRange(content);
+            return this.Ast("__valueInArray__", [array, value]);
         }
     }
 
     //Parse dictionary
     if (content[0].text === "{") {
-        return parseDictionary(content);
+        return this.parseDictionary(content);
     }
 
     //Check for "." operator, which has the highest precedence.
     //It must be parsed from right to left.
-    var operands = splitTokens(content, ".", false, true);
+    var operands = this.splitTokens(content, ".", false, true);
     if (operands.length === 2) {
-        return parseMember(operands[0], operands[1]);
+        return this.parseMember(operands[0], operands[1]);
     }
 
     //Check for parentheses
     if (content[0].text === "(") {
-        var bracketPos = getTokenBracketPos(content);
+        var bracketPos = this.getTokenBracketPos(content);
         if (bracketPos.length === 2 && bracketPos[1] === content.length - 1) {
             //All the expression is in parentheses; just remove them
-            return parse(content.slice(1, content.length - 1));
+            return this.parse(content.slice(1, content.length - 1));
         } else {
-            error("Malformatted parentheses");
+            this.error("Malformatted parentheses");
         }
     }
 
     //Check for strings
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
-        return parseString(content, kwargs);
+        return this.parseString(content, kwargs);
     }
 
     //Parse args and name of function.
@@ -879,32 +873,32 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     var args = null;
     if (content.length > 1) {
         if (content[1].text === "(") {
-            args = splitTokens(content.slice(2, content.length - 1), ",");
+            args = this.splitTokens(content.slice(2, content.length - 1), ",");
         } else {
-            error("Expected '(' after '" + name + "', but got '" + content[1].text + "' (is '"+name+"' a valid keyword/variable?)");
+            this.error("Expected '(' after '" + name + "', but got '" + content[1].text + "' (is '"+name+"' a valid keyword/variable?)");
         }
     }
 
     if (args === null) {
         //Check for current array element variable name
-        if (currentArrayElementName === name) {
-            var result = new Ast("__currentArrayElement__");
+        if (this.currentArrayElementName === name) {
+            var result = this.Ast("__currentArrayElement__");
             result.originalName = name;
             return result;
         }
 
         //Check for current array index variable name
-        if (currentArrayIndexName === name) {
-            var result = new Ast("__currentArrayIndex__");
+        if (this.currentArrayIndexName === name) {
+            var result = this.Ast("__currentArrayIndex__");
             result.originalName = name;
             return result;
         }
 
         //Check for enums
-        if (enumMembers[name]) {
-            return new Ast(
+        if (this.enumMembers[name]) {
+            return this.Ast(
                 "__enumType__",
-                Object.values(enumMembers[name]).map((x) => x.clone()),
+                Object.values(this.enumMembers[name]).map((x) => x.clone()),
                 [],
                 "Type",
             );
@@ -912,23 +906,23 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             const astInfo = builtInEnumNameToAstInfo[name as keyof typeof builtInEnumNameToAstInfo];
             const values = Object.keys(constantValues[astInfo.type])
                 .filter((key) => key !== "description")
-                .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]));
-            return new Ast("__enumType__", values, [], "Type");
+                .map((key) => this.Ast(astInfo.name, [this.Ast(key, [], [], astInfo.type)]));
+            return this.Ast("__enumType__", values, [], "Type");
         }
 
         //Check for global variable
-        if (isVarName(name, true)) {
-            return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
+        if (this.isVarName(name, true)) {
+            return this.Ast("__globalVar__", [this.Ast(name, [], [], "GlobalVariable")]);
         }
 
         //Check for local variable
-        if (astMacroLocalVariables.includes(name)) {
-            return new Ast("$"+name);
+        if (this.astMacroLocalVariables.includes(name)) {
+            return this.Ast("$"+name);
         }
 
         //Check for constant
-        if (name in astConstants) {
-            return astConstants[name].value.clone();
+        if (name in this.astConstants) {
+            return this.astConstants[name].value.clone();
         }
 
 
@@ -940,7 +934,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 //Convert hex numbers to decimal. Do not do that for all numbers, to keep stuff like 1e10 which is accepted by the workshop.
                 name = parseInt(name, 16).toString();
             }
-            return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
+            return this.Ast("__number__", [this.Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 
         if (name === "RULE_CONDITION") {
@@ -951,18 +945,18 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         }
 
         try {
-            return new Ast(name);
+            return this.Ast(name);
         } catch (e) {
             if (kwargs.isDictKey) {
                 //Macros such as splitDictArray can have dicts with arbitrary keys. Try again but set it as dict key
-                return new Ast(name, [], [], "DictKey");
+                return this.Ast(name, [], [], "DictKey");
             } else {
                 throw e;
             }
         }
     }
 
-    setFileStack(getFileStackRange(content));
+    this.fileStack = this.getFileStackRange(content);
     debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
 
     //Special functions
@@ -970,28 +964,28 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
     if (name === "_" || name === "__" || name === "___") {
         if (args.length !== 1 && args.length !== 2) {
-            error("Function '"+name+"' takes 2 arguments, received " + args.length);
+            this.error("Function '"+name+"' takes 2 arguments, received " + args.length);
         }
         let context = null;
         if (args.length === 2) {
             if (args[0].length !== 1 || (args[0][0].text[0] !== "'" && args[0][0].text[0] !== "\"")) {
-                error("First argument of function '"+name+"' must be a string literal");
+                this.error("First argument of function '"+name+"' must be a string literal");
             }
-            context = unescapeString(args[0][0].text, true);
+            context = this.unescapeString(args[0][0].text, true);
         }
-        let translationTarget = parse(args[args.length-1], {disableTranslation: true});
-        setFileStack(getFileStackRange(content));
+        let translationTarget = this.parse(args[args.length-1], {disableTranslation: true});
+        this.fileStack = this.getFileStackRange(content);
         let result;
         let formatArgs: Ast[] = [];
         if (translationTarget.name === "__customString__") {
             formatArgs = translationTarget.args.slice(1);
-            result = getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+            result = this.getTranslatedString(translationTarget.args[0].name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
             //It is a variable; assume the value is a translated string (string array)
             if (args.length !== 1) {
-                error("Cannot specify translation context when not translating a string literal");
+                this.error("Cannot specify translation context when not translating a string literal");
             }
-            result = new Ast("__translateString__", [translationTarget]);
+            result = this.Ast("__translateString__", [translationTarget]);
         }
         if (name === "__") {
             result.isSpectatorTranslation = true;
@@ -1000,7 +994,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             result.forceNotResolvingTranslation = true;
         }
         if (formatArgs.length > 0) {
-            return new Ast(".format", [result, ...formatArgs]);
+            return this.Ast(".format", [result, ...formatArgs]);
         }
         return result;
 
@@ -1008,29 +1002,29 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
     if (name === "async") {
         if (args.length !== 2) {
-            error("Function 'async' takes 2 arguments, received " + args.length);
+            this.error("Function 'async' takes 2 arguments, received " + args.length);
         }
         //Check if first arg is indeed a subroutine
         var subroutineArg = args[0][0].text;
-        if (!isSubroutineName(subroutineArg)) {
-            error("Expected subroutine name as first argument");
+        if (!this.isSubroutineName(subroutineArg)) {
+            this.error("Expected subroutine name as first argument");
         }
 
-        let result = new Ast("async", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
-        result.fileStack = getFileStackRange(content);
+        let result = this.Ast("async", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
+        result.fileStack = this.getFileStackRange(content);
         return result;
     }
 
     if (name === "chase") {
         if (args.length !== 4) {
-            error("Function 'chase' takes 4 arguments, received " + args.length);
+            this.error("Function 'chase' takes 4 arguments, received " + args.length);
         }
         if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
-            error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'", args[2][0].fileStack);
+            this.error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'", args[2][0].fileStack);
         }
 
         if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
-            error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '" + dispTokens(args[3]) + "'");
+            this.error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '" + dispTokens(args[3]) + "'");
         }
         args[3][0].text = "__ChaseReeval__";
         if (args[2][0].text === "rate") {
@@ -1041,19 +1035,19 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             args[3][0].text = "ChaseTimeReeval";
         }
 
-        let result = new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
-        result.fileStack = getFileStackRange(content);
+        let result = this.Ast(funcName, [this.parse(args[0]), this.parse(args[1]), this.parse(args[2].slice(2)), this.parse(args[3])]);
+        result.fileStack = this.getFileStackRange(content);
         return result;
     }
 
     if (name === "__distanceTo__") {
         if (args.length !== 1) {
-            error("Function '__distanceTo__' takes 1 argument, received " + args.length);
+            this.error("Function '__distanceTo__' takes 1 argument, received " + args.length);
         }
         if (args[0].length !== 1) {
-            error("Function '__distanceTo__' takes a label as argument");
+            this.error("Function '__distanceTo__' takes a label as argument");
         }
-        return new Ast("__distanceTo__", [new Ast(args[0][0].text, [], [], "Label")]);
+        return this.Ast("__distanceTo__", [this.Ast(args[0][0].text, [], [], "Label")]);
     }
 
     if (name === "raycast") {
@@ -1068,11 +1062,11 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 args[4] = args[4].slice(2);
             }
 
-            let result = new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
-            result.fileStack = getFileStackRange(content);
+            let result = this.Ast("raycast", [this.parse(args[0]), this.parse(args[1]), this.parse(args[2]), this.parse(args[3]), this.parse(args[4])]);
+            result.fileStack = this.getFileStackRange(content);
             return result;
         } else {
-            error("Function 'raycast' takes 5 arguments, received " + args.length);
+            this.error("Function 'raycast' takes 5 arguments, received " + args.length);
         }
     }
 
@@ -1087,65 +1081,65 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         let sortedCondition: Ast | null = null;
 
         if (args.length === 2) {
-            var lambdaArgs = splitTokens(args[1], ":");
+            var lambdaArgs = this.splitTokens(args[1], ":");
             if (lambdaArgs.length !== 2) {
-                error("Syntax for sorted array condition is 'lambda x: condition(x)'");
+                this.error("Syntax for sorted array condition is 'lambda x: condition(x)'");
             }
             if (lambdaArgs[0].length < 2) {
-                error("Expected 'lambda x' before ':'");
+                this.error("Expected 'lambda x' before ':'");
             }
             if (lambdaArgs[0][0].text === "key" && lambdaArgs[0][1].text === "=") {
                 lambdaArgs[0] = lambdaArgs[0].slice(2);
             }
             if (lambdaArgs[0][0].text !== "lambda") {
-                error("Expected 'lambda x' before ':'");
+                this.error("Expected 'lambda x' before ':'");
             }
             if (lambdaArgs[0].length === 2) {
-                setCurrentArrayElementName(lambdaArgs[0][1].text);
-                setCurrentArrayIndexName("");
+                this.currentArrayElementName = lambdaArgs[0][1].text;
+                this.currentArrayIndexName = "";
             } else if (lambdaArgs[0].length === 4) {
                 if (lambdaArgs[0][2].text !== ",") {
-                    error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text, lambdaArgs[0][2].fileStack);
+                    this.error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text, lambdaArgs[0][2].fileStack);
                 }
-                setCurrentArrayElementName(lambdaArgs[0][1].text);
-                setCurrentArrayIndexName(lambdaArgs[0][3].text);
+                this.currentArrayElementName = lambdaArgs[0][1].text;
+                this.currentArrayIndexName = lambdaArgs[0][3].text;
             } else {
-                error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1), lambdaArgs[0][0].fileStack);
+                this.error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1), lambdaArgs[0][0].fileStack);
             }
 
-            sortedCondition = parse(lambdaArgs[1]);
-            setCurrentArrayElementName("");
-            setCurrentArrayIndexName("");
+            sortedCondition = this.parse(lambdaArgs[1]);
+            this.currentArrayElementName = "";
+            this.currentArrayIndexName = "";
         } else if (args.length !== 1) {
-            error("Function 'sorted' takes 1 or 2 arguments, received " + args.length);
+            this.error("Function 'sorted' takes 1 or 2 arguments, received " + args.length);
         }
-        var astArgs = [parse(args[0])];
+        var astArgs = [this.parse(args[0])];
         if (sortedCondition !== null) {
             astArgs.push(sortedCondition);
         } else {
-            astArgs.push(new Ast("__currentArrayElement__"));
+            astArgs.push(this.Ast("__currentArrayElement__"));
         }
-        setFileStack(getFileStackRange(content));
-        return new Ast("sorted", astArgs);
+        this.fileStack = this.getFileStackRange(content);
+        return this.Ast("sorted", astArgs);
     }
 
     if (name === "createWorkshopSetting") {
         if (args.length !== 4 && args.length !== 5) {
-            error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received " + args.length);
+            this.error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received " + args.length);
         }
         if (args.length === 4) {
             args.push([{ text: "0", fileStack: [] }]);
         }
 
-        let result = new Ast("__createWorkshopSetting__", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
-        result.fileStack = getFileStackRange(content);
+        let result = this.Ast("__createWorkshopSetting__", [this.parseType(args[0]), ...args.slice(1).map((x) => this.parse(x))]);
+        result.fileStack = this.getFileStackRange(content);
         return result;
     }
 
     //Check for subroutine call
     if (args.length === 0) {
-        if (isSubroutineName(name)) {
-            return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
+        if (this.isSubroutineName(name)) {
+            return this.Ast("__callSubroutine__", [this.Ast(name, [], [], "Subroutine")]);
         }
     }
 
@@ -1177,24 +1171,24 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         name = functionAliases[name];
     }
 
-    let astResult = new Ast(
+    let astResult = this.Ast(
         name,
-        parseArgs(name, args),
+        this.parseArgs(name, args),
     );
-    astResult.fileStack = getFileStackRange(content);
+    astResult.fileStack = this.getFileStackRange(content);
     if (name === "debug") {
         astResult.tokenArgsStr = dispTokens(content.slice(2, content.length - 1), true);
     }
     return astResult;
 }
 
-function parseMember(object: Token[], member: Token[]) {
+OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]) {
     debug("Parsing member '" + dispTokens(member) + "' of object '" + dispTokens(object) + "'");
 
     if (member.length === 0) {
-        error("Expected tokens after '.'");
+        this.error("Expected tokens after '.'");
     }
-    setFileStack(member[0].fileStack);
+    this.fileStack = member[0].fileStack;
 
     var name = member[0].text;
     //debug("name = "+name);
@@ -1202,18 +1196,18 @@ function parseMember(object: Token[], member: Token[]) {
     if (member.length > 1) {
         if (member[1].text === "(") {
             if (member[member.length - 1].text !== ")") {
-                error("Unexpected token '" + member[member.length - 1].text + "'", member[member.length - 1].fileStack);
+                this.error("Unexpected token '" + member[member.length - 1].text + "'", member[member.length - 1].fileStack);
             }
-            args = splitTokens(member.slice(2, member.length - 1), ",");
+            args = this.splitTokens(member.slice(2, member.length - 1), ",");
         } else {
-            error("Expected '(' after '" + name + "', but got '" + member[1].text + "' (is '" + name + "' a valid keyword/variable?)");
+            this.error("Expected '(' after '" + name + "', but got '" + member[1].text + "' (is '" + name + "' a valid keyword/variable?)");
         }
     }
 
     if (args === null) {
         if (["x", "y", "z"].includes(name)) {
-            let result = new Ast(`__${name}ComponentOf__`, [parse(object)]);
-            result.fileStack = getFileStackRange(object.concat(...member));
+            let result = this.Ast(`__${name}ComponentOf__`, [this.parse(object)]);
+            result.fileStack = this.getFileStackRange(object.concat(...member));
             return result;
         }
 
@@ -1222,8 +1216,8 @@ function parseMember(object: Token[], member: Token[]) {
 
             //Check for member of a user-declared enum
             //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
-            if (object[0].text in enumMembers && name in enumMembers[object[0].text]) {
-                return enumMembers[object[0].text][name].clone();
+            if (object[0].text in this.enumMembers && name in this.enumMembers[object[0].text]) {
+                return this.enumMembers[object[0].text][name].clone();
             }
 
             //Fix for older gamemodes
@@ -1236,124 +1230,124 @@ function parseMember(object: Token[], member: Token[]) {
 
             //Check for enums
             if (Object.keys(constantValues).includes(object[0].text)) {
-                return new Ast(name, [], [], object[0].text);
+                return this.Ast(name, [], [], object[0].text);
             } else if (builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo]) {
                 const astInfo = builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo];
                 if (astInfo.name === "__color__" && constantValues[astInfo.type][name]?.onlyInOverpy) {
-                    return new Ast("rgb", [getAstForNumber(constantValues[astInfo.type][name].red ?? 0), getAstForNumber(constantValues[astInfo.type][name].green ?? 0), getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), getAstForNumber(constantValues[astInfo.type][name].alpha ?? 255)]);
+                    return this.Ast("rgb", [this.getAstForNumber(constantValues[astInfo.type][name].red ?? 0), this.getAstForNumber(constantValues[astInfo.type][name].green ?? 0), this.getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), this.getAstForNumber(constantValues[astInfo.type][name].alpha ?? 255)]);
                 }
                 if (astInfo.name === "__map__") {
-                    usedMaps.add(name.toLowerCase());
+                    this.usedMaps.add(name.toLowerCase());
                 }
-                return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
+                return this.Ast(astInfo.name, [this.Ast(name, [], [], astInfo.type)]);
                 //Check the pseudo-enum "math"
             } else if (object[0].text === "Math") {
                 if (name === "PI") {
-                    return getAstForNumber(3.141592653589793);
+                    return this.getAstForNumber(3.141592653589793);
                 } else if (name === "E") {
-                    return getAstForE();
+                    return this.getAstForE();
                 } else if (name === "INFINITY") {
-                    return getAstForInfinity();
+                    return this.getAstForInfinity();
                 } else if (name === "EPSILON") {
-                    return getAstForNumber(0.0000001192093);
+                    return this.getAstForNumber(0.0000001192093);
                 } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
-                    return getAstForNumber(0.984724);
+                    return this.getAstForNumber(0.984724);
                 } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
-                    return getAstForNumber(0.998959);
+                    return this.getAstForNumber(0.998959);
                 } else if (name === "INNER_RING_RADIUS_MULT") {
-                    return getAstForNumber(0.9415);
+                    return this.getAstForNumber(0.9415);
                 } else if (name === "OUTER_RING_RADIUS_MULT") {
-                    return getAstForNumber(0.94965);
+                    return this.getAstForNumber(0.94965);
                 } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
-                    return getAstForNumber(0.48);
+                    return this.getAstForNumber(0.48);
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
-                    return getAstForFucktonOfSpaces();
+                    return this.getAstForFucktonOfSpaces();
                 } else if (name === "FUCKTON_OF_NEWLINES" || name === "LOTS_OF_NEWLINES") {
-                    return getAstForCustomString("\n".repeat(125));
+                    return this.getAstForCustomString("\n".repeat(125));
                 } else {
-                    error("Unhandled member 'Math." + name + "'");
+                    this.error("Unhandled member 'Math." + name + "'");
                 }
 
                 //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
-                return new Ast("Vector." + name);
+                return this.Ast("Vector." + name);
 
                 //Check for textures
             } else if (object[0].text === "Texture") {
-                setEnableTagsSetup(true);
-                if (!isVarName("__holygrail__", true)) {
-                    addVariable("__holygrail__", true, -1, getInternalFileStack());
+                this.enableTagsSetup = true;
+                if (!this.isVarName("__holygrail__", true)) {
+                    this.addVariable("__holygrail__", true, -1, getInternalFileStack());
                 }
                 if (name in opyTextures) {
-                    return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")])]);
+                    return this.getAstForCustomString(opyTextures[name].replace("<", "{0}"), [this.Ast("__globalVar__", [this.Ast("__holygrail__", [], [], "GlobalVariable")])]);
                 } else {
-                    error("Unhandled member 'Texture." + name + "'");
+                    this.error("Unhandled member 'Texture." + name + "'");
                 }
 
                 //Check for number
             } else if (isNumber(object[0].text)) {
                 if (!isNumber(name)) {
-                    error("Expected a number after '.' but got '" + name + "'");
+                    this.error("Expected a number after '.' but got '" + name + "'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text + "." + name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+                return this.Ast("__number__", [this.Ast(object[0].text + "." + name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
             }
 
         }
 
         //Check for member constant
-        if ("." + name in astConstants) {
-            let result = astConstants["." + name].value.clone();
-            result = replaceFunctionInAst(result, "$self", parse(object));
-            result.fileStack = getFileStackRange(object.concat(...member));
+        if ("." + name in this.astConstants) {
+            let result = this.astConstants["." + name].value.clone();
+            result = replaceFunctionInAst(result, "$self", this.parse(object));
+            result.fileStack = this.getFileStackRange(object.concat(...member));
             return result;
         }
 
         //Should be a player variable.
-        if (!isVarName(name, false)) {
-            error("Unknown member '" + name + "' of '" + dispTokens(object) + "'");
+        if (!this.isVarName(name, false)) {
+            this.error("Unknown member '" + name + "' of '" + dispTokens(object) + "'");
         }
-        let result = new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
-        result.fileStack = getFileStackRange(object.concat(...member));
+        let result = this.Ast("__playerVar__", [this.parse(object), this.Ast(name, [], [], "PlayerVariable")]);
+        result.fileStack = this.getFileStackRange(object.concat(...member));
         return result;
     } else {
 
-        setFileStack(getFileStackRange(object.concat(...member)));
+        this.fileStack = this.getFileStackRange(object.concat(...member));
 
         if (object[0].text === "random" && object.length === 1) {
             if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {
-                    error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
+                    this.error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
                 }
-                let result = new Ast("random." + name, [parse(args[0]), parse(args[1])]);
-                result.fileStack = getFileStackRange(object.concat(...member));
+                let result = this.Ast("random." + name, [this.parse(args[0]), this.parse(args[1])]);
+                result.fileStack = this.getFileStackRange(object.concat(...member));
                 return result;
             } else if (name === "shuffle" || name === "choice") {
                 if (args.length !== 1) {
-                    error("Function 'random." + name + "' takes 1 argument, received " + args.length);
+                    this.error("Function 'random." + name + "' takes 1 argument, received " + args.length);
                 }
-                let result = new Ast("random." + name, [parse(args[0])]);
-                result.fileStack = getFileStackRange(object.concat(...member));
+                let result = this.Ast("random." + name, [this.parse(args[0])]);
+                result.fileStack = this.getFileStackRange(object.concat(...member));
                 return result;
             } else {
-                error("Unhandled member 'random." + name + "'");
+                this.error("Unhandled member 'random." + name + "'");
             }
         } else if (name === "format") {
-            let stringAst = parse(object);
+            let stringAst = this.parse(object);
             if (stringAst.name !== "__customString__" && stringAst.name !== "__translatedString__" && stringAst.name !== "__localizedString__") {
-                error("Expected a string literal for .format(), but got '" + dispTokens(object) + "'", getFileStackRange(object));
+                this.error("Expected a string literal for .format(), but got '" + dispTokens(object) + "'", this.getFileStackRange(object));
             }
-            let argsAst = parseArgs("."+name, args);
+            let argsAst = this.parseArgs("."+name, args);
             if (stringAst.name === "__translatedString__") {
                 //Handle that in the AST, as we need to know the parent for getAstForTranslatedString
-                let result = new Ast("." + name, [stringAst, ...argsAst]);
-                result.fileStack = getFileStackRange(object.concat(...member));
+                let result = this.Ast("." + name, [stringAst, ...argsAst]);
+                result.fileStack = this.getFileStackRange(object.concat(...member));
                 return result;
             }
             if (stringAst.args.length > 1) {
-                error("Cannot use .format() on f-strings");
+                this.error("Cannot use .format() on f-strings");
             }
             stringAst.args.push(...argsAst);
-            stringAst.fileStack = getFileStackRange(object.concat(...member));
+            stringAst.fileStack = this.getFileStackRange(object.concat(...member));
             return stringAst;
         } else {
             //Array member functions that take a lambda: .map, .filter, .all, .any
@@ -1366,48 +1360,48 @@ function parseMember(object: Token[], member: Token[]) {
                 }
                 if ((name === "all" || name === "any") && args.length === 0) {
                     //No argument: default to current array element
-                    let result = new Ast("__"+name+"__", [parse(object), new Ast("__currentArrayElement__")]);
-                    result.fileStack = getFileStackRange(object.concat(...member));
+                    let result = this.Ast("__"+name+"__", [this.parse(object), this.Ast("__currentArrayElement__")]);
+                    result.fileStack = this.getFileStackRange(object.concat(...member));
                     return result;
                 }
 
                 if (args.length !== 1) {
-                    error("Function '." + name + "' takes 1 argument (a lambda expression), received " + args.length);
+                    this.error("Function '." + name + "' takes 1 argument (a lambda expression), received " + args.length);
                 }
-                var lambdaArgs = splitTokens(args[0], ":");
+                var lambdaArgs = this.splitTokens(args[0], ":");
                 if (lambdaArgs.length !== 2) {
-                    error("Syntax for ." + name + "() is '." + name + "(lambda x: expression(x))'");
+                    this.error("Syntax for ." + name + "() is '." + name + "(lambda x: expression(x))'");
                 }
                 if (lambdaArgs[0].length < 2) {
-                    error("Expected 'lambda x' before ':'");
+                    this.error("Expected 'lambda x' before ':'");
                 }
                 if (lambdaArgs[0][0].text !== "lambda") {
-                    error("Expected 'lambda x' before ':'");
+                    this.error("Expected 'lambda x' before ':'");
                 }
                 if (lambdaArgs[0].length === 2) {
-                    setCurrentArrayElementName(lambdaArgs[0][1].text);
-                    setCurrentArrayIndexName("");
+                    this.currentArrayElementName = lambdaArgs[0][1].text;
+                    this.currentArrayIndexName = "";
                 } else if (lambdaArgs[0].length === 4) {
                     if (lambdaArgs[0][2].text !== ",") {
-                        error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text, lambdaArgs[0][2].fileStack);
+                        this.error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text, lambdaArgs[0][2].fileStack);
                     }
-                    setCurrentArrayElementName(lambdaArgs[0][1].text);
-                    setCurrentArrayIndexName(lambdaArgs[0][3].text);
+                    this.currentArrayElementName = lambdaArgs[0][1].text;
+                    this.currentArrayIndexName = lambdaArgs[0][3].text;
                 } else {
-                    error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs[0].length - 1), lambdaArgs[0][0].fileStack);
+                    this.error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs[0].length - 1), lambdaArgs[0][0].fileStack);
                 }
 
-                var lambdaBody = parse(lambdaArgs[1]);
-                setCurrentArrayElementName("");
-                setCurrentArrayIndexName("");
+                var lambdaBody = this.parse(lambdaArgs[1]);
+                this.currentArrayElementName = "";
+                this.currentArrayIndexName = "";
 
-                let result = new Ast({
+                let result = this.Ast({
                     "map": "__mappedArray__",
                     "filter": "__filteredArray__",
                     "all": "__all__",
                     "any": "__any__",
-                }[name as "map" | "filter" | "all" | "any"], [parse(object), lambdaBody]);
-                result.fileStack = getFileStackRange(object.concat(...member));
+                }[name as "map" | "filter" | "all" | "any"], [this.parse(object), lambdaBody]);
+                result.fileStack = this.getFileStackRange(object.concat(...member));
                 return result;
             }
 
@@ -1427,120 +1421,120 @@ function parseMember(object: Token[], member: Token[]) {
             if (name in functionAliases) {
                 name = functionAliases[name];
             }
-            let result = new Ast("." + name, parseArgs("."+name, [object].concat(args)));
-            result.fileStack = getFileStackRange(object.concat(...member));
+            let result = this.Ast("." + name, this.parseArgs("."+name, [object].concat(args)));
+            result.fileStack = this.getFileStackRange(object.concat(...member));
             return result;
         }
     }
 
-    error("This shouldn't happen");
-}
+    this.error("This shouldn't happen");
+};
 
 //Parses a literal array such as [1,2,3] or [i for i in x if cond].
-function parseLiteralArray(content: Token[]) {
+OverPyCompiler.prototype.parseLiteralArray = function(content: Token[]) {
     if (content.length === 2) {
-        return new Ast("__array__");
+        return this.Ast("__array__");
     }
 
     //Check for "for" keyword
-    var forOperands = splitTokens(content.slice(1, content.length - 1), "for");
+    var forOperands = this.splitTokens(content.slice(1, content.length - 1), "for");
     if (forOperands.length === 2) {
-        var inOperands = splitTokens(forOperands[1], "in", false);
+        var inOperands = this.splitTokens(forOperands[1], "in", false);
         if (inOperands.length !== 2) {
-            error("Expected 'in' after 'for'");
+            this.error("Expected 'in' after 'for'");
         }
-        var ifOperands = splitTokens(inOperands[1], "if");
+        var ifOperands = this.splitTokens(inOperands[1], "if");
 
         if (ifOperands.length === 1) {
             //Expect something like "[x == y for x in z]"
             //Parse as the "mapped array" function.
-            var inOperands = splitTokens(forOperands[1], "in", false);
+            var inOperands = this.splitTokens(forOperands[1], "in", false);
             let mappingFunction = forOperands[0];
             if (inOperands[0].length === 1) {
                 //It is the current array element name
-                setCurrentArrayElementName(inOperands[0][0].text);
-                setCurrentArrayIndexName("");
+                this.currentArrayElementName = inOperands[0][0].text;
+                this.currentArrayIndexName = "";
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
-                    error("Malformed '[x for a, b in z]': expected ',' but found '" + inOperands[0][1].text + "'");
+                    this.error("Malformed '[x for a, b in z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
-                setCurrentArrayElementName(inOperands[0][0].text);
-                setCurrentArrayIndexName(inOperands[0][2].text);
+                this.currentArrayElementName = inOperands[0][0].text;
+                this.currentArrayIndexName = inOperands[0][2].text;
             } else {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
+                this.error("Malformed '[x for y in z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
-            var parsedMappingFunction = parse(forOperands[0]);
-            setCurrentArrayElementName("");
-            setCurrentArrayIndexName("");
+            var parsedMappingFunction = this.parse(forOperands[0]);
+            this.currentArrayElementName = "";
+            this.currentArrayIndexName = "";
 
-            return new Ast("__mappedArray__", [parse(inOperands[1]), parsedMappingFunction]);
+            return this.Ast("__mappedArray__", [this.parse(inOperands[1]), parsedMappingFunction]);
         } else if (ifOperands.length === 2) {
             //Filtered array
             //Expect something like "[a for x in y if z == 2]"
 
             if (inOperands[0].length === 1) {
                 //It is the current array element name
-                setCurrentArrayElementName(inOperands[0][0].text);
-                setCurrentArrayIndexName("");
+                this.currentArrayElementName = inOperands[0][0].text;
+                this.currentArrayIndexName = "";
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
-                    error("Malformed '[x for a,b in y if z]': expected ',' but found '" + inOperands[0][1].text + "'");
+                    this.error("Malformed '[x for a,b in y if z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
-                setCurrentArrayElementName(inOperands[0][0].text);
-                setCurrentArrayIndexName(inOperands[0][2].text);
+                this.currentArrayElementName = inOperands[0][0].text;
+                this.currentArrayIndexName = inOperands[0][2].text;
             } else {
-                error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
+                this.error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
 
             debug("Parsing 'a for x in y if z', a='" + forOperands[0] + "', x='" + inOperands[0] + "', y='" + ifOperands[0] + "', z='" + ifOperands[1] + "'");
 
-            var filterCondition = parse(ifOperands[1]);
-            let mappingFunction = parse(forOperands[0]);
+            var filterCondition = this.parse(ifOperands[1]);
+            let mappingFunction = this.parse(forOperands[0]);
 
-            setCurrentArrayElementName("");
-            setCurrentArrayIndexName("");
+            this.currentArrayElementName = "";
+            this.currentArrayIndexName = "";
 
             //#302 - code generation for current array index won't work as expected with filtered+mapped arrays if the current array index is in the mapping function
             //Map to [elem, index], then filter, then apply the actual mapping function.
             //currentArrayElement becomes currentArrayElement[0] and currentArrayIndex becomes currentArrayElement[1].
-            if (astContainsFunctions(mappingFunction, ["__currentArrayIndex__"])) {
-                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayElement__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor0()]));
-                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayIndex__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor1()]));
+            if (this.astContainsFunctions(mappingFunction, ["__currentArrayIndex__"])) {
+                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayElement__", this.Ast("__valueInArray__", [this.Ast("__currentArrayElement__"), this.getAstFor0()]));
+                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayIndex__", this.Ast("__valueInArray__", [this.Ast("__currentArrayElement__"), this.getAstFor1()]));
 
-                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayElement__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor0()]));
-                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayIndex__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor1()]));
+                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayElement__", this.Ast("__valueInArray__", [this.Ast("__currentArrayElement__"), this.getAstFor0()]));
+                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayIndex__", this.Ast("__valueInArray__", [this.Ast("__currentArrayElement__"), this.getAstFor1()]));
 
                 //array.map((x,i) => [x,i]).filter(x => filterCondition).map(x => mappingFunction)
-                return new Ast("__mappedArray__", [new Ast("__filteredArray__", [new Ast("__mappedArray__", [parse(ifOperands[0]), new Ast("__array__", [new Ast("__currentArrayElement__"), new Ast("__currentArrayIndex__")])]), filterCondition]), mappingFunction]);
+                return this.Ast("__mappedArray__", [this.Ast("__filteredArray__", [this.Ast("__mappedArray__", [this.parse(ifOperands[0]), this.Ast("__array__", [this.Ast("__currentArrayElement__"), this.Ast("__currentArrayIndex__")])]), filterCondition]), mappingFunction]);
             }
 
-            return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), filterCondition]), mappingFunction]);
+            return this.Ast("__mappedArray__", [this.Ast("__filteredArray__", [this.parse(ifOperands[0]), filterCondition]), mappingFunction]);
         } else {
-            error("Expected 0 or 1 'if' after 'in', but found " + (ifOperands.length - 1));
+            this.error("Expected 0 or 1 'if' after 'in', but found " + (ifOperands.length - 1));
         }
     } else if (forOperands.length === 1) {
         //Literal array with only values ([1,2,3])
-        var args = splitTokens(content.slice(1, content.length - 1), ",");
+        var args = this.splitTokens(content.slice(1, content.length - 1), ",");
         //Allow trailing comma
         if (args[args.length - 1].length === 0) {
             args.pop();
         }
 
-        return new Ast(
+        return this.Ast(
             "__array__",
-            args.map((x) => parse(x)),
+            args.map((x) => this.parse(x)),
         );
     } else {
-        error("Expected 0 or 1 'for', but found " + (forOperands.length - 1));
+        this.error("Expected 0 or 1 'for', but found " + (forOperands.length - 1));
     }
 
-    error("This shouldn't happen");
+    throw this.error("This shouldn't happen");
 }
 
 //Parses a dictionary.
-function parseDictionary(content: Token[]) {
+OverPyCompiler.prototype.parseDictionary = function(content: Token[]) {
     content = content.slice(1, content.length - 1);
-    var elems = splitTokens(content, ",");
+    var elems = this.splitTokens(content, ",");
     //support trailing comma
     if (elems.length > 0 && elems[elems.length - 1].length === 0) {
         elems.pop();
@@ -1550,21 +1544,21 @@ function parseDictionary(content: Token[]) {
 
     var astElems = [];
     for (var elem of elems) {
-        var keyValue = splitTokens(elem, ":");
+        var keyValue = this.splitTokens(elem, ":");
         if (keyValue.length !== 2) {
-            error("Expected a value of the form 'key: value' but got '" + dispTokens(elem) + "'");
+            this.error("Expected a value of the form 'key: value' but got '" + dispTokens(elem) + "'");
         }
         if (dictKeys.has(dispTokens(keyValue[0]))) {
-            error("Duplicate key '" + dispTokens(keyValue[0]) + "' in dictionary");
+            this.error("Duplicate key '" + dispTokens(keyValue[0]) + "' in dictionary");
         } else {
             dictKeys.add(dispTokens(keyValue[0]));
         }
-        astElems.push(new Ast("__dictElem__", [parse(keyValue[0], {isDictKey: true}), parse(keyValue[1])]));
+        astElems.push(this.Ast("__dictElem__", [this.parse(keyValue[0], {isDictKey: true}), this.parse(keyValue[1])]));
     }
-    return new Ast("__dict__", astElems);
+    return this.Ast("__dict__", astElems);
 }
 
-export function parseStringTokens(string: string, isFormattedString=false): StringToken[] {
+OverPyCompiler.prototype.parseStringTokens = function(string: string, isFormattedString=false): StringToken[] {
 
     //Tokenize the string
     let stringTokens: StringToken[] = [];
@@ -1594,7 +1588,7 @@ export function parseStringTokens(string: string, isFormattedString=false): Stri
             continue;
         }
         let tagMatch = string.substring(i).match(tagRegex);
-        if (tagMatch && enableTagsSetup) {
+        if (tagMatch && this.enableTagsSetup) {
             //There can be formatters inside a tag, so we need to re-parse
             for (let j = 0; j < tagMatch[0].length; j++) {
                 //Note: there cannot be escaped formatters inside a tag, as the regex would not match
@@ -1642,7 +1636,7 @@ export function parseStringTokens(string: string, isFormattedString=false): Stri
     return stringTokens;
 }
 
-export function parseString(content: Token[], kwargs: Record<string, any> = {}) {
+OverPyCompiler.prototype.parseString = function(content: Token[], kwargs: Record<string, any> = {}) {
 
     let isTranslatedString = false;
     let isFormattedString = false;
@@ -1652,18 +1646,18 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
     let isCasedString = false;
     let string = "";
     for (var i = content.length - 1; i >= 0; i--) {
-        setFileStack(content[i].fileStack);
+        this.fileStack = content[i].fileStack;
         if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-            string = unescapeString(content[i].text, true) + string;
+            string = this.unescapeString(content[i].text, true) + string;
         } else {
             if (i !== 0) {
-                error("Invalid content before string: '" + content[i].text + "'");
+                this.error("Invalid content before string: '" + content[i].text + "'");
             }
             //Parse string modifiers. Note that unlike Python, string modifiers can only be at the start of a concatenation chain (otherwise we run into issues with .format() and all).
             //console.log("string modifiers: "+content[0].text);
             if (content[0].text.includes("l")) {
                 if (content[0].text.length > 1) {
-                    error("Cannot use other string modifiers with 'l'");
+                    this.error("Cannot use other string modifiers with 'l'");
                 }
                 isLocalizedString = true;
             }
@@ -1681,7 +1675,7 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
             }
             if (content[0].text.includes("t")) {
                 if (content[0].text.length > 2 || content[0].text.length === 2 && !content[0].text.includes("f")) {
-                    error("Cannot use other string modifiers with 't'");
+                    this.error("Cannot use other string modifiers with 't'");
                 }
                 isTranslatedString = true;
             }
@@ -1690,14 +1684,14 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
             }
             for (let char of content[0].text) {
                 if (!["l", "b", "c", "w", "p", "t", "f"].includes(char)) {
-                    error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
+                    this.error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
                 }
             }
         }
     }
-    setFileStack(getFileStackRange(content));
+    this.fileStack = this.getFileStackRange(content);
 
-    let stringTokens = parseStringTokens(string, isFormattedString);
+    let stringTokens = this.parseStringTokens(string, isFormattedString);
 
     debug("String tokens for '"+string+"': " + JSON.stringify(stringTokens));
 
@@ -1710,31 +1704,31 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
                 continue;
             }
             if (token.text === "{}") {
-                error("Cannot have empty formatters in a f-string");
+                this.error("Cannot have empty formatters in a f-string");
             }
             let formatter = token.text.slice(1, -1); //Remove the curly braces
-            let lines = tokenize(formatter);
-            let astLines = parseLines(lines);
+            let lines = this.tokenize(formatter);
+            let astLines = this.parseLines(lines);
             if (astLines.length !== 1) {
-                error("String formatter '" + token.text + "' should only have one line");
+                this.error("String formatter '" + token.text + "' should only have one line");
             }
             let formatArg = astLines[0];
             formatArgs.push(formatArg);
             token.text = "{}";
         }
-        setFileStack(getFileStackRange(content));
+        this.fileStack = this.getFileStackRange(content);
     }
 
     if (isTranslatedString) {
         if (kwargs.disableTranslation) {
-            error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
+            this.error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
         }
         if (!isFormattedString) {
-            return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+            return this.getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
-            let result = getTranslatedString(stringTokens.map((x) => x.text).join(""), null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
-            result = new Ast(".format", [result, ...formatArgs]);
-            result.fileStack = getFileStackRange(content);
+            let result = this.getTranslatedString(stringTokens.map((x) => x.text).join(""), null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+            result = this.Ast(".format", [result, ...formatArgs]);
+            result.fileStack = this.getFileStackRange(content);
             return result;
         }
     }
@@ -1760,7 +1754,7 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
             }
         }
         if (!isConvertedToBigLetters) {
-            error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
+            this.error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
         }
     }
 
@@ -1780,7 +1774,7 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
             }
         }
         if (containsNonFullwidthChar) {
-            warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
+            this.warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
         }
     }
     if (isCasedString) {
@@ -1802,46 +1796,46 @@ export function parseString(content: Token[], kwargs: Record<string, any> = {}) 
 
     let result;
     if (isLocalizedString) {
-        result = new Ast("__localizedString__", [new Ast(string, [], [], "LocalizedStringLiteral"), ...formatArgs]);
+        result = this.Ast("__localizedString__", [this.Ast(string, [], [], "LocalizedStringLiteral"), ...formatArgs]);
     } else {
-        result = new Ast("__customString__", [new Ast(string, [], [], "CustomStringLiteral"), ...formatArgs]);
+        result = this.Ast("__customString__", [this.Ast(string, [], [], "CustomStringLiteral"), ...formatArgs]);
     }
     result.stringTokens = stringTokens;
     return result;
 }
 
 //This function cannot be in utils/compilation.ts, otherwise it causes import order issues
-export function customGameSettingsAstToObject(customGameSettings: Ast): Record<string, any> | Array<any> | string | number | boolean {
+OverPyCompiler.prototype.customGameSettingsAstToObject = function(customGameSettings: Ast): Record<string, any> | Array<any> | string | number | boolean {
     //console.log(customGameSettings);
     if (customGameSettings.name === "__settings__") {
         if (customGameSettings.args[0].name !== "__dict__") {
-            error("Expected custom game settings to be a dictionary, but got " + functionNameToString(customGameSettings.args[0]), customGameSettings.args[0].fileStack);
+            this.error("Expected custom game settings to be a dictionary, but got " + functionNameToString(customGameSettings.args[0]), customGameSettings.args[0].fileStack);
         }
-        return customGameSettingsAstToObject(customGameSettings.args[0]);
+        return this.customGameSettingsAstToObject(customGameSettings.args[0]);
     }
     if (customGameSettings.name === "__dict__") {
         let result: Record<string, any> = {};
         for (let dictElem of customGameSettings.args) {
             if (dictElem.name !== "__dictElem__") {
-                error("Expected dict element, but got " + functionNameToString(dictElem), dictElem.fileStack);
+                this.error("Expected dict element, but got " + functionNameToString(dictElem), dictElem.fileStack);
             }
-            let key = customGameSettingsAstToObject(dictElem.args[0]);
+            let key = this.customGameSettingsAstToObject(dictElem.args[0]);
             if (typeof key !== "string") {
-                error("Dictionary key must be a string literal, got '"+key+"' of type " + typeof key);
+                throw this.error("Dictionary key must be a string literal, got '"+key+"' of type " + typeof key);
             }
             if (key in result) {
-                error("Duplicate key '" + key + "' in custom game settings");
+                this.error("Duplicate key '" + key + "' in custom game settings");
             }
-            result[key] = customGameSettingsAstToObject(dictElem.args[1]);
+            result[key] = this.customGameSettingsAstToObject(dictElem.args[1]);
         }
         return result;
     }
     if (customGameSettings.name === "__array__") {
-        return customGameSettings.args.map((x) => customGameSettingsAstToObject(x));
+        return customGameSettings.args.map((x) => this.customGameSettingsAstToObject(x));
     }
     if (customGameSettings.name === "__customString__") {
         if (customGameSettings.args.length > 1) {
-            error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters", customGameSettings.fileStack);
+            this.error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters", customGameSettings.fileStack);
         }
         return customGameSettings.args[0].name;
     }
@@ -1854,5 +1848,5 @@ export function customGameSettingsAstToObject(customGameSettings: Ast): Record<s
     if (customGameSettings.name === "false") {
         return false;
     }
-    error("Unhandled "+ functionNameToString(customGameSettings) + " in custom game settings, expected dict, array, string, number or boolean", customGameSettings.fileStack);
+    throw this.error("Unhandled "+ functionNameToString(customGameSettings) + " in custom game settings, expected dict, array, string, number or boolean", customGameSettings.fileStack);
 }

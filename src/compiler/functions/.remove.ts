@@ -17,12 +17,12 @@
 
 "use strict";
 
-import { Ast, astContainsRandom, astParsingFunctions } from "../../utils/ast";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".remove"] = function (content) {
+astParsingFunctions[".remove"] = function (content, compiler) {
     //That way we don't duplicate the code for 2d/3d array accesses
-    if (!astContainsRandom(content.args[0])) {
-        return new Ast("__assignTo__", [content.args[0], new Ast(".exclude", [content.args[0], content.args[1]])]);
+    if (!compiler.astContainsRandom(content.args[0])) {
+        return compiler.Ast("__assignTo__", [content.args[0], compiler.Ast(".exclude", [content.args[0], content.args[1]])]);
     }
-    return new Ast("__modifyVar__", [content.args[0], new Ast("__removeFromArrayByValue__", [], [], "__Operation__"), content.args[1]]);
+    return compiler.Ast("__modifyVar__", [content.args[0], compiler.Ast("__removeFromArrayByValue__", [], [], "__Operation__"), content.args[1]]);
 };

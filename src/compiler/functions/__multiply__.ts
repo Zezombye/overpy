@@ -17,23 +17,22 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT, optimizeStrict } from "../../globalVars";
-import { getAstForNumber, getAstFor0, areAstsAlwaysEqual, Ast, getAstFor2, astParsingFunctions, numValue } from "../../utils/ast";
-import { isTypeSuitable } from "../../utils/types";
+import { NUMBER_LIMIT } from "../../globalVars";
+import { areAstsAlwaysEqual, astParsingFunctions, numValue } from "../../utils/ast";
 
-astParsingFunctions.__multiply__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__multiply__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their product.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             let result = content.args[0].args[0].numValue * content.args[1].args[0].numValue;
             if (Math.abs(result) < NUMBER_LIMIT) {
-                return getAstForNumber(result);
+                return compiler.getAstForNumber(result);
             }
         }
 
         //If one of the arguments is 1, return the other argument.
         //Non-strict optimization, as it could be used to cast to number.
-        if (!optimizeStrict) {
+        if (!compiler.optimizeStrict) {
             if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 1) {
                 return content.args[1];
             }
@@ -43,28 +42,28 @@ astParsingFunctions.__multiply__ = function (content) {
         }
 
         //A*0 = 0*A = 0, but only if the other argument is definitely a number, or non-strict optimization is enabled
-        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0 && (isTypeSuitable("float", content.args[1].type, false) || !optimizeStrict)) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0 && (isTypeSuitable("float", content.args[0].type, false) || !optimizeStrict))) {
-            return getAstFor0();
+        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0 && (compiler.isTypeSuitable("float", content.args[1].type, false) || !compiler.optimizeStrict)) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0 && (compiler.isTypeSuitable("float", content.args[0].type, false) || !compiler.optimizeStrict))) {
+            return compiler.getAstFor0();
         }
 
         //A*A -> A**2 if A is unsigned
-        if (areAstsAlwaysEqual(content.args[0], content.args[1]) && content.args[0].type !== "Value" && isTypeSuitable("unsigned float", content.args[0].type)) {
-            return new Ast("__raiseToPower__", [content.args[0], getAstFor2()]);
+        if (areAstsAlwaysEqual(content.args[0], content.args[1]) && content.args[0].type !== "Value" && compiler.isTypeSuitable("unsigned float", content.args[0].type)) {
+            return compiler.Ast("__raiseToPower__", [content.args[0], compiler.getAstFor2()]);
         }
 
         //Check if both arguments are vectors containing numbers.
         if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), compiler.getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
         }
 
         //Check if we have number * vector.
         if (content.args[0].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), compiler.getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
         }
 
         //Check if we have vector * number.
         if (content.args[0].name === "vect" && content.args[1].name === "__number__" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[0].numValue)]);
         }
     }
 

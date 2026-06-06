@@ -17,22 +17,22 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForNullVector, Ast, getAstForNumber, astParsingFunctions, numValue, getAstForVector } from "../../utils/ast";
 
-astParsingFunctions.normalize = function (content) {
-    if (enableOptimization) {
+import { astParsingFunctions, numValue } from "../../utils/ast";
+
+astParsingFunctions.normalize = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "vect") {
             let [x, y, z] = content.args[0].args.map(arg => numValue(arg) as number);
             if ([x, y, z].every(num => num !== null)) {
                 var magnitude = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
                 if (magnitude === 0) {
-                    return getAstForNullVector();
+                    return compiler.getAstForNullVector();
                 }
-                return getAstForVector(x / magnitude, y / magnitude, z / magnitude);
+                return compiler.getAstForVector(x / magnitude, y / magnitude, z / magnitude);
             }
         } else if (content.args[0].name === "vectorTowards") {
-            return new Ast("directionTowards", [content.args[0].args[0], content.args[0].args[1]]);
+            return compiler.Ast("directionTowards", [content.args[0].args[0], content.args[0].args[1]]);
         }
     }
 

@@ -19,7 +19,7 @@
 
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__number__ = function (content) {
+astParsingFunctions.__number__ = function (content, compiler) {
     content.type = content.args[0].type;
     return content;
 };

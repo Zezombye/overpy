@@ -17,11 +17,9 @@
 
 "use strict";
 
-import { enableOptimization, optimizeStrict } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
-import { error, warn } from "../../utils/logging";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__valueInArray__ = function (content) {
+astParsingFunctions.__valueInArray__ = function (content, compiler) {
     if (content.args[0].name === "__dict__") {
         var dictKeys = content.args[0].args.map((x: Ast) => x.args[0]);
         var dictValues = content.args[0].args.map((x: Ast) => x.args[1]);
@@ -29,54 +27,54 @@ astParsingFunctions.__valueInArray__ = function (content) {
         for (let k of dictKeys) {
             if (k.type === "DictKey") {
                 //Dictionaries that are directly accessed cannot have arbitrary key names
-                error("Unknown function '"+k.name+"'");
+                compiler.error("Unknown function '"+k.name+"'");
             }
         }
         if (dictKeys.some(x => x.name === "__default__")) {
             if (dictKeys.filter(x => x.name === "__default__").length > 1) {
-                error("Cannot have multiple default values in a dictionary");
+                compiler.error("Cannot have multiple default values in a dictionary");
             }
             let defaultIndex = dictKeys.findIndex(x => x.name === "__default__");
             dictKeys = dictKeys.filter(x => x.name !== "__default__");
             //Reorder dict values to put default first
             dictValues = [dictValues[defaultIndex]].concat(dictValues.filter((_, i) => i !== defaultIndex));
-            return astParsingFunctions.__valueInArray__(new Ast("__valueInArray__", [
-                new Ast("__array__", dictValues),
-                astParsingFunctions.__add__(new Ast("__add__", [
-                    getAstFor1(),
-                    astParsingFunctions[".index"](new Ast(".index", [new Ast("__array__", dictKeys), index]))
-                ]))
-            ]));
+            return astParsingFunctions.__valueInArray__(compiler.Ast("__valueInArray__", [
+                compiler.Ast("__array__", dictValues),
+                astParsingFunctions.__add__(compiler.Ast("__add__", [
+                    compiler.getAstFor1(),
+                    astParsingFunctions[".index"](compiler.Ast(".index", [compiler.Ast("__array__", dictKeys), index]), compiler)
+                ]), compiler)
+            ]), compiler);
         } else {
-            return astParsingFunctions.__valueInArray__(new Ast("__valueInArray__", [
-                new Ast("__array__", dictValues),
-                astParsingFunctions[".index"](new Ast(".index", [new Ast("__array__", dictKeys), index]))
-            ]));
+            return astParsingFunctions.__valueInArray__(compiler.Ast("__valueInArray__", [
+                compiler.Ast("__array__", dictValues),
+                astParsingFunctions[".index"](compiler.Ast(".index", [compiler.Ast("__array__", dictKeys), index]), compiler)
+            ]), compiler);
         }
     }
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
         //This can also occur if a dictionary is accessed with a literal that isn't in the dictionary
         //It's been a while since [-1] was used instead of .last(), so no need to throw an error
-        //error("Cannot access the negative index '" + content.args[1].args[0].numValue + "' of an array");
-        if (enableOptimization) {
-            return getAstForNull();
+        //compiler.error("Cannot access the negative index '" + content.args[1].args[0].numValue + "' of an array");
+        if (compiler.enableOptimization) {
+            return compiler.getAstForNull();
         }
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         if (content.args[1].name === "__number__") {
             var arrayIndex = Math.round(content.args[1].args[0].numValue);
 
             if (content.args[0].name === "__array__") {
                 if (arrayIndex < content.args[0].args.length) {
                     return content.args[0].args[arrayIndex];
-                } else if (content.args[0].args.length !== 0 || !optimizeStrict) {
-                    return getAstForNull();
+                } else if (content.args[0].args.length !== 0 || !compiler.optimizeStrict) {
+                    return compiler.getAstForNull();
                 }
             }
             if (content.args[0].name === "__number__") {
-                warn("w_array_index_number", "Accessing the index of a number always gives 0 (even using index 0)");
+                compiler.warn("w_array_index_number", "Accessing the index of a number always gives 0 (even using index 0)");
             }
         }
     }

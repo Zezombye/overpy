@@ -16,14 +16,12 @@
  */
 
 "use strict";
-
-import {useVariableForCompressionAlphabet} from "../../globalVars";
-import { Ast, astParsingFunctions, getAstFor0, getAstFor0_0001, getAstForCustomString, getAstForEmptyArray, getAstForNumber } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error, functionNameToString } from "../../utils/logging";
+import { OverPyCompiler } from "../../godClasses";
+import { Ast, astParsingFunctions } from "../../utils/ast";
+import { functionNameToString } from "../../utils/logging";
 import { escapeString } from "../../utils/strings";
 
-type CompressionInfo = {
+export type CompressionInfo = {
     strValues: string[],
     minDecimalPlace: number,
     maxDecimalPlace: number,
@@ -38,16 +36,16 @@ type CompressionInfo = {
 //Also do not use the "{" character to avoid creating formatters like {0}.
 export const alphabet = "\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\n\u000B\u000C\r\u000E\u000F\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C\u001D\u001E\u001F !\"#$%&'()*+,-./2:;<=>?@Q[\\]^_`q|}~\u007F\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008A\u008B\u008C\u008D\u008E\u008F\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009A\u009B\u009C\u009D\u009E\u009F\u00A1";
 
-export function prepareAstForCompression(content: Ast, assumeDefaultValues=false) {
+OverPyCompiler.prototype.prepareAstForCompression = function(content: Ast, assumeDefaultValues=false): CompressionInfo {
 
     if (content.name !== "__array__") {
-        error("Array for compression must be a literal array, got "+functionNameToString(content));
+        this.error("Array for compression must be a literal array, got "+functionNameToString(content));
     }
-    let arrayType = null;
+    let arrayType: string | null = null;
     let numValues: number[] = [];
-    content.args = content.args.map(x => x.name === "null" ? getAstFor0() : x);
+    content.args = content.args.map(x => x.name === "null" ? this.getAstFor0() : x);
     if (content.args.some(x => x.name !== "__number__" && x.name !== "vect")) {
-        error("Array for compression must be an array of literal numbers or vectors");
+        throw this.error("Array for compression must be an array of literal numbers or vectors");
     }
     if (content.args.every(x => x.name === "__number__")) {
         arrayType = "number";
@@ -56,17 +54,17 @@ export function prepareAstForCompression(content: Ast, assumeDefaultValues=false
         arrayType = "vector";
         for (let arg of content.args) {
             if (arg.args.some(x => x.name !== "__number__")) {
-                error("Array for compression must be an array of literal numbers or vectors");
+                this.error("Array for compression must be an array of literal numbers or vectors");
             }
             numValues.push(...arg.args.map(x => x.args[0].numValue));
         }
     } else {
-        error("Array for compression cannot include both numbers and vectors");
+        throw this.error("Array for compression cannot include both numbers and vectors");
     }
 
     //The decompression function (using .split()) does not work with empty arrays and would return [0,0]
     if (content.args.length === 0) {
-        error("Cannot compress an empty array");
+        this.error("Cannot compress an empty array");
     }
 
     let maxNbDecimals = arrayType === "number" ? 3 : 2;
@@ -75,7 +73,7 @@ export function prepareAstForCompression(content: Ast, assumeDefaultValues=false
     //For vectors, clamp to 2 decimals and +/- 5000, giving 6 digits
     let numLimit = arrayType === "number" ? 49999 : 4999;
     if (numValues.some(x => Math.abs(x) >= numLimit)) {
-        error("Cannot compress a "+arrayType+" +/- " + numLimit + " or larger");
+        this.error("Cannot compress a "+arrayType+" +/- " + numLimit + " or larger");
     }
 
 
@@ -129,17 +127,17 @@ export function prepareAstForCompression(content: Ast, assumeDefaultValues=false
     return { strValues, minDecimalPlace, maxDecimalPlace, offset, arrayType };
 }
 
-export function compressToString(compressionInfo: CompressionInfo): string {
+OverPyCompiler.prototype.compressToString = function(compressionInfo: CompressionInfo): string {
 
     let { strValues, minDecimalPlace, maxDecimalPlace, offset, arrayType } = compressionInfo;
 
 
-    function compressString(str: string) {
+    const compressString = (str: string) => {
         let compressed = "";
         for (let i = 0; i < str.length; i += 2) {
             let mappedChar = alphabet[parseInt(str.substring(i, i+2).split("").reverse().join(""))];
             if (mappedChar === undefined) {
-                error("Cannot compress '" + str.substring(i, i+2) + "', please report to Zezombye");
+                throw this.error("Cannot compress '" + str.substring(i, i+2) + "', please report to Zezombye");
             }
             compressed += mappedChar;
         }
@@ -170,18 +168,18 @@ export function compressToString(compressionInfo: CompressionInfo): string {
     return compressedString;
 }
 
-export function getDecompressionAst(compressedString: Ast, compressionInfo: CompressionInfo) {
+OverPyCompiler.prototype.getDecompressionAst = function(compressedString: Ast, compressionInfo: CompressionInfo) {
     let { minDecimalPlace, maxDecimalPlace, offset, arrayType } = compressionInfo;
 
-    let formulaAlphabet = useVariableForCompressionAlphabet ? "__compressionAlphabet__" : "x.last()";
-    let formulaCompressedArray = useVariableForCompressionAlphabet ? `$compressedString.split(null[0])` : `[e.concat(${escapeString(alphabet, false)}) for e in $compressedString.split(null[0])]`;
+    let formulaAlphabet = this.useVariableForCompressionAlphabet ? "__compressionAlphabet__" : "x.last()";
+    let formulaCompressedArray = this.useVariableForCompressionAlphabet ? `$compressedString.split(null[0])` : `[e.concat(${escapeString(alphabet, false)}) for e in $compressedString.split(null[0])]`;
 
     if (arrayType === "number") {
 
         let decompressionFormula = Array(Math.ceil((maxDecimalPlace - minDecimalPlace)/2)).fill(0).map((x, i) => i).map(x => `${Math.pow(100, x+minDecimalPlace/2)}*${formulaAlphabet}.strIndex(x.charAt(${x}))`).join(" + ");
 
 
-        return parseOpyMacro(`[${decompressionFormula} - ${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
+        return this.parseOpyMacro(`[${decompressionFormula} - ${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
     } else {
 
 
@@ -195,17 +193,17 @@ export function getDecompressionAst(compressedString: Ast, compressionInfo: Comp
         });
 
         //Remember: order is X, Z, Y
-        return parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
+        return this.parseOpyMacro(`[vect(${decompressionFormulas[0]},${decompressionFormulas[2]},${decompressionFormulas[1]}) - vect(1,1,1)*${offset} for x in ${formulaCompressedArray}]`, ["$compressedString"], [compressedString]);
     }
 
 }
 
-astParsingFunctions.compressed = function (content) {
+astParsingFunctions.compressed = function (content, compiler) {
 
-    let compressionInfo = prepareAstForCompression(content.args[0]);
+    let compressionInfo = compiler.prepareAstForCompression(content.args[0]) as CompressionInfo;
 
-    let compressedString = compressToString(compressionInfo);
+    let compressedString = compiler.compressToString(compressionInfo);
 
-    return getDecompressionAst(getAstForCustomString(compressedString), compressionInfo);
+    return compiler.getDecompressionAst(compiler.getAstForCustomString(compressedString), compressionInfo);
 
 };

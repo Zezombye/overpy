@@ -17,18 +17,16 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
-import { warn } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".setStatusEffect"] = function (content) {
-    if (enableOptimization) {
+astParsingFunctions[".setStatusEffect"] = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
-            return getAstForUselessInstruction();
+            return compiler.getAstForUselessInstruction();
         }
     }
     if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 9999) {
-        warn("w_9999", ".setStatusEffect(..., 9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
+        compiler.warn("w_9999", ".setStatusEffect(..., 9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
     }
 
     return content;

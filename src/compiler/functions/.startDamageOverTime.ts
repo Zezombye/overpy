@@ -17,13 +17,11 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
-import { warn } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".startDamageOverTime"] = function (content) {
+astParsingFunctions[".startDamageOverTime"] = function (content, compiler) {
     if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 9999) {
-        warn("w_9999", ".startDamageOverTime(..., 9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[2].fileStack);
+        compiler.warn("w_9999", ".startDamageOverTime(..., 9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[2].fileStack);
     }
 
     return content;

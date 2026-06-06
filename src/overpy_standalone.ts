@@ -2,7 +2,8 @@
 // ! the order in which esbuild includes the files.
 // !
 // ! Yes, this sucks. Too bad!
-import { currentLanguage, macros, resetGlobalVariables, postInitialLoad, computeCustomGameSettingsSchema, overpyTemplate } from "./globalVars";
+import { OverPyCompiler, OverPyDecompiler } from "./godClasses";
+import { postInitialLoad, computeCustomGameSettingsSchema, overpyTemplate } from "./globalVars";
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
 import { actionKw } from "./data/actions";
@@ -22,9 +23,6 @@ import { preprocessingDirectives } from "./data/opy/preprocessing";
 import { opyStringEntities } from "./data/opy/stringEntities";
 import { eventKw, eventTeamKw, eventSlotKw, eventPlayerKw, ruleKw } from "./data/other";
 import { valueFuncKw } from "./data/values";
-import { astToOpy } from "./decompiler/astToOpy";
-import { decompileActions, decompileConditions } from "./decompiler/workshopToAst";
-import { typeToString } from "./utils/logging";
 import { initializeQuickJSRuntime } from "./quickjs";
 
 const readyPromise = new Promise<void>((resolve, reject) => {
@@ -38,10 +36,9 @@ const readyPromise = new Promise<void>((resolve, reject) => {
 
 if (typeof module !== "undefined") {
     module.exports = {
+        OverPyCompiler,
+        OverPyDecompiler,
         decompileAllRules,
-        decompileActions,
-        decompileConditions,
-        astToOpy,
         compile,
         actionKw,
         valueFuncKw,
@@ -61,11 +58,7 @@ if (typeof module !== "undefined") {
         opyConstants,
         opyModules,
         opyMacros,
-        currentLanguage,
-        macros,
-        resetGlobalVariables,
         preprocessingDirectives,
-        typeToString,
         opyStringEntities,
         customGameSettingsSchema,
         readyPromise,

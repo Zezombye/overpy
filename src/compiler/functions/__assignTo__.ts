@@ -17,17 +17,14 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { areAstsAlwaysEqual, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__assignTo__ = function (content) {
+astParsingFunctions.__assignTo__ = function (content, compiler) {
 
     if (content.args[0].name === "__valueInArray__" && content.args[0].args[0].name === "__valueInArray__") {
         if (content.args[0].args[0].args[0].name === "__valueInArray__") {
             if (content.args[0].args[0].args[0].args[0].name === "__valueInArray__") {
-                error("Cannot assign to 4d array");
+                compiler.error("Cannot assign to 4d array");
             }
             //3d array
             //array[index1][index2][index3] = value
@@ -36,11 +33,11 @@ astParsingFunctions.__assignTo__ = function (content) {
             content.args[0] = content.args[0].args[0].args[0]; //array[index1]
             let value = content.args[1];
 
-            if (astContainsRandom(index3) || astContainsRandom(index2) || astContainsRandom(content.args[0])) {
-                error("Cannot assign to 3d array with a random index");
+            if (compiler.astContainsRandom(index3) || compiler.astContainsRandom(index2) || compiler.astContainsRandom(content.args[0])) {
+                compiler.error("Cannot assign to 3d array with a random index");
             }
 
-            content.args[1] = parseOpyMacro(`(
+            content.args[1] = compiler.parseOpyMacro(`(
                 $arrayIdx1.slice(0, $idx2)
                 .concat([
                     $arrayIdx1[$idx2].slice(0, $idx3)
@@ -58,16 +55,16 @@ astParsingFunctions.__assignTo__ = function (content) {
             content.args[0] = content.args[0].args[0]; //array[index1]
             let value = content.args[1];
 
-            if (astContainsRandom(index2) || astContainsRandom(content.args[0])) {
-                error("Cannot assign to 2d array with a random index");
+            if (compiler.astContainsRandom(index2) || compiler.astContainsRandom(content.args[0])) {
+                compiler.error("Cannot assign to 2d array with a random index");
             }
 
             //Thanks to Mira for the formula
-            content.args[1] = parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([$value]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value]);
+            content.args[1] = compiler.parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([$value]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value]);
         }
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         if (["__add__", "__subtract__", "__multiply__", "__divide__", "__modulo__", "__raiseToPower__", "min", "max", ".concat", ".exclude"].includes(content.args[1].name) && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
             var opName = content.args[1].name;
             if (opName === "min" || opName === "max") {
@@ -77,11 +74,11 @@ astParsingFunctions.__assignTo__ = function (content) {
             } else if (opName === ".exclude") {
                 opName = "__removeFromArrayByValue__";
             }
-            return new Ast("__modifyVar__", [content.args[0], new Ast(opName, [], [], "__Operation__"), content.args[1].args[1]]);
+            return compiler.Ast("__modifyVar__", [content.args[0], compiler.Ast(opName, [], [], "__Operation__"), content.args[1].args[1]]);
         }
 
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return getAstForUselessInstruction();
+            return compiler.getAstForUselessInstruction();
         }
     }
 

@@ -17,12 +17,8 @@
 
 "use strict";
 
-import { error, warn } from "./logging.js";
 import { opyStringEntities } from "../data/opy/stringEntities.js";
-import { caseSensitiveReplacements, currentLanguage } from "../globalVars.js";
-import { StringToken } from "../types.js";
-//import { StringToken } from "../types.js";
-//import { Ast, getAstForNull } from "./ast.js";
+import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
 
 export function escapeBadWords(content: string) {
     //000000000057.07F
@@ -69,30 +65,30 @@ export function escapeBadWords(content: string) {
     return content;
 }
 
-export function checkVarNameForBadWords(varName: string) {
+OverPyCompiler.prototype.checkVarNameForBadWords = function(varName: string) {
     for (let word of ["shit", "rigger", "fuck", "bong", "puss"]) {
         if (varName.toLowerCase().includes(word)) {
-            warn("w_censored_var_name", "The variable or subroutine name '" + varName + "' will not be able to be pasted" + (currentLanguage === "en-US" ? "" : "by English players ")+", as it contains the word '" + word + "'.");
+            this.warn("w_censored_var_name", "The variable or subroutine name '" + varName + "' will not be able to be pasted" + (this.currentLanguage === "en-US" ? "" : "by English players ")+", as it contains the word '" + word + "'.");
         }
     }
 }
 
-export function unescapeString(content: string, tows: boolean) {
+OverPyCompiler.prototype.unescapeString = OverPyDecompiler.prototype.unescapeString = function(content: string, tows: boolean) {
     if (content.length < 2) {
-        error("Expected a string, but got '" + content + "'");
+        this.error("Expected a string, but got '" + content + "'");
     }
     if (content.startsWith("'") && content.endsWith("'")) {
         content = content.substring(1, content.length - 1).replace(/\\'/g, "'");
     } else if (content.startsWith('"') && content.endsWith('"')) {
         content = content.substring(1, content.length - 1).replace(/\\"/g, '"');
     } else {
-        error("Expected a string, but got '" + content + "'");
+        this.error("Expected a string, but got '" + content + "'");
     }
     var result = "";
     for (var i = 0; i < content.length; i++) {
         if (content[i] === "\\") {
             if (i === content.length - 1) {
-                error("Cannot unescape string: expected a character after the ending backslash (\\)");
+                this.error("Cannot unescape string: expected a character after the ending backslash (\\)");
             }
             if (content[i + 1] === '"') {
                 result += '"';
@@ -114,22 +110,22 @@ export function unescapeString(content: string, tows: boolean) {
                 result += "\u00AD"; //zero width space not censored
             } else if (content[i + 1] === "x") {
                 if (i >= content.length - 1 - 2) {
-                    error("Expected 2 hexadecimal digits after '\\x'");
+                    this.error("Expected 2 hexadecimal digits after '\\x'");
                 }
                 var hexDigits = content.slice(i + 2, i + 2 + 2);
                 if (!hexDigits.match(/[A-Fa-f0-9]{2}/)) {
-                    error("Expected 2 hexadecimal digits after '\\x', but found '" + hexDigits + "'");
+                    this.error("Expected 2 hexadecimal digits after '\\x', but found '" + hexDigits + "'");
                 }
 
                 result += String.fromCharCode(parseInt(hexDigits, 16));
                 i += 2;
             } else if (content[i + 1] === "u") {
                 if (i >= content.length - 1 - 4) {
-                    error("Expected 4 hexadecimal digits after '\\u'");
+                    this.error("Expected 4 hexadecimal digits after '\\u'");
                 }
                 var hexDigits = content.slice(i + 2, i + 2 + 4);
                 if (!hexDigits.match(/[A-Fa-f0-9]{4}/)) {
-                    error("Expected 4 hexadecimal digits after '\\u', but found '" + hexDigits + "'");
+                    this.error("Expected 4 hexadecimal digits after '\\u', but found '" + hexDigits + "'");
                 }
 
                 result += String.fromCodePoint(parseInt(hexDigits, 16));
@@ -142,20 +138,20 @@ export function unescapeString(content: string, tows: boolean) {
                         foundEnd = true;
                         break;
                     } else if (!content[j].match(/\w/)) {
-                        error("Invalid character '" + content[j] + "' in a string entity");
+                        this.error("Invalid character '" + content[j] + "' in a string entity");
                     }
                 }
                 if (!foundEnd) {
-                    error("Expected ';' to terminate the entity, but found end of string");
+                    this.error("Expected ';' to terminate the entity, but found end of string");
                 }
                 var entityName = content.slice(i + 2, j);
                 if (!(entityName in opyStringEntities)) {
-                    error("Unknown string entity '" + entityName + "'");
+                    this.error("Unknown string entity '" + entityName + "'");
                 }
                 result += String.fromCodePoint(opyStringEntities[entityName].codepoint);
                 i += entityName.length + 1;
             } else {
-                error("Unknown escape sequence '\\" + content[i + 1] + "'");
+                this.error("Unknown escape sequence '\\" + content[i + 1] + "'");
             }
             i++;
         } else if (tows && content[i] === "\r") {
@@ -168,9 +164,6 @@ export function unescapeString(content: string, tows: boolean) {
 }
 
 export function escapeString(content: string, tows: boolean) {
-    if (tows === undefined) {
-        error("tows must be defined, please report to Zezombye");
-    }
     var result = '"' + content.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r") + '"';
     if (!tows) {
         result = result.replace(/\u00AD/g, "\\z");

@@ -17,16 +17,14 @@
 
 "use strict";
 
-import { constantValues } from "../../data/constants";
-import { enableOptimization, optimizeStrict } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstForNumber, numValue } from "../../utils/ast";
+import { astParsingFunctions, numValue } from "../../utils/ast";
 
-astParsingFunctions.magnitude = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.magnitude = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "vect") {
             let [x, y, z] = content.args[0].args.map(arg => numValue(arg) as number);
             if ([x, y, z].every(num => num !== null)) {
-                return getAstForNumber(Math.sqrt(x ** 2 + y ** 2 + z ** 2));
+                return compiler.getAstForNumber(Math.sqrt(x ** 2 + y ** 2 + z ** 2));
             }
         }
     }

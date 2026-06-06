@@ -17,31 +17,31 @@
 
 "use strict";
 
-import { Ast, astParsingFunctions, getAstFor0, getAstForEmptyArray, getAstForNull } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (content) {
+
+astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (content, compiler) {
 
     let variables = [];
     let arrays = [];
 
     if (content.name === "splitDictArray") {
         if (content.args[0].name !== "__dict__") {
-            error("First argument of "+content.name+"() must be a dictionary", content.args[0].fileStack);
+            compiler.error("First argument of "+content.name+"() must be a dictionary", content.args[0].fileStack);
         }
         if (content.args[1].name !== "__array__") {
-            error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
+            compiler.error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
         }
         for (let elem of content.args[1].args) {
             if (elem.name !== "__dict__") {
-                error("Second argument of "+content.name+"() must be a literal array of dictionaries", elem.fileStack);
+                compiler.error("Second argument of "+content.name+"() must be a literal array of dictionaries", elem.fileStack);
             }
         }
 
 
         variables = content.args[0].args.map((x) => x.args[1]);
         let variableKeys = content.args[0].args.map((x) => x.args[0].name);
-        arrays = Array(variableKeys.length).fill(0).map(() => getAstForEmptyArray());
+        arrays = Array(variableKeys.length).fill(0).map(() => compiler.getAstForEmptyArray());
 
         //console.log(variableKeys);
         //console.log(variables);
@@ -51,33 +51,33 @@ astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (con
             let dictValues = dict.args.map((x) => x.args[1]);
             for (let [i, key] of variableKeys.entries()) {
                 if (!dict.args.some((x) => x.args[0].name === key)) {
-                    arrays[i].args.push(getAstForNull());
+                    arrays[i].args.push(compiler.getAstForNull());
                 } else {
                     arrays[i].args.push(dictValues[dictKeys.findIndex((x) => x === key)]);
                 }
             }
             for (let key of dictKeys) {
                 if (!variableKeys.includes(key)) {
-                    error("Key '" + key + "' in dictionary is not defined in the first argument of "+content.name+"()", dict.fileStack);
+                    compiler.error("Key '" + key + "' in dictionary is not defined in the first argument of "+content.name+"()", dict.fileStack);
                 }
             }
         }
 
     } else { //tabular
         if (content.args[0].name !== "__array__") {
-            error("First argument of "+content.name+"() must be a literal array", content.args[0].fileStack);
+            compiler.error("First argument of "+content.name+"() must be a literal array", content.args[0].fileStack);
         }
         if (content.args[1].name !== "__array__") {
-            error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
+            compiler.error("Second argument of "+content.name+"() must be a literal array", content.args[1].fileStack);
         }
         variables = content.args[0].args;
         if (content.args[1].args.length % variables.length !== 0) {
-            error("Second argument of "+content.name+"() must have a length that is a multiple of "+variables.length+" (length is "+content.args[1].args.length+")", content.args[1].fileStack);
+            compiler.error("Second argument of "+content.name+"() must have a length that is a multiple of "+variables.length+" (length is "+content.args[1].args.length+")", content.args[1].fileStack);
         }
         arrays = content.args[1].args.reduce((acc: any[], x, i) => {
             let arrayIndex = i % variables.length;
             if (!acc[arrayIndex]) {
-                acc[arrayIndex] = getAstForEmptyArray();
+                acc[arrayIndex] = compiler.getAstForEmptyArray();
             }
             acc[arrayIndex].args.push(x);
             return acc;
@@ -88,16 +88,16 @@ astParsingFunctions.splitDictArray = astParsingFunctions.tabular = function (con
         //Compress arrays. If we get an exception then the array isn't made of literal numbers/vectors
         arrays = arrays.map((x) => {
             try {
-                return astParsingFunctions.compressed(new Ast("compressed", [x]));
+                return astParsingFunctions.compressed(compiler.Ast("compressed", [x]), compiler);
             } catch (e) {
                 return x;
             }
         });
     }
 
-    let assignments = arrays.map((x, i) => new Ast("__assignTo__", [variables[i], x]));
+    let assignments = arrays.map((x, i) => compiler.Ast("__assignTo__", [variables[i], x]));
     if (!content.parent) {
-        error("Could not find parent of "+content.name+"()");
+        compiler.error("Could not find parent of "+content.name+"()");
     }
     content.parent!.children.splice(content.parent!.childIndex + 1, 0, ...assignments.slice(1));
     return assignments[0];

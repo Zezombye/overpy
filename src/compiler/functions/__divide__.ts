@@ -17,28 +17,27 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT, optimizeStrict } from "../../globalVars";
-import { getAstForNumber, getAstFor0, Ast, astParsingFunctions, numValue } from "../../utils/ast";
-import { warn, functionNameToString, typeToString } from "../../utils/logging";
-import { isTypeSuitable } from "../../utils/types";
+import { NUMBER_LIMIT,  } from "../../globalVars";
+import { astParsingFunctions, numValue } from "../../utils/ast";
+import { functionNameToString } from "../../utils/logging";
 
-astParsingFunctions.__divide__ = function (content) {
+astParsingFunctions.__divide__ = function (content, compiler) {
     //Check to throw a type warning if dividing a number by a vector
-    if (!isTypeSuitable("Vector", content.args[0].type) && !isTypeSuitable("float", content.args[1].type)) {
-        warn("w_type_check", "Cannot divide " + functionNameToString(content.args[0]) + " of type '" + typeToString(content.args[0].type) + "' by " + functionNameToString(content.args[1]) + " of type '" + typeToString(content.args[1].type) + "'");
+    if (!compiler.isTypeSuitable("Vector", content.args[0].type) && !compiler.isTypeSuitable("float", content.args[1].type)) {
+        compiler.warn("w_type_check", "Cannot divide " + functionNameToString(content.args[0]) + " of type '" + compiler.typeToString(content.args[0].type) + "' by " + functionNameToString(content.args[1]) + " of type '" + compiler.typeToString(content.args[1].type) + "'");
         return content;
     }
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their quotient.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             let result = content.args[0].args[0].numValue / content.args[1].args[0].numValue;
             if (Math.abs(result) < NUMBER_LIMIT) {
-                return getAstForNumber(result);
+                return compiler.getAstForNumber(result);
             }
         }
 
-        if (!optimizeStrict) {
+        if (!compiler.optimizeStrict) {
             //A/1 -> A
             //Non-strict optimization, as it could be used to cast to number.
             if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 1) {
@@ -48,19 +47,19 @@ astParsingFunctions.__divide__ = function (content) {
             //A/0 = 0/A = 0
             //Could also be used on a vector, in which case it should return vect(0,0,0) instead.
             if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
-                return getAstFor0();
+                return compiler.getAstFor0();
             }
         }
 
 
         //Check if both arguments are vectors containing numbers.
         if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue / content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue / content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue / content.args[1].args[2].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].args[0].numValue / content.args[1].args[0].args[0].numValue), compiler.getAstForNumber(content.args[0].args[1].args[0].numValue / content.args[1].args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[2].args[0].numValue / content.args[1].args[2].args[0].numValue)]);
         }
 
         //Check if we have vector / number.
         if (content.args[0].name === "vect" && content.args[1].name === "__number__" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
-            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue / content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue / content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue / content.args[1].args[0].numValue)]);
+            return compiler.Ast("vect", [compiler.getAstForNumber(content.args[0].args[0].args[0].numValue / content.args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[1].args[0].numValue / content.args[1].args[0].numValue), compiler.getAstForNumber(content.args[0].args[2].args[0].numValue / content.args[1].args[0].numValue)]);
         }
     }
 

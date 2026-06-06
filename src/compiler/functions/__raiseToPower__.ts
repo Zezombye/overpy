@@ -17,20 +17,19 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { astParsingFunctions, getAstFor0, getAstForNumber } from "../../utils/ast";
-import { isTypeSuitable } from "../../utils/types";
+import { NUMBER_LIMIT } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__raiseToPower__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__raiseToPower__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //If both arguments are numbers, return their power.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             if (content.args[0].args[0].numValue < 0) {
-                return getAstFor0();
+                return compiler.getAstFor0();
             }
             let result = Math.pow(content.args[0].args[0].numValue, content.args[1].args[0].numValue);
             if (Math.abs(result) < NUMBER_LIMIT) {
-                return getAstForNumber(result);
+                return compiler.getAstForNumber(result);
             }
         }
 
@@ -41,7 +40,7 @@ astParsingFunctions.__raiseToPower__ = function (content) {
 
         //0**A -> 0
         if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
-            return getAstFor0();
+            return compiler.getAstFor0();
         }
 
         //1**A -> 1
@@ -50,8 +49,8 @@ astParsingFunctions.__raiseToPower__ = function (content) {
         }
 
         //negative number ** A -> 0
-        if (content.args[0].type !== "Value" && isTypeSuitable("signed float", content.args[0].type)) {
-            return getAstFor0();
+        if (content.args[0].type !== "Value" && compiler.isTypeSuitable("signed float", content.args[0].type)) {
+            return compiler.getAstFor0();
         }
     }
 

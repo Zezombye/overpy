@@ -17,14 +17,11 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, astIsLiteral, astParsingFunctions, getAstForFalse, getAstForMinus1, getAstForNumber, getAstForTrue, getAstForUselessInstruction } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { astIsLiteral, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions[".concat"] = function (content) {
+astParsingFunctions[".concat"] = function (content, compiler) {
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__array__") {
             if (astIsLiteral(content.args[1])) {
                 //If the second argument is a literal, we can just append it to the array (literals cannot be arrays)

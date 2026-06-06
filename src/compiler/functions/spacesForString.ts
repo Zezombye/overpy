@@ -17,13 +17,11 @@
 
 "use strict";
 
-import { Ast, astParsingFunctions, getAstFor0 } from "../../utils/ast";
-import { error } from "../../utils/logging";
-import { getAstForTranslatedString } from "./__translatedString__";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.spacesForString = function (content) {
+astParsingFunctions.spacesForString = function (content, compiler) {
     if (content.args[0].name === "__translatedString__") {
-        return getAstForTranslatedString(content.args[0]);
+        return compiler.getAstForTranslatedString(content.args[0]);
     }
-    return astParsingFunctions.spacesForLength(new Ast("spacesForLength", [astParsingFunctions.strVisualLength(content)]));
+    return astParsingFunctions.spacesForLength(compiler.Ast("spacesForLength", [astParsingFunctions.strVisualLength(content, compiler)]), compiler);
 };

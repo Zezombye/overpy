@@ -17,71 +17,68 @@
 
 "use strict";
 
-import { currentRuleHasVariableGoto, enableOptimization, currentRuleEvent, optimizeForSize, optimizeForSizeAggressive } from "../../globalVars";
-import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd, astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
-import {getUniqueNumber} from "../../utils/other";
+import { isDefinitelyFalsy, isDefinitelyTruthy, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__if__ = function (content) {
+astParsingFunctions.__if__ = function (content, compiler) {
     if (content.parent === undefined) {
-        error("'if' AST lacks parent");
+        throw compiler.error("'if' AST lacks parent");
     }
 
     //Check for "if (not) ruleCondition: return/continue/loop()".
     if (content.args[0].name === "ruleCondition" || (content.args[0].name === "__not__" && content.args[0].args[0].name === "ruleCondition")) {
-        if (currentRuleHasVariableGoto) {
+        if (compiler.currentRuleHasVariableGoto) {
             //Keep the child and add a "pass" for the "end"
-            content.parent.children.splice(content.parent.childIndex + 1, 0, content.args[0].name === "ruleCondition" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, content.args[0].name === "ruleCondition" ? compiler.getAstForUselessInstruction() : content.children[0], compiler.getAstForUselessInstruction());
         }
 
         if (content.children.length === 1) {
             if (content.children[0].name === "loop") {
                 if (content.args[0].name === "ruleCondition") {
-                    return new Ast("__loopIfConditionIsTrue__");
+                    return compiler.Ast("__loopIfConditionIsTrue__");
                 } else {
-                    return new Ast("__loopIfConditionIsFalse__");
+                    return compiler.Ast("__loopIfConditionIsFalse__");
                 }
             } else if (content.children[0].name === "return") {
                 if (content.args[0].name === "ruleCondition") {
-                    return new Ast("__abortIfConditionIsTrue__");
+                    return compiler.Ast("__abortIfConditionIsTrue__");
                 } else {
-                    return new Ast("__abortIfConditionIsFalse__");
+                    return compiler.Ast("__abortIfConditionIsFalse__");
                 }
             }
         }
     }
     let isLoneIf = content.parent.childIndex === content.parent.children.length - 1 || (content.parent.childIndex < content.parent.children.length - 1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex + 1].name));
 
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
         //but only if no relative goto, 1 child, and no else/elif after the if
 
 
         if (content.children.length === 1 && isLoneIf && ["return", "loop", "__skip__"].includes(content.children[0].name)) {
-            if (currentRuleHasVariableGoto) {
+            if (compiler.currentRuleHasVariableGoto) {
                 //Keep the child and add a "pass" for the "end"
-                content.parent.children.splice(content.parent.childIndex + 1, 0, content.children[0], getAstForUselessInstruction());
+                content.parent.children.splice(content.parent.childIndex + 1, 0, content.children[0], compiler.getAstForUselessInstruction());
             }
 
             if (isDefinitelyFalsy(content.args[0])) {
-                return getAstForUselessInstruction();
+                return compiler.getAstForUselessInstruction();
             }
             if (isDefinitelyTruthy(content.args[0])) {
                 return content.children[0];
             }
 
             if (content.children[0].name === "return") {
-                return new Ast("__abortIf__", [content.args[0]]);
+                return compiler.Ast("__abortIf__", [content.args[0]]);
             } else if (content.children[0].name === "loop") {
-                return new Ast("__loopIf__", [content.args[0]]);
+                return compiler.Ast("__loopIf__", [content.args[0]]);
             } else if (content.children[0].name === "__skip__") {
-                return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
+                return compiler.Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);
             }
         }
 
         //if false and no variable goto -> make the children useless
-        if (!currentRuleHasVariableGoto && isDefinitelyFalsy(content.args[0])) {
-            makeChildrenUseless(content.children);
+        if (!compiler.currentRuleHasVariableGoto && isDefinitelyFalsy(content.args[0])) {
+            compiler.makeChildrenUseless(content.children);
         }
     }
 
@@ -89,12 +86,12 @@ astParsingFunctions.__if__ = function (content) {
     if (isLoneIf) {
         //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length - 1) {
+        if (compiler.enableOptimization && compiler.currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length - 1) {
             var root = content;
             includeEnd = false;
 
             while (root.name !== "__rule__") {
-                root = root.parent ?? error("Failed to find rule parent while moving up ancestor chain (starting at if)");
+                root = root.parent ?? compiler.error("Failed to find rule parent while moving up ancestor chain (starting at if)");
                 if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
                     includeEnd = true;
                     break;
@@ -106,23 +103,23 @@ astParsingFunctions.__if__ = function (content) {
         }
 
         //if optimizing for size and replacing with skip if would save an element, do so (either "if not A", or "if A == B" with end and only one instruction)
-        if (optimizeForSize && optimizeForSizeAggressive && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
-            let label = "__label_if_" + getUniqueNumber() + "__";
-            content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, new Ast(label, [], [], "Label"), getAstForUselessInstruction());
+        if (compiler.optimizeForSize && compiler.optimizeForSizeAggressive && (content.args[0].name === "__not__" || content.children.length === 1 && includeEnd && ["__equals__", "__inequals__", "__greaterThan__", "__greaterThanOrEquals__", "__lessThan__", "__lessThanOrEquals__"].includes(content.args[0].name))) {
+            let label = "__label_if_" + compiler.getUniqueNumber() + "__";
+            content.parent.children.splice(content.parent.childIndex + 1, 0, ...content.children, compiler.Ast(label, [], [], "Label"), compiler.getAstForUselessInstruction());
 
             if (content.args[0].name === "__not__") {
                 content.args[0] = content.args[0].args[0];
             } else {
-                content.args[0] = astParsingFunctions.__not__(new Ast("__not__", [content.args[0]]));
+                content.args[0] = astParsingFunctions.__not__(compiler.Ast("__not__", [content.args[0]]), compiler);
             }
 
-            let skip = new Ast("__skipIf__", [content.args[0], new Ast("__distanceTo__", [new Ast(label, [], [], "Label")])]);
+            let skip = compiler.Ast("__skipIf__", [content.args[0], compiler.Ast("__distanceTo__", [compiler.Ast(label, [], [], "Label")])]);
             skip.isGotoInSameScope = true;
             return skip;
         }
 
         if (includeEnd) {
-            content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, compiler.getAstForEnd());
         }
     }
 

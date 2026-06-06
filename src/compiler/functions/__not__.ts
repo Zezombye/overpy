@@ -17,9 +17,7 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { isDefinitelyFalsy, getAstForTrue, isDefinitelyTruthy, getAstForFalse, Ast, astParsingFunctions } from "../../utils/ast";
-import { isTypeSuitable } from "../../utils/types";
+import { isDefinitelyFalsy, isDefinitelyTruthy, astParsingFunctions } from "../../utils/ast";
 
 let inverseComparisonMapping: Record<string, string> = {
     "__equals__": "__inequals__",
@@ -30,31 +28,31 @@ let inverseComparisonMapping: Record<string, string> = {
     "__lessThanOrEquals__": "__greaterThan__",
 };
 
-astParsingFunctions.__not__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__not__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //not false -> true
         if (isDefinitelyFalsy(content.args[0])) {
-            return getAstForTrue();
+            return compiler.getAstForTrue();
         }
         //not true -> false
         if (isDefinitelyTruthy(content.args[0])) {
-            return getAstForFalse();
+            return compiler.getAstForFalse();
         }
         //not not A -> A
-        if (content.args[0].name === "__not__" && isTypeSuitable("bool", content.args[0].args[0].type, false)) {
+        if (content.args[0].name === "__not__" && compiler.isTypeSuitable("bool", content.args[0].args[0].type, false)) {
             return content.args[0].args[0];
         }
         //not is alive -> is dead
         if (content.args[0].name === ".isAlive") {
-            return new Ast(".isDead", [content.args[0].args[0]]);
+            return compiler.Ast(".isDead", [content.args[0].args[0]]);
         }
         //not is dead -> is alive
         if (content.args[0].name === ".isDead") {
-            return new Ast(".isAlive", [content.args[0].args[0]]);
+            return compiler.Ast(".isAlive", [content.args[0].args[0]]);
         }
         //not(A == B) -> A != B and same for other comparisons
         if (content.args[0].name in inverseComparisonMapping) {
-            return new Ast(inverseComparisonMapping[content.args[0].name], content.args[0].args);
+            return compiler.Ast(inverseComparisonMapping[content.args[0].name], content.args[0].args);
         }
     }
     return content;

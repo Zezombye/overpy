@@ -18,11 +18,10 @@
 "use strict";
 
 import { Ast, astParsingFunctions } from "../../utils/ast";
-import { error } from "../../utils/logging";
 
-astParsingFunctions[".toArray"] = function (content) {
+astParsingFunctions[".toArray"] = function (content, compiler) {
     if (content.args[0].name !== "__enumType__") {
-        error("Cannot use .toArray() on something that is not an enum type");
+        compiler.error("Cannot use .toArray() on something that is not an enum type");
     }
-    return new Ast("__array__", content.args[0].args);
+    return compiler.Ast("__array__", content.args[0].args);
 };

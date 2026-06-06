@@ -17,13 +17,14 @@
 
 "use strict";
 
-import { error } from "../../utils/logging";
-import { blizzGlobalDefaultWidth, blizzGlobalWidths } from "../../data/opy/blizzardGlobal";
-import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
-export function getStrVisualLength(text: string) {
+import { blizzGlobalDefaultWidth, blizzGlobalWidths } from "../../data/opy/blizzardGlobal";
+import {OverPyCompiler} from "../../godClasses";
+import { astParsingFunctions } from "../../utils/ast";
+
+OverPyCompiler.prototype.getStrVisualLength = function (text: string) {
     if (text.includes("\n")) {
-        error("Text must not have newlines");
+        this.error("Text must not have newlines");
     }
 
     let result = 0;
@@ -38,12 +39,12 @@ export function getStrVisualLength(text: string) {
     return result;
 }
 
-astParsingFunctions.strVisualLength = function (content) {
+astParsingFunctions.strVisualLength = function (content, compiler) {
     if (content.args[0].name !== "__customString__") {
-        error("Text must be a literal custom string", content.args[0].fileStack);
+        compiler.error("Text must be a literal custom string", content.args[0].fileStack);
     }
     if (content.args[0].args.length > 1) {
-        error("Text must not have arguments", content.args[0].fileStack);
+        compiler.error("Text must not have arguments", content.args[0].fileStack);
     }
-    return getAstForNumber(getStrVisualLength(content.args[0].args[0].name));
+    return compiler.getAstForNumber(compiler.getStrVisualLength(content.args[0].args[0].name));
 };

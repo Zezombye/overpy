@@ -17,11 +17,10 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, astParsingFunctions, getAstForNull } from "../../utils/ast";
+import { areAstsAlwaysEqual, astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__localizedString__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__localizedString__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         //Localized strings take one element more than custom strings.
         //Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
         if (["", "*", "----------", "#{0}", "-> {0}", "<-> {0}", "<- {0}", "{0} ->", "{0} <->", "{0} <-", "{0} -> {1}", "{0} - {1}", "{0} != {1}", "{0} * {1}", "{0} / {1}", "{0} + {1}", "{0} <-> {1}", "{0} <- {1}", "{0} <= {1}", "{0} < {1}", "{0} == {1}", "{0} = {1}", "{0} >= {1}", "{0} > {1}", "{0} {1}", "{0} : {1} : {2}", "{0} {1} {2}", "({0})", "¡{0}!", "¿{0}?"].includes(content.args[0].name)) {
@@ -31,7 +30,7 @@ astParsingFunctions.__localizedString__ = function (content) {
     }
     if (content.name === "__localizedString__") {
         while (content.args.length < 4) {
-            content.args.push(getAstForNull());
+            content.args.push(compiler.getAstForNull());
         }
     }
     return content;

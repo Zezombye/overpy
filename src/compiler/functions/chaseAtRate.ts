@@ -17,12 +17,11 @@
 
 "use strict";
 
-import { globalVariables, playerVariables, defaultVarNames, setFileStack } from "../../globalVars";
+import { defaultVarNames } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
-import { error, functionNameToString, warn } from "../../utils/logging";
-import { addVariable } from "../../utils/varNames";
+import { functionNameToString } from "../../utils/logging";
 
-astParsingFunctions.chaseAtRate = function (content) {
+astParsingFunctions.chaseAtRate = function (content, compiler) {
     //Warning: this function is duplicated with chaseOverTime.
 
     if (content.args[0].name === "__playerVar__") {
@@ -32,24 +31,24 @@ astParsingFunctions.chaseAtRate = function (content) {
         var isGlobalVariable = true;
         var variableAst = content.args[0].args[0];
     } else {
-        error("Expected variable for 1st argument of function '"+content.name+"', but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
+        throw compiler.error("Expected variable for 1st argument of function '"+content.name+"', but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
     }
     var varName = variableAst.name;
 
     if (content.name === "chaseAtRate" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 9999) {
-        warn("w_chase_9999", "Chasing a variable to 9999 is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[1].fileStack);
+        compiler.warn("w_chase_9999", "Chasing a variable to 9999 is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[1].fileStack);
     }
 
-    var varArray = isGlobalVariable ? globalVariables : playerVariables;
+    var varArray = isGlobalVariable ? compiler.globalVariables : compiler.playerVariables;
     var isFound = false;
     for (var variable of varArray) {
         if (variable.name === varName) {
             variable["isChased"] = true;
             if (variable["isUsedInForLoop"]) {
-                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a for loop, making the for loop not run.", content.args[0].fileStack);
+                compiler.warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a for loop, making the for loop not run.", content.args[0].fileStack);
             }
             if (variable["isUsedInRuleCondition"]) {
-                warn("w_ow2_rule_condition_chase", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.", content.args[0].fileStack);
+                compiler.warn("w_ow2_rule_condition_chase", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.", content.args[0].fileStack);
             }
             isFound = true;
             break;
@@ -59,9 +58,9 @@ astParsingFunctions.chaseAtRate = function (content) {
         if (defaultVarNames.includes(varName)) {
             //Add the variable as it doesn't already exist (else it would've been caught by the for)
             //However, only do this if it is a default variable name
-            addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), variableAst.fileStack);
+            compiler.addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName), variableAst.fileStack);
         } else {
-            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'", content.args[0].fileStack);
+            compiler.error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'", content.args[0].fileStack);
         }
         for (var variable of varArray) {
             if (variable.name === varName) {

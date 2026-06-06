@@ -17,59 +17,52 @@
 
 "use strict";
 
-import { parseAst } from "../compiler/astParser";
-import { parseLines } from "../compiler/parser";
-import { tokenize } from "../compiler/tokenizer";
-import { CustomGameSettingSchema } from "../data/customGameSettings";
 import { opyMacros } from "../data/opy/macros";
 import { customGameSettingsKw } from "../data/other";
-import { astMacros, fileStack } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
 import { FileStackMember } from "../types";
-import { Ast, astContainsRandom, replaceFunctionInAst } from "./ast";
-import { astToString, error } from "./logging";
-import { upperCaseToCamelCase } from "./other";
+import { Ast, replaceFunctionInAst } from "./ast";
 import { escapeBadWords, escapeString, getUtf8ByteLength, getUtf8Length } from "./strings";
-import { tows } from "./translation";
 
-export function compileCustomGameSettingsDict(providedSettings: Record<string, any>, refDict: { [key: string]: { values: string | Record<string, any> } }) {
+OverPyCompiler.prototype.compileCustomGameSettingsDict = function(providedSettings: Record<string, any>, refDict: { [key: string]: { values: string | Record<string, any> } }) {
     var result: Record<string, any> = {};
     for (var key_ of Object.keys(providedSettings)) {
-        var wsKey = tows(key_, refDict);
+        var wsKey = this.tows(key_, refDict);
 
         if (!(key_ in refDict)) {
-            error("Unknown setting '" + key_ + "'");
+            this.error("Unknown setting '" + key_ + "'");
         }
         let key = key_ as keyof typeof refDict;
         let refEntry = refDict[key];
         if (!("values" in refEntry)) {
-            error("Setting '" + key + "' has no values");
+            this.error("Setting '" + key + "' has no values");
         }
         let refValues = refEntry.values;
 
         if (typeof refValues === "object") {
-            result[wsKey] = tows(providedSettings[key], refValues);
+            result[wsKey] = this.tows(providedSettings[key], refValues);
         } else if (refValues === "__string__") {
             if ("maxChars" in refEntry && typeof refEntry.maxChars === "number") {
                 if (getUtf8Length(providedSettings[key]) > refEntry.maxChars) {
-                    error("String for '" + key + "' must not have more than " + refEntry.maxChars + " chars");
+                    this.error("String for '" + key + "' must not have more than " + refEntry.maxChars + " chars");
                 }
             } else if ("maxBytes" in refEntry && typeof refEntry.maxBytes === "number") {
                 if (getUtf8ByteLength(providedSettings[key]) > refEntry.maxBytes) {
-                    error("String for '" + key + "' must not have more than " + refEntry.maxBytes + " bytes");
+                    this.error("String for '" + key + "' must not have more than " + refEntry.maxBytes + " bytes");
                 }
             }
             result[wsKey] = escapeBadWords(escapeString(providedSettings[key], true));
         } else if (refValues === "__percent__" || refValues === "__int__" || refValues === "__float__") {
 
             if ("max" in refEntry && refEntry.max !== undefined && providedSettings[key] > refEntry.max!) {
-                error("Value for '" + key + "' must not exceed " + refEntry.max + "%");
+                this.error("Value for '" + key + "' must not exceed " + refEntry.max + "%");
             }
             if ("min" in refEntry && refEntry.min !== undefined && providedSettings[key] < refEntry.min!) {
-                error("Value for '" + key + "' must be higher than " + refEntry.min + "%");
+                this.error("Value for '" + key + "' must be higher than " + refEntry.min + "%");
             }
             if (refEntry.values === "__int__") {
                 if (!Number.isInteger(providedSettings[key])) {
-                    error("Value for '" + key + "' must be an integer");
+                    this.error("Value for '" + key + "' must be an integer");
                 }
             }
             if (refValues === "__percent__") {
@@ -78,17 +71,17 @@ export function compileCustomGameSettingsDict(providedSettings: Record<string, a
                 result[wsKey] = providedSettings[key];
             }
         } else if (refDict[key].values === "__boolYesNo__") {
-            result[wsKey] = providedSettings[key] === true ? tows("__yes__", customGameSettingsKw) : tows("__no__", customGameSettingsKw);
+            result[wsKey] = providedSettings[key] === true ? this.tows("__yes__", customGameSettingsKw) : this.tows("__no__", customGameSettingsKw);
         } else if (refDict[key].values === "__boolEnabled__") {
-            result[wsKey] = providedSettings[key] === true ? tows("__enabled__", customGameSettingsKw) : tows("__disabled__", customGameSettingsKw);
+            result[wsKey] = providedSettings[key] === true ? this.tows("__enabled__", customGameSettingsKw) : this.tows("__disabled__", customGameSettingsKw);
         } else if (refDict[key].values === "__boolOnOff__") {
-            result[wsKey] = providedSettings[key] === true ? tows("__on__", customGameSettingsKw) : tows("__off__", customGameSettingsKw);
+            result[wsKey] = providedSettings[key] === true ? this.tows("__on__", customGameSettingsKw) : this.tows("__off__", customGameSettingsKw);
         } else if (refDict[key].values === "__boolReverseEnabled__") {
-            result[wsKey] = providedSettings[key] === true ? tows("__disabled__", customGameSettingsKw) : tows("__enabled__", customGameSettingsKw);
+            result[wsKey] = providedSettings[key] === true ? this.tows("__disabled__", customGameSettingsKw) : this.tows("__enabled__", customGameSettingsKw);
         } else if (refDict[key].values === "__boolReverseOnOff__") {
-            result[wsKey] = providedSettings[key] === true ? tows("__off__", customGameSettingsKw) : tows("__on__", customGameSettingsKw);
+            result[wsKey] = providedSettings[key] === true ? this.tows("__off__", customGameSettingsKw) : this.tows("__on__", customGameSettingsKw);
         } else {
-            error("Unknown value type " + refDict[key].values);
+            this.error("Unknown value type " + refDict[key].values);
         }
     }
     return result;
@@ -112,29 +105,29 @@ export function trimNb(x: number | string) {
     return result;
 }
 
-export function parseOpyMacroAst(content: Ast): Ast {
+OverPyCompiler.prototype.parseOpyMacroAst = function(content: Ast): Ast {
 
     if (!(content.name in opyMacros)) {
-        error("Unknown macro '" + content.name + "'", content.fileStack);
+        this.error("Unknown macro '" + content.name + "'", content.fileStack);
     }
 
     for (let [i, arg] of (opyMacros[content.name].args || []).entries()) {
-        if (arg.isDuplicatedInMacro && astContainsRandom(content.args[i])) {
-            error("Cannot use random functions in argument '" + arg.name + "' of macro '" + content.name + "', as it is duplicated within the macro", content.args[i].fileStack);
+        if (arg.isDuplicatedInMacro && this.astContainsRandom(content.args[i])) {
+            this.error("Cannot use random functions in argument '" + arg.name + "' of macro '" + content.name + "', as it is duplicated within the macro", content.args[i].fileStack);
         }
     }
 
     let macro = opyMacros[content.name].macro;
 
-    return parseOpyMacro(macro, (opyMacros[content.name].args || []).map(arg => "$"+arg.name), content.args);
+    return this.parseOpyMacro(macro, (opyMacros[content.name].args || []).map(arg => "$"+arg.name), content.args);
 }
 
-export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
+OverPyCompiler.prototype.parseOpyMacro = function(macro: string, argNames: string[], args: Ast[]) {
 
-    let lines = tokenize(macro);
-    let astLines = parseLines(lines);
+    let lines = this.tokenize(macro);
+    let astLines = this.parseLines(lines);
     if (astLines.length !== 1) {
-        error("Macro '" + macro + "' should only have one line");
+        this.error("Macro '" + macro + "' should only have one line");
     }
     let result = astLines[0];
     for (let [i, arg] of argNames.entries()) {
@@ -144,9 +137,9 @@ export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
 
 }
 
-export function parseAstMacro(macro: Ast): Ast[] {
-    if (!(macro.name in astMacros)) {
-        error("Unknown macro '" + macro.name + "'", macro.fileStack);
+OverPyCompiler.prototype.parseAstMacro = function(macro: Ast): Ast[] {
+    if (!(macro.name in this.astMacros)) {
+        this.error("Unknown macro '" + macro.name + "'", macro.fileStack);
     }
 
     function setMacroFilestack(ast: Ast, fileStack: FileStackMember[]) {
@@ -162,13 +155,13 @@ export function parseAstMacro(macro: Ast): Ast[] {
 
     //console.log("ast macro", macro);
     //console.log("filestack", fileStack);
-    let result: Ast[] = astMacros[macro.name].lines.map((line) => line.clone());
-    let argNames = astMacros[macro.name].args.map(arg => arg.name);
+    let result: Ast[] = this.astMacros[macro.name].lines.map((line) => line.clone());
+    let argNames = this.astMacros[macro.name].args.map(arg => arg.name);
     for (let i = 0; i < result.length; i++) {
         for (let [j, arg] of argNames.entries()) {
             result[i] = replaceFunctionInAst(result[i], "$"+arg, macro.args[j].clone());
         }
-        setMacroFilestack(result[i], fileStack);
+        setMacroFilestack(result[i], this.fileStack);
     }
     //console.log(result);
     return result;

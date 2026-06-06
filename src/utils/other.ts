@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { fileStack, incrementUniqueNumber, uniqueNumber } from "../globalVars";
-import { error } from "./logging";
+import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
+
 
 //camelCase -> UPPER_CASE
 export function camelCaseToUpperCase(str: string): string {
@@ -57,27 +57,20 @@ export function isNumber(x: unknown) {
     return typeof x === "number" || !isNaN(parseInt(x as string)) || !isNaN(parseFloat(x as string));
 }
 
-export function getFileStackCopy() {
-    return fileStack.map((x) => Object.assign({}, x));
+OverPyCompiler.prototype.getFileStackCopy = OverPyDecompiler.prototype.getFileStackCopy = function() {
+    return this.fileStack.map((x) => Object.assign({}, x));
 }
 
 //Reverses the comparison operator.
-export function reverseOperator(content: string): string {
-    if (content === "==") {
-        return "!=";
-    } else if (content === "!=") {
-        return "==";
-    } else if (content === "<=") {
-        return ">";
-    } else if (content === ">=") {
-        return "<";
-    } else if (content === "<") {
-        return ">=";
-    } else if (content === ">") {
-        return "<=";
-    } else {
-        error("Cannot reverse operator " + content);
-    }
+export function reverseOperator(content: "==" | "!=" | "<=" | ">=" | "<" | ">"): "==" | "!=" | "<=" | ">=" | "<" | ">" {
+    return {
+        "==": "!=",
+        "!=": "==",
+        "<=": ">",
+        ">=": "<",
+        "<": ">=",
+        ">": "<=",
+    }[content] as "==" | "!=" | "<=" | ">=" | "<" | ">";
 }
 
 //Returns 4 spaces (or a tab) per tab level.
@@ -116,25 +109,25 @@ export function sleep(ms: number): Promise<void> {
 }
 
 //Used for automatically generated names.
-export function getUniqueNumber(): number {
-    incrementUniqueNumber();
-    return uniqueNumber;
+OverPyCompiler.prototype.getUniqueNumber = function(): number {
+    this.uniqueNumber++;
+    return this.uniqueNumber;
 }
 
 export function getRuleEventCategories(ruleEvent: string): ("player" | "damage" | "healing" | "damageOrHealing")[] {
     return {
         global: [],
         eachPlayer: ["player"],
-        playerDealtDamage: ["player", "damage"],
-        playerDealtFinalBlow: ["player", "damage"],
-        playerDealtHealing: ["player", "healing"],
+        playerDealtDamage: ["player", "damage", "damageOrHealing"],
+        playerDealtFinalBlow: ["player", "damage", "damageOrHealing"],
+        playerDealtHealing: ["player", "healing", "damageOrHealing"],
         playerDealtKnockback: ["player", "damageOrHealing", "damage", "healing"],
-        playerDied: ["player", "damage"],
-        playerEarnedElimination: ["player", "damage"],
+        playerDied: ["player", "damage", "damageOrHealing"],
+        playerEarnedElimination: ["player", "damage", "damageOrHealing"],
         playerJoined: ["player"],
         playerLeft: ["player"],
-        playerTookDamage: ["player", "damage"],
-        playerReceivedHealing: ["player", "healing"],
+        playerTookDamage: ["player", "damage", "damageOrHealing"],
+        playerReceivedHealing: ["player", "healing", "damageOrHealing"],
         playerReceivedKnockback: ["player", "damageOrHealing", "damage", "healing"],
         __subroutine__: ["player", "damageOrHealing", "damage", "healing"],
     }[ruleEvent] as ("player" | "damage" | "healing" | "damageOrHealing")[] || [];

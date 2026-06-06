@@ -15,16 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* TODO: Refactor OverPy to instantiate compilation/decompilation state WITHIN the compile/decompile functions
-and remove the global variables, instead passing the state down via reference to an object within the compile/decompile closure.
-*/
 "use strict";
 import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { Constant, constantValues } from "./data/constants";
-import { AstConstantData, AstMacroData, CompilationDiagnostic, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, ScriptFileStackMember, Subroutine, Type, Value, Variable } from "./types.d.js";
-import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue } from "./utils/ast";
+import { Argument, AstConstantData, AstMacroData, CompilationDiagnostic, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, Subroutine, Type, Value, Variable } from "./types.d.js";
+import { Ast } from "./utils/ast";
 import { TranslatedString, TranslationLanguage } from "./compiler/translations";
 import { heroKw } from "./data/heroes";
 import { gamemodeKw } from "./data/gamemodes";
@@ -35,12 +32,15 @@ import { customGameSettingsKw, eventPlayerKw, eventSlotKw } from "./data/other";
 import { opyFuncs } from "./data/opy/functions";
 import { opyMacros } from "./data/opy/macros";
 import { customGameSettingsSchema } from "./data/customGameSettings";
-import { error } from "./utils/logging";
 
-export var globalVariables: Variable[] = [];
-export var playerVariables: Variable[] = [];
-export var subroutines: Subroutine[] = [];
-export var currentLanguage: OWLanguage;
+import "./utils/compilation.ts";
+import "./utils/decompilation.ts";
+import "./utils/file.ts";
+import "./utils/other.ts";
+import "./utils/strings.ts";
+import "./utils/translation.ts";
+import "./utils/types.ts";
+import "./utils/varNames.ts";
 
 export const ELEMENT_LIMIT = 32768;
 //The workshop behaves weirdly with this limit (sometimes it is 100M instead of 10M), so don't perform optimizations if going beyond it
@@ -58,326 +58,6 @@ export const IS_IN_BROWSER = typeof window !== "undefined";
 // @ts-ignore
 export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 export const DEBUG_PROFILER = false;
-
-//Compilation variables - are reset at each compilation.
-
-
-export var mainFileName: string;
-export const setMainFileName = (name: string) => (mainFileName = name);
-/**
- * The absolute path of the folder containing the main file. Used for relative paths. */
-export var rootPath: string;
-export const setRootPath = (path: string) => (rootPath = path);
-
-//Called after compilation to transform the compiled output. Set with #!postCompileHook
-type PostCompileHook = ((content: string) => string) | null;
-export var postCompileHook: PostCompileHook = null;
-export var setPostCompileHook = (hook: PostCompileHook) => (postCompileHook = hook); 
-//Global variables used to keep track of the name for the current array element/index.
-//Should be null at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-export var currentArrayElementName: string;
-export const setCurrentArrayElementName = (name: string) => (currentArrayElementName = name);
-export var currentArrayIndexName: string;
-export const setCurrentArrayIndexName = (name: string) => (currentArrayIndexName = name);
-
-//Set at each rule, to get the rule name for translated strings
-export var currentRuleName: string;
-export const setCurrentRuleName = (name: string) => (currentRuleName = name);
-
-/**
- * Set at each rule, to check whether it is legal to use "eventPlayer" and related. */
-export var currentRuleEvent: string;
-export const setCurrentRuleEvent = (event: string) => (currentRuleEvent = event);
-
-//Set at each rule (but only in astToWorkshop). Used for ruleCondition.
-export var currentRuleConditions: Ast[];
-export const setCurrentRuleConditions = (conditions: Ast[]) => (currentRuleConditions = conditions);
-
-/**
- * @possibly_unused
- *
- * The encountered labels throughout the rule, to not have duplicate labels. Set at each rule. */
-export var currentRuleLabels: string[];
-export const resetCurrentRuleLabels = () => (currentRuleLabels = []);
-export const setCurrentRuleLabels = (newRuleLabels: string[]) => (currentRuleLabels = newRuleLabels);
-
-/**
- * The number of times the specified label is referenced. If that number is 0, then the label is considered as not accessed. */
-export var currentRuleLabelAccess: Record<string, number>;
-export const clearRuleLabelAccess = () => (currentRuleLabelAccess = {});
-export var currentRuleHasVariableGoto: boolean;
-export const resetRuleHasVariableGoto = () => (currentRuleHasVariableGoto = false);
-export const setRuleHasVariableGoto = (value: boolean) => (currentRuleHasVariableGoto = value);
-
-//Optimization settings.
-export var enableOptimization: boolean;
-export const setOptimizationEnabled = (enabled: boolean) => (enableOptimization = enabled);
-export var optimizeForSize: boolean;
-export const setOptimizationForSize = (size: boolean) => (optimizeForSize = size);
-export var optimizeForSizeAggressive: boolean;
-export const setOptimizationForSizeAggressive = (aggressive: boolean) => (optimizeForSizeAggressive = aggressive);
-export var optimizeStrict: boolean;
-export const setOptimizeStrict = (strict: boolean) => (optimizeStrict = strict);
-
-/** Contains all macros. */
-export var macros: MacroData[] = [];
-export const resetMacros = () => (macros = []);
-export var astConstants: Record<string, AstConstantData> = {};
-export var astMacros: Record<string, AstMacroData> = {};
-export var astMacroLocalVariables: string[] = [];
-//Reset at each macro parse
-export const resetAstMacroLocalVariables = () => (astMacroLocalVariables = []);
-
-/** All warnings encountered during this compilation run. */
-export var encounteredWarnings: CompilationDiagnostic[] = [];
-/** All warnings encountered during this compilation run that were either suppressed or otherwise ignored. */
-export let hiddenWarnings: string[] = [];
-/** A set of warning types that will not invoke a visible warning.
- * Specified using the \@SuppressWarnings annotation, and applies to
- * the current rule only.
- */
-export var suppressedWarningTypes: string[];
-/** A set of warning types that will not invoke a visible warning */
-export var globallySuppressedWarningTypes: string[];
-
-/** A list of imported files, to prevent import loops.
- */
-export var importedFiles: string[] = [];
-
-export var disableUnusedVars: boolean;
-
-export var compiledCustomGameSettings: string;
-export const setCompiledCustomGameSettings = (settings: string) => (compiledCustomGameSettings = settings);
-
-/** The stack of the files (macros count as "files").
- */
-export let fileStack: FileStackMember[] = [];
-export const setFileStack = (newFileStack: FileStackMember[]) => (fileStack = newFileStack);
-export const pushToFileStack = (newMember: FileStackMember) => fileStack.push(newMember);
-export const popFromFileStack = (): FileStackMember | undefined => fileStack.pop();
-
-/** An unique number for automatically generated labels. */
-export var uniqueNumber: number;
-export const incrementUniqueNumber = () => uniqueNumber++;
-
-//Initialization directives for global and player variables.
-export var globalInitDirectives: Ast[] = [];
-export var playerInitDirectives: Ast[] = [];
-
-/** Workshop setting names, as each name must be unique even if belonging to different categories. */
-export var workshopSettingNames: string[] = [];
-
-/** User-declared enums. */
-export var enumMembers: Record<string, Record<string, Ast>> = {};
-
-//Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
-export var replacementFor0 = "";
-export const setReplacementFor0 = (replacement: string) => (replacementFor0 = replacement);
-export var replacementFor1 = "";
-export const setReplacementFor1 = (replacement: string) => (replacementFor1 = replacement);
-export var replacementForTeam1 = "";
-export const setReplacementForTeam1 = (replacement: string) => (replacementForTeam1 = replacement);
-export var replacementForEmptyString = "";
-export const setReplacementForEmptyString = (replacement: string) => (replacementForEmptyString = replacement);
-
-/** The number of elements the gamemode takes. */
-export var nbElements: number;
-export const resetNbElements = () => (nbElements = 0);
-export const incrementNbElements = (amount = 1) => (nbElements += amount);
-export const decrementNbElements = (amount = 1) => (nbElements -= amount);
-
-/** For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument. */
-export var nbHeroesInValue: number;
-export const resetNbHeroesInValue = () => (nbHeroesInValue = 0);
-export const incrementNbHeroesInValue = (amount = 1) => (nbHeroesInValue += amount);
-export const decrementNbHeroesInValue = (amount = 1) => (nbHeroesInValue -= amount);
-
-/** The extensions that are activated in the current gamemode. */
-export var activatedExtensions: string[];
-export const setActivatedExtensions = (extensions: string[]) => (activatedExtensions = extensions);
-/** The amount of available extension points. */
-export var availableExtensionPoints: number;
-export const setAvailableExtensionPoints = (points: number) => (availableExtensionPoints = points);
-
-//List of used maps for the getCurrentMap() fix, in lowercase
-export var usedMaps: Set<string> = new Set();
-export const addUsedMap = (map: string) => usedMaps.add(map.toLowerCase());
-
-//Bypass for <tx> and <fg>
-export var enableTagsSetup: boolean;
-export const setEnableTagsSetup = (enable: boolean) => (enableTagsSetup = enable);
-
-//List of translation languages
-export var translationLanguages: TranslationLanguage[] = [];
-export const setTranslationLanguages = (languages: TranslationLanguage[]) => (translationLanguages = languages);
-
-export var keepUnusedTranslations: boolean;
-export const setKeepUnusedTranslations = (keep: boolean) => (keepUnusedTranslations = keep);
-
-export var disableTranslationSourceLines: boolean;
-export const setDisableTranslationSourceLines = (disable: boolean) => (disableTranslationSourceLines = disable);
-
-//List of translated strings encountered during compilation
-export var translatedStrings: TranslatedString[] = [];
-export const setTranslatedStrings = (strings: TranslatedString[]) => (translatedStrings = strings);
-
-//The constant that will be used to determine the player's language
-export var translationLanguageConstant: any;
-export const setTranslationLanguageConstant = (constant: any) => (translationLanguageConstant = constant);
-
-export var translationLanguageConstantOpy: string;
-export const setTranslationLanguageConstantOpy = (constant: string) => (translationLanguageConstantOpy = constant);
-
-export var usePlayerVarForTranslations: boolean;
-export const setUsePlayerVarForTranslations = (use: boolean) => (usePlayerVarForTranslations = use);
-export var generateRuleForTranslationsPlayerVar: boolean;
-export const setGenerateRuleForTranslationsPlayerVar = (generate: boolean) => (generateRuleForTranslationsPlayerVar = generate);
-export var useTlErr: boolean;
-export const setTranslationUseTlErr = (use: boolean) => (useTlErr = use);
-
-export var excludeVariablesInCompilation: boolean;
-export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
-
-export var globalvarInitRuleName: string;
-export const setGlobalvarInitRuleName = (name: string) => (globalvarInitRuleName = name);
-export var playervarInitRuleName: string;
-export const setPlayervarInitRuleName = (name: string) => (playervarInitRuleName = name);
-
-export var disableInspector: boolean = false;
-export const setDisableInspector = (disable: boolean) => (disableInspector = disable);
-
-export var debugElementCount: boolean = false;
-export const setDebugElementCount = (debug: boolean) => (debugElementCount = debug);
-
-export var allowMacroRedeclaration: boolean = false;
-export const setAllowMacroRedeclaration = (allow: boolean) => (allowMacroRedeclaration = allow);
-
-/** Stack of rule prefixes, managed by __pushRulePrefixStack__ and __popRulePrefixStack__ around #!include directives. */
-export var rulePrefixStack: string[] = [];
-/** The current rule prefix set by #!rulePrefix. Empty string means no prefix. */
-export var currentRulePrefix: string = "";
-export const setCurrentRulePrefix = (prefix: string) => (currentRulePrefix = prefix);
-export const pushRulePrefixStack = () => rulePrefixStack.push(currentRulePrefix);
-export const popRulePrefixStack = () => { currentRulePrefix = rulePrefixStack.pop() ?? ""; };
-
-export var rulePrefixTemplate: string = '';
-export const setRulePrefixTemplate = (template: string) => (rulePrefixTemplate = template);
-export var rulePrefixTemplateFilestack: FileStackMember[] = [];
-export const setRulePrefixTemplateFilestack = (filestack: FileStackMember[]) => (rulePrefixTemplateFilestack = filestack);
-
-export var useVariableForCompressionAlphabet: boolean = false;
-export const setUseVariableForCompressionAlphabet = (use: boolean) => (useVariableForCompressionAlphabet = use);
-
-export var writeToOutputFile: boolean = false;
-export const setWriteToOutputFile = (write: boolean) => (writeToOutputFile = write);
-
-//Decompilation variables
-
-/** Global variable used for "skip", to keep track of where the skip ends.
- *
- * Is reset at each rule.
- */
-export var decompilerGotos: { remainingActions: number; label: string }[];
-export const resetDecompilerGotos = () => (decompilerGotos = []);
-
-/** Global variable used for the number of tabs.
- *
- * Is reset at each rule.
- */
-export var nbTabs: number;
-export const resetNbTabs = () => (nbTabs = 0);
-export const incrementNbTabs = () => nbTabs++;
-export const decrementNbTabs = () => nbTabs--;
-export const setNbTabs = (nb: number) => (nbTabs = nb);
-
-/** Global variable used to mark the action number of the last loop in the rule.
- *
- * Is reset at each rule.
- */
-export var decompilationLabelNumber: number;
-export const resetDecompilationLabelNumber = () => (decompilationLabelNumber = 0);
-export const incrementDecompilationLabelNumber = () => decompilationLabelNumber++;
-
-/** Global variable used to keep track of operator precedence.
- *
- * Is reset at each action and rule condition.
- */
-export var operatorPrecedenceStack: Record<string, number>[];
-
-export function resetGlobalVariables(language: OWLanguage) {
-    rootPath = "";
-    currentArrayElementName = "";
-    currentArrayIndexName = "";
-    currentLanguage = language;
-    currentRuleName = "";
-    currentRuleEvent = "";
-    currentRuleConditions = [];
-    currentRuleHasVariableGoto = false;
-    currentRuleLabels = [];
-    currentRuleLabelAccess = {};
-    macros = [];
-    astMacros = {};
-    astConstants = {};
-    astMacroLocalVariables = [];
-    fileStack = [];
-    decompilerGotos = [];
-    nbTabs = 0;
-    operatorPrecedenceStack = [];
-    globalVariables = [];
-    playerVariables = [];
-    subroutines = [];
-    encounteredWarnings = [];
-    hiddenWarnings = [];
-    suppressedWarningTypes = [];
-    globallySuppressedWarningTypes = [];
-    importedFiles = [];
-    disableUnusedVars = false;
-    compiledCustomGameSettings = "";
-    enableOptimization = true;
-    optimizeForSize = false;
-    optimizeForSizeAggressive = false;
-    optimizeStrict = false;
-    uniqueNumber = 1;
-    globalInitDirectives = [];
-    playerInitDirectives = [];
-    workshopSettingNames = [];
-    enumMembers = {};
-    replacementFor0 = "";
-    replacementFor1 = "";
-    replacementForTeam1 = "";
-    replacementForEmptyString = "";
-    nbElements = 0;
-    activatedExtensions = [];
-    availableExtensionPoints = 0;
-    enableTagsSetup = false;
-    nbHeroesInValue = 0;
-    translationLanguages = [];
-    translatedStrings = [];
-    mainFileName = "";
-    translationLanguageConstant = null;
-    translationLanguageConstantOpy = "";
-    usePlayerVarForTranslations = false;
-    generateRuleForTranslationsPlayerVar = true;
-    useTlErr = true;
-    excludeVariablesInCompilation = false;
-    globalvarInitRuleName = "Initialize global variables";
-    playervarInitRuleName = "Initialize player variables";
-    disableInspector = false;
-    debugElementCount = false;
-    allowMacroRedeclaration = false;
-    keepUnusedTranslations = false;
-    disableTranslationSourceLines = false;
-    usedMaps = new Set();
-    postCompileHook = null;
-    rulePrefixStack = [];
-    currentRulePrefix = "";
-    rulePrefixTemplate = "";
-    rulePrefixTemplateFilestack = [];
-    useVariableForCompressionAlphabet = false;
-    writeToOutputFile = false;
-}
-
-//Other constants
 
 //Operator precedence, from lowest to highest.
 export const operatorPrecedence: Record<string, number> = {
@@ -776,11 +456,11 @@ export function computeCustomGameSettingsSchema() {
         if (availableLanguages.includes(key)) {
             let langKey = key as OWLanguage;
             let entry = customGameSettingsSchema.lobby.values.team1Slots[langKey];
-            if (entry === undefined) {error(`${key} does not yield a valid team 1 slot entry`);}
+            if (entry === undefined) {throw new Error(`${key} does not yield a valid team 1 slot entry`);}
             let value = customGameSettingsKw["__team1__" as keyof typeof customGameSettingsKw][langKey];
             // Fall back to enUS if the current language doesn't have an entry for Team 1 slots
             if (value === undefined) {value = customGameSettingsKw["__team1__"]["en-US"];}
-            if (value === undefined) {error(`No valid team 1 slot entry for ${langKey}`);}
+            if (value === undefined) {throw new Error(`No valid team 1 slot entry for ${langKey}`);}
             customGameSettingsSchema.lobby.values.team1Slots[langKey] = entry.replace("%1$s", value);
         }
     }
@@ -788,11 +468,11 @@ export function computeCustomGameSettingsSchema() {
         if (availableLanguages.includes(key)) {
             let langKey = key as OWLanguage;
             let entry = customGameSettingsSchema.lobby.values.team2Slots[langKey];
-            if (entry === undefined) {error(`${key} does not yield a valid team 2 slot entry`);}
+            if (entry === undefined) {throw new Error(`${key} does not yield a valid team 2 slot entry`);}
             let value = customGameSettingsKw["__team2__" as keyof typeof customGameSettingsKw][langKey];
             // Fall back to enUS if the current language doesn't have an entry for Team 2 slots
             if (value === undefined) {value = customGameSettingsKw["__team2__"]["en-US"];}
-            if (value === undefined) {error(`No valid team 2 slot entry for ${langKey}`);}
+            if (value === undefined) {throw new Error(`No valid team 2 slot entry for ${langKey}`);}
             customGameSettingsSchema.lobby.values.team2Slots[langKey] = entry.replace("%1$s", value);
         }
     }
@@ -870,31 +550,31 @@ export function computeCustomGameSettingsSchema() {
                         let lang = lang_ as OWLanguage;
                         let langKey = (lang in heroValue ? lang : "en-US") as OWLanguage;
                         let value = heroValue[langKey];
-                        if (value === undefined) {error(`No valid value for ${langKey} in ${hero} ${key}`);}
+                        if (value === undefined) {throw new Error(`No valid value for ${langKey} in ${hero} ${key}`);}
 
                         if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%", "secondaryFireEnergyChargeRate%"].includes(key)) {
                             let insert = heroKw[hero]["secondaryFire"]?.[lang] ?? heroKw[hero]["secondaryFire"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for secondaryFire in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for secondaryFire in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
                             let insert = heroKw[hero]["ability3"]?.[lang] ?? heroKw[hero]["ability3"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for ability3 in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for ability3 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
                             let insert = heroKw[hero]["ability2"]?.[lang] ?? heroKw[hero]["ability2"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for ability2 in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for ability2 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
                             let insert = heroKw[hero]["ability1"]?.[lang] ?? heroKw[hero]["ability1"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for ability1 in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for ability1 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["enablePassive"].includes(key)) {
                             let insert = heroKw[hero]["passive"]?.[lang] ?? heroKw[hero]["passive"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for passive in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for passive in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
                             let insert = heroKw[hero]["ultimate"]?.[lang] ?? heroKw[hero]["ultimate"]?.["en-US"];
-                            if (insert === undefined) {error(`No valid value for ultimate in ${hero} ${lang}`);}
+                            if (insert === undefined) {throw new Error(`No valid value for ultimate in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         }
                     }

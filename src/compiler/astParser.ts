@@ -18,10 +18,10 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros, setOptimizationEnabled, setOptimizationForSize, setOptimizeStrict, enableOptimization, optimizeForSize, optimizeStrict, defaultSubroutineNames } from "../globalVars";
-import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
-import { isTypeSuitable } from "../utils/types";
-import { Ast, astParsingFunctions, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
+import { funcKw, defaultSubroutineNames } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
+import { functionNameToString, debug } from "../utils/logging";
+import { Ast, astParsingFunctions } from "../utils/ast";
 import { Argument, Value } from "../types";
 
 import "./functions/__add__.ts";
@@ -177,30 +177,28 @@ import "./functions/vectorTowards.ts";
 import "./functions/wait";
 import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
-import { parseAstMacro, parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 import { upperCaseToCamelCase } from "../utils/other";
-import {addSubroutine} from "../utils/varNames.ts";
 
-export function parseAstRules(rules: Ast[]) {
+OverPyCompiler.prototype.parseAstRules = function(rules: Ast[]) {
     var rulesResult: Ast[] = [];
     for (var rule of rules) {
-        setFileStack(rule.fileStack);
+        this.fileStack = rule.fileStack;
 
-        if (rule.name === "__disableOptimizations__") {setOptimizationEnabled(false); rulesResult.push(rule); continue;}
-        if (rule.name === "__enableOptimizations__") {setOptimizationEnabled(true); rulesResult.push(rule); continue;}
-        if (rule.name === "__disableOptimizeForSize__") {setOptimizationForSize(false); rulesResult.push(rule); continue;}
-        if (rule.name === "__enableOptimizeForSize__") {setOptimizationForSize(true); rulesResult.push(rule); continue;}
-        if (rule.name === "__disableOptimizeStrict__") {setOptimizeStrict(false); rulesResult.push(rule); continue;}
-        if (rule.name === "__enableOptimizeStrict__") {setOptimizeStrict(true); rulesResult.push(rule); continue;}
+        if (rule.name === "__disableOptimizations__") {this.enableOptimization = false; rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizations__") {this.enableOptimization = true; rulesResult.push(rule); continue;}
+        if (rule.name === "__disableOptimizeForSize__") {this.optimizeForSize = false; rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizeForSize__") {this.optimizeForSize = true; rulesResult.push(rule); continue;}
+        if (rule.name === "__disableOptimizeStrict__") {this.optimizeStrict = false; rulesResult.push(rule); continue;}
+        if (rule.name === "__enableOptimizeStrict__") {this.optimizeStrict = true; rulesResult.push(rule); continue;}
         if (rule.name === "__rulePrefix__") {rulesResult.push(rule); continue;}
         if (rule.name === "__pushRulePrefixStack__") {rulesResult.push(rule); continue;}
         if (rule.name === "__popRulePrefixStack__") {rulesResult.push(rule); continue;}
 
         //Resolve macros in case macros have annotations
         for (let i = 0; i < rule.children.length; i++) {
-            setFileStack(rule.children[i].fileStack);
-            if (rule.children[i].name in astMacros) {
-                let macroLines = parseAstMacro(rule.children[i]);
+            this.fileStack = rule.children[i].fileStack;
+            if (rule.children[i].name in this.astMacros) {
+                let macroLines = this.parseAstMacro(rule.children[i]);
                 for (let line of macroLines) {
                     line.fileStack = rule.children[i].fileStack;
                     line.comment = rule.children[i].comment;
@@ -217,7 +215,7 @@ export function parseAstRules(rules: Ast[]) {
             if (!rule.children[i].name.startsWith("@")) {
                 break;
             }
-            setFileStack(rule.children[i].fileStack);
+            this.fileStack = rule.children[i].fileStack;
 
             if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(rule.children[i].name)) {
                 const annotationToPropMap: Record<string, { prop: string; display: string }> = {
@@ -250,18 +248,18 @@ export function parseAstRules(rules: Ast[]) {
                 }
 
                 if (rule.children[i].args.length !== 1) {
-                    error("Annotation '" + rule.children[i].name + "' takes 1 argument, received " + rule.children[i].args.length);
+                    this.error("Annotation '" + rule.children[i].name + "' takes 1 argument, received " + rule.children[i].args.length);
                 }
                 if (annotationToPropMap[rule.children[i].name].prop in rule.ruleAttributes) {
-                    error("Rule " + annotationToPropMap[rule.children[i].name].display + " was already declared");
+                    this.error("Rule " + annotationToPropMap[rule.children[i].name].display + " was already declared");
                 }
 
                 if (rule.children[i].name === "@Name") {
                     if (rule.children[i].args[0].name !== "__customString__") {
-                        error("Expected a string as argument of '@Name'");
+                        this.error("Expected a string as argument of '@Name'");
                     }
                     if (rule.children[i].args[0].args.length !== 1) {
-                        error("Argument of '@Name' must be a string literal without formatters");
+                        this.error("Argument of '@Name' must be a string literal without formatters");
                     }
                     rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].args[0].name;
                 } else {
@@ -269,10 +267,10 @@ export function parseAstRules(rules: Ast[]) {
                 }
             } else if (rule.children[i].name === "@SuppressWarnings") {
                 if (rule.children[i].args.length < 1) {
-                    error("Annotation '" + rule.children[i].name + "' takes at least 1 argument, received " + rule.children[i].args.length);
+                    this.error("Annotation '" + rule.children[i].name + "' takes at least 1 argument, received " + rule.children[i].args.length);
                 }
                 for (var arg of rule.children[i].args) {
-                    suppressedWarningTypes.push(arg.name);
+                    this.suppressedWarningTypes.push(arg.name);
                 }
             } else if (rule.children[i].name === "@Disabled") {
                 rule.ruleAttributes.isDisabled = true;
@@ -280,20 +278,20 @@ export function parseAstRules(rules: Ast[]) {
                 rule.ruleAttributes.isDelimiter = true;
             } else if (rule.children[i].name === "@NewPage") {
                 if (rule.children[i].args.length > 1) {
-                    error("Annotation '@NewPage' takes at most 1 argument, received " + rule.children[i].args.length);
+                    this.error("Annotation '@NewPage' takes at most 1 argument, received " + rule.children[i].args.length);
                 }
                 var fillerName = "";
                 if (rule.children[i].args.length > 0) {
                     if (rule.children[i].args[0].name !== "__customString__") {
-                        error("Expected a string as argument of '@NewPage'");
+                        this.error("Expected a string as argument of '@NewPage'");
                     }
                     if (rule.children[i].args[0].args.length !== 1) {
-                        error("Argument of '@NewPage' must be a string literal without formatters");
+                        this.error("Argument of '@NewPage' must be a string literal without formatters");
                     }
                     fillerName = rule.children[i].args[0].args[0].name;
                 }
                 while (rulesResult.filter((x) => x.name === "__rule__").length % 100 !== 0 || rulesResult.filter((x) => x.name === "__rule__").length === 0) {
-                    var emptyRule = new Ast("__rule__");
+                    var emptyRule = this.Ast("__rule__");
                     emptyRule.ruleAttributes = {
                         isDelimiter: true,
                         isDisabled: fillerName === "",
@@ -312,12 +310,12 @@ export function parseAstRules(rules: Ast[]) {
                 rule.ruleAttributes.conditions.push(rule.children[i].args[0]);
                 rule.ruleAttributes.conditionComments.push(rule.children[i].comment);
             } else {
-                error("Unknown annotation '" + rule.children[i].name + "'");
+                this.error("Unknown annotation '" + rule.children[i].name + "'");
             }
         }
         //Remove the annotations from the children
         rule.children = rule.children.slice(i);
-        setFileStack(rule.fileStack);
+        this.fileStack = rule.fileStack;
 
         if (rule.name === "__rule__") {
             if (rule.ruleAttributes.event === undefined) {
@@ -325,7 +323,7 @@ export function parseAstRules(rules: Ast[]) {
             }
             if (rule.ruleAttributes.event === "global") {
                 if (rule.ruleAttributes.eventTeam !== undefined || rule.ruleAttributes.eventPlayer !== undefined) {
-                    error("Cannot declare event team or event player with event type '" + rule.ruleAttributes.event + "'");
+                    this.error("Cannot declare event team or event player with event type '" + rule.ruleAttributes.event + "'");
                 }
             } else {
                 if (rule.ruleAttributes.eventTeam === undefined) {
@@ -337,14 +335,14 @@ export function parseAstRules(rules: Ast[]) {
             }
         } else if (rule.name === "__def__") {
             if (rule.ruleAttributes.event !== undefined) {
-                error("Cannot declare event for a subroutine");
+                this.error("Cannot declare event for a subroutine");
             }
             if (rule.ruleAttributes.conditions !== undefined) {
-                error("Cannot declare rule conditions for a subroutine");
+                this.error("Cannot declare rule conditions for a subroutine");
             }
             rule.ruleAttributes.event = "__subroutine__";
             if (rule.ruleAttributes.eventTeam !== undefined || rule.ruleAttributes.eventPlayer !== undefined) {
-                error("Cannot declare event team or event player for a subroutine");
+                this.error("Cannot declare event team or event player for a subroutine");
             }
             if (rule.ruleAttributes.name === undefined) {
                 rule.ruleAttributes.name = "Subroutine " + rule.ruleAttributes.subroutineName;
@@ -353,53 +351,52 @@ export function parseAstRules(rules: Ast[]) {
             if (defaultSubroutineNames.includes(rule.ruleAttributes.subroutineName)) {
                 //Add the subroutine as it doesn't already exist (else it would've been caught by the for)
                 //However, only do this if it is a default subroutine name
-                addSubroutine(rule.ruleAttributes.subroutineName, defaultSubroutineNames.indexOf(rule.ruleAttributes.subroutineName), rule.fileStack);
+                this.addSubroutine(rule.ruleAttributes.subroutineName, defaultSubroutineNames.indexOf(rule.ruleAttributes.subroutineName), rule.fileStack);
             }
             rule.name = "__rule__";
             rule.originalName = "__def__";
-        } else if (rule.name in astMacros) {
-            rulesResult.push(...parseAstRules(parseAstMacro(rule)));
+        } else if (rule.name in this.astMacros) {
+            rulesResult.push(...this.parseAstRules(this.parseAstMacro(rule)));
             continue;
         } else if (rule.name === "pass") {
             continue;
         } else {
-            error("Unexpected function '" + rule.name + "' outside a rule");
+            this.error("Unexpected function '" + rule.name + "' outside a rule");
         }
 
-        setCurrentRuleName(rule.ruleAttributes.name);
-        setCurrentRuleEvent(rule.ruleAttributes.event);
-        resetCurrentRuleLabels();
-        clearRuleLabelAccess();
-        resetRuleHasVariableGoto();
+        this.currentRuleName = rule.ruleAttributes.name;
+        this.currentRuleEvent = rule.ruleAttributes.event;
+        this.currentRuleLabelAccess = {};
+        this.currentRuleHasVariableGoto = false;
 
         //Parse conditions now that we extracted the event (so we yield a proper error with event-related values)
         if (rule.ruleAttributes.conditions !== undefined) {
             for (let i = 0; i < rule.ruleAttributes.conditions.length; i++) {
-                rule.ruleAttributes.conditions[i] = parseAst(rule.ruleAttributes.conditions[i]);
+                rule.ruleAttributes.conditions[i] = this.parseAst(rule.ruleAttributes.conditions[i]);
                 rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i];
             }
         }
 
-        rulesResult.push(parseAst(rule));
+        rulesResult.push(this.parseAst(rule));
     }
     return rulesResult;
 }
 
-export function parseAst(content: Ast) {
-    setFileStack(content.fileStack);
+OverPyCompiler.prototype.parseAst = function(content: Ast) {
+    this.fileStack = content.fileStack;
     debug("Parsing AST of '" + content.name + "'");
 
     content.wasParsed = true;
 
     if (!(content.args instanceof Array)) {
-        error("Function '" + content.name + "' has '" + content.args + "' for args, expected array");
+        this.error("Function '" + content.name + "' has '" + content.args + "' for args, expected array");
     }
     if (!(content.children instanceof Array)) {
-        error("Function '" + content.name + "' has '" + content.children + "' for args, expected array");
+        this.error("Function '" + content.name + "' has '" + content.children + "' for args, expected array");
     }
-    if (content.name.startsWith("@") && !isTypeSuitable("CustomStringLiteral", content.type)) {
+    if (content.name.startsWith("@") && !this.isTypeSuitable("CustomStringLiteral", content.type)) {
         //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
-        error("Annotations must be at the beginning of the rule");
+        this.error("Annotations must be at the beginning of the rule");
     }
 
     //Skip if it's a literal, a type literal, or a constant
@@ -419,34 +416,34 @@ export function parseAst(content: Ast) {
         return content;
     }
 
-    if (!(content.name in funcKw) && !(content.name in astMacros)) {
-        error("Unknown function '" + content.name + "'");
+    if (!(content.name in funcKw) && !(content.name in this.astMacros)) {
+        this.error("Unknown function '" + content.name + "'");
     }
 
     //Normalize arguments
     if (content.name === "__for__" && content.args.length !== 4) {
         if (content.args.length !== 1) {
-            error("Function '" + content.name + "' takes 1 argument, received " + content.args.length);
+            this.error("Function '" + content.name + "' takes 1 argument, received " + content.args.length);
         }
         //Check for right arguments.
         if (content.args[0].name !== "__arrayContains__") {
-            error("Expected the 'in' operator within 'for' directive, but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
+            this.error("Expected the 'in' operator within 'for' directive, but got " + functionNameToString(content.args[0]), content.args[0].fileStack);
         }
         if (content.args[0].args.length !== 2) {
-            error("Operator 'in' takes 2 operands, received " + content.args[0].args.length, content.args[0].fileStack);
+            this.error("Operator 'in' takes 2 operands, received " + content.args[0].args.length, content.args[0].fileStack);
         }
         if (content.args[0].args[0].name !== "range") {
-            error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got " + functionNameToString(content.args[0].args[0]), content.args[0].args[0].fileStack);
+            this.error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got " + functionNameToString(content.args[0].args[0]), content.args[0].args[0].fileStack);
         }
 
         if (content.args[0].args[0].args.length < 1 || content.args[0].args[0].args.length > 3) {
-            error("Function 'range' takes 1 to 3 arguments, received " + content.args[0].args[0].args.length, content.args[0].args[0].fileStack);
+            this.error("Function 'range' takes 1 to 3 arguments, received " + content.args[0].args[0].args.length, content.args[0].args[0].fileStack);
         }
         if (content.args[0].args[0].args.length === 1) {
-            content.args[0].args[0].args.unshift(getAstFor0());
+            content.args[0].args[0].args.unshift(this.getAstFor0());
         }
         if (content.args[0].args[0].args.length === 2) {
-            content.args[0].args[0].args.push(getAstFor1());
+            content.args[0].args[0].args.push(this.getAstFor1());
         }
         //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
         content.args = [content.args[0].args[1], content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[0].args[2]];
@@ -455,16 +452,16 @@ export function parseAst(content: Ast) {
 
 
     if (![".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
-        if (content.name in astMacros) {
-            let nbExpectedArgs = astMacros[content.name].args.length;
+        if (content.name in this.astMacros) {
+            let nbExpectedArgs = this.astMacros[content.name].args.length;
             if (content.args.length !== nbExpectedArgs) {
-                error("Macro '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
+                this.error("Macro '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
             }
         } else {
 
             let nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
             if (content.args.length !== nbExpectedArgs) {
-                error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
+                this.error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
             }
         }
     }
@@ -476,7 +473,7 @@ export function parseAst(content: Ast) {
         content.argIndex = i;
         content.args[i].parent = content;
         if (!content.args[i].wasParsed) {
-            content.args[i] = parseAst(content.args[i]);
+            content.args[i] = this.parseAst(content.args[i]);
         }
     }
     content.argIndex = 0;
@@ -484,37 +481,37 @@ export function parseAst(content: Ast) {
     //Manually check types and arguments for the functions that can take an infinite number of arguments.
     if (content.name === ".format") {
         if (content.args.length < 1) {
-            error("Function '.format' takes at least 1 argument, received " + content.args.length);
+            this.error("Function '.format' takes at least 1 argument, received " + content.args.length);
         }
         //Check types
-        if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type ?? "", content.args[0].type)) {
-            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]), content.args[0].fileStack);
+        if (!this.isTypeSuitable(funcKw[content.name]?.args?.[0].type ?? "", content.args[0].type)) {
+            this.warn("w_type_check", this.getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]), content.args[0].fileStack);
         }
         for (var i = 1; i < content.args.length; i++) {
-            if (!isTypeSuitable(funcKw[content.name]?.args?.[1].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]), content.args[i].fileStack);
+            if (!this.isTypeSuitable(funcKw[content.name]?.args?.[1].type, content.args[i].type)) {
+                this.warn("w_type_check", this.getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]), content.args[i].fileStack);
             }
         }
     } else if (["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"].includes(content.name)) {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
-            if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]), content.args[i].fileStack);
+            if (!this.isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
+                this.warn("w_type_check", this.getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]), content.args[i].fileStack);
             }
         }
-    } else if (content.name in astMacros) {
+    } else if (content.name in this.astMacros) {
         //Do nothing, we cannot check types of a user-defined macro
     } else {
         if (funcKw[content.name].args !== null) {
             let args = funcKw[content.name].args as Argument[];
             //Generic type check
             for (var i = 0; i < content.args.length; i++) {
-                if (!isTypeSuitable(args[i].type, content.args[i].type)) {
+                if (!this.isTypeSuitable(args[i].type, content.args[i].type)) {
                     //Throw an error for when a literal is expected
                     if (Object.keys(constantValues).includes(args[i].type)) {
-                        error(getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]), content.args[i].fileStack);
+                        this.error(this.getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]), content.args[i].fileStack);
                     } else {
-                        //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                        //this.warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
                     }
                 }
             }
@@ -523,7 +520,7 @@ export function parseAst(content: Ast) {
 
     //Set expected type
     if (!["__rule__", "__settings__", "pass"].includes(content.name) && !content.parent) {
-        error("No parent found for '" + content.name + "'");
+        this.error("No parent found for '" + content.name + "'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === ".format" && content.parent.argIndex > 0) {
@@ -534,26 +531,26 @@ export function parseAst(content: Ast) {
             content.expectedType = "bool";
         } else if (content.parent.name in funcKw) {
             content.expectedType = funcKw[content.parent.name].args?.[content.parent.argIndex].type ?? "__INVALID__";
-        } else if (content.parent.name in astMacros) {
-            content.expectedType = astMacros[content.parent.name].args[content.parent.argIndex].type;
+        } else if (content.parent.name in this.astMacros) {
+            content.expectedType = this.astMacros[content.parent.name].args[content.parent.argIndex].type;
         } else {
-            error("Unknown parent name '" + content.parent.name + "'");
+            this.error("Unknown parent name '" + content.parent.name + "'");
         }
     }
 
     content.argIndex = -1;
 
-    let oldEnableOptimization = enableOptimization;
-    let oldOptimizeForSize = optimizeForSize;
-    let oldOptimizeStrict = optimizeStrict;
+    let oldEnableOptimization = this.enableOptimization;
+    let oldOptimizeForSize = this.optimizeForSize;
+    let oldOptimizeStrict = this.optimizeStrict;
 
     for (var i = 0; i < content.children.length; i++) {
-        if (content.children[i].name === "__disableOptimizations__") {setOptimizationEnabled(false);continue;}
-        if (content.children[i].name === "__enableOptimizations__") {setOptimizationEnabled(true);continue;}
-        if (content.children[i].name === "__disableOptimizeForSize__") {setOptimizationForSize(false);continue;}
-        if (content.children[i].name === "__enableOptimizeForSize__") {setOptimizationForSize(true);continue;}
-        if (content.children[i].name === "__disableOptimizeStrict__") {setOptimizeStrict(false);continue;}
-        if (content.children[i].name === "__enableOptimizeStrict__") {setOptimizeStrict(true);continue;}
+        if (content.children[i].name === "__disableOptimizations__") {this.enableOptimization = false;continue;}
+        if (content.children[i].name === "__enableOptimizations__") {this.enableOptimization = true;continue;}
+        if (content.children[i].name === "__disableOptimizeForSize__") {this.optimizeForSize = false;continue;}
+        if (content.children[i].name === "__enableOptimizeForSize__") {this.optimizeForSize = true;continue;}
+        if (content.children[i].name === "__disableOptimizeStrict__") {this.optimizeStrict = false;continue;}
+        if (content.children[i].name === "__enableOptimizeStrict__") {this.optimizeStrict = true;continue;}
         content.childIndex = i;
         let childComment: string | undefined = undefined;
         if (content.name === "__rule__") {
@@ -563,7 +560,7 @@ export function parseAst(content: Ast) {
 
         //Safeguard to prevent parsing the same thing twice (and eg ending up with 3 ends for an "if" if the instruction was parsed then moved by a parent instruction).
         if (!content.children[i].wasParsed) {
-            content.children[i] = parseAst(content.children[i]);
+            content.children[i] = this.parseAst(content.children[i]);
             content.children[i].parent = content;
             content.children[i].wasParsed = true;
         }
@@ -571,12 +568,12 @@ export function parseAst(content: Ast) {
             content.children[i].comment = childComment;
         }
     }
-    setOptimizationEnabled(oldEnableOptimization);
-    setOptimizationForSize(oldOptimizeForSize);
-    setOptimizeStrict(oldOptimizeStrict);
+    this.enableOptimization = oldEnableOptimization;
+    this.optimizeForSize = oldOptimizeForSize;
+    this.optimizeStrict = oldOptimizeStrict;
     content.childIndex = 0;
 
-    setFileStack(content.fileStack);
+    this.fileStack = content.fileStack;
 
 
     //Optimize, and re-optimize if the function name changed
@@ -584,24 +581,24 @@ export function parseAst(content: Ast) {
     let oldOriginalName = content.originalName || content.name;
     //console.log("original name: "+oldOriginalName);
     let parent = content.parent;
-    if (!content.doNotReparse && (content.name in astParsingFunctions || content.name in opyMacros || content.name in astMacros)) {
+    if (!content.doNotReparse && (content.name in astParsingFunctions || content.name in opyMacros || content.name in this.astMacros)) {
         if (content.name in astParsingFunctions) {
-            content = astParsingFunctions[content.name](content);
-        } else if (content.name in astMacros) {
-            let macroLines = parseAstMacro(content);
+            content = astParsingFunctions[content.name](content, this);
+        } else if (content.name in this.astMacros) {
+            let macroLines = this.parseAstMacro(content);
             if (content.parent === undefined) {
-                error("Parent is undefined in ast macro");
+                throw this.error("Parent is undefined in ast macro");
             }
             content.parent.children.splice(content.parent.childIndex + 1, 0, ...macroLines.slice(1));
             content = macroLines[0];
         } else {
-            content = parseOpyMacroAst(content);
+            content = this.parseOpyMacroAst(content);
         }
         if (content.name !== oldContentName) {
             oldContentName = content.name;
             content.parent = parent;
             if (!content.doNotReparse) {
-                content = parseAst(content); //re-optimize in depth
+                content = this.parseAst(content); //re-optimize in depth
             }
             //console.log("Setting original name of '" + content.name + "' to '" + oldOriginalName+"'");
             content.originalName = oldOriginalName;
@@ -701,16 +698,16 @@ export function setClientSideReevaluatedArgIndexes(content: Ast) {
         content.clientSideReevaluatedArgIndexes = reevaluatedFunctionArgs[content.name].map(x => {
             let argIndex = funcKw[content.name].args?.findIndex(y => y.name === x);
             if (argIndex === undefined || argIndex === -1) {
-                error("Could not find argument '" + x + "' in function '" + content.name + "'");
+                throw content.compiler.error("Could not find argument '" + x + "' in function '" + content.name + "'");
             }
             return argIndex;
         });
         //console.log("Setting reevaluated args for '" + content.name + "' to " + content.clientSideReevaluatedArgIndexes);
 
     } else if (reevaluatedFunctions.includes(content.name)) {
-        let reevaluationValue = content.args[funcKw[content.name].args?.findIndex(x => x.name === "reevaluation") ?? error("Could not find reevaluation argument in function '" + content.name + "'")].name.toLowerCase();
+        let reevaluationValue = content.args[funcKw[content.name].args?.findIndex(x => x.name === "reevaluation") ?? content.compiler.error("Could not find reevaluation argument in function '" + content.name + "'")].name.toLowerCase();
         if (!(reevaluationValue in reevaluationToArgNames)) {
-            error("Unknown reevaluation value '" + reevaluationValue + "' in function '" + content.name + "'");
+            throw content.compiler.error("Unknown reevaluation value '" + reevaluationValue + "' in function '" + content.name + "'");
         }
         //Do not throw error if we cannot find the argument name, as for convenience the reevaluation args are merged among the different types, so some arg names may not exist
         content.clientSideReevaluatedArgIndexes = reevaluationToArgNames[reevaluationValue].map(x => funcKw[content.name].args?.findIndex(y => y.name === x)).filter(x => x !== undefined && x !== -1) as number[];

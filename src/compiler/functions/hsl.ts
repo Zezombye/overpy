@@ -17,11 +17,11 @@
 
 "use strict";
 
-import { astContainsRandom, astParsingFunctions } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
+import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.hsl = function (content) {
+
+
+astParsingFunctions.hsl = function (content, compiler) {
     //https://stackoverflow.com/a/64090995/4851350
     let h = "$h";
     let s = "$s";
@@ -29,24 +29,24 @@ astParsingFunctions.hsl = function (content) {
     let a = "$a";
 
     if (content.args[0].name === "__number__" && (content.args[0].args[0].numValue < 0 || content.args[0].args[0].numValue > 360)) {
-        error("Hue must be between 0 and 360", content.args[0].fileStack);
+        compiler.error("Hue must be between 0 and 360", content.args[0].fileStack);
     }
     if (content.args[1].name === "__number__" && (content.args[1].args[0].numValue < 0 || content.args[1].args[0].numValue > 1)) {
-        error("Saturation must be between 0 and 1", content.args[1].fileStack);
+        compiler.error("Saturation must be between 0 and 1", content.args[1].fileStack);
     }
     if (content.args[2].name === "__number__" && (content.args[2].args[0].numValue < 0 || content.args[2].args[0].numValue > 1)) {
-        error("Lightness must be between 0 and 1", content.args[2].fileStack);
+        compiler.error("Lightness must be between 0 and 1", content.args[2].fileStack);
     }
     if (content.args[3].name === "__number__" && (content.args[3].args[0].numValue < 0 || content.args[3].args[0].numValue > 255)) {
-        error("Alpha must be between 0 and 255", content.args[3].fileStack);
+        compiler.error("Alpha must be between 0 and 255", content.args[3].fileStack);
     }
 
     for (let arg of content.args) {
-        if (astContainsRandom(arg)) {
-            error("Cannot use random functions in hsl() or hsla()", arg.fileStack);
+        if (compiler.astContainsRandom(arg)) {
+            compiler.error("Cannot use random functions in hsl() or hsla()", arg.fileStack);
         }
     }
 
     let f = (n: number) => `(${l} - ${s}*min(${l}, 1-${l}) * max(min(min((${n}+${h}/30)%12 - 3, 9 - ((${n}+${h}/30)%12)), 1), -1))`;
-    return parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, ["$h", "$s", "$l", "$a"], content.args);
+    return compiler.parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, ["$h", "$s", "$l", "$a"], content.args);
 };

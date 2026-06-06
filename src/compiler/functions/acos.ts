@@ -17,13 +17,13 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.acos = function (content) {
-    if (enableOptimization) {
+import { astParsingFunctions } from "../../utils/ast";
+
+astParsingFunctions.acos = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))));
+            return compiler.getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))));
         }
     }
 

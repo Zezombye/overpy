@@ -17,48 +17,47 @@
 
 "use strict";
 
-import { Ast, getAstForEnd, getAstFor1, getAstForTrue, astParsingFunctions } from "../../utils/ast";
-import { error, functionNameToString } from "../../utils/logging";
-import { getUniqueNumber } from "../../utils/other";
+import { astParsingFunctions } from "../../utils/ast";
+import { functionNameToString } from "../../utils/logging";
 
-astParsingFunctions.__switch__ = function (content) {
+astParsingFunctions.__switch__ = function (content, compiler) {
     var switchCaseArgs = [];
 
     //A flattened array of all children of cases, plus any labels (either literal labels, or labels made from case/default statements).
     var casesChildren = [];
 
     var hasDefault = false;
-    var switchNb = getUniqueNumber();
+    var switchNb = compiler.getUniqueNumber();
 
     //Check if we have only cases or defaults
     for (var child of content.children) {
         if (child.name === "__case__") {
-            casesChildren.push(new Ast("__label_switch_" + switchNb + "_" + switchCaseArgs.length + "__", [], [], "Label"));
+            casesChildren.push(compiler.Ast("__label_switch_" + switchNb + "_" + switchCaseArgs.length + "__", [], [], "Label"));
             casesChildren.push(...child.children);
             switchCaseArgs.push(child.args[0]);
         } else if (child.name === "__default__") {
-            casesChildren.push(new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
+            casesChildren.push(compiler.Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
             casesChildren.push(...child.children);
             hasDefault = true;
         } else if (child.type === "Label") {
             casesChildren.push(child);
         } else {
-            error("Expected a 'case' or 'default' instruction, but got " + functionNameToString(child), child.fileStack);
+            compiler.error("Expected a 'case' or 'default' instruction, but got " + functionNameToString(child), child.fileStack);
         }
     }
 
     if (!hasDefault) {
-        casesChildren.push(new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
+        casesChildren.push(compiler.Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
     }
 
-    casesChildren.push(getAstForEnd());
+    casesChildren.push(compiler.getAstForEnd());
 
     //Build the cases arg array
     //[caseOffsets][[caseValues].index(switchValue)+1]
     var caseOffsets = [];
-    caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label")]));
+    caseOffsets.push(compiler.Ast("__distanceTo__", [compiler.Ast("__label_switch_" + switchNb + "_default__", [], [], "Label")]));
     for (var i = 0; i < switchCaseArgs.length; i++) {
-        caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_" + switchNb + "_" + i + "__", [], [], "Label")]));
+        caseOffsets.push(compiler.Ast("__distanceTo__", [compiler.Ast("__label_switch_" + switchNb + "_" + i + "__", [], [], "Label")]));
     }
 
     //Insert the children of the cases in the parent
@@ -66,13 +65,13 @@ astParsingFunctions.__switch__ = function (content) {
         child.parent = content.parent;
     }
     if (content.parent === undefined) {
-        error("Parent is undefined in __switch__");
+        throw compiler.error("Parent is undefined in __switch__");
     }
     content.parent.children.splice(content.parent.childIndex + 1, 0, ...casesChildren);
 
-    let skip = new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", switchCaseArgs), content.args[0]])])])]);
+    let skip = compiler.Ast("__skip__", [compiler.Ast("__valueInArray__", [compiler.Ast("__array__", caseOffsets), compiler.Ast("__add__", [compiler.getAstFor1(), compiler.Ast(".index", [compiler.Ast("__array__", switchCaseArgs), content.args[0]])])])]);
     skip.isGotoInSameScope = true;
-    var result = new Ast("__if__", [getAstForTrue()], [skip]);
+    var result = compiler.Ast("__if__", [compiler.getAstForTrue()], [skip]);
     result.isSwitchIf = true;
     result.doNotReparse = true;
     return result;

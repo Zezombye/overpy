@@ -18,18 +18,17 @@
 "use strict";
 // @ts-check
 
-import { currentRuleLabelAccess } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__distanceTo__ = function (content) {
+astParsingFunctions.__distanceTo__ = function (content, compiler) {
     //Increment the number of times this label is accessed.
     /** @type {string} */
     var label = content.args[0].name;
-    if (!(label in currentRuleLabelAccess)) {
-        currentRuleLabelAccess[label] = 0;
+    if (!(label in compiler.currentRuleLabelAccess)) {
+        compiler.currentRuleLabelAccess[label] = 0;
     }
     if (content.parent?.name === "__skip__" || content.parent?.name === "__skipIf__") {
-        currentRuleLabelAccess[label]++;
+        compiler.currentRuleLabelAccess[label]++;
     }
     return content;
 };

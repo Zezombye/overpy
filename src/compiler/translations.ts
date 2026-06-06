@@ -18,12 +18,11 @@
 "use strict";
 
 import PO from "pofile";
-import { currentRuleName, DEBUG_MODE, disableTranslationSourceLines, keepUnusedTranslations, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
+import { DEBUG_MODE } from "../globalVars";
+import { OverPyCompiler } from "../godClasses";
 import { BaseNormalFileStackMember } from "../types";
 import { Ast } from "../utils/ast";
-import { escapeString, unescapeString } from "../utils/strings";
-import { Token } from "./tokenizer";
-import { error } from "../utils/logging";
+import { escapeString } from "../utils/strings";
 
 export type TranslationLanguage = "de" | "en" | "es" | "es_es" | "es_mx" | "fr" | "it" | "ja" | "ko" | "pl" | "pt" | "ru" | "th" | "tr" | "zh" | "zh_cn" | "zh_tw";
 
@@ -63,12 +62,12 @@ export function getLeadingAndTrailingWhitespace(str: string) {
     };
 }
 
-export function getTranslatedString(str: string, context: string | null, fileStack: BaseNormalFileStackMember[]): Ast {
+OverPyCompiler.prototype.getTranslatedString = function(str: string, context: string | null, fileStack: BaseNormalFileStackMember[]): Ast {
     let lineNb = null;
     let fileName = null;
 
-    if (translationLanguages.length === 0) {
-        error("Translations must be setup with the #!translations directive");
+    if (this.translationLanguages.length === 0) {
+        this.error("Translations must be setup with the #!translations directive");
     }
 
     //console.log(str);
@@ -83,11 +82,11 @@ export function getTranslatedString(str: string, context: string | null, fileSta
 
     //I mean I can increase the limit of course but is it really necessary?
     if ((str.match(/\{\d+\}/g) || []).length > 16) {
-        error("Cannot translate string " + escapeString(str, false) +" with more than 16 formatters");
+        this.error("Cannot translate string " + escapeString(str, false) +" with more than 16 formatters");
     }
 
     if (str.includes("\uEC48")) {
-        error("Cannot have the \\uEC48 character in a translated string, as it is used as a separator");
+        this.error("Cannot have the \\uEC48 character in a translated string, as it is used as a separator");
     }
 
     let { leadingWhitespace, actualString: actualStringWithNewlines, trailingWhitespace } = getLeadingAndTrailingWhitespace(str);
@@ -104,9 +103,9 @@ export function getTranslatedString(str: string, context: string | null, fileSta
             break;
         }
     }
-    let occurrence = "file " + (fileName || "<unknown>")+(disableTranslationSourceLines ? "" : ", line " + ((""+lineNb).padStart(4, "0") || "<unknown>")) + ", rule "+escapeString(currentRuleName, true);
+    let occurrence = "file " + (fileName || "<unknown>")+(this.disableTranslationSourceLines ? "" : ", line " + ((""+lineNb).padStart(4, "0") || "<unknown>")) + ", rule "+escapeString(this.currentRuleName, true);
     let translatedString = null;
-    for (let ts of translatedStrings) {
+    for (let ts of this.translatedStrings) {
         if (ts.default === actualString && ts.context === context) {
             ts.occurrences.push(occurrence);
             translatedString = ts;
@@ -122,19 +121,19 @@ export function getTranslatedString(str: string, context: string | null, fileSta
             occurrences: [occurrence],
             hasMultipleOccurrencesNotification: false,
         };
-        translatedStrings.push(translatedString);
+        this.translatedStrings.push(translatedString);
     }
 
-    let translatedStringLiterals = translationLanguages.map((language) => {
+    let translatedStringLiterals = this.translationLanguages.map((language) => {
         return leadingWhitespace + (translatedString[language] || translatedString.default).split("\n").map((line, j) => lines[j].leadingWhitespace + line + lines[j].trailingWhitespace).join("\n") + trailingWhitespace;
     });
     //console.log(translatedStringLiterals);
 
-    return new Ast("__translatedString__", translatedStringLiterals.map(x => new Ast(x, [], [], "CustomStringLiteral")));
+    return this.Ast("__translatedString__", translatedStringLiterals.map(x => this.Ast(x, [], [], "CustomStringLiteral")));
 
 }
 
-export function exportToPoFiles(translatedStrings: TranslatedString[]) {
+OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: TranslatedString[]) {
 
     try {
         var fs = require("fs");
@@ -142,12 +141,12 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
         if (DEBUG_MODE) {
             return;
         }
-        error("Cannot do translations in browsers (fs not found)");
+        this.error("Cannot do translations in browsers (fs not found)");
     }
 
-    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || (a.occurrences[0] ?? "zzzzz").localeCompare((b.occurrences[0] ?? "zzzzz")));
+    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || this.keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || (a.occurrences[0] ?? "zzzzz").localeCompare((b.occurrences[0] ?? "zzzzz")));
 
-    for (let language of translationLanguages.slice(1)) { //first language is default language
+    for (let language of this.translationLanguages.slice(1)) { //first language is default language
 
         let po = new PO();
 
@@ -184,11 +183,11 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
             po.items.push(item);
         }
 
-        fs.writeFileSync(rootPath+"/"+mainFileName.replace(".opy", "."+language+".po"), po.toString(), { encoding: "utf-8" });
+        fs.writeFileSync(this.rootPath+"/"+this.mainFileName.replace(".opy", "."+language+".po"), po.toString(), { encoding: "utf-8" });
     }
 }
 
-export function importFromPoFiles() {
+OverPyCompiler.prototype.importFromPoFiles = function() {
 
     try {
         var fs = require("fs");
@@ -196,25 +195,25 @@ export function importFromPoFiles() {
         if (DEBUG_MODE) {
             return [];
         }
-        error("Cannot do translations in browsers (fs not found)");
+        this.error("Cannot do translations in browsers (fs not found)");
     }
 
     let result: TranslatedString[] = [];
-    for (let language of translationLanguages.slice(1)) { //first language is default language
+    for (let language of this.translationLanguages.slice(1)) { //first language is default language
 
-        let poFilePath = rootPath+"/"+mainFileName.replace(".opy", "."+language+".po");
+        let poFilePath = this.rootPath+"/"+this.mainFileName.replace(".opy", "."+language+".po");
         if (!fs.existsSync(poFilePath)) {
             continue;
         }
         try {
             var poFileContent = fs.readFileSync(poFilePath, { encoding: "utf-8" });
         } catch (e) {
-            error("Could not read .po file at '"+poFilePath+"'");
+            this.error("Could not read .po file at '"+poFilePath+"'");
         }
         let po = PO.parse(poFileContent);
 
         if (po.headers["Language"] !== language) {
-            error("Language in PO file '" + poFilePath + "' does not match expected language '" + language + "'");
+            this.error("Language in PO file '" + poFilePath + "' does not match expected language '" + language + "'");
         }
 
         for (let item of po.items) {
@@ -237,7 +236,7 @@ export function importFromPoFiles() {
             }
             if (item.msgstr.length > 0 && item.msgstr[0] !== "") {
                 if ((item.msgstr[0].match(/\n/g) || []).length !== (item.msgid.match(/\n/g) || []).length) {
-                    error("Invalid number of lines for translation of " + escapeString(item.msgid, true) + "' in '" + language + "' (" + escapeString(item.msgstr[0], true) + ")");
+                    this.error("Invalid number of lines for translation of " + escapeString(item.msgid, true) + "' in '" + language + "' (" + escapeString(item.msgstr[0], true) + ")");
                 }
                 translatedString[language] = item.msgstr[0];
             }

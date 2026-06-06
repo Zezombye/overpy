@@ -17,11 +17,10 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
 import { astParsingFunctions } from "../../utils/ast";
 
-astParsingFunctions.__xComponentOf__ = function (content) {
-    if (enableOptimization) {
+astParsingFunctions.__xComponentOf__ = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "vect") {
             return content.args[0].args[0];
         }

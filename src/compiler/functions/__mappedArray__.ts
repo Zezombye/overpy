@@ -17,15 +17,13 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
 import { astIsInLambdaFunction, astParsingFunctions } from "../../utils/ast";
-import {error} from "../../utils/logging";
 
-astParsingFunctions.__mappedArray__ = function (content) {
+astParsingFunctions.__mappedArray__ = function (content, compiler) {
     if (astIsInLambdaFunction(content)) {
-        error("Cannot nest .filter() or .map()");
+        compiler.error("Cannot nest .filter() or .map()");
     }
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //mapping to current array element -> do nothing to the array
         if (content.args[1].name === "__currentArrayElement__") {
             return content.args[0];

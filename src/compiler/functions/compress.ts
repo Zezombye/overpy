@@ -17,17 +17,11 @@
 
 "use strict";
 
-import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstFor0, getAstFor0_0001, getAstForCustomString, getAstForEmptyArray, getAstForNumber } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
-import { escapeString } from "../../utils/strings";
-import { compressToString, prepareAstForCompression } from "./compressed";
+import { astParsingFunctions } from "../../utils/ast";
+import {CompressionInfo} from "./compressed";
 
-
-
-astParsingFunctions.compress = function (content) {
-    let compressionInfo = prepareAstForCompression(content.args[0], true);
-    let compressedString = compressToString(compressionInfo);
-    return getAstForCustomString(compressedString);
+astParsingFunctions.compress = function (content, compiler) {
+    let compressionInfo = compiler.prepareAstForCompression(content.args[0], true) as CompressionInfo;
+    let compressedString = compiler.compressToString(compressionInfo);
+    return compiler.getAstForCustomString(compressedString);
 };

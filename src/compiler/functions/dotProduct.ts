@@ -17,15 +17,15 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { astParsingFunctions, getAstForNumber, numValue } from "../../utils/ast";
 
-astParsingFunctions.dotProduct = function (content) {
-    if (enableOptimization) {
+import { astParsingFunctions, numValue } from "../../utils/ast";
+
+astParsingFunctions.dotProduct = function (content, compiler) {
+    if (compiler.enableOptimization) {
         if (content.args[0].name === "vect" && content.args[0].args.every(arg => numValue(arg) !== null) && content.args[1].name === "vect" && content.args[1].args.every(arg => numValue(arg) !== null)) {
             let [x1, y1, z1] = content.args[0].args.map(arg => numValue(arg) as number);
             let [x2, y2, z2] = content.args[1].args.map(arg => numValue(arg) as number);
-            return getAstForNumber(x1 * x2 + y1 * y2 + z1 * z2);
+            return compiler.getAstForNumber(x1 * x2 + y1 * y2 + z1 * z2);
         }
     }
 

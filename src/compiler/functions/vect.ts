@@ -17,48 +17,48 @@
 
 "use strict";
 
-import { enableOptimization } from "../../globalVars";
-import { Ast, astParsingFunctions, getAstFor0, getAstFor1, getAstForMinus1 } from "../../utils/ast";
 
-astParsingFunctions.vect = function (content) {
+import { astParsingFunctions } from "../../utils/ast";
+
+astParsingFunctions.vect = function (content, compiler) {
 
     return content;
 };
 
 //Unoptimize so that we can then do optimizations on eg Vector.LEFT*2
-astParsingFunctions["Vector.LEFT"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstFor1(), getAstFor0(), getAstFor0()]);
+astParsingFunctions["Vector.LEFT"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstFor1(), compiler.getAstFor0(), compiler.getAstFor0()]);
     }
     return content;
 };
-astParsingFunctions["Vector.RIGHT"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstForMinus1(), getAstFor0(), getAstFor0()]);
+astParsingFunctions["Vector.RIGHT"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstForMinus1(), compiler.getAstFor0(), compiler.getAstFor0()]);
     }
     return content;
 };
-astParsingFunctions["Vector.UP"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstFor0(), getAstFor1(), getAstFor0()]);
+astParsingFunctions["Vector.UP"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstFor0(), compiler.getAstFor1(), compiler.getAstFor0()]);
     }
     return content;
 };
-astParsingFunctions["Vector.DOWN"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstFor0(), getAstForMinus1(), getAstFor0()]);
+astParsingFunctions["Vector.DOWN"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstFor0(), compiler.getAstForMinus1(), compiler.getAstFor0()]);
     }
     return content;
 };
-astParsingFunctions["Vector.FORWARD"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor1()]);
+astParsingFunctions["Vector.FORWARD"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstFor0(), compiler.getAstFor0(), compiler.getAstFor1()]);
     }
     return content;
 };
-astParsingFunctions["Vector.BACKWARD"] = function(content) {
-    if (enableOptimization) {
-        return new Ast("vect", [getAstFor0(), getAstFor0(), getAstForMinus1()]);
+astParsingFunctions["Vector.BACKWARD"] = function(content, compiler) {
+    if (compiler.enableOptimization) {
+        return compiler.Ast("vect", [compiler.getAstFor0(), compiler.getAstFor0(), compiler.getAstForMinus1()]);
     }
     return content;
 };

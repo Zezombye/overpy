@@ -17,56 +17,54 @@
 
 "use strict";
 
-import { enableOptimization, optimizeForSize } from "../../globalVars";
-import { astContainsFunctions, Ast, getAstForEmptyArray, astParsingFunctions, astIsInLambdaFunction } from "../../utils/ast";
-import {error} from "../../utils/logging";
+import { astParsingFunctions, astIsInLambdaFunction } from "../../utils/ast";
 
-astParsingFunctions.__filteredArray__ = function (content) {
+astParsingFunctions.__filteredArray__ = function (content, compiler) {
     if (astIsInLambdaFunction(content)) {
-        error("Cannot nest .filter() or .map()");
+        compiler.error("Cannot nest .filter() or .map()");
     }
-    if (enableOptimization) {
+    if (compiler.enableOptimization) {
         //filtered array with no constant -> if/else
-        if (!optimizeForSize) {
-            if (!astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                return new Ast("__ifThenElse__", [content.args[1], content.args[0], getAstForEmptyArray()]);
+        if (!compiler.optimizeForSize) {
+            if (!compiler.astContainsFunctions(content.args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                return compiler.Ast("__ifThenElse__", [content.args[1], content.args[0], compiler.getAstForEmptyArray()]);
             }
         }
 
         //filtered array with condition "currentArrayElement != A" -> remove from array(array, A)
         if (content.args[1].name === "__inequals__") {
-            if (content.args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                return new Ast(".exclude", [content.args[0], content.args[1].args[1]]);
+            if (content.args[1].args[0].name === "__currentArrayElement__" && !compiler.astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                return compiler.Ast(".exclude", [content.args[0], content.args[1].args[1]]);
             }
-            if (content.args[1].args[1].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                return new Ast(".exclude", [content.args[0], content.args[1].args[0]]);
+            if (content.args[1].args[1].name === "__currentArrayElement__" && !compiler.astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                return compiler.Ast(".exclude", [content.args[0], content.args[1].args[0]]);
             }
         }
 
         if (content.args[0].name === "getPlayers") {
             //filter(getPlayers(A), is on objective(x)) -> getPlayersOnObjective(A)
             if (content.args[1].name === ".isOnObjective" && content.args[1].args[0].name === "__currentArrayElement__") {
-                return new Ast("getPlayersOnObjective", [content.args[0].args[0]]);
+                return compiler.Ast("getPlayersOnObjective", [content.args[0].args[0]]);
             }
             //filter(getPlayers(A), not is on objective(x)) -> getPlayersNotOnObjective(A)
             if (content.args[1].name === "__not__" && content.args[1].args[0].name === ".isOnObjective" && content.args[1].args[0].args[0].name === "__currentArrayElement__") {
-                return new Ast("getPlayersNotOnObjective", [content.args[0].args[0]]);
+                return compiler.Ast("getPlayersNotOnObjective", [content.args[0].args[0]]);
             }
             //filter(getPlayers(A), is alive(x)) -> getLivingPlayers(A)
             if (content.args[1].name === ".isAlive" && content.args[1].args[0].name === "__currentArrayElement__") {
-                return new Ast("getLivingPlayers", [content.args[0].args[0]]);
+                return compiler.Ast("getLivingPlayers", [content.args[0].args[0]]);
             }
             //filter(getPlayers(A), is dead(x)) -> getDeadPlayers(A)
             if (content.args[1].name === ".isDead" && content.args[1].args[0].name === "__currentArrayElement__") {
-                return new Ast("getDeadPlayers", [content.args[0].args[0]]);
+                return compiler.Ast("getDeadPlayers", [content.args[0].args[0]]);
             }
             //filter(getPlayers(A), x.getCurrentHero() == B) -> getPlayersOnHero(B, A)
             if (content.args[1].name === "__equals__") {
-                if (content.args[1].args[0].name === ".getHero" && content.args[1].args[0].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                    return new Ast("getPlayersOnHero", [content.args[1].args[1], content.args[0].args[0]]);
+                if (content.args[1].args[0].name === ".getHero" && content.args[1].args[0].args[0].name === "__currentArrayElement__" && !compiler.astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                    return compiler.Ast("getPlayersOnHero", [content.args[1].args[1], content.args[0].args[0]]);
                 }
-                if (content.args[1].args[1].name === ".getHero" && content.args[1].args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
-                    return new Ast("getPlayersOnHero", [content.args[1].args[0], content.args[0].args[0]]);
+                if (content.args[1].args[1].name === ".getHero" && content.args[1].args[1].args[0].name === "__currentArrayElement__" && !compiler.astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                    return compiler.Ast("getPlayersOnHero", [content.args[1].args[0], content.args[0].args[0]]);
                 }
             }
         }

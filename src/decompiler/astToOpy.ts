@@ -20,16 +20,14 @@
 import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventSlotKw } from "../data/other";
-import { activatedExtensions, astOperatorPrecedence, currentArrayElementName, currentArrayIndexName, currentRuleHasVariableGoto, decompilationLabelNumber, decompilerGotos, decrementNbTabs, incrementDecompilationLabelNumber, incrementNbTabs, nbTabs, resetDecompilationLabelNumber, resetDecompilerGotos, resetRuleHasVariableGoto, setCurrentArrayElementName, setCurrentArrayIndexName, setNbTabs, setRuleHasVariableGoto, funcKw } from "../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsFunctions, getAstFor0, getAstForArgDefault } from "../utils/ast";
-import { error, debug } from "../utils/logging";
+import { astOperatorPrecedence, funcKw } from "../globalVars";
+import { OverPyDecompiler } from "../godClasses";
+import { areAstsAlwaysEqual, Ast } from "../utils/ast";
+import { debug } from "../utils/logging";
 import { tabLevel } from "../utils/other";
 import { escapeString } from "../utils/strings";
-import { topy } from "../utils/translation";
-import { isTypeSuitable } from "../utils/types";
-import { isVarName } from "../utils/varNames";
 
-export function astRulesToOpy(rules: Ast[]) {
+OverPyDecompiler.prototype.astRulesToOpy = function(rules: Ast[]) {
     var result = "";
 
     for (var rule of rules) {
@@ -37,28 +35,28 @@ export function astRulesToOpy(rules: Ast[]) {
 
             var decompiledRule = "";
             var decompiledRuleAttributes = "";
-            setNbTabs(1);
-            resetDecompilationLabelNumber();
-            resetRuleHasVariableGoto();
+            this.nbTabs = 1;
+            this.decompilationLabelNumber = 0;
+            this.currentRuleHasVariableGoto = false;
 
             if (rule.ruleAttributes.event === "__subroutine__") {
                 decompiledRule += "def " + rule.ruleAttributes.subroutineName + "():\n";
-                decompiledRuleAttributes += tabLevel(nbTabs) + "@Name " + escapeString(rule.ruleAttributes.name, false) + "\n";
+                decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Name " + escapeString(rule.ruleAttributes.name, false) + "\n";
             } else {
                 decompiledRule += "rule " + escapeString(rule.ruleAttributes.name, false) + ":\n";
 
                 //Decompile the rule attributes
                 if (rule.ruleAttributes.event !== "global") {
-                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Event " + rule.ruleAttributes.event + "\n";
+                    decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Event " + rule.ruleAttributes.event + "\n";
                 }
                 if (rule.ruleAttributes.eventTeam && rule.ruleAttributes.eventTeam !== "all") {
-                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Team " + rule.ruleAttributes.eventTeam + "\n";
+                    decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Team " + rule.ruleAttributes.eventTeam + "\n";
                 }
                 if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
                     if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
-                        decompiledRuleAttributes += tabLevel(nbTabs) + "@Slot " + rule.ruleAttributes.eventPlayer + "\n";
+                        decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Slot " + rule.ruleAttributes.eventPlayer + "\n";
                     } else {
-                        decompiledRuleAttributes += tabLevel(nbTabs) + "@Hero " + rule.ruleAttributes.eventPlayer + "\n";
+                        decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Hero " + rule.ruleAttributes.eventPlayer + "\n";
                     }
                 }
                 if (rule.ruleAttributes.conditions) {
@@ -67,31 +65,31 @@ export function astRulesToOpy(rules: Ast[]) {
                         if (condition.comment) {
                             decompiledRuleAttributes += condition.comment
                                 .split("\n")
-                                .map((x) => tabLevel(nbTabs) + "#" + x + "\n")
+                                .map((x) => tabLevel(this.nbTabs) + "#" + x + "\n")
                                 .join("");
                         }
-                        decompiledRuleAttributes += tabLevel(nbTabs);
+                        decompiledRuleAttributes += tabLevel(this.nbTabs);
                         if (condition.isDisabled) {
                             decompiledRuleAttributes += "#";
                         }
-                        decompiledRuleAttributes += "@Condition " + astToOpy(condition) + "\n";
+                        decompiledRuleAttributes += "@Condition " + this.astToOpy(condition) + "\n";
                     }
                 }
             }
             if (rule.ruleAttributes.isDisabled) {
-                decompiledRuleAttributes += tabLevel(nbTabs) + "@Disabled\n";
+                decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Disabled\n";
             }
             //In most cases, empty rules are delimiters. Keep them in just in case the user still wants them in the output
             if (rule.children.length === 0) {
-                decompiledRuleAttributes += tabLevel(nbTabs) + "@Delimiter\n";
+                decompiledRuleAttributes += tabLevel(this.nbTabs) + "@Delimiter\n";
             }
             if (decompiledRuleAttributes) {
-                decompiledRuleAttributes += tabLevel(nbTabs) + "\n";
+                decompiledRuleAttributes += tabLevel(this.nbTabs) + "\n";
             }
             decompiledRule += decompiledRuleAttributes;
 
             //Decompile the rule actions
-            decompiledRule += astActionsToOpy(rule.children);
+            decompiledRule += this.astActionsToOpy(rule.children);
 
             /*if (rule.ruleAttributes.isDisabled) {
                 decompiledRule = "/*\n" + decompiledRule + "*\/";
@@ -99,7 +97,7 @@ export function astRulesToOpy(rules: Ast[]) {
             decompiledRule += "\n\n";
             result += decompiledRule;
         } catch (e) {
-            error("Error while decompiling rule '" + rule.ruleAttributes.name + "': " + e);
+            this.error("Error while decompiling rule '" + rule.ruleAttributes.name + "': " + e);
         }
     }
 
@@ -110,26 +108,26 @@ export function astRulesToOpy(rules: Ast[]) {
     return result;
 }
 
-export function astArgsToOpy(funcName: string, args: Ast[]) {
+OverPyDecompiler.prototype.astArgsToOpy = function(funcName: string, args: Ast[]) {
 
     let funcArgs = (funcKw[funcName].args || []).slice(funcName.startsWith(".") ? 1 : 0);
     for (let i = funcArgs.length-1; i >= 0; i--) {
         if (i > args.length-1) {
-            error("Invalid number of arguments for function '"+funcName+"', expected at least "+i+", received "+args.length);
+            this.error("Invalid number of arguments for function '"+funcName+"', expected at least "+i+", received "+args.length);
         }
         //console.log(args);
         //console.log(i);
         //console.log(args[i]);
-        if (funcArgs[i]?.default !== undefined && areAstsAlwaysEqual(args[i], getAstForArgDefault(funcArgs[i]))) {
+        if (funcArgs[i]?.default !== undefined && areAstsAlwaysEqual(args[i], this.getAstForArgDefault(funcArgs[i]))) {
             args.pop();
         } else {
             break;
         }
     }
-    return args.map(x => astToOpy(x)).join(", ");
+    return args.map(x => this.astToOpy(x)).join(", ");
 }
 
-export function astActionsToOpy(actions: Ast[]): string {
+OverPyDecompiler.prototype.astActionsToOpy = function(actions: Ast[]): string {
     var result = "";
     for (var i = 0; i < actions.length; i++) {
         debug("Parsing AST of action '" + actions[i].name + "'");
@@ -176,9 +174,9 @@ export function astActionsToOpy(actions: Ast[]): string {
                 } else if (actions[i].name === "__for__") {
                     //args[0] = start, args[1] = end, args[2] = step
                     //step > 0 && start < end || step <= 0 && start > end
-                    actions[i] = new Ast("__if__", [new Ast("__or__", [new Ast("__and__", [new Ast("__greaterThan__", [actions[i].args[2], getAstFor0()]), new Ast("__lessThan__", [actions[i].args[0], actions[i].args[1]])]), new Ast("__and__", [new Ast("__lessThanOrEquals__", [actions[i].args[2], getAstFor0()]), new Ast("__greaterThan__", [actions[i].args[0], actions[i].args[1]])])])]);
+                    actions[i] = this.Ast("__if__", [this.Ast("__or__", [this.Ast("__and__", [this.Ast("__greaterThan__", [actions[i].args[2], this.getAstFor0()]), this.Ast("__lessThan__", [actions[i].args[0], actions[i].args[1]])]), this.Ast("__and__", [this.Ast("__lessThanOrEquals__", [actions[i].args[2], this.getAstFor0()]), this.Ast("__greaterThan__", [actions[i].args[0], actions[i].args[1]])])])]);
                 } else {
-                    error("Unexpected name '" + actions[i].name + "'");
+                    this.error("Unexpected name '" + actions[i].name + "'");
                 }
             }
         }
@@ -194,17 +192,17 @@ export function astActionsToOpy(actions: Ast[]): string {
         };
 
         //Check for labels
-        for (var j = 0; j < decompilerGotos.length; j++) {
-            if (decompilerGotos[j].remainingActions <= 0) {
-                result += tabLevel(nbTabs) + decompilerGotos[j].label + ":\n";
-                decompilerGotos.splice(j, 1);
+        for (var j = 0; j < this.decompilerGotos.length; j++) {
+            if (this.decompilerGotos[j].remainingActions <= 0) {
+                result += tabLevel(this.nbTabs) + this.decompilerGotos[j].label + ":\n";
+                this.decompilerGotos.splice(j, 1);
                 j--;
             } else {
-                decompilerGotos[j].remainingActions--;
+                this.decompilerGotos[j].remainingActions--;
             }
         }
 
-        var tabLevelForThisAction = nbTabs;
+        var tabLevelForThisAction = this.nbTabs;
 
         if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name)) {
             var nameToKeywordMapping = {
@@ -215,7 +213,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 __for__: "for",
             };
             if ((actions[i].name === "__elif__" || actions[i].name === "__else__") && !actions[i].isDisabled) {
-                if (nbTabs > 1) {
+                if (this.nbTabs > 1) {
                     //Properly check for lone elif/else chains. Go backwards and see if there is a if/elif/else without an end.
                     let depth = 0;
                     let found = false;
@@ -238,53 +236,52 @@ export function astActionsToOpy(actions: Ast[]): string {
                         }
                     }
                     if (found) {
-                        decrementNbTabs();
+                        this.nbTabs--;
                     }
                 }
             }
-            tabLevelForThisAction = nbTabs;
+            tabLevelForThisAction = this.nbTabs;
             decompiledAction = nameToKeywordMapping[actions[i].name as keyof typeof nameToKeywordMapping];
             if (actions[i].args.length > 0) {
-                decompiledAction += " " + astToOpy(actions[i].args[0]);
+                decompiledAction += " " + this.astToOpy(actions[i].args[0]);
             }
             if (actions[i].name === "__for__") {
                 decompiledAction += " in range(";
                 var rangeArgs = [];
                 if (!(actions[i].args[1].name === "__number__" && actions[i].args[1].args[0].name === "0" && actions[i].args[3].name === "__number__" && actions[i].args[3].args[0].name === "1")) {
-                    rangeArgs.push(astToOpy(actions[i].args[1]));
+                    rangeArgs.push(this.astToOpy(actions[i].args[1]));
                 }
-                rangeArgs.push(astToOpy(actions[i].args[2]));
+                rangeArgs.push(this.astToOpy(actions[i].args[2]));
                 if (!(actions[i].args[3].name === "__number__" && actions[i].args[3].args[0].name === "1")) {
-                    rangeArgs.push(astToOpy(actions[i].args[3]));
+                    rangeArgs.push(this.astToOpy(actions[i].args[3]));
                 }
                 decompiledAction += rangeArgs.join(", ") + ")";
             }
             decompiledAction += ":";
             if (!actions[i].isDisabled) {
-                incrementNbTabs();
+                this.nbTabs++;
             }
-        } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "return";
-        } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+        } else if (actions[i].name === "__abortIf__" && !this.currentRuleHasVariableGoto) {
+            decompiledAction += "if " + this.astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "return";
+        } else if (actions[i].name === "__abortIfConditionIsFalse__" && !this.currentRuleHasVariableGoto) {
             decompiledAction += "if not ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
-        } else if (actions[i].name === "__abortIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+        } else if (actions[i].name === "__abortIfConditionIsTrue__" && !this.currentRuleHasVariableGoto) {
             decompiledAction += "if ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
         } else if (actions[i].name === "__assignTo__") {
-            decompiledAction = astToOpy(actions[i].args[0]) + " = " + astToOpy(actions[i].args[1]);
+            decompiledAction = this.astToOpy(actions[i].args[0]) + " = " + this.astToOpy(actions[i].args[1]);
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name + "()";
         } else if (actions[i].name === "__chaseGlobalVariableAtRate__") {
-            decompiledAction += "chaseAtRate(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", " + astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_RATE" ? "" : ", " + astToOpy(actions[i].args[3])) + ")";
+            decompiledAction += "chaseAtRate(" + actions[i].args[0].name + ", " + this.astToOpy(actions[i].args[1]) + ", " + this.astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_RATE" ? "" : ", " + this.astToOpy(actions[i].args[3])) + ")";
         } else if (actions[i].name === "__chaseGlobalVariableOverTime__") {
-            decompiledAction += "chaseOverTime(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", " + astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_DURATION" ? "" : ", " + astToOpy(actions[i].args[3])) + ")";
+            decompiledAction += "chaseOverTime(" + actions[i].args[0].name + ", " + this.astToOpy(actions[i].args[1]) + ", " + this.astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_DURATION" ? "" : ", " + this.astToOpy(actions[i].args[3])) + ")";
         } else if (actions[i].name === "__chasePlayerVariableAtRate__") {
-            decompiledAction += "chaseAtRate(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_RATE" ? "" : ", " + astToOpy(actions[i].args[4])) + ")";
+            decompiledAction += "chaseAtRate(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + this.astToOpy(actions[i].args[2]) + ", " + this.astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_RATE" ? "" : ", " + this.astToOpy(actions[i].args[4])) + ")";
         } else if (actions[i].name === "__chasePlayerVariableOverTime__") {
-            decompiledAction += "chaseOverTime(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_DURATION" ? "" : ", " + astToOpy(actions[i].args[4])) + ")";
+            decompiledAction += "chaseOverTime(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + this.astToOpy(actions[i].args[2]) + ", " + this.astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_DURATION" ? "" : ", " + this.astToOpy(actions[i].args[4])) + ")";
         } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
-            if (nbTabs > 1) {
-                // nbTabs--;
-                decrementNbTabs();
+            if (this.nbTabs > 1) {
+                this.nbTabs--;
             }
             continue;
         } else if (actions[i].name === "hudText") {
@@ -303,95 +300,95 @@ export function astActionsToOpy(actions: Ast[]): string {
                 decompiledActionName = "hudText";
                 actionArgs = actions[i].args;
             }
-            decompiledAction += decompiledActionName+"(" + astArgsToOpy(decompiledActionName, actionArgs) + ")";
-        } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
-        } else if (actions[i].name === "__loopIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
+            decompiledAction += decompiledActionName+"(" + this.astArgsToOpy(decompiledActionName, actionArgs) + ")";
+        } else if (actions[i].name === "__loopIf__" && !this.currentRuleHasVariableGoto) {
+            decompiledAction += "if " + this.astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
+        } else if (actions[i].name === "__loopIfConditionIsFalse__" && !this.currentRuleHasVariableGoto) {
             decompiledAction += "if not ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
-        } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
+        } else if (actions[i].name === "__loopIfConditionIsTrue__" && !this.currentRuleHasVariableGoto) {
             decompiledAction += "if ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
                 if (["__add__", "__subtract__"].includes(actions[i].args[1].name) && (actions[i].args[2].name === "__number__" && actions[i].args[2].args[0].name === "1" || actions[i].args[2].name === "true")) {
-                    decompiledAction += astToOpy(actions[i].args[0]) + (actions[i].args[1].name === "__add__" ? "++" : "--");
+                    decompiledAction += this.astToOpy(actions[i].args[0]) + (actions[i].args[1].name === "__add__" ? "++" : "--");
                 } else {
-                    decompiledAction += astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + astToOpy(actions[i].args[2]);
+                    decompiledAction += this.astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + this.astToOpy(actions[i].args[2]);
                 }
             } else if (actions[i].args[1].name === "__min__") {
-                decompiledAction += astToOpy(actions[i].args[0]) + " min= " + astToOpy(actions[i].args[2]);
+                decompiledAction += this.astToOpy(actions[i].args[0]) + " min= " + this.astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__max__") {
-                decompiledAction += astToOpy(actions[i].args[0]) + " max= " + astToOpy(actions[i].args[2]);
+                decompiledAction += this.astToOpy(actions[i].args[0]) + " max= " + this.astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__appendToArray__") {
-                decompiledAction += astToOpy(actions[i].args[0]) + ".append(" + astToOpy(actions[i].args[2]) + ")";
+                decompiledAction += this.astToOpy(actions[i].args[0]) + ".append(" + this.astToOpy(actions[i].args[2]) + ")";
             } else if (actions[i].args[1].name === "__removeFromArrayByValue__") {
-                decompiledAction += astToOpy(actions[i].args[0]) + ".remove(" + astToOpy(actions[i].args[2]) + ")";
+                decompiledAction += this.astToOpy(actions[i].args[0]) + ".remove(" + this.astToOpy(actions[i].args[2]) + ")";
             } else if (actions[i].args[1].name === "__removeFromArrayByIndex__") {
-                decompiledAction += "del " + astToOpy(actions[i].args[0]) + "[" + astToOpy(actions[i].args[2]) + "]";
+                decompiledAction += "del " + this.astToOpy(actions[i].args[0]) + "[" + this.astToOpy(actions[i].args[2]) + "]";
             }
         } else if (actions[i].name === "__setGlobalVariable__") {
-            decompiledAction = astToOpy(actions[i].args[0]) + " = " + astToOpy(actions[i].args[1]);
+            decompiledAction = this.astToOpy(actions[i].args[0]) + " = " + this.astToOpy(actions[i].args[1]);
         } else if (actions[i].name === "__setGlobalVariableAtIndex__") {
-            decompiledAction = astToOpy(actions[i].args[0]) + "[" + astToOpy(actions[i].args[1]) + "] = " + astToOpy(actions[i].args[2]);
+            decompiledAction = this.astToOpy(actions[i].args[0]) + "[" + this.astToOpy(actions[i].args[1]) + "] = " + this.astToOpy(actions[i].args[2]);
         } else if (actions[i].name === "__setPlayerVariable__") {
-            var op1 = astToOpy(actions[i].args[0]);
-            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+            var op1 = this.astToOpy(actions[i].args[0]);
+            if (this.astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                 op1 = "(" + op1 + ")";
             }
-            decompiledAction = op1 + "." + astToOpy(actions[i].args[1]) + " = " + astToOpy(actions[i].args[2]);
+            decompiledAction = op1 + "." + this.astToOpy(actions[i].args[1]) + " = " + this.astToOpy(actions[i].args[2]);
         } else if (actions[i].name === "__setPlayerVariableAtIndex__") {
-            var op1 = astToOpy(actions[i].args[0]);
-            if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+            var op1 = this.astToOpy(actions[i].args[0]);
+            if (this.astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                 op1 = "(" + op1 + ")";
             }
-            decompiledAction = op1 + "." + astToOpy(actions[i].args[1]) + "[" + astToOpy(actions[i].args[2]) + "] = " + astToOpy(actions[i].args[3]);
+            decompiledAction = op1 + "." + this.astToOpy(actions[i].args[1]) + "[" + this.astToOpy(actions[i].args[2]) + "] = " + this.astToOpy(actions[i].args[3]);
         } else if (actions[i].name === "async") {
-            decompiledAction += "async(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ")";
+            decompiledAction += "async(" + actions[i].args[0].name + ", " + this.astToOpy(actions[i].args[1]) + ")";
         } else if (actions[i].name === "__stopChasingGlobalVariable__") {
             decompiledAction += "stopChasingVariable(" + actions[i].args[0].name + ")";
         } else if (actions[i].name === "__stopChasingPlayerVariable__") {
-            decompiledAction += "stopChasingVariable(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
+            decompiledAction += "stopChasingVariable(" + this.astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ")";
         } else if (actions[i].name === "__skip__") {
             if (actions[i].args[0].name === "__number__") {
-                var labelName = "lbl_" + decompilationLabelNumber;
-                incrementDecompilationLabelNumber();
+                var labelName = "lbl_" + this.decompilationLabelNumber;
+                this.decompilationLabelNumber++;
                 decompiledAction += "goto " + labelName;
-                decompilerGotos.push({
+                this.decompilerGotos.push({
                     remainingActions: actions[i].args[0].args[0].numValue,
                     label: labelName,
                 });
             } else {
-                setRuleHasVariableGoto(true);
-                decompiledAction += "goto loc+" + astToOpy(actions[i].args[0]);
+                this.currentRuleHasVariableGoto = true;
+                decompiledAction += "goto loc+" + this.astToOpy(actions[i].args[0]);
             }
-        } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
+        } else if (actions[i].name === "__skipIf__" && !this.currentRuleHasVariableGoto) {
             if (actions[i].args[1].name === "__number__") {
-                decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1);
-                var labelName = "lbl_" + decompilationLabelNumber;
-                incrementDecompilationLabelNumber();
+                decompiledAction += "if " + this.astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1);
+                var labelName = "lbl_" + this.decompilationLabelNumber;
+                this.decompilationLabelNumber++;
                 decompiledAction += "goto " + labelName;
-                decompilerGotos.push({
+                this.decompilerGotos.push({
                     remainingActions: actions[i].args[1].args[0].numValue,
                     label: labelName,
                 });
             } else {
-                setRuleHasVariableGoto(true);
-                decompiledAction += "__skipIf__(" + astToOpy(actions[i].args[0]) + ", " + astToOpy(actions[i].args[1]) + ")";
+                this.currentRuleHasVariableGoto = true;
+                decompiledAction += "__skipIf__(" + this.astToOpy(actions[i].args[0]) + ", " + this.astToOpy(actions[i].args[1]) + ")";
             }
         } else {
             if (!(actions[i].name in funcKw)) {
-                error("Unregistered function '" + actions[i].name + "'");
+                this.error("Unregistered function '" + actions[i].name + "'");
             }
 
             if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type as string][actions[i].args[1].name].extension) {
                 let extensionName = constantValues[actions[i].args[1].type as string][actions[i].args[1].name].extension as string;
-                activatedExtensions.push(extensionName);
+                this.activatedExtensions.push(extensionName);
             }
 
             let actionArgs;
 
             if (actions[i].name.startsWith(".")) {
-                var op1 = astToOpy(actions[i].args[0]);
-                if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
+                var op1 = this.astToOpy(actions[i].args[0]);
+                if (this.astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                     op1 = "(" + op1 + ")";
                 }
                 decompiledAction = op1 + actions[i].name;
@@ -402,7 +399,7 @@ export function astActionsToOpy(actions: Ast[]): string {
             }
 
             if (funcKw[actions[i].name].args !== null) {
-                decompiledAction += "(" + astArgsToOpy(actions[i].name, actionArgs) + ")";
+                decompiledAction += "(" + this.astArgsToOpy(actions[i].name, actionArgs) + ")";
             }
         }
 
@@ -412,7 +409,7 @@ export function astActionsToOpy(actions: Ast[]): string {
             } else {
                 decompiledAction = "#" + decompiledAction;
             }
-            if (currentRuleHasVariableGoto) {
+            if (this.currentRuleHasVariableGoto) {
                 decompiledAction = "pass " + decompiledAction;
             }
         }
@@ -425,18 +422,18 @@ export function astActionsToOpy(actions: Ast[]): string {
     }
 
     //Add the remaining labels (if there was eg a skip(9999))
-    for (var j = 0; j < decompilerGotos.length; j++) {
-        result += tabLevel(nbTabs) + decompilerGotos[j].label + ":\n";
+    for (var j = 0; j < this.decompilerGotos.length; j++) {
+        result += tabLevel(this.nbTabs) + this.decompilerGotos[j].label + ":\n";
     }
-    resetDecompilerGotos();
+    this.decompilerGotos = [];
 
     return result;
 }
 
-export function astToOpy(content: Ast): string {
+OverPyDecompiler.prototype.astToOpy = function(content: Ast): string {
     debug("Parsing AST of '" + content.name + "'");
 
-    if (isTypeSuitable("StringLiteral", content.type, false)) {
+    if (this.isTypeSuitable("StringLiteral", content.type, false)) {
         return escapeString(content.name, false);
     }
 
@@ -448,11 +445,11 @@ export function astToOpy(content: Ast): string {
     }
 
     if (["__globalVar__", "__hero__", "__gamemode__", "__map__", "__button__", "__color__"].includes(content.name)) {
-        return astToOpy(content.args[0]);
+        return this.astToOpy(content.args[0]);
     }
     if (content.name === "__playerVar__") {
-        var result = astToOpy(content.args[0]);
-        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+        var result = this.astToOpy(content.args[0]);
+        if (this.astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
             result = "(" + result + ")";
         }
         return result + "." + content.args[1].name;
@@ -485,19 +482,19 @@ export function astToOpy(content: Ast): string {
         __greaterThan__: ">",
     };
     if (content.name in funcToOpMapping) {
-        var op1 = astToOpy(content.args[0]);
+        var op1 = this.astToOpy(content.args[0]);
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[0],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] < astOperatorPrecedence[content.name] + (content.name === "__raiseToPower__" ? 1 : 0)),
             )
         ) {
             op1 = "(" + op1 + ")";
         }
-        var op2 = astToOpy(content.args[1]);
+        var op2 = this.astToOpy(content.args[1]);
 
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[1],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name] - (content.name === "__raiseToPower__" ? 1 : 0)),
             )
@@ -508,19 +505,19 @@ export function astToOpy(content: Ast): string {
     }
 
     if (content.name === "__arrayContains__") {
-        var op1 = astToOpy(content.args[0]);
+        var op1 = this.astToOpy(content.args[0]);
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[0],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]),
             )
         ) {
             op1 = "(" + op1 + ")";
         }
-        var op2 = astToOpy(content.args[1]);
+        var op2 = this.astToOpy(content.args[1]);
 
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[1],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]),
             )
@@ -531,31 +528,31 @@ export function astToOpy(content: Ast): string {
     }
 
     if (content.name === "__ifThenElse__") {
-        var opThen = astToOpy(content.args[1]);
+        var opThen = this.astToOpy(content.args[1]);
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[1],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]),
             )
         ) {
             opThen = "(" + opThen + ")";
         }
-        var opIf = astToOpy(content.args[0]);
+        var opIf = this.astToOpy(content.args[0]);
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[0],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name]),
             )
         ) {
             opIf = "(" + opIf + ")";
         }
-        return opThen + " if " + opIf + " else " + astToOpy(content.args[2]);
+        return opThen + " if " + opIf + " else " + this.astToOpy(content.args[2]);
     }
 
     if (content.name === "__negate__" || content.name === "__not__") {
-        var op1 = astToOpy(content.args[0]);
+        var op1 = this.astToOpy(content.args[0]);
         if (
-            astContainsFunctions(
+            this.astContainsFunctions(
                 content.args[0],
                 Object.keys(astOperatorPrecedence).filter((x) => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]),
             )
@@ -574,20 +571,20 @@ export function astToOpy(content: Ast): string {
         return "[]";
     }
     if (content.name === "__array__") {
-        return "[" + content.args.map((x) => astToOpy(x)).join(", ") + "]";
+        return "[" + content.args.map((x) => this.astToOpy(x)).join(", ") + "]";
     }
 
     //Functions with an index or with a member value that doesn't have parentheses
     if (["__firstOf__", "__valueInArray__", "__xComponentOf__", "__yComponentOf__", "__zComponentOf__"].includes(content.name)) {
-        var result = astToOpy(content.args[0]);
-        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+        var result = this.astToOpy(content.args[0]);
+        if (this.astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
             result = "(" + result + ")";
         }
         if (content.name === "__firstOf__") {
             return result + "[0]";
         }
         if (content.name === "__valueInArray__") {
-            return result + "[" + astToOpy(content.args[1]) + "]";
+            return result + "[" + this.astToOpy(content.args[1]) + "]";
         }
         if (content.name === "__xComponentOf__") {
             return result + ".x";
@@ -602,28 +599,28 @@ export function astToOpy(content: Ast): string {
 
     //Array functions that use current array element
     if (["__all__", "__any__", "__filteredArray__", "__sortedArray__", "__mappedArray__"].includes(content.name)) {
-        var opyArray = astToOpy(content.args[0]);
+        var opyArray = this.astToOpy(content.args[0]);
 
         //Determine the current array element / current array index name
-        setCurrentArrayElementName("");
-        if (isTypeSuitable({ Array: "Player" }, content.args[0].type, false)) {
-            setCurrentArrayElementName("player");
+        this.currentArrayElementName = "";
+        if (this.isTypeSuitable({ Array: "Player" }, content.args[0].type, false)) {
+            this.currentArrayElementName = "player";
         } else {
-            setCurrentArrayElementName("x");
+            this.currentArrayElementName = "x";
         }
 
-        if (!astContainsFunctions(content.args[1], ["__currentArrayElement__"])) {
-            setCurrentArrayElementName("_");
+        if (!this.astContainsFunctions(content.args[1], ["__currentArrayElement__"])) {
+            this.currentArrayElementName = "_";
         }
 
-        setCurrentArrayIndexName("i");
+        this.currentArrayIndexName = "i";
 
-        while (isVarName(currentArrayElementName, true)) {
-            setCurrentArrayElementName(currentArrayElementName + "_");
+        while (this.isVarName(this.currentArrayElementName, true)) {
+            this.currentArrayElementName = this.currentArrayElementName + "_";
         }
 
-        while (isVarName(currentArrayIndexName, true)) {
-            setCurrentArrayIndexName(currentArrayIndexName + "_");
+        while (this.isVarName(this.currentArrayIndexName, true)) {
+            this.currentArrayIndexName = this.currentArrayIndexName + "_";
         }
 
         var result = "";
@@ -633,55 +630,55 @@ export function astToOpy(content: Ast): string {
                 //If there is just "current array element", no need to explicitly put it
                 result += opyArray + "." + funcName + "()";
             } else {
-                result += opyArray + "." + funcName + "(lambda " + currentArrayElementName;
-                if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
-                    result += ", " + currentArrayIndexName;
+                result += opyArray + "." + funcName + "(lambda " + this.currentArrayElementName;
+                if (this.astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                    result += ", " + this.currentArrayIndexName;
                 }
-                result += ": " + astToOpy(content.args[1]) + ")";
+                result += ": " + this.astToOpy(content.args[1]) + ")";
             }
         } else if (content.name === "__mappedArray__") {
             
-            result += opyArray + ".map(lambda " + currentArrayElementName;
-            if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
-                result += ", " + currentArrayIndexName;
+            result += opyArray + ".map(lambda " + this.currentArrayElementName;
+            if (this.astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                result += ", " + this.currentArrayIndexName;
             }
-            result += ": " + astToOpy(content.args[1]) + ")";
+            result += ": " + this.astToOpy(content.args[1]) + ")";
         } else if (content.name === "__filteredArray__") {
-            result += opyArray + ".filter(lambda " + currentArrayElementName;
-            if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
-                result += ", " + currentArrayIndexName;
+            result += opyArray + ".filter(lambda " + this.currentArrayElementName;
+            if (this.astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                result += ", " + this.currentArrayIndexName;
             }
-            result += ": " + astToOpy(content.args[1]) + ")";
+            result += ": " + this.astToOpy(content.args[1]) + ")";
         } else if (content.name === "__sortedArray__") {
             result += "sorted(" + opyArray;
             //If there is just "current array element", no need to explicitly put it
             if (content.args[1].name !== "__currentArrayElement__") {
-                result += ", lambda " + currentArrayElementName;
-                if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
-                    result += ", " + currentArrayIndexName;
+                result += ", lambda " + this.currentArrayElementName;
+                if (this.astContainsFunctions(content.args[1], ["__currentArrayIndex__"])) {
+                    result += ", " + this.currentArrayIndexName;
                 }
-                result += ": " + astToOpy(content.args[1]);
+                result += ": " + this.astToOpy(content.args[1]);
             }
             result += ")";
         }
 
-        setCurrentArrayElementName("");
-        setCurrentArrayIndexName("");
+        this.currentArrayElementName = "";
+        this.currentArrayIndexName = "";
         return result;
     }
 
     if (content.name === "__currentArrayElement__") {
-        if (currentArrayElementName === "") {
-            error("currentArrayElementName not set");
+        if (this.currentArrayElementName === "") {
+            this.error("currentArrayElementName not set");
         }
-        return currentArrayElementName;
+        return this.currentArrayElementName;
     }
 
     if (content.name === "__currentArrayIndex__") {
-        if (currentArrayIndexName === "") {
-            error("currentArrayIndexName not set");
+        if (this.currentArrayIndexName === "") {
+            this.error("currentArrayIndexName not set");
         }
-        return currentArrayIndexName;
+        return this.currentArrayIndexName;
     }
 
     //Other functions
@@ -701,39 +698,39 @@ export function astToOpy(content: Ast): string {
         var result = "";
         if (content.name === "__localizedString__") {
             result += "l";
-            result += escapeString(topy(content.args[0].name, stringKw), false);
+            result += escapeString(this.topy(content.args[0].name, stringKw), false);
         } else {
             result += escapeString(content.args[0].name, false);
         }
         if (formatArgs.length > 0) {
-            result += ".format(" + formatArgs.map((x) => (x === undefined ? "null" : astToOpy(x))).join(", ") + ")";
+            result += ".format(" + formatArgs.map((x) => (x === undefined ? "null" : this.astToOpy(x))).join(", ") + ")";
         }
         return result;
     }
     if (content.name === "__round__") {
         if (content.args[1].name === "__roundUp__") {
-            return "ceil(" + astToOpy(content.args[0]) + ")";
+            return "ceil(" + this.astToOpy(content.args[0]) + ")";
         }
         if (content.args[1].name === "__roundDown__") {
-            return "floor(" + astToOpy(content.args[0]) + ")";
+            return "floor(" + this.astToOpy(content.args[0]) + ")";
         }
         if (content.args[1].name === "__roundToNearest__") {
-            return "round(" + astToOpy(content.args[0]) + ")";
+            return "round(" + this.astToOpy(content.args[0]) + ")";
         }
     }
 
     if (content.name === "__raycastHitNormal__") {
-        return "raycast(" + content.args.map((x) => astToOpy(x)).join(", ") + ").getNormal()";
+        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getNormal()";
     }
     if (content.name === "__raycastHitPosition__") {
-        return "raycast(" + content.args.map((x) => astToOpy(x)).join(", ") + ").getHitPosition()";
+        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getHitPosition()";
     }
     if (content.name === "__raycastHitPlayer__") {
-        return "raycast(" + content.args.map((x) => astToOpy(x)).join(", ") + ").getPlayerHit()";
+        return "raycast(" + content.args.map((x) => this.astToOpy(x)).join(", ") + ").getPlayerHit()";
     }
 
     if (!(content.name in funcKw)) {
-        error("Unregistered function '" + content.name + "'");
+        this.error("Unregistered function '" + content.name + "'");
     }
     if (funcKw[content.name].args === null) {
         return content.name;
@@ -741,15 +738,15 @@ export function astToOpy(content: Ast): string {
         let astArgs;
         let result = "";
         if (content.name.startsWith(".")) {
-            result = astToOpy(content.args[0]);
-            if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
+            result = this.astToOpy(content.args[0]);
+            if (this.astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
                 result = "(" + result + ")";
             }
             astArgs = content.args.slice(1);
         } else {
             astArgs = content.args;
         }
-        result += content.name + "(" + astArgsToOpy(content.name, astArgs) + ")";
+        result += content.name + "(" + this.astArgsToOpy(content.name, astArgs) + ")";
         return result;
     }
 }
