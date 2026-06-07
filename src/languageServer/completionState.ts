@@ -252,11 +252,14 @@ export function makeFunctionSignatureLabel(funcName: string, func: CompletionDat
         label += "Player.";
     }
 
-    label += `${funcName}(`;
-    label += visibleArgs
-        .map((arg) => (arg.default !== undefined ? `${arg.name}=${argDefaultToString(arg)}` : arg.name))
-        .join(", ");
-    label += ")";
+    label += `${funcName}`;
+    if (func.args !== null) {
+        label += "(";
+        label += visibleArgs
+            .map((arg) => (arg.default !== undefined ? `${arg.name}=${argDefaultToString(arg)}` : arg.name))
+            .join(", ");
+        label += ")";
+    }
 
     if (func.return !== undefined) {
         label += ` -> ${compiler.typeToString(func.return as Type)}`;
@@ -287,7 +290,7 @@ export function getSemanticTokenIndex(): SemanticTokenIndex {
 
     const normal = new Map<string, SemanticSymbolKind>();
     const member = new Map<string, SemanticSymbolKind>();
-    const keywordNames = new Set(Object.keys(opyKeywords));
+    const keywordNames = new Set(Object.keys(opyKeywords).concat(...Object.keys(valueFuncKw).filter(x => valueFuncKw[x].args === null)));
 
     const addNames = (
         target: Map<string, SemanticSymbolKind>,
@@ -521,17 +524,13 @@ function fillMacroCompletions(macros: MacroData[]): void {
 
     for (const macro of macros) {
         const convertedMacro: CompletionData = {
-            args: [],
-            description: macro.isFunction && macro.isScript ? `This macro executes the script: ${macro.scriptPath}` : `This macro resolves to:\n\n${macro.replacement}`,
+            args: macro.args ?? null,
+            description: macro.isFunction && macro.isScript ? `This macro executes the script:\n  \`${macro.scriptPath}\`` : `This macro resolves to:\n\n\`\`\`\n${macro.replacement}\n\`\`\``,
         };
 
         let macroName = macro.name;
-        if (macro.isFunction) {
-            if (macro.args.length === 0) {
-                macroName += "()";
-            } else {
-                convertedMacro.args = macro.args.map((arg: string) => ({ name: arg, type: "Object" }));
-            }
+        if (macro.isFunction && macro.args.length > 0) {
+            convertedMacro.args = macro.args.map((arg: string) => ({ name: arg, type: "Object" }));
         }
 
         if (macro.isMember) {
@@ -547,10 +546,11 @@ function fillAstMacroCompletions(macros: AstMacroData[]): void {
     dynamicCompletionData.memberAstMacros = {};
 
     for (const macro of macros) {
+        let minIndent = Math.min(...macro.linesStr.map((line) => line.match(/^\s*/)![0].length));
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `This macro resolves to:\n\n\`${macro.linesStr.join("`\n`")}\``,
+            description: `This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
         };
         let macroName = macro.name;
 
@@ -582,7 +582,7 @@ function fillAstConstantCompletions(constants: AstConstantData[]): void {
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `This macro resolves to:\n\n\`${constant.valueStr}\``,
+            description: `This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
         };
 
         if (constant.class_) {

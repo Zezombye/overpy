@@ -8,9 +8,9 @@ export const semanticTokenTypes = [
     "method",
     "macro",
     "variable",
-    "enum",
+    "constant.character.escape", //Enums
     "enumMember",
-    "decorator",
+    "regexp", //@Annotations
 ] as const;
 
 export const semanticTokenModifiers: string[] = [];
@@ -55,7 +55,7 @@ function emitLineTokens(
         const nameStart = matchIndex + prefix.length;
 
         if (prefix === "@") {
-            push(matchIndex, prefix.length + name.length, "decorator");
+            //push(matchIndex, prefix.length + name.length, "regexp");
         } else if (prefix === ".") {
             const ownerName: string | null = previousEnd === matchIndex ? previousName : null;
             if (ownerName && index.enumTypes.has(ownerName) && index.enumMembers.get(ownerName)?.has(name)) {
@@ -67,7 +67,7 @@ function emitLineTokens(
                 }
             }
         } else if (index.enumTypes.has(name)) {
-            push(nameStart, name.length, "enum");
+            push(nameStart, name.length, "constant.character.escape");
         } else {
             const kind = index.normal.get(name);
             if (kind) {

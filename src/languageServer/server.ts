@@ -31,10 +31,12 @@ import { validateTextDocument } from "./validation";
 
 type OverpySettings = {
     workshopLanguage: OWLanguage;
+    inlayHintsMinParameters: number;
 };
 
 const defaultSettings: OverpySettings = {
     workshopLanguage: "en-US",
+    inlayHintsMinParameters: 1,
 };
 const supportedLanguages = [
     "de-DE",
@@ -159,13 +161,14 @@ connection.onHover((params) => {
     return getHover(document, params.position);
 });
 
-connection.languages.inlayHint.on((params) => {
+connection.languages.inlayHint.on(async (params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return [];
     }
 
-    return getInlayHints(document, params.range);
+    const settings = await getDocumentSettings(document.uri);
+    return getInlayHints(document, params.range, settings.inlayHintsMinParameters);
 });
 
 connection.languages.semanticTokens.on((params) => {
@@ -341,16 +344,28 @@ function getDocumentSettings(resource: string): Thenable<OverpySettings> {
 }
 
 function normalizeSettings(settings: unknown): OverpySettings {
-    if (typeof settings === "object" && settings !== null && "workshopLanguage" in settings) {
-        const configuredLanguage = settings.workshopLanguage;
-        if (typeof configuredLanguage === "string" && supportedLanguages.includes(configuredLanguage as OWLanguage)) {
-            return {
-                workshopLanguage: configuredLanguage as OWLanguage,
-            };
+    const normalized: OverpySettings = {
+        ...defaultSettings,
+    };
+
+    if (typeof settings === "object" && settings !== null) {
+        if ("workshopLanguage" in settings) {
+            const configuredLanguage = settings.workshopLanguage;
+            if (typeof configuredLanguage === "string" && supportedLanguages.includes(configuredLanguage as OWLanguage)) {
+                normalized.workshopLanguage = configuredLanguage as OWLanguage;
+            }
+        }
+
+        if ("inlayHintsMinParameters" in settings) {
+            const configuredMinParameters = settings.inlayHintsMinParameters;
+            if (typeof configuredMinParameters === "number" && Number.isFinite(configuredMinParameters)) {
+                const clamped = Math.trunc(configuredMinParameters);
+                normalized.inlayHintsMinParameters = Math.max(0, Math.min(10, clamped));
+            }
         }
     }
 
-    return defaultSettings;
+    return normalized;
 }
 
 function getErrorMessage(error: unknown): string {

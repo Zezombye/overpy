@@ -70,13 +70,13 @@ function parseStructureLine(line: string): Omit<StructuralItem, "line"> | null {
 }
 
 function parseRule(line: string): Omit<StructuralItem, "line"> | null {
-    const match = line.match(/^(\s*)rule\s+"([^"]*)"\s*:/);
+    const match = line.match(/^(\s*)rule\s+((["'])([^"]*)\3)\s*:/);
     if (!match) {
         return null;
     }
 
     const nameStart = line.indexOf("\"") + 1;
-    const name = match[2] ?? "";
+    const name = match[2] || "<empty>";
     return {
         detail: "rule",
         indent: getIndent(match[1] ?? ""),

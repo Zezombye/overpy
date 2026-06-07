@@ -17,7 +17,11 @@ type ParsedArgument = {
  * Positional arguments are matched to the function's parameters (skipping the implicit `self`
  * for member functions); annotation stops once keyword arguments begin.
  */
-export function getInlayHints(document: TextDocument, range?: Range): InlayHint[] {
+export function getInlayHints(document: TextDocument, range?: Range, minParameters = 1): InlayHint[] {
+    if (minParameters <= 0) {
+        return [];
+    }
+
     const state = getCompletionState();
     const masked = maskStringsAndComments(document.getText());
     const hints: InlayHint[] = [];
@@ -31,7 +35,7 @@ export function getInlayHints(document: TextDocument, range?: Range): InlayHint[
         }
 
         const parameters = functionData.isMember === true ? functionData.args.slice(1) : functionData.args;
-        if (parameters.length === 0) {
+        if (parameters.length < minParameters) {
             continue;
         }
 

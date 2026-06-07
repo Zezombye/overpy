@@ -104,6 +104,13 @@
                     "description": "Use the bundled OverPy language server for diagnostics, completions, signature help, hover, semantic tokens, inlay hints, go to definition, references, rename, symbols, folding, and code actions. Disable this to use the legacy in-extension providers.",
                     "default": true
                 },
+                "overpy.inlayHintsMinParameters": {
+                    "type": "number",
+                    "description": "Minimum number of function parameters required before showing parameter-name inlay hints. Set to 0 to disable inlay hints.",
+                    "default": 5,
+                    "minimum": 0,
+                    "maximum": 10
+                },
                 "overpy.compileOnSave": {
                     "type": "boolean",
                     "description": "Specifies whether to initiate a compilation on save.",
