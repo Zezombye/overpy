@@ -28,7 +28,7 @@ astParsingFunctions.__raiseToPower__ = function (content, compiler) {
                 return compiler.getAstFor0();
             }
             let result = Math.pow(content.args[0].args[0].numValue, content.args[1].args[0].numValue);
-            if (Math.abs(result) < NUMBER_LIMIT) {
+            if (Math.abs(result) <= NUMBER_LIMIT) {
                 return compiler.getAstForNumber(result);
             }
         }

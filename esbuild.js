@@ -5,7 +5,7 @@ const path = require("path");
 const production = process.argv.includes("--production");
 const watch = process.argv.includes("--watch");
 const buildAll = process.argv.includes("--all") || process.argv.includes("-all");
-const targets = ["extension", "cli", "standalone"];
+const targets = ["extension", "cli", "standalone", "lsp"];
 const quickJSWasmSourcePath = path.join(__dirname, "node_modules", "@jitl", "quickjs-ng-wasmfile-release-sync", "dist", "emscripten-module.wasm");
 const quickJSWasmOutputPath = path.join(__dirname, "out", "quickjs-ng.wasm");
 
@@ -103,6 +103,11 @@ async function main() {
             bundle: true,
             outfile: "out/overpy_standalone.js",
             external: ["vscode"],
+        },
+        lsp: {
+            entryPoints: ["src/languageServer/server.ts"],
+            bundle: true,
+            outfile: "out/languageServer.js",
         },
     };
 

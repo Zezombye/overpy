@@ -33,56 +33,7 @@ You first need to install the [pnpm package manager](https://pnpm.io/installatio
 - Build `out/overpy_standalone.js`: `pnpm run package`
 - Build and publish to prod: `pnpm run publish`
 
-# NPM usage
-
-![NPM Version](https://img.shields.io/npm/v/overpy) ![NPM Type Definitions](https://img.shields.io/npm/types/overpy)
-
-Install:
-
-- As a dependency: `pnpm i overpy`
-- Global CLI (optional): `pnpm i -g overpy`
-- One-off CLI without install: `npx overpy --help`
-
-JS/TS API usage:
-
-```js
-// JavaScript (CommonJS)
-const overpy = require("overpy");
-
-async function main() {
-    await overpy.readyPromise;
-    const compileResult = await overpy.compile(
-        'rule "hello":\n    @Event global\n    wait(1)\n',
-        "en-US",
-        process.cwd(),
-        "inline.opy"
-    );
-    console.log(compileResult.result);
-}
-
-main().catch(console.error);
-```
-
-```ts
-// TypeScript
-import * as overpy from "overpy";
-
-async function main() {
-    await overpy.readyPromise;
-    const workshopText = "rule(\"hello\") { event { Ongoing - Global; } actions { Wait(1, Ignore Condition); } }";
-    const decompiled = overpy.decompileAllRules(workshopText, "en-US");
-    console.log(decompiled);
-}
-```
-
-CLI usage:
-
-- Compile a file: `overpy compile -i script.opy -o script.txt`
-- Compile from stdin to stdout: `cat script.opy | overpy compile > script.txt`
-- Decompile a file: `overpy decompile -i workshop.txt -o script.opy`
-- Decompile from stdin to stdout: `cat workshop.txt | overpy decompile --ignore-variable-index > script.opy`
-
-Run `overpy --help` to see all options (`-l/--language`, `--root`, `--main-file`, `--ignore-variable-index`, `--ignore-subroutine-index`).
+See at the bottom for NPM usage and LSP building.
 
 # Installation
 
@@ -1223,7 +1174,72 @@ Since non-zero numbers are truthy, you would expect both `print` statements to r
 
 You can safely ignore this warning if you are using a variable that can only be a boolean.
 
-----------------------
+# Language Server Protocol
 
+OverPy can be built as a standalone Language Server Protocol server for editors that support custom LSP commands.
+
+```sh
+pnpm install
+pnpm run compile-lsp
+node out/languageServer.js --stdio
+```
+
+Configure your editor to run `node /path/to/overpy/out/languageServer.js --stdio` for `.opy` files. The server currently provides compiler diagnostics, completions (including type-aware argument values), signature help, hover documentation, semantic tokens, parameter inlay hints, document symbols, folding ranges, workspace go to definition, references and rename for user symbols, and warning suppression code actions by reusing the OverPy compiler metadata. You can also document your own `globalvar`/`playervar`/`def`/`enum` declarations with comments and they show up in hover and completion popups.
+
+See [`docs/language-server.md`](docs/language-server.md) for the architecture, per-feature internals, and the comment-documentation conventions.
+
+# NPM usage
+
+![NPM Version](https://img.shields.io/npm/v/overpy) ![NPM Type Definitions](https://img.shields.io/npm/types/overpy)
+
+Install:
+
+- As a dependency: `pnpm i overpy`
+- Global CLI (optional): `pnpm i -g overpy`
+- One-off CLI without install: `npx overpy --help`
+
+JS/TS API usage:
+
+```js
+// JavaScript (CommonJS)
+const overpy = require("overpy");
+
+async function main() {
+    await overpy.readyPromise;
+    const compileResult = await overpy.compile(
+        'rule "hello":\n    @Event global\n    wait(1)\n',
+        "en-US",
+        process.cwd(),
+        "inline.opy"
+    );
+    console.log(compileResult.result);
+}
+
+main().catch(console.error);
+```
+
+```ts
+// TypeScript
+import * as overpy from "overpy";
+
+async function main() {
+    await overpy.readyPromise;
+    const workshopText = "rule(\"hello\") { event { Ongoing - Global; } actions { Wait(1, Ignore Condition); } }";
+    const decompiled = overpy.decompileAllRules(workshopText, "en-US");
+    console.log(decompiled);
+}
+```
+
+CLI usage:
+
+- Compile a file: `overpy compile -i script.opy -o script.txt`
+- Compile from stdin to stdout: `cat script.opy | overpy compile > script.txt`
+- Decompile a file: `overpy decompile -i workshop.txt -o script.opy`
+- Decompile from stdin to stdout: `cat workshop.txt | overpy decompile --ignore-variable-index > script.opy`
+
+Run `overpy --help` to see all options (`-l/--language`, `--root`, `--main-file`, `--ignore-variable-index`, `--ignore-subroutine-index`).
+
+
+----------------------
 
 If you are still confused about something, or want to discuss a feature, please [join the discord](https://workshop.codes/discord) #hll-scripting :)

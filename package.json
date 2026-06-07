@@ -10,10 +10,11 @@
     "version": "9.6.10",
     "scripts": {
         "dev": "node esbuild.js --target standalone --watch",
-        "compile": "node esbuild.js",
+        "compile": "node esbuild.js --target extension && node esbuild.js --target lsp",
         "compile-all": "node esbuild.js --all",
         "compile-cli": "node esbuild.js --target cli",
         "compile-extension": "node esbuild.js --target extension",
+        "compile-lsp": "node esbuild.js --target lsp",
         "compile-standalone": "node esbuild.js --target standalone",
         "watch": "npm-run-all -p watch:*",
         "watch:esbuild": "node esbuild.js --watch --all",
@@ -23,6 +24,7 @@
         "watch-tests": "tsc -p . -w --outDir out",
         "check-types": "tsc --noEmit",
         "lint": "npx eslint src --ext ts",
+        "test:lsp": "node run-lsp-tests.mjs",
         "test:core": "node esbuild.js --target standalone && node runTests.mjs",
         "test:cli": "node esbuild.js --target standalone && node esbuild.js --target cli && node runCliTests.mjs",
         "test": "pnpm run test:core && pnpm run test:cli",
@@ -96,6 +98,11 @@
                         "Chinese (Simplified) [zh-CN]",
                         "Chinese (Traditional) [zh-TW]"
                     ]
+                },
+                "overpy.useLanguageServer": {
+                    "type": "boolean",
+                    "description": "Use the bundled OverPy language server for diagnostics, completions, signature help, hover, semantic tokens, inlay hints, go to definition, references, rename, symbols, folding, and code actions. Disable this to use the legacy in-extension providers.",
+                    "default": true
                 },
                 "overpy.compileOnSave": {
                     "type": "boolean",
@@ -188,6 +195,9 @@
         "@jitl/quickjs-ng-wasmfile-release-sync": "^0.31.0",
         "pofile": "^1.1.4",
         "quickjs-emscripten-core": "^0.31.0",
+        "vscode-languageclient": "^9.0.1",
+        "vscode-languageserver": "^9.0.1",
+        "vscode-languageserver-textdocument": "^1.0.12",
         "vscode-uri": "^3.1.0"
     },
     "devDependencies": {

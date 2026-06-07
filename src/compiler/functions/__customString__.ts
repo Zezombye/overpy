@@ -122,7 +122,7 @@ astParsingFunctions.__customString__ = function (content, compiler) {
                 text = "0";
             } else if (stringArgs[argIndex].name === "__number__") {
                 let number = numValue(stringArgs[argIndex]) as number;
-                if (Math.abs(number) < NUMBER_LIMIT) {
+                if (Math.abs(number) <= NUMBER_LIMIT) {
                     text = number.toFixed(2).replace(".00", "");
                 }
             }

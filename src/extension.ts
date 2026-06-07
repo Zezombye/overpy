@@ -11,10 +11,24 @@ import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompleti
 import { Argument, CompilationDiagnostic, OWLanguage, ow_languages } from "./types.d";
 import { OpyError as OverpyError } from "./utils/logging";
 import { initializeQuickJSRuntime } from "./quickjs";
+import * as path from "node:path";
+import {
+    LanguageClient,
+    LanguageClientOptions,
+    ServerOptions,
+    TransportKind,
+} from "vscode-languageclient/node";
+
+let languageClient: LanguageClient | undefined;
 
 export function activate(context: vscode.ExtensionContext) {
     postInitialLoad();
     void initializeQuickJSRuntime();
+    const useLanguageServer = vscode.workspace.getConfiguration("overpy").get<boolean>("useLanguageServer", true);
+    if (useLanguageServer) {
+        startLanguageServer(context);
+    }
+
     const diagnostics = vscode.languages.createDiagnosticCollection('opy');
 
     vscode.commands.registerCommand("overpy.insertTemplate", () => {
@@ -64,7 +78,9 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand("overpy.compile", async () => {
         let rootPath = "";
         try {
-            diagnostics.clear();
+            if (!useLanguageServer) {
+                diagnostics.clear();
+            }
             let activeEditor = vscode.window.activeTextEditor;
             if (activeEditor === undefined) {
                 vscode.window.showErrorMessage("No active text editor tab found. Please open a new editor tab before re-running this command.");
@@ -84,7 +100,9 @@ export function activate(context: vscode.ExtensionContext) {
             for (let warning of compileResult.encounteredWarnings) {
                 vscode.window.showWarningMessage(`Warning: ${warning.message}`);
             }
-            applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings, { rootPath });
+            if (!useLanguageServer) {
+                applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings, { rootPath });
+            }
 
             if (compileResult.writeToOutputFile) {
                 const outputPath = compileResult.rootPath + "/" + compileResult.mainFileName.replace(/\.opy$/, "") + ".ws.txt";
@@ -113,7 +131,7 @@ export function activate(context: vscode.ExtensionContext) {
                 console.error(e);
                 vscode.window.showErrorMessage("Error: " + e.message);
 
-                if (e instanceof OverpyError) {
+                if (!useLanguageServer && e instanceof OverpyError) {
                     applyCompilationDiagnostics(diagnostics, [e], { rootPath });
                 }
             } else {
@@ -143,6 +161,44 @@ export function activate(context: vscode.ExtensionContext) {
         wordPattern: /(-?\d*\.\d\w*)|([\w]+(?!["']))/g,
     });
 
+    if (!useLanguageServer) {
+        registerLegacyLanguageProviders();
+    }
+}
+
+function startLanguageServer(context: vscode.ExtensionContext): void {
+    const serverModule = context.asAbsolutePath(path.join("out", "languageServer.js"));
+    const serverOptions: ServerOptions = {
+        run: {
+            module: serverModule,
+            transport: TransportKind.stdio,
+        },
+        debug: {
+            module: serverModule,
+            transport: TransportKind.stdio,
+            options: {
+                execArgv: ["--nolazy", "--inspect=6009"],
+            },
+        },
+    };
+    const clientOptions: LanguageClientOptions = {
+        documentSelector: [{ language: "overpy", scheme: "file" }],
+        synchronize: {
+            configurationSection: "overpy",
+            fileEvents: vscode.workspace.createFileSystemWatcher("**/*.opy"),
+        },
+    };
+
+    languageClient = new LanguageClient("overpyLanguageServer", "OverPy Language Server", serverOptions, clientOptions);
+    context.subscriptions.push(languageClient);
+    void languageClient.start();
+}
+
+export function deactivate(): Thenable<void> | undefined {
+    return languageClient?.stop();
+}
+
+function registerLegacyLanguageProviders(): void {
     vscode.languages.registerCompletionItemProvider(
         "overpy",
         {
@@ -175,10 +231,10 @@ export function activate(context: vscode.ExtensionContext) {
                     } else if (context.triggerCharacter === "&") {
                         //delete the '&'
                         /*vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
-                        editor.edit(editBuilder => {
-                            editBuilder.delete(new vscode.Range(position.translate(0, -1), position));
-                        });
-                    });*/
+                            editor.edit(editBuilder => {
+                                editBuilder.delete(new vscode.Range(position.translate(0, -1), position));
+                            });
+                        });*/
                         if (document.getText(new vscode.Range(position.translate(0, -2), position.translate(0, -1))) === "\\") {
                             return stringEntitiesCompList;
                         } else {

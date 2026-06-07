@@ -36,7 +36,7 @@ astParsingFunctions.__add__ = function (content, compiler) {
         //If both arguments are numbers, return their addition.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             let result = content.args[0].args[0].numValue + content.args[1].args[0].numValue;
-            if (Math.abs(result) < NUMBER_LIMIT) {
+            if (Math.abs(result) <= NUMBER_LIMIT) {
                 return compiler.getAstForNumber(result);
             }
         }
