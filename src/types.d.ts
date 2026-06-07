@@ -35,6 +35,7 @@ export type Subroutine = {
     hasEventDamageVars?: boolean;
     hasEventHealingVars?: boolean;
     hasEventDamageOrHealingVars?: boolean;
+    hasWaitFunction?: boolean; //wait or wait until
     callsSubroutines: string[];
 };
 

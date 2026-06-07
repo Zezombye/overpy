@@ -405,7 +405,7 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
     }
 
     //Check for subroutine event mismatching
-    if (content.name === "async" || content.name === "__callSubroutine__") {
+    if (content.name === "startRule" || content.name === "__callSubroutine__") {
         let subroutineName = content.args[0].name;
         let subroutine = this.subroutines.find(s => s.name === subroutineName);
         if (subroutine) {
@@ -418,6 +418,8 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
                 this.warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage variables, from a "+this.currentRuleEvent+" rule", content.fileStack);
             } else if (subroutine.hasEventHealingVars && !categories.includes("healing")) {
                 this.warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event healing variables, from a "+this.currentRuleEvent+" rule", content.fileStack);
+            } else if (subroutine.hasWaitFunction && content.name === "startRule" && content.args[1].name === "RESTART") {
+                this.warn("w_start_rule_crash", "The subroutine " + subroutineName + " uses wait functions, which can cause crashes when repeatedly called with startRule(..., StartRuleBehavior.RESTART).", content.fileStack);
             }
         }
     }

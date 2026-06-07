@@ -69222,6 +69222,18 @@ astParsingFunctions.wait = function(content, compiler) {
   if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 9999) {
     compiler.warn("w_wait_9999", "wait(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[0].fileStack);
   }
+  if (compiler.currentRuleEvent === "__subroutine__") {
+    let parent = content.parent;
+    while (parent?.parent) {
+      parent = parent.parent;
+    }
+    if (parent?.name === "__rule__") {
+      if (parent.ruleAttributes?.subroutineName) {
+        let subroutine = compiler.subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName);
+        subroutine.hasWaitFunction = true;
+      }
+    }
+  }
   return content;
 };
 
@@ -69232,6 +69244,18 @@ astParsingFunctions.waitUntil = function(content, compiler) {
   }
   if (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 9999) {
     compiler.warn("w_wait_9999", "waitUntil(..., 9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[1].fileStack);
+  }
+  if (compiler.currentRuleEvent === "__subroutine__") {
+    let parent = content.parent;
+    while (parent?.parent) {
+      parent = parent.parent;
+    }
+    if (parent?.name === "__rule__") {
+      if (parent.ruleAttributes?.subroutineName) {
+        let subroutine = compiler.subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName);
+        subroutine.hasWaitFunction = true;
+      }
+    }
   }
   return content;
 };
@@ -70106,7 +70130,7 @@ OverPyCompiler.prototype.astToWs = function(content) {
       }
     }
   }
-  if (content.name === "async" || content.name === "__callSubroutine__") {
+  if (content.name === "startRule" || content.name === "__callSubroutine__") {
     let subroutineName = content.args[0].name;
     let subroutine = this.subroutines.find((s) => s.name === subroutineName);
     if (subroutine) {
@@ -70119,6 +70143,8 @@ OverPyCompiler.prototype.astToWs = function(content) {
         this.warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event damage variables, from a " + this.currentRuleEvent + " rule", content.fileStack);
       } else if (subroutine.hasEventHealingVars && !categories.includes("healing")) {
         this.warn("w_mismatched_subroutine_event", "Calling subroutine " + subroutineName + ", which uses event healing variables, from a " + this.currentRuleEvent + " rule", content.fileStack);
+      } else if (subroutine.hasWaitFunction && content.name === "startRule" && content.args[1].name === "RESTART") {
+        this.warn("w_start_rule_crash", "The subroutine " + subroutineName + " uses wait functions, which can cause crashes when repeatedly called with startRule(..., StartRuleBehavior.RESTART).", content.fileStack);
       }
     }
   }
@@ -70853,7 +70879,7 @@ OverPyCompiler.prototype.compileRules = function(astRules) {
         if (!calledSubroutine) {
           this.error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
         }
-        for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars"]) {
+        for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars", "hasWaitFunction"]) {
           if (calledSubroutine[key] && !subroutine[key]) {
             subroutine[key] = true;
             hasModification = true;

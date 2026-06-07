@@ -1185,6 +1185,18 @@ You would expect "Test chase" to display after 1 second, but the variable goes w
 
 To solve this bug, refactor your code to stop chasing the variable when you need to check it in a rule condition. Eg here, we could put the stop at 1 instead of 10. Then put `@SuppressWarnings w_ow2_rule_condition_chase` on the rule with the rule condition you checked is working. (It is not recommended to disable it for the whole project.)
 
+## w_start_rule_crash
+
+Found by Psyrius:
+
+It seems like repeatedly calling a `Start Rule` with its option `If Already Executing` set to `Restart Rule` and the subroutine being called has a `Wait` action inside (doesn't matter if there is more code before or after the wait inside the subroutine), the server will eventually crash - even if the server load is low. It will crash more frequently if the rule is called more often. In this workshop code/video, the calling frequency goes from every 1 to every 0.1s
+
+Edit 1: Crashes at ~465 accumulated restarts, confirmed stack overflow behavior.
+Edit 2: ~465 = shared pool, not per subroutine.
+Edit 3: It only accumulates toward the crash if the restarted subroutine has any remaining wait duration inside of it (doesn't matter how much duration is remaining).
+
+See https://discord.com/channels/570672959799164958/1485108807855247540/1485108807855247540 for more info.
+
 ## w_wait_until
 
 ```py

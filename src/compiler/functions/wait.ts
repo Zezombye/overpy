@@ -17,6 +17,7 @@
 
 "use strict";
 
+import {Subroutine} from "../../types";
 import { astParsingFunctions } from "../../utils/ast";
 
 
@@ -30,6 +31,21 @@ astParsingFunctions.wait = function (content, compiler) {
 
     if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 9999) {
         compiler.warn("w_wait_9999", "wait(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.", content.args[0].fileStack);
+    }
+
+
+    if (compiler.currentRuleEvent === "__subroutine__") {
+        let parent = content.parent;
+        while (parent?.parent) {
+            parent = parent.parent;
+        }
+    
+        if (parent?.name === "__rule__") {
+            if (parent.ruleAttributes?.subroutineName) {
+                let subroutine: Subroutine = compiler.subroutines.find((x) => x.name === parent.ruleAttributes?.subroutineName)!;
+                subroutine.hasWaitFunction = true;
+            }
+        }
     }
 
     return content;

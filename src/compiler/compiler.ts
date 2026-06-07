@@ -343,7 +343,7 @@ OverPyCompiler.prototype.compileRules = function(astRules: Ast[]) {
                 if (!calledSubroutine) {
                     this.error("Subroutine '" + subroutine.name + "' calls unknown subroutine '" + calledSubroutineName + "'");
                 }
-                for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars"] as const) {
+                for (let key of ["hasEventPlayerVars", "hasEventDamageVars", "hasEventHealingVars", "hasEventDamageOrHealingVars", "hasWaitFunction"] as const) {
                     if (calledSubroutine![key] && !subroutine[key]) {
                         subroutine[key] = true;
                         hasModification = true;
