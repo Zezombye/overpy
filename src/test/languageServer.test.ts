@@ -187,6 +187,33 @@ async function main(): Promise<void> {
     assert.ok(semanticTokens.some((token) => token.line === 2 && token.character === 12 && token.type === "method"));
     assert.ok(!semanticTokens.some((token) => token.line === 0 && token.character > 7), "tokens inside comments should be ignored");
 
+    const blockCommentDocument = TextDocument.create(
+        "file:///tmp/block.opy",
+        "overpy",
+        1,
+        ["/* wait Hero.ANA", "eventPlayer.getFacingDirection() still a comment */", "wait(1)"].join("\n"),
+    );
+    const blockCommentTokens = decodeSemanticTokens(getSemanticTokens(blockCommentDocument).data);
+    assert.ok(!blockCommentTokens.some((token) => token.line === 0), "no tokens on the opening line of a block comment");
+    assert.ok(!blockCommentTokens.some((token) => token.line === 1), "no tokens on a continued block comment line");
+    assert.ok(
+        blockCommentTokens.some((token) => token.line === 2 && token.character === 0 && token.type === "function"),
+        "code after a block comment is still highlighted",
+    );
+
+    const inlayBlockCommentDocument = TextDocument.create(
+        "file:///tmp/test.opy",
+        "overpy",
+        1,
+        "/* wait(1, IGNORE_CONDITION) */",
+    );
+    assert.equal(getInlayHints(inlayBlockCommentDocument).length, 0, "calls inside block comments should be ignored");
+
+    const hoverInLineCommentDocument = TextDocument.create("file:///tmp/test.opy", "overpy", 1, "# wait here");
+    assert.equal(getHover(hoverInLineCommentDocument, { line: 0, character: 2 }), null, "no hover inside a line comment");
+    const hoverInBlockCommentDocument = TextDocument.create("file:///tmp/test.opy", "overpy", 1, "/* wait */");
+    assert.equal(getHover(hoverInBlockCommentDocument, { line: 0, character: 3 }), null, "no hover inside a block comment");
+
     const inlayDocument = TextDocument.create("file:///tmp/test.opy", "overpy", 1, "wait(1, IGNORE_CONDITION)");
     const inlayHints = getInlayHints(inlayDocument);
     const timeHint = inlayHints.find((hint) => hint.label === "time:");

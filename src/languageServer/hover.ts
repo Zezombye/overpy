@@ -10,8 +10,14 @@ import {
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
+import { isOffsetInStringOrComment, maskStringsAndComments } from "./documentUtils";
 
 export function getHover(document: TextDocument, position: Position): Hover | null {
+    const text = document.getText();
+    if (isOffsetInStringOrComment(text, maskStringsAndComments(text), document.offsetAt(position))) {
+        return null;
+    }
+
     const qualifiedSymbol = getQualifiedSymbolAtPosition(document, position);
     if (qualifiedSymbol) {
         const enumHover = getEnumMemberHover(qualifiedSymbol.text);
