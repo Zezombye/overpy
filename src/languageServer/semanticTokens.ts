@@ -2,6 +2,7 @@ import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver/nod
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { getSemanticTokenIndex } from "./completionState";
+import { maskStringsAndComments } from "./documentUtils";
 
 export const semanticTokenTypes = [
     "function",
@@ -24,12 +25,12 @@ const tokenTypeIndex: Record<SemanticTokenType, number> = Object.fromEntries(
 const tokenPattern = /([.@]?)([A-Za-z_][A-Za-z0-9_]*)/g;
 
 export function getSemanticTokens(document: TextDocument): SemanticTokens {
-    const index = getSemanticTokenIndex();
+    const index = getSemanticTokenIndex(document.uri);
     const builder = new SemanticTokensBuilder();
-    const lines = document.getText().split(/\r\n|\r|\n/);
+    const maskedLines = maskStringsAndComments(document.getText()).split(/\r\n|\r|\n/);
 
-    for (let line = 0; line < lines.length; line++) {
-        emitLineTokens(builder, line, maskStringsAndComments(lines[line]), index);
+    for (let line = 0; line < maskedLines.length; line++) {
+        emitLineTokens(builder, line, maskedLines[line], index);
     }
 
     return builder.build();
@@ -78,39 +79,4 @@ function emitLineTokens(
         previousName = name;
         previousEnd = nameStart + name.length;
     }
-}
-
-/** Replaces string-literal and comment regions with spaces, preserving column positions. */
-function maskStringsAndComments(line: string): string {
-    let result = "";
-    let inString = false;
-    let quote = "";
-
-    for (let index = 0; index < line.length; index++) {
-        const character = line[index];
-
-        if (inString) {
-            if (character === quote && line[index - 1] !== "\\") {
-                inString = false;
-            }
-            result += " ";
-            continue;
-        }
-
-        if (character === "\"" || character === "'") {
-            inString = true;
-            quote = character;
-            result += " ";
-            continue;
-        }
-
-        if (character === "#") {
-            result += " ".repeat(line.length - index);
-            break;
-        }
-
-        result += character;
-    }
-
-    return result;
 }

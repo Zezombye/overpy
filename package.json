@@ -157,6 +157,19 @@
                 "path": "./syntaxes/overpy.tmLanguage.json"
             }
         ],
+        "semanticTokenScopes": [
+            {
+                "language": "overpy",
+                "scopes": {
+                    "macro": ["keyword.control.overpy"],
+                    "function": ["entity.name.function"],
+                    "method": ["entity.name.function"],
+                    "variable": ["variable.other"],
+                    "enumMember": ["variable.other.enummember"],
+                    "constant.character.escape": ["constant.character.escape"]
+                }
+            }
+        ],
         "commands": [
             {
                 "command": "overpy.compile",

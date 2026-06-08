@@ -153,6 +153,7 @@ OverPyCompiler.prototype.parseLines = function(lines: LogicalLine[]): Ast[] {
                 value: value,
                 class_: class_,
                 valueStr: dispTokens(currentLine.tokens.slice(class_ ? 5 : 3), true),
+                comment: currentComments.length > 0 ? commentArrayToString(currentComments) : undefined,
             };
             currentComments = [];
             continue;
@@ -471,6 +472,7 @@ OverPyCompiler.prototype.parseLines = function(lines: LogicalLine[]): Ast[] {
                     lines: macroLines,
                     linesStr: childrenLines.map(x => " ".repeat(x.indentLevel) + dispTokens(x.tokens, true)),
                     args: macroArgs,
+                    comment: currentComments.length > 0 ? commentArrayToString(currentComments) : undefined,
                 };
 
                 //We do not care about macros in the AST

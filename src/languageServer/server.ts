@@ -16,6 +16,7 @@ import type { OWLanguage } from "../types";
 import { getCodeActions } from "./codeActions";
 import { getColorPresentations, getDocumentColors } from "./colors";
 import { getCompletionList } from "./completions";
+import { clearDocumentCompletionData } from "./completionState";
 import { getWorkspaceDefinition } from "./definition";
 import { getDocumentLinks } from "./documentLinks";
 import { getFoldingRanges } from "./foldingRanges";
@@ -63,11 +64,13 @@ const documentSettings = new Map<string, Thenable<OverpySettings>>();
 const previousDiagnosticUris = new Map<string, Set<string>>();
 
 let hasConfigurationCapability = false;
+let hasSemanticTokensRefreshSupport = false;
 let globalSettings = defaultSettings;
 let workspaceRoots: string[] = [];
 
 connection.onInitialize((params: InitializeParams) => {
     hasConfigurationCapability = params.capabilities.workspace?.configuration === true;
+    hasSemanticTokensRefreshSupport = params.capabilities.workspace?.semanticTokens?.refreshSupport === true;
     workspaceRoots =
         params.workspaceFolders?.map((workspaceFolder) => URI.parse(workspaceFolder.uri).fsPath) ??
         (params.rootUri ? [URI.parse(params.rootUri).fsPath] : []);
@@ -129,6 +132,7 @@ documents.onDidChangeContent((event) => scheduleValidate(event.document));
 documents.onDidSave((event) => scheduleValidate(event.document));
 documents.onDidClose((event) => {
     clearPendingValidation(event.document.uri);
+    clearDocumentCompletionData(event.document.uri);
     documentSettings.delete(event.document.uri);
     previousDiagnosticUris.delete(event.document.uri);
     connection.sendDiagnostics({ uri: event.document.uri, diagnostics: [] });
@@ -302,6 +306,9 @@ async function validateAndPublish(document: TextDocument): Promise<void> {
         const settings = await getDocumentSettings(document.uri);
         const validationResult = await validateTextDocument(document, settings.workshopLanguage);
         publishDiagnostics(document.uri, validationResult.diagnosticsByUri);
+        if (hasSemanticTokensRefreshSupport) {
+            void connection.languages.semanticTokens.refresh();
+        }
     } catch (error) {
         connection.console.error(`OverPy validation failed for ${document.uri}: ${getErrorMessage(error)}`);
     }

@@ -2,6 +2,7 @@ import { InlayHint, InlayHintKind, Position, Range } from "vscode-languageserver
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { getCompletionState } from "./completionState";
+import { maskStringsAndComments } from "./documentUtils";
 
 const callPattern = /([A-Za-z_][A-Za-z0-9_]*)\s*\(/g;
 const keywordArgumentPattern = /^[A-Za-z_][A-Za-z0-9_]*\s*=(?!=)/;
@@ -115,53 +116,4 @@ function isWithinRange(position: Position, range: Range): boolean {
         return false;
     }
     return true;
-}
-
-/** Replaces string-literal and comment regions with spaces, preserving every offset. */
-function maskStringsAndComments(text: string): string {
-    let result = "";
-    let inString = false;
-    let inComment = false;
-    let quote = "";
-
-    for (let index = 0; index < text.length; index++) {
-        const character = text[index];
-
-        if (character === "\n" || character === "\r") {
-            inString = false;
-            inComment = false;
-            result += character;
-            continue;
-        }
-
-        if (inComment) {
-            result += " ";
-            continue;
-        }
-
-        if (inString) {
-            if (character === quote && text[index - 1] !== "\\") {
-                inString = false;
-            }
-            result += " ";
-            continue;
-        }
-
-        if (character === "\"" || character === "'") {
-            inString = true;
-            quote = character;
-            result += " ";
-            continue;
-        }
-
-        if (character === "#") {
-            inComment = true;
-            result += " ";
-            continue;
-        }
-
-        result += character;
-    }
-
-    return result;
 }
