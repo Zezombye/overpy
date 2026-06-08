@@ -308,7 +308,11 @@ export function getSemanticTokenIndex(uri?: string): SemanticTokenIndex {
 
     const normal = new Map<string, SemanticSymbolKind>();
     const member = new Map<string, SemanticSymbolKind>();
-    const keywordNames = new Set(Object.keys(opyKeywords).concat(...Object.keys(valueFuncKw).filter(x => valueFuncKw[x].args === null)));
+    const keywordNames = new Set(Object.keys(opyKeywords)
+        .concat(...Object.keys(valueFuncKw).filter(x => valueFuncKw[x].args === null))
+        .concat(...Object.keys(actionKw).filter(x => actionKw[x].args === null))
+        .concat(...Object.keys(opyFuncs).filter(x => opyFuncs[x].args === null))
+    );
 
     const addNames = (
         target: Map<string, SemanticSymbolKind>,
@@ -568,7 +572,7 @@ function fillAstMacroCompletions(macros: AstMacroData[]): void {
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `${macro.comment ? macro.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
+            description: `This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
         };
         let macroName = macro.name;
 
@@ -600,7 +604,7 @@ function fillAstConstantCompletions(constants: AstConstantData[]): void {
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `${constant.comment ? constant.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
+            description: `This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
         };
 
         if (constant.class_) {

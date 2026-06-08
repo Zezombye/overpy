@@ -304,7 +304,6 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Start Forcing Dummy Bot Name</code>                | <code><i>player</i>.startForcingName()</code>
 <code>Start Holding Button</code>                        | <code><i>player</i>.startForcingButton()</code>
 <code>Start Modifying Hero Voice Lines</code>            | <code><i>player</i>.startModifyingVoicelinePitch()</code>
-<code>Start Rule(<i>subroutine</i>, <i>behavior</i>)</code> | <code>async(<i>subroutine</i>, <i>behavior</i>)</code>
 <code>Start Scaling Player</code>                        | <code><i>player</i>.startScalingSize()</code>
 <code>Stop Holding Button</code>                         | <code><i>player</i>.stopForcingButton()</code>
 <code>Stop Modifying Hero Voice Lines</code>             | <code><i>player</i>.stopModifyingVoicelinePitch()</code>

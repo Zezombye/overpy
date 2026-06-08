@@ -54,7 +54,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.overpy",
-                    "match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum|const|macro|self)\\b"
+                    "match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum|const|macro)\\b"
                 },
                 {
                     "name": "keyword.other.overpy",
@@ -62,7 +62,7 @@
                 },
                 {
                     "name": "variable.other",
-                    "match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|ruleCondition|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
+                    "match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|ruleCondition|RULE_START|self|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
                 },
                 {
                     "name": "string.regexp",
@@ -97,11 +97,11 @@
         "labels": {
             "patterns": [
                 {
-                    "name": "support.class",
+                    "name": "constant.numeric",
                     "match": "^[ \\t]*(?!(do|else|elif|default)\\b)[A-Za-z\\d_]+(?=:)"
                 },
                 {
-                    "name": "support.class",
+                    "name": "constant.numeric",
                     "match": "(?<=goto )[A-Za-z\\d_]+"
                 }
             ]

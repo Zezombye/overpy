@@ -712,7 +712,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "splitDictArray": {
         "description": `
 Maps an array of dictionaries to variables. For example:
-\`\`\`python
+\`\`\`thon
 splitDictArray({
     hero: waveHeroes,
     length: waveLengths
@@ -725,7 +725,7 @@ splitDictArray({
 
 Will yield the following:
 
-\`\`\`python
+\`\`\`thon
 waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
 waveLengths = [3, 8, null]
 \`\`\`
@@ -781,7 +781,7 @@ Also check the \`tabular\` function for a more concise syntax.
     "tabular": {
         "description": `
 Maps an array of arrays to variables (same as \`splitDictArray()\` with shorter syntax). For example:
-\`\`\`python
+\`\`\`thon
 tabular([waveHeroes,waveLengths], [
     Hero.ANA, 3,
     Hero.SOLDIER, 8,
@@ -791,7 +791,7 @@ tabular([waveHeroes,waveLengths], [
 
 Will yield the following:
 
-\`\`\`python
+\`\`\`thon
 waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
 waveLengths = [3, 8, null]
 \`\`\`

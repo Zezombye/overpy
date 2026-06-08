@@ -147,7 +147,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     "macro": {
         "description": `Declares a macro, which is an inline function or constant. For example:
 
-\`\`\`python
+\`\`\`thon
 macro BOSS_HP = 1000+getNumberOfPlayers()*300
 
 macro add(a, b):
@@ -157,7 +157,7 @@ The macro can then be used like a function: \`add(C, D)\` will yield \`C + D\` a
 
 Note that, unlike \`#!define\`, macros will not mess up the order of operations:
 
-\`\`\`python
+\`\`\`thon
 #!define add_define(a, b) a+b
 macro add_macro(a, b):
     a + b
@@ -168,7 +168,7 @@ rule "":
 \`\`\`
 
 You can also declare member macros, where \`self\` refers to the member. For example:
-\`\`\`python
+\`\`\`thon
 macro Player.setPowerLevel(powerLevel):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(powerLevel*2)
@@ -180,7 +180,7 @@ macro Vector.sum = self.x + self.y
 
 Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
 
-\`\`\`python
+\`\`\`thon
 macro Player.setPowerLevel(powerLevel=1, damageDealt=null):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(damageDealt or powerLevel*2)
@@ -214,13 +214,11 @@ rule "":
     },
     "self": {
         "description": `In a member macro, refers to the member itself. For example:
-\`\`\`python
+\`\`\`
 macro Array.reverse():
     sorted(self, key=lambda _, i: -i)
 \`\`\`
 If calling \`A.reverse()\`, \`self\` will be replaced by \`A\`.
-
-A member macro must always have \`self\` as the first argument.
 `,
         "args": null,
     },
@@ -229,7 +227,7 @@ A member macro must always have \`self\` as the first argument.
 
 The settings are parsed with OverPy's parser, meaning you can do things such as:
 
-\`\`\`py
+\`\`\`
 macro VERSION = "1.4.3"
 macro DEBUG = false
 macro CLIP_SIZE_MULTIPLIER = 2

@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "9.7.0",
+    "version": "9.7.1",
     "scripts": {
         "dev": "node esbuild.js --target standalone --watch",
         "compile": "node esbuild.js --target extension && node esbuild.js --target lsp",
@@ -161,10 +161,10 @@
             {
                 "language": "overpy",
                 "scopes": {
-                    "macro": ["keyword.control.overpy"],
+                    "macro": ["support.class"],
                     "function": ["entity.name.function"],
                     "method": ["entity.name.function"],
-                    "variable": ["variable.other"],
+                    "variable": ["keyword.operator"],
                     "enumMember": ["variable.other.enummember"],
                     "constant.character.escape": ["constant.character.escape"]
                 }

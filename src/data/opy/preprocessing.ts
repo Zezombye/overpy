@@ -93,7 +93,7 @@ This directive should only be used if the gamemode cannot be played in Assault, 
 
 If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
 
-\`\`\`python
+\`\`\`thon
 rule "Integrity check":
     @Condition getCapturePercentage()
     print("This gamemode cannot be played!")
@@ -108,7 +108,7 @@ This directive should only be used if the gamemode cannot be played in Hybrid or
 
 If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
 
-\`\`\`python
+\`\`\`thon
 rule "Integrity check":
     @Condition getPayloadProgressPercentage()
     print("This gamemode cannot be played!")
@@ -130,7 +130,7 @@ This directive should only be used if the gamemode cannot be played in Assault, 
 
 If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
 
-\`\`\`python
+\`\`\`thon
 rule "Integrity check":
     @Condition getMatchRound() > 1
     print("This gamemode cannot be played!")
@@ -145,7 +145,7 @@ This directive should only be used if the gamemode cannot be played in Control.
 
 If you want to make sure this gamemode is not mistakenly played, you can add the following rule:
 
-\`\`\`python
+\`\`\`thon
 rule "Integrity check":
     @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
