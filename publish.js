@@ -157,6 +157,7 @@ async function getNpmToken() {
     }
 
     run("pnpm run package");
+    //To update manually: https://marketplace.visualstudio.com/manage/publishers/zezombye
     run("pnpm vsce package --no-dependencies");
 
     // Create the npm package.json

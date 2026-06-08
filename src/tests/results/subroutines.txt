@@ -8,6 +8,8 @@ subroutines {
     0: Sub0
     1: bar
     2: foo
+    3: sub_with_wait
+    4: sub_with_wait_nested
 }
 
 //Optimize for size enabled
@@ -20,6 +22,9 @@ rule ("my subroutine") {
         Modify Global Variable(A, Add, True);
         Call Subroutine(bar);
         Start Rule(Sub0, Do Nothing);
+        Start Rule(sub_with_wait_nested, Do Nothing);
+        "should throw warning"
+        Start Rule(sub_with_wait_nested, Restart Rule);
     }
 }
 
@@ -30,6 +35,28 @@ rule ("Subroutine Sub0") {
     }
     actions {
         Modify Global Variable(B, Add, True);
+    }
+}
+
+rule ("Subroutine sub_with_wait") {
+    event {
+        Subroutine;
+        sub_with_wait;
+    }
+    actions {
+        Set Global Variable(A, 2);
+        Wait(False, Ignore Condition);
+    }
+}
+
+rule ("Subroutine sub_with_wait_nested") {
+    event {
+        Subroutine;
+        sub_with_wait_nested;
+    }
+    actions {
+        Set Global Variable(A, 3);
+        Call Subroutine(sub_with_wait);
     }
 }
 

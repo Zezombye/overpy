@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "9.6.10",
+    "version": "9.7.0",
     "scripts": {
         "dev": "node esbuild.js --target standalone --watch",
         "compile": "node esbuild.js --target extension && node esbuild.js --target lsp",
@@ -208,6 +208,7 @@
         "vscode-uri": "^3.1.0"
     },
     "devDependencies": {
+        "@types/jest": "^30.0.0",
         "@types/mocha": "^10.0.10",
         "@types/node": "^20.19.24",
         "@types/vscode": "^1.105.0",

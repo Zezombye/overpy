@@ -48251,7 +48251,7 @@ OverPyCompiler.prototype.parseLines = function(lines) {
           name,
           class_,
           lines: macroLines,
-          linesStr: childrenLines.map((x) => " ".repeat(x.indentLevel * 4) + dispTokens(x.tokens, true)),
+          linesStr: childrenLines.map((x) => " ".repeat(x.indentLevel) + dispTokens(x.tokens, true)),
           args: macroArgs
         };
         i += j - i - 1;
@@ -65893,7 +65893,7 @@ astParsingFunctions.__add__ = function(content, compiler) {
   if (compiler.enableOptimization) {
     if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
       let result = content.args[0].args[0].numValue + content.args[1].args[0].numValue;
-      if (Math.abs(result) < NUMBER_LIMIT) {
+      if (Math.abs(result) <= NUMBER_LIMIT) {
         return compiler.getAstForNumber(result);
       }
     }
@@ -66132,7 +66132,7 @@ astParsingFunctions.__customString__ = function(content, compiler) {
         text = "0";
       } else if (stringArgs[argIndex].name === "__number__") {
         let number = numValue(stringArgs[argIndex]);
-        if (Math.abs(number) < NUMBER_LIMIT) {
+        if (Math.abs(number) <= NUMBER_LIMIT) {
           text = number.toFixed(2).replace(".00", "");
         }
       }
@@ -66262,7 +66262,7 @@ astParsingFunctions.__divide__ = function(content, compiler) {
   if (compiler.enableOptimization) {
     if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
       let result = content.args[0].args[0].numValue / content.args[1].args[0].numValue;
-      if (Math.abs(result) < NUMBER_LIMIT) {
+      if (Math.abs(result) <= NUMBER_LIMIT) {
         return compiler.getAstForNumber(result);
       }
     }
@@ -66868,7 +66868,7 @@ astParsingFunctions.__multiply__ = function(content, compiler) {
   if (compiler.enableOptimization) {
     if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
       let result = content.args[0].args[0].numValue * content.args[1].args[0].numValue;
-      if (Math.abs(result) < NUMBER_LIMIT) {
+      if (Math.abs(result) <= NUMBER_LIMIT) {
         return compiler.getAstForNumber(result);
       }
     }
@@ -67006,7 +67006,7 @@ astParsingFunctions.__raiseToPower__ = function(content, compiler) {
         return compiler.getAstFor0();
       }
       let result = Math.pow(content.args[0].args[0].numValue, content.args[1].args[0].numValue);
-      if (Math.abs(result) < NUMBER_LIMIT) {
+      if (Math.abs(result) <= NUMBER_LIMIT) {
         return compiler.getAstForNumber(result);
       }
     }
@@ -67260,7 +67260,7 @@ astParsingFunctions.__subtract__ = function(content, compiler) {
   if (compiler.enableOptimization) {
     if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
       let result = content.args[0].args[0].numValue - content.args[1].args[0].numValue;
-      if (Math.abs(result) < NUMBER_LIMIT) {
+      if (Math.abs(result) <= NUMBER_LIMIT) {
         return compiler.getAstForNumber(result);
       }
     }
@@ -71966,4 +71966,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map
