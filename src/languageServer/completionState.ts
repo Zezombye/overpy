@@ -125,6 +125,15 @@ let dynamicCompletionData: DynamicCompletionData = {
     userEnums: {},
 };
 
+/**
+ * Per-document snapshots of the dynamic completion data, keyed by document URI. The semantic
+ * token index reads from the snapshot of the document being highlighted so that symbols defined
+ * in one open file never bleed into (or vanish from) the highlighting of another. The global
+ * `dynamicCompletionData` above still reflects the most recently validated document and backs
+ * completions/hover for the focused editor.
+ */
+const dynamicCompletionDataByUri = new Map<string, DynamicCompletionData>();
+
 export function initializeCompletionState(): void {
     if (initialized) {
         return;
@@ -141,6 +150,7 @@ export function getCompletionState(): CompletionState {
 }
 
 export function updateCompletionStateFromCompileResult(
+    uri: string,
     compileResult: CompletionCompileResult,
     declarationDocs: DeclarationDocs = emptyDeclarationDocs(),
 ): void {
@@ -166,7 +176,13 @@ export function updateCompletionStateFromCompileResult(
     fillMacroCompletions(compileResult.macros);
     fillAstMacroCompletions(Object.values(compileResult.astMacros));
     fillAstConstantCompletions(Object.values(compileResult.astConstants));
+    dynamicCompletionDataByUri.set(uri, dynamicCompletionData);
     refreshCompletionState();
+}
+
+/** Drops a closed document's cached completion data so its symbols stop affecting highlighting. */
+export function clearDocumentCompletionData(uri: string): void {
+    dynamicCompletionDataByUri.delete(uri);
 }
 
 export function makeSignatureHelp(
@@ -285,8 +301,10 @@ const identifierPattern = /^[A-Za-z_][A-Za-z0-9_]*$/;
  * Keyword entries (and, def, elif, …) are deliberately excluded so the grammar keeps
  * coloring them as keywords.
  */
-export function getSemanticTokenIndex(): SemanticTokenIndex {
+export function getSemanticTokenIndex(uri?: string): SemanticTokenIndex {
     initializeCompletionState();
+
+    const dynamic = (uri !== undefined ? dynamicCompletionDataByUri.get(uri) : undefined) ?? dynamicCompletionData;
 
     const normal = new Map<string, SemanticSymbolKind>();
     const member = new Map<string, SemanticSymbolKind>();
@@ -308,17 +326,17 @@ export function getSemanticTokenIndex(): SemanticTokenIndex {
     };
 
     addNames(normal, Object.keys(baseFunctionData), "function", keywordNames);
-    addNames(normal, Object.keys(dynamicCompletionData.normalAstConstants), "macro");
-    addNames(normal, Object.keys(dynamicCompletionData.normalMacros), "macro");
-    addNames(normal, Object.keys(dynamicCompletionData.normalAstMacros), "macro");
-    addNames(normal, Object.keys(dynamicCompletionData.subroutines), "function");
-    addNames(normal, Object.keys(dynamicCompletionData.globalVariables), "variable");
+    addNames(normal, Object.keys(dynamic.normalAstConstants), "macro");
+    addNames(normal, Object.keys(dynamic.normalMacros), "macro");
+    addNames(normal, Object.keys(dynamic.normalAstMacros), "macro");
+    addNames(normal, Object.keys(dynamic.subroutines), "function");
+    addNames(normal, Object.keys(dynamic.globalVariables), "variable");
 
     addNames(member, Object.keys(baseMemberFunctionData), "method");
-    addNames(member, Object.keys(dynamicCompletionData.memberAstConstants), "macro");
-    addNames(member, Object.keys(dynamicCompletionData.memberMacros), "macro");
-    addNames(member, Object.keys(dynamicCompletionData.memberAstMacros), "macro");
-    addNames(member, Object.keys(dynamicCompletionData.playerVariables), "variable");
+    addNames(member, Object.keys(dynamic.memberAstConstants), "macro");
+    addNames(member, Object.keys(dynamic.memberMacros), "macro");
+    addNames(member, Object.keys(dynamic.memberAstMacros), "macro");
+    addNames(member, Object.keys(dynamic.playerVariables), "variable");
 
     const enumTypes = new Set<string>();
     const enumMembers = new Map<string, Set<string>>();
@@ -345,7 +363,7 @@ export function getSemanticTokenIndex(): SemanticTokenIndex {
         registerEnum(normalized, Object.keys(value).filter((key) => key !== "description"));
     }
 
-    for (const [typeName, members] of Object.entries(dynamicCompletionData.userEnums)) {
+    for (const [typeName, members] of Object.entries(dynamic.userEnums)) {
         registerEnum(typeName, Object.keys(members));
     }
 
@@ -550,7 +568,7 @@ function fillAstMacroCompletions(macros: AstMacroData[]): void {
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
+            description: `${macro.comment ? macro.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
         };
         let macroName = macro.name;
 
@@ -582,7 +600,7 @@ function fillAstConstantCompletions(constants: AstConstantData[]): void {
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
+            description: `${constant.comment ? constant.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
         };
 
         if (constant.class_) {

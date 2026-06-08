@@ -2,6 +2,7 @@ import { Color, ColorInformation, ColorPresentation, Range, TextEdit } from "vsc
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { constantValues } from "../data/constants";
+import { maskStringsAndComments } from "./documentUtils";
 
 const namedColorPattern = /\bColor\.([A-Za-z0-9_]+)\b/g;
 const colorCallPattern = /\b(rgb|hsl)\s*\(/g;
@@ -188,53 +189,4 @@ function clampByte(value: number): number {
 
 function clampUnit(value: number): number {
     return Math.max(0, Math.min(1, value));
-}
-
-/** Replaces string-literal and comment regions with spaces, preserving every offset. */
-function maskStringsAndComments(text: string): string {
-    let result = "";
-    let inString = false;
-    let inComment = false;
-    let quote = "";
-
-    for (let index = 0; index < text.length; index++) {
-        const character = text[index];
-
-        if (character === "\n" || character === "\r") {
-            inString = false;
-            inComment = false;
-            result += character;
-            continue;
-        }
-
-        if (inComment) {
-            result += " ";
-            continue;
-        }
-
-        if (inString) {
-            if (character === quote && text[index - 1] !== "\\") {
-                inString = false;
-            }
-            result += " ";
-            continue;
-        }
-
-        if (character === "\"" || character === "'") {
-            inString = true;
-            quote = character;
-            result += " ";
-            continue;
-        }
-
-        if (character === "#") {
-            inComment = true;
-            result += " ";
-            continue;
-        }
-
-        result += character;
-    }
-
-    return result;
 }

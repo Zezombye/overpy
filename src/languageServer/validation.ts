@@ -23,7 +23,7 @@ export async function validateTextDocument(
 
     try {
         const compileResult = await compile(document.getText(), workshopLanguage, rootPath, mainFileName);
-        updateCompletionStateFromCompileResult(compileResult, extractDeclarationDocs(document.getText()));
+        updateCompletionStateFromCompileResult(document.uri, compileResult, extractDeclarationDocs(document.getText()));
 
         return {
             diagnosticsByUri: groupDiagnosticsByUri(compileResult.encounteredWarnings, document),
