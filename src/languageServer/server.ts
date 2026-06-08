@@ -16,6 +16,7 @@ import type { OWLanguage } from "../types";
 import { getCodeActions } from "./codeActions";
 import { getColorPresentations, getDocumentColors } from "./colors";
 import { getCompletionList } from "./completions";
+import { clearDocumentCompletionData } from "./completionState";
 import { getWorkspaceDefinition } from "./definition";
 import { getDocumentLinks } from "./documentLinks";
 import { getFoldingRanges } from "./foldingRanges";
@@ -129,6 +130,7 @@ documents.onDidChangeContent((event) => scheduleValidate(event.document));
 documents.onDidSave((event) => scheduleValidate(event.document));
 documents.onDidClose((event) => {
     clearPendingValidation(event.document.uri);
+    clearDocumentCompletionData(event.document.uri);
     documentSettings.delete(event.document.uri);
     previousDiagnosticUris.delete(event.document.uri);
     connection.sendDiagnostics({ uri: event.document.uri, diagnostics: [] });
