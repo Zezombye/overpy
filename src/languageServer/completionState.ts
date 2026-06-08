@@ -568,7 +568,7 @@ function fillAstMacroCompletions(macros: AstMacroData[]): void {
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
+            description: `${macro.comment ? macro.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
         };
         let macroName = macro.name;
 
@@ -600,7 +600,7 @@ function fillAstConstantCompletions(constants: AstConstantData[]): void {
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
+            description: `${constant.comment ? constant.comment + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
         };
 
         if (constant.class_) {
