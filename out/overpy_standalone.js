@@ -2109,6 +2109,7 @@ var OverPyCompiler = class {
   currentRulePrefix = "";
   rulePrefixTemplate = "";
   rulePrefixTemplateFilestack = [];
+  //WARNING: functions must be defined in the interface, not here! By default, vs code will add the definitions here, which won't work.
 };
 var OverPyDecompiler = class {
   globalVariables = [];
@@ -49609,15 +49610,15 @@ function areAstsAlwaysEqual(a, b) {
 OverPyCompiler.prototype.astContainsRandom = function(ast) {
   return this.astContainsFunctions(ast, ["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
 };
-OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astContainsFunctions = function(ast, functionNames, errorOnTrue = false) {
-  if (functionNames.includes(ast.name)) {
+OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astContainsFunctions = function(ast, functionNames, errorOnTrue = false, type = void 0) {
+  if (functionNames.includes(ast.name) && (type === void 0 || this.isTypeSuitable(type, ast.type))) {
     if (errorOnTrue) {
       this.error("Cannot have the " + functionNameToString(ast) + " in this context", ast.fileStack);
     }
     return true;
   }
   for (var arg of ast.args) {
-    if (this.astContainsFunctions(arg, functionNames)) {
+    if (this.astContainsFunctions(arg, functionNames, errorOnTrue, type)) {
       if (errorOnTrue) {
         this.error("Cannot have the " + functionNameToString(ast) + " in this context", arg.fileStack);
       }
@@ -49625,7 +49626,7 @@ OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astCo
     }
   }
   for (var child of ast.children) {
-    if (this.astContainsFunctions(child, functionNames)) {
+    if (this.astContainsFunctions(child, functionNames, errorOnTrue, type)) {
       if (errorOnTrue) {
         this.error("Cannot have the " + functionNameToString(ast) + " in this context", child.fileStack);
       }
@@ -49633,6 +49634,13 @@ OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astCo
     }
   }
   return false;
+};
+OverPyCompiler.prototype.warnOnDarkColor = function(colorAst) {
+  for (let color of ["RED", "VIOLET", "PURPLE"]) {
+    if (this.astContainsFunctions(colorAst, [color], false, "ColorLiteral")) {
+      this.warn("w_dark_color", `The color '${color}' is hard to see. Consider using LIGHT_${color} instead.`, colorAst.fileStack);
+    }
+  }
 };
 function astIsInLambdaFunction(ast) {
   if (!ast.parent) {
@@ -68332,6 +68340,12 @@ astParsingFunctions.createEffect = function(content, compiler) {
   return content;
 };
 
+// src/compiler/functions/createInWorldText.ts
+astParsingFunctions.createInWorldText = function(content, compiler) {
+  compiler.warnOnDarkColor(content.args[6]);
+  return content;
+};
+
 // src/compiler/functions/createProgressBarInWorldText.ts
 astParsingFunctions.createProgressBarInWorldText = function(content, compiler) {
   if (compiler.enableOptimization && compiler.optimizeForSize) {
@@ -68342,6 +68356,8 @@ astParsingFunctions.createProgressBarInWorldText = function(content, compiler) {
       content.args[7] = compiler.getAstForNull();
     }
   }
+  compiler.warnOnDarkColor(content.args[6]);
+  compiler.warnOnDarkColor(content.args[7]);
   return content;
 };
 
@@ -68784,6 +68800,9 @@ astParsingFunctions.hudText = function(content, compiler) {
       }
     }
   }
+  compiler.warnOnDarkColor(content.args[6]);
+  compiler.warnOnDarkColor(content.args[7]);
+  compiler.warnOnDarkColor(content.args[8]);
   return content;
 };
 
@@ -68919,6 +68938,8 @@ astParsingFunctions.progressBarHud = function(content, compiler) {
       content.args[6] = compiler.getAstForNull();
     }
   }
+  compiler.warnOnDarkColor(content.args[5]);
+  compiler.warnOnDarkColor(content.args[6]);
   return content;
 };
 
@@ -71966,3 +71987,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

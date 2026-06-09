@@ -59,5 +59,9 @@ astParsingFunctions.hudText = function (content, compiler) {
             }
         }
     }
+    //console.log(compiler)
+    compiler.warnOnDarkColor(content.args[6]);
+    compiler.warnOnDarkColor(content.args[7]);
+    compiler.warnOnDarkColor(content.args[8]);
     return content;
 };

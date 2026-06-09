@@ -279,15 +279,15 @@ OverPyCompiler.prototype.astContainsRandom = function(ast: Ast) {
     return this.astContainsFunctions(ast, ["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
 }
 
-OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astContainsFunctions = function(ast: Ast, functionNames: string[], errorOnTrue = false) {
-    if (functionNames.includes(ast.name)) {
+OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astContainsFunctions = function(ast: Ast, functionNames: string[], errorOnTrue = false, type: Type | Type[] | undefined = undefined) {
+    if (functionNames.includes(ast.name) && (type === undefined || this.isTypeSuitable(type, ast.type))) {
         if (errorOnTrue) {
             this.error("Cannot have the " + functionNameToString(ast) + " in this context", ast.fileStack);
         }
         return true;
     }
     for (var arg of ast.args) {
-        if (this.astContainsFunctions(arg, functionNames)) {
+        if (this.astContainsFunctions(arg, functionNames, errorOnTrue, type)) {
             if (errorOnTrue) {
                 this.error("Cannot have the " + functionNameToString(ast) + " in this context", arg.fileStack);
             }
@@ -295,7 +295,7 @@ OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astCo
         }
     }
     for (var child of ast.children) {
-        if (this.astContainsFunctions(child, functionNames)) {
+        if (this.astContainsFunctions(child, functionNames, errorOnTrue, type)) {
             if (errorOnTrue) {
                 this.error("Cannot have the " + functionNameToString(ast) + " in this context", child.fileStack);
             }
@@ -304,6 +304,16 @@ OverPyCompiler.prototype.astContainsFunctions = OverPyDecompiler.prototype.astCo
     }
 
     return false;
+}
+
+
+
+OverPyCompiler.prototype.warnOnDarkColor = function(colorAst: Ast) {
+    for (let color of ["RED", "VIOLET", "PURPLE"]) {
+        if (this.astContainsFunctions(colorAst, [color], false, "ColorLiteral")) {
+            this.warn("w_dark_color", `The color '${color}' is hard to see. Consider using LIGHT_${color} instead.`, colorAst.fileStack);
+        }
+    }
 }
 
 //Returns true if in the 2nd argument of filtered/mapped array, in which case a filtered/mapped array cannot be used

@@ -19,23 +19,9 @@
 
 import { astParsingFunctions, isDefinitelyFalsy } from "../../utils/ast";
 
-astParsingFunctions.progressBarHud = function (content, compiler) {
-    if (content.args[4].name === "ACTUALLY_LEFT") {
-        if (content.args[2].name !== "null") {
-            content.args[2] = compiler.getAstForCustomString("{}{}", [content.args[2], compiler.getAstForFucktonOfSpaces()]);
-        }
-    }
-    if (compiler.enableOptimization && compiler.optimizeForSize) {
-        //Set color to null if empty progress bar or empty text
-        if (isDefinitelyFalsy(content.args[1])) {
-            content.args[5] = compiler.getAstForNull();
-        }
-        if (isDefinitelyFalsy(content.args[2])) {
-            content.args[6] = compiler.getAstForNull();
-        }
-    }
 
-    compiler.warnOnDarkColor(content.args[5]);
+astParsingFunctions.createInWorldText = function (content, compiler) {
     compiler.warnOnDarkColor(content.args[6]);
+
     return content;
 };

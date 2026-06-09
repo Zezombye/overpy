@@ -31,5 +31,8 @@ astParsingFunctions.createProgressBarInWorldText = function (content, compiler) 
         }
     }
 
+    compiler.warnOnDarkColor(content.args[6]);
+    compiler.warnOnDarkColor(content.args[7]);
+
     return content;
 };

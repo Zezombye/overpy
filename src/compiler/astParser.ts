@@ -119,6 +119,7 @@ import "./functions/cosDeg.ts";
 import "./functions/createBeam.ts";
 import "./functions/createCasedProgressBarIwt.ts";
 import "./functions/createEffect.ts";
+import "./functions/createInWorldText";
 import "./functions/createProgressBarInWorldText";
 import "./functions/createWorkshopSetting.ts";
 import "./functions/crossProduct.ts";

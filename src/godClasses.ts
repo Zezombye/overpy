@@ -94,7 +94,7 @@ export interface OverPyCompiler {
     getFileStackRange: (tokens: Token[]) => FileStackMember[];
     compileCustomGameSettingsDict: (providedSettings: Record<string, any>, refDict: {[key: string]: {values: string | Record<string, any>;};}) => Record<string, any>;
     error: (str: string, fileStackOverride?: FileStackMember[]) => never;
-    astContainsFunctions: (ast: Ast, functionNames: string[], errorOnTrue?: boolean) => boolean;
+    astContainsFunctions: (ast: Ast, functionNames: string[], errorOnTrue?: boolean, type?: Type | Type[]) => boolean;
     astContainsRandom: (ast: Ast) => boolean;
     isTypeSuitable: (expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable?: boolean) => boolean;
     generateVariablesField: () => string;
@@ -124,6 +124,7 @@ export interface OverPyCompiler {
     getAstForTranslatedString: (content: Ast, replacements?: Ast[]) => Ast;
     createSuitableWorkshopSettingString: (str: Ast, isName: boolean) => Ast;
     getStrVisualLength: (text: string) => number;
+    warnOnDarkColor: (colorAst: Ast) => void;
 }
 
 export class OverPyCompiler {
@@ -248,6 +249,7 @@ export class OverPyCompiler {
     rulePrefixTemplate: string = '';
     rulePrefixTemplateFilestack: FileStackMember[] = [];
 
+    //WARNING: functions must be defined in the interface, not here! By default, vs code will add the definitions here, which won't work.
     
 }
 
@@ -301,7 +303,7 @@ export interface OverPyDecompiler {
     getAstFor0: () => Ast;
     astActionsToOpy: (actions: Ast[]) => string;
     astToOpy: (content: Ast) => string;
-    astContainsFunctions: (ast: Ast, functionNames: string[], errorOnTrue?: boolean) => boolean;
+    astContainsFunctions: (ast: Ast, functionNames: string[], errorOnTrue?: boolean, type?: Type | Type[]) => boolean;
 }
 
 export class OverPyDecompiler {
