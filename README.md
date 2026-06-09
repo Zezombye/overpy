@@ -83,7 +83,7 @@ You may get warnings when compiling; do not ignore them, as they can lead to bug
 
 It is recommended to also decompile one of your existing gamemodes to get a better feel of the OverPy syntax.
 
-```py
+```opy
 
 # Line comments are made with "#".
 # Multiline comments are made with /* */.
@@ -333,7 +333,7 @@ If a function is not in that list, then the name is the English name in camelCas
 
 OverPy supports including custom game settings, using the `settings` keyword. The settings are parsed with OverPy's parser, meaning you can do things such as:
 
-```py
+```opy
 macro VERSION = "1.4.3"
 macro DEBUG = false
 macro CLIP_SIZE_MULTIPLIER = 2
@@ -376,7 +376,7 @@ Extensions are activated using the `#!extensions` compiler directive.
 
 An if/elif/else statement is simply represented by the following structure:
 
-```python
+```opy
 if A == 1:
     B = 2
 elif A == 2:
@@ -391,7 +391,7 @@ else:
 
 A while loop is represented by the following structure:
 
-```python
+```opy
 while A == 1:
     B = 2
     wait()
@@ -402,7 +402,7 @@ It compiles to the workshop's `While` instruction.
 ## For loop
 
 A for loop is represented by the following structure:
-```python
+```opy
 globalvar i
 rule "for loop":
     for i in range(1, 5, 2):
@@ -412,7 +412,7 @@ rule "for loop":
 
 Note that the `range(start, stop, step)` function, that can only be used here, has other forms:
 
-```python
+```opy
 for i in range(1,5) -> for i in range(1,5,1)
 for i in range(5) -> for i in range(0,5,1)
 ```
@@ -425,7 +425,7 @@ Although not recommended to use, gotos can be used in conjunction with a label. 
 
 For example:
 
-```python
+```opy
 if A == 4:
    goto lbl_0
 B = 5
@@ -438,7 +438,7 @@ Labels are declared on their own line, and must include a colon at the end (but 
 Due to the limitations of the workshop, labels must be in the same rule as the `goto` instruction, and cannot be before it.
 
 Additionally, dynamic gotos can be specified using the special keyword `loc`:
-```python
+```opy
 goto loc+A
 ```
 
@@ -511,7 +511,7 @@ Compiler options begin with the `#!` operator, not indented.
 
 Inserts the text of the specified file. The file path can be relative; if so, it is relative to the file with the `#!include` directive. For example:
 
-```c
+```opy
 #!include "heroes/zenyatta.opy"
 
 /* includes a file in the parent directory (".." is the parent directory) */
@@ -525,7 +525,7 @@ Inserts the text of the specified file. The file path can be relative; if so, it
 
 Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file. For example:
 
-```hs
+```opy
 #!mainFile "../main.opy"
 ```
 
@@ -535,7 +535,7 @@ This is so that you can compile your gamemode from any file and OverPy knows the
 
 Suppresses the specified warnings globally across the program. Warnings must be separated by a space. Example:
 
-```hs
+```opy
 #!suppressWarnings w_type_check w_unsuitable_event
 ```
 
@@ -579,7 +579,7 @@ This directive is added by default upon decompilation. Only remove it if you are
 
 All 3 of these directives are only effective in the current block scope (indentation level) once they are declared, and can be cancelled by `#!enableOptimizations`, `#!disableOptimizeForSize` and `#!disableOptimizeStrict` respectively. For example:
 
-```py
+```opy
 rule "default: optimizations, no optimize for size, no optimize strict"
     A = B+0 #will be optimized
     if A:
@@ -599,7 +599,7 @@ rule "optimize strict, no optimize for size":
 
 Several compiler options are available to automatically replace some constants, in order to save elements:
 
-```hs
+```opy
 #!replaceTeam1ByControlScoringTeam
 #!replace0ByCapturePercentage
 #!replace0ByPayloadProgressPercentage
@@ -619,7 +619,7 @@ Preprocessing is an important part of OverPy and allows extending its power way 
 
 Use the `macro` keyword to declare a macro, which is an inline function or constant. For example:
 
-```python
+```opy
 macro BOSS_HP = 1000 + getNumberOfPlayers() * 300
 
 macro add(a, b):
@@ -634,7 +634,7 @@ Note that the replacement is done in the AST, meaning the order of operations wi
 
 You can also declare member macros, where the member is referenced with `self`. For example:
 
-```python
+```opy
 macro Vector.sum = self.x + self.y
 
 macro Player.setPowerLevel(powerLevel):
@@ -654,7 +654,7 @@ rule "power level":
 
 Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
 
-```python
+```opy
 macro Player.setPowerLevel(powerLevel=1, damageDealt=null):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(damageDealt or powerLevel*2)
@@ -669,7 +669,7 @@ The `#!define` directive declares a text-based macro, meaning the replacement is
 
 For example, given this function:
 
-```hs
+```opy
 #!define sum(a,b) a+b
 ```
 
@@ -683,7 +683,7 @@ This problem does not occur with `macro`, which is why you should always use the
 
 You can do script macros with `#!define` and the special `__script__` function. For example:
 
-```hs
+```opy
 #!define addFive(x) __script__("addfive.js")
 ```
 
@@ -700,7 +700,7 @@ For the technical details:
 
 Enums can be declared to avoid manually declaring several macros:
 
-```java
+```opy
 enum GameStatus:
     GAME_NOT_STARTED = 1
     GAME_IN_PROGRESS
@@ -725,7 +725,7 @@ Note that enum members are inlined, so if you use a value such as `getAllPlayers
 
 Runs a JavaScript post-processing script after OverPy finishes compilation. This can effectively resolve certain compilation errors caused by language translation.
 
-```hs
+```opy
 #!postCompileHook "hooks/postCompileHook.js"
 ```
 
@@ -738,7 +738,7 @@ Runs a JavaScript post-processing script after OverPy finishes compilation. This
 
 Example `hooks/postCompileHook.js`:
 
-```js
+```opy
 content = content.replace(/abc/g, "def");
 
 // If the last operation returns an interpreter object,
@@ -754,7 +754,7 @@ Sets a prefix for all subsequent rules. The prefix is applied to the rule name u
 
 If a `#!rulePrefix` directive is in an included file, it only takes effect for rules within that file (and its child includes, if they don't have their own `#!rulePrefix`), after the directive. When the included file ends, the prefix is restored to what it was before the include.
 
-```hs
+```opy
 #!rulePrefix "Effects"
 
 rule "Spawn particles":
@@ -791,7 +791,7 @@ The expression has to evaluate to a string without arguments.
 
 Switches are a good way to transform an if/elif/else chain into something more optimized:
 
-```python
+```opy
 switch A:
     case Hero.ANA:
         B = 2
@@ -804,7 +804,7 @@ switch A:
 ```
 
 This is equivalent to:
-```python
+```opy
 if A == Hero.ANA:
     B = 2
 elif A == Hero.ASHE:
@@ -821,7 +821,7 @@ Keep in mind that fallthrough is enabled, so if you don't have a `break` instruc
 
 In the above case, we always set the same variable. Therefore, a dictionary can be used:
 
-```python
+```opy
 B = {
     0: 4,
     Hero.ANA: 2,
@@ -832,7 +832,7 @@ B = {
 If the key is not found in the dictionary, `null` will be returned. However, you can specify a `default` key for a default value.
 
 This dictionary is internally converted to:
-```python
+```opy
 B = [4, 2, 3][[0, Hero.ANA, Hero.ASHE].index(A)]
 ```
 
@@ -858,7 +858,7 @@ The `spacesForLength` and `strVisualLength` macros can also be used. `spacesForS
 
 This is useful to do alignment tricks. For example, the following code displays a key:value attribute list:
 
-```py
+```opy
 #We use strVisualLength("M")*20 to specify a string that is longer than the longest key/value.
 #!define dictLine(key, value) "{}{}{}{}".format(spacesForLength(strVisualLength("M")*20 - strVisualLength(key)), (key), (value), spacesForLength(strVisualLength("M")*20 - strVisualLength(value)))
 rule "iwt":
@@ -878,7 +878,7 @@ The `ruleCondition` value compiles to all the conditions of the rule, joined wit
 
 This is mostly useful in `waitUntil`, so you can do the following:
 
-```py
+```opy
 rule "":
     @Event eachPlayer
     @Condition ...
@@ -897,7 +897,7 @@ You can use the `compressed()` function to store a large array of numbers or vec
 
 For example:
 
-```py
+```opy
 mapData = compressed([vect(-65.048, -18.007, -80.036), vect(0.92, 12.58, -18.32), vect(194.041, 6.128, -74.097), ...])
 ```
 
@@ -911,7 +911,7 @@ You can also use the `#!useVariableForCompressionAlphabet` compiler option to us
 
 `splitDictArray` maps an array of dictionaries to variables. For example:
 
-```python
+```opy
 splitDictArray({
     hero: waveHeroes,
     length: waveLengths
@@ -924,14 +924,14 @@ splitDictArray({
 
 Will yield the following:
 
-```python
+```opy
 waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
 waveLengths = [3, 8, null]
 ```
 
 For a terser syntax, `tabular` can be used, where the second argument is a raw array (not an array of arrays!)
 
-```
+```opy
 tabular([waveHeroes, waveLengths], [
     Hero.ANA, 3,
     Hero.SOLDIER, 8,
@@ -1020,13 +1020,13 @@ The `___` function is the same as the `_` function, but will never resolve the t
 
 This is useful when several strings are used in a single display action. For example:
 
-```python
+```opy
 bigMessage(text=[t"Choice 1", t"Choice 2"][eventPlayer.choice])
 ```
 
 This will add the code to resolve the translation twice, but it can be optimized to:
 
-```python
+```opy
 bigMessage(text=_([___("Choice 1"), ___("Choice 2")][eventPlayer.choice]))
 ```
 
@@ -1040,7 +1040,7 @@ Wrapping a string with `___` has the same caveats as putting a translated string
 
 **Example**:
 
-```py
+```opy
 #!translations en fr zh
 
 rule "Player got kill":
@@ -1081,7 +1081,7 @@ The way translations work is by casting a value to string (usually `Color.WHITE`
 
 However, this cast to string **must** be done client-side. You cannot do the following:
 
-```py
+```opy
 # Will not work properly, do not use!
 eventPlayer.language = ["White", "Blanc"].index("{}".format(Color.WHITE))
 ```
@@ -1090,7 +1090,7 @@ This will appear to work, but this is evaluated server-side, and what it actuall
 
 When in a reevaluated HUD text, `t"Some string"` resolves to:
 
-```py
+```opy
 ["Some string", "Une chaîne"][["White", "Blanc"].index("{}".format(Color.WHITE))]
 ```
 
@@ -1112,7 +1112,7 @@ Note: I used arrays in the example. OverPy concatenates arrays to strings using 
 
 This is a bug introduced in Overwatch 2 where a rule condition check does not properly trigger while a variable is chased. For example:
 
-```py
+```opy
 playervar chasebug = 0
 
 rule "debug":
@@ -1149,7 +1149,7 @@ See https://discord.com/channels/570672959799164958/1485108807855247540/14851088
 
 ## w_wait_until
 
-```py
+```opy
 globalvar waitUntilBug = 0
 
 rule "debug":
