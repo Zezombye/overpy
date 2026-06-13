@@ -106,8 +106,8 @@ async function main(): Promise<void> {
             "# unrelated section header",
             "",
             "macro SCORE_STEP = 1",
-            "# above that should lose",
-            "macro BOTH = 3 # inline wins",
+            "# above note",
+            "macro BOTH = 3 # inline note",
             "# doc for helper",
             "macro helper():",
             "    pass",
@@ -120,8 +120,8 @@ async function main(): Promise<void> {
     assert.equal(macroDocs.macros.get("MAX_PLAYERS"), "Max team size");
     // A blank line between the comment and the macro breaks the block (the bug).
     assert.equal(macroDocs.macros.get("SCORE_STEP"), undefined);
-    // Inline trailing comment wins over the comment above.
-    assert.equal(macroDocs.macros.get("BOTH"), "inline wins");
+    // Above block and inline comment are merged, block first.
+    assert.equal(macroDocs.macros.get("BOTH"), "above note\ninline note");
     // Function macro picks up its contiguous comment...
     assert.equal(macroDocs.macros.get("helper"), "doc for helper");
     // ...and does not leak onto the following declaration.

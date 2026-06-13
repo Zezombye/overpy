@@ -1,8 +1,8 @@
 /**
  * Extracts documentation text from comments attached to user-defined declarations
- * (global/player variables, macros and enum members). A trailing comment on the same
- * line as the declaration is preferred; otherwise a contiguous comment block directly
- * above the declaration is used. `#!` directive lines are never treated as documentation.
+ * (global/player variables, macros and enum members). A contiguous comment block
+ * directly above the declaration and a trailing comment on the same line are merged
+ * (block first, inline appended). `#!` directive lines are never treated as documentation.
  */
 export type DeclarationDocs = {
     variables: Map<string, string>;
@@ -97,7 +97,12 @@ export function extractDeclarationDocs(text: string): DeclarationDocs {
 }
 
 function getDocFor(lines: string[], declarationIndex: number): string | null {
-    return getTrailingComment(lines[declarationIndex]) ?? getPrecedingComment(lines, declarationIndex);
+    const above = getPrecedingComment(lines, declarationIndex);
+    const inline = getTrailingComment(lines[declarationIndex]);
+    if (above && inline) {
+        return above + "\n" + inline;
+    }
+    return above ?? inline;
 }
 
 function getTrailingComment(line: string): string | null {
