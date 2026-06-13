@@ -1,12 +1,13 @@
 /**
  * Extracts documentation text from comments attached to user-defined declarations
- * (global/player variables and enum members). A trailing comment on the same line as
- * the declaration is preferred; otherwise a contiguous comment block directly above
- * the declaration is used. `#!` directive lines are never treated as documentation.
+ * (global/player variables, macros and enum members). A trailing comment on the same
+ * line as the declaration is preferred; otherwise a contiguous comment block directly
+ * above the declaration is used. `#!` directive lines are never treated as documentation.
  */
 export type DeclarationDocs = {
     variables: Map<string, string>;
     subroutines: Map<string, string>;
+    macros: Map<string, string>;
     enums: Map<string, string>;
     enumMembers: Map<string, Map<string, string>>;
 };
@@ -15,6 +16,7 @@ export function emptyDeclarationDocs(): DeclarationDocs {
     return {
         variables: new Map(),
         subroutines: new Map(),
+        macros: new Map(),
         enums: new Map(),
         enumMembers: new Map(),
     };
@@ -52,6 +54,17 @@ export function extractDeclarationDocs(text: string): DeclarationDocs {
             const doc = getDocFor(lines, index);
             if (doc) {
                 docs.subroutines.set(subroutineMatch[1], doc);
+            }
+            continue;
+        }
+
+        // Matches `macro NAME = value` constants and `macro NAME(...)` function macros,
+        // including member forms like `macro Class.member = ...`.
+        const macroMatch = line.match(/^\s*macro\s+([A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)?)\s*(?:\(|=)/);
+        if (macroMatch) {
+            const doc = getDocFor(lines, index);
+            if (doc) {
+                docs.macros.set(macroMatch[1], doc);
             }
             continue;
         }
