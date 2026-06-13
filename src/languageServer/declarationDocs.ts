@@ -100,7 +100,8 @@ function getDocFor(lines: string[], declarationIndex: number): string | null {
     const above = getPrecedingComment(lines, declarationIndex);
     const inline = getTrailingComment(lines[declarationIndex]);
     if (above && inline) {
-        return above + "\n" + inline;
+        // Two trailing spaces force a Markdown hard break so the popup keeps the line break.
+        return above + "  \n" + inline;
     }
     return above ?? inline;
 }
@@ -126,7 +127,8 @@ function getPrecedingComment(lines: string[], declarationIndex: number): string 
         collected.unshift(trimmed.slice(1).trim());
     }
 
-    return collected.length > 0 ? collected.join("\n") : null;
+    // Two trailing spaces force a Markdown hard break so each comment line renders separately.
+    return collected.length > 0 ? collected.join("  \n") : null;
 }
 
 function findCommentStart(line: string): { index: number; directive: boolean } | null {

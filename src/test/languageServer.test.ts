@@ -120,8 +120,8 @@ async function main(): Promise<void> {
     assert.equal(macroDocs.macros.get("MAX_PLAYERS"), "Max team size");
     // A blank line between the comment and the macro breaks the block (the bug).
     assert.equal(macroDocs.macros.get("SCORE_STEP"), undefined);
-    // Above block and inline comment are merged, block first.
-    assert.equal(macroDocs.macros.get("BOTH"), "above note\ninline note");
+    // Above block and inline comment are merged, block first, with a Markdown hard break.
+    assert.equal(macroDocs.macros.get("BOTH"), "above note  \ninline note");
     // Function macro picks up its contiguous comment...
     assert.equal(macroDocs.macros.get("helper"), "doc for helper");
     // ...and does not leak onto the following declaration.
