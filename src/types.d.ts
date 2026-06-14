@@ -223,7 +223,6 @@ export type AstMacroData = {
     lines: Ast[];
     linesStr: string[];
     class_?: string;
-    comment?: string;
     args: {
         name: string;
         default?: Ast;
@@ -237,7 +236,6 @@ export type AstConstantData = {
     class_?: string;
     value: Ast;
     valueStr: string;
-    comment?: string;
 }
 
 export type CompilationDiagnostic = {

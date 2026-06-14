@@ -98,6 +98,37 @@ async function main(): Promise<void> {
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("SETUP"), "Waiting for players to join");
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("PLAYING"), "Match is live");
 
+    const macroDocs = extractDeclarationDocs(
+        [
+            "# Max team size",
+            "macro MAX_PLAYERS = 5",
+            "",
+            "# unrelated section header",
+            "",
+            "macro SCORE_STEP = 1",
+            "# above note",
+            "macro BOTH = 3 # inline note",
+            "# doc for helper",
+            "macro helper():",
+            "    pass",
+            "macro AFTER = 9",
+            "# member macro doc",
+            "macro Foo.bar = 7",
+        ].join("\n"),
+    );
+    // Contiguous comment directly above attaches.
+    assert.equal(macroDocs.macros.get("MAX_PLAYERS"), "Max team size");
+    // A blank line between the comment and the macro breaks the block (the bug).
+    assert.equal(macroDocs.macros.get("SCORE_STEP"), undefined);
+    // Above block and inline comment are merged, block first, with a Markdown hard break.
+    assert.equal(macroDocs.macros.get("BOTH"), "above note  \ninline note");
+    // Function macro picks up its contiguous comment...
+    assert.equal(macroDocs.macros.get("helper"), "doc for helper");
+    // ...and does not leak onto the following declaration.
+    assert.equal(macroDocs.macros.get("AFTER"), undefined);
+    // Member macros are keyed by their full name.
+    assert.equal(macroDocs.macros.get("Foo.bar"), "member macro doc");
+
     const annotationDocument = TextDocument.create("file:///tmp/test.opy", "overpy", 1, "rule \"hello\":\n    @");
     const annotationCompletions = getCompletionList(annotationDocument, { line: 1, character: 5 }, "@");
     assert.ok(annotationCompletions.items.some((item) => item.label === "@Event"));
@@ -728,6 +759,34 @@ async function main(): Promise<void> {
     const playingItem = enumMemberCompletions.items.find((item) => item.label === "PLAYING");
     assert.ok(playingItem);
     assert.match(getDocumentationValue(playingItem), /Match is live/);
+
+    const macroDocsDocument = TextDocument.create(
+        "file:///tmp/macros.opy",
+        "overpy",
+        1,
+        [
+            "globalvar score",
+            "# Points awarded per kill",
+            "macro KILL_POINTS = 100",
+            "",
+            "# unrelated header",
+            "",
+            "macro RESPAWN_TIME = 5",
+            "rule \"r\":",
+            "    @Event global",
+            "    score = KILL_POINTS",
+            "    wait(RESPAWN_TIME, Wait.IGNORE_CONDITION)",
+        ].join("\n"),
+    );
+    await validateTextDocument(macroDocsDocument, "en-US");
+
+    const killPointsHover = getHover(macroDocsDocument, { line: 9, character: "    score = KIL".length });
+    assert.ok(killPointsHover);
+    assert.match(getHoverText(killPointsHover), /Points awarded per kill/);
+
+    const respawnHover = getHover(macroDocsDocument, { line: 10, character: "    wait(RESPAW".length });
+    assert.ok(respawnHover);
+    assert.doesNotMatch(getHoverText(respawnHover), /unrelated header/, "a blank line should break the comment block");
 
     console.log("LSP adapter tests passed");
 }

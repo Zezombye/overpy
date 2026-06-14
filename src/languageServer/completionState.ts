@@ -174,8 +174,8 @@ export function updateCompletionStateFromCompileResult(
     };
 
     fillMacroCompletions(compileResult.macros);
-    fillAstMacroCompletions(Object.values(compileResult.astMacros));
-    fillAstConstantCompletions(Object.values(compileResult.astConstants));
+    fillAstMacroCompletions(Object.values(compileResult.astMacros), declarationDocs.macros);
+    fillAstConstantCompletions(Object.values(compileResult.astConstants), declarationDocs.macros);
     dynamicCompletionDataByUri.set(uri, dynamicCompletionData);
     refreshCompletionState();
 }
@@ -563,16 +563,17 @@ function fillMacroCompletions(macros: MacroData[]): void {
     }
 }
 
-function fillAstMacroCompletions(macros: AstMacroData[]): void {
+function fillAstMacroCompletions(macros: AstMacroData[], docs: Map<string, string>): void {
     dynamicCompletionData.normalAstMacros = {};
     dynamicCompletionData.memberAstMacros = {};
 
     for (const macro of macros) {
         let minIndent = Math.min(...macro.linesStr.map((line) => line.match(/^\s*/)![0].length));
+        const doc = docs.get((macro.class_ ?? "") + macro.name);
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
+            description: `${doc ? doc + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
         };
         let macroName = macro.name;
 
@@ -596,15 +597,16 @@ function fillAstMacroCompletions(macros: AstMacroData[]): void {
     }
 }
 
-function fillAstConstantCompletions(constants: AstConstantData[]): void {
+function fillAstConstantCompletions(constants: AstConstantData[], docs: Map<string, string>): void {
     dynamicCompletionData.normalAstConstants = {};
     dynamicCompletionData.memberAstConstants = {};
 
     for (const constant of constants) {
+        const doc = docs.get((constant.class_ ?? "") + constant.name);
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
+            description: `${doc ? doc + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
         };
 
         if (constant.class_) {

@@ -1,12 +1,13 @@
 /**
  * Extracts documentation text from comments attached to user-defined declarations
- * (global/player variables and enum members). A trailing comment on the same line as
- * the declaration is preferred; otherwise a contiguous comment block directly above
- * the declaration is used. `#!` directive lines are never treated as documentation.
+ * (global/player variables, macros and enum members). A contiguous comment block
+ * directly above the declaration and a trailing comment on the same line are merged
+ * (block first, inline appended). `#!` directive lines are never treated as documentation.
  */
 export type DeclarationDocs = {
     variables: Map<string, string>;
     subroutines: Map<string, string>;
+    macros: Map<string, string>;
     enums: Map<string, string>;
     enumMembers: Map<string, Map<string, string>>;
 };
@@ -15,6 +16,7 @@ export function emptyDeclarationDocs(): DeclarationDocs {
     return {
         variables: new Map(),
         subroutines: new Map(),
+        macros: new Map(),
         enums: new Map(),
         enumMembers: new Map(),
     };
@@ -56,6 +58,17 @@ export function extractDeclarationDocs(text: string): DeclarationDocs {
             continue;
         }
 
+        // Matches `macro NAME = value` constants and `macro NAME(...)` function macros,
+        // including member forms like `macro Class.member = ...`.
+        const macroMatch = line.match(/^\s*macro\s+([A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)?)\s*(?:\(|=)/);
+        if (macroMatch) {
+            const doc = getDocFor(lines, index);
+            if (doc) {
+                docs.macros.set(macroMatch[1], doc);
+            }
+            continue;
+        }
+
         const enumMatch = line.match(/^\s*enum\s+([A-Za-z_][A-Za-z0-9_]*)\s*:/);
         if (enumMatch) {
             currentEnum = enumMatch[1];
@@ -84,7 +97,13 @@ export function extractDeclarationDocs(text: string): DeclarationDocs {
 }
 
 function getDocFor(lines: string[], declarationIndex: number): string | null {
-    return getTrailingComment(lines[declarationIndex]) ?? getPrecedingComment(lines, declarationIndex);
+    const above = getPrecedingComment(lines, declarationIndex);
+    const inline = getTrailingComment(lines[declarationIndex]);
+    if (above && inline) {
+        // Two trailing spaces force a Markdown hard break so the popup keeps the line break.
+        return above + "  \n" + inline;
+    }
+    return above ?? inline;
 }
 
 function getTrailingComment(line: string): string | null {
@@ -108,7 +127,8 @@ function getPrecedingComment(lines: string[], declarationIndex: number): string 
         collected.unshift(trimmed.slice(1).trim());
     }
 
-    return collected.length > 0 ? collected.join("\n") : null;
+    // Two trailing spaces force a Markdown hard break so each comment line renders separately.
+    return collected.length > 0 ? collected.join("  \n") : null;
 }
 
 function findCommentStart(line: string): { index: number; directive: boolean } | null {
