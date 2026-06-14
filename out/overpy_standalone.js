@@ -47971,8 +47971,7 @@ OverPyCompiler.prototype.parseLines = function(lines) {
         name,
         value,
         class_,
-        valueStr: dispTokens(currentLine.tokens.slice(class_ ? 5 : 3), true),
-        comment: currentComments.length > 0 ? commentArrayToString(currentComments) : void 0
+        valueStr: dispTokens(currentLine.tokens.slice(class_ ? 5 : 3), true)
       };
       currentComments = [];
       continue;
@@ -48252,8 +48251,7 @@ OverPyCompiler.prototype.parseLines = function(lines) {
           class_,
           lines: macroLines,
           linesStr: childrenLines.map((x) => " ".repeat(x.indentLevel) + dispTokens(x.tokens, true)),
-          args: macroArgs,
-          comment: currentComments.length > 0 ? commentArrayToString(currentComments) : void 0
+          args: macroArgs
         };
         i += j - i - 1;
         continue;
@@ -71987,4 +71985,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map
