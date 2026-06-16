@@ -2387,6 +2387,18 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pt-BR": "Roadhog",
         "tr-TR": "Roadhog"
     },
+    "shion": {
+        "ability1": {
+            "en-US": "Evade",
+        },
+        "ability2": {
+            "en-US": "Joyride",
+        },
+        "ultimate": {
+            "en-US": "Satsuriku Spree",
+        },
+        "en-US": "Shion",
+    },
     "sierra": {
         "secondaryFire": {
             "en-US": "Tracking Shot",

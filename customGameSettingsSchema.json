@@ -160,6 +160,7 @@
                                             "malevento",
                                             "midtown",
                                             "necropolis",
+                                            "neonJunction",
                                             "nepal",
                                             "nepalSanctum",
                                             "nepalShrine",
@@ -975,6 +976,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -1525,6 +1538,7 @@
                                             "malevento",
                                             "midtown",
                                             "necropolis",
+                                            "neonJunction",
                                             "nepal",
                                             "nepalSanctum",
                                             "nepalShrine",
@@ -2340,6 +2354,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -4535,6 +4561,7 @@
                                             "kingsRow",
                                             "kingsRowWinter",
                                             "midtown",
+                                            "neonJunction",
                                             "numbani",
                                             "paraiso"
                                         ]
@@ -4669,6 +4696,18 @@
                                                                 "morning",
                                                                 "night"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -4724,6 +4763,7 @@
                                             "kingsRow",
                                             "kingsRowWinter",
                                             "midtown",
+                                            "neonJunction",
                                             "numbani",
                                             "paraiso"
                                         ]
@@ -4858,6 +4898,18 @@
                                                                 "morning",
                                                                 "night"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -10023,6 +10075,7 @@
                                             "kingsRowWinter",
                                             "lijiangTower",
                                             "lijiangTowerLny",
+                                            "neonJunction",
                                             "nepal",
                                             "newJunkCity",
                                             "newQueenStreet",
@@ -10396,6 +10449,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -10767,6 +10832,7 @@
                                             "kingsRowWinter",
                                             "lijiangTower",
                                             "lijiangTowerLny",
+                                            "neonJunction",
                                             "nepal",
                                             "newJunkCity",
                                             "newQueenStreet",
@@ -11140,6 +11206,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "neonJunction": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -16792,6 +16870,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -16851,6 +16930,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -21174,6 +21254,90 @@
                                     "type": "number"
                                 },
                                 "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "shion": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
                                     "type": "number"
                                 },
                                 "enableHeadshotsOnly": {
@@ -21779,6 +21943,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -21838,6 +22003,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -26161,6 +26327,90 @@
                                     "type": "number"
                                 },
                                 "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "shion": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
                                     "type": "number"
                                 },
                                 "enableHeadshotsOnly": {
@@ -26766,6 +27016,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -26825,6 +27076,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -31148,6 +31400,90 @@
                                     "type": "number"
                                 },
                                 "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "shion": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
                                     "type": "number"
                                 },
                                 "enableHeadshotsOnly": {
@@ -31753,6 +32089,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -31812,6 +32149,7 @@
                                     "reaper",
                                     "reinhardt",
                                     "roadhog",
+                                    "shion",
                                     "sierra",
                                     "sigma",
                                     "sojourn",
@@ -36135,6 +36473,90 @@
                                     "type": "number"
                                 },
                                 "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "shion": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
                                     "type": "number"
                                 },
                                 "enableHeadshotsOnly": {
@@ -36871,6 +37293,7 @@
                             "reaper",
                             "reinhardt",
                             "roadhog",
+                            "shion",
                             "sierra",
                             "sigma",
                             "sojourn",
@@ -36930,6 +37353,7 @@
                             "reaper",
                             "reinhardt",
                             "roadhog",
+                            "shion",
                             "sierra",
                             "sigma",
                             "sojourn",
@@ -41253,6 +41677,90 @@
                             "type": "number"
                         },
                         "movementSpeed%": {
+                            "type": "number"
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number"
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number"
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number"
+                        },
+                        "ultGen%": {
+                            "type": "number"
+                        },
+                        "combatUltGen%": {
+                            "type": "number"
+                        },
+                        "passiveUltGen%": {
+                            "type": "number"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "shion": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number"
+                        },
+                        "damageReceived%": {
+                            "type": "number"
+                        },
+                        "healingDealt%": {
+                            "type": "number"
+                        },
+                        "healingReceived%": {
+                            "type": "number"
+                        },
+                        "health%": {
+                            "type": "number"
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number"
+                        },
+                        "movementGravity%": {
+                            "type": "number"
+                        },
+                        "movementSpeed%": {
+                            "type": "number"
+                        },
+                        "projectileGravity%": {
+                            "type": "number"
+                        },
+                        "projectileSpeed%": {
                             "type": "number"
                         },
                         "enableHeadshotsOnly": {

@@ -1488,6 +1488,13 @@ export const mapKw: Record<string, import("../types").Map> =
         "zh-CN": "墓园",
         "zh-TW": "墓室"
     },
+    "neonJunction": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid",
+        ],
+        "en-US": "Neon Junction",
+    },
     "nepal": {
         "guid": "00000000138A",
         "gamemodes": [

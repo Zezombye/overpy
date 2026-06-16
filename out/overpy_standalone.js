@@ -3608,6 +3608,13 @@ var mapKw = (
       "zh-CN": "\u5893\u56ED",
       "zh-TW": "\u5893\u5BA4"
     },
+    "neonJunction": {
+      "gamemodes": [
+        "skirmish",
+        "hybrid"
+      ],
+      "en-US": "Neon Junction"
+    },
     "nepal": {
       "guid": "00000000138A",
       "gamemodes": [
@@ -14819,6 +14826,7 @@ var Overwatch2Heroes = /* @__PURE__ */ ((Overwatch2Heroes3) => {
   Overwatch2Heroes3["reaper"] = "reaper";
   Overwatch2Heroes3["reinhardt"] = "reinhardt";
   Overwatch2Heroes3["roadhog"] = "roadhog";
+  Overwatch2Heroes3["shion"] = "shion";
   Overwatch2Heroes3["sierra"] = "sierra";
   Overwatch2Heroes3["sigma"] = "sigma";
   Overwatch2Heroes3["sojourn"] = "sojourn";
@@ -17201,6 +17209,18 @@ var heroKw = (
       "it-IT": "Roadhog",
       "pt-BR": "Roadhog",
       "tr-TR": "Roadhog"
+    },
+    "shion": {
+      "ability1": {
+        "en-US": "Evade"
+      },
+      "ability2": {
+        "en-US": "Joyride"
+      },
+      "ultimate": {
+        "en-US": "Satsuriku Spree"
+      },
+      "en-US": "Shion"
     },
     "sierra": {
       "secondaryFire": {

@@ -123,6 +123,7 @@ export enum Overwatch2Heroes {
     reaper = "reaper",
     reinhardt = "reinhardt",
     roadhog = "roadhog",
+    shion = "shion",
     sierra = "sierra",
     sigma = "sigma",
     sojourn = "sojourn",
@@ -148,7 +149,7 @@ export type HeroData = {
     passive?: LocalizableString;
     primaryFire?: LocalizableString;
     secondaryFire?: LocalizableString;
-    ability1?: LocalizableString;
+    ability1: LocalizableString;
     ability2?: LocalizableString;
     ability3?: LocalizableString;
     ultimate: LocalizableString;
