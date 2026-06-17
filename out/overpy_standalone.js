@@ -17211,16 +17211,24 @@ var heroKw = (
       "tr-TR": "Roadhog"
     },
     "shion": {
+      "secondaryFire": {
+        "en-US": "Execution",
+        "zh-CN": "\u4EA4\u53C9\u67AA\u51B3"
+      },
       "ability1": {
-        "en-US": "Evade"
+        "en-US": "Evade",
+        "zh-CN": "\u673A\u52A8\u95EA\u907F"
       },
       "ability2": {
-        "en-US": "Joyride"
+        "en-US": "Joyride",
+        "zh-CN": "\u7EB5\u60C5\u72C2\u98D9"
       },
       "ultimate": {
-        "en-US": "Satsuriku Spree"
+        "en-US": "Satsuriku Spree",
+        "zh-CN": "\u6740\u622E\u72C2\u5BB4"
       },
-      "en-US": "Shion"
+      "en-US": "Shion",
+      "zh-CN": "\u6B7B\u6028"
     },
     "sierra": {
       "secondaryFire": {
@@ -42160,7 +42168,8 @@ var customGameSettingsSchema = (
               "winston",
               "wreckingBall",
               "ramattra",
-              "venture"
+              "venture",
+              "shion"
             ],
             "guid": "000000007672",
             "en-US": "Infinite Ultimate Duration",
@@ -42836,7 +42845,8 @@ var customGameSettingsSchema = (
               "ramattra",
               "lifeweaver",
               "venture",
-              "juno"
+              "juno",
+              "shion"
             ],
             "en-US": "%1$s Cooldown Time",
             "de-DE": "%1$s \u2013 Abklingzeit",
@@ -44358,6 +44368,30 @@ var customGameSettingsSchema = (
               "tr-TR": "Domuz \xC7evirme Geri \u0130tme Skaleri",
               "zh-CN": "\u9E21\u98DE\u72D7\u8DF3\u51FB\u9000\u500D\u7387",
               "zh-TW": "\u706B\u529B\u5168\u958B\u64CA\u9000\u8DDD\u96E2"
+            }
+          }
+        },
+        "shion": {
+          "values": {
+            "ability1Distance%": {
+              "values": "__percent__",
+              "en-US": "Evade Distance Scalar",
+              "zh-CN": "\u673A\u52A8\u95EA\u907F\u8DDD\u79BB\u500D\u7387"
+            },
+            "ability2Kb%": {
+              "values": "__percent__",
+              "en-US": "Joyride Knockback Scalar",
+              "zh-CN": "\u7EB5\u60C5\u72C2\u98D9\u51FB\u9000\u500D\u7387"
+            },
+            "ability2Duration%": {
+              "values": "__percent__",
+              "en-US": "Joyride Duration Scalar",
+              "zh-CN": "\u7EB5\u60C5\u72C2\u98D9\u6301\u7EED\u65F6\u95F4\u500D\u7387"
+            },
+            "ability2Speed%": {
+              "values": "__percent__",
+              "en-US": "Joyride Speed Scalar",
+              "zh-CN": "\u7EB5\u60C5\u72C2\u98D9\u901F\u5EA6\u500D\u7387"
             }
           }
         },
@@ -72005,3 +72039,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

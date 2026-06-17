@@ -4345,7 +4345,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "winston",
                         "wreckingBall",
                         "ramattra",
-                        "venture"
+                        "venture",
+                        "shion"
                     ],
                     "guid": "000000007672",
                     "en-US": "Infinite Ultimate Duration",
@@ -5021,7 +5022,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ramattra",
                         "lifeweaver",
                         "venture",
-                        "juno"
+                        "juno",
+                        "shion"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -6543,6 +6545,30 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Domuz Çevirme Geri İtme Skaleri",
                         "zh-CN": "鸡飞狗跳击退倍率",
                         "zh-TW": "火力全開擊退距離"
+                    }
+                }
+            },
+            "shion": {
+                "values": {
+                    "ability1Distance%": {
+                        "values": "__percent__",
+                        "en-US": "Evade Distance Scalar",
+                        "zh-CN": "机动闪避距离倍率"
+                    },
+                    "ability2Kb%": {
+                        "values": "__percent__",
+                        "en-US": "Joyride Knockback Scalar",
+                        "zh-CN": "纵情狂飙击退倍率"
+                    },
+                    "ability2Duration%": {
+                        "values": "__percent__",
+                        "en-US": "Joyride Duration Scalar",
+                        "zh-CN": "纵情狂飙持续时间倍率"
+                    },
+                    "ability2Speed%": {
+                        "values": "__percent__",
+                        "en-US": "Joyride Speed Scalar",
+                        "zh-CN": "纵情狂飙速度倍率"
                     }
                 }
             },
