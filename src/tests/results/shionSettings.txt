@@ -1,0 +1,27 @@
+settings
+{
+	modes
+	{
+		Skirmish
+		{
+		}
+	}
+	heroes
+	{
+		General
+		{
+			Shion
+			{
+				Execution Cooldown Time: 113%
+				Evade Cooldown Time: 81%
+				Evade Distance Scalar: 110%
+				Joyride Cooldown Time: 86%
+				Joyride Knockback Scalar: 119%
+				Joyride Duration Scalar: 83%
+				Joyride Speed Scalar: 109%
+				Infinite Ultimate Duration: On
+			}
+		}
+	}
+}
+

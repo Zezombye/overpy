@@ -2388,16 +2388,23 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "tr-TR": "Roadhog"
     },
     "shion": {
+        "secondaryFire": {
+            "en-US": "Execution",
+            "zh-CN": "交叉枪决",
+        },
         "ability1": {
             "en-US": "Evade",
+            "zh-CN": "机动闪避",
         },
         "ability2": {
             "en-US": "Joyride",
+            "zh-CN": "纵情狂飙",
         },
         "ultimate": {
             "en-US": "Satsuriku Spree",
         },
         "en-US": "Shion",
+        "zh-CN": "死怨",
     },
     "sierra": {
         "secondaryFire": {
