@@ -2402,6 +2402,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         },
         "ultimate": {
             "en-US": "Satsuriku Spree",
+            "zh-CN": "杀戮狂宴",
         },
         "en-US": "Shion",
         "zh-CN": "死怨",

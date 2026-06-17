@@ -17224,7 +17224,8 @@ var heroKw = (
         "zh-CN": "\u7EB5\u60C5\u72C2\u98D9"
       },
       "ultimate": {
-        "en-US": "Satsuriku Spree"
+        "en-US": "Satsuriku Spree",
+        "zh-CN": "\u6740\u622E\u72C2\u5BB4"
       },
       "en-US": "Shion",
       "zh-CN": "\u6B7B\u6028"
