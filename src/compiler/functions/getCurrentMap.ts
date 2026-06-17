@@ -26,9 +26,9 @@ astParsingFunctions.getCurrentMap = function (content, compiler) {
     }
 
     //These maps cannot be detected using the workshop's raw getCurrentMap() as there are duplicates and the Map() function returns the wrong value
-    if (compiler.usedMaps.has("colosseo") || compiler.usedMaps.has("esperanca") || compiler.usedMaps.has("samoa")) {
+    if (compiler.usedMaps.has("colosseo") || compiler.usedMaps.has("esperanca") || compiler.usedMaps.has("samoa") || compiler.usedMaps.has("throne_of_anubis")) {
         //This uses the least elements, even when there is only one map to detect
-        let buggedUsedMaps = ["colosseo", "esperanca", "samoa"].filter(m => compiler.usedMaps.has(m));
+        let buggedUsedMaps = ["colosseo", "esperanca", "samoa", "throne_of_anubis"].filter(m => compiler.usedMaps.has(m));
         return compiler.parseOpyMacro(`[${buggedUsedMaps.map(m => "Map."+m.toUpperCase()).join(", ")}, __getCurrentMap__()].filter(lambda x: "{}".format(__getCurrentMap__()) == x.split([]))[0]`, [], []);
     }
     return compiler.Ast("__getCurrentMap__");

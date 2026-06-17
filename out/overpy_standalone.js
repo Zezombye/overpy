@@ -68759,8 +68759,8 @@ astParsingFunctions.getCurrentMap = function(content, compiler) {
   if (content.parent?.name === "__equals__" && (content.parent.args[0].name === "__map__" || content.parent.args[1].name === "__map__")) {
     return content;
   }
-  if (compiler.usedMaps.has("colosseo") || compiler.usedMaps.has("esperanca") || compiler.usedMaps.has("samoa")) {
-    let buggedUsedMaps = ["colosseo", "esperanca", "samoa"].filter((m) => compiler.usedMaps.has(m));
+  if (compiler.usedMaps.has("colosseo") || compiler.usedMaps.has("esperanca") || compiler.usedMaps.has("samoa") || compiler.usedMaps.has("throne_of_anubis")) {
+    let buggedUsedMaps = ["colosseo", "esperanca", "samoa", "throne_of_anubis"].filter((m) => compiler.usedMaps.has(m));
     return compiler.parseOpyMacro(`[${buggedUsedMaps.map((m) => "Map." + m.toUpperCase()).join(", ")}, __getCurrentMap__()].filter(lambda x: "{}".format(__getCurrentMap__()) == x.split([]))[0]`, [], []);
   }
   return compiler.Ast("__getCurrentMap__");
@@ -72039,4 +72039,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map
