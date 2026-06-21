@@ -18,6 +18,7 @@ import { getColorPresentations, getDocumentColors } from "./colors";
 import { getCompletionList } from "./completions";
 import { clearDocumentCompletionData } from "./completionState";
 import { getWorkspaceDefinition } from "./definition";
+import { getDiagnosticUrisToClear } from "./documentLifecycle";
 import { getDocumentLinks } from "./documentLinks";
 import { getFoldingRanges } from "./foldingRanges";
 import { getHover } from "./hover";
@@ -131,11 +132,22 @@ documents.onDidOpen((event) => scheduleValidate(event.document));
 documents.onDidChangeContent((event) => scheduleValidate(event.document));
 documents.onDidSave((event) => scheduleValidate(event.document));
 documents.onDidClose((event) => {
-    clearPendingValidation(event.document.uri);
-    clearDocumentCompletionData(event.document.uri);
-    documentSettings.delete(event.document.uri);
-    previousDiagnosticUris.delete(event.document.uri);
-    connection.sendDiagnostics({ uri: event.document.uri, diagnostics: [] });
+    const closedUri = event.document.uri;
+    clearPendingValidation(closedUri);
+    clearDocumentCompletionData(closedUri);
+    documentSettings.delete(closedUri);
+
+    const urisToClear = getDiagnosticUrisToClear(
+        closedUri,
+        previousDiagnosticUris,
+        (uri) => documents.get(uri) !== undefined,
+    );
+    previousDiagnosticUris.delete(closedUri);
+
+    for (const uri of urisToClear) {
+        connection.sendDiagnostics({ uri, diagnostics: [] });
+    }
+    connection.sendDiagnostics({ uri: closedUri, diagnostics: [] });
 });
 
 connection.onCompletion((params): CompletionList | null => {

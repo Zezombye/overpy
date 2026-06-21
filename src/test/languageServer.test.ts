@@ -24,6 +24,7 @@ import { extractDeclarationDocs } from "../languageServer/declarationDocs";
 import { getColorPresentations, getDocumentColors } from "../languageServer/colors";
 import { getDefinition, getWorkspaceDefinition } from "../languageServer/definition";
 import { toLspDiagnostic } from "../languageServer/diagnostics";
+import { getDiagnosticUrisToClear } from "../languageServer/documentLifecycle";
 import { getDocumentLinks } from "../languageServer/documentLinks";
 import { getFoldingRanges } from "../languageServer/foldingRanges";
 import { getHover } from "../languageServer/hover";
@@ -887,6 +888,41 @@ async function main(): Promise<void> {
     // Built-ins are shared, so they still resolve regardless of which document is focused.
     const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
     assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
+
+    // §4.1 — closing a main file must clear diagnostics it published to its includes,
+    // but never blank an include that is open or still published-to by another main file.
+    const mainUri = "file:///tmp/close-main.opy";
+    const includeUri = "file:///tmp/close-include.opy";
+    const otherMainUri = "file:///tmp/close-other-main.opy";
+
+    // (1) Lone main closes -> its include is cleared (its own URI is excluded; the caller clears it).
+    const loneMap = new Map<string, Set<string>>([[mainUri, new Set([mainUri, includeUri])]]);
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, loneMap, () => false),
+        [includeUri],
+    );
+
+    // (2) Two mains share an include; closing one retains the shared include.
+    const sharedMap = new Map<string, Set<string>>([
+        [mainUri, new Set([mainUri, includeUri])],
+        [otherMainUri, new Set([otherMainUri, includeUri])],
+    ]);
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, sharedMap, () => false),
+        [],
+    );
+
+    // (3) The include is itself an open document -> never blanked.
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, loneMap, (uri) => uri === includeUri),
+        [],
+    );
+
+    // (4) No recorded entry -> nothing to clear.
+    assert.deepEqual(
+        getDiagnosticUrisToClear("file:///tmp/never-validated.opy", loneMap, () => false),
+        [],
+    );
 
     console.log("LSP adapter tests passed");
 }
