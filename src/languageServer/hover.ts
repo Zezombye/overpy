@@ -9,7 +9,7 @@ import {
 } from "vscode-languageserver/node";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
-import { getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
+import { CompletionState, getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
 import { isOffsetInStringOrComment, maskStringsAndComments } from "./documentUtils";
 
 export function getHover(document: TextDocument, position: Position): Hover | null {
@@ -17,6 +17,8 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     if (isOffsetInStringOrComment(text, maskStringsAndComments(text), document.offsetAt(position))) {
         return null;
     }
+
+    const state = getCompletionState(document.uri);
 
     const qualifiedSymbol = getQualifiedSymbolAtPosition(document, position);
     if (qualifiedSymbol) {
@@ -28,7 +30,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         // right (or the `.`) describes the member.
         if (cursorInToken < dotIndex) {
             const enumName = qualifiedSymbol.text.slice(0, dotIndex);
-            const enumNameHover = getEnumNameHover(enumName);
+            const enumNameHover = getEnumNameHover(enumName, state);
             if (enumNameHover) {
                 return {
                     contents: enumNameHover,
@@ -36,7 +38,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
                 };
             }
         } else {
-            const enumHover = getEnumMemberHover(qualifiedSymbol.text);
+            const enumHover = getEnumMemberHover(qualifiedSymbol.text, state);
             if (enumHover) {
                 return {
                     contents: enumHover,
@@ -52,10 +54,9 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     }
 
     const normalizedName = normalizeSymbolName(document, symbol);
-    const state = getCompletionState();
     const functionData = state.functionRegistry[normalizedName];
     if (functionData) {
-        const functionHover = getFunctionHover(normalizedName);
+        const functionHover = getFunctionHover(normalizedName, state);
         if (functionHover) {
             return {
                 contents: functionHover,
@@ -70,7 +71,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         getCompletionHover(normalizedName, state.stringEntityCompletions) ??
         getCompletionHover(normalizedName, state.defaultCompletions) ??
         getCompletionHover(normalizedName, state.memberCompletions) ??
-        getEnumTypeHover(normalizedName);
+        getEnumTypeHover(normalizedName, state);
 
     if (!completionHover) {
         return null;
@@ -82,8 +83,8 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     };
 }
 
-function getFunctionHover(functionName: string): MarkupContent | null {
-    const functionData = getCompletionState().functionRegistry[functionName];
+function getFunctionHover(functionName: string, state: CompletionState): MarkupContent | null {
+    const functionData = state.functionRegistry[functionName];
     if (!functionData) {
         return null;
     }
@@ -115,19 +116,18 @@ function getFunctionHover(functionName: string): MarkupContent | null {
     };
 }
 
-function getEnumNameHover(enumName: string): MarkupContent | null {
-    const state = getCompletionState();
+function getEnumNameHover(enumName: string, state: CompletionState): MarkupContent | null {
     if (!state.constantValueCompletions[enumName]) {
         return null;
     }
 
     // `defaultCompletions` carries the enum's own doc comment; fall back to the member-count
     // summary for built-in enums that have no doc comment entry.
-    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName);
+    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName, state);
 }
 
-function getEnumTypeHover(symbolName: string): MarkupContent | null {
-    const enumCompletions = getCompletionState().constantValueCompletions[symbolName];
+function getEnumTypeHover(symbolName: string, state: CompletionState): MarkupContent | null {
+    const enumCompletions = state.constantValueCompletions[symbolName];
     if (!enumCompletions) {
         return null;
     }
@@ -138,13 +138,13 @@ function getEnumTypeHover(symbolName: string): MarkupContent | null {
     };
 }
 
-function getEnumMemberHover(qualifiedName: string): MarkupContent | null {
+function getEnumMemberHover(qualifiedName: string, state: CompletionState): MarkupContent | null {
     const [enumName, memberName] = qualifiedName.split(".");
     if (!enumName || !memberName) {
         return null;
     }
 
-    const enumCompletions = getCompletionState().constantValueCompletions[enumName];
+    const enumCompletions = state.constantValueCompletions[enumName];
     const completion = enumCompletions?.items.find((item) => item.label === memberName);
     if (!completion) {
         return null;

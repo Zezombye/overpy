@@ -830,6 +830,64 @@ async function main(): Promise<void> {
     assert.ok(respawnHover);
     assert.doesNotMatch(getHoverText(respawnHover), /unrelated header/, "a blank line should break the comment block");
 
+    // §1.1 — cross-document state bleed: validating B must not erase A's symbols for
+    // hover/completion/signature/inlay. The per-URI snapshot, not the global, must win.
+    const bleedDocA = TextDocument.create(
+        "file:///tmp/bleedA.opy",
+        "overpy",
+        1,
+        [
+            "macro scaleA(value):",
+            "    value * 2",
+            "globalvar scoreA",
+            "rule \"rA\":",
+            "    @Event global",
+            "    scoreA = scaleA(scoreA)",
+        ].join("\n"),
+    );
+    const bleedDocB = TextDocument.create(
+        "file:///tmp/bleedB.opy",
+        "overpy",
+        1,
+        [
+            "macro scaleB(value):",
+            "    value * 3",
+            "globalvar scoreB",
+            "rule \"rB\":",
+            "    @Event global",
+            "    scoreB = scaleB(scoreB)",
+        ].join("\n"),
+    );
+    await validateTextDocument(bleedDocA, "en-US");
+    await validateTextDocument(bleedDocB, "en-US"); // global now reflects B
+
+    const bleedHover = getHover(bleedDocA, { line: 5, character: "    scoreA = sca".length });
+    assert.ok(bleedHover, "hover on A's macro must resolve from A's snapshot");
+    assert.match(getHoverText(bleedHover), /scaleA/);
+
+    const bleedCompletions = getCompletionList(bleedDocA, { line: 3, character: 0 });
+    assert.ok(
+        bleedCompletions.items.some((item) => item.label === "scaleA"),
+        "A's default completions must contain A's macro",
+    );
+    assert.ok(
+        !bleedCompletions.items.some((item) => item.label === "scaleB"),
+        "A's default completions must not contain B's macro",
+    );
+
+    const bleedSignature = getSignatureHelp(bleedDocA, { line: 5, character: "    scoreA = scaleA(".length }, "(");
+    assert.ok(bleedSignature, "signature help on A's macro must resolve from A's snapshot");
+
+    const bleedInlay = getInlayHints(bleedDocA);
+    assert.ok(
+        bleedInlay.some((hint) => hint.label === "value:"),
+        "inlay hints on A's call must resolve A's parameter name",
+    );
+
+    // Built-ins are shared, so they still resolve regardless of which document is focused.
+    const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
+    assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
+
     console.log("LSP adapter tests passed");
 }
 

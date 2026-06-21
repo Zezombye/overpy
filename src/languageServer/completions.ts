@@ -10,7 +10,7 @@ export function getCompletionList(
     position: Position,
     triggerCharacter?: string,
 ): CompletionList {
-    const state = getCompletionState();
+    const state = getCompletionState(document.uri);
 
     if (triggerCharacter === ".") {
         const word = getWordBeforeTrigger(document, position);

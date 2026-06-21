@@ -140,13 +140,13 @@ export function initializeCompletionState(): void {
     }
 
     buildBaseCompletionData();
-    refreshCompletionState();
     initialized = true;
 }
 
-export function getCompletionState(): CompletionState {
+export function getCompletionState(uri?: string): CompletionState {
     initializeCompletionState();
-    return completionState;
+    const dynamic = (uri !== undefined ? dynamicCompletionDataByUri.get(uri) : undefined) ?? dynamicCompletionData;
+    return buildCompletionState(dynamic);
 }
 
 export function updateCompletionStateFromCompileResult(
@@ -177,7 +177,6 @@ export function updateCompletionStateFromCompileResult(
     fillAstMacroCompletions(Object.values(compileResult.astMacros), declarationDocs.macros);
     fillAstConstantCompletions(Object.values(compileResult.astConstants), declarationDocs.macros);
     dynamicCompletionDataByUri.set(uri, dynamicCompletionData);
-    refreshCompletionState();
 }
 
 /** Drops a closed document's cached completion data so its symbols stop affecting highlighting. */
@@ -428,10 +427,10 @@ function buildBaseCompletionData(): void {
     );
 }
 
-function refreshCompletionState(): void {
+function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
     const constantValueCompletions = {
         ...baseConstantValueCompletions,
-        ...getUserEnumCompletionLists(dynamicCompletionData.userEnums, dynamicCompletionData.declarationDocs.enumMembers),
+        ...getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers),
     };
 
     for (const constType of ["Beam", "Effect", "DynamicEffect"]) {
@@ -444,7 +443,7 @@ function refreshCompletionState(): void {
             isIncomplete: false,
             items: baseList.items.filter((item) => {
                 const constantEntry = constantValues[constType]?.[item.label];
-                return !constantEntry || !("extension" in constantEntry) || dynamicCompletionData.activatedExtensions.includes(constantEntry.extension ?? "<INVALID>");
+                return !constantEntry || !("extension" in constantEntry) || dynamic.activatedExtensions.includes(constantEntry.extension ?? "<INVALID>");
             }),
         };
     }
@@ -453,39 +452,41 @@ function refreshCompletionState(): void {
         ...baseFunctionData,
         ...Object.fromEntries(
             Object.keys(constantValueCompletions).map((key) => {
-                const doc = dynamicCompletionData.declarationDocs.enums.get(key);
+                const doc = dynamic.declarationDocs.enums.get(key);
                 return [key, { description: doc ? `${doc}\n\nThe \`${key}\` enum.` : `The \`${key}\` enum.` }];
             }),
         ),
-        ...dynamicCompletionData.normalAstConstants,
-        ...dynamicCompletionData.normalMacros,
-        ...dynamicCompletionData.normalAstMacros,
-        ...dynamicCompletionData.globalVariables,
-        ...dynamicCompletionData.subroutines,
+        ...dynamic.normalAstConstants,
+        ...dynamic.normalMacros,
+        ...dynamic.normalAstMacros,
+        ...dynamic.globalVariables,
+        ...dynamic.subroutines,
     };
 
     const memberItems: Record<string, CompletionData> = {
         ...baseMemberFunctionData,
-        ...dynamicCompletionData.memberMacros,
-        ...dynamicCompletionData.memberAstConstants,
-        ...dynamicCompletionData.memberAstMacros,
-        ...dynamicCompletionData.playerVariables,
+        ...dynamic.memberMacros,
+        ...dynamic.memberAstConstants,
+        ...dynamic.memberAstMacros,
+        ...dynamic.playerVariables,
     };
 
-    completionState = {
-        ...completionState,
+    return {
+        annotationCompletions: completionState.annotationCompletions,
+        preprocessingCompletions: completionState.preprocessingCompletions,
+        stringEntityCompletions: completionState.stringEntityCompletions,
         constantValueCompletions,
         defaultCompletions: makeCompletionList(defaultItems, CompletionItemKind.Function),
         functionRegistry: {
             ...baseFunctionData,
             ...baseMemberFunctionData,
             ...baseModuleFunctionData,
-            ...dynamicCompletionData.normalAstConstants,
-            ...dynamicCompletionData.normalMacros,
-            ...dynamicCompletionData.normalAstMacros,
-            ...dynamicCompletionData.memberAstConstants,
-            ...dynamicCompletionData.memberMacros,
-            ...dynamicCompletionData.memberAstMacros,
+            ...dynamic.normalAstConstants,
+            ...dynamic.normalMacros,
+            ...dynamic.normalAstMacros,
+            ...dynamic.memberAstConstants,
+            ...dynamic.memberMacros,
+            ...dynamic.memberAstMacros,
         },
         memberCompletions: makeCompletionList(memberItems, CompletionItemKind.Method),
     };
