@@ -87,7 +87,10 @@ export type CompletionState = {
     stringEntityCompletions: CompletionList;
 };
 
-//Only used for astToOpy / typeToString
+// Retained instances, not free functions: `typeToString` (compiler) recurses via `this.typeToString`
+// and throws `this.error`, and `astToOpy` (decompiler) is a prototype method bound to its instance.
+// Extracting them would require detaching that `this`-dependent machinery, so the instances are
+// load-bearing. They are used only for `typeToString` (signature labels) and `astToOpy` (enum-member values).
 const compiler = new OverPyCompiler();
 const decompiler = new OverPyDecompiler();
 
@@ -156,7 +159,7 @@ export function updateCompletionStateFromCompileResult(
 ): void {
     initializeCompletionState();
 
-    dynamicCompletionData = {
+    const next: DynamicCompletionData = {
         activatedExtensions: compileResult.activatedExtensions,
         availableExtensionPoints: compileResult.availableExtensionPoints,
         declarationDocs,
@@ -173,10 +176,12 @@ export function updateCompletionStateFromCompileResult(
         userEnums: compileResult.enumMembers,
     };
 
-    fillMacroCompletions(compileResult.macros);
-    fillAstMacroCompletions(Object.values(compileResult.astMacros), declarationDocs.macros);
-    fillAstConstantCompletions(Object.values(compileResult.astConstants), declarationDocs.macros);
-    dynamicCompletionDataByUri.set(uri, dynamicCompletionData);
+    fillMacroCompletions(next, compileResult.macros);
+    fillAstMacroCompletions(next, Object.values(compileResult.astMacros), declarationDocs.macros);
+    fillAstConstantCompletions(next, Object.values(compileResult.astConstants), declarationDocs.macros);
+
+    dynamicCompletionData = next;
+    dynamicCompletionDataByUri.set(uri, next);
 }
 
 /** Drops a closed document's cached completion data so its symbols stop affecting highlighting. */
@@ -541,9 +546,9 @@ function getUserEnumCompletionLists(
     return result;
 }
 
-function fillMacroCompletions(macros: MacroData[]): void {
-    dynamicCompletionData.normalMacros = {};
-    dynamicCompletionData.memberMacros = {};
+function fillMacroCompletions(target: DynamicCompletionData, macros: MacroData[]): void {
+    target.normalMacros = {};
+    target.memberMacros = {};
 
     for (const macro of macros) {
         const convertedMacro: CompletionData = {
@@ -557,16 +562,16 @@ function fillMacroCompletions(macros: MacroData[]): void {
         }
 
         if (macro.isMember) {
-            dynamicCompletionData.memberMacros[macroName] = convertedMacro;
+            target.memberMacros[macroName] = convertedMacro;
         } else {
-            dynamicCompletionData.normalMacros[macroName] = convertedMacro;
+            target.normalMacros[macroName] = convertedMacro;
         }
     }
 }
 
-function fillAstMacroCompletions(macros: AstMacroData[], docs: Map<string, string>): void {
-    dynamicCompletionData.normalAstMacros = {};
-    dynamicCompletionData.memberAstMacros = {};
+function fillAstMacroCompletions(target: DynamicCompletionData, macros: AstMacroData[], docs: Map<string, string>): void {
+    target.normalAstMacros = {};
+    target.memberAstMacros = {};
 
     for (const macro of macros) {
         let minIndent = Math.min(...macro.linesStr.map((line) => line.match(/^\s*/)![0].length));
@@ -591,16 +596,16 @@ function fillAstMacroCompletions(macros: AstMacroData[], docs: Map<string, strin
         }
 
         if (macro.class_) {
-            dynamicCompletionData.memberAstMacros[macroName.replace(".", "")] = convertedMacro;
+            target.memberAstMacros[macroName.replace(".", "")] = convertedMacro;
         } else {
-            dynamicCompletionData.normalAstMacros[macroName] = convertedMacro;
+            target.normalAstMacros[macroName] = convertedMacro;
         }
     }
 }
 
-function fillAstConstantCompletions(constants: AstConstantData[], docs: Map<string, string>): void {
-    dynamicCompletionData.normalAstConstants = {};
-    dynamicCompletionData.memberAstConstants = {};
+function fillAstConstantCompletions(target: DynamicCompletionData, constants: AstConstantData[], docs: Map<string, string>): void {
+    target.normalAstConstants = {};
+    target.memberAstConstants = {};
 
     for (const constant of constants) {
         const doc = docs.get((constant.class_ ?? "") + constant.name);
@@ -611,9 +616,9 @@ function fillAstConstantCompletions(constants: AstConstantData[], docs: Map<stri
         };
 
         if (constant.class_) {
-            dynamicCompletionData.memberAstConstants[constant.name.replace(".", "")] = convertedConstant;
+            target.memberAstConstants[constant.name.replace(".", "")] = convertedConstant;
         } else {
-            dynamicCompletionData.normalAstConstants[constant.name] = convertedConstant;
+            target.normalAstConstants[constant.name] = convertedConstant;
         }
     }
 }
