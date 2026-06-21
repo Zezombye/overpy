@@ -832,8 +832,8 @@ async function main(): Promise<void> {
     assert.ok(respawnHover);
     assert.doesNotMatch(getHoverText(respawnHover), /unrelated header/, "a blank line should break the comment block");
 
-    // §1.1 — cross-document state bleed: validating B must not erase A's symbols for
-    // hover/completion/signature/inlay. The per-URI snapshot, not the global, must win.
+    // Validating B must not erase A's symbols for hover/completion/signature/inlay:
+    // each consumer must read A's per-URI snapshot, not the most-recently-validated global.
     const bleedDocA = TextDocument.create(
         "file:///tmp/bleedA.opy",
         "overpy",
@@ -890,7 +890,7 @@ async function main(): Promise<void> {
     const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
     assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
 
-    // §4.1 — closing a main file must clear diagnostics it published to its includes,
+    // Closing a main file must clear diagnostics it published to its includes,
     // but never blank an include that is open or still published-to by another main file.
     const mainUri = "file:///tmp/close-main.opy";
     const includeUri = "file:///tmp/close-include.opy";
@@ -925,7 +925,7 @@ async function main(): Promise<void> {
         [],
     );
 
-    // Cluster B — shared identifier-at-position primitive characterization.
+    // Shared identifier-at-position primitive characterization.
     const primitiveDoc = TextDocument.create("file:///tmp/primitive.opy", "overpy", 1, "Hero.ANA = wait");
     const wordPattern = { char: /[A-Za-z0-9_]/, token: /^[A-Za-z0-9_]+$/ };
 
@@ -954,7 +954,7 @@ async function main(): Promise<void> {
     assert.ok(rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 4)));
     assert.ok(!rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 5)));
 
-    // §3.1 — `@`-annotations are highlighted with the `regexp` token type.
+    // `@`-annotations are highlighted with the `regexp` token type.
     const annotationTokenDocument = TextDocument.create(
         "file:///tmp/annotation-token.opy",
         "overpy",
@@ -967,7 +967,7 @@ async function main(): Promise<void> {
         "the @Event annotation should emit a regexp semantic token",
     );
 
-    // §6 — the .opy file index is cached per root and only refreshed on explicit invalidation.
+    // The .opy file index is cached per root and only refreshed on explicit invalidation.
     const cacheRoot = await mkdtemp(path.join(tmpdir(), "opy-cache-"));
     try {
         await writeFile(path.join(cacheRoot, "first.opy"), "globalvar a\n");
