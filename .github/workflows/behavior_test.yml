@@ -37,3 +37,7 @@ jobs:
             - name: Run CLI tests
               run: |
                   pnpm run test:cli
+
+            - name: Run LSP tests
+              run: |
+                  pnpm run test:lsp
