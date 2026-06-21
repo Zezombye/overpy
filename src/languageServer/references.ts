@@ -9,6 +9,7 @@ import {
     getWorkspaceDocuments,
     SymbolAtPosition,
 } from "./definition";
+import { getPrecedingQualifiedName, isOffsetInStringOrComment, maskStringsAndComments, rangesEqual } from "./documentUtils";
 import { getDocumentLines } from "./symbols";
 
 type DefinitionTarget = DefinitionEntry & {
@@ -103,12 +104,15 @@ function getReferenceTarget(
 
 function getDocumentReferences(document: TextDocument, target: DefinitionTarget): Location[] {
     const definitions = getDefinitionEntries(document);
+    const text = document.getText();
+    const masked = maskStringsAndComments(text);
     const references: Location[] = [];
 
     for (const [lineNumber, line] of getDocumentLines(document).entries()) {
         for (const occurrence of getWordOccurrences(line, target.name)) {
             const range = Range.create(lineNumber, occurrence.start, lineNumber, occurrence.end);
-            if (!isCodePosition(line, occurrence.start) || isDeclarationRange(definitions, range)) {
+            const offset = document.offsetAt({ line: lineNumber, character: occurrence.start });
+            if (isOffsetInStringOrComment(text, masked, offset) || isDeclarationRange(definitions, range)) {
                 continue;
             }
 
@@ -157,37 +161,6 @@ function getWordOccurrences(
     return occurrences;
 }
 
-function getPrecedingQualifiedName(line: string, wordStart: number): string | undefined {
-    if (wordStart < 2 || line.charAt(wordStart - 1) !== ".") {
-        return undefined;
-    }
-
-    let start = wordStart - 2;
-    while (start >= 0 && /[A-Za-z0-9_]/.test(line.charAt(start))) {
-        start--;
-    }
-
-    const precedingName = line.slice(start + 1, wordStart - 1);
-    return precedingName.length > 0 ? precedingName : undefined;
-}
-
-function isCodePosition(line: string, character: number): boolean {
-    let quote: string | undefined;
-
-    for (let index = 0; index < character; index++) {
-        const current = line.charAt(index);
-        if (quote === undefined && current === "#") {
-            return false;
-        }
-
-        if ((current === "\"" || current === "'") && (index === 0 || line.charAt(index - 1) !== "\\")) {
-            quote = quote === current ? undefined : quote ?? current;
-        }
-    }
-
-    return quote === undefined;
-}
-
 function uniqueLocations(locations: Location[]): Location[] {
     const seen = new Set<string>();
     const result: Location[] = [];
@@ -205,13 +178,4 @@ function uniqueLocations(locations: Location[]): Location[] {
 
 function locationsEqual(left: Location, right: Location): boolean {
     return left.uri === right.uri && rangesEqual(left.range, right.range);
-}
-
-function rangesEqual(left: Range, right: Range): boolean {
-    return (
-        left.start.line === right.start.line &&
-        left.start.character === right.start.character &&
-        left.end.line === right.end.line &&
-        left.end.character === right.end.character
-    );
 }

@@ -26,6 +26,7 @@ import { getDefinition, getWorkspaceDefinition } from "../languageServer/definit
 import { toLspDiagnostic } from "../languageServer/diagnostics";
 import { getDiagnosticUrisToClear } from "../languageServer/documentLifecycle";
 import { getDocumentLinks } from "../languageServer/documentLinks";
+import { getIdentifierAtPosition, getPrecedingQualifiedName, rangesEqual } from "../languageServer/documentUtils";
 import { getFoldingRanges } from "../languageServer/foldingRanges";
 import { getHover } from "../languageServer/hover";
 import { getInlayHints } from "../languageServer/inlayHints";
@@ -923,6 +924,35 @@ async function main(): Promise<void> {
         getDiagnosticUrisToClear("file:///tmp/never-validated.opy", loneMap, () => false),
         [],
     );
+
+    // Cluster B — shared identifier-at-position primitive characterization.
+    const primitiveDoc = TextDocument.create("file:///tmp/primitive.opy", "overpy", 1, "Hero.ANA = wait");
+    const wordPattern = { char: /[A-Za-z0-9_]/, token: /^[A-Za-z0-9_]+$/ };
+
+    // Cursor on the first token of a qualified name returns just that token.
+    const heroToken = getIdentifierAtPosition(primitiveDoc, { line: 0, character: 2 }, wordPattern.char, wordPattern.token);
+    assert.equal(heroToken?.text, "Hero");
+    assert.deepEqual(heroToken?.range, Range.create(0, 0, 0, 4));
+
+    // Cursor just past a token's end (on the boundary) still resolves the token.
+    const boundaryToken = getIdentifierAtPosition(primitiveDoc, { line: 0, character: 4 }, wordPattern.char, wordPattern.token);
+    assert.equal(boundaryToken?.text, "Hero");
+
+    // Cursor on whitespace with no adjacent word char returns null.
+    const noToken = getIdentifierAtPosition(
+        TextDocument.create("file:///tmp/none.opy", "overpy", 1, "   "),
+        { line: 0, character: 1 },
+        wordPattern.char,
+        wordPattern.token,
+    );
+    assert.equal(noToken, null);
+
+    // Preceding qualified name: the member after a dot reports its owner.
+    assert.equal(getPrecedingQualifiedName("Hero.ANA", "Hero.".length), "Hero");
+    assert.equal(getPrecedingQualifiedName("ANA", 0), undefined);
+
+    assert.ok(rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 4)));
+    assert.ok(!rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 5)));
 
     console.log("LSP adapter tests passed");
 }

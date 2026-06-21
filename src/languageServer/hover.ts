@@ -10,7 +10,7 @@ import {
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { CompletionState, getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
-import { isOffsetInStringOrComment, maskStringsAndComments } from "./documentUtils";
+import { getIdentifierAtPosition, isOffsetInStringOrComment, maskStringsAndComments, PositionedText } from "./documentUtils";
 
 export function getHover(document: TextDocument, position: Position): Hover | null {
     const text = document.getText();
@@ -190,53 +190,10 @@ function normalizeSymbolName(document: TextDocument, symbol: PositionedText): st
     return symbol.text;
 }
 
-type PositionedText = {
-    range: Range;
-    text: string;
-};
-
 function getQualifiedSymbolAtPosition(document: TextDocument, position: Position): PositionedText | null {
-    return getTextAtPosition(document, position, /[A-Za-z0-9_.]/, /[A-Za-z_][A-Za-z0-9_]*\.[A-Za-z_][A-Za-z0-9_]*/);
+    return getIdentifierAtPosition(document, position, /[A-Za-z0-9_.]/, /[A-Za-z_][A-Za-z0-9_]*\.[A-Za-z_][A-Za-z0-9_]*/);
 }
 
 function getSymbolAtPosition(document: TextDocument, position: Position): PositionedText | null {
-    return getTextAtPosition(document, position, /[@A-Za-z0-9_]/, /@?[A-Za-z_][A-Za-z0-9_]*/);
-}
-
-function getTextAtPosition(
-    document: TextDocument,
-    position: Position,
-    characterPattern: RegExp,
-    tokenPattern: RegExp,
-): PositionedText | null {
-    const text = document.getText();
-    let offset = document.offsetAt(position);
-
-    if (!characterPattern.test(text.charAt(offset)) && offset > 0 && characterPattern.test(text.charAt(offset - 1))) {
-        offset--;
-    }
-
-    if (!characterPattern.test(text.charAt(offset))) {
-        return null;
-    }
-
-    let startOffset = offset;
-    while (startOffset > 0 && characterPattern.test(text.charAt(startOffset - 1))) {
-        startOffset--;
-    }
-
-    let endOffset = offset + 1;
-    while (endOffset < text.length && characterPattern.test(text.charAt(endOffset))) {
-        endOffset++;
-    }
-
-    const tokenText = text.slice(startOffset, endOffset);
-    if (!tokenPattern.test(tokenText)) {
-        return null;
-    }
-
-    return {
-        text: tokenText,
-        range: Range.create(document.positionAt(startOffset), document.positionAt(endOffset)),
-    };
+    return getIdentifierAtPosition(document, position, /[@A-Za-z0-9_]/, /@?[A-Za-z_][A-Za-z0-9_]*/);
 }

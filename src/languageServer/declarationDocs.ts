@@ -1,3 +1,5 @@
+import { findLineCommentStart } from "./documentUtils";
+
 /**
  * Extracts documentation text from comments attached to user-defined declarations
  * (global/player variables, macros and enum members). A contiguous comment block
@@ -130,7 +132,7 @@ function getDocFor(lines: string[], declarationIndex: number): string | null {
 }
 
 function getTrailingComment(line: string): string | null {
-    const comment = findCommentStart(line);
+    const comment = findLineCommentStart(line);
     if (!comment || comment.directive) {
         return null;
     }
@@ -154,30 +156,3 @@ function getPrecedingComment(lines: string[], declarationIndex: number): string 
     return collected.length > 0 ? collected.join("  \n") : null;
 }
 
-function findCommentStart(line: string): { index: number; directive: boolean } | null {
-    let inString = false;
-    let quote = "";
-
-    for (let index = 0; index < line.length; index++) {
-        const character = line[index];
-
-        if (inString) {
-            if (character === quote && line[index - 1] !== "\\") {
-                inString = false;
-            }
-            continue;
-        }
-
-        if (character === "\"" || character === "'") {
-            inString = true;
-            quote = character;
-            continue;
-        }
-
-        if (character === "#") {
-            return { index, directive: line[index + 1] === "!" };
-        }
-    }
-
-    return null;
-}
