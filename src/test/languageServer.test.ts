@@ -85,7 +85,8 @@ async function main(): Promise<void> {
             "# Charge toward the ultimate",
             "playervar ultCharge",
             "def resetScore(): # Reset the score to zero",
-            "enum GameStatus:",
+            "# Tracks the match lifecycle",
+            "enum GameStatus: # high level summary",
             "    # Waiting for players to join",
             "    SETUP = 0",
             "    PLAYING = 1 # Match is live",
@@ -95,6 +96,8 @@ async function main(): Promise<void> {
     assert.equal(declarationDocs.variables.get("score"), "The team's score");
     assert.equal(declarationDocs.variables.get("ultCharge"), "Charge toward the ultimate");
     assert.equal(declarationDocs.subroutines.get("resetScore"), "Reset the score to zero");
+    // The enum itself merges its above-block comment with the inline comment on the declaration.
+    assert.equal(declarationDocs.enums.get("GameStatus"), "Tracks the match lifecycle  \nhigh level summary");
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("SETUP"), "Waiting for players to join");
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("PLAYING"), "Match is live");
 
@@ -646,6 +649,45 @@ async function main(): Promise<void> {
                 ],
             ],
         );
+
+        // Doc comments live in an #!included file but must surface on hover at the usage site,
+        // and the enum-name vs member side of the dot must resolve to different hovers.
+        const docsSharedPath = path.join(workspaceRoot, "docs-shared.opy");
+        await writeFile(
+            docsSharedPath,
+            [
+                "# The current game phase",
+                "enum DocState: # phase tracker",
+                "    # Waiting for players",
+                "    LOBBY = 0 # initial value",
+                "    LIVE = 1",
+            ].join("\n"),
+        );
+        const docsMainPath = path.join(workspaceRoot, "docs-main.opy");
+        const docsMainText = [
+            "#!include \"docs-shared.opy\"",
+            "rule \"r\":",
+            "    @Event global",
+            "    wait(DocState.LOBBY, Wait.IGNORE_CONDITION)",
+        ].join("\n");
+        await writeFile(docsMainPath, docsMainText);
+        const docsMainDocument = TextDocument.create(URI.file(docsMainPath).toString(), "overpy", 1, docsMainText);
+        await validateTextDocument(docsMainDocument, "en-US");
+
+        // Right of the dot -> member hover (merged above-block + inline comment from the included file).
+        const includedMemberHover = getHover(docsMainDocument, { line: 3, character: "    wait(DocState.LO".length });
+        assert.ok(includedMemberHover);
+        assert.match(getHoverText(includedMemberHover), /\*\*DocState\.LOBBY\*\*/);
+        assert.match(getHoverText(includedMemberHover), /Waiting for players/);
+        assert.match(getHoverText(includedMemberHover), /initial value/);
+
+        // Left of the dot -> enum-level hover (its own doc comment), never the member doc.
+        const includedEnumHover = getHover(docsMainDocument, { line: 3, character: "    wait(DocS".length });
+        assert.ok(includedEnumHover);
+        assert.match(getHoverText(includedEnumHover), /\*\*DocState\*\*/);
+        assert.match(getHoverText(includedEnumHover), /The current game phase/);
+        assert.match(getHoverText(includedEnumHover), /phase tracker/);
+        assert.doesNotMatch(getHoverText(includedEnumHover), /Waiting for players/);
     } finally {
         await rm(workspaceRoot, { force: true, recursive: true });
     }

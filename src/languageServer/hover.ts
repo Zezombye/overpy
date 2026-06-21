@@ -20,12 +20,29 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
 
     const qualifiedSymbol = getQualifiedSymbolAtPosition(document, position);
     if (qualifiedSymbol) {
-        const enumHover = getEnumMemberHover(qualifiedSymbol.text);
-        if (enumHover) {
-            return {
-                contents: enumHover,
-                range: qualifiedSymbol.range,
-            };
+        const dotIndex = qualifiedSymbol.text.indexOf(".");
+        const tokenStart = document.offsetAt(qualifiedSymbol.range.start);
+        const cursorInToken = document.offsetAt(position) - tokenStart;
+
+        // Hovering the part left of the `.` describes the enum itself; the part to the
+        // right (or the `.`) describes the member.
+        if (cursorInToken < dotIndex) {
+            const enumName = qualifiedSymbol.text.slice(0, dotIndex);
+            const enumNameHover = getEnumNameHover(enumName);
+            if (enumNameHover) {
+                return {
+                    contents: enumNameHover,
+                    range: Range.create(qualifiedSymbol.range.start, document.positionAt(tokenStart + dotIndex)),
+                };
+            }
+        } else {
+            const enumHover = getEnumMemberHover(qualifiedSymbol.text);
+            if (enumHover) {
+                return {
+                    contents: enumHover,
+                    range: Range.create(document.positionAt(tokenStart + dotIndex + 1), qualifiedSymbol.range.end),
+                };
+            }
         }
     }
 
@@ -96,6 +113,17 @@ function getFunctionHover(functionName: string): MarkupContent | null {
         kind: MarkupKind.Markdown,
         value: sections.join("\n\n"),
     };
+}
+
+function getEnumNameHover(enumName: string): MarkupContent | null {
+    const state = getCompletionState();
+    if (!state.constantValueCompletions[enumName]) {
+        return null;
+    }
+
+    // `defaultCompletions` carries the enum's own doc comment; fall back to the member-count
+    // summary for built-in enums that have no doc comment entry.
+    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName);
 }
 
 function getEnumTypeHover(symbolName: string): MarkupContent | null {

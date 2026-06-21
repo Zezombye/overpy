@@ -22,6 +22,29 @@ export function emptyDeclarationDocs(): DeclarationDocs {
     };
 }
 
+/**
+ * Folds the declarations found in `from` into `into`, mutating and returning `into`.
+ * Later merges win, so callers extract included files first and the focused document last
+ * (its unsaved buffer takes precedence over the on-disk copy of the same symbols).
+ */
+export function mergeDeclarationDocs(into: DeclarationDocs, from: DeclarationDocs): DeclarationDocs {
+    for (const key of ["variables", "subroutines", "macros", "enums"] as const) {
+        for (const [name, doc] of from[key]) {
+            into[key].set(name, doc);
+        }
+    }
+
+    for (const [enumName, members] of from.enumMembers) {
+        const target = into.enumMembers.get(enumName) ?? new Map<string, string>();
+        for (const [memberName, doc] of members) {
+            target.set(memberName, doc);
+        }
+        into.enumMembers.set(enumName, target);
+    }
+
+    return into;
+}
+
 export function extractDeclarationDocs(text: string): DeclarationDocs {
     const docs = emptyDeclarationDocs();
     const lines = text.split(/\r\n|\r|\n/);
