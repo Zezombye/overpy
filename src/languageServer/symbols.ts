@@ -75,8 +75,9 @@ function parseRule(line: string): Omit<StructuralItem, "line"> | null {
         return null;
     }
 
-    const nameStart = line.indexOf("\"") + 1;
-    const name = match[2] || "<empty>";
+    const quoteChar = match[3];
+    const nameStart = line.indexOf(quoteChar) + 1;
+    const name = match[4] || "<empty>";
     return {
         detail: "rule",
         indent: getIndent(match[1] ?? ""),

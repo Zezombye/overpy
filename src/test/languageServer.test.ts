@@ -213,7 +213,7 @@ async function main(): Promise<void> {
     );
     const semanticTokens = decodeSemanticTokens(getSemanticTokens(semanticDocument).data);
     assert.ok(semanticTokens.some((token) => token.line === 0 && token.character === 0 && token.length === 4 && token.type === "function"));
-    assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 0 && token.length === 4 && token.type === "enum"));
+    assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 0 && token.length === 4 && token.type === "constant.character.escape"));
     assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 5 && token.length === 3 && token.type === "enumMember"));
     assert.ok(semanticTokens.some((token) => token.line === 2 && token.character === 12 && token.type === "method"));
     assert.ok(!semanticTokens.some((token) => token.line === 0 && token.character > 7), "tokens inside comments should be ignored");
