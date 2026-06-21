@@ -38,7 +38,7 @@ import {OverPyCompiler, OverPyDecompiler} from "../godClasses";
 
 type CompletionData = {
     args?: Argument[] | null;
-    class?: string | String;
+    class?: string;
     description?: string;
     extension?: string;
     hideFromAutocomplete?: boolean;
@@ -200,10 +200,11 @@ export function makeSignatureHelp(
         return undefined;
     }
 
+    let effectiveParameter = activeParameter;
     if (keywordArgument !== null) {
         const keywordIndex = func.args.findIndex((arg) => arg.name === keywordArgument);
         if (keywordIndex >= 0) {
-            activeParameter = keywordIndex;
+            effectiveParameter = keywordIndex;
         }
     }
 
@@ -257,7 +258,7 @@ export function makeSignatureHelp(
 
     return {
         activeSignature: 0,
-        activeParameter: Math.min(activeParameter, visibleArgs.length - 1),
+        activeParameter: Math.min(effectiveParameter, visibleArgs.length - 1),
         signatures: [signature],
     };
 }

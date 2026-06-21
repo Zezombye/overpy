@@ -6,7 +6,7 @@ import { URI } from "vscode-uri";
 
 import { compile } from "../compiler/compiler";
 import type { OWLanguage } from "../types";
-import { OpyError as OverpyError } from "../utils/logging";
+import { OpyError } from "../utils/logging";
 import { groupDiagnosticsByUri, getDocumentFileInfo } from "./diagnostics";
 import { updateCompletionStateFromCompileResult } from "./completionState";
 import { DeclarationDocs, emptyDeclarationDocs, extractDeclarationDocs, mergeDeclarationDocs } from "./declarationDocs";
@@ -33,7 +33,7 @@ export async function validateTextDocument(
             diagnosticsByUri: groupDiagnosticsByUri(compileResult.encounteredWarnings, document),
         };
     } catch (error) {
-        if (error instanceof OverpyError) {
+        if (error instanceof OpyError) {
             return {
                 diagnosticsByUri: groupDiagnosticsByUri([error], document),
             };

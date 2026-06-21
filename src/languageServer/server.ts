@@ -63,6 +63,7 @@ const documents = new TextDocuments(TextDocument);
 const pendingValidations = new Map<string, NodeJS.Timeout>();
 const documentSettings = new Map<string, Thenable<OverpySettings>>();
 const previousDiagnosticUris = new Map<string, Set<string>>();
+const VALIDATION_DEBOUNCE_MS = 400;
 
 let hasConfigurationCapability = false;
 let hasSemanticTokensRefreshSupport = false;
@@ -251,7 +252,7 @@ connection.onCodeAction((params) => {
     return getCodeActions(document, params.context.diagnostics);
 });
 
-connection.onDefinition(async (params) => {
+connection.onDefinition((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -260,7 +261,7 @@ connection.onDefinition(async (params) => {
     return getWorkspaceDefinition(document, params.position, workspaceRoots, documents.all());
 });
 
-connection.onReferences(async (params) => {
+connection.onReferences((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return [];
@@ -275,7 +276,7 @@ connection.onReferences(async (params) => {
     );
 });
 
-connection.onPrepareRename(async (params) => {
+connection.onPrepareRename((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -284,7 +285,7 @@ connection.onPrepareRename(async (params) => {
     return getPrepareRename(document, params.position, workspaceRoots, documents.all());
 });
 
-connection.onRenameRequest(async (params) => {
+connection.onRenameRequest((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -307,7 +308,7 @@ function scheduleValidate(document: TextDocument): void {
         setTimeout(() => {
             pendingValidations.delete(document.uri);
             void validateAndPublish(document);
-        }, 400),
+        }, VALIDATION_DEBOUNCE_MS),
     );
 }
 
