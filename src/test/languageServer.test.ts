@@ -954,6 +954,19 @@ async function main(): Promise<void> {
     assert.ok(rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 4)));
     assert.ok(!rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 5)));
 
+    // §3.1 — `@`-annotations are highlighted with the `regexp` token type.
+    const annotationTokenDocument = TextDocument.create(
+        "file:///tmp/annotation-token.opy",
+        "overpy",
+        1,
+        "rule \"r\":\n    @Event global",
+    );
+    const annotationTokens = decodeSemanticTokens(getSemanticTokens(annotationTokenDocument).data);
+    assert.ok(
+        annotationTokens.some((token) => token.type === "regexp" && token.line === 1),
+        "the @Event annotation should emit a regexp semantic token",
+    );
+
     console.log("LSP adapter tests passed");
 }
 

@@ -33,6 +33,7 @@ import { valueFuncKw } from "../data/values";
 import { DeclarationDocs, emptyDeclarationDocs } from "./declarationDocs";
 import { builtInEnumNameToAstInfo } from "../compiler/parser";
 import type { Ast } from "../utils/ast";
+import { debug } from "../utils/logging";
 import {OverPyCompiler, OverPyDecompiler} from "../godClasses";
 
 type CompletionData = {
@@ -531,7 +532,9 @@ function getUserEnumCompletionLists(
                 let description = "A user-defined enum member.";
                 try {
                     description += `\n\nValue: \`${decompiler.astToOpy(memberAst)}\``;
-                } catch (e) {}
+                } catch (error) {
+                    debug(`astToOpy failed for enum member "${memberName}": ${error instanceof Error ? error.message : String(error)}`);
+                }
 
                 const doc = enumMemberDocs?.get(memberName);
                 if (doc) {

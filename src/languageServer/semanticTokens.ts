@@ -9,6 +9,10 @@ export const semanticTokenTypes = [
     "method",
     "macro",
     "variable",
+    // `constant.character.escape` is deliberately overloaded to color enum *type* names. The name is
+    // not literal here — it is reused because most themes map it to a distinct, readable color that
+    // suits enums. Do NOT rename it to something like `enum`: that would break the theme-color mapping
+    // editors already apply, regressing enum highlighting. `enumMember` (below) colors enum members.
     "constant.character.escape", //Enums
     "enumMember",
     "regexp", //@Annotations
@@ -56,7 +60,7 @@ function emitLineTokens(
         const nameStart = matchIndex + prefix.length;
 
         if (prefix === "@") {
-            //push(matchIndex, prefix.length + name.length, "regexp");
+            push(matchIndex, prefix.length + name.length, "regexp");
         } else if (prefix === ".") {
             const ownerName: string | null = previousEnd === matchIndex ? previousName : null;
             if (ownerName && index.enumTypes.has(ownerName) && index.enumMembers.get(ownerName)?.has(name)) {
