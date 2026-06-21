@@ -22,7 +22,7 @@ import { getCodeActions } from "../languageServer/codeActions";
 import { getCompletionList } from "../languageServer/completions";
 import { extractDeclarationDocs } from "../languageServer/declarationDocs";
 import { getColorPresentations, getDocumentColors } from "../languageServer/colors";
-import { getDefinition, getWorkspaceDefinition } from "../languageServer/definition";
+import { getDefinition, getWorkspaceDefinition, getWorkspaceDocuments, invalidateOpyFileCache } from "../languageServer/definition";
 import { toLspDiagnostic } from "../languageServer/diagnostics";
 import { getDiagnosticUrisToClear } from "../languageServer/documentLifecycle";
 import { getDocumentLinks } from "../languageServer/documentLinks";
@@ -966,6 +966,30 @@ async function main(): Promise<void> {
         annotationTokens.some((token) => token.type === "regexp" && token.line === 1),
         "the @Event annotation should emit a regexp semantic token",
     );
+
+    // §6 — the .opy file index is cached per root and only refreshed on explicit invalidation.
+    const cacheRoot = await mkdtemp(path.join(tmpdir(), "opy-cache-"));
+    try {
+        await writeFile(path.join(cacheRoot, "first.opy"), "globalvar a\n");
+        const probe = TextDocument.create(URI.file(path.join(cacheRoot, "probe.opy")).toString(), "overpy", 1, "globalvar p\n");
+
+        invalidateOpyFileCache();
+        const firstScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(firstScan.some((doc) => doc.uri.endsWith("first.opy")));
+
+        // Adding a file without invalidating must not appear (stale cache is intended).
+        await writeFile(path.join(cacheRoot, "second.opy"), "globalvar b\n");
+        const cachedScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(!cachedScan.some((doc) => doc.uri.endsWith("second.opy")), "new file is hidden until cache invalidated");
+
+        // After invalidation the new file is discovered.
+        invalidateOpyFileCache();
+        const freshScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(freshScan.some((doc) => doc.uri.endsWith("second.opy")), "invalidation refreshes the index");
+    } finally {
+        await rm(cacheRoot, { force: true, recursive: true });
+        invalidateOpyFileCache();
+    }
 
     console.log("LSP adapter tests passed");
 }

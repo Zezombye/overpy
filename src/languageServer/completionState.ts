@@ -300,6 +300,20 @@ export type SemanticTokenIndex = {
 
 const identifierPattern = /^[A-Za-z_][A-Za-z0-9_]*$/;
 
+let cachedKeywordNames: Set<string> | null = null;
+
+function getKeywordNames(): Set<string> {
+    if (cachedKeywordNames === null) {
+        cachedKeywordNames = new Set(
+            Object.keys(opyKeywords)
+                .concat(...Object.keys(valueFuncKw).filter((x) => valueFuncKw[x].args === null))
+                .concat(...Object.keys(actionKw).filter((x) => actionKw[x].args === null))
+                .concat(...Object.keys(opyFuncs).filter((x) => opyFuncs[x].args === null)),
+        );
+    }
+    return cachedKeywordNames;
+}
+
 /**
  * Builds a categorized lookup of every known symbol name for semantic highlighting.
  * `normal` holds names usable in a normal position; `member` holds names used after a `.`.
@@ -313,11 +327,7 @@ export function getSemanticTokenIndex(uri?: string): SemanticTokenIndex {
 
     const normal = new Map<string, SemanticSymbolKind>();
     const member = new Map<string, SemanticSymbolKind>();
-    const keywordNames = new Set(Object.keys(opyKeywords)
-        .concat(...Object.keys(valueFuncKw).filter(x => valueFuncKw[x].args === null))
-        .concat(...Object.keys(actionKw).filter(x => actionKw[x].args === null))
-        .concat(...Object.keys(opyFuncs).filter(x => opyFuncs[x].args === null))
-    );
+    const keywordNames = getKeywordNames();
 
     const addNames = (
         target: Map<string, SemanticSymbolKind>,

@@ -8,6 +8,13 @@ import { URI } from "vscode-uri";
 import { getIdentifierAtPosition, getPrecedingQualifiedName, rangesEqual } from "./documentUtils";
 import { getBlockEndLine, getDocumentLines, getDocumentStructure } from "./symbols";
 
+const opyFileCache = new Map<string, string[]>();
+
+/** Clears the cached `.opy` directory walk so the next workspace scan re-reads the filesystem. */
+export function invalidateOpyFileCache(): void {
+    opyFileCache.clear();
+}
+
 export type DefinitionEntry = {
     containerName?: string;
     detail: string;
@@ -171,6 +178,17 @@ export async function getWorkspaceDocuments(
 }
 
 async function findOpyFiles(root: string): Promise<string[]> {
+    const cached = opyFileCache.get(root);
+    if (cached) {
+        return cached;
+    }
+
+    const files = await walkOpyFiles(root);
+    opyFileCache.set(root, files);
+    return files;
+}
+
+async function walkOpyFiles(root: string): Promise<string[]> {
     try {
         const entries = await readdir(root, { withFileTypes: true });
         const files: string[] = [];
@@ -181,7 +199,7 @@ async function findOpyFiles(root: string): Promise<string[]> {
                 if ([".git", "node_modules", "out", "dist"].includes(entry.name)) {
                     continue;
                 }
-                files.push(...await findOpyFiles(entryPath));
+                files.push(...await walkOpyFiles(entryPath));
             } else if (entry.isFile() && entry.name.endsWith(".opy")) {
                 files.push(entryPath);
             }

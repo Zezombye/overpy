@@ -17,7 +17,7 @@ import { getCodeActions } from "./codeActions";
 import { getColorPresentations, getDocumentColors } from "./colors";
 import { getCompletionList } from "./completions";
 import { clearDocumentCompletionData } from "./completionState";
-import { getWorkspaceDefinition } from "./definition";
+import { getWorkspaceDefinition, invalidateOpyFileCache } from "./definition";
 import { getDiagnosticUrisToClear } from "./documentLifecycle";
 import { getDocumentLinks } from "./documentLinks";
 import { getFoldingRanges } from "./foldingRanges";
@@ -126,6 +126,12 @@ connection.onDidChangeConfiguration((change) => {
     for (const document of documents.all()) {
         scheduleValidate(document);
     }
+});
+
+connection.onDidChangeWatchedFiles(() => {
+    // The client watches `**/*.opy`; any create/delete/change can change the workspace file set,
+    // so drop the cached directory walk and let the next definition/reference scan rebuild it.
+    invalidateOpyFileCache();
 });
 
 documents.onDidOpen((event) => scheduleValidate(event.document));
