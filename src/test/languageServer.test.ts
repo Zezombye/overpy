@@ -804,6 +804,28 @@ async function main(): Promise<void> {
     assert.ok(playingItem);
     assert.match(getDocumentationValue(playingItem), /Match is live/);
 
+    // Extending a built-in enum adds members; it must not erase the built-in ones.
+    const extendedEnumDocument = TextDocument.create(
+        "file:///tmp/extend-hero.opy",
+        "overpy",
+        1,
+        ["enum Hero:", "    cat = Hero.JETPACK_CAT"].join("\n"),
+    );
+    await validateTextDocument(extendedEnumDocument, "en-US");
+    const extendedHeroCompletions = getCompletionList(
+        TextDocument.create("file:///tmp/hero-use.opy", "overpy", 1, "Hero."),
+        { line: 0, character: "Hero.".length },
+        ".",
+    );
+    assert.ok(
+        extendedHeroCompletions.items.some((item) => item.label === "cat"),
+        "extended enum member should be present",
+    );
+    assert.ok(
+        extendedHeroCompletions.items.some((item) => item.label === "ANA"),
+        "built-in enum members should survive extension",
+    );
+
     const macroDocsDocument = TextDocument.create(
         "file:///tmp/macros.opy",
         "overpy",

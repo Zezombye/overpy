@@ -445,20 +445,26 @@ function buildBaseCompletionData(): void {
 }
 
 function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
-    const constantValueCompletions = {
-        ...baseConstantValueCompletions,
-        ...getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers),
-    };
+    // An `enum Foo:` block extends Foo rather than replacing it, so user-declared members must be
+    // merged onto the built-in list (if any) for that enum, not spread over it — otherwise extending
+    // a built-in enum like Hero would drop every built-in member from completions.
+    const constantValueCompletions: Record<string, CompletionList> = { ...baseConstantValueCompletions };
+    const userEnumCompletions = getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers);
+    for (const [enumName, userList] of Object.entries(userEnumCompletions)) {
+        constantValueCompletions[enumName] = mergeEnumCompletionLists(baseConstantValueCompletions[enumName], userList);
+    }
 
     for (const constType of ["Beam", "Effect", "DynamicEffect"]) {
-        const baseList = baseConstantValueCompletions[constType];
-        if (!baseList) {
+        const list = constantValueCompletions[constType];
+        if (!list) {
             continue;
         }
 
+        // Hide built-in values gated behind an inactive extension. User-declared members are not
+        // in `constantValues`, so the lookup misses and they are always kept.
         constantValueCompletions[constType] = {
             isIncomplete: false,
-            items: baseList.items.filter((item) => {
+            items: list.items.filter((item) => {
                 const constantEntry = constantValues[constType]?.[item.label];
                 return !constantEntry || !("extension" in constantEntry) || dynamic.activatedExtensions.includes(constantEntry.extension ?? "<INVALID>");
             }),
@@ -527,6 +533,23 @@ function makeDefaultConstantValueCompletions(): Record<string, CompletionList> {
     }
 
     return completionLists;
+}
+
+/**
+ * Combines the built-in members of an enum (if it is a built-in) with the user-declared members
+ * that extend it. Built-in members come first; a user member whose label already exists is skipped
+ * so a redeclaration does not produce a duplicate completion item.
+ */
+function mergeEnumCompletionLists(baseList: CompletionList | undefined, userList: CompletionList): CompletionList {
+    if (!baseList) {
+        return userList;
+    }
+
+    const seen = new Set(baseList.items.map((item) => item.label));
+    return {
+        isIncomplete: false,
+        items: [...baseList.items, ...userList.items.filter((item) => !seen.has(item.label))],
+    };
 }
 
 function getUserEnumCompletionLists(
