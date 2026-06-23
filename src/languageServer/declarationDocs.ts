@@ -1,3 +1,5 @@
+import { findLineCommentStart } from "./documentUtils";
+
 /**
  * Extracts documentation text from comments attached to user-defined declarations
  * (global/player variables, macros and enum members). A contiguous comment block
@@ -20,6 +22,29 @@ export function emptyDeclarationDocs(): DeclarationDocs {
         enums: new Map(),
         enumMembers: new Map(),
     };
+}
+
+/**
+ * Folds the declarations found in `from` into `into`, mutating and returning `into`.
+ * Later merges win, so callers extract included files first and the focused document last
+ * (its unsaved buffer takes precedence over the on-disk copy of the same symbols).
+ */
+export function mergeDeclarationDocs(into: DeclarationDocs, from: DeclarationDocs): DeclarationDocs {
+    for (const key of ["variables", "subroutines", "macros", "enums"] as const) {
+        for (const [name, doc] of from[key]) {
+            into[key].set(name, doc);
+        }
+    }
+
+    for (const [enumName, members] of from.enumMembers) {
+        const target = into.enumMembers.get(enumName) ?? new Map<string, string>();
+        for (const [memberName, doc] of members) {
+            target.set(memberName, doc);
+        }
+        into.enumMembers.set(enumName, target);
+    }
+
+    return into;
 }
 
 export function extractDeclarationDocs(text: string): DeclarationDocs {
@@ -107,7 +132,7 @@ function getDocFor(lines: string[], declarationIndex: number): string | null {
 }
 
 function getTrailingComment(line: string): string | null {
-    const comment = findCommentStart(line);
+    const comment = findLineCommentStart(line);
     if (!comment || comment.directive) {
         return null;
     }
@@ -131,30 +156,3 @@ function getPrecedingComment(lines: string[], declarationIndex: number): string 
     return collected.length > 0 ? collected.join("  \n") : null;
 }
 
-function findCommentStart(line: string): { index: number; directive: boolean } | null {
-    let inString = false;
-    let quote = "";
-
-    for (let index = 0; index < line.length; index++) {
-        const character = line[index];
-
-        if (inString) {
-            if (character === quote && line[index - 1] !== "\\") {
-                inString = false;
-            }
-            continue;
-        }
-
-        if (character === "\"" || character === "'") {
-            inString = true;
-            quote = character;
-            continue;
-        }
-
-        if (character === "#") {
-            return { index, directive: line[index + 1] === "!" };
-        }
-    }
-
-    return null;
-}

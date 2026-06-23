@@ -33,11 +33,12 @@ import { valueFuncKw } from "../data/values";
 import { DeclarationDocs, emptyDeclarationDocs } from "./declarationDocs";
 import { builtInEnumNameToAstInfo } from "../compiler/parser";
 import type { Ast } from "../utils/ast";
+import { debug } from "../utils/logging";
 import {OverPyCompiler, OverPyDecompiler} from "../godClasses";
 
 type CompletionData = {
     args?: Argument[] | null;
-    class?: string | String;
+    class?: string;
     description?: string;
     extension?: string;
     hideFromAutocomplete?: boolean;
@@ -87,7 +88,10 @@ export type CompletionState = {
     stringEntityCompletions: CompletionList;
 };
 
-//Only used for astToOpy / typeToString
+// Retained instances, not free functions: `typeToString` (compiler) recurses via `this.typeToString`
+// and throws `this.error`, and `astToOpy` (decompiler) is a prototype method bound to its instance.
+// Extracting them would require detaching that `this`-dependent machinery, so the instances are
+// load-bearing. They are used only for `typeToString` (signature labels) and `astToOpy` (enum-member values).
 const compiler = new OverPyCompiler();
 const decompiler = new OverPyDecompiler();
 
@@ -140,13 +144,13 @@ export function initializeCompletionState(): void {
     }
 
     buildBaseCompletionData();
-    refreshCompletionState();
     initialized = true;
 }
 
-export function getCompletionState(): CompletionState {
+export function getCompletionState(uri?: string): CompletionState {
     initializeCompletionState();
-    return completionState;
+    const dynamic = (uri !== undefined ? dynamicCompletionDataByUri.get(uri) : undefined) ?? dynamicCompletionData;
+    return buildCompletionState(dynamic);
 }
 
 export function updateCompletionStateFromCompileResult(
@@ -156,7 +160,7 @@ export function updateCompletionStateFromCompileResult(
 ): void {
     initializeCompletionState();
 
-    dynamicCompletionData = {
+    const next: DynamicCompletionData = {
         activatedExtensions: compileResult.activatedExtensions,
         availableExtensionPoints: compileResult.availableExtensionPoints,
         declarationDocs,
@@ -173,11 +177,12 @@ export function updateCompletionStateFromCompileResult(
         userEnums: compileResult.enumMembers,
     };
 
-    fillMacroCompletions(compileResult.macros);
-    fillAstMacroCompletions(Object.values(compileResult.astMacros), declarationDocs.macros);
-    fillAstConstantCompletions(Object.values(compileResult.astConstants), declarationDocs.macros);
-    dynamicCompletionDataByUri.set(uri, dynamicCompletionData);
-    refreshCompletionState();
+    fillMacroCompletions(next, compileResult.macros);
+    fillAstMacroCompletions(next, Object.values(compileResult.astMacros), declarationDocs.macros);
+    fillAstConstantCompletions(next, Object.values(compileResult.astConstants), declarationDocs.macros);
+
+    dynamicCompletionData = next;
+    dynamicCompletionDataByUri.set(uri, next);
 }
 
 /** Drops a closed document's cached completion data so its symbols stop affecting highlighting. */
@@ -195,10 +200,11 @@ export function makeSignatureHelp(
         return undefined;
     }
 
+    let effectiveParameter = activeParameter;
     if (keywordArgument !== null) {
         const keywordIndex = func.args.findIndex((arg) => arg.name === keywordArgument);
         if (keywordIndex >= 0) {
-            activeParameter = keywordIndex;
+            effectiveParameter = keywordIndex;
         }
     }
 
@@ -252,7 +258,7 @@ export function makeSignatureHelp(
 
     return {
         activeSignature: 0,
-        activeParameter: Math.min(activeParameter, visibleArgs.length - 1),
+        activeParameter: Math.min(effectiveParameter, visibleArgs.length - 1),
         signatures: [signature],
     };
 }
@@ -295,6 +301,20 @@ export type SemanticTokenIndex = {
 
 const identifierPattern = /^[A-Za-z_][A-Za-z0-9_]*$/;
 
+let cachedKeywordNames: Set<string> | null = null;
+
+function getKeywordNames(): Set<string> {
+    if (cachedKeywordNames === null) {
+        cachedKeywordNames = new Set(
+            Object.keys(opyKeywords)
+                .concat(...Object.keys(valueFuncKw).filter((x) => valueFuncKw[x].args === null))
+                .concat(...Object.keys(actionKw).filter((x) => actionKw[x].args === null))
+                .concat(...Object.keys(opyFuncs).filter((x) => opyFuncs[x].args === null)),
+        );
+    }
+    return cachedKeywordNames;
+}
+
 /**
  * Builds a categorized lookup of every known symbol name for semantic highlighting.
  * `normal` holds names usable in a normal position; `member` holds names used after a `.`.
@@ -308,11 +328,7 @@ export function getSemanticTokenIndex(uri?: string): SemanticTokenIndex {
 
     const normal = new Map<string, SemanticSymbolKind>();
     const member = new Map<string, SemanticSymbolKind>();
-    const keywordNames = new Set(Object.keys(opyKeywords)
-        .concat(...Object.keys(valueFuncKw).filter(x => valueFuncKw[x].args === null))
-        .concat(...Object.keys(actionKw).filter(x => actionKw[x].args === null))
-        .concat(...Object.keys(opyFuncs).filter(x => opyFuncs[x].args === null))
-    );
+    const keywordNames = getKeywordNames();
 
     const addNames = (
         target: Map<string, SemanticSymbolKind>,
@@ -428,23 +444,29 @@ function buildBaseCompletionData(): void {
     );
 }
 
-function refreshCompletionState(): void {
-    const constantValueCompletions = {
-        ...baseConstantValueCompletions,
-        ...getUserEnumCompletionLists(dynamicCompletionData.userEnums, dynamicCompletionData.declarationDocs.enumMembers),
-    };
+function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
+    // An `enum Foo:` block extends Foo rather than replacing it, so user-declared members must be
+    // merged onto the built-in list (if any) for that enum, not spread over it — otherwise extending
+    // a built-in enum like Hero would drop every built-in member from completions.
+    const constantValueCompletions: Record<string, CompletionList> = { ...baseConstantValueCompletions };
+    const userEnumCompletions = getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers);
+    for (const [enumName, userList] of Object.entries(userEnumCompletions)) {
+        constantValueCompletions[enumName] = mergeEnumCompletionLists(baseConstantValueCompletions[enumName], userList);
+    }
 
     for (const constType of ["Beam", "Effect", "DynamicEffect"]) {
-        const baseList = baseConstantValueCompletions[constType];
-        if (!baseList) {
+        const list = constantValueCompletions[constType];
+        if (!list) {
             continue;
         }
 
+        // Hide built-in values gated behind an inactive extension. User-declared members are not
+        // in `constantValues`, so the lookup misses and they are always kept.
         constantValueCompletions[constType] = {
             isIncomplete: false,
-            items: baseList.items.filter((item) => {
+            items: list.items.filter((item) => {
                 const constantEntry = constantValues[constType]?.[item.label];
-                return !constantEntry || !("extension" in constantEntry) || dynamicCompletionData.activatedExtensions.includes(constantEntry.extension ?? "<INVALID>");
+                return !constantEntry || !("extension" in constantEntry) || dynamic.activatedExtensions.includes(constantEntry.extension ?? "<INVALID>");
             }),
         };
     }
@@ -453,39 +475,41 @@ function refreshCompletionState(): void {
         ...baseFunctionData,
         ...Object.fromEntries(
             Object.keys(constantValueCompletions).map((key) => {
-                const doc = dynamicCompletionData.declarationDocs.enums.get(key);
+                const doc = dynamic.declarationDocs.enums.get(key);
                 return [key, { description: doc ? `${doc}\n\nThe \`${key}\` enum.` : `The \`${key}\` enum.` }];
             }),
         ),
-        ...dynamicCompletionData.normalAstConstants,
-        ...dynamicCompletionData.normalMacros,
-        ...dynamicCompletionData.normalAstMacros,
-        ...dynamicCompletionData.globalVariables,
-        ...dynamicCompletionData.subroutines,
+        ...dynamic.normalAstConstants,
+        ...dynamic.normalMacros,
+        ...dynamic.normalAstMacros,
+        ...dynamic.globalVariables,
+        ...dynamic.subroutines,
     };
 
     const memberItems: Record<string, CompletionData> = {
         ...baseMemberFunctionData,
-        ...dynamicCompletionData.memberMacros,
-        ...dynamicCompletionData.memberAstConstants,
-        ...dynamicCompletionData.memberAstMacros,
-        ...dynamicCompletionData.playerVariables,
+        ...dynamic.memberMacros,
+        ...dynamic.memberAstConstants,
+        ...dynamic.memberAstMacros,
+        ...dynamic.playerVariables,
     };
 
-    completionState = {
-        ...completionState,
+    return {
+        annotationCompletions: completionState.annotationCompletions,
+        preprocessingCompletions: completionState.preprocessingCompletions,
+        stringEntityCompletions: completionState.stringEntityCompletions,
         constantValueCompletions,
         defaultCompletions: makeCompletionList(defaultItems, CompletionItemKind.Function),
         functionRegistry: {
             ...baseFunctionData,
             ...baseMemberFunctionData,
             ...baseModuleFunctionData,
-            ...dynamicCompletionData.normalAstConstants,
-            ...dynamicCompletionData.normalMacros,
-            ...dynamicCompletionData.normalAstMacros,
-            ...dynamicCompletionData.memberAstConstants,
-            ...dynamicCompletionData.memberMacros,
-            ...dynamicCompletionData.memberAstMacros,
+            ...dynamic.normalAstConstants,
+            ...dynamic.normalMacros,
+            ...dynamic.normalAstMacros,
+            ...dynamic.memberAstConstants,
+            ...dynamic.memberMacros,
+            ...dynamic.memberAstMacros,
         },
         memberCompletions: makeCompletionList(memberItems, CompletionItemKind.Method),
     };
@@ -511,6 +535,23 @@ function makeDefaultConstantValueCompletions(): Record<string, CompletionList> {
     return completionLists;
 }
 
+/**
+ * Combines the built-in members of an enum (if it is a built-in) with the user-declared members
+ * that extend it. Built-in members come first; a user member whose label already exists is skipped
+ * so a redeclaration does not produce a duplicate completion item.
+ */
+function mergeEnumCompletionLists(baseList: CompletionList | undefined, userList: CompletionList): CompletionList {
+    if (!baseList) {
+        return userList;
+    }
+
+    const seen = new Set(baseList.items.map((item) => item.label));
+    return {
+        isIncomplete: false,
+        items: [...baseList.items, ...userList.items.filter((item) => !seen.has(item.label))],
+    };
+}
+
 function getUserEnumCompletionLists(
     userEnums: Record<string, Record<string, Ast>>,
     memberDocs: Map<string, Map<string, string>>,
@@ -525,7 +566,9 @@ function getUserEnumCompletionLists(
                 let description = "A user-defined enum member.";
                 try {
                     description += `\n\nValue: \`${decompiler.astToOpy(memberAst)}\``;
-                } catch (e) {}
+                } catch (error) {
+                    debug(`astToOpy failed for enum member "${memberName}": ${error instanceof Error ? error.message : String(error)}`);
+                }
 
                 const doc = enumMemberDocs?.get(memberName);
                 if (doc) {
@@ -540,9 +583,9 @@ function getUserEnumCompletionLists(
     return result;
 }
 
-function fillMacroCompletions(macros: MacroData[]): void {
-    dynamicCompletionData.normalMacros = {};
-    dynamicCompletionData.memberMacros = {};
+function fillMacroCompletions(target: DynamicCompletionData, macros: MacroData[]): void {
+    target.normalMacros = {};
+    target.memberMacros = {};
 
     for (const macro of macros) {
         const convertedMacro: CompletionData = {
@@ -556,16 +599,16 @@ function fillMacroCompletions(macros: MacroData[]): void {
         }
 
         if (macro.isMember) {
-            dynamicCompletionData.memberMacros[macroName] = convertedMacro;
+            target.memberMacros[macroName] = convertedMacro;
         } else {
-            dynamicCompletionData.normalMacros[macroName] = convertedMacro;
+            target.normalMacros[macroName] = convertedMacro;
         }
     }
 }
 
-function fillAstMacroCompletions(macros: AstMacroData[], docs: Map<string, string>): void {
-    dynamicCompletionData.normalAstMacros = {};
-    dynamicCompletionData.memberAstMacros = {};
+function fillAstMacroCompletions(target: DynamicCompletionData, macros: AstMacroData[], docs: Map<string, string>): void {
+    target.normalAstMacros = {};
+    target.memberAstMacros = {};
 
     for (const macro of macros) {
         let minIndent = Math.min(...macro.linesStr.map((line) => line.match(/^\s*/)![0].length));
@@ -590,16 +633,16 @@ function fillAstMacroCompletions(macros: AstMacroData[], docs: Map<string, strin
         }
 
         if (macro.class_) {
-            dynamicCompletionData.memberAstMacros[macroName.replace(".", "")] = convertedMacro;
+            target.memberAstMacros[macroName.replace(".", "")] = convertedMacro;
         } else {
-            dynamicCompletionData.normalAstMacros[macroName] = convertedMacro;
+            target.normalAstMacros[macroName] = convertedMacro;
         }
     }
 }
 
-function fillAstConstantCompletions(constants: AstConstantData[], docs: Map<string, string>): void {
-    dynamicCompletionData.normalAstConstants = {};
-    dynamicCompletionData.memberAstConstants = {};
+function fillAstConstantCompletions(target: DynamicCompletionData, constants: AstConstantData[], docs: Map<string, string>): void {
+    target.normalAstConstants = {};
+    target.memberAstConstants = {};
 
     for (const constant of constants) {
         const doc = docs.get((constant.class_ ?? "") + constant.name);
@@ -610,9 +653,9 @@ function fillAstConstantCompletions(constants: AstConstantData[], docs: Map<stri
         };
 
         if (constant.class_) {
-            dynamicCompletionData.memberAstConstants[constant.name.replace(".", "")] = convertedConstant;
+            target.memberAstConstants[constant.name.replace(".", "")] = convertedConstant;
         } else {
-            dynamicCompletionData.normalAstConstants[constant.name] = convertedConstant;
+            target.normalAstConstants[constant.name] = convertedConstant;
         }
     }
 }

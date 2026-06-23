@@ -68,6 +68,7 @@ export async function compile(
     writeToOutputFile: boolean;
     mainFileName: string;
     rootPath: string,
+    importedFiles: string[];
 }> {
     const t0 = performance.now();
 
@@ -323,6 +324,7 @@ rule "Disable inspector":
         writeToOutputFile: compiler.writeToOutputFile,
         mainFileName: compiler.mainFileName,
         rootPath: compiler.rootPath,
+        importedFiles: compiler.importedFiles,
     };
 }
 

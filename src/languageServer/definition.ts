@@ -5,7 +5,15 @@ import { Location, Position, Range } from "vscode-languageserver/node";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { URI } from "vscode-uri";
 
+import { getIdentifierAtPosition, getPrecedingQualifiedName, rangesEqual } from "./documentUtils";
 import { getBlockEndLine, getDocumentLines, getDocumentStructure } from "./symbols";
+
+const opyFileCache = new Map<string, string[]>();
+
+/** Clears the cached `.opy` directory walk so the next workspace scan re-reads the filesystem. */
+export function invalidateOpyFileCache(): void {
+    opyFileCache.clear();
+}
 
 export type DefinitionEntry = {
     containerName?: string;
@@ -83,13 +91,14 @@ export function getMatchingDefinition(document: TextDocument, symbol: SymbolAtPo
 
 export function getDefinitionEntries(document: TextDocument): DefinitionEntry[] {
     const lines = getDocumentLines(document);
-    const entries: DefinitionEntry[] = getDocumentStructure(document).map((item) => ({
+    const structure = getDocumentStructure(document);
+    const entries: DefinitionEntry[] = structure.map((item) => ({
         detail: item.detail,
         name: item.name,
         range: Range.create(item.line, item.nameStart, item.line, item.nameEnd),
     }));
 
-    for (const item of getDocumentStructure(document)) {
+    for (const item of structure) {
         if (item.detail !== "enum") {
             continue;
         }
@@ -116,58 +125,17 @@ export function getDefinitionEntries(document: TextDocument): DefinitionEntry[] 
 }
 
 export function getSymbolAtPosition(document: TextDocument, position: Position): SymbolAtPosition | null {
-    const text = document.getText();
-    let offset = document.offsetAt(position);
-
-    if (!isWordCharacter(text.charAt(offset)) && offset > 0 && isWordCharacter(text.charAt(offset - 1))) {
-        offset--;
-    }
-
-    if (!isWordCharacter(text.charAt(offset))) {
+    const positioned = getIdentifierAtPosition(document, position, /[A-Za-z0-9_]/, /^[A-Za-z0-9_]+$/);
+    if (!positioned) {
         return null;
     }
 
-    const startOffset = findWordStart(text, offset);
-    const endOffset = findWordEnd(text, offset);
-    const name = text.slice(startOffset, endOffset);
-    const precedingName = getPrecedingQualifiedName(text, startOffset);
-
+    const startOffset = document.offsetAt(positioned.range.start);
     return {
-        name,
-        precedingName,
-        range: Range.create(document.positionAt(startOffset), document.positionAt(endOffset)),
+        name: positioned.text,
+        precedingName: getPrecedingQualifiedName(document.getText(), startOffset),
+        range: positioned.range,
     };
-}
-
-function getPrecedingQualifiedName(text: string, wordStartOffset: number): string | undefined {
-    if (wordStartOffset < 2 || text.charAt(wordStartOffset - 1) !== ".") {
-        return undefined;
-    }
-
-    const previousWordEnd = wordStartOffset - 1;
-    const previousWordStart = findWordStart(text, previousWordEnd - 1);
-    const previousWord = text.slice(previousWordStart, previousWordEnd);
-    return previousWord.length > 0 ? previousWord : undefined;
-}
-
-function findWordStart(text: string, offset: number): number {
-    let startOffset = offset;
-    while (startOffset > 0 && isWordCharacter(text.charAt(startOffset - 1))) {
-        startOffset--;
-    }
-    return startOffset;
-}
-
-function findWordEnd(text: string, offset: number): number {
-    let endOffset = offset + 1;
-    while (endOffset < text.length && isWordCharacter(text.charAt(endOffset))) {
-        endOffset++;
-    }
-    return endOffset;
-}
-
-function isWordCharacter(character: string): boolean {
-    return /[A-Za-z0-9_]/.test(character);
 }
 
 export async function getWorkspaceDocuments(
@@ -209,16 +177,18 @@ export async function getWorkspaceDocuments(
     return [...workspaceDocuments.values()];
 }
 
-function rangesEqual(left: Range, right: Range): boolean {
-    return (
-        left.start.line === right.start.line &&
-        left.start.character === right.start.character &&
-        left.end.line === right.end.line &&
-        left.end.character === right.end.character
-    );
+async function findOpyFiles(root: string): Promise<string[]> {
+    const cached = opyFileCache.get(root);
+    if (cached) {
+        return cached;
+    }
+
+    const files = await walkOpyFiles(root);
+    opyFileCache.set(root, files);
+    return files;
 }
 
-async function findOpyFiles(root: string): Promise<string[]> {
+async function walkOpyFiles(root: string): Promise<string[]> {
     try {
         const entries = await readdir(root, { withFileTypes: true });
         const files: string[] = [];
@@ -229,7 +199,7 @@ async function findOpyFiles(root: string): Promise<string[]> {
                 if ([".git", "node_modules", "out", "dist"].includes(entry.name)) {
                     continue;
                 }
-                files.push(...await findOpyFiles(entryPath));
+                files.push(...await walkOpyFiles(entryPath));
             } else if (entry.isFile() && entry.name.endsWith(".opy")) {
                 files.push(entryPath);
             }

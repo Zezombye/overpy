@@ -18,7 +18,7 @@ export function getSignatureHelp(
         return undefined;
     }
 
-    const functionData = getCompletionState().functionRegistry[signatureContext.functionName];
+    const functionData = getCompletionState(document.uri).functionRegistry[signatureContext.functionName];
     if (!functionData) {
         return undefined;
     }

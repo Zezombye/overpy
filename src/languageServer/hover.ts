@@ -9,8 +9,8 @@ import {
 } from "vscode-languageserver/node";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
-import { getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
-import { isOffsetInStringOrComment, maskStringsAndComments } from "./documentUtils";
+import { CompletionState, getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
+import { getIdentifierAtPosition, isOffsetInStringOrComment, maskStringsAndComments, PositionedText } from "./documentUtils";
 
 export function getHover(document: TextDocument, position: Position): Hover | null {
     const text = document.getText();
@@ -18,14 +18,33 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         return null;
     }
 
+    const state = getCompletionState(document.uri);
+
     const qualifiedSymbol = getQualifiedSymbolAtPosition(document, position);
     if (qualifiedSymbol) {
-        const enumHover = getEnumMemberHover(qualifiedSymbol.text);
-        if (enumHover) {
-            return {
-                contents: enumHover,
-                range: qualifiedSymbol.range,
-            };
+        const dotIndex = qualifiedSymbol.text.indexOf(".");
+        const tokenStart = document.offsetAt(qualifiedSymbol.range.start);
+        const cursorInToken = document.offsetAt(position) - tokenStart;
+
+        // Hovering the part left of the `.` describes the enum itself; the part to the
+        // right (or the `.`) describes the member.
+        if (cursorInToken < dotIndex) {
+            const enumName = qualifiedSymbol.text.slice(0, dotIndex);
+            const enumNameHover = getEnumNameHover(enumName, state);
+            if (enumNameHover) {
+                return {
+                    contents: enumNameHover,
+                    range: Range.create(qualifiedSymbol.range.start, document.positionAt(tokenStart + dotIndex)),
+                };
+            }
+        } else {
+            const enumHover = getEnumMemberHover(qualifiedSymbol.text, state);
+            if (enumHover) {
+                return {
+                    contents: enumHover,
+                    range: Range.create(document.positionAt(tokenStart + dotIndex + 1), qualifiedSymbol.range.end),
+                };
+            }
         }
     }
 
@@ -35,10 +54,9 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     }
 
     const normalizedName = normalizeSymbolName(document, symbol);
-    const state = getCompletionState();
     const functionData = state.functionRegistry[normalizedName];
     if (functionData) {
-        const functionHover = getFunctionHover(normalizedName);
+        const functionHover = getFunctionHover(normalizedName, state);
         if (functionHover) {
             return {
                 contents: functionHover,
@@ -53,7 +71,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         getCompletionHover(normalizedName, state.stringEntityCompletions) ??
         getCompletionHover(normalizedName, state.defaultCompletions) ??
         getCompletionHover(normalizedName, state.memberCompletions) ??
-        getEnumTypeHover(normalizedName);
+        getEnumTypeHover(normalizedName, state);
 
     if (!completionHover) {
         return null;
@@ -65,8 +83,8 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     };
 }
 
-function getFunctionHover(functionName: string): MarkupContent | null {
-    const functionData = getCompletionState().functionRegistry[functionName];
+function getFunctionHover(functionName: string, state: CompletionState): MarkupContent | null {
+    const functionData = state.functionRegistry[functionName];
     if (!functionData) {
         return null;
     }
@@ -98,8 +116,18 @@ function getFunctionHover(functionName: string): MarkupContent | null {
     };
 }
 
-function getEnumTypeHover(symbolName: string): MarkupContent | null {
-    const enumCompletions = getCompletionState().constantValueCompletions[symbolName];
+function getEnumNameHover(enumName: string, state: CompletionState): MarkupContent | null {
+    if (!state.constantValueCompletions[enumName]) {
+        return null;
+    }
+
+    // `defaultCompletions` carries the enum's own doc comment; fall back to the member-count
+    // summary for built-in enums that have no doc comment entry.
+    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName, state);
+}
+
+function getEnumTypeHover(symbolName: string, state: CompletionState): MarkupContent | null {
+    const enumCompletions = state.constantValueCompletions[symbolName];
     if (!enumCompletions) {
         return null;
     }
@@ -110,13 +138,13 @@ function getEnumTypeHover(symbolName: string): MarkupContent | null {
     };
 }
 
-function getEnumMemberHover(qualifiedName: string): MarkupContent | null {
+function getEnumMemberHover(qualifiedName: string, state: CompletionState): MarkupContent | null {
     const [enumName, memberName] = qualifiedName.split(".");
     if (!enumName || !memberName) {
         return null;
     }
 
-    const enumCompletions = getCompletionState().constantValueCompletions[enumName];
+    const enumCompletions = state.constantValueCompletions[enumName];
     const completion = enumCompletions?.items.find((item) => item.label === memberName);
     if (!completion) {
         return null;
@@ -162,53 +190,10 @@ function normalizeSymbolName(document: TextDocument, symbol: PositionedText): st
     return symbol.text;
 }
 
-type PositionedText = {
-    range: Range;
-    text: string;
-};
-
 function getQualifiedSymbolAtPosition(document: TextDocument, position: Position): PositionedText | null {
-    return getTextAtPosition(document, position, /[A-Za-z0-9_.]/, /[A-Za-z_][A-Za-z0-9_]*\.[A-Za-z_][A-Za-z0-9_]*/);
+    return getIdentifierAtPosition(document, position, /[A-Za-z0-9_.]/, /[A-Za-z_][A-Za-z0-9_]*\.[A-Za-z_][A-Za-z0-9_]*/);
 }
 
 function getSymbolAtPosition(document: TextDocument, position: Position): PositionedText | null {
-    return getTextAtPosition(document, position, /[@A-Za-z0-9_]/, /@?[A-Za-z_][A-Za-z0-9_]*/);
-}
-
-function getTextAtPosition(
-    document: TextDocument,
-    position: Position,
-    characterPattern: RegExp,
-    tokenPattern: RegExp,
-): PositionedText | null {
-    const text = document.getText();
-    let offset = document.offsetAt(position);
-
-    if (!characterPattern.test(text.charAt(offset)) && offset > 0 && characterPattern.test(text.charAt(offset - 1))) {
-        offset--;
-    }
-
-    if (!characterPattern.test(text.charAt(offset))) {
-        return null;
-    }
-
-    let startOffset = offset;
-    while (startOffset > 0 && characterPattern.test(text.charAt(startOffset - 1))) {
-        startOffset--;
-    }
-
-    let endOffset = offset + 1;
-    while (endOffset < text.length && characterPattern.test(text.charAt(endOffset))) {
-        endOffset++;
-    }
-
-    const tokenText = text.slice(startOffset, endOffset);
-    if (!tokenPattern.test(tokenText)) {
-        return null;
-    }
-
-    return {
-        text: tokenText,
-        range: Range.create(document.positionAt(startOffset), document.positionAt(endOffset)),
-    };
+    return getIdentifierAtPosition(document, position, /[@A-Za-z0-9_]/, /@?[A-Za-z_][A-Za-z0-9_]*/);
 }

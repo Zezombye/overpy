@@ -23,7 +23,7 @@ export function getInlayHints(document: TextDocument, range?: Range, minParamete
         return [];
     }
 
-    const state = getCompletionState();
+    const state = getCompletionState(document.uri);
     const masked = maskStringsAndComments(document.getText());
     const hints: InlayHint[] = [];
 

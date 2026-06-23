@@ -17,7 +17,8 @@ import { getCodeActions } from "./codeActions";
 import { getColorPresentations, getDocumentColors } from "./colors";
 import { getCompletionList } from "./completions";
 import { clearDocumentCompletionData } from "./completionState";
-import { getWorkspaceDefinition } from "./definition";
+import { getWorkspaceDefinition, invalidateOpyFileCache } from "./definition";
+import { getDiagnosticUrisToClear } from "./documentLifecycle";
 import { getDocumentLinks } from "./documentLinks";
 import { getFoldingRanges } from "./foldingRanges";
 import { getHover } from "./hover";
@@ -62,6 +63,7 @@ const documents = new TextDocuments(TextDocument);
 const pendingValidations = new Map<string, NodeJS.Timeout>();
 const documentSettings = new Map<string, Thenable<OverpySettings>>();
 const previousDiagnosticUris = new Map<string, Set<string>>();
+const VALIDATION_DEBOUNCE_MS = 400;
 
 let hasConfigurationCapability = false;
 let hasSemanticTokensRefreshSupport = false;
@@ -127,15 +129,32 @@ connection.onDidChangeConfiguration((change) => {
     }
 });
 
+connection.onDidChangeWatchedFiles(() => {
+    // The client watches `**/*.opy`; any create/delete/change can change the workspace file set,
+    // so drop the cached directory walk and let the next definition/reference scan rebuild it.
+    invalidateOpyFileCache();
+});
+
 documents.onDidOpen((event) => scheduleValidate(event.document));
 documents.onDidChangeContent((event) => scheduleValidate(event.document));
 documents.onDidSave((event) => scheduleValidate(event.document));
 documents.onDidClose((event) => {
-    clearPendingValidation(event.document.uri);
-    clearDocumentCompletionData(event.document.uri);
-    documentSettings.delete(event.document.uri);
-    previousDiagnosticUris.delete(event.document.uri);
-    connection.sendDiagnostics({ uri: event.document.uri, diagnostics: [] });
+    const closedUri = event.document.uri;
+    clearPendingValidation(closedUri);
+    clearDocumentCompletionData(closedUri);
+    documentSettings.delete(closedUri);
+
+    const urisToClear = getDiagnosticUrisToClear(
+        closedUri,
+        previousDiagnosticUris,
+        (uri) => documents.get(uri) !== undefined,
+    );
+    previousDiagnosticUris.delete(closedUri);
+
+    for (const uri of urisToClear) {
+        connection.sendDiagnostics({ uri, diagnostics: [] });
+    }
+    connection.sendDiagnostics({ uri: closedUri, diagnostics: [] });
 });
 
 connection.onCompletion((params): CompletionList | null => {
@@ -233,7 +252,7 @@ connection.onCodeAction((params) => {
     return getCodeActions(document, params.context.diagnostics);
 });
 
-connection.onDefinition(async (params) => {
+connection.onDefinition((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -242,7 +261,7 @@ connection.onDefinition(async (params) => {
     return getWorkspaceDefinition(document, params.position, workspaceRoots, documents.all());
 });
 
-connection.onReferences(async (params) => {
+connection.onReferences((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return [];
@@ -257,7 +276,7 @@ connection.onReferences(async (params) => {
     );
 });
 
-connection.onPrepareRename(async (params) => {
+connection.onPrepareRename((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -266,7 +285,7 @@ connection.onPrepareRename(async (params) => {
     return getPrepareRename(document, params.position, workspaceRoots, documents.all());
 });
 
-connection.onRenameRequest(async (params) => {
+connection.onRenameRequest((params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
@@ -289,7 +308,7 @@ function scheduleValidate(document: TextDocument): void {
         setTimeout(() => {
             pendingValidations.delete(document.uri);
             void validateAndPublish(document);
-        }, 400),
+        }, VALIDATION_DEBOUNCE_MS),
     );
 }
 

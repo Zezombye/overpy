@@ -23,7 +23,7 @@ import { Argument, Type } from "../../types";
 export const opyMemberFuncs: Record<string, {
     description: string,
     args: Argument[] | null,
-    class: String,
+    class: string,
     return: Type
 }> = {
     "x": {

@@ -22,9 +22,11 @@ import { getCodeActions } from "../languageServer/codeActions";
 import { getCompletionList } from "../languageServer/completions";
 import { extractDeclarationDocs } from "../languageServer/declarationDocs";
 import { getColorPresentations, getDocumentColors } from "../languageServer/colors";
-import { getDefinition, getWorkspaceDefinition } from "../languageServer/definition";
+import { getDefinition, getWorkspaceDefinition, getWorkspaceDocuments, invalidateOpyFileCache } from "../languageServer/definition";
 import { toLspDiagnostic } from "../languageServer/diagnostics";
+import { getDiagnosticUrisToClear } from "../languageServer/documentLifecycle";
 import { getDocumentLinks } from "../languageServer/documentLinks";
+import { getIdentifierAtPosition, getPrecedingQualifiedName, rangesEqual } from "../languageServer/documentUtils";
 import { getFoldingRanges } from "../languageServer/foldingRanges";
 import { getHover } from "../languageServer/hover";
 import { getInlayHints } from "../languageServer/inlayHints";
@@ -85,7 +87,8 @@ async function main(): Promise<void> {
             "# Charge toward the ultimate",
             "playervar ultCharge",
             "def resetScore(): # Reset the score to zero",
-            "enum GameStatus:",
+            "# Tracks the match lifecycle",
+            "enum GameStatus: # high level summary",
             "    # Waiting for players to join",
             "    SETUP = 0",
             "    PLAYING = 1 # Match is live",
@@ -95,6 +98,8 @@ async function main(): Promise<void> {
     assert.equal(declarationDocs.variables.get("score"), "The team's score");
     assert.equal(declarationDocs.variables.get("ultCharge"), "Charge toward the ultimate");
     assert.equal(declarationDocs.subroutines.get("resetScore"), "Reset the score to zero");
+    // The enum itself merges its above-block comment with the inline comment on the declaration.
+    assert.equal(declarationDocs.enums.get("GameStatus"), "Tracks the match lifecycle  \nhigh level summary");
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("SETUP"), "Waiting for players to join");
     assert.equal(declarationDocs.enumMembers.get("GameStatus")?.get("PLAYING"), "Match is live");
 
@@ -213,7 +218,7 @@ async function main(): Promise<void> {
     );
     const semanticTokens = decodeSemanticTokens(getSemanticTokens(semanticDocument).data);
     assert.ok(semanticTokens.some((token) => token.line === 0 && token.character === 0 && token.length === 4 && token.type === "function"));
-    assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 0 && token.length === 4 && token.type === "enum"));
+    assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 0 && token.length === 4 && token.type === "constant.character.escape"));
     assert.ok(semanticTokens.some((token) => token.line === 1 && token.character === 5 && token.length === 3 && token.type === "enumMember"));
     assert.ok(semanticTokens.some((token) => token.line === 2 && token.character === 12 && token.type === "method"));
     assert.ok(!semanticTokens.some((token) => token.line === 0 && token.character > 7), "tokens inside comments should be ignored");
@@ -646,6 +651,45 @@ async function main(): Promise<void> {
                 ],
             ],
         );
+
+        // Doc comments live in an #!included file but must surface on hover at the usage site,
+        // and the enum-name vs member side of the dot must resolve to different hovers.
+        const docsSharedPath = path.join(workspaceRoot, "docs-shared.opy");
+        await writeFile(
+            docsSharedPath,
+            [
+                "# The current game phase",
+                "enum DocState: # phase tracker",
+                "    # Waiting for players",
+                "    LOBBY = 0 # initial value",
+                "    LIVE = 1",
+            ].join("\n"),
+        );
+        const docsMainPath = path.join(workspaceRoot, "docs-main.opy");
+        const docsMainText = [
+            "#!include \"docs-shared.opy\"",
+            "rule \"r\":",
+            "    @Event global",
+            "    wait(DocState.LOBBY, Wait.IGNORE_CONDITION)",
+        ].join("\n");
+        await writeFile(docsMainPath, docsMainText);
+        const docsMainDocument = TextDocument.create(URI.file(docsMainPath).toString(), "overpy", 1, docsMainText);
+        await validateTextDocument(docsMainDocument, "en-US");
+
+        // Right of the dot -> member hover (merged above-block + inline comment from the included file).
+        const includedMemberHover = getHover(docsMainDocument, { line: 3, character: "    wait(DocState.LO".length });
+        assert.ok(includedMemberHover);
+        assert.match(getHoverText(includedMemberHover), /\*\*DocState\.LOBBY\*\*/);
+        assert.match(getHoverText(includedMemberHover), /Waiting for players/);
+        assert.match(getHoverText(includedMemberHover), /initial value/);
+
+        // Left of the dot -> enum-level hover (its own doc comment), never the member doc.
+        const includedEnumHover = getHover(docsMainDocument, { line: 3, character: "    wait(DocS".length });
+        assert.ok(includedEnumHover);
+        assert.match(getHoverText(includedEnumHover), /\*\*DocState\*\*/);
+        assert.match(getHoverText(includedEnumHover), /The current game phase/);
+        assert.match(getHoverText(includedEnumHover), /phase tracker/);
+        assert.doesNotMatch(getHoverText(includedEnumHover), /Waiting for players/);
     } finally {
         await rm(workspaceRoot, { force: true, recursive: true });
     }
@@ -760,6 +804,28 @@ async function main(): Promise<void> {
     assert.ok(playingItem);
     assert.match(getDocumentationValue(playingItem), /Match is live/);
 
+    // Extending a built-in enum adds members; it must not erase the built-in ones.
+    const extendedEnumDocument = TextDocument.create(
+        "file:///tmp/extend-hero.opy",
+        "overpy",
+        1,
+        ["enum Hero:", "    cat = Hero.JETPACK_CAT"].join("\n"),
+    );
+    await validateTextDocument(extendedEnumDocument, "en-US");
+    const extendedHeroCompletions = getCompletionList(
+        TextDocument.create("file:///tmp/hero-use.opy", "overpy", 1, "Hero."),
+        { line: 0, character: "Hero.".length },
+        ".",
+    );
+    assert.ok(
+        extendedHeroCompletions.items.some((item) => item.label === "cat"),
+        "extended enum member should be present",
+    );
+    assert.ok(
+        extendedHeroCompletions.items.some((item) => item.label === "ANA"),
+        "built-in enum members should survive extension",
+    );
+
     const macroDocsDocument = TextDocument.create(
         "file:///tmp/macros.opy",
         "overpy",
@@ -787,6 +853,165 @@ async function main(): Promise<void> {
     const respawnHover = getHover(macroDocsDocument, { line: 10, character: "    wait(RESPAW".length });
     assert.ok(respawnHover);
     assert.doesNotMatch(getHoverText(respawnHover), /unrelated header/, "a blank line should break the comment block");
+
+    // Validating B must not erase A's symbols for hover/completion/signature/inlay:
+    // each consumer must read A's per-URI snapshot, not the most-recently-validated global.
+    const bleedDocA = TextDocument.create(
+        "file:///tmp/bleedA.opy",
+        "overpy",
+        1,
+        [
+            "macro scaleA(value):",
+            "    value * 2",
+            "globalvar scoreA",
+            "rule \"rA\":",
+            "    @Event global",
+            "    scoreA = scaleA(scoreA)",
+        ].join("\n"),
+    );
+    const bleedDocB = TextDocument.create(
+        "file:///tmp/bleedB.opy",
+        "overpy",
+        1,
+        [
+            "macro scaleB(value):",
+            "    value * 3",
+            "globalvar scoreB",
+            "rule \"rB\":",
+            "    @Event global",
+            "    scoreB = scaleB(scoreB)",
+        ].join("\n"),
+    );
+    await validateTextDocument(bleedDocA, "en-US");
+    await validateTextDocument(bleedDocB, "en-US"); // global now reflects B
+
+    const bleedHover = getHover(bleedDocA, { line: 5, character: "    scoreA = sca".length });
+    assert.ok(bleedHover, "hover on A's macro must resolve from A's snapshot");
+    assert.match(getHoverText(bleedHover), /scaleA/);
+
+    const bleedCompletions = getCompletionList(bleedDocA, { line: 3, character: 0 });
+    assert.ok(
+        bleedCompletions.items.some((item) => item.label === "scaleA"),
+        "A's default completions must contain A's macro",
+    );
+    assert.ok(
+        !bleedCompletions.items.some((item) => item.label === "scaleB"),
+        "A's default completions must not contain B's macro",
+    );
+
+    const bleedSignature = getSignatureHelp(bleedDocA, { line: 5, character: "    scoreA = scaleA(".length }, "(");
+    assert.ok(bleedSignature, "signature help on A's macro must resolve from A's snapshot");
+
+    const bleedInlay = getInlayHints(bleedDocA);
+    assert.ok(
+        bleedInlay.some((hint) => hint.label === "value:"),
+        "inlay hints on A's call must resolve A's parameter name",
+    );
+
+    // Built-ins are shared, so they still resolve regardless of which document is focused.
+    const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
+    assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
+
+    // Closing a main file must clear diagnostics it published to its includes,
+    // but never blank an include that is open or still published-to by another main file.
+    const mainUri = "file:///tmp/close-main.opy";
+    const includeUri = "file:///tmp/close-include.opy";
+    const otherMainUri = "file:///tmp/close-other-main.opy";
+
+    // (1) Lone main closes -> its include is cleared (its own URI is excluded; the caller clears it).
+    const loneMap = new Map<string, Set<string>>([[mainUri, new Set([mainUri, includeUri])]]);
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, loneMap, () => false),
+        [includeUri],
+    );
+
+    // (2) Two mains share an include; closing one retains the shared include.
+    const sharedMap = new Map<string, Set<string>>([
+        [mainUri, new Set([mainUri, includeUri])],
+        [otherMainUri, new Set([otherMainUri, includeUri])],
+    ]);
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, sharedMap, () => false),
+        [],
+    );
+
+    // (3) The include is itself an open document -> never blanked.
+    assert.deepEqual(
+        getDiagnosticUrisToClear(mainUri, loneMap, (uri) => uri === includeUri),
+        [],
+    );
+
+    // (4) No recorded entry -> nothing to clear.
+    assert.deepEqual(
+        getDiagnosticUrisToClear("file:///tmp/never-validated.opy", loneMap, () => false),
+        [],
+    );
+
+    // Shared identifier-at-position primitive characterization.
+    const primitiveDoc = TextDocument.create("file:///tmp/primitive.opy", "overpy", 1, "Hero.ANA = wait");
+    const wordPattern = { char: /[A-Za-z0-9_]/, token: /^[A-Za-z0-9_]+$/ };
+
+    // Cursor on the first token of a qualified name returns just that token.
+    const heroToken = getIdentifierAtPosition(primitiveDoc, { line: 0, character: 2 }, wordPattern.char, wordPattern.token);
+    assert.equal(heroToken?.text, "Hero");
+    assert.deepEqual(heroToken?.range, Range.create(0, 0, 0, 4));
+
+    // Cursor just past a token's end (on the boundary) still resolves the token.
+    const boundaryToken = getIdentifierAtPosition(primitiveDoc, { line: 0, character: 4 }, wordPattern.char, wordPattern.token);
+    assert.equal(boundaryToken?.text, "Hero");
+
+    // Cursor on whitespace with no adjacent word char returns null.
+    const noToken = getIdentifierAtPosition(
+        TextDocument.create("file:///tmp/none.opy", "overpy", 1, "   "),
+        { line: 0, character: 1 },
+        wordPattern.char,
+        wordPattern.token,
+    );
+    assert.equal(noToken, null);
+
+    // Preceding qualified name: the member after a dot reports its owner.
+    assert.equal(getPrecedingQualifiedName("Hero.ANA", "Hero.".length), "Hero");
+    assert.equal(getPrecedingQualifiedName("ANA", 0), undefined);
+
+    assert.ok(rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 4)));
+    assert.ok(!rangesEqual(Range.create(0, 0, 0, 4), Range.create(0, 0, 0, 5)));
+
+    // `@`-annotations are highlighted with the `regexp` token type.
+    const annotationTokenDocument = TextDocument.create(
+        "file:///tmp/annotation-token.opy",
+        "overpy",
+        1,
+        "rule \"r\":\n    @Event global",
+    );
+    const annotationTokens = decodeSemanticTokens(getSemanticTokens(annotationTokenDocument).data);
+    assert.ok(
+        annotationTokens.some((token) => token.type === "regexp" && token.line === 1),
+        "the @Event annotation should emit a regexp semantic token",
+    );
+
+    // The .opy file index is cached per root and only refreshed on explicit invalidation.
+    const cacheRoot = await mkdtemp(path.join(tmpdir(), "opy-cache-"));
+    try {
+        await writeFile(path.join(cacheRoot, "first.opy"), "globalvar a\n");
+        const probe = TextDocument.create(URI.file(path.join(cacheRoot, "probe.opy")).toString(), "overpy", 1, "globalvar p\n");
+
+        invalidateOpyFileCache();
+        const firstScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(firstScan.some((doc) => doc.uri.endsWith("first.opy")));
+
+        // Adding a file without invalidating must not appear (stale cache is intended).
+        await writeFile(path.join(cacheRoot, "second.opy"), "globalvar b\n");
+        const cachedScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(!cachedScan.some((doc) => doc.uri.endsWith("second.opy")), "new file is hidden until cache invalidated");
+
+        // After invalidation the new file is discovered.
+        invalidateOpyFileCache();
+        const freshScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
+        assert.ok(freshScan.some((doc) => doc.uri.endsWith("second.opy")), "invalidation refreshes the index");
+    } finally {
+        await rm(cacheRoot, { force: true, recursive: true });
+        invalidateOpyFileCache();
+    }
 
     console.log("LSP adapter tests passed");
 }
