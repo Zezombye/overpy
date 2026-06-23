@@ -385,7 +385,7 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
                 } else if (this.replacementForEmptyString === "variable") {
                     content.args[i] = this.Ast("__globalVar__", [this.Ast("__emptyString__", [], [], "GlobalVariable")]);
                 } else {
-                    content.args[i] = this.Ast(".charAt", [this.getAstForEmptyArray(), this.getAstForNull()]);
+                    content.args[i] = this.Ast(".charAt", [this.getAstForEmptyArray(), this.getAstForFalse()]);
                 }
             }
         }
