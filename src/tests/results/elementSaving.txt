@@ -140,7 +140,7 @@ rule ("empty string") {
         Set Global Variable(A, String Slice(Empty Array, Global.B, Global.C));
         Set Global Variable(A, String Contains(Empty Array, Global.B));
         Set Global Variable(A, String Contains(Global.B, Empty Array));
-        Set Global Variable(A, Char In String(Empty Array, Null));
+        Set Global Variable(A, Char In String(Empty Array, False));
     }
 }
 

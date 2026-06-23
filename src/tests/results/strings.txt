@@ -138,7 +138,7 @@ rule ("optimizations") {
         "\"d\""
         Set Global Variable(B, Custom String("d"));
         "\"\""
-        Set Global Variable(C, Char In String(Empty Array, Null));
+        Set Global Variable(C, Char In String(Empty Array, False));
         "\"a\""
         Set Global Variable(D, Custom String("a"));
         "\"def\""
@@ -146,7 +146,7 @@ rule ("optimizations") {
         "\"abcd\""
         Set Global Variable(F, Custom String("abcd"));
         "\"\""
-        Set Global Variable(G, Char In String(Empty Array, Null));
+        Set Global Variable(G, Char In String(Empty Array, False));
         "should not be optimized"
         Set Global Variable(A, String Split(Custom String("ab|cd|ef"), Custom String("|")));
         //Optimize for size enabled

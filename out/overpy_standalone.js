@@ -70187,7 +70187,7 @@ OverPyCompiler.prototype.astToWs = function(content) {
         } else if (this.replacementForEmptyString === "variable") {
           content.args[i] = this.Ast("__globalVar__", [this.Ast("__emptyString__", [], [], "GlobalVariable")]);
         } else {
-          content.args[i] = this.Ast(".charAt", [this.getAstForEmptyArray(), this.getAstForNull()]);
+          content.args[i] = this.Ast(".charAt", [this.getAstForEmptyArray(), this.getAstForFalse()]);
         }
       }
     }
@@ -70935,7 +70935,8 @@ rule "Disable inspector":
     translatedStrings: compiler.translatedStrings,
     writeToOutputFile: compiler.writeToOutputFile,
     mainFileName: compiler.mainFileName,
-    rootPath: compiler.rootPath
+    rootPath: compiler.rootPath,
+    importedFiles: compiler.importedFiles
   };
 }
 OverPyCompiler.prototype.compileRules = function(astRules) {

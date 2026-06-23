@@ -190,6 +190,8 @@ async function getNpmToken() {
     fs.copyFileSync(path.join(__dirname, "README.md"), path.join(__dirname, "npm", "README.md"));
     fs.copyFileSync(path.join(__dirname, "LICENSE"), path.join(__dirname, "npm", "LICENSE"));
 
+    //to update vsce token: https://dev.azure.com/magmacubenetherrique/_usersSettings/tokens?id=3e200c8a-2af0-43c6-bc55-c8ae77caf2fd
+    //then: vsce login Zezombye
     run("pnpm vsce publish --no-dependencies --no-update-package-json --no-git-tag-version");
     await uploadToOpenVsx();
 
