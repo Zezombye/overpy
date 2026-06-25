@@ -1494,6 +1494,7 @@ export const mapKw: Record<string, import("../types").Map> =
             "hybrid",
         ],
         "en-US": "Neon Junction",
+        "zh-CN": "霓虹枢纽",
     },
     "nepal": {
         "guid": "00000000138A",
