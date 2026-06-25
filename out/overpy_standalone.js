@@ -3613,7 +3613,8 @@ var mapKw = (
         "skirmish",
         "hybrid"
       ],
-      "en-US": "Neon Junction"
+      "en-US": "Neon Junction",
+      "zh-CN": "\u9713\u8679\u67A2\u7EBD"
     },
     "nepal": {
       "guid": "00000000138A",
