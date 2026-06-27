@@ -758,6 +758,61 @@ async function main(): Promise<void> {
     const validDiagnostics = validValidation.diagnosticsByUri.get(validDocument.uri) ?? [];
     assert.equal(validDiagnostics.filter((item) => item.severity === DiagnosticSeverity.Error).length, 0);
 
+    // An error from a resolved enum member must point at the usage site, not the enum definition.
+    const enumUsageDocument = TextDocument.create(
+        "file:///tmp/enum-usage.opy",
+        "overpy",
+        1,
+        ["enum Wa:", "    h = 1", "", "Wa.h"].join("\n"),
+    );
+    const enumUsageValidation = await validateTextDocument(enumUsageDocument, "en-US");
+    const enumUsageDiagnostics = enumUsageValidation.diagnosticsByUri.get(enumUsageDocument.uri) ?? [];
+    const enumUsageError = enumUsageDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(enumUsageError, "expected an error for an enum member used outside a rule");
+    assert.equal(enumUsageError.range.start.line, 3, "enum usage error should be on the `Wa.h` line");
+    assert.equal(enumUsageError.range.start.character, 0);
+
+    // An error from a resolved macro constant must point at the usage site, not the macro definition.
+    const macroUsageDocument = TextDocument.create(
+        "file:///tmp/macro-usage.opy",
+        "overpy",
+        1,
+        ["macro foo = 1", "", "foo"].join("\n"),
+    );
+    const macroUsageValidation = await validateTextDocument(macroUsageDocument, "en-US");
+    const macroUsageDiagnostics = macroUsageValidation.diagnosticsByUri.get(macroUsageDocument.uri) ?? [];
+    const macroUsageError = macroUsageDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroUsageError, "expected an error for a macro constant used outside a rule");
+    assert.equal(macroUsageError.range.start.line, 2, "macro usage error should be on the `foo` line");
+    assert.equal(macroUsageError.range.start.character, 0);
+
+    // A placement error from an expanded function macro must point at the call site, not the macro body.
+    const macroCallDocument = TextDocument.create(
+        "file:///tmp/macro-call.opy",
+        "overpy",
+        1,
+        ["macro a(b, c):", "    b + c", "", "a(1, 2)"].join("\n"),
+    );
+    const macroCallValidation = await validateTextDocument(macroCallDocument, "en-US");
+    const macroCallDiagnostics = macroCallValidation.diagnosticsByUri.get(macroCallDocument.uri) ?? [];
+    const macroCallError = macroCallDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroCallError, "expected an error for a function macro called outside a rule");
+    assert.equal(macroCallError.range.start.line, 3, "function macro placement error should be on the `a(1, 2)` line");
+    assert.equal(macroCallError.range.start.character, 0);
+
+    // A real error inside a macro body must still point into the body, not the call site.
+    const macroBodyErrorDocument = TextDocument.create(
+        "file:///tmp/macro-body.opy",
+        "overpy",
+        1,
+        ["macro a(b, c):", "    b + c + zzz", "", "rule \"r\":", "    @Event global", "    a(1, 2)"].join("\n"),
+    );
+    const macroBodyErrorValidation = await validateTextDocument(macroBodyErrorDocument, "en-US");
+    const macroBodyErrorDiagnostics = macroBodyErrorValidation.diagnosticsByUri.get(macroBodyErrorDocument.uri) ?? [];
+    const macroBodyError = macroBodyErrorDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroBodyError, "expected an error for an undefined name in a macro body");
+    assert.equal(macroBodyError.range.start.line, 1, "macro body error should stay on the body line");
+
     const documentedDocument = TextDocument.create(
         "file:///tmp/documented.opy",
         "overpy",
