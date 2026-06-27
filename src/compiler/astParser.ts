@@ -362,7 +362,8 @@ OverPyCompiler.prototype.parseAstRules = function(rules: Ast[]) {
         } else if (rule.name === "pass") {
             continue;
         } else {
-            this.error("Unexpected function '" + rule.name + "' outside a rule");
+            const usageFrame = rule.fileStack.find((frame) => frame.staticMember);
+            this.error("Unexpected function '" + rule.name + "' outside a rule", usageFrame ? [usageFrame] : rule.fileStack);
         }
 
         this.currentRuleName = rule.ruleAttributes.name;

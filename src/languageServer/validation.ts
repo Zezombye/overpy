@@ -6,6 +6,7 @@ import { URI } from "vscode-uri";
 
 import { compile } from "../compiler/compiler";
 import type { OWLanguage } from "../types";
+import { setFileContentOverlay } from "../utils/file";
 import { OpyError } from "../utils/logging";
 import { groupDiagnosticsByUri, getDocumentFileInfo } from "./diagnostics";
 import { updateCompletionStateFromCompileResult } from "./completionState";
@@ -19,10 +20,12 @@ export type ValidationResult = {
 export async function validateTextDocument(
     document: TextDocument,
     workshopLanguage: OWLanguage = "en-US",
+    openDocuments: readonly TextDocument[] = [document],
 ): Promise<ValidationResult> {
     await initializeLanguageServerRuntime();
 
     const { rootPath, mainFileName } = getDocumentFileInfo(document);
+    setFileContentOverlay(buildFileContentOverlay(openDocuments));
 
     try {
         const compileResult = await compile(document.getText(), workshopLanguage, rootPath, mainFileName);
@@ -41,6 +44,17 @@ export async function validateTextDocument(
 
         throw error;
     }
+}
+
+function buildFileContentOverlay(openDocuments: readonly TextDocument[]): Map<string, string> {
+    const overlay = new Map<string, string>();
+    for (const openDocument of openDocuments) {
+        const fsPath = URI.parse(openDocument.uri).fsPath.replaceAll("\\", "/");
+        if (fsPath.endsWith(".opy")) {
+            overlay.set(fsPath, openDocument.getText());
+        }
+    }
+    return overlay;
 }
 
 /**

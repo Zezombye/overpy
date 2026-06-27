@@ -758,6 +758,61 @@ async function main(): Promise<void> {
     const validDiagnostics = validValidation.diagnosticsByUri.get(validDocument.uri) ?? [];
     assert.equal(validDiagnostics.filter((item) => item.severity === DiagnosticSeverity.Error).length, 0);
 
+    // An error from a resolved enum member must point at the usage site, not the enum definition.
+    const enumUsageDocument = TextDocument.create(
+        "file:///tmp/enum-usage.opy",
+        "overpy",
+        1,
+        ["enum Wa:", "    h = 1", "", "Wa.h"].join("\n"),
+    );
+    const enumUsageValidation = await validateTextDocument(enumUsageDocument, "en-US");
+    const enumUsageDiagnostics = enumUsageValidation.diagnosticsByUri.get(enumUsageDocument.uri) ?? [];
+    const enumUsageError = enumUsageDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(enumUsageError, "expected an error for an enum member used outside a rule");
+    assert.equal(enumUsageError.range.start.line, 3, "enum usage error should be on the `Wa.h` line");
+    assert.equal(enumUsageError.range.start.character, 0);
+
+    // An error from a resolved macro constant must point at the usage site, not the macro definition.
+    const macroUsageDocument = TextDocument.create(
+        "file:///tmp/macro-usage.opy",
+        "overpy",
+        1,
+        ["macro foo = 1", "", "foo"].join("\n"),
+    );
+    const macroUsageValidation = await validateTextDocument(macroUsageDocument, "en-US");
+    const macroUsageDiagnostics = macroUsageValidation.diagnosticsByUri.get(macroUsageDocument.uri) ?? [];
+    const macroUsageError = macroUsageDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroUsageError, "expected an error for a macro constant used outside a rule");
+    assert.equal(macroUsageError.range.start.line, 2, "macro usage error should be on the `foo` line");
+    assert.equal(macroUsageError.range.start.character, 0);
+
+    // A placement error from an expanded function macro must point at the call site, not the macro body.
+    const macroCallDocument = TextDocument.create(
+        "file:///tmp/macro-call.opy",
+        "overpy",
+        1,
+        ["macro a(b, c):", "    b + c", "", "a(1, 2)"].join("\n"),
+    );
+    const macroCallValidation = await validateTextDocument(macroCallDocument, "en-US");
+    const macroCallDiagnostics = macroCallValidation.diagnosticsByUri.get(macroCallDocument.uri) ?? [];
+    const macroCallError = macroCallDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroCallError, "expected an error for a function macro called outside a rule");
+    assert.equal(macroCallError.range.start.line, 3, "function macro placement error should be on the `a(1, 2)` line");
+    assert.equal(macroCallError.range.start.character, 0);
+
+    // A real error inside a macro body must still point into the body, not the call site.
+    const macroBodyErrorDocument = TextDocument.create(
+        "file:///tmp/macro-body.opy",
+        "overpy",
+        1,
+        ["macro a(b, c):", "    b + c + zzz", "", "rule \"r\":", "    @Event global", "    a(1, 2)"].join("\n"),
+    );
+    const macroBodyErrorValidation = await validateTextDocument(macroBodyErrorDocument, "en-US");
+    const macroBodyErrorDiagnostics = macroBodyErrorValidation.diagnosticsByUri.get(macroBodyErrorDocument.uri) ?? [];
+    const macroBodyError = macroBodyErrorDiagnostics.find((item) => item.severity === DiagnosticSeverity.Error);
+    assert.ok(macroBodyError, "expected an error for an undefined name in a macro body");
+    assert.equal(macroBodyError.range.start.line, 1, "macro body error should stay on the body line");
+
     const documentedDocument = TextDocument.create(
         "file:///tmp/documented.opy",
         "overpy",
@@ -911,6 +966,42 @@ async function main(): Promise<void> {
     // Built-ins are shared, so they still resolve regardless of which document is focused.
     const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
     assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
+
+    const overlayRoot = await mkdtemp(path.join(tmpdir(), "overpy-overlay-"));
+    try {
+        const includePath = path.join(overlayRoot, "lib.opy");
+        await writeFile(includePath, "macro ON_DISK_MACRO = 1\n");
+        const overlayMainPath = path.join(overlayRoot, "overlay-main.opy");
+        const overlayMainText = [
+            "#!include \"lib.opy\"",
+            "globalvar score",
+            "rule \"r\":",
+            "    @Event global",
+            "    score = ON_DISK_MACRO",
+        ].join("\n");
+        await writeFile(overlayMainPath, overlayMainText);
+
+        const overlayMainDoc = TextDocument.create(URI.file(overlayMainPath).toString(), "overpy", 1, overlayMainText);
+        const overlayIncludeDoc = TextDocument.create(
+            URI.file(includePath).toString(),
+            "overpy",
+            2,
+            "macro ON_DISK_MACRO = 1\nmacro UNSAVED_MACRO = 2\n",
+        );
+
+        await validateTextDocument(overlayMainDoc, "en-US", [overlayMainDoc, overlayIncludeDoc]);
+        const overlayCompletions = getCompletionList(overlayMainDoc, { line: 2, character: 0 });
+        assert.ok(
+            overlayCompletions.items.some((item) => item.label === "ON_DISK_MACRO"),
+            "on-disk include macro must still resolve",
+        );
+        assert.ok(
+            overlayCompletions.items.some((item) => item.label === "UNSAVED_MACRO"),
+            "unsaved open-include macro must resolve from the live buffer overlay",
+        );
+    } finally {
+        await rm(overlayRoot, { force: true, recursive: true });
+    }
 
     // Closing a main file must clear diagnostics it published to its includes,
     // but never blank an include that is open or still published-to by another main file.

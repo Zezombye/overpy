@@ -20,6 +20,12 @@
 import {OverPyCompiler} from "../godClasses";
 import { debug } from "./logging";
 
+let fileContentOverlay = new Map<string, string>();
+
+export function setFileContentOverlay(overlay: Map<string, string>): void {
+    fileContentOverlay = overlay;
+}
+
 OverPyCompiler.prototype.getFilenameFromPath = function(filename: string) {
     try {
         var path = require("path");
@@ -69,14 +75,21 @@ OverPyCompiler.prototype.getFilePaths = function(pathStr: string, basePath: stri
 }
 
 OverPyCompiler.prototype.getFileContent = function(path: string): string {
+    if (path.endsWith(".opy") && this.importedFiles.includes(path)) {
+        this.warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
+        return "";
+    }
+
+    const overlayContent = fileContentOverlay.get(path);
+    if (overlayContent !== undefined) {
+        this.importedFiles.push(path);
+        return overlayContent + "\n";
+    }
+
     try {
         var fs = require("fs");
     } catch (e) {
         this.error("Cannot import files in browsers (fs not found)");
-    }
-    if (path.endsWith(".opy") && this.importedFiles.includes(path)) {
-        this.warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
-        return "";
     }
     try {
         this.importedFiles.push(path);

@@ -922,7 +922,9 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
 
         //Check for constant
         if (name in this.astConstants) {
-            return this.astConstants[name].value.clone();
+            let result = this.astConstants[name].value.clone();
+            result.fileStack = this.getFileStackRange(content);
+            return result;
         }
 
 
@@ -1222,7 +1224,9 @@ OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]
             //Check for member of a user-declared enum
             //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
             if (object[0].text in this.enumMembers && name in this.enumMembers[object[0].text]) {
-                return this.enumMembers[object[0].text][name].clone();
+                let result = this.enumMembers[object[0].text][name].clone();
+                result.fileStack = this.getFileStackRange(object.concat(...member));
+                return result;
             }
 
             //Fix for older gamemodes
