@@ -1100,7 +1100,7 @@ async function main(): Promise<void> {
         const freshScan = await getWorkspaceDocuments(probe, [cacheRoot], []);
         assert.ok(freshScan.some((doc) => doc.uri.endsWith("second.opy")), "invalidation refreshes the index");
     } finally {
-        await rm(cacheRoot, { force: true, recursive: true });
+        await rm(cacheRoot, { recursive: true });
         invalidateOpyFileCache();
     }
 

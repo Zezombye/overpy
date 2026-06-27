@@ -48675,7 +48675,9 @@ OverPyCompiler.prototype.parse = function(content, kwargs = {}) {
       return this.Ast("$" + name);
     }
     if (name in this.astConstants) {
-      return this.astConstants[name].value.clone();
+      let result2 = this.astConstants[name].value.clone();
+      result2.fileStack = this.getFileStackRange(content);
+      return result2;
     }
     if (isNumber(name)) {
       if (name.startsWith("0x")) {
@@ -48927,7 +48929,9 @@ OverPyCompiler.prototype.parseMember = function(object, member) {
         object[0].text = "StartRuleBehavior";
       }
       if (object[0].text in this.enumMembers && name in this.enumMembers[object[0].text]) {
-        return this.enumMembers[object[0].text][name].clone();
+        let result2 = this.enumMembers[object[0].text][name].clone();
+        result2.fileStack = this.getFileStackRange(object.concat(...member));
+        return result2;
       }
       if (object[0].text === "Hero" && name === "MCCREE") {
         name = "CASSIDY";
@@ -50280,6 +50284,7 @@ OverPyDecompiler.prototype.getName = function(content) {
 };
 
 // src/utils/file.ts
+var fileContentOverlay = /* @__PURE__ */ new Map();
 OverPyCompiler.prototype.getFilenameFromPath = function(filename) {
   try {
     var path = require("path");
@@ -50320,14 +50325,19 @@ OverPyCompiler.prototype.getFilePaths = function(pathStr, basePath) {
   return matchingFiles;
 };
 OverPyCompiler.prototype.getFileContent = function(path) {
+  if (path.endsWith(".opy") && this.importedFiles.includes(path)) {
+    this.warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
+    return "";
+  }
+  const overlayContent = fileContentOverlay.get(path);
+  if (overlayContent !== void 0) {
+    this.importedFiles.push(path);
+    return overlayContent + "\n";
+  }
   try {
     var fs = require("fs");
   } catch (e) {
     this.error("Cannot import files in browsers (fs not found)");
-  }
-  if (path.endsWith(".opy") && this.importedFiles.includes(path)) {
-    this.warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
-    return "";
   }
   try {
     this.importedFiles.push(path);
@@ -69534,7 +69544,8 @@ OverPyCompiler.prototype.parseAstRules = function(rules) {
     } else if (rule.name === "pass") {
       continue;
     } else {
-      this.error("Unexpected function '" + rule.name + "' outside a rule");
+      const usageFrame = rule.fileStack.find((frame) => frame.staticMember);
+      this.error("Unexpected function '" + rule.name + "' outside a rule", usageFrame ? [usageFrame] : rule.fileStack);
     }
     this.currentRuleName = rule.ruleAttributes.name;
     this.currentRuleEvent = rule.ruleAttributes.event;
