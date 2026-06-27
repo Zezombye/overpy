@@ -912,6 +912,42 @@ async function main(): Promise<void> {
     const bleedBuiltinHover = getHover(bleedDocA, { line: 5, character: "    scoreA = scaleA(sco".length });
     assert.ok(bleedBuiltinHover, "built-in/user symbols in A still hover after B validated");
 
+    const overlayRoot = await mkdtemp(path.join(tmpdir(), "overpy-overlay-"));
+    try {
+        const includePath = path.join(overlayRoot, "lib.opy");
+        await writeFile(includePath, "macro ON_DISK_MACRO = 1\n");
+        const overlayMainPath = path.join(overlayRoot, "overlay-main.opy");
+        const overlayMainText = [
+            "#!include \"lib.opy\"",
+            "globalvar score",
+            "rule \"r\":",
+            "    @Event global",
+            "    score = ON_DISK_MACRO",
+        ].join("\n");
+        await writeFile(overlayMainPath, overlayMainText);
+
+        const overlayMainDoc = TextDocument.create(URI.file(overlayMainPath).toString(), "overpy", 1, overlayMainText);
+        const overlayIncludeDoc = TextDocument.create(
+            URI.file(includePath).toString(),
+            "overpy",
+            2,
+            "macro ON_DISK_MACRO = 1\nmacro UNSAVED_MACRO = 2\n",
+        );
+
+        await validateTextDocument(overlayMainDoc, "en-US", [overlayMainDoc, overlayIncludeDoc]);
+        const overlayCompletions = getCompletionList(overlayMainDoc, { line: 2, character: 0 });
+        assert.ok(
+            overlayCompletions.items.some((item) => item.label === "ON_DISK_MACRO"),
+            "on-disk include macro must still resolve",
+        );
+        assert.ok(
+            overlayCompletions.items.some((item) => item.label === "UNSAVED_MACRO"),
+            "unsaved open-include macro must resolve from the live buffer overlay",
+        );
+    } finally {
+        await rm(overlayRoot, { force: true, recursive: true });
+    }
+
     // Closing a main file must clear diagnostics it published to its includes,
     // but never blank an include that is open or still published-to by another main file.
     const mainUri = "file:///tmp/close-main.opy";

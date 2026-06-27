@@ -323,7 +323,7 @@ function clearPendingValidation(uri: string): void {
 async function validateAndPublish(document: TextDocument): Promise<void> {
     try {
         const settings = await getDocumentSettings(document.uri);
-        const validationResult = await validateTextDocument(document, settings.workshopLanguage);
+        const validationResult = await validateTextDocument(document, settings.workshopLanguage, documents.all());
         publishDiagnostics(document.uri, validationResult.diagnosticsByUri);
         if (hasSemanticTokensRefreshSupport) {
             void connection.languages.semanticTokens.refresh();
