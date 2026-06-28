@@ -110,9 +110,10 @@ export function activate(context: vscode.ExtensionContext) {
                 await vscode.workspace.fs.writeFile(outputUri, Buffer.from(compileResult.result, "utf-8"));
                 const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
                 vscode.window.showInformationMessage(`Successfully compiled! (written to ${outputPath.split("/").pop()}${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
-            } else {
-                vscode.env.clipboard.writeText(compileResult.result);
-                const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
+            }
+            vscode.env.clipboard.writeText(compileResult.result);
+            const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
+            if (!compileResult.writeToOutputFile) {
                 vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
             }
 
