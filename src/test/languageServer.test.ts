@@ -306,6 +306,16 @@ async function main(): Promise<void> {
         end: { line: 12, character: 11 },
     });
 
+    const emptyRuleDocument = TextDocument.create("file:///tmp/empty-rule.opy", "overpy", 1, "rule \"\":");
+    const emptyRuleSymbol = getDocumentSymbols(emptyRuleDocument)[0];
+    assert.equal(emptyRuleSymbol?.name, "<empty>");
+    assert.ok(
+        emptyRuleSymbol.selectionRange.start.line >= emptyRuleSymbol.range.start.line &&
+            emptyRuleSymbol.selectionRange.end.line <= emptyRuleSymbol.range.end.line &&
+            emptyRuleSymbol.selectionRange.end.character <= emptyRuleSymbol.range.end.character,
+        "selectionRange must be contained in range for an empty rule name",
+    );
+
     const foldingRanges = getFoldingRanges(structureDocument);
     assert.ok(
         foldingRanges.some(
