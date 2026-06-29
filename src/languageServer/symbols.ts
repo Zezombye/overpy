@@ -76,16 +76,16 @@ function parseRule(line: string): Omit<StructuralItem, "line"> | null {
     }
 
     const quoteChar = match[3];
+    const ruleName = match[4] ?? "";
     const nameStart = line.indexOf(quoteChar) + 1;
-    const name = match[4] || "<empty>";
     return {
         detail: "rule",
         indent: getIndent(match[1] ?? ""),
         isBlock: true,
         kind: SymbolKind.Event,
-        name,
+        name: ruleName || "<empty>",
         nameStart,
-        nameEnd: nameStart + name.length,
+        nameEnd: nameStart + ruleName.length,
     };
 }
 
