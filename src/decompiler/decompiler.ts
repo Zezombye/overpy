@@ -18,13 +18,13 @@
 "use strict";
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { heroKw } from "../data/heroes";
+import { Hero, heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { customGameSettingsKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
 import { defaultVarNames, defaultSubroutineNames, DEBUG_MODE } from "../globalVars";
 import { OverPyDecompiler } from "../godClasses";
-import { OWLanguage, Overwatch2Heroes } from "../types.d";
+import { OWLanguage } from "../types.d";
 import { Ast } from "../utils/ast";
 import { debug, getInternalFileStack } from "../utils/logging";
 import { isNumber } from "../utils/other";
@@ -394,11 +394,11 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content: strin
                         } else {
                             //probably a hero
                             let opyHero = this.topy(property, heroKw);
-                            if (!(<any>Object).values(Overwatch2Heroes).includes(opyHero)) {
+                            if (!(opyHero in heroKw)) {
                                 this.error("Unknown hero '" + opyHero + "'");
                             }
                             result[opyCategory][opyTeam][opyHero] = {};
-                            let heroValues = customGameSettingsSchema[opyCategory].values[opyHero as Overwatch2Heroes]?.values;
+                            let heroValues = customGameSettingsSchema[opyCategory].values[opyHero as Hero]?.values;
                             if (heroValues === undefined) {
                                 throw this.error("Hero '" + opyHero + "' has no values");
                             }

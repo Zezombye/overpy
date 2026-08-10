@@ -20,8 +20,8 @@ import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { Constant, constantValues } from "./data/constants";
-import { Overwatch2Heroes, ow_languages, OWLanguage, Value } from "./types.d.js";
-import { heroKw } from "./data/heroes";
+import { HeroData, ow_languages, OWLanguage, Value } from "./types.d.js";
+import { Hero, heroKw } from "./data/heroes";
 import { gamemodeKw } from "./data/gamemodes";
 import { valueFuncKw } from "./data/values";
 import { Action, actionKw } from "./data/actions";
@@ -514,7 +514,7 @@ export function computeCustomGameSettingsSchema() {
         customGameSettingsSchema.heroes.values["__generalButNotEachHero__"]);
 
     //Generate settings for each hero
-    for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
+    for (let hero of Object.keys(heroKw) as Hero[]) {
 
         if (!(hero in customGameSettingsSchema.heroes.values)) {
             customGameSettingsSchema.heroes.values[hero] = {};
@@ -551,28 +551,30 @@ export function computeCustomGameSettingsSchema() {
                         let value = heroValue[langKey];
                         if (value === undefined) {throw new Error(`No valid value for ${langKey} in ${hero} ${key}`);}
 
+                        const heroData = heroKw[hero] as HeroData;
+
                         if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%", "secondaryFireEnergyChargeRate%"].includes(key)) {
-                            let insert = heroKw[hero]["secondaryFire"]?.[lang] ?? heroKw[hero]["secondaryFire"]?.["en-US"];
+                            let insert = heroData["secondaryFire"]?.[lang] ?? heroData["secondaryFire"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for secondaryFire in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
-                            let insert = heroKw[hero]["ability3"]?.[lang] ?? heroKw[hero]["ability3"]?.["en-US"];
+                            let insert = heroData["ability3"]?.[lang] ?? heroData["ability3"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for ability3 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
-                            let insert = heroKw[hero]["ability2"]?.[lang] ?? heroKw[hero]["ability2"]?.["en-US"];
+                            let insert = heroData["ability2"]?.[lang] ?? heroData["ability2"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for ability2 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
-                            let insert = heroKw[hero]["ability1"]?.[lang] ?? heroKw[hero]["ability1"]?.["en-US"];
+                            let insert = heroData["ability1"]?.[lang] ?? heroData["ability1"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for ability1 in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["enablePassive"].includes(key)) {
-                            let insert = heroKw[hero]["passive"]?.[lang] ?? heroKw[hero]["passive"]?.["en-US"];
+                            let insert = heroData["passive"]?.[lang] ?? heroData["passive"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for passive in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                            let insert = heroKw[hero]["ultimate"]?.[lang] ?? heroKw[hero]["ultimate"]?.["en-US"];
+                            let insert = heroData["ultimate"]?.[lang] ?? heroData["ultimate"]?.["en-US"];
                             if (insert === undefined) {throw new Error(`No valid value for ultimate in ${hero} ${lang}`);}
                             heroValue[lang] = value.replace("%1$s", insert);
                         }

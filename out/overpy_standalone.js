@@ -14791,61 +14791,6 @@ var ow_languages = /* @__PURE__ */ ((ow_languages2) => {
   ow_languages2["zhTW"] = "zh-TW";
   return ow_languages2;
 })(ow_languages || {});
-var Overwatch2Heroes = /* @__PURE__ */ ((Overwatch2Heroes3) => {
-  Overwatch2Heroes3["ana"] = "ana";
-  Overwatch2Heroes3["anran"] = "anran";
-  Overwatch2Heroes3["ashe"] = "ashe";
-  Overwatch2Heroes3["baptiste"] = "baptiste";
-  Overwatch2Heroes3["bastion"] = "bastion";
-  Overwatch2Heroes3["brigitte"] = "brigitte";
-  Overwatch2Heroes3["cassidy"] = "cassidy";
-  Overwatch2Heroes3["doomfist"] = "doomfist";
-  Overwatch2Heroes3["domina"] = "domina";
-  Overwatch2Heroes3["dva"] = "dva";
-  Overwatch2Heroes3["echo"] = "echo";
-  Overwatch2Heroes3["emre"] = "emre";
-  Overwatch2Heroes3["freja"] = "freja";
-  Overwatch2Heroes3["genji"] = "genji";
-  Overwatch2Heroes3["hanzo"] = "hanzo";
-  Overwatch2Heroes3["hazard"] = "hazard";
-  Overwatch2Heroes3["illari"] = "illari";
-  Overwatch2Heroes3["jetpackCat"] = "jetpackCat";
-  Overwatch2Heroes3["junkerQueen"] = "junkerQueen";
-  Overwatch2Heroes3["junkrat"] = "junkrat";
-  Overwatch2Heroes3["juno"] = "juno";
-  Overwatch2Heroes3["kiriko"] = "kiriko";
-  Overwatch2Heroes3["lifeweaver"] = "lifeweaver";
-  Overwatch2Heroes3["lucio"] = "lucio";
-  Overwatch2Heroes3["mauga"] = "mauga";
-  Overwatch2Heroes3["mei"] = "mei";
-  Overwatch2Heroes3["mercy"] = "mercy";
-  Overwatch2Heroes3["mizuki"] = "mizuki";
-  Overwatch2Heroes3["moira"] = "moira";
-  Overwatch2Heroes3["orisa"] = "orisa";
-  Overwatch2Heroes3["pharah"] = "pharah";
-  Overwatch2Heroes3["ramattra"] = "ramattra";
-  Overwatch2Heroes3["reaper"] = "reaper";
-  Overwatch2Heroes3["reinhardt"] = "reinhardt";
-  Overwatch2Heroes3["roadhog"] = "roadhog";
-  Overwatch2Heroes3["shion"] = "shion";
-  Overwatch2Heroes3["sierra"] = "sierra";
-  Overwatch2Heroes3["sigma"] = "sigma";
-  Overwatch2Heroes3["sojourn"] = "sojourn";
-  Overwatch2Heroes3["soldier76"] = "soldier";
-  Overwatch2Heroes3["sombra"] = "sombra";
-  Overwatch2Heroes3["symmetra"] = "symmetra";
-  Overwatch2Heroes3["torbjorn"] = "torbjorn";
-  Overwatch2Heroes3["tracer"] = "tracer";
-  Overwatch2Heroes3["vendetta"] = "vendetta";
-  Overwatch2Heroes3["venture"] = "venture";
-  Overwatch2Heroes3["widowmaker"] = "widowmaker";
-  Overwatch2Heroes3["winston"] = "winston";
-  Overwatch2Heroes3["wreckingBall"] = "wreckingBall";
-  Overwatch2Heroes3["wuyang"] = "wuyang";
-  Overwatch2Heroes3["zarya"] = "zarya";
-  Overwatch2Heroes3["zenyatta"] = "zenyatta";
-  return Overwatch2Heroes3;
-})(Overwatch2Heroes || {});
 
 // src/data/heroes.ts
 var heroKw = (
@@ -15334,6 +15279,21 @@ var heroKw = (
       "it-IT": "Cassidy",
       "pl-PL": "Cassidy",
       "pt-BR": "Cassidy"
+    },
+    "dmon": {
+      "secondaryFire": {
+        "en-US": "Power Barrier"
+      },
+      "ability1": {
+        "en-US": "Propulsors"
+      },
+      "ability2": {
+        "en-US": "Fusion Repeater"
+      },
+      "ultimate": {
+        "en-US": "Limit Break"
+      },
+      "en-US": "D.Mon"
     },
     "doomfist": {
       "guid": "0000000015E5",
@@ -64156,38 +64116,39 @@ function computeCustomGameSettingsSchema() {
             if (value === void 0) {
               throw new Error(`No valid value for ${langKey} in ${hero} ${key2}`);
             }
+            const heroData = heroKw[hero];
             if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%", "secondaryFireEnergyChargeRate%"].includes(key2)) {
-              let insert = heroKw[hero]["secondaryFire"]?.[lang] ?? heroKw[hero]["secondaryFire"]?.["en-US"];
+              let insert = heroData["secondaryFire"]?.[lang] ?? heroData["secondaryFire"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for secondaryFire in ${hero} ${lang}`);
               }
               heroValue[lang] = value.replace("%1$s", insert);
             } else if (["ability3Cooldown%", "enableAbility3"].includes(key2)) {
-              let insert = heroKw[hero]["ability3"]?.[lang] ?? heroKw[hero]["ability3"]?.["en-US"];
+              let insert = heroData["ability3"]?.[lang] ?? heroData["ability3"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for ability3 in ${hero} ${lang}`);
               }
               heroValue[lang] = value.replace("%1$s", insert);
             } else if (["ability2Cooldown%", "enableAbility2"].includes(key2)) {
-              let insert = heroKw[hero]["ability2"]?.[lang] ?? heroKw[hero]["ability2"]?.["en-US"];
+              let insert = heroData["ability2"]?.[lang] ?? heroData["ability2"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for ability2 in ${hero} ${lang}`);
               }
               heroValue[lang] = value.replace("%1$s", insert);
             } else if (["ability1Cooldown%", "enableAbility1"].includes(key2)) {
-              let insert = heroKw[hero]["ability1"]?.[lang] ?? heroKw[hero]["ability1"]?.["en-US"];
+              let insert = heroData["ability1"]?.[lang] ?? heroData["ability1"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for ability1 in ${hero} ${lang}`);
               }
               heroValue[lang] = value.replace("%1$s", insert);
             } else if (["enablePassive"].includes(key2)) {
-              let insert = heroKw[hero]["passive"]?.[lang] ?? heroKw[hero]["passive"]?.["en-US"];
+              let insert = heroData["passive"]?.[lang] ?? heroData["passive"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for passive in ${hero} ${lang}`);
               }
               heroValue[lang] = value.replace("%1$s", insert);
             } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key2)) {
-              let insert = heroKw[hero]["ultimate"]?.[lang] ?? heroKw[hero]["ultimate"]?.["en-US"];
+              let insert = heroData["ultimate"]?.[lang] ?? heroData["ultimate"]?.["en-US"];
               if (insert === void 0) {
                 throw new Error(`No valid value for ultimate in ${hero} ${lang}`);
               }
@@ -65549,7 +65510,7 @@ OverPyDecompiler.prototype.decompileCustomGameSettings = function(content) {
               }
             } else {
               let opyHero = this.topy(property, heroKw);
-              if (!Object.values(Overwatch2Heroes).includes(opyHero)) {
+              if (!(opyHero in heroKw)) {
                 this.error("Unknown hero '" + opyHero + "'");
               }
               result[opyCategory][opyTeam][opyHero] = {};

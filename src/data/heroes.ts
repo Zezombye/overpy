@@ -17,14 +17,14 @@
 
 "use strict";
 
-import { HeroData, Overwatch2Heroes } from "../types";
+import { HeroData } from "../types";
 
 // @ts-check
 
 /**
  * The list of all Overwatch 2 heroes.
  */
-export const heroKw: Record<Overwatch2Heroes, HeroData> =
+export const heroKw = (
 //begin-json
 {
     "ana": {
@@ -510,6 +510,21 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "it-IT": "Cassidy",
         "pl-PL": "Cassidy",
         "pt-BR": "Cassidy"
+    },
+    "dmon": {
+        "secondaryFire": {
+            "en-US": "Power Barrier",
+        },
+        "ability1": {
+            "en-US": "Propulsors",
+        },
+        "ability2": {
+            "en-US": "Fusion Repeater",
+        },
+        "ultimate": {
+            "en-US": "Limit Break",
+        },
+        "en-US": "D.Mon",
     },
     "doomfist": {
         "guid": "0000000015E5",
@@ -3837,4 +3852,6 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
     }
 }
 //end-json
-;
+) satisfies Record<string, HeroData>;
+
+export type Hero = keyof typeof heroKw;

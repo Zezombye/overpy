@@ -87,63 +87,6 @@ export type Map = {
     [language in OWLanguage]?: string;
 };
 
-export enum Overwatch2Heroes {
-    ana = "ana",
-    anran = "anran",
-    ashe = "ashe",
-    baptiste = "baptiste",
-    bastion = "bastion",
-    brigitte = "brigitte",
-    cassidy = "cassidy",
-    doomfist = "doomfist",
-    domina = "domina",
-    dva = "dva",
-    echo = "echo",
-    emre = "emre",
-    freja = "freja",
-    genji = "genji",
-    hanzo = "hanzo",
-    hazard = "hazard",
-    illari = "illari",
-    jetpackCat = "jetpackCat",
-    junkerQueen = "junkerQueen",
-    junkrat = "junkrat",
-    juno = "juno",
-    kiriko = "kiriko",
-    lifeweaver = "lifeweaver",
-    lucio = "lucio",
-    mauga = "mauga",
-    mei = "mei",
-    mercy = "mercy",
-    mizuki = "mizuki",
-    moira = "moira",
-    orisa = "orisa",
-    pharah = "pharah",
-    ramattra = "ramattra",
-    reaper = "reaper",
-    reinhardt = "reinhardt",
-    roadhog = "roadhog",
-    shion = "shion",
-    sierra = "sierra",
-    sigma = "sigma",
-    sojourn = "sojourn",
-    soldier76 = "soldier",
-    sombra = "sombra",
-    symmetra = "symmetra",
-    torbjorn = "torbjorn",
-    tracer = "tracer",
-    vendetta = "vendetta",
-    venture = "venture",
-    widowmaker = "widowmaker",
-    winston = "winston",
-    wreckingBall = "wreckingBall",
-	wuyang = "wuyang",
-    zarya = "zarya",
-    zenyatta = "zenyatta",
-}
-
-export type Hero = Overwatch2Heroes;
-
 export type HeroData = {
     guid?: string;
     passive?: LocalizableString;

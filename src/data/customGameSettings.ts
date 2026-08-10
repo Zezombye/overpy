@@ -17,7 +17,8 @@
 
 "use strict";
 // @ts-check
-import { LocalizableString, OWLanguage, Overwatch2Heroes, ow_languages } from "../types.d";
+import { LocalizableString } from "../types.d";
+import {heroKw} from "./heroes";
 
 /**
  * The set of all custom game settings that can be configured
@@ -8451,7 +8452,7 @@ export type CustomGameSettingSchema = {
             enabledHeroes: LocalizableString,
             general?: { values: Record<string, CustomGameSetting> }
         } & {
-            [hero in Overwatch2Heroes]?: {
+            [hero in keyof typeof heroKw]?: {
                 values?: Record<string, CustomGameSetting>
             }
         }
