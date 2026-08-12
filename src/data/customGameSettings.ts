@@ -4961,6 +4961,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "include": [
                         "bastion",
                         "brigitte",
+                        "dmon",
                         "dva",
                         "doomfist",
                         "echo",
@@ -5378,6 +5379,49 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Gürz Kırbaç Geri İtme Skaleri",
                         "zh-CN": "流星飞锤击退距离",
                         "zh-TW": "懲擊擊退距離"
+                    }
+                }
+            },
+            "dmon": {
+                "values": {
+                    "assembleMechKb%": {
+                        "values": "__percent__",
+                        "en-US": "[PH] Assemble Mech Knockback Scalar",
+                    },
+                    "ability1Kb%": {
+                        "values": "__percent__",
+                        "en-US": "[PH] Propulsion Knockback Scalar",
+                    },
+                    "ability1MaxTime%": {
+                        "values": "__percent__",
+                        "en-US": "Propulsors Maximum Time",
+                    },
+                    "ability1RechargeRate%": {
+                        "values": "__percent__",
+                        "en-US": "Propulsors Recharge Rate",
+                    },
+                    "ability3Kb%": {
+                        "values": "__percent__",
+                        "en-US": "[PH] Skewer Knockback Scalar",
+                    },
+                    "spawnWithoutMech": {
+                        "values": "__boolOnOff__",
+                        "guid": "0000000072AF",
+                        "en-US": "Spawn Without Mech",
+                        "de-DE": "Ohne Mech starten",
+                        "es-ES": "Aparecer sin meca",
+                        "es-MX": "Aparecer sin armadura robótica",
+                        "fr-FR": "Apparaître hors du méca",
+                        "it-IT": "Resurrezione senza Mech",
+                        "ja-JP": "メックなしでリスポーン",
+                        "ko-KR": "메카 없이 시작",
+                        "pl-PL": "Odradzanie bez mecha",
+                        "pt-BR": "Surgimento sem o Mecha",
+                        "ru-RU": "Появление без мехи",
+                        "th-TH": "เกิดโดยไม่มีหุ่นยนต์",
+                        "tr-TR": "Mekasız Doğ",
+                        "zh-CN": "无机甲重生",
+                        "zh-TW": "重生時不搭乘機甲"
                     }
                 }
             },

@@ -17243,6 +17243,111 @@
                                 }
                             }
                         },
+                        "dmon": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "assembleMechKb%": {
+                                    "type": "number"
+                                },
+                                "ability1Kb%": {
+                                    "type": "number"
+                                },
+                                "ability1MaxTime%": {
+                                    "type": "number"
+                                },
+                                "ability1RechargeRate%": {
+                                    "type": "number"
+                                },
+                                "ability3Kb%": {
+                                    "type": "number"
+                                },
+                                "spawnWithoutMech": {
+                                    "type": "boolean"
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
                         "dva": {
                             "type": "object",
                             "additionalProperties": false,
@@ -21052,90 +21157,6 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
-                                    "type": "boolean"
-                                }
-                            }
-                        },
-                        "dmon": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "properties": {
-                                "enableMelee": {
-                                    "type": "boolean"
-                                },
-                                "enableSpawningWithUlt": {
-                                    "type": "boolean"
-                                },
-                                "damageDealt%": {
-                                    "type": "number"
-                                },
-                                "damageReceived%": {
-                                    "type": "number"
-                                },
-                                "healingDealt%": {
-                                    "type": "number"
-                                },
-                                "healingReceived%": {
-                                    "type": "number"
-                                },
-                                "health%": {
-                                    "type": "number"
-                                },
-                                "jumpVerticalSpeed%": {
-                                    "type": "number"
-                                },
-                                "movementGravity%": {
-                                    "type": "number"
-                                },
-                                "movementSpeed%": {
-                                    "type": "number"
-                                },
-                                "projectileGravity%": {
-                                    "type": "number"
-                                },
-                                "projectileSpeed%": {
-                                    "type": "number"
-                                },
-                                "enableHeadshotsOnly": {
-                                    "type": "boolean"
-                                },
-                                "enablePrimaryFire": {
-                                    "type": "boolean"
-                                },
-                                "ammoClipSize%": {
-                                    "type": "number"
-                                },
-                                "enableInfiniteAmmo": {
-                                    "type": "boolean"
-                                },
-                                "passiveHealthRegen": {
-                                    "type": "boolean"
-                                },
-                                "enableRolePassive": {
-                                    "type": "boolean"
-                                },
-                                "enableAbility1": {
-                                    "type": "boolean"
-                                },
-                                "ability1Cooldown%": {
-                                    "type": "number"
-                                },
-                                "enableAbility2": {
-                                    "type": "boolean"
-                                },
-                                "ability2Cooldown%": {
-                                    "type": "number"
-                                },
-                                "ultGen%": {
-                                    "type": "number"
-                                },
-                                "combatUltGen%": {
-                                    "type": "number"
-                                },
-                                "passiveUltGen%": {
-                                    "type": "number"
-                                },
-                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -22420,6 +22441,111 @@
                                 }
                             }
                         },
+                        "dmon": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "assembleMechKb%": {
+                                    "type": "number"
+                                },
+                                "ability1Kb%": {
+                                    "type": "number"
+                                },
+                                "ability1MaxTime%": {
+                                    "type": "number"
+                                },
+                                "ability1RechargeRate%": {
+                                    "type": "number"
+                                },
+                                "ability3Kb%": {
+                                    "type": "number"
+                                },
+                                "spawnWithoutMech": {
+                                    "type": "boolean"
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
                         "dva": {
                             "type": "object",
                             "additionalProperties": false,
@@ -26229,90 +26355,6 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
-                                    "type": "boolean"
-                                }
-                            }
-                        },
-                        "dmon": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "properties": {
-                                "enableMelee": {
-                                    "type": "boolean"
-                                },
-                                "enableSpawningWithUlt": {
-                                    "type": "boolean"
-                                },
-                                "damageDealt%": {
-                                    "type": "number"
-                                },
-                                "damageReceived%": {
-                                    "type": "number"
-                                },
-                                "healingDealt%": {
-                                    "type": "number"
-                                },
-                                "healingReceived%": {
-                                    "type": "number"
-                                },
-                                "health%": {
-                                    "type": "number"
-                                },
-                                "jumpVerticalSpeed%": {
-                                    "type": "number"
-                                },
-                                "movementGravity%": {
-                                    "type": "number"
-                                },
-                                "movementSpeed%": {
-                                    "type": "number"
-                                },
-                                "projectileGravity%": {
-                                    "type": "number"
-                                },
-                                "projectileSpeed%": {
-                                    "type": "number"
-                                },
-                                "enableHeadshotsOnly": {
-                                    "type": "boolean"
-                                },
-                                "enablePrimaryFire": {
-                                    "type": "boolean"
-                                },
-                                "ammoClipSize%": {
-                                    "type": "number"
-                                },
-                                "enableInfiniteAmmo": {
-                                    "type": "boolean"
-                                },
-                                "passiveHealthRegen": {
-                                    "type": "boolean"
-                                },
-                                "enableRolePassive": {
-                                    "type": "boolean"
-                                },
-                                "enableAbility1": {
-                                    "type": "boolean"
-                                },
-                                "ability1Cooldown%": {
-                                    "type": "number"
-                                },
-                                "enableAbility2": {
-                                    "type": "boolean"
-                                },
-                                "ability2Cooldown%": {
-                                    "type": "number"
-                                },
-                                "ultGen%": {
-                                    "type": "number"
-                                },
-                                "combatUltGen%": {
-                                    "type": "number"
-                                },
-                                "passiveUltGen%": {
-                                    "type": "number"
-                                },
-                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -27597,6 +27639,111 @@
                                 }
                             }
                         },
+                        "dmon": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "assembleMechKb%": {
+                                    "type": "number"
+                                },
+                                "ability1Kb%": {
+                                    "type": "number"
+                                },
+                                "ability1MaxTime%": {
+                                    "type": "number"
+                                },
+                                "ability1RechargeRate%": {
+                                    "type": "number"
+                                },
+                                "ability3Kb%": {
+                                    "type": "number"
+                                },
+                                "spawnWithoutMech": {
+                                    "type": "boolean"
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
                         "dva": {
                             "type": "object",
                             "additionalProperties": false,
@@ -31406,90 +31553,6 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
-                                    "type": "boolean"
-                                }
-                            }
-                        },
-                        "dmon": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "properties": {
-                                "enableMelee": {
-                                    "type": "boolean"
-                                },
-                                "enableSpawningWithUlt": {
-                                    "type": "boolean"
-                                },
-                                "damageDealt%": {
-                                    "type": "number"
-                                },
-                                "damageReceived%": {
-                                    "type": "number"
-                                },
-                                "healingDealt%": {
-                                    "type": "number"
-                                },
-                                "healingReceived%": {
-                                    "type": "number"
-                                },
-                                "health%": {
-                                    "type": "number"
-                                },
-                                "jumpVerticalSpeed%": {
-                                    "type": "number"
-                                },
-                                "movementGravity%": {
-                                    "type": "number"
-                                },
-                                "movementSpeed%": {
-                                    "type": "number"
-                                },
-                                "projectileGravity%": {
-                                    "type": "number"
-                                },
-                                "projectileSpeed%": {
-                                    "type": "number"
-                                },
-                                "enableHeadshotsOnly": {
-                                    "type": "boolean"
-                                },
-                                "enablePrimaryFire": {
-                                    "type": "boolean"
-                                },
-                                "ammoClipSize%": {
-                                    "type": "number"
-                                },
-                                "enableInfiniteAmmo": {
-                                    "type": "boolean"
-                                },
-                                "passiveHealthRegen": {
-                                    "type": "boolean"
-                                },
-                                "enableRolePassive": {
-                                    "type": "boolean"
-                                },
-                                "enableAbility1": {
-                                    "type": "boolean"
-                                },
-                                "ability1Cooldown%": {
-                                    "type": "number"
-                                },
-                                "enableAbility2": {
-                                    "type": "boolean"
-                                },
-                                "ability2Cooldown%": {
-                                    "type": "number"
-                                },
-                                "ultGen%": {
-                                    "type": "number"
-                                },
-                                "combatUltGen%": {
-                                    "type": "number"
-                                },
-                                "passiveUltGen%": {
-                                    "type": "number"
-                                },
-                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -32774,6 +32837,111 @@
                                 }
                             }
                         },
+                        "dmon": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "assembleMechKb%": {
+                                    "type": "number"
+                                },
+                                "ability1Kb%": {
+                                    "type": "number"
+                                },
+                                "ability1MaxTime%": {
+                                    "type": "number"
+                                },
+                                "ability1RechargeRate%": {
+                                    "type": "number"
+                                },
+                                "ability3Kb%": {
+                                    "type": "number"
+                                },
+                                "spawnWithoutMech": {
+                                    "type": "boolean"
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number"
+                                },
+                                "damageReceived%": {
+                                    "type": "number"
+                                },
+                                "healingDealt%": {
+                                    "type": "number"
+                                },
+                                "healingReceived%": {
+                                    "type": "number"
+                                },
+                                "health%": {
+                                    "type": "number"
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number"
+                                },
+                                "movementGravity%": {
+                                    "type": "number"
+                                },
+                                "movementSpeed%": {
+                                    "type": "number"
+                                },
+                                "projectileGravity%": {
+                                    "type": "number"
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number"
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number"
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "passiveHealthRegen": {
+                                    "type": "boolean"
+                                },
+                                "enableRolePassive": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number"
+                                },
+                                "enableAbility2": {
+                                    "type": "boolean"
+                                },
+                                "ability2Cooldown%": {
+                                    "type": "number"
+                                },
+                                "ultGen%": {
+                                    "type": "number"
+                                },
+                                "combatUltGen%": {
+                                    "type": "number"
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number"
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
                         "dva": {
                             "type": "object",
                             "additionalProperties": false,
@@ -36583,90 +36751,6 @@
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
-                                    "type": "boolean"
-                                }
-                            }
-                        },
-                        "dmon": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "properties": {
-                                "enableMelee": {
-                                    "type": "boolean"
-                                },
-                                "enableSpawningWithUlt": {
-                                    "type": "boolean"
-                                },
-                                "damageDealt%": {
-                                    "type": "number"
-                                },
-                                "damageReceived%": {
-                                    "type": "number"
-                                },
-                                "healingDealt%": {
-                                    "type": "number"
-                                },
-                                "healingReceived%": {
-                                    "type": "number"
-                                },
-                                "health%": {
-                                    "type": "number"
-                                },
-                                "jumpVerticalSpeed%": {
-                                    "type": "number"
-                                },
-                                "movementGravity%": {
-                                    "type": "number"
-                                },
-                                "movementSpeed%": {
-                                    "type": "number"
-                                },
-                                "projectileGravity%": {
-                                    "type": "number"
-                                },
-                                "projectileSpeed%": {
-                                    "type": "number"
-                                },
-                                "enableHeadshotsOnly": {
-                                    "type": "boolean"
-                                },
-                                "enablePrimaryFire": {
-                                    "type": "boolean"
-                                },
-                                "ammoClipSize%": {
-                                    "type": "number"
-                                },
-                                "enableInfiniteAmmo": {
-                                    "type": "boolean"
-                                },
-                                "passiveHealthRegen": {
-                                    "type": "boolean"
-                                },
-                                "enableRolePassive": {
-                                    "type": "boolean"
-                                },
-                                "enableAbility1": {
-                                    "type": "boolean"
-                                },
-                                "ability1Cooldown%": {
-                                    "type": "number"
-                                },
-                                "enableAbility2": {
-                                    "type": "boolean"
-                                },
-                                "ability2Cooldown%": {
-                                    "type": "number"
-                                },
-                                "ultGen%": {
-                                    "type": "number"
-                                },
-                                "combatUltGen%": {
-                                    "type": "number"
-                                },
-                                "passiveUltGen%": {
-                                    "type": "number"
-                                },
-                                "enableUlt": {
                                     "type": "boolean"
                                 }
                             }
@@ -38079,6 +38163,111 @@
                         },
                         "secondaryFireRechargeRate%": {
                             "type": "number"
+                        }
+                    }
+                },
+                "dmon": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "assembleMechKb%": {
+                            "type": "number"
+                        },
+                        "ability1Kb%": {
+                            "type": "number"
+                        },
+                        "ability1MaxTime%": {
+                            "type": "number"
+                        },
+                        "ability1RechargeRate%": {
+                            "type": "number"
+                        },
+                        "ability3Kb%": {
+                            "type": "number"
+                        },
+                        "spawnWithoutMech": {
+                            "type": "boolean"
+                        },
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number"
+                        },
+                        "damageReceived%": {
+                            "type": "number"
+                        },
+                        "healingDealt%": {
+                            "type": "number"
+                        },
+                        "healingReceived%": {
+                            "type": "number"
+                        },
+                        "health%": {
+                            "type": "number"
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number"
+                        },
+                        "movementGravity%": {
+                            "type": "number"
+                        },
+                        "movementSpeed%": {
+                            "type": "number"
+                        },
+                        "projectileGravity%": {
+                            "type": "number"
+                        },
+                        "projectileSpeed%": {
+                            "type": "number"
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number"
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "passiveHealthRegen": {
+                            "type": "boolean"
+                        },
+                        "enableRolePassive": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number"
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number"
+                        },
+                        "ultGen%": {
+                            "type": "number"
+                        },
+                        "combatUltGen%": {
+                            "type": "number"
+                        },
+                        "passiveUltGen%": {
+                            "type": "number"
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
                         }
                     }
                 },
@@ -41891,90 +42080,6 @@
                             "type": "boolean"
                         },
                         "enableSecondaryFire": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "dmon": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableSpawningWithUlt": {
-                            "type": "boolean"
-                        },
-                        "damageDealt%": {
-                            "type": "number"
-                        },
-                        "damageReceived%": {
-                            "type": "number"
-                        },
-                        "healingDealt%": {
-                            "type": "number"
-                        },
-                        "healingReceived%": {
-                            "type": "number"
-                        },
-                        "health%": {
-                            "type": "number"
-                        },
-                        "jumpVerticalSpeed%": {
-                            "type": "number"
-                        },
-                        "movementGravity%": {
-                            "type": "number"
-                        },
-                        "movementSpeed%": {
-                            "type": "number"
-                        },
-                        "projectileGravity%": {
-                            "type": "number"
-                        },
-                        "projectileSpeed%": {
-                            "type": "number"
-                        },
-                        "enableHeadshotsOnly": {
-                            "type": "boolean"
-                        },
-                        "enablePrimaryFire": {
-                            "type": "boolean"
-                        },
-                        "ammoClipSize%": {
-                            "type": "number"
-                        },
-                        "enableInfiniteAmmo": {
-                            "type": "boolean"
-                        },
-                        "passiveHealthRegen": {
-                            "type": "boolean"
-                        },
-                        "enableRolePassive": {
-                            "type": "boolean"
-                        },
-                        "enableAbility1": {
-                            "type": "boolean"
-                        },
-                        "ability1Cooldown%": {
-                            "type": "number"
-                        },
-                        "enableAbility2": {
-                            "type": "boolean"
-                        },
-                        "ability2Cooldown%": {
-                            "type": "number"
-                        },
-                        "ultGen%": {
-                            "type": "number"
-                        },
-                        "combatUltGen%": {
-                            "type": "number"
-                        },
-                        "passiveUltGen%": {
-                            "type": "number"
-                        },
-                        "enableUlt": {
                             "type": "boolean"
                         }
                     }

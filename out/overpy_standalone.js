@@ -42744,6 +42744,7 @@ var customGameSettingsSchema = (
             "include": [
               "bastion",
               "brigitte",
+              "dmon",
               "dva",
               "doomfist",
               "echo",
@@ -43161,6 +43162,49 @@ var customGameSettingsSchema = (
               "tr-TR": "G\xFCrz K\u0131rba\xE7 Geri \u0130tme Skaleri",
               "zh-CN": "\u6D41\u661F\u98DE\u9524\u51FB\u9000\u8DDD\u79BB",
               "zh-TW": "\u61F2\u64CA\u64CA\u9000\u8DDD\u96E2"
+            }
+          }
+        },
+        "dmon": {
+          "values": {
+            "assembleMechKb%": {
+              "values": "__percent__",
+              "en-US": "[PH] Assemble Mech Knockback Scalar"
+            },
+            "ability1Kb%": {
+              "values": "__percent__",
+              "en-US": "[PH] Propulsion Knockback Scalar"
+            },
+            "ability1MaxTime%": {
+              "values": "__percent__",
+              "en-US": "Propulsors Maximum Time"
+            },
+            "ability1RechargeRate%": {
+              "values": "__percent__",
+              "en-US": "Propulsors Recharge Rate"
+            },
+            "ability3Kb%": {
+              "values": "__percent__",
+              "en-US": "[PH] Skewer Knockback Scalar"
+            },
+            "spawnWithoutMech": {
+              "values": "__boolOnOff__",
+              "guid": "0000000072AF",
+              "en-US": "Spawn Without Mech",
+              "de-DE": "Ohne Mech starten",
+              "es-ES": "Aparecer sin meca",
+              "es-MX": "Aparecer sin armadura rob\xF3tica",
+              "fr-FR": "Appara\xEEtre hors du m\xE9ca",
+              "it-IT": "Resurrezione senza Mech",
+              "ja-JP": "\u30E1\u30C3\u30AF\u306A\u3057\u3067\u30EA\u30B9\u30DD\u30FC\u30F3",
+              "ko-KR": "\uBA54\uCE74 \uC5C6\uC774 \uC2DC\uC791",
+              "pl-PL": "Odradzanie bez mecha",
+              "pt-BR": "Surgimento sem o Mecha",
+              "ru-RU": "\u041F\u043E\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u0431\u0435\u0437 \u043C\u0435\u0445\u0438",
+              "th-TH": "\u0E40\u0E01\u0E34\u0E14\u0E42\u0E14\u0E22\u0E44\u0E21\u0E48\u0E21\u0E35\u0E2B\u0E38\u0E48\u0E19\u0E22\u0E19\u0E15\u0E4C",
+              "tr-TR": "Mekas\u0131z Do\u011F",
+              "zh-CN": "\u65E0\u673A\u7532\u91CD\u751F",
+              "zh-TW": "\u91CD\u751F\u6642\u4E0D\u642D\u4E58\u6A5F\u7532"
             }
           }
         },
