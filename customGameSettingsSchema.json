@@ -17640,6 +17640,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number"
                                 }
@@ -18864,6 +18867,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireCooldown%": {
@@ -20338,6 +20344,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -22829,6 +22838,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number"
                                 }
@@ -24053,6 +24065,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireCooldown%": {
@@ -25527,6 +25542,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -28018,6 +28036,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number"
                                 }
@@ -29242,6 +29263,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireCooldown%": {
@@ -30716,6 +30740,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -33207,6 +33234,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireCooldown%": {
                                     "type": "number"
                                 }
@@ -34431,6 +34461,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireCooldown%": {
@@ -35905,6 +35938,9 @@
                                     "type": "number"
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -38527,6 +38563,9 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        },
                         "secondaryFireCooldown%": {
                             "type": "number"
                         }
@@ -39751,6 +39790,9 @@
                             "type": "number"
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         },
                         "secondaryFireCooldown%": {
@@ -41225,6 +41267,9 @@
                             "type": "number"
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         }
                     }
