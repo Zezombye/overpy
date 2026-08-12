@@ -185,7 +185,7 @@ settings
 				Damage Received: 10%
 				Movement Speed: 150%
 				No Ammunition Requirement: On
-				Pig Pen: Off
+				Take a Breather: Off
 				Primary Fire: Off
 				Quick Melee: Off
 				Ultimate Generation - Combat Whole Hog: 0%

@@ -17083,24 +17083,6 @@ var heroKw = (
     },
     "roadhog": {
       "guid": "000000000054",
-      "secondaryFire": {
-        "guid": "00000000079B",
-        "en-US": "Take a Breather",
-        "de-DE": "Verschnaufpause",
-        "es-ES": "Inhalador",
-        "es-MX": "Toma un respiro",
-        "fr-FR": "Inhalateur",
-        "it-IT": "Boccata d'Aria",
-        "ja-JP": "\u30C6\u30A4\u30AF\u30FB\u30A2\u30FB\u30D6\u30EA\u30FC\u30B6\u30FC",
-        "ko-KR": "\uC228 \uB3CC\uB9AC\uAE30",
-        "pl-PL": "Sztachni\u0119cie",
-        "pt-BR": "Pegando F\xF4lego",
-        "ru-RU": "\u041F\u0435\u0440\u0435\u0434\u044B\u0448\u043A\u0430",
-        "th-TH": "\u0E40\u0E17\u0E04\u0E2D\u0E30\u0E1A\u0E23\u0E35\u0E40\u0E18\u0E2D\u0E23\u0E4C",
-        "tr-TR": "Bir Soluklan",
-        "zh-CN": "\u547C\u5438\u5668",
-        "zh-TW": "\u5438\u4E86\u518D\u4E0A"
-      },
       "ability1": {
         "guid": "00000000079D",
         "en-US": "Chain Hook",
@@ -17120,22 +17102,22 @@ var heroKw = (
         "zh-TW": "\u9396\u934A\u9264"
       },
       "ability2": {
-        "guid": "000000000799",
-        "en-US": "Pig Pen",
-        "de-DE": "Schweinestall",
-        "es-ES": "Cochiquera",
-        "es-MX": "Chiquero",
-        "fr-FR": "Porcherie",
-        "it-IT": "Porcile",
-        "ja-JP": "\u30D4\u30C3\u30B0\u30DA\u30F3",
-        "ko-KR": "\uB3FC\uC9C0\uC6B0\uB9AC",
-        "pl-PL": "Chlew",
-        "pt-BR": "Chiqueiro",
-        "ru-RU": "\u0417\u0430\u0433\u043E\u043D \u0434\u043B\u044F \u0441\u0432\u0438\u043D\u0435\u0439",
-        "th-TH": "\u0E1E\u0E34\u0E01\u0E40\u0E1E\u0E47\u0E19",
-        "tr-TR": "Domuz Kapan\u0131",
-        "zh-CN": "\u62F4\u732A\u5708",
-        "zh-TW": "\u8C6C\u5708\u9677\u9631"
+        "guid": "00000000079B",
+        "en-US": "Take a Breather",
+        "de-DE": "Verschnaufpause",
+        "es-ES": "Inhalador",
+        "es-MX": "Toma un respiro",
+        "fr-FR": "Inhalateur",
+        "it-IT": "Boccata d'Aria",
+        "ja-JP": "\u30C6\u30A4\u30AF\u30FB\u30A2\u30FB\u30D6\u30EA\u30FC\u30B6\u30FC",
+        "ko-KR": "\uC228 \uB3CC\uB9AC\uAE30",
+        "pl-PL": "Sztachni\u0119cie",
+        "pt-BR": "Pegando F\xF4lego",
+        "ru-RU": "\u041F\u0435\u0440\u0435\u0434\u044B\u0448\u043A\u0430",
+        "th-TH": "\u0E40\u0E17\u0E04\u0E2D\u0E30\u0E1A\u0E23\u0E35\u0E40\u0E18\u0E2D\u0E23\u0E4C",
+        "tr-TR": "Bir Soluklan",
+        "zh-CN": "\u547C\u5438\u5668",
+        "zh-TW": "\u5438\u4E86\u518D\u4E0A"
       },
       "ultimate": {
         "guid": "000000000795",
@@ -42798,7 +42780,6 @@ var customGameSettingsSchema = (
               "orisa",
               "pharah",
               "reinhardt",
-              "roadhog",
               "sierra",
               "sigma",
               "soldier",
@@ -42829,8 +42810,7 @@ var customGameSettingsSchema = (
           "secondaryFireMaximumTime%": {
             "values": "__percent__",
             "include": [
-              "dva",
-              "roadhog"
+              "dva"
             ],
             "guid": "000000005B45",
             "en-US": "%1$s Maximum Time",
@@ -42855,7 +42835,6 @@ var customGameSettingsSchema = (
               "brigitte",
               "dva",
               "jetpackCat",
-              "roadhog",
               "reinhardt",
               "sigma",
               "wuyang"

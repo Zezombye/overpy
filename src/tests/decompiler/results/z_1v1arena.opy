@@ -104,8 +104,8 @@ settings {
             "roadhog": {
                 "healingDealt%": 50,
                 "health%": 59,
-                "secondaryFireMaximumTime%": 50,
-                "secondaryFireRechargeRate%": 50
+                "Take a Breather Maximum Time": "50%",
+                "Take a Breather Recharge Rate": "50%"
             },
             "sigma": {
                 "health%": 75

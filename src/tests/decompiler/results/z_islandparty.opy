@@ -163,7 +163,7 @@ settings {
                 "damageReceived%": 10,
                 "movementSpeed%": 150,
                 "enableInfiniteAmmo": true,
-                "enableAbility2": false,
+                "Pig Pen": "Disabled",
                 "enablePrimaryFire": false,
                 "enableMelee": false,
                 "combatUltGen%": 0,

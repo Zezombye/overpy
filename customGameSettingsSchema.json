@@ -19358,15 +19358,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireCooldown%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireRechargeRate%": {
-                                    "type": "number"
-                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
@@ -24555,15 +24546,6 @@
                                 },
                                 "enableUlt": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireRechargeRate%": {
-                                    "type": "number"
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
@@ -29754,15 +29736,6 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireCooldown%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireRechargeRate%": {
-                                    "type": "number"
-                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
@@ -34951,15 +34924,6 @@
                                 },
                                 "enableUlt": {
                                     "type": "boolean"
-                                },
-                                "secondaryFireCooldown%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number"
-                                },
-                                "secondaryFireRechargeRate%": {
-                                    "type": "number"
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
@@ -40280,15 +40244,6 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
-                        },
-                        "secondaryFireCooldown%": {
-                            "type": "number"
-                        },
-                        "secondaryFireMaximumTime%": {
-                            "type": "number"
-                        },
-                        "secondaryFireRechargeRate%": {
-                            "type": "number"
                         },
                         "enableSecondaryFire": {
                             "type": "boolean"

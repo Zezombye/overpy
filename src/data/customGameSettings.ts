@@ -5015,7 +5015,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "orisa",
                         "pharah",
                         "reinhardt",
-                        "roadhog",
                         "sierra",
                         "sigma",
                         "soldier",
@@ -5047,7 +5046,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "values": "__percent__",
                     "include": [
                         "dva",
-                        "roadhog"
                     ],
                     "guid": "000000005B45",
                     "en-US": "%1$s Maximum Time",
@@ -5072,7 +5070,6 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "brigitte",
                         "dva",
                         "jetpackCat",
-                        "roadhog",
                         "reinhardt",
                         "sigma",
                         "wuyang"

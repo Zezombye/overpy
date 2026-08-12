@@ -135,8 +135,8 @@ settings
 			{
 				Healing Dealt: 50%
 				Health: 59%
-				Take a Breather Maximum Time: 50%
-				Take a Breather Recharge Rate: 50%
+				secondaryFireMaximumTime%: 50
+				secondaryFireRechargeRate%: 50
 			}
 			Sigma
 			{

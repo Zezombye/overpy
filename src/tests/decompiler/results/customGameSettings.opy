@@ -29,7 +29,7 @@ settings {
                 "passiveMaxTime%": 300
             },
             "roadhog": {
-                "secondaryFireCooldown%": 0,
+                "ability2Cooldown%": 0,
                 "ultKb%": 200
             },
             "general": {
