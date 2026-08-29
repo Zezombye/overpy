@@ -15282,16 +15282,60 @@ var heroKw = (
     },
     "dmon": {
       "secondaryFire": {
-        "en-US": "Power Barrier"
+        "en-US": "Power Barrier",
+        "de-DE": "Energiebarriere",
+        "es-ES": "Barrera de energ\xEDa",
+        "es-MX": "Barrera de energ\xEDa",
+        "fr-FR": "\xC9cran \xE9nerg\xE9tique",
+        "it-IT": "Barriera Energetica",
+        "ja-JP": "\u30D1\u30EF\u30FC\u30FB\u30D0\u30EA\u30A2",
+        "ko-KR": "\uD30C\uC6CC \uBC30\uB9AC\uC5B4",
+        "pl-PL": "Bariera Mocy",
+        "pt-BR": "Barreira de Poder",
+        "ru-RU": "\u042D\u043D\u0435\u0440\u0433\u0435\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u0449\u0438\u0442",
+        "zh-TW": "\u80FD\u91CF\u5C4F\u969C"
       },
       "ability1": {
-        "en-US": "Propulsors"
+        "en-US": "Propulsors",
+        "de-DE": "Schubantrieb",
+        "es-ES": "Propulsores",
+        "es-MX": "Propulsores",
+        "fr-FR": "Propulsion",
+        "it-IT": "Propulsori",
+        "ja-JP": "\u30B8\u30A7\u30C3\u30C8\u30FB\u30C9\u30E9\u30A4\u30D6",
+        "ko-KR": "\uCD94\uC9C4\uAE30",
+        "pl-PL": "Dopalacze",
+        "pt-BR": "Propulsores",
+        "ru-RU": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u0438",
+        "zh-TW": "\u63A8\u9032\u5668"
       },
       "ability2": {
-        "en-US": "Fusion Repeater"
+        "en-US": "Fusion Repeater",
+        "de-DE": "Fusionsrepetierer",
+        "es-ES": "Ca\xF1\xF3n autom\xE1tico de fusi\xF3n",
+        "es-MX": "Ca\xF1\xF3n autom\xE1tico de fusi\xF3n",
+        "fr-FR": "R\xE9p\xE9titeur \xE0 fusion",
+        "it-IT": "Ripetitore a Fusione",
+        "ja-JP": "\u30D5\u30E5\u30FC\u30B8\u30E7\u30F3\u30FB\u30EA\u30D4\u30FC\u30BF\u30FC",
+        "ko-KR": "\uC735\uD569 \uC5F0\uBC1C\uCD1D",
+        "pl-PL": "Miotacz Fuzyjny",
+        "pt-BR": "Repetidor de Fus\xE3o",
+        "ru-RU": "\u0410\u0442\u043E\u043C\u043D\u044B\u0439 \u043F\u0443\u043B\u0435\u043C\u0435\u0442",
+        "zh-TW": "\u71B1\u6838\u9023\u5C04\u7832"
       },
       "ultimate": {
-        "en-US": "Limit Break"
+        "en-US": "Limit Break",
+        "de-DE": "Limit Break",
+        "es-ES": "Ruptura de l\xEDmites",
+        "es-MX": "Rompel\xEDmites",
+        "fr-FR": "Point de rupture",
+        "it-IT": "Oltre il Limite",
+        "ja-JP": "\u30EA\u30DF\u30C3\u30C8\u30FB\u30D6\u30EC\u30A4\u30AF",
+        "ko-KR": "\uD55C\uACC4 \uB3CC\uD30C",
+        "pl-PL": "\u0141amanie Granic",
+        "pt-BR": "Quebra de Limites",
+        "ru-RU": "\u0417\u0430\u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0439 \u0443\u0434\u0430\u0440",
+        "zh-TW": "\u7A81\u7834\u6975\u9650"
       },
       "en-US": "D.Mon"
     },

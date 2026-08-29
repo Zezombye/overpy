@@ -1135,6 +1135,23 @@ You would expect "Test chase" to display after 1 second, but the variable goes w
 
 To solve this bug, refactor your code to stop chasing the variable when you need to check it in a rule condition. Eg here, we could put the stop at 1 instead of 10. Then put `@SuppressWarnings w_ow2_rule_condition_chase` on the rule with the rule condition you checked is working. (It is not recommended to disable it for the whole project.)
 
+## w_chased_var_in_for
+
+If a variable is in a `chase` action and used in a for loop, the for loop will not run, even if the `chase` action is in a disabled rule.
+
+```opy
+rule "":
+    @Disabled
+    chaseAtRate(A, 9999, 1)
+
+rule "":
+    #Will not run
+    for A in range(5):
+        B++
+    print(B) #0
+
+```
+
 ## w_start_rule_crash
 
 Found by Psyrius:
