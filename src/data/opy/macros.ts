@@ -24,15 +24,15 @@ export const opyMacros: Record<string, {
     macro: string,
     class?: string,
     return: Type,
-    description: string
+    description: import("../../types").LocalizableString
 } & LocalizableString> = {
 
     "buttonToString": {
-        "description": "Displays a button with [ ] if not a texture, and replaces LSHIFT/LCONTROL/LALT by SHIFT/CTRL/ALT.\n\nYou will likely want to use this instead of `inputBindingString()`.",
+        "description": { "en-US": "Displays a button with [ ] if not a texture, and replaces LSHIFT/LCONTROL/LALT by SHIFT/CTRL/ALT.\n\nYou will likely want to use this instead of `inputBindingString()`." },
         "args": [
             {
                 "name": "button",
-                "description": "The button to display.",
+                "description": { "en-US": "The button to display." },
                 "type": "Button",
             }
         ],
@@ -43,11 +43,11 @@ export const opyMacros: Record<string, {
         return: "String",
     },
     ".getEffectiveHero": {
-        "description": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`.",
+        "description": { "en-US": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`." },
         "args": [
             {
                 "name": "self",
-                "description": "The player whose effective hero you want to get.",
+                "description": { "en-US": "The player whose effective hero you want to get." },
                 "type": "Player",
             }
         ],
@@ -56,11 +56,11 @@ export const opyMacros: Record<string, {
         return: "Hero",
     },
     ".getOppositeTeam": {
-        "description": "Gets the opposite team of the team of a player. If the team is `Team.ALL`, it returns `Team.ALL`.",
+        "description": { "en-US": "Gets the opposite team of the team of a player. If the team is `Team.ALL`, it returns `Team.ALL`." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose opposite team you want to get.",
+                "description": { "en-US": "The player whose opposite team you want to get." },
                 "type": "Player",
             }
         ],
@@ -69,16 +69,16 @@ export const opyMacros: Record<string, {
         "return": "Team",
     },
     "getRealClosestPlayer": {
-        "description": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "description": { "en-US": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure proximity.",
+                "description": { "en-US": "The position from which to measure proximity." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the closest player will come.",
+                "description": { "en-US": "The team or teams from which the closest player will come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -87,16 +87,16 @@ export const opyMacros: Record<string, {
         "return": "Player"
     },
     "getRealClosestPlayers": {
-        "description": "The alive and spawned players closest to a position, optionally restricted by team and sorted by ascending distance.",
+        "description": { "en-US": "The alive and spawned players closest to a position, optionally restricted by team and sorted by ascending distance." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure proximity.",
+                "description": { "en-US": "The position from which to measure proximity." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the closest player will come.",
+                "description": { "en-US": "The team or teams from which the closest player will come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -105,16 +105,16 @@ export const opyMacros: Record<string, {
         "return": "Player"
     },
     "getRealFarthestPlayer": {
-        "description": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "description": { "en-US": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure distance.",
+                "description": { "en-US": "The position from which to measure distance." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the farthest player will come.",
+                "description": { "en-US": "The team or teams from which the farthest player will come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -124,16 +124,16 @@ export const opyMacros: Record<string, {
     },
 
     "getRealFarthestPlayers": {
-        "description": "The alive and spawned players farthest from a position, optionally restricted by team and sorted by descending distance.",
+        "description": { "en-US": "The alive and spawned players farthest from a position, optionally restricted by team and sorted by descending distance." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure distance.",
+                "description": { "en-US": "The position from which to measure distance." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the farthest player will come.",
+                "description": { "en-US": "The team or teams from which the farthest player will come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -143,16 +143,16 @@ export const opyMacros: Record<string, {
     },
 
     ".getRealPlayerClosestToReticle": {
-        "description": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "description": { "en-US": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
         "args": [
             {
                 "name": "self",
-                "description": "The player from whose reticle to search for the closest player.",
+                "description": { "en-US": "The player from whose reticle to search for the closest player." },
                 "type": "Player",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to search for the closest player.",
+                "description": { "en-US": "The team or teams on which to search for the closest player." },
                 "type": "Team",
                 "default": "ALL",
             }
@@ -161,16 +161,16 @@ export const opyMacros: Record<string, {
         "return": "Player",
     },
     ".getRealPlayersClosestToReticle": {
-        "description": "The alive and spawned players closest to the reticle of the specified player, optionally restricted by team and sorted by ascending distance to reticle.",
+        "description": { "en-US": "The alive and spawned players closest to the reticle of the specified player, optionally restricted by team and sorted by ascending distance to reticle." },
         "args": [
             {
                 "name": "self",
-                "description": "The player from whose reticle to search for the closest player.",
+                "description": { "en-US": "The player from whose reticle to search for the closest player." },
                 "type": "Player",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to search for the closest player.",
+                "description": { "en-US": "The team or teams on which to search for the closest player." },
                 "type": "Team",
                 "default": "ALL",
             }
@@ -180,27 +180,27 @@ export const opyMacros: Record<string, {
     },
 
     "getRealPlayersInRadius": {
-        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\nNote: the workshop `Players In Radius` function targets dead players. Use this function instead.",
+        "description": { "en-US": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\nNote: the workshop `Players In Radius` function targets dead players. Use this function instead." },
         "args": [
             {
                 "name": "center",
-                "description": "The center position from which to measure distance.",
+                "description": { "en-US": "The center position from which to measure distance." },
                 "type": "Position",
             },
             {
                 "name": "radius",
-                "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+                "description": { "en-US": "The radius in meters inside which players must be in order to be included in the resulting array." },
                 "type": "unsigned float",
             },
             {
                 "name": "team",
-                "description": "The team or teams to which a player must belong to be included in the resulting array.",
+                "description": { "en-US": "The team or teams to which a player must belong to be included in the resulting array." },
                 "type": "Team",
                 "default": "ALL"
             },
             {
                 "name": "losCheck",
-                "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+                "description": { "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array." },
                 "type": "LosCheck",
                 "default": "OFF"
             }
@@ -211,21 +211,21 @@ export const opyMacros: Record<string, {
         },
     },
     ".getRealPlayersInViewAngle": {
-        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "description": { "en-US": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
         "args": [
             {
                 "name": "self",
-                "description": "The player whose view to use for the check.",
+                "description": { "en-US": "The player whose view to use for the check." },
                 "type": "Player",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to consider players.",
+                "description": { "en-US": "The team or teams on which to consider players." },
                 "type": "Team",
             },
             {
                 "name": "viewAngle",
-                "description": "The view angle to compare against in degrees.",
+                "description": { "en-US": "The view angle to compare against in degrees." },
                 "type": "float",
             }
         ],
@@ -235,11 +235,11 @@ export const opyMacros: Record<string, {
         },
     },
     "getSign": {
-        "description": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1.",
+        "description": { "en-US": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1." },
         "args": [
             {
                 "name": "number",
-                "description": "The number to calculate the sign of.",
+                "description": { "en-US": "The number to calculate the sign of." },
                 "type": "float",
             }
         ],
@@ -247,7 +247,7 @@ export const opyMacros: Record<string, {
         "return": "int"
     },
     "getAllPlayers": {
-        "description": "Built-in macro for `getPlayers(Team.ALL)`.",
+        "description": { "en-US": "Built-in macro for `getPlayers(Team.ALL)`." },
         "args": [],
         macro: "getPlayers(Team.ALL)",
         "return": {
@@ -256,11 +256,11 @@ export const opyMacros: Record<string, {
     },
 
     "hudHeader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
         "args": [
             {
                 "name": "visibleTo",
-                "description": "One or more players who will see the hud text.",
+                "description": { "en-US": "One or more players who will see the hud text." },
                 "type": [
                     "Player",
                     {
@@ -271,18 +271,18 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "text",
-                "description": "The text to be displayed.",
+                "description": { "en-US": "The text to be displayed." },
                 "type": "Object",
             },
             {
                 "name": "location",
-                "description": "The location on the screen where the text will appear.",
+                "description": { "en-US": "The location on the screen where the text will appear." },
                 "type": "HudPosition",
                 "default": "LEFT"
             },
             {
                 "name": "sortOrder",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -290,19 +290,19 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "color",
-                "description": "The color of the header.",
+                "description": { "en-US": "The color of the header." },
                 "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
                 "type": "HudReeval",
                 "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
                 "name": "specVisibility",
-                "description": "Whether spectators can see the text or not. Optional argument.",
+                "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
                 "type": "SpecVisibility",
                 "default": "DEFAULT"
             }
@@ -311,11 +311,11 @@ export const opyMacros: Record<string, {
         "return": "void"
     },
     "hudSubheader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
         "args": [
             {
                 "name": "visibleTo",
-                "description": "One or more players who will see the hud text.",
+                "description": { "en-US": "One or more players who will see the hud text." },
                 "type": [
                     "Player",
                     {
@@ -326,18 +326,18 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "text",
-                "description": "The subheader text to be displayed.",
+                "description": { "en-US": "The subheader text to be displayed." },
                 "type": "Object",
             },
             {
                 "name": "location",
-                "description": "The location on the screen where the text will appear.",
+                "description": { "en-US": "The location on the screen where the text will appear." },
                 "type": "HudPosition",
                 "default": "LEFT"
             },
             {
                 "name": "sortOrder",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -345,19 +345,19 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "color",
-                "description": "The color of the subheader.",
+                "description": { "en-US": "The color of the subheader." },
                 "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
                 "type": "HudReeval",
                 "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
                 "name": "specVisibility",
-                "description": "Whether spectators can see the text or not. Optional argument.",
+                "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
                 "type": "SpecVisibility",
                 "default": "DEFAULT"
             }
@@ -366,11 +366,11 @@ export const opyMacros: Record<string, {
         "return": "void"
     },
     "hudSubtext": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+        "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
         "args": [
             {
                 "name": "visibleTo",
-                "description": "One or more players who will see the hud text.",
+                "description": { "en-US": "One or more players who will see the hud text." },
                 "type": [
                     "Player",
                     {
@@ -381,18 +381,18 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "text",
-                "description": "The text to be displayed.",
+                "description": { "en-US": "The text to be displayed." },
                 "type": "Object",
             },
             {
                 "name": "location",
-                "description": "The location on the screen where the text will appear.",
+                "description": { "en-US": "The location on the screen where the text will appear." },
                 "type": "HudPosition",
                 "default": "LEFT"
             },
             {
                 "name": "sortOrder",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -400,19 +400,19 @@ export const opyMacros: Record<string, {
             },
             {
                 "name": "color",
-                "description": "The color of the text.",
+                "description": { "en-US": "The color of the text." },
                 "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
                 "type": "HudReeval",
                 "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
                 "name": "specVisibility",
-                "description": "Whether spectators can see the text or not. Optional argument.",
+                "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
                 "type": "SpecVisibility",
                 "default": "DEFAULT"
             }
@@ -421,19 +421,19 @@ export const opyMacros: Record<string, {
         "return": "void"
     },
     "lerp": {
-        "description": "Built-in macro for linear interpolation between two values. The value of `t` must be between 0 and 1.",
+        "description": { "en-US": "Built-in macro for linear interpolation between two values. The value of `t` must be between 0 and 1." },
         "args": [
             {
                 "name": "start",
-                "description": "The starting value.",
+                "description": { "en-US": "The starting value." },
                 "type": "float",
             },{
                 "name": "end",
-                "description": "The ending value.",
+                "description": { "en-US": "The ending value." },
                 "type": "float",
             },{
                 "name": "t",
-                "description": "The interpolation factor. Must be between 0 and 1.",
+                "description": { "en-US": "The interpolation factor. Must be between 0 and 1." },
                 "type": "unsigned float",
             }
         ],
@@ -441,23 +441,23 @@ export const opyMacros: Record<string, {
         return: "float"
     },
     "lineIntersectsSphere": {
-        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula.",
+        "description": { "en-US": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula." },
         "args": [
             {
                 "name": "lineStart",
-                "description": "The starting position of the line. It must be outside the sphere for the function to work.",
+                "description": { "en-US": "The starting position of the line. It must be outside the sphere for the function to work." },
                 "type": "Position",
             },{
                 "name": "lineDirection",
-                "description": "The direction from the starting position to the ending position of the line.",
+                "description": { "en-US": "The direction from the starting position to the ending position of the line." },
                 "type": "Direction",
             },{
                 "name": "sphereCenter",
-                "description": "The center of the sphere.",
+                "description": { "en-US": "The center of the sphere." },
                 "type": "Position",
             },{
                 "name": "sphereRadius",
-                "description": "The radius of the sphere.",
+                "description": { "en-US": "The radius of the sphere." },
                 "type": "unsigned float",
             }
         ],
@@ -465,11 +465,11 @@ export const opyMacros: Record<string, {
         return: "bool",
     },
     "print": {
-        "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+        "description": { "en-US": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value." },
         "args": [
             {
                 "name": "text",
-                "description": "The text to be displayed (can be blank)",
+                "description": { "en-US": "The text to be displayed (can be blank)" },
                 "type": "Object",
             }
         ],
@@ -477,11 +477,11 @@ export const opyMacros: Record<string, {
         "return": "void"
     },
     ".reverse": {
-        "description": "Reverses the array.",
+        "description": { "en-US": "Reverses the array." },
         "args": [
             {
                 "name": "self",
-                "description": "The array to reverse.",
+                "description": { "en-US": "The array to reverse." },
                 "type": "Array",
             }
         ],
@@ -490,11 +490,11 @@ export const opyMacros: Record<string, {
         "return": "Array"
     },
     "timeToString": {
-        "description": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37.65)` will return `1:02:37.65`.",
+        "description": { "en-US": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37.65)` will return `1:02:37.65`." },
         "args": [
             {
                 "name": "time",
-                "description": "The time in seconds to display.",
+                "description": { "en-US": "The time in seconds to display." },
                 "type": "unsigned float",
             }
         ],
@@ -507,12 +507,12 @@ export const opyMacros: Record<string, {
         "return": "String"
     },
     ".unique": {
-        "description": "Returns a copy of the array with duplicate values removed (the first value is kept).\n\nThanks to LazyLion for the formula.",
+        "description": { "en-US": "Returns a copy of the array with duplicate values removed (the first value is kept).\n\nThanks to LazyLion for the formula." },
         "args": [
             {
 
                 "name": "self",
-                "description": "The array to get the unique values from.",
+                "description": { "en-US": "The array to get the unique values from." },
                 "type": "Array",
             }
         ],

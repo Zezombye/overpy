@@ -19,13 +19,13 @@ import { LocalizableString } from "../types";
 
 export type Constant = LocalizableString & {
     extension?: string,
-    description?: string,
+    description?: import("../types").LocalizableString,
     red?: number, green?: number, blue?: number, alpha?: number,
     onlyInOw1?: boolean,
     onlyInOverpy?: boolean,
 };
 
-export const constantValues: Record<string, { description?: string } & Record<string, Constant>> =
+export const constantValues: Record<string, { description?: import("../types").LocalizableString } & Record<string, Constant>> =
 //begin-json
 {
     "AccelReeval": {
@@ -107,7 +107,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "StartRuleBehavior": {
         "RESTART": {
             "guid": "000000010025",
-            "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
+            "description": { "en-US": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)." },
 
             "en-US": "Restart Rule",
             "es-MX": "Reiniciar regla",
@@ -127,7 +127,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "NOOP": {
             "guid": "000000010026",
-            "description": "Allow the rule to finish executing without changing its contextual values.",
+            "description": { "en-US": "Allow the rule to finish executing without changing its contextual values." },
 
             "en-US": "Do Nothing",
             "es-MX": "Hacer nada",
@@ -149,7 +149,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
             "guid": "00000000B1EE",
-            "description": "Line of sight is blocked by barriers created by the enemy team.",
+            "description": { "en-US": "Line of sight is blocked by barriers created by the enemy team." },
 
             "en-US": "Enemy Barriers Block LOS",
             "es-MX": "Las barreras enemigas bloquean la LDV",
@@ -169,7 +169,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "BLOCKED_BY_ALL_BARRIERS": {
             "guid": "00000000B1EF",
-            "description": "Line of sight is blocked by all barriers.",
+            "description": { "en-US": "Line of sight is blocked by all barriers." },
 
             "en-US": "All Barriers Block LOS",
             "es-MX": "Todas las barreras bloquean la LDV",
@@ -189,7 +189,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "PASS_THROUGH_BARRIERS": {
             "guid": "00000000B1ED",
-            "description": "Line of sight is not blocked by any barriers.",
+            "description": { "en-US": "Line of sight is not blocked by any barriers." },
 
             "en-US": "Barriers Do Not Block LOS",
             "es-MX": "Las barreras no bloquean la LDV",
@@ -773,7 +773,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Clip": {
         "SURFACES": {
             "guid": "00000000BAF5",
-            "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
+            "description": { "en-US": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects." },
 
             "en-US": "Clip Against Surfaces",
             "es-MX": "Atravesar las superficies",
@@ -793,7 +793,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "NONE": {
             "guid": "00000000BAF4",
-            "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
+            "description": { "en-US": "The text will always be fully visible, even if it is behind a wall or solid object." },
 
             "en-US": "Do Not Clip",
             "es-MX": "No atravesar",
@@ -5421,7 +5421,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "HeroStat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
-            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "description": { "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)." },
 
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
@@ -5675,7 +5675,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
-            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "description": { "en-US": "Specifies damage dealt to heroes, but not barriers or pets." },
 
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
@@ -6038,7 +6038,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Left"
         },
         "ACTUALLY_LEFT": {
-            "description": "In OW2, HUDs are automatically centered. Specify this value if you actually want your HUD to be on the left of the screen.\n\nNote: this will make all other HUDs with a position of `HudPosition.LEFT` be centered on the screen.",
+            "description": { "en-US": "In OW2, HUDs are automatically centered. Specify this value if you actually want your HUD to be on the left of the screen.\n\nNote: this will make all other HUDs with a position of `HudPosition.LEFT` be centered on the screen." },
             "guid": "00000000BAF6",
             "en-US": "Left",
             "es-MX": "Izquierda",
@@ -6385,7 +6385,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     },
     "Icon": {
         "ARROW_DOWN": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2C9",
 
             "en-US": "Arrow: Down",
@@ -6405,7 +6405,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Arrow: Down"
         },
         "ARROW_LEFT": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CA",
 
             "en-US": "Arrow: Left",
@@ -6425,7 +6425,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Arrow: Left"
         },
         "ARROW_RIGHT": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CB",
 
             "en-US": "Arrow: Right",
@@ -6445,7 +6445,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Arrow: Right"
         },
         "ARROW_UP": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CC",
 
             "en-US": "Arrow: Up",
@@ -6465,7 +6465,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Arrow: Up"
         },
         "ASTERISK": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CD",
 
             "en-US": "Asterisk",
@@ -6485,7 +6485,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Asterisk"
         },
         "BOLT": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CE",
 
             "en-US": "Bolt",
@@ -6505,7 +6505,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Bolt"
         },
         "CHECKMARK": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2CF",
 
             "en-US": "Checkmark",
@@ -6526,7 +6526,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "CIRCLE": {
             "guid": "00000000C2D0",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Circle",
             "es-MX": "Círculo",
@@ -6546,7 +6546,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "CLUB": {
             "guid": "00000000C2D1",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Club",
             "es-MX": "Trébol",
@@ -6566,7 +6566,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "DIAMOND": {
             "guid": "00000000C2D2",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Diamond",
             "es-MX": "Diamante",
@@ -6586,7 +6586,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "DIZZY": {
             "guid": "00000000C2D3",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Dizzy",
             "es-MX": "Mareado",
@@ -6605,7 +6605,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Dizzy"
         },
         "EXCLAMATION_MARK": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2D4",
 
             "en-US": "Exclamation Mark",
@@ -6625,7 +6625,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Exclamation Mark"
         },
         "EYE": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2D5",
 
             "en-US": "Eye",
@@ -6645,7 +6645,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Eye"
         },
         "FIRE": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2D6",
 
             "en-US": "Fire",
@@ -6665,7 +6665,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Fire"
         },
         "FLAG": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2F0",
 
             "en-US": "Flag",
@@ -6686,7 +6686,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "HALO": {
             "guid": "00000000C2D7",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Halo",
             "ja-JP": "光輪",
@@ -6705,7 +6705,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Halo"
         },
         "HAPPY": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2D8",
 
             "en-US": "Happy",
@@ -6726,7 +6726,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "HEART": {
             "guid": "00000000C2D9",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Heart",
             "es-MX": "Corazón",
@@ -6746,7 +6746,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "MOON": {
             "guid": "00000000C2DA",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Moon",
             "es-MX": "Luna",
@@ -6766,7 +6766,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "NO": {
             "guid": "00000000C2DB",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "No",
             "fr-FR": "Interdit",
@@ -6785,7 +6785,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "No"
         },
         "PLUS": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2DC",
 
             "en-US": "Plus",
@@ -6805,7 +6805,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Plus"
         },
         "POISON": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2DD",
 
             "en-US": "Poison",
@@ -6825,7 +6825,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Poison"
         },
         "POISON_2": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2DE",
 
             "en-US": "Poison 2",
@@ -6845,7 +6845,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Poison 2"
         },
         "QUESTION_MARK": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2DF",
 
             "en-US": "Question Mark",
@@ -6865,7 +6865,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Question Mark"
         },
         "RADIOACTIVE": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2E4",
 
             "en-US": "Radioactive",
@@ -6885,7 +6885,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Radioactive"
         },
         "RECYCLE": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2E5",
 
             "en-US": "Recycle",
@@ -6905,7 +6905,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Recycle"
         },
         "RING_THICK": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2E6",
 
             "en-US": "Ring Thick",
@@ -6925,7 +6925,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Ring Thick"
         },
         "RING_THIN": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2E7",
 
             "en-US": "Ring Thin",
@@ -6945,7 +6945,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Ring Thin"
         },
         "SAD": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2E8",
 
             "en-US": "Sad",
@@ -6966,7 +6966,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "SKULL": {
             "guid": "00000000C2E9",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Skull",
             "es-MX": "Cráneo",
@@ -6986,7 +6986,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "SPADE": {
             "guid": "00000000C2EA",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Spade",
             "es-MX": "Pica",
@@ -7005,7 +7005,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Spade"
         },
         "SPIRAL": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2EB",
 
             "en-US": "Spiral",
@@ -7026,7 +7026,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "STOP": {
             "guid": "00000000C2EC",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Stop",
             "es-MX": "Detener",
@@ -7045,7 +7045,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Stop"
         },
         "TRASHCAN": {
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
             "guid": "00000000C2ED",
 
             "en-US": "Trashcan",
@@ -7066,7 +7066,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "WARNING": {
             "guid": "00000000C2EE",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "Warning",
             "es-MX": "Advertencia",
@@ -7086,7 +7086,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "CROSS": {
             "guid": "00000000C2EF",
-            "description": "__iconDescription__",
+            "description": { "en-US": "__iconDescription__" },
 
             "en-US": "X",
             "fr-FR": "Croix",
@@ -7254,7 +7254,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
-            "description": "**Legacy, use `CANCEL_CONTRARY_MOTION_XYZ` instead.**\n\nIf the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+            "description": { "en-US": "**Legacy, use `CANCEL_CONTRARY_MOTION_XYZ` instead.**\n\nIf the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately." },
 
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
@@ -7273,7 +7273,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Cancel Contrary Motion"
         },
         "CANCEL_CONTRARY_MOTION_XYZ": {
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
+            "description": { "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together." },
             "guid": "0000000125A5",
 
             "en-US": "Cancel Contrary Motion XYZ",
@@ -7294,7 +7294,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
-            "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
+            "description": { "en-US": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect." },
 
             "en-US": "Incorporate Contrary Motion",
             "es-MX": "Incorporar movimiento contrario",
@@ -7372,7 +7372,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "LosCheck": {
         "OFF": {
             "guid": "00000000B1E2",
-            "description": "Line of sight is never blocked, allowing results through walls.",
+            "description": { "en-US": "Line of sight is never blocked, allowing results through walls." },
 
             "en-US": "Off",
             "es-MX": "No",
@@ -7392,7 +7392,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "SURFACES": {
             "guid": "00000000B1E3",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
+            "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles." },
 
             "en-US": "Surfaces",
             "es-MX": "Superficies",
@@ -7412,7 +7412,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "SURFACES_AND_ALL_BARRIERS": {
             "guid": "00000000B1E5",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
+            "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers." },
 
             "en-US": "Surfaces And All Barriers",
             "es-MX": "Superficies y todas las barreras",
@@ -7432,7 +7432,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
             "guid": "00000000B1E4",
-            "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
+            "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team." },
 
             "en-US": "Surfaces And Enemy Barriers",
             "es-MX": "Superficies y barreras enemigas",
@@ -7453,7 +7453,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     },
     "OutlineVisibility": {
         "DEFAULT": {
-            "description": "Outlines are visible based on the default game settings.",
+            "description": { "en-US": "Outlines are visible based on the default game settings." },
             "guid": "000000011C50",
 
             "en-US": "Default",
@@ -7473,7 +7473,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Default"
         },
         "OCCLUDED": {
-            "description": "Outlines are visible when occluded by the environment.",
+            "description": { "en-US": "Outlines are visible when occluded by the environment." },
             "guid": "000000011C51",
 
             "en-US": "Occluded",
@@ -7493,7 +7493,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Occluded"
         },
         "ALWAYS": {
-            "description": "Outlines are always visible.",
+            "description": { "en-US": "Outlines are always visible." },
             "guid": "000000011C52",
 
             "en-US": "Always",
@@ -7952,7 +7952,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Relativity": {
         "TO_PLAYER": {
             "guid": "00000000B16F",
-            "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
+            "description": { "en-US": "Relative to the player's local coordinate system (which moves and rotates with the player)." },
 
             "en-US": "To Player",
             "es-MX": "Al jugador",
@@ -7972,7 +7972,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "TO_WORLD": {
             "guid": "00000000B170",
-            "description": "Relative to the world's coordinate system.",
+            "description": { "en-US": "Relative to the world's coordinate system." },
 
             "en-US": "To World",
             "es-MX": "Al mundo",
@@ -7994,7 +7994,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "SpecVisibility": {
         "DEFAULT": {
             "guid": "00000000CE55",
-            "description": "Non-team spectators can see text when all players can see it.",
+            "description": { "en-US": "Non-team spectators can see text when all players can see it." },
 
             "en-US": "Default Visibility",
             "es-MX": "Visibilidad predeterminada",
@@ -8014,7 +8014,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "ALWAYS": {
             "guid": "00000000CE56",
-            "description": "Non-team spectators can always see text.",
+            "description": { "en-US": "Non-team spectators can always see text." },
 
             "en-US": "Visible Always",
             "es-MX": "Siempre visible",
@@ -8034,7 +8034,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "NEVER": {
             "guid": "00000000CE57",
-            "description": "Non-team spectators can never see text.",
+            "description": { "en-US": "Non-team spectators can never see text." },
 
             "en-US": "Visible Never",
             "es-MX": "Nunca visible",
@@ -8056,7 +8056,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Stat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
-            "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "description": { "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)." },
 
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
@@ -8238,7 +8238,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
-            "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "description": { "en-US": "Specifies damage dealt to heroes, but not barriers or pets." },
 
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
@@ -8422,7 +8422,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Status": {
         "ASLEEP": {
             "guid": "00000000B36A",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
+            "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status." },
 
             "en-US": "Asleep",
             "es-MX": "Dormido",
@@ -8442,7 +8442,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "BURNING": {
             "guid": "00000000B36C",
-            "description": "The player is burning. For example, Ashe's dynamite causes this status.",
+            "description": { "en-US": "The player is burning. For example, Ashe's dynamite causes this status." },
 
             "en-US": "Burning",
             "es-MX": "En llamas",
@@ -8462,7 +8462,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "FROZEN": {
             "guid": "00000000B369",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status.",
+            "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status." },
 
             "en-US": "Frozen",
             "es-MX": "Congelado",
@@ -8482,7 +8482,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "HACKED": {
             "guid": "00000000B36D",
-            "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.",
+            "description": { "en-US": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status." },
 
             "en-US": "Hacked",
             "es-MX": "Hackeado",
@@ -8502,7 +8502,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "INVINCIBLE": {
             "guid": "00000000B367",
-            "description": "The player does not take damage.",
+            "description": { "en-US": "The player does not take damage." },
 
             "en-US": "Invincible",
             "es-MX": "Invencible",
@@ -8522,7 +8522,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "KNOCKED_DOWN": {
             "guid": "00000000B36B",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.",
+            "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status." },
 
             "en-US": "Knocked Down",
             "es-MX": "Derribado",
@@ -8542,7 +8542,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "PHASED_OUT": {
             "guid": "00000000B366",
-            "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status.",
+            "description": { "en-US": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status." },
 
             "en-US": "Phased Out",
             "es-MX": "Forma etérea",
@@ -8562,7 +8562,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "ROOTED": {
             "guid": "00000000B365",
-            "description": "The player cannot move unless moved by another player or object. Aiming is unaffected.",
+            "description": { "en-US": "The player cannot move unless moved by another player or object. Aiming is unaffected." },
 
             "en-US": "Rooted",
             "es-MX": "Arraigado",
@@ -8582,7 +8582,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "STUNNED": {
             "guid": "00000000B565",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status.",
+            "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status." },
 
             "en-US": "Stunned",
             "es-MX": "Aturdido",
@@ -8602,7 +8602,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "UNKILLABLE": {
             "guid": "00000000B368",
-            "description": "The player's health will not drop below 1.",
+            "description": { "en-US": "The player's health will not drop below 1." },
 
             "en-US": "Unkillable",
             "es-MX": "Inmortal",
@@ -8756,7 +8756,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Transform": {
         "ROTATION": {
             "guid": "00000000B33B",
-            "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
+            "description": { "en-US": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity." },
 
             "en-US": "Rotation",
             "es-MX": "Rotación",
@@ -8776,7 +8776,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "ROTATION_AND_TRANSLATION": {
             "guid": "00000000B33C",
-            "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position.",
+            "description": { "en-US": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position." },
 
             "en-US": "Rotation And Translation",
             "es-MX": "Rotación y traslación",
@@ -8798,7 +8798,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Wait": {
         "ABORT_WHEN_FALSE": {
             "guid": "00000000787D",
-            "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
+            "description": { "en-US": "The execution of the action list is aborted if any condition on this rule becomes false." },
 
             "en-US": "Abort When False",
             "es-ES": "Abortar cuando sea falso",
@@ -8818,7 +8818,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "IGNORE_CONDITION": {
             "guid": "00000000787C",
-            "description": "The execution of the action list is never interrupted.",
+            "description": { "en-US": "The execution of the action list is never interrupted." },
 
             "en-US": "Ignore Condition",
             "es-ES": "Ignorar condición",
@@ -8838,7 +8838,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
         },
         "RESTART_WHEN_TRUE": {
             "guid": "00000000787E",
-            "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
+            "description": { "en-US": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions." },
 
             "en-US": "Restart When True",
             "es-ES": "Reiniciar cuando sea verdadero",

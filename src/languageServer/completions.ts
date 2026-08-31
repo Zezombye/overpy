@@ -1,3 +1,4 @@
+import type { OWLanguage } from "../types";
 import { CompletionItem, CompletionList, InsertTextFormat, Position } from "vscode-languageserver/node";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
@@ -9,8 +10,9 @@ export function getCompletionList(
     document: TextDocument,
     position: Position,
     triggerCharacter?: string,
+    documentationLanguage: OWLanguage = "en-US",
 ): CompletionList {
-    const state = getCompletionState(document.uri);
+    const state = getCompletionState(document.uri, documentationLanguage);
 
     if (triggerCharacter === ".") {
         const word = getWordBeforeTrigger(document, position);

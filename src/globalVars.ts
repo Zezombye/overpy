@@ -365,9 +365,9 @@ postLoadTasks.push({
 
         for (var key in constantValues) {
             if (key.endsWith("Literal")) {
-                constantValues[key].description = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
+                constantValues[key].description = { "en-US": "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum." };
             } else {
-                constantValues[key].description = "The built-in `"+key+"` enum.";
+                constantValues[key].description = { "en-US": "The built-in `"+key+"` enum." };
             }
         }
     },
