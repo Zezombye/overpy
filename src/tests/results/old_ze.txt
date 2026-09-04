@@ -469,7 +469,7 @@ rule ("init round") {
         Ongoing - Global;
     }
     conditions {
-        Global.R <= True;
+        Global.R <= 1;
         Match Time != Null;
     }
     actions {

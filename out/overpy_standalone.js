@@ -70012,9 +70012,7 @@ OverPyCompiler.prototype.astRuleConditionToWs = function(condition) {
           if (condition.args[i].args[0].numValue === 0) {
             condition.args[i] = this.getAstForNull();
           } else if (condition.args[i].args[0].numValue === 1) {
-            if (["__lessThanOrEquals__", "__greaterThanOrEquals__", "__lessThan__", "__greaterThan__"].includes(condition.name)) {
-              condition.args[i] = this.getAstForTrue();
-            } else if (this.replacementFor1 !== "") {
+            if (this.replacementFor1 !== "") {
               condition.args[i] = this.Ast(this.replacementFor1);
             }
           }

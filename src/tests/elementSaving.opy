@@ -3,6 +3,14 @@
 #!suppressWarnings w_chased_var_in_for
 
 rule "0 to null":
+    A = B > 0
+    A = 0 > B
+    A = B >= 0
+    A = 0 >= B
+    A = B < 0
+    A = 0 < B
+    A = B <= 0
+    A = 0 <= B
     A = B.concat(0)
     A = [0,1,0]
     A = 0 in B
@@ -20,14 +28,6 @@ rule "0 to null":
     smallMessage(getAllPlayers(), 0)
 
 rule "0 to false":
-    A = B > 0
-    A = 0 > B
-    A = B >= 0
-    A = 0 >= B
-    A = B < 0
-    A = 0 < B
-    A = B <= 0
-    A = 0 <= B
     A = max(0, B)
     A = max(B, 0)
     A = min(0, B)
@@ -51,8 +51,15 @@ rule "0 to false":
     wait()
 
 rule "1 to true":
-    A = B+1
-    A = 1+B
+    #should not be changed, inequalities with true/false no longer work
+    @Condition B > 1
+    @Condition 1 > B
+    @Condition B >= 1
+    @Condition 1 >= B
+    @Condition B < 1
+    @Condition 1 < B
+    @Condition B <= 1
+    @Condition 1 <= B
     A = B > 1
     A = 1 > B
     A = B >= 1
@@ -61,6 +68,9 @@ rule "1 to true":
     A = 1 < B
     A = B <= 1
     A = 1 <= B
+
+    A = B+1
+    A = 1+B
     A = 1/B
     A = max(1, B)
     A = max(B, 1)
