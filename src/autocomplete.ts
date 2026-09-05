@@ -9,7 +9,8 @@ import { valueFuncKw } from "./data/values";
 import { showOverPyExtensionError } from "./extension";
 import { DEBUG_MODE, postLoadTasks } from "./globalVars";
 import { OverPyCompiler, OverPyDecompiler } from "./godClasses";
-import { Argument, Value, Type, MacroData, Variable, Subroutine, AstMacroData, AstConstantData } from "./types";
+import { Argument, Value, Type, MacroData, Variable, Subroutine, AstMacroData, AstConstantData, LocalizableString } from "./types";
+import { getLocalizedString } from "./data/opy/documentation";
 import { opyFuncs } from "./data/opy/functions";
 import { opyKeywords } from "./data/opy/keywords";
 import { opyAnnotations } from "./data/opy/annotations";
@@ -34,13 +35,13 @@ export type StringEntity = {
     snippet: string;
 };
 const stringEntities: Record<string, StringEntity> = generateEntitiesDescription(opyStringEntities);
-let defaultConstValues: typeof constantValues | typeof opyConstants | typeof opyModules;
+let defaultConstValues: Record<string, Record<string, unknown>>;
 export const defaultConstCompletionLists: Record<string, vscode.CompletionList> = {};
 export let constantValuesCompLists: Record<string, vscode.CompletionList> = {};
 let funcList: typeof funcDoc;
 export type OverpyModule = {
     class: string;
-    description: string;
+    description: string | LocalizableString;
     args: Argument[];
     return: Type;
 };
@@ -57,7 +58,7 @@ export let allFuncList: Record<string, Record<string, unknown>>;
 export let memberCompletionItems: vscode.CompletionList;
 export type AutocompleteFunctionData = {
     args: { name: string; type: string, default?: string }[] | null;
-    description: string;
+    description: string | LocalizableString;
     class?: string;
 };
 export let normalMacros: Record<string, AutocompleteFunctionData> = {};
@@ -124,13 +125,13 @@ postLoadTasks.push({
                         ): funcEntry is [
                             string,
                             {
-                                description: string;
+                                description: LocalizableString;
                                 args: Argument[];
                                 return: Type;
                             },
                         ] => {
                             const [_, entry] = funcEntry;
-                            return typeof entry !== "string";
+                            return typeof entry === "object" && entry !== null && "args" in entry && "return" in entry;
                         },
                     )
                     // add class property to function entry
@@ -192,7 +193,7 @@ export function refreshAutoComplete() {
 
     const extensionDoc = preprocessingDirectivesList.items.filter((item) => item.label.toString() === "extension")[0];
     const extensionPreprocessorData = preprocessingDirectives["extension"];
-    extensionDoc.documentation = new vscode.MarkdownString(extensionPreprocessorData.description.replace("__extensionDescription__", spentExtensionPoints < 0 ? "Compile the project once to get a breakdown of extension points and show values in autocomplete" : `As of the latest compilation, you are using **\`${spentExtensionPoints + (availableExtensionPoints < 0 ? "" : "/" + availableExtensionPoints)}\`** points.`));
+    extensionDoc.documentation = new vscode.MarkdownString(getLocalizedString(extensionPreprocessorData.description, "en-US").replace("__extensionDescription__", spentExtensionPoints < 0 ? "Compile the project once to get a breakdown of extension points and show values in autocomplete" : `As of the latest compilation, you are using **\`${spentExtensionPoints + (availableExtensionPoints < 0 ? "" : "/" + availableExtensionPoints)}\`** points.`));
 
     defaultCompList = makeCompList({
         ...funcList,
@@ -244,7 +245,7 @@ function generateEntitiesDescription(strEntities: typeof opyStringEntities): typ
                     description: `# ${String.fromCodePoint(entry[1].codepoint)}  \n\
 U+${entry[1].codepoint.toString(16).padStart(4, "0").toUpperCase()}  \n\
 
-${entry[1].description}`,
+${getLocalizedString(entry[1].description, "en-US")}`,
                     snippet: entry[0] + ";",
                 },
             ],
@@ -255,7 +256,7 @@ ${entry[1].description}`,
 function makeCompList(obj: Record<string, unknown>) {
     const result = new vscode.CompletionList(
         Object.keys(obj)
-            .filter((key) => typeof obj[key] === "object" && !(key.startsWith("__") && key.endsWith("__")))
+            .filter((key) => key !== "description" && typeof obj[key] === "object" && !(key.startsWith("__") && key.endsWith("__")))
             .map((key) => makeCompItem(key, obj[key] as OverpyModule)),
     );
     return result;
@@ -279,10 +280,7 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
         isMemberFunctionFlag = item.isMember === true;
     }
 
-    let doc = "";
-    if ("description" in item && typeof item.description === "string") {
-        doc = item.description;
-    }
+    const doc = "description" in item ? getLocalizedString(item.description, "en-US") : "";
 
     if (doc === "__iconDescription__") {
         return new vscode.MarkdownString(`![](${vscode.Uri.file(`${overpyExtensionPath}/img/icons/${itemName.toLowerCase()}.png`)}) \n\n \n\n \n\n \n\n `);
@@ -298,12 +296,14 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     let argStr = "";
 
     if ("args" in item && Array.isArray(item.args) && (item.args.length > 1 || (item.args.length > 0 && !isMemberFunctionFlag))) {
-        argStr = (item.args as Argument[]).slice(isMemberFunctionFlag ? 1 : 0).reduce((prev, arg) =>
-            prev + "- `"+arg.name
+        argStr = (item.args as Argument[]).slice(isMemberFunctionFlag ? 1 : 0).reduce((prev, arg) => {
+            const description = getLocalizedString(arg.description, "en-US");
+            return prev + "- `"+arg.name
             + (arg.default !== undefined ? "?" : "")
-            + "`"+(arg.description ? ": "+arg.description + (arg.description?.endsWith(".") ? "" : ".") : "")
+            + "`"+(description ? ": "+description + (description.endsWith(".") ? "" : ".") : "")
             //Add zero-width space to force line break on large constants such as HudReeval.VISIBILITY_SORT_ORDER_STRING_AND_COLOR
-            + (arg.default !== undefined ? " If omitted, defaults to `"+argDefaultToString(arg).replaceAll("_", "_\u200B")+"`." : "")+"\n", ""
+            + (arg.default !== undefined ? " If omitted, defaults to `"+argDefaultToString(arg).replaceAll("_", "_\u200B")+"`." : "")+"\n";
+        }, ""
         );
     }
 
@@ -431,7 +431,7 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
             if (func.args[i].default !== undefined) {
                 argSignature +="=" + argDefaultToString(func.args[i]);
             }
-            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString((func.args[i].description ? func.args[i].description+"\n\n" : "")+"Type: `"+compiler.typeToString(func.args[i].type)+"`")));
+            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString((getLocalizedString(func.args[i].description, "en-US") ? getLocalizedString(func.args[i].description, "en-US")+"\n\n" : "")+"Type: `"+compiler.typeToString(func.args[i].type)+"`")));
             sigStr += argSignature;
             if (i < func.args.length - 1) {
                 sigStr += ", ";

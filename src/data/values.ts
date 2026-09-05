@@ -23,7 +23,7 @@ export const valueFuncKw: Record<string, Value> =
 {
     "Vector.BACKWARD": {
         "guid": "00000000B11B",
-        "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+        "description": { "en-US": "Shorthand for the directional vector(0, 0, -1), which points backward." },
         "args": null,
         "return": {
             "Direction": [
@@ -52,7 +52,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "Vector.DOWN": {
         "guid": "00000000B119",
-        "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+        "description": { "en-US": "Shorthand for the directional vector(0, -1, 0), which points downward." },
         "args": null,
         "return": {
             "Direction": [
@@ -81,7 +81,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "Vector.FORWARD": {
         "guid": "00000000B11A",
-        "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+        "description": { "en-US": "Shorthand for the directional vector(0, 0, 1), which points forward." },
         "args": null,
         "isConstant": true,
         "return": {
@@ -110,7 +110,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "Vector.LEFT": {
         "guid": "00000000B116",
-        "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+        "description": { "en-US": "Shorthand for the directional vector(1, 0, 0), which points to the left." },
         "args": null,
         "isConstant": true,
         "return": {
@@ -139,7 +139,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "Vector.RIGHT": {
         "guid": "00000000B117",
-        "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+        "description": { "en-US": "Shorthand for the directional vector(-1, 0, 0), which points to the right." },
         "args": null,
         "isConstant": true,
         "return": {
@@ -168,7 +168,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "Vector.UP": {
         "guid": "00000000B118",
-        "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
+        "description": { "en-US": "Shorthand for the directional vector(0, 1, 0), which points upward." },
         "args": null,
         "isConstant": true,
         "return": {
@@ -196,16 +196,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Up"
     },
     ".getAbilityCharge": {
-        "description": "The ability charge count for a player associated by button.",
+        "description": { "en-US": "The ability charge count for a player associated by button." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ability to check.",
+                "description": { "en-US": "The player whose ability to check." },
                 "type": "Player",
             },
             {
                 "name": "button",
-                "description": "The ability to check associated by button.",
+                "description": { "en-US": "The ability to check associated by button." },
                 "type": "Button",
             }
         ],
@@ -228,16 +228,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ability Charge"
     },
     ".getAbilityCooldown": {
-        "description": "The ability cooldown time in seconds for a player associated by button.",
+        "description": { "en-US": "The ability cooldown time in seconds for a player associated by button." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ability to check.",
+                "description": { "en-US": "The player whose ability to check." },
                 "type": "Player",
             },
             {
                 "name": "button",
-                "description": "The ability to check associated by button.",
+                "description": { "en-US": "The ability to check associated by button." },
                 "type": "Button",
             }
         ],
@@ -260,16 +260,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ability Cooldown"
     },
     ".getAbilityResource": {
-        "description": "The ability resource percent for a player associated by button.",
+        "description": { "en-US": "The ability resource percent for a player associated by button." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ability to check.",
+                "description": { "en-US": "The player whose ability to check." },
                 "type": "Player",
             },
             {
                 "name": "button",
-                "description": "The ability to check associated by button.",
+                "description": { "en-US": "The ability to check associated by button." },
                 "type": "Button",
             }
         ],
@@ -292,11 +292,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ability Resource"
     },
     ".getAllowedHeroes": {
-        "description": "The array of heroes from which the specified player is currently allowed to select.",
+        "description": { "en-US": "The array of heroes from which the specified player is currently allowed to select." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose allowed heroes to acquire.",
+                "description": { "en-US": "The player whose allowed heroes to acquire." },
                 "type": "Player",
             }
         ],
@@ -322,11 +322,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Allowed Heroes"
     },
     ".getAltitude": {
-        "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
+        "description": { "en-US": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose altitude to acquire.",
+                "description": { "en-US": "The player whose altitude to acquire." },
                 "type": "Player",
             }
         ],
@@ -349,16 +349,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Altitude Of"
     },
     ".getAmmo": {
-        "description": "The current ammo of a player.",
+        "description": { "en-US": "The current ammo of a player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ammo to acquire.",
+                "description": { "en-US": "The player whose ammo to acquire." },
                 "type": "Player",
             },
             {
                 "name": "clip",
-                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "description": { "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -384,11 +384,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ammo"
     },
     ".getHero": {
-        "description": "The current hero of a player.",
+        "description": { "en-US": "The current hero of a player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose hero to acquire.",
+                "description": { "en-US": "The player whose hero to acquire." },
                 "type": "Player",
             }
         ],
@@ -412,11 +412,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Hero Of"
     },
     ".getCurrentWeapon": {
-        "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
+        "description": { "en-US": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose weapon to acquire.",
+                "description": { "en-US": "The player whose weapon to acquire." },
                 "type": "Player",
             }
         ],
@@ -440,11 +440,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     ".getEyePosition": {
         "guid": "00000000C595",
-        "description": "The position of a player's first person view (used for aiming)",
+        "description": { "en-US": "The position of a player's first person view (used for aiming)" },
         "args": [
             {
                 "name": "player",
-                "description": "The position of a player's first person view (used for aiming)",
+                "description": { "en-US": "The position of a player's first person view (used for aiming)" },
                 "type": "Player",
             }
         ],
@@ -467,11 +467,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Eye Position"
     },
     ".getFacingDirection": {
-        "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
+        "description": { "en-US": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose facing direction to acquire.",
+                "description": { "en-US": "The player whose facing direction to acquire." },
                 "type": "Player",
             }
         ],
@@ -496,11 +496,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     ".getHealth": {
         "guid": "0000000081C2",
-        "description": "The current health of a player, including armor and shields.",
+        "description": { "en-US": "The current health of a player, including armor and shields." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose health to acquire.",
+                "description": { "en-US": "The player whose health to acquire." },
                 "type": "Player",
             }
         ],
@@ -522,16 +522,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Health"
     },
     ".getHealthOfType": {
-        "description": "The current health of the specified player, filtered by the given health type.",
+        "description": { "en-US": "The current health of the specified player, filtered by the given health type." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose health to acquire.",
+                "description": { "en-US": "The player whose health to acquire." },
                 "type": "Player",
             },
             {
                 "name": "health",
-                "description": "The type of health to acquire.",
+                "description": { "en-US": "The type of health to acquire." },
                 "type": "Health",
             }
         ],
@@ -554,11 +554,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Health Of Type"
     },
     ".getHeroOfDuplication": {
-        "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
+        "description": { "en-US": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0." },
         "args": [
             {
                 "name": "player",
-                "description": "The player performing the duplication.",
+                "description": { "en-US": "The player performing the duplication." },
                 "type": "Player",
             }
         ],
@@ -582,21 +582,21 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Hero Being Duplicated"
     },
     ".getHeroStatistic": {
-        "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+        "description": { "en-US": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics." },
         "args": [
             {
                 "name": "player",
-                "description": "The Player whose statistic to acquire.",
+                "description": { "en-US": "The Player whose statistic to acquire." },
                 "type": "Player",
             },
             {
                 "name": "hero",
-                "description": "The hero whose statistic to acquire",
+                "description": { "en-US": "The hero whose statistic to acquire" },
                 "type": "Hero",
             },
             {
                 "name": "stat",
-                "description": "The statistic to acquire.",
+                "description": { "en-US": "The statistic to acquire." },
                 "type": "HeroStat",
             }
         ],
@@ -619,11 +619,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Player Hero Stat"
     },
     ".getHorizontalFacingAngle": {
-        "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
+        "description": { "en-US": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose horizontal facing angle to acquire.",
+                "description": { "en-US": "The player whose horizontal facing angle to acquire." },
                 "type": "Player",
             }
         ],
@@ -646,11 +646,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Horizontal Facing Angle Of"
     },
     ".getHorizontalSpeed": {
-        "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
+        "description": { "en-US": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose horizontal speed to acquire.",
+                "description": { "en-US": "The player whose horizontal speed to acquire." },
                 "type": "Player",
             }
         ],
@@ -673,16 +673,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Horizontal Speed Of"
     },
     ".getMaxAmmo": {
-        "description": "The current max ammo of a player.",
+        "description": { "en-US": "The current max ammo of a player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose max ammo to acquire.",
+                "description": { "en-US": "The player whose max ammo to acquire." },
                 "type": "Player",
             },
             {
                 "name": "clip",
-                "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                "description": { "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -708,11 +708,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Max Ammo"
     },
     ".getMaxHealth": {
-        "description": "The max health of a player, including armor and shields.",
+        "description": { "en-US": "The max health of a player, including armor and shields." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose max health to acquire.",
+                "description": { "en-US": "The player whose max health to acquire." },
                 "type": "Player",
             }
         ],
@@ -735,16 +735,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Max Health"
     },
     ".getMaxHealthOfType": {
-        "description": "The max health of the specified player, filtered by the given health type.",
+        "description": { "en-US": "The max health of the specified player, filtered by the given health type." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose max health to acquire.",
+                "description": { "en-US": "The player whose max health to acquire." },
                 "type": "Player",
             },
             {
                 "name": "health",
-                "description": "The type of max health to acquire.",
+                "description": { "en-US": "The type of max health to acquire." },
                 "type": "Health",
             }
         ],
@@ -767,11 +767,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Max Health Of Type"
     },
     ".getNormalizedHealth": {
-        "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
+        "description": { "en-US": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)" },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose normalized health to acquire.",
+                "description": { "en-US": "The player whose normalized health to acquire." },
                 "type": "Player",
             }
         ],
@@ -794,11 +794,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Normalized Health"
     },
     ".getNumberOfDeaths": {
-        "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
+        "description": { "en-US": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose death count to acquire.",
+                "description": { "en-US": "The player whose death count to acquire." },
                 "type": "Player",
             }
         ],
@@ -821,11 +821,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Deaths"
     },
     ".getNumberOfElims": {
-        "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
+        "description": { "en-US": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose elimination count to acquire.",
+                "description": { "en-US": "The player whose elimination count to acquire." },
                 "type": "Player",
             }
         ],
@@ -848,11 +848,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Eliminations"
     },
     ".getNumberOfFinalBlows": {
-        "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
+        "description": { "en-US": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose final blow count to acquire.",
+                "description": { "en-US": "The player whose final blow count to acquire." },
                 "type": "Player",
             }
         ],
@@ -875,16 +875,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Final Blows"
     },
     ".getPlayerClosestToReticle": {
-        "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
+        "description": { "en-US": "The player closest to the reticle of the specified player, optionally restricted by team." },
         "args": [
             {
                 "name": "player",
-                "description": "The player from whose reticle to search for the closest player.",
+                "description": { "en-US": "The player from whose reticle to search for the closest player." },
                 "type": "Player",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to search for the closest player.",
+                "description": { "en-US": "The team or teams on which to search for the closest player." },
                 "type": "Team",
             }
         ],
@@ -908,21 +908,21 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Player Closest To Reticle"
     },
     ".getPlayersInViewAngle": {
-        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\n**Note**: This function picks up dead and unspawned players. Use `.getRealPlayersInViewAngle()` instead.",
+        "description": { "en-US": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\n**Note**: This function picks up dead and unspawned players. Use `.getRealPlayersInViewAngle()` instead." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose view to use for the check.",
+                "description": { "en-US": "The player whose view to use for the check." },
                 "type": "Player",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to consider players.",
+                "description": { "en-US": "The team or teams on which to consider players." },
                 "type": "Team",
             },
             {
                 "name": "viewAngle",
-                "description": "The view angle to compare against in degrees.",
+                "description": { "en-US": "The view angle to compare against in degrees." },
                 "type": "float",
             }
         ],
@@ -948,11 +948,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Players in View Angle"
     },
     ".getPosition": {
-        "description": "The current position of a player as a vector.",
+        "description": { "en-US": "The current position of a player as a vector." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose position to acquire.",
+                "description": { "en-US": "The player whose position to acquire." },
                 "type": "Player",
             }
         ],
@@ -976,11 +976,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Position Of"
     },
     ".getScore": {
-        "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
+        "description": { "en-US": "The current score of a player. Results in 0 if the game mode is not free-for-all." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose score to acquire.",
+                "description": { "en-US": "The player whose score to acquire." },
                 "type": "Player",
             }
         ],
@@ -1003,11 +1003,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Score Of"
     },
     ".getSlot": {
-        "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+        "description": { "en-US": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose slot number to acquire.",
+                "description": { "en-US": "The player whose slot number to acquire." },
                 "type": "Player",
             }
         ],
@@ -1030,11 +1030,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Slot Of"
     },
     ".getSpeed": {
-        "description": "The current speed of a player in meters per second.",
+        "description": { "en-US": "The current speed of a player in meters per second." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose speed to acquire.",
+                "description": { "en-US": "The player whose speed to acquire." },
                 "type": "Player",
             }
         ],
@@ -1057,16 +1057,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Speed Of"
     },
     ".getSpeedInDirection": {
-        "description": "The current speed of a player in a specific direction in meters per second.",
+        "description": { "en-US": "The current speed of a player in a specific direction in meters per second." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose speed to acquire.",
+                "description": { "en-US": "The player whose speed to acquire." },
                 "type": "Player",
             },
             {
                 "name": "direction",
-                "description": "The direction of travel in which to measure the player's speed.",
+                "description": { "en-US": "The direction of travel in which to measure the player's speed." },
                 "type": "Direction",
             }
         ],
@@ -1089,16 +1089,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Speed Of In Direction"
     },
     ".getStatistic": {
-        "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+        "description": { "en-US": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics." },
         "args": [
             {
                 "name": "player",
-                "description": "The Player whose statistic to acquire.",
+                "description": { "en-US": "The Player whose statistic to acquire." },
                 "type": "Player",
             },
             {
                 "name": "statistic",
-                "description": "The statistic to acquire.",
+                "description": { "en-US": "The statistic to acquire." },
                 "type": "Stat",
             }
         ],
@@ -1121,11 +1121,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Player Stat"
     },
     ".getTeam": {
-        "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
+        "description": { "en-US": "The team of a player. If the game mode is free-for-all, the team is considered to be all." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose team to acquire.",
+                "description": { "en-US": "The player whose team to acquire." },
                 "type": "Player",
             }
         ],
@@ -1149,11 +1149,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Team Of"
     },
     ".getThrottle": {
-        "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
+        "description": { "en-US": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose directional input to acquire.",
+                "description": { "en-US": "The player whose directional input to acquire." },
                 "type": "Player",
             }
         ],
@@ -1177,11 +1177,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Throttle Of"
     },
     ".getUltCharge": {
-        "description": "The current ultimate ability charge percentage of a player.",
+        "description": { "en-US": "The current ultimate ability charge percentage of a player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ultimate charge percentage to acquire.",
+                "description": { "en-US": "The player whose ultimate charge percentage to acquire." },
                 "type": "Player",
             }
         ],
@@ -1204,11 +1204,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ultimate Charge Percent"
     },
     ".getVelocity": {
-        "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
+        "description": { "en-US": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose velocity to acquire.",
+                "description": { "en-US": "The player whose velocity to acquire." },
                 "type": "Player",
             }
         ],
@@ -1232,11 +1232,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Velocity Of"
     },
     ".getVerticalFacingAngle": {
-        "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
+        "description": { "en-US": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose vertical facing angle to acquire.",
+                "description": { "en-US": "The player whose vertical facing angle to acquire." },
                 "type": "Player",
             }
         ],
@@ -1259,11 +1259,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Vertical Facing Angle Of"
     },
     ".getVerticalSpeed": {
-        "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
+        "description": { "en-US": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose vertical speed to acquire.",
+                "description": { "en-US": "The player whose vertical speed to acquire." },
                 "type": "Player",
             }
         ],
@@ -1286,11 +1286,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Vertical Speed Of"
     },
     ".hasSpawned": {
-        "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
+        "description": { "en-US": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet." },
         "args": [
             {
                 "name": "entity",
-                "description": "The player, icon entity, or effect entity whose presence in world to check.",
+                "description": { "en-US": "The player, icon entity, or effect entity whose presence in world to check." },
                 "type": "Player",
             }
         ],
@@ -1313,16 +1313,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Has Spawned"
     },
     ".hasStatus": {
-        "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
+        "description": { "en-US": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose status to check.",
+                "description": { "en-US": "The player whose status to check." },
                 "type": "Player",
             },
             {
                 "name": "status",
-                "description": "The status to check for.",
+                "description": { "en-US": "The status to check for." },
                 "type": "Status",
             }
         ],
@@ -1345,11 +1345,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Has Status"
     },
     ".isAlive": {
-        "description": "Whether a player is alive.",
+        "description": { "en-US": "Whether a player is alive." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose life to check.",
+                "description": { "en-US": "The player whose life to check." },
                 "type": "Player",
             }
         ],
@@ -1372,16 +1372,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Alive"
     },
     ".isCommunicating": {
-        "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.).",
+        "description": { "en-US": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose communication status to check.",
+                "description": { "en-US": "The player whose communication status to check." },
                 "type": "Player",
             },
             {
                 "name": "type",
-                "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
+                "description": { "en-US": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds." },
                 "type": "Comms",
             }
         ],
@@ -1404,11 +1404,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Communicating"
     },
     ".isCommunicatingAnything": {
-        "description": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.).",
+        "description": { "en-US": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose communication status to check.",
+                "description": { "en-US": "The player whose communication status to check." },
                 "type": "Player",
             }
         ],
@@ -1431,11 +1431,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Communicating Any"
     },
     ".isCommunicatingEmote": {
-        "description": "Whether a player is using an emote.",
+        "description": { "en-US": "Whether a player is using an emote." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose emoting status to check.",
+                "description": { "en-US": "The player whose emoting status to check." },
                 "type": "Player",
             }
         ],
@@ -1458,11 +1458,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Communicating Any Emote"
     },
     ".isCommunicatingSpray": {
-        "description": "Whether a Player is using a spray.",
+        "description": { "en-US": "Whether a Player is using a spray." },
         "args": [
             {
                 "name": "player",
-                "description": "The Player whose spray status to check.",
+                "description": { "en-US": "The Player whose spray status to check." },
                 "type": "Player",
             }
         ],
@@ -1485,11 +1485,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Communicating Any Spray"
     },
     ".isCommunicatingVoiceline": {
-        "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
+        "description": { "en-US": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)" },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose voice line status to check.",
+                "description": { "en-US": "The player whose voice line status to check." },
                 "type": "Player",
             }
         ],
@@ -1512,11 +1512,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Communicating Any Voice line"
     },
     ".isCrouching": {
-        "description": "Whether a player is crouching.",
+        "description": { "en-US": "Whether a player is crouching." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose crouching status to check.",
+                "description": { "en-US": "The player whose crouching status to check." },
                 "type": "Player",
             }
         ],
@@ -1539,11 +1539,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Crouching"
     },
     ".isDead": {
-        "description": "Whether a player is dead.",
+        "description": { "en-US": "Whether a player is dead." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose death to check.",
+                "description": { "en-US": "The player whose death to check." },
                 "type": "Player",
             }
         ],
@@ -1566,11 +1566,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Dead"
     },
     ".isDummy": {
-        "description": "Whether a player is a dummy bot.",
+        "description": { "en-US": "Whether a player is a dummy bot." },
         "args": [
             {
                 "name": "player",
-                "description": "Player to consider.",
+                "description": { "en-US": "Player to consider." },
                 "type": "Player",
             }
         ],
@@ -1593,11 +1593,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Dummy Bot"
     },
     ".isDuplicatingAHero": {
-        "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
+        "description": { "en-US": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose duplication status to check.",
+                "description": { "en-US": "The player whose duplication status to check." },
                 "type": "Player",
             }
         ],
@@ -1620,11 +1620,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Duplicating"
     },
     ".isFiringPrimaryFire": {
-        "description": "Whether the specified player's primary weapon attack is being used.",
+        "description": { "en-US": "Whether the specified player's primary weapon attack is being used." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose primary weapon attack usage to check.",
+                "description": { "en-US": "The player whose primary weapon attack usage to check." },
                 "type": "Player",
             }
         ],
@@ -1647,11 +1647,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Firing Primary"
     },
     ".isFiringSecondaryFire": {
-        "description": "Whether the specified player's secondary weapon attack is being used.",
+        "description": { "en-US": "Whether the specified player's secondary weapon attack is being used." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose secondary weapon attack usage to check.",
+                "description": { "en-US": "The player whose secondary weapon attack usage to check." },
                 "type": "Player",
             }
         ],
@@ -1674,16 +1674,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Firing Secondary"
     },
     ".isHoldingButton": {
-        "description": "Whether a player is holding a specific button.",
+        "description": { "en-US": "Whether a player is holding a specific button." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose button to check.",
+                "description": { "en-US": "The player whose button to check." },
                 "type": "Player",
             },
             {
                 "name": "button",
-                "description": "The button to check.",
+                "description": { "en-US": "The button to check." },
                 "type": "Button",
             }
         ],
@@ -1706,11 +1706,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Button Held"
     },
     ".isInAir": {
-        "description": "Whether a player is airborne.",
+        "description": { "en-US": "Whether a player is airborne." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose airborne status to check.",
+                "description": { "en-US": "The player whose airborne status to check." },
                 "type": "Player",
             }
         ],
@@ -1733,11 +1733,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Air"
     },
     ".isInAlternateForm": {
-        "description": "Whether the specified player is currently in an alternate form:\n        \n- Wrecking Ball's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
+        "description": { "en-US": "Whether the specified player is currently in an alternate form:\n        \n- Wrecking Ball's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose form to check.",
+                "description": { "en-US": "The player whose form to check." },
                 "type": "Player",
             }
         ],
@@ -1760,11 +1760,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Alternate Form"
     },
     ".isInSpawnRoom": {
-        "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
+        "description": { "en-US": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose spawn room status to check.",
+                "description": { "en-US": "The player whose spawn room status to check." },
                 "type": "Player",
             }
         ],
@@ -1787,21 +1787,21 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Spawn Room"
     },
     ".isInViewAngle": {
-        "description": "Whether a location is within view of a player.",
+        "description": { "en-US": "Whether a location is within view of a player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose view to use for the check.",
+                "description": { "en-US": "The player whose view to use for the check." },
                 "type": "Player",
             },
             {
                 "name": "location",
-                "description": "The location to test if it's within view.",
+                "description": { "en-US": "The location to test if it's within view." },
                 "type": "Position",
             },
             {
                 "name": "viewAngle",
-                "description": "The view angle to compare against in degrees.",
+                "description": { "en-US": "The view angle to compare against in degrees." },
                 "type": "float",
             }
         ],
@@ -1824,11 +1824,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In View Angle"
     },
     ".isJumping": {
-        "description": "Whether the specified player is jumping.",
+        "description": { "en-US": "Whether the specified player is jumping." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose jump usage to check.",
+                "description": { "en-US": "The player whose jump usage to check." },
                 "type": "Player",
             }
         ],
@@ -1851,11 +1851,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Jumping"
     },
     ".isMeleeing": {
-        "description": "Whether the specified player is meleeing.",
+        "description": { "en-US": "Whether the specified player is meleeing." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose melee usage to check.",
+                "description": { "en-US": "The player whose melee usage to check." },
                 "type": "Player",
             }
         ],
@@ -1878,11 +1878,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Meleeing"
     },
     ".isMoving": {
-        "description": "Whether a player is moving (defined as having a non-zero current speed).",
+        "description": { "en-US": "Whether a player is moving (defined as having a non-zero current speed)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose moving status to check.",
+                "description": { "en-US": "The player whose moving status to check." },
                 "type": "Player",
             }
         ],
@@ -1905,11 +1905,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Moving"
     },
     ".isOnFire": {
-        "description": "Whether a specific player's portrait is on fire.",
+        "description": { "en-US": "Whether a specific player's portrait is on fire." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose portrait to check.",
+                "description": { "en-US": "The player whose portrait to check." },
                 "type": "Player",
             }
         ],
@@ -1932,11 +1932,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Portrait On Fire"
     },
     ".isOnGround": {
-        "description": "Whether a player is on the ground (or other walkable surface).",
+        "description": { "en-US": "Whether a player is on the ground (or other walkable surface)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ground status to check.",
+                "description": { "en-US": "The player whose ground status to check." },
                 "type": "Player",
             }
         ],
@@ -1959,11 +1959,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is On Ground"
     },
     ".isOnObjective": {
-        "description": "Whether a specific player is currently occupying a payload or capture point.",
+        "description": { "en-US": "Whether a specific player is currently occupying a payload or capture point." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose objective status to check.",
+                "description": { "en-US": "The player whose objective status to check." },
                 "type": "Player",
             }
         ],
@@ -1986,11 +1986,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is On Objective"
     },
     ".isOnWall": {
-        "description": "Whether a player is on a wall (climbing or riding).",
+        "description": { "en-US": "Whether a player is on a wall (climbing or riding)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose wall status to check.",
+                "description": { "en-US": "The player whose wall status to check." },
                 "type": "Player",
             }
         ],
@@ -2013,11 +2013,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is On Wall"
     },
     ".isReloading": {
-        "description": "Whether the specified player is reloading.",
+        "description": { "en-US": "Whether the specified player is reloading." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose reload usage to check.",
+                "description": { "en-US": "The player whose reload usage to check." },
                 "type": "Player",
             }
         ],
@@ -2040,11 +2040,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Reloading"
     },
     ".isStanding": {
-        "description": "Whether a player is standing (defined as both not moving and not in the air).",
+        "description": { "en-US": "Whether a player is standing (defined as both not moving and not in the air)." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose standing status to check.",
+                "description": { "en-US": "The player whose standing status to check." },
                 "type": "Player",
             }
         ],
@@ -2067,11 +2067,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Standing"
     },
     ".isUsingAbility1": {
-        "description": "Whether the specified player is using ability 1.",
+        "description": { "en-US": "Whether the specified player is using ability 1." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ability 1 usage to check.",
+                "description": { "en-US": "The player whose ability 1 usage to check." },
                 "type": "Player",
             }
         ],
@@ -2094,11 +2094,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Using Ability 1"
     },
     ".isUsingAbility2": {
-        "description": "Whether the specified player is using ability 2.",
+        "description": { "en-US": "Whether the specified player is using ability 2." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ability 2 usage to check.",
+                "description": { "en-US": "The player whose ability 2 usage to check." },
                 "type": "Player",
             }
         ],
@@ -2121,11 +2121,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Using Ability 2"
     },
     ".isUsingUltimate": {
-        "description": "Whether a player is using an ultimate ability.",
+        "description": { "en-US": "Whether a player is using an ultimate ability." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose ultimate ability usage to check.",
+                "description": { "en-US": "The player whose ultimate ability usage to check." },
                 "type": "Player",
             }
         ],
@@ -2149,11 +2149,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__add__": {
         "guid": "00000000C408",
-        "description": "The sum of two numbers or vectors.",
+        "description": { "en-US": "The sum of two numbers or vectors." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -2162,7 +2162,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -2192,16 +2192,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Add"
     },
     "__all__": {
-        "description": "Whether the specified condition evaluates to true for every value in the specified array.",
+        "description": { "en-US": "Whether the specified condition evaluates to true for every value in the specified array." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": "Array",
             },
             {
                 "name": "condition",
-                "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+                "description": { "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered." },
                 "type": "bool",
             }
         ],
@@ -2225,16 +2225,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is True For All"
     },
     "__and__": {
-        "description": "Whether both of the two inputs are true (or equivalent to true).",
+        "description": { "en-US": "Whether both of the two inputs are true (or equivalent to true)." },
         "args": [
             {
                 "name": "value",
-                "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+                "description": { "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true." },
                 "type": "bool",
             },
             {
                 "name": "value",
-                "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+                "description": { "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true." },
                 "type": "bool",
             }
         ],
@@ -2258,16 +2258,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "And"
     },
     "__any__": {
-        "description": "Whether the specified condition evaluates to true for any value in the specified array.",
+        "description": { "en-US": "Whether the specified condition evaluates to true for any value in the specified array." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": "Array",
             },
             {
                 "name": "condition",
-                "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+                "description": { "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered." },
                 "type": "bool",
             }
         ],
@@ -2291,16 +2291,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is True For Any"
     },
     "__arrayContains__": {
-        "description": "Whether the specified array contains the specified value.",
+        "description": { "en-US": "Whether the specified array contains the specified value." },
         "args": [
             {
                 "name": "array",
-                "description": "The array in which to search for the specified value.",
+                "description": { "en-US": "The array in which to search for the specified value." },
                 "type": "Array",
             },
             {
                 "name": "value",
-                "description": "The value for which to search.",
+                "description": { "en-US": "The value for which to search." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             }
@@ -2325,25 +2325,25 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Array Contains"
     },
     ".slice": {
-        "description": "A copy of the specified array containing only values from a specified index range. **Does not support nested arrays.**",
+        "description": { "en-US": "A copy of the specified array containing only values from a specified index range. **Does not support nested arrays.**" },
         "args": [
             {
                 "name": "array",
-                "description": "The array from which to make a copy.",
+                "description": { "en-US": "The array from which to make a copy." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "startIndex",
-                "description": "The first index of the range.",
+                "description": { "en-US": "The first index of the range." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "count",
-                "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                "description": { "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -2373,11 +2373,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Array Slice"
     },
     "__array__": {
-        "description": "An array constructed from the listed values.",
+        "description": { "en-US": "An array constructed from the listed values." },
         "args": [
             {
                 "name": "[0]",
-                "description": "The value that will be stored in the array at index [0].",
+                "description": { "en-US": "The value that will be stored in the array at index [0]." },
                 "type": [
                     "Object",
                     "Array"
@@ -2405,11 +2405,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Array"
     },
     "__button__": {
-        "description": "A button constant.",
+        "description": { "en-US": "A button constant." },
         "args": [
             {
                 "name": "button",
-                "description": "A button constant.",
+                "description": { "en-US": "A button constant." },
                 "type": "ButtonLiteral",
             }
         ],
@@ -2435,11 +2435,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Button"
     },
     "__color__": {
-        "description": "A Color Constant",
+        "description": { "en-US": "A Color Constant" },
         "args": [
             {
                 "name": "color",
-                "description": "A Color Constant",
+                "description": { "en-US": "A Color Constant" },
                 "type": "ColorLiteral",
             }
         ],
@@ -2465,11 +2465,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Color"
     },
     "__compare__": {
-        "description": "Whether the comparison of the two inputs is true.",
+        "description": { "en-US": "Whether the comparison of the two inputs is true." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+                "description": { "en-US": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected." },
                 "type": [
                     "Object",
                     "Array"
@@ -2477,12 +2477,12 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "comparison",
-                "description": "",
+                "description": { "en-US": "" },
                 "type": "__Operator__",
             },
             {
                 "name": "value",
-                "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+                "description": { "en-US": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected." },
                 "type": [
                     "Object",
                     "Array"
@@ -2510,16 +2510,16 @@ export const valueFuncKw: Record<string, Value> =
     },
     ".concat": {
         "guid": "00000000C41A",
-        "description": "A copy of an array with one or more values appended to the end.",
+        "description": { "en-US": "A copy of an array with one or more values appended to the end." },
         "args": [
             {
                 "name": "array",
-                "description": "The array to which to append.",
+                "description": { "en-US": "The array to which to append." },
                 "type": "Array",
             },
             {
                 "name": "value",
-                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "description": { "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended." },
                 "type": [
                     "Object",
                     {
@@ -2549,7 +2549,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Append To Array"
     },
     "__currentArrayElement__": {
-        "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+        "description": { "en-US": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array." },
         "args": [],
         "isConstant": true,
         "return": [
@@ -2574,7 +2574,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Current Array Element"
     },
     "__currentArrayIndex__": {
-        "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+        "description": { "en-US": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array." },
         "args": [],
         "isConstant": true,
         "return": [
@@ -2599,28 +2599,28 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Current Array Index"
     },
     "__customString__": {
-        "description": "ty magzie for adding that",
+        "description": { "en-US": "ty magzie for adding that" },
         "args": [
             {
                 "name": "string",
-                "description": "",
+                "description": { "en-US": "" },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "{0}",
-                "description": "The value that will be converted to text and used to replace {0}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {0}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             },
             {
                 "name": "{1}",
-                "description": "The value that will be converted to text and used to replace {1}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {1}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             },
             {
                 "name": "{2}",
-                "description": "The value that will be converted to text and used to replace {2}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {2}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             }
@@ -2647,11 +2647,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__divide__": {
         "guid": "00000000C40F",
-        "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
+        "description": { "en-US": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -2660,7 +2660,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -2689,7 +2689,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Divide"
     },
     "__emptyArray__": {
-        "description": "An array with no elements.",
+        "description": { "en-US": "An array with no elements." },
         "args": [],
         "isConstant": true,
         "return": "Array",
@@ -2711,16 +2711,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Empty Array"
     },
     "__filteredArray__": {
-        "description": "A copy of the specified array with any values that do not match the specified condition removed.",
+        "description": { "en-US": "A copy of the specified array with any values that do not match the specified condition removed." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be filtered.",
+                "description": { "en-US": "The array whose copy will be filtered." },
                 "type": "Array",
             },
             {
                 "name": "condition",
-                "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
+                "description": { "en-US": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered." },
                 "type": "bool",
             }
         ],
@@ -2744,11 +2744,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Filtered Array"
     },
     "__firstOf__": {
-        "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
+        "description": { "en-US": "The value at the start of the specified array. Results in 0 if the specified array is empty." },
         "args": [
             {
                 "name": "array",
-                "description": "The array from which the value is acquired.",
+                "description": { "en-US": "The array from which the value is acquired." },
                 "type": "Array",
             }
         ],
@@ -2776,11 +2776,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__gamemode__": {
         "guid": "00000000F161",
-        "description": "A game mode constant.",
+        "description": { "en-US": "A game mode constant." },
         "args": [
             {
                 "name": "gameMode",
-                "description": "A game mode constant.",
+                "description": { "en-US": "A game mode constant." },
                 "type": "GamemodeLiteral",
             }
         ],
@@ -2805,11 +2805,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Game Mode"
     },
     "__globalVar__": {
-        "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
+        "description": { "en-US": "The current value of a global variable, which is a variable that belongs to the game itself." },
         "args": [
             {
                 "name": "variable",
-                "description": "The variable whose value to acquire.",
+                "description": { "en-US": "The variable whose value to acquire." },
                 "type": "GlobalVariable",
             }
         ],
@@ -2853,11 +2853,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__hero__": {
         "guid": "00000000ACAA",
-        "description": "A hero constant.",
+        "description": { "en-US": "A hero constant." },
         "args": [
             {
                 "name": "hero",
-                "description": "A hero constant.",
+                "description": { "en-US": "A hero constant." },
                 "type": "HeroLiteral",
             }
         ],
@@ -2882,16 +2882,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Hero"
     },
     "__ifThenElse__": {
-        "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
+        "description": { "en-US": "Results in the Then value when the If condition is true; otherwise, results in the Else value." },
         "args": [
             {
                 "name": "if",
-                "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
+                "description": { "en-US": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else." },
                 "type": "bool",
             },
             {
                 "name": "then",
-                "description": "The result of the value when the if condition evaluates to true.",
+                "description": { "en-US": "The result of the value when the if condition evaluates to true." },
                 "type": [
                     "Object",
                     "Array"
@@ -2900,7 +2900,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "else",
-                "description": "The result of the value when the if condition evaluates to false.",
+                "description": { "en-US": "The result of the value when the if condition evaluates to false." },
                 "type": [
                     "Object",
                     "Array"
@@ -2931,18 +2931,18 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "If-Then-Else"
     },
     ".index": {
-        "description": "The index of a value within the array or -1 if no such value can be found. **Does not support nested arrays.**\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array.",
+        "description": { "en-US": "The index of a value within the array or -1 if no such value can be found. **Does not support nested arrays.**\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array." },
         "args": [
             {
                 "name": "array",
-                "description": "The array in which to search for the specified value.",
+                "description": { "en-US": "The array in which to search for the specified value." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "value",
-                "description": "The value for which to search.",
+                "description": { "en-US": "The value for which to search." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             }
@@ -2968,11 +2968,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Index Of Array Value"
     },
     ".last": {
-        "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+        "description": { "en-US": "The value at the end of the specified array. Results in 0 if the specified array is empty." },
         "args": [
             {
                 "name": "array",
-                "description": "The array from which the value is acquired.",
+                "description": { "en-US": "The array from which the value is acquired." },
                 "type": "Array",
             }
         ],
@@ -3001,28 +3001,28 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__localizedString__": {
         "guid": "00000000BA60",
-        "description": "Text formed from a selection of strings and specified values.",
+        "description": { "en-US": "Text formed from a selection of strings and specified values." },
         "args": [
             {
                 "name": "string",
-                "description": "",
+                "description": { "en-US": "" },
                 "type": "LocalizedStringLiteral",
             },
             {
                 "name": "{0}",
-                "description": "The value that will be converted to text and used to replace {0}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {0}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             },
             {
                 "name": "{1}",
-                "description": "The value that will be converted to text and used to replace {1}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {1}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             },
             {
                 "name": "{2}",
-                "description": "The value that will be converted to text and used to replace {2}.",
+                "description": { "en-US": "The value that will be converted to text and used to replace {2}." },
                 "type": "Object",
                 "canReplace0ByNull": true,
             }
@@ -3048,11 +3048,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__map__": {
         "guid": "00000000D415",
-        "description": "A map constant.",
+        "description": { "en-US": "A map constant." },
         "args": [
             {
                 "name": "map",
-                "description": "A map constant.",
+                "description": { "en-US": "A map constant." },
                 "type": "MapLiteral",
             }
         ],
@@ -3077,16 +3077,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Map"
     },
     "__mappedArray__": {
-        "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
+        "description": { "en-US": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be mapped.",
+                "description": { "en-US": "The array whose copy will be mapped." },
                 "type": "Array",
             },
             {
                 "name": "condition",
-                "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
+                "description": { "en-US": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered." },
                 "type": [
                     "Object",
                     "Array"
@@ -3114,17 +3114,17 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__modulo__": {
         "guid": "00000000C410",
-        "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
+        "description": { "en-US": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
                 "type": "float",
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
                 "type": "unsigned float",
                 "canReplace1ByTrue": true,
             }
@@ -3149,11 +3149,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__multiply__": {
         "guid": "00000000C40D",
-        "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
+        "description": { "en-US": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -3161,7 +3161,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -3191,11 +3191,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__not__": {
         "guid": "00000000B275",
-        "description": "Whether the input is false (or equivalent to false).",
+        "description": { "en-US": "Whether the input is false (or equivalent to false)." },
         "args": [
             {
                 "name": "value",
-                "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
+                "description": { "en-US": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false." },
                 "type": "bool",
             }
         ],
@@ -3246,16 +3246,16 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__or__": {
         "guid": "00000000B274",
-        "description": "Whether either of the two inputs are true (or equivalent to true).",
+        "description": { "en-US": "Whether either of the two inputs are true (or equivalent to true)." },
         "args": [
             {
                 "name": "value",
-                "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+                "description": { "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true." },
                 "type": "bool",
             },
             {
                 "name": "value",
-                "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+                "description": { "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true." },
                 "type": "bool",
             }
         ],
@@ -3278,16 +3278,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Or"
     },
     "__playerVar__": {
-        "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
+        "description": { "en-US": "The current value of a player variable, which is a variable that belongs to a specific player." },
         "args": [
             {
                 "name": "player",
-                "description": "The player whose variable value to acquire.",
+                "description": { "en-US": "The player whose variable value to acquire." },
                 "type": "Player",
             },
             {
                 "name": "variable",
-                "description": "The variable whose value to acquire.",
+                "description": { "en-US": "The variable whose value to acquire." },
                 "type": "PlayerVariable",
             }
         ],
@@ -3311,16 +3311,16 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__raiseToPower__": {
         "guid": "00000000C414",
-        "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
+        "description": { "en-US": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
                 "type": "unsigned float",
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
                 "type": "float",
             }
         ],
@@ -3343,35 +3343,35 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Raise To Power"
     },
     "raycastHitNormal": {
-        "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
+        "description": { "en-US": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs)." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "playersToInclude",
-                "description": "Which players can be hit by this ray cast.",
+                "description": { "en-US": "Which players can be hit by this ray cast." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "playersToExclude",
-                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "includePlayerOwnedObjects",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
                 "type": "bool",
             }
         ],
@@ -3395,35 +3395,35 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ray Cast Hit Normal"
     },
     "raycastHitPlayer": {
-        "description": "The player hit by the ray cast (or null if no player is hit).",
+        "description": { "en-US": "The player hit by the ray cast (or null if no player is hit)." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "playersToInclude",
-                "description": "Which players can be hit by this ray cast.",
+                "description": { "en-US": "Which players can be hit by this ray cast." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "playersToExclude",
-                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "includePlayerOwnedObjects",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
                 "type": "bool",
             }
         ],
@@ -3447,35 +3447,35 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ray Cast Hit Player"
     },
     "raycastHitPosition": {
-        "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
+        "description": { "en-US": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs)." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "playersToInclude",
-                "description": "Which players can be hit by this ray cast.",
+                "description": { "en-US": "Which players can be hit by this ray cast." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "playersToExclude",
-                "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+                "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "includePlayerOwnedObjects",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
                 "type": "bool",
             }
         ],
@@ -3499,16 +3499,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ray Cast Hit Position"
     },
     ".exclude": {
-        "description": "A copy of the array with one or more values removed (if found).",
+        "description": { "en-US": "A copy of the array with one or more values removed (if found)." },
         "args": [
             {
                 "name": "array",
-                "description": "The array from which to remove values.",
+                "description": { "en-US": "The array from which to remove values." },
                 "type": "Array",
             },
             {
                 "name": "value",
-                "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
+                "description": { "en-US": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed." },
                 "type": [
                     "Object",
                     "Array"
@@ -3537,16 +3537,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Remove From Array"
     },
     "__round__": {
-        "description": "The integer to which the specified value rounds.",
+        "description": { "en-US": "The integer to which the specified value rounds." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number to round.",
+                "description": { "en-US": "The real number to round." },
                 "type": "float",
             },
             {
                 "name": "roundingType",
-                "description": "Determines the direction in which the value will be rounded.",
+                "description": { "en-US": "Determines the direction in which the value will be rounded." },
                 "type": "__Rounding__",
             }
         ],
@@ -3570,18 +3570,18 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Round To Integer"
     },
     "__sortedArray__": {
-        "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
+        "description": { "en-US": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be sorted.",
+                "description": { "en-US": "The array whose copy will be sorted." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "valueRank",
-                "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
+                "description": { "en-US": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered." },
                 "type": "Object",
             }
         ],
@@ -3607,17 +3607,17 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Sorted Array"
     },
     ".charAt": {
-        "description": "The character found at a specified index of a String.",
+        "description": { "en-US": "The character found at a specified index of a String." },
         "args": [
             {
                 "name": "string",
-                "description": "The String value whose character to acquire.",
+                "description": { "en-US": "The String value whose character to acquire." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "index",
-                "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+                "description": { "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.)." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -3644,17 +3644,17 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Char In String"
     },
     ".strIndex": {
-        "description": "The index of a character within a String or -1 if no such character can be found.",
+        "description": { "en-US": "The index of a character within a String or -1 if no such character can be found." },
         "args": [
             {
                 "name": "string",
-                "description": "The String Value from which to search for the character.",
+                "description": { "en-US": "The String Value from which to search for the character." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "character",
-                "description": "The character for which to search",
+                "description": { "en-US": "The character for which to search" },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             }
@@ -3680,23 +3680,23 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Index Of String Char"
     },
     ".replace": {
-        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.\n\n**WARNING**: This function clamps the string to 511 bytes (in UTF-8).",
+        "description": { "en-US": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.\n\n**WARNING**: This function clamps the string to 511 bytes (in UTF-8)." },
         "args": [
             {
                 "name": "string",
-                "description": "The String Value with which to search for replacements.",
+                "description": { "en-US": "The String Value with which to search for replacements." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "pattern",
-                "description": "The String pattern to be replaced.",
+                "description": { "en-US": "The String pattern to be replaced." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "replacement",
-                "description": "The String Value with which to replace the pattern String",
+                "description": { "en-US": "The String Value with which to replace the pattern String" },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             }
@@ -3722,17 +3722,17 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "String Replace"
     },
     ".split": {
-        "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+        "description": { "en-US": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String." },
         "args": [
             {
                 "name": "string",
-                "description": "The String Value to split.",
+                "description": { "en-US": "The String Value to split." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "separator",
-                "description": "The separator String with which to split the String Value.",
+                "description": { "en-US": "The separator String with which to split the String Value." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             }
@@ -3760,22 +3760,22 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "String Split"
     },
     ".substring": {
-        "description": "The substring of the provided string.",
+        "description": { "en-US": "The substring of the provided string." },
         "args": [
             {
                 "name": "string",
-                "description": "The string value from which to build the substring.",
+                "description": { "en-US": "The string value from which to build the substring." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "substringStartIndex",
-                "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+                "description": { "en-US": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.)." },
                 "type": "unsigned int",
             },
             {
                 "name": "substringLength",
-                "description": "Specifies the number of characters in the substring.",
+                "description": { "en-US": "Specifies the number of characters in the substring." },
                 "type": "unsigned int",
                 "default": "Math.INFINITY",
             }
@@ -3802,11 +3802,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__subtract__": {
         "guid": "00000000C40A",
-        "description": "The difference between two numbers or vectors.",
+        "description": { "en-US": "The difference between two numbers or vectors." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -3816,7 +3816,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number or a vector.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
                 "type": [
                     "float",
                     "Vector"
@@ -3850,7 +3850,7 @@ export const valueFuncKw: Record<string, Value> =
             {
                 "name": "team",
                 "type": "TeamLiteral",
-                "description": "A Team constant."
+                "description": { "en-US": "A Team constant." }
             }
         ],
         "canBePutInBoolean": false,
@@ -3875,16 +3875,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Team"
     },
     "__valueInArray__": {
-        "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
+        "description": { "en-US": "The value found at a specific element of an array. Results in 0 if the element does not exist." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose element to acquire.",
+                "description": { "en-US": "The array whose element to acquire." },
                 "type": "Array",
             },
             {
                 "name": "index",
-                "description": "The index of the element to acquire.",
+                "description": { "en-US": "The index of the element to acquire." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -3913,33 +3913,33 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Value In Array"
     },
     "createWorkshopSettingEnum": {
-        "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
+        "description": { "en-US": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice." },
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "The default value for this setting.",
+                "description": { "en-US": "The default value for this setting." },
                 "type": "UnsignedIntLiteral",
             },
             {
                 "name": "options",
-                "description": "The options for this setting.",
+                "description": { "en-US": "The options for this setting." },
                 "type": {
                     "Array": "CustomStringLiteral"
                 },
             },
             {
                 "name": "sortOrder",
-                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+                "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -3964,26 +3964,26 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Workshop Setting Combo"
     },
     "createWorkshopSettingHero": {
-        "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
+        "description": { "en-US": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list." },
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "The default value for this setting.",
+                "description": { "en-US": "The default value for this setting." },
                 "type": "HeroLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+                "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -4008,36 +4008,36 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Workshop Setting Hero"
     },
     "createWorkshopSettingInt": {
-        "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
+        "description": { "en-US": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider." },
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "The default value for this setting.",
+                "description": { "en-US": "The default value for this setting." },
                 "type": "IntLiteral",
             },
             {
                 "name": "min",
-                "description": "The minimum value for this setting.",
+                "description": { "en-US": "The minimum value for this setting." },
                 "type": "IntLiteral",
             },
             {
                 "name": "max",
-                "description": "The maximum value for this setting.",
+                "description": { "en-US": "The maximum value for this setting." },
                 "type": "IntLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+                "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -4062,36 +4062,36 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Workshop Setting Integer"
     },
     "createWorkshopSettingFloat": {
-        "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
+        "description": { "en-US": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider." },
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "The default value for this setting.",
+                "description": { "en-US": "The default value for this setting." },
                 "type": "FloatLiteral",
             },
             {
                 "name": "min",
-                "description": "The minimum value for this setting.",
+                "description": { "en-US": "The minimum value for this setting." },
                 "type": "FloatLiteral",
             },
             {
                 "name": "max",
-                "description": "The maximum value for this setting.",
+                "description": { "en-US": "The maximum value for this setting." },
                 "type": "FloatLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+                "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -4116,26 +4116,26 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Workshop Setting Real"
     },
     "createWorkshopSettingBool": {
-        "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
+        "description": { "en-US": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox." },
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
                 "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "The default value for this setting.",
+                "description": { "en-US": "The default value for this setting." },
                 "type": "BoolLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+                "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -4160,11 +4160,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Workshop Setting Toggle"
     },
     "__xComponentOf__": {
-        "description": "The x component of the specified vector, usually representing a leftward amount.",
+        "description": { "en-US": "The x component of the specified vector, usually representing a leftward amount." },
         "args": [
             {
                 "name": "value",
-                "description": "The vector from which to acquire the x component.",
+                "description": { "en-US": "The vector from which to acquire the x component." },
                 "type": "Vector",
             }
         ],
@@ -4188,11 +4188,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "X Component Of"
     },
     "__yComponentOf__": {
-        "description": "The y component of the specified vector, usually representing an upward amount.",
+        "description": { "en-US": "The y component of the specified vector, usually representing an upward amount." },
         "args": [
             {
                 "name": "value",
-                "description": "The vector from which to acquire the y component.",
+                "description": { "en-US": "The vector from which to acquire the y component." },
                 "type": "Vector",
             }
         ],
@@ -4216,11 +4216,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Y Component Of"
     },
     "__zComponentOf__": {
-        "description": "The z component of the specified vector, usually representing a forward amount.",
+        "description": { "en-US": "The z component of the specified vector, usually representing a forward amount." },
         "args": [
             {
                 "name": "value",
-                "description": "The vector from which to acquire the z component.",
+                "description": { "en-US": "The vector from which to acquire the z component." },
                 "type": "Vector",
             }
         ],
@@ -4244,16 +4244,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Z Component Of"
     },
     "abilityIconString": {
-        "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
+        "description": { "en-US": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string)." },
         "args": [
             {
                 "name": "hero",
-                "description": "The hero for the ability that will be converted to an icon.",
+                "description": { "en-US": "The hero for the ability that will be converted to an icon." },
                 "type": "Hero",
             },
             {
                 "name": "button",
-                "description": "The button for the ability that will be converted to an icon.",
+                "description": { "en-US": "The button for the ability that will be converted to an icon." },
                 "type": "Button",
             }
         ],
@@ -4278,11 +4278,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Ability Icon String"
     },
     "abs": {
-        "description": "The absolute value of the specified value.",
+        "description": { "en-US": "The absolute value of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number value whose absolute value will be computed.",
+                "description": { "en-US": "The real number value whose absolute value will be computed." },
                 "type": "float",
             }
         ],
@@ -4306,11 +4306,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Absolute Value"
     },
     "acos": {
-        "description": "Arccosine in radians of the specified value.",
+        "description": { "en-US": "Arccosine in radians of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "Input value for the function.",
+                "description": { "en-US": "Input value for the function." },
                 "type": "float",
             }
         ],
@@ -4334,11 +4334,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Arccosine In Radians"
     },
     "acosDeg": {
-        "description": "Arccosine in degrees of the specified value.",
+        "description": { "en-US": "Arccosine in degrees of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "Input value for the function.",
+                "description": { "en-US": "Input value for the function." },
                 "type": "float",
             }
         ],
@@ -4362,16 +4362,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Arccosine In Degrees"
     },
     "angleBetweenVectors": {
-        "description": "The angle in degrees between two directional vectors (no normalization required).",
+        "description": { "en-US": "The angle in degrees between two directional vectors (no normalization required)." },
         "args": [
             {
                 "name": "vector",
-                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "description": { "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized." },
                 "type": "Direction",
             },
             {
                 "name": "vector",
-                "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                "description": { "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized." },
                 "type": "Direction",
             }
         ],
@@ -4395,16 +4395,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Angle Between Vectors"
     },
     "angleDifference": {
-        "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
+        "description": { "en-US": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative." },
         "args": [
             {
                 "name": "angle",
-                "description": "One of the two angles between which to measure the resulting angle.",
+                "description": { "en-US": "One of the two angles between which to measure the resulting angle." },
                 "type": "float",
             },
             {
                 "name": "angle",
-                "description": "One of the two angles between which to measure the resulting angle.",
+                "description": { "en-US": "One of the two angles between which to measure the resulting angle." },
                 "type": "float",
             }
         ],
@@ -4428,16 +4428,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Angle Difference"
     },
     "directionFromAngles": {
-        "description": "The unit-length direction vector corresponding to the specified angles.",
+        "description": { "en-US": "The unit-length direction vector corresponding to the specified angles." },
         "args": [
             {
                 "name": "horizontalAngle",
-                "description": "The horizontal angle in degrees used to construct the resulting vector.",
+                "description": { "en-US": "The horizontal angle in degrees used to construct the resulting vector." },
                 "type": "float",
             },
             {
                 "name": "verticalAngle",
-                "description": "The vertical angle in degrees used to construct the resulting vector.",
+                "description": { "en-US": "The vertical angle in degrees used to construct the resulting vector." },
                 "type": "float",
             }
         ],
@@ -4462,11 +4462,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Direction From Angles"
     },
     "asin": {
-        "description": "Arcsine in radians of the specified value.",
+        "description": { "en-US": "Arcsine in radians of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "Input value for the function.",
+                "description": { "en-US": "Input value for the function." },
                 "type": "float",
             }
         ],
@@ -4490,11 +4490,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Arcsine In Radians"
     },
     "asinDeg": {
-        "description": "Arcsine in degrees of the specified value.",
+        "description": { "en-US": "Arcsine in degrees of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "Input value for the function.",
+                "description": { "en-US": "Input value for the function." },
                 "type": "float",
             }
         ],
@@ -4518,16 +4518,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Arcsine In Degrees"
     },
     "atan2": {
-        "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
+        "description": { "en-US": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2)." },
         "args": [
             {
                 "name": "numerator",
-                "description": "Numerator input for the function.",
+                "description": { "en-US": "Numerator input for the function." },
                 "type": "float",
             },
             {
                 "name": "denominator",
-                "description": "Denominator input for the function.",
+                "description": { "en-US": "Denominator input for the function." },
                 "type": "float",
             }
         ],
@@ -4551,16 +4551,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Arctangent In Radians"
     },
     "atan2Deg": {
-        "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
+        "description": { "en-US": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2)." },
         "args": [
             {
                 "name": "numerator",
-                "description": "Numerator input for the function.",
+                "description": { "en-US": "Numerator input for the function." },
                 "type": "float",
             },
             {
                 "name": "denominator",
-                "description": "Denominator input for the function.",
+                "description": { "en-US": "Denominator input for the function." },
                 "type": "float",
             }
         ],
@@ -4585,7 +4585,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "attacker": {
         "guid": "00000000B32F",
-        "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
+        "description": { "en-US": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player." },
         "args": null,
         "canBePutInBoolean": false,
         "return": "Player",
@@ -4606,11 +4606,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Attacker"
     },
     "inputBindingString": {
-        "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.\n\nNote: the `buttonToString()` macro performs a much nicer-looking conversion.",
+        "description": { "en-US": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.\n\nNote: the `buttonToString()` macro performs a much nicer-looking conversion." },
         "args": [
             {
                 "name": "button",
-                "description": "The button for the input binding that will be converted to a string.",
+                "description": { "en-US": "The button for the input binding that will be converted to a string." },
                 "type": "Button",
             }
         ],
@@ -4634,11 +4634,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Input Binding String"
     },
     "cos": {
-        "description": "Cosine of the specified angle in radians.",
+        "description": { "en-US": "Cosine of the specified angle in radians." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in radians.",
+                "description": { "en-US": "Angle in radians." },
                 "type": "float",
             }
         ],
@@ -4662,11 +4662,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Cosine From Radians"
     },
     "cosDeg": {
-        "description": "Cosine of the specified angle in degrees.",
+        "description": { "en-US": "Cosine of the specified angle in degrees." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in degrees.",
+                "description": { "en-US": "Angle in degrees." },
                 "type": "float",
             }
         ],
@@ -4690,16 +4690,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Cosine From Degrees"
     },
     "crossProduct": {
-        "description": "The cross product of the specified values. (Left cross up equals forward.)",
+        "description": { "en-US": "The cross product of the specified values. (Left cross up equals forward.)" },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand-side vector operand of the cross product.",
+                "description": { "en-US": "The left-hand-side vector operand of the cross product." },
                 "type": "Vector",
             },
             {
                 "name": "value",
-                "description": "The right-hand-side vector operand of the cross product.",
+                "description": { "en-US": "The right-hand-side vector operand of the cross product." },
                 "type": "Vector",
             }
         ],
@@ -4724,16 +4724,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Cross Product"
     },
     "directionTowards": {
-        "description": "The unit-length direction vector from one position to another.",
+        "description": { "en-US": "The unit-length direction vector from one position to another." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The position from which the resulting direction vector will point.",
+                "description": { "en-US": "The position from which the resulting direction vector will point." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The position to which the resulting direction vector will point.",
+                "description": { "en-US": "The position to which the resulting direction vector will point." },
                 "type": "Position",
             }
         ],
@@ -4758,16 +4758,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Direction Towards"
     },
     "distance": {
-        "description": "The distance between two positions in meters.",
+        "description": { "en-US": "The distance between two positions in meters." },
         "args": [
             {
                 "name": "startPos",
-                "description": "One of the two positions used in the distance measurement.",
+                "description": { "en-US": "One of the two positions used in the distance measurement." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "One of the two positions used in the distance measurement.",
+                "description": { "en-US": "One of the two positions used in the distance measurement." },
                 "type": "Position",
             }
         ],
@@ -4791,16 +4791,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Distance Between"
     },
     "dotProduct": {
-        "description": "The dot product of the specified values.",
+        "description": { "en-US": "The dot product of the specified values." },
         "args": [
             {
                 "name": "value",
-                "description": "One of two vector operands of the dot product.",
+                "description": { "en-US": "One of two vector operands of the dot product." },
                 "type": "Vector",
             },
             {
                 "name": "value",
-                "description": "One of two vector operands of the dot product.",
+                "description": { "en-US": "One of two vector operands of the dot product." },
                 "type": "Vector",
             }
         ],
@@ -4824,11 +4824,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Dot Product"
     },
     "entityExists": {
-        "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
+        "description": { "en-US": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed." },
         "args": [
             {
                 "name": "entity",
-                "description": "The player, icon entity, or effect entity whose existence to check.",
+                "description": { "en-US": "The player, icon entity, or effect entity whose existence to check." },
                 "type": [
                     "Player",
                     "EntityId"
@@ -4854,11 +4854,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Entity Exists"
     },
     "evalOnce": {
-        "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
+        "description": { "en-US": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop." },
         "args": [
             {
                 "name": "inputValue",
-                "description": "The value that will be only evaluated once.",
+                "description": { "en-US": "The value that will be only evaluated once." },
                 "type": [
                     "Object",
                     "Array"
@@ -4888,7 +4888,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Evaluate Once"
     },
     "eventAbility": {
-        "description": "The ability for the event currently being processed by this rule associated by button.",
+        "description": { "en-US": "The ability for the event currently being processed by this rule associated by button." },
         "args": null,
         "canBePutInBoolean": false,
         "return": "Button",
@@ -4910,7 +4910,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Ability"
     },
     "eventDamage": {
-        "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
+        "description": { "en-US": "The amount of damage received by the victim for the event currently being processed by this rule." },
         "args": null,
         "return": "unsigned float",
         "guid": "00000000C635",
@@ -4931,7 +4931,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Damage"
     },
     "eventDirection": {
-        "description": "The incoming direction for the event currently being processed by this rule.",
+        "description": { "en-US": "The incoming direction for the event currently being processed by this rule." },
         "args": null,
         "canBePutInBoolean": false,
         "return": "Direction",
@@ -4953,7 +4953,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Direction"
     },
     "eventHealing": {
-        "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
+        "description": { "en-US": "The amount of healing received by the healee for the event currently being processed by this rule." },
         "args": null,
         "return": "unsigned float",
         "guid": "00000000CC33",
@@ -4974,7 +4974,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Healing"
     },
     "eventPlayer": {
-        "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
+        "description": { "en-US": "The player executing this rule, as specified by the event. May be the same as the attacker or victim." },
         "args": null,
         "canBePutInBoolean": false,
         "return": "Player",
@@ -4996,7 +4996,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Player"
     },
     "eventWasCriticalHit": {
-        "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
+        "description": { "en-US": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule." },
         "args": null,
         "return": "bool",
         "guid": "00000000C637",
@@ -5017,7 +5017,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Was Critical Hit"
     },
     "eventWasEnvironment": {
-        "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
+        "description": { "en-US": "Whether the elimination was due to the environment for the event currently being processed by this rule." },
         "args": null,
         "return": "bool",
         "guid": "00000001107C",
@@ -5038,7 +5038,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Was Environment"
     },
     "eventWasHealthPack": {
-        "description": "Whether the healing was from a health pack for the event currently being processed by this rule.",
+        "description": { "en-US": "Whether the healing was from a health pack for the event currently being processed by this rule." },
         "args": null,
         "return": "bool",
         "guid": "00000000FC80",
@@ -5059,7 +5059,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Event Was Health Pack"
     },
     "false": {
-        "description": "The boolean value of false.",
+        "description": { "en-US": "The boolean value of false." },
         "args": null,
         "isConstant": true,
         "return": "BoolLiteral",
@@ -5082,7 +5082,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
-        "description": "The array of all heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+        "description": { "en-US": "The array of all heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
         "args": [],
         "isConstant": true,
         "return": {
@@ -5107,7 +5107,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "getAverageServerLoad": {
         "guid": "00000000C997",
-        "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "description": { "en-US": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
         "args": [],
         "return": "unsigned float",
         "en-US": "Server Load Average",
@@ -5127,7 +5127,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Server Load Average"
     },
     "getCapturePercentage": {
-        "description": "The current progress towards capture for the active control point (expressed as a percentage).",
+        "description": { "en-US": "The current progress towards capture for the active control point (expressed as a percentage)." },
         "args": [],
         "return": "float",
         "guid": "00000000B358",
@@ -5148,16 +5148,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Point Capture Percentage"
     },
     "getClosestPlayer": {
-        "description": "The player closest to a position, optionally restricted by team.",
+        "description": { "en-US": "The player closest to a position, optionally restricted by team." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure proximity.",
+                "description": { "en-US": "The position from which to measure proximity." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the closest player will come.",
+                "description": { "en-US": "The team or teams from which the closest player will come." },
                 "type": "Team",
             }
         ],
@@ -5182,11 +5182,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Closest Player To"
     },
     "getControlScorePercentage": {
-        "description": "The score percentage for the specified team in control mode.",
+        "description": { "en-US": "The score percentage for the specified team in control mode." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose score percentage to acquire.",
+                "description": { "en-US": "The team whose score percentage to acquire." },
                 "type": "Team",
             }
         ],
@@ -5209,7 +5209,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Control Mode Scoring Percentage"
     },
     "getControlScoringTeam": {
-        "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
+        "description": { "en-US": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score." },
         "args": [],
         "canBePutInBoolean": false,
         "return": "Team",
@@ -5231,7 +5231,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Control Mode Scoring Team"
     },
     "getCurrentGamemode": {
-        "description": "The current game mode of the custom game.",
+        "description": { "en-US": "The current game mode of the custom game." },
         "args": [],
         "isConstant": true,
         "canBePutInBoolean": false,
@@ -5255,7 +5255,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "__getCurrentMap__": {
         "guid": "00000000D418",
-        "description": "The current map of the custom game.",
+        "description": { "en-US": "The current map of the custom game." },
         "args": [],
         "isConstant": true,
         "canBePutInBoolean": false,
@@ -5277,7 +5277,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Current Map"
     },
     "getCurrentObjective": {
-        "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, hybrid, escort, and control.",
+        "description": { "en-US": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, hybrid, escort, and control." },
         "args": [],
         "return": "unsigned int",
         "guid": "00000000B37D",
@@ -5298,7 +5298,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Objective Index"
     },
     "getDamageHeroes": {
-        "description": "The array of all damage heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+        "description": { "en-US": "The array of all damage heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
         "args": [],
         "isConstant": true,
         "return": {
@@ -5323,11 +5323,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Damage Heroes"
     },
     "getDeadPlayers": {
-        "description": "An array containing all dead players on a team or in the match.",
+        "description": { "en-US": "An array containing all dead players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams from which players may come.",
+                "description": { "en-US": "The team or teams from which players may come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5354,16 +5354,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Dead Players"
     },
     "getFarthestPlayer": {
-        "description": "The player farthest from a position, optionally restricted by team.",
+        "description": { "en-US": "The player farthest from a position, optionally restricted by team." },
         "args": [
             {
                 "name": "center",
-                "description": "The position from which to measure distance.",
+                "description": { "en-US": "The position from which to measure distance." },
                 "type": "Position",
             },
             {
                 "name": "team",
-                "description": "The team or teams from which the farthest player will come.",
+                "description": { "en-US": "The team or teams from which the farthest player will come." },
                 "type": "Team",
             }
         ],
@@ -5388,11 +5388,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Farthest Player From"
     },
     "getFlagCarrier": {
-        "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
+        "description": { "en-US": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose flag to check.",
+                "description": { "en-US": "The team whose flag to check." },
                 "type": "Team",
             }
         ],
@@ -5416,11 +5416,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Player Carrying Flag"
     },
     "getFlagPosition": {
-        "description": "The position of a specific team's flag in capture the flag.",
+        "description": { "en-US": "The position of a specific team's flag in capture the flag." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose flag position to acquire.",
+                "description": { "en-US": "The team whose flag position to acquire." },
                 "type": "Team",
             }
         ],
@@ -5444,7 +5444,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Flag Position"
     },
     "getLastAssistId": {
-        "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
+        "description": { "en-US": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level)." },
         "args": [],
         "return": "AssistId",
         "guid": "0000000121F2",
@@ -5465,7 +5465,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Assist ID"
     },
     "getLastCreatedEntity": {
-        "description": "A reference to the last effect, icon entity, or dummy bot created by the event player (or created at the global level).",
+        "description": { "en-US": "A reference to the last effect, icon entity, or dummy bot created by the event player (or created at the global level)." },
         "args": [],
         "canBePutInBoolean": false,
         "return": "EntityId",
@@ -5487,7 +5487,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Created Entity"
     },
     "getLastCreatedHealthPool": {
-        "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
+        "description": { "en-US": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level)." },
         "args": [],
         "return": "HealthPoolId",
         "guid": "000000011439",
@@ -5508,7 +5508,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Created Health Pool"
     },
     "getLastCreatedText": {
-        "description": "A reference to the last piece of text created by the Event Player (or created at the Global level) via the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action.",
+        "description": { "en-US": "A reference to the last piece of text created by the Event Player (or created at the Global level) via the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action." },
         "args": [],
         "return": "TextId",
         "guid": "00000000BAFE",
@@ -5529,7 +5529,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Text ID"
     },
     "getLastDamageModification": {
-        "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
+        "description": { "en-US": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level)." },
         "args": [],
         "return": "DamageModificationId",
         "guid": "00000000C64A",
@@ -5550,7 +5550,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Damage Modification ID"
     },
     "getLastDamageOverTimeId": {
-        "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
+        "description": { "en-US": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level)." },
         "args": [],
         "return": "DotId",
         "guid": "00000000B263",
@@ -5571,7 +5571,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Damage Over Time ID"
     },
     "getLastHealingModification": {
-        "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
+        "description": { "en-US": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level)." },
         "args": [],
         "return": "HealingModificationId",
         "guid": "00000000FD2A",
@@ -5592,7 +5592,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Healing Modification ID"
     },
     "getLastHealingOverTimeId": {
-        "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
+        "description": { "en-US": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level)." },
         "args": [],
         "return": "HotId",
         "guid": "00000000B262",
@@ -5613,11 +5613,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Last Heal Over Time ID"
     },
     "getLivingPlayers": {
-        "description": "An array containing all living players on a team or in the match.",
+        "description": { "en-US": "An array containing all living players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams from which players may come.",
+                "description": { "en-US": "The team or teams from which players may come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5644,7 +5644,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Living Players"
     },
     "getMatchRound": {
-        "description": "The current round of the match, counting up from 1.",
+        "description": { "en-US": "The current round of the match, counting up from 1." },
         "args": [],
         "return": "unsigned int",
         "guid": "00000000B375",
@@ -5665,7 +5665,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Match Round"
     },
     "getMatchTime": {
-        "description": "The amount of time in seconds remaining in the current game mode phase.",
+        "description": { "en-US": "The amount of time in seconds remaining in the current game mode phase." },
         "args": [],
         "return": "unsigned float",
         "guid": "00000000AD3B",
@@ -5686,7 +5686,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Match Time"
     },
     "getNumberOfAssistIds": {
-        "description": "The current number of Assist instances started from the Start Assist Action.",
+        "description": { "en-US": "The current number of Assist instances started from the Start Assist Action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9E",
@@ -5707,7 +5707,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Assist Count"
     },
     "getNumberOfDamageModificationIds": {
-        "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
+        "description": { "en-US": "The current number of Damage Modification instances started from the Start Damage Modification Action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9C",
@@ -5728,11 +5728,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Damage Modification Count"
     },
     "getNumberOfDeadPlayers": {
-        "description": "The number of dead players on a team or in the match.",
+        "description": { "en-US": "The number of dead players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams on which to count players.",
+                "description": { "en-US": "The team or teams on which to count players." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5756,7 +5756,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Dead Players"
     },
     "getNumberOfDamageOverTimeIds": {
-        "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
+        "description": { "en-US": "The current number of Damage Over Time instances started from the Damage Over Time action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B99",
@@ -5777,7 +5777,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Damage Over Time Count"
     },
     "getNumberOfEntityIds": {
-        "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
+        "description": { "en-US": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9F",
@@ -5798,7 +5798,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Entity Count"
     },
     "getNumberOfHealingModificationIds": {
-        "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
+        "description": { "en-US": "The current number of Healing Modification instances started from the Start Healing Modification Action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9D",
@@ -5819,16 +5819,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Healing Modification Count"
     },
     "getNumberOfHeroes": {
-        "description": "The number of players playing a specific hero on a team or in the match.",
+        "description": { "en-US": "The number of players playing a specific hero on a team or in the match." },
         "args": [
             {
                 "name": "hero",
-                "description": "The hero to check for play.",
+                "description": { "en-US": "The hero to check for play." },
                 "type": "Hero",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to check for the hero being played.",
+                "description": { "en-US": "The team or teams on which to check for the hero being played." },
                 "type": "Team",
                 "default": "TEAM"
             }
@@ -5852,7 +5852,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Heroes"
     },
     "getNumberOfHealingOverTimeIds": {
-        "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
+        "description": { "en-US": "The current number of Heal Over Time instances started from the Heal Over Time action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9A",
@@ -5873,11 +5873,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Heal Over Time Count"
     },
     "getNumberOfLivingPlayers": {
-        "description": "The number of living players on a team or in the match.",
+        "description": { "en-US": "The number of living players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams on which to count players.",
+                "description": { "en-US": "The team or teams on which to count players." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5901,11 +5901,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Living Players"
     },
     "getNumberOfPlayers": {
-        "description": "The number of players on a team or in the match.",
+        "description": { "en-US": "The number of players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams on which to count players.",
+                "description": { "en-US": "The team or teams on which to count players." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5929,11 +5929,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Players"
     },
     "getNumberOfPlayersOnObjective": {
-        "description": "The number of players occupying a payload or control point (either on a team or in the match).",
+        "description": { "en-US": "The number of players occupying a payload or control point (either on a team or in the match)." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams on which to count players.",
+                "description": { "en-US": "The team or teams on which to count players." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5957,11 +5957,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Players On Objective"
     },
     "getNumberOfSlots": {
-        "description": "The number of slots on a team or in the match.",
+        "description": { "en-US": "The number of slots on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams on which to count slots.",
+                "description": { "en-US": "The team or teams on which to count slots." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -5986,7 +5986,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Number Of Slots"
     },
     "getNumberOfTextIds": {
-        "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
+        "description": { "en-US": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action." },
         "args": [],
         "return": "unsigned int",
         "guid": "000000012B9B",
@@ -6007,11 +6007,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Text Count"
     },
     "getObjectivePosition": {
-        "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control.",
+        "description": { "en-US": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control." },
         "args": [
             {
                 "name": "number",
-                "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+                "description": { "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -6037,11 +6037,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Objective Position"
     },
     "getOppositeTeam": {
-        "description": "The team opposite the specified team.",
+        "description": { "en-US": "The team opposite the specified team." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose opposite to acquire. If all, the result will be all.",
+                "description": { "en-US": "The team whose opposite to acquire. If all, the result will be all." },
                 "type": "Team",
             }
         ],
@@ -6066,7 +6066,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Opposite Team Of"
     },
     "getPayloadPosition": {
-        "description": "The position in the world of the active payload.",
+        "description": { "en-US": "The position in the world of the active payload." },
         "args": [],
         "canBePutInBoolean": false,
         "return": "Position",
@@ -6088,7 +6088,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Payload Position"
     },
     "getPayloadProgressPercentage": {
-        "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
+        "description": { "en-US": "The current progress towards the destination for the active payload (expressed as a percentage)." },
         "args": [],
         "return": "unsigned float",
         "guid": "00000000B357",
@@ -6110,7 +6110,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "getPeakServerLoad": {
         "guid": "00000000C996",
-        "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "description": { "en-US": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
         "args": [],
         "return": "unsigned float",
         "en-US": "Server Load Peak",
@@ -6130,11 +6130,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Server Load Peak"
     },
     "getPlayers": {
-        "description": "An array containing all players on a team or in the match.",
+        "description": { "en-US": "An array containing all players on a team or in the match." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams from which players may come.",
+                "description": { "en-US": "The team or teams from which players may come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -6161,27 +6161,27 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Players"
     },
     "getPlayersInRadius": {
-        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\n**Note**: This function picks up dead players. Use `getRealPlayersInRadius()` instead.",
+        "description": { "en-US": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\n**Note**: This function picks up dead players. Use `getRealPlayersInRadius()` instead." },
         "args": [
             {
                 "name": "center",
-                "description": "The center position from which to measure distance.",
+                "description": { "en-US": "The center position from which to measure distance." },
                 "type": "Position",
             },
             {
                 "name": "radius",
-                "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+                "description": { "en-US": "The radius in meters inside which players must be in order to be included in the resulting array." },
                 "type": "unsigned float",
             },
             {
                 "name": "team",
-                "description": "The team or teams to which a player must belong to be included in the resulting array.",
+                "description": { "en-US": "The team or teams to which a player must belong to be included in the resulting array." },
                 "type": "Team",
                 "default": "ALL"
             },
             {
                 "name": "losCheck",
-                "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+                "description": { "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array." },
                 "type": "LosCheck",
                 "default": "OFF"
             }
@@ -6209,18 +6209,18 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Players Within Radius"
     },
     "getPlayersInSlot": {
-        "description": "The player or array of players who occupy a specific slot in the game.",
+        "description": { "en-US": "The player or array of players who occupy a specific slot in the game." },
         "args": [
             {
                 "name": "slot",
-                "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+                "description": { "en-US": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "team",
-                "description": "The team or teams from which to acquire a player or players.",
+                "description": { "en-US": "The team or teams from which to acquire a player or players." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -6250,11 +6250,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Players In Slot"
     },
     "getPlayersNotOnObjective": {
-        "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
+        "description": { "en-US": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match)." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams from which players may come.",
+                "description": { "en-US": "The team or teams from which players may come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -6281,16 +6281,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Players Not On Objective"
     },
     "getPlayersOnHero": {
-        "description": "The array of players playing a specific hero on a team or in the match.",
+        "description": { "en-US": "The array of players playing a specific hero on a team or in the match." },
         "args": [
             {
                 "name": "hero",
-                "description": "The hero to check for play.",
+                "description": { "en-US": "The hero to check for play." },
                 "type": "Hero",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to check for the hero being played.",
+                "description": { "en-US": "The team or teams on which to check for the hero being played." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -6317,11 +6317,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Players On Hero"
     },
     "getPlayersOnObjective": {
-        "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
+        "description": { "en-US": "An array containing all players occupying a payload or control point (either on a team or in the match)." },
         "args": [
             {
                 "name": "team",
-                "description": "The team or teams from which players may come.",
+                "description": { "en-US": "The team or teams from which players may come." },
                 "type": "Team",
                 "default": "ALL"
             }
@@ -6349,7 +6349,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "getServerLoad": {
         "guid": "00000000C961",
-        "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+        "description": { "en-US": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
         "args": [],
         "return": "unsigned float",
         "en-US": "Server Load",
@@ -6369,11 +6369,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Server Load"
     },
     "getSpawnPoints": {
-        "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
+        "description": { "en-US": "The active spawn points for a team or for the match, provided as an array of position vectors." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose spawn points to acquire.",
+                "description": { "en-US": "The team whose spawn points to acquire." },
                 "type": "Team",
             }
         ],
@@ -6398,7 +6398,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Spawn Points"
     },
     "getSupportHeroes": {
-        "description": "The array of all support heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+        "description": { "en-US": "The array of all support heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
         "args": [],
         "isConstant": true,
         "return": {
@@ -6423,7 +6423,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Support Heroes"
     },
     "getTankHeroes": {
-        "description": "The array of all tank heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+        "description": { "en-US": "The array of all tank heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
         "args": [],
         "isConstant": true,
         "return": {
@@ -6448,7 +6448,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Tank Heroes"
     },
     "getTotalTimeElapsed": {
-        "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
+        "description": { "en-US": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions)." },
         "args": [],
         "return": "unsigned float",
         "guid": "00000000B361",
@@ -6469,7 +6469,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Total Time Elapsed"
     },
     "healee": {
-        "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
+        "description": { "en-US": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player." },
         "args": null,
         "return": "Player",
         "guid": "00000000CC1C",
@@ -6491,7 +6491,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "healer": {
         "guid": "00000000CC1A",
-        "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
+        "description": { "en-US": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player." },
         "args": null,
         "return": "Player",
         "en-US": "Healer",
@@ -6511,11 +6511,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Healer"
     },
     "heroIcon": {
-        "description": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string).",
+        "description": { "en-US": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string)." },
         "args": [
             {
                 "name": "value",
-                "description": "The hero that will be converted to an icon.",
+                "description": { "en-US": "The hero that will be converted to an icon." },
                 "type": "Hero",
             }
         ],
@@ -6541,11 +6541,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Hero Icon String"
     },
     "horizontalAngleOfDirection": {
-        "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
+        "description": { "en-US": "The horizontal angle in degrees corresponding to the specified direction vector." },
         "args": [
             {
                 "name": "direction",
-                "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
+                "description": { "en-US": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins." },
                 "type": "Direction",
             }
         ],
@@ -6569,16 +6569,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Horizontal Angle From Direction"
     },
     "horizontalAngleTowards": {
-        "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
+        "description": { "en-US": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative." },
         "args": [
             {
                 "name": "player",
-                "description": "The player from whose current facing the angle begins.",
+                "description": { "en-US": "The player from whose current facing the angle begins." },
                 "type": "Player",
             },
             {
                 "name": "position",
-                "description": "The position in the world where the angle ends.",
+                "description": { "en-US": "The position in the world where the angle ends." },
                 "type": "Position",
             }
         ],
@@ -6601,7 +6601,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Horizontal Angle Towards"
     },
     "hostPlayer": {
-        "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
+        "description": { "en-US": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match." },
         "args": null,
         "return": "Player",
         "guid": "00000000CC1E",
@@ -6622,11 +6622,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Host Player"
     },
     "iconString": {
-        "description": "Allows you to use an icon inside of a string (up to 4 per string).",
+        "description": { "en-US": "Allows you to use an icon inside of a string (up to 4 per string)." },
         "args": [
             {
                 "name": "icon",
-                "description": "The icon to display.",
+                "description": { "en-US": "The icon to display." },
                 "type": "Icon",
             }
         ],
@@ -6652,7 +6652,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Icon String"
     },
     "isAssemblingHeroes": {
-        "description": "Whether the match is currently in its assemble heroes phase.",
+        "description": { "en-US": "Whether the match is currently in its assemble heroes phase." },
         "args": [],
         "return": "bool",
         "guid": "00000000B35C",
@@ -6673,7 +6673,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Assembling Heroes"
     },
     "isControlPointLocked": {
-        "description": "Whether the point is locked in control mode.",
+        "description": { "en-US": "Whether the point is locked in control mode." },
         "args": [],
         "return": "bool",
         "guid": "00000000B37B",
@@ -6694,11 +6694,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Control Mode Point Locked"
     },
     "isFlagAtBase": {
-        "description": "Whether a specific team's flag is at its base in capture the flag.",
+        "description": { "en-US": "Whether a specific team's flag is at its base in capture the flag." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose flag to check.",
+                "description": { "en-US": "The team whose flag to check." },
                 "type": "Team",
             }
         ],
@@ -6721,11 +6721,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Flag At Base"
     },
     "isFlagBeingCarried": {
-        "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
+        "description": { "en-US": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose flag to check.",
+                "description": { "en-US": "The team whose flag to check." },
                 "type": "Team",
             }
         ],
@@ -6748,7 +6748,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Flag Being Carried"
     },
     "isGameInProgress": {
-        "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
+        "description": { "en-US": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed)." },
         "args": [],
         "return": "bool",
         "guid": "00000000B35E",
@@ -6769,11 +6769,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Game In Progress"
     },
     "isInLoS": {
-        "description": "Whether two positions have line of sight with each other.",
+        "description": { "en-US": "Whether two positions have line of sight with each other." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": [
                     "Position",
                     "Player"
@@ -6781,7 +6781,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "endPos",
-                "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": [
                     "Position",
                     "Player"
@@ -6789,7 +6789,7 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "barriers",
-                "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
+                "description": { "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used." },
                 "type": "BarrierLos",
                 "default": "PASS_THROUGH_BARRIERS"
             }
@@ -6813,7 +6813,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Line of Sight"
     },
     "isInSetup": {
-        "description": "Whether the match is currently in its setup phase.",
+        "description": { "en-US": "Whether the match is currently in its setup phase." },
         "args": [],
         "return": "bool",
         "guid": "00000000B35D",
@@ -6834,7 +6834,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Setup"
     },
     "isInSuddenDeath": {
-        "description": "Whether the current game of capture the flag is in sudden death.",
+        "description": { "en-US": "Whether the current game of capture the flag is in sudden death." },
         "args": [],
         "return": "bool",
         "guid": "00000000B3A4",
@@ -6855,7 +6855,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is CTF Mode In Sudden Death"
     },
     "isMatchBetweenRounds": {
-        "description": "Whether the match is between rounds.",
+        "description": { "en-US": "Whether the match is between rounds." },
         "args": [],
         "return": "bool",
         "guid": "00000000B35F",
@@ -6876,7 +6876,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Between Rounds"
     },
     "isMatchComplete": {
-        "description": "Whether the match has finished.",
+        "description": { "en-US": "Whether the match has finished." },
         "args": [],
         "return": "bool",
         "guid": "00000000B360",
@@ -6897,11 +6897,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Match Complete"
     },
     "isObjectiveComplete": {
-        "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid.",
+        "description": { "en-US": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid." },
         "args": [
             {
                 "name": "number",
-                "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+                "description": { "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index." },
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -6926,11 +6926,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Objective Complete"
     },
     "isTeamOnDefense": {
-        "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid.",
+        "description": { "en-US": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose role to check.",
+                "description": { "en-US": "The team whose role to check." },
                 "type": "Team",
             }
         ],
@@ -6953,11 +6953,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Team On Defense"
     },
     "isTeamOnOffense": {
-        "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid.",
+        "description": { "en-US": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose role to check.",
+                "description": { "en-US": "The team whose role to check." },
                 "type": "Team",
             }
         ],
@@ -6980,7 +6980,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Team On Offense"
     },
     "isWaitingForPlayers": {
-        "description": "Whether the match is waiting for players to join before starting.",
+        "description": { "en-US": "Whether the match is waiting for players to join before starting." },
         "args": [],
         "return": "bool",
         "guid": "00000000B35B",
@@ -7001,11 +7001,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is Waiting For Players"
     },
     "len": {
-        "description": "The number of elements in the specified array. For strings, use `strLen`.",
+        "description": { "en-US": "The number of elements in the specified array. For strings, use `strLen`." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose elements will be counted.",
+                "description": { "en-US": "The array whose elements will be counted." },
                 "type": "Array",
             }
         ],
@@ -7029,7 +7029,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Count Of"
     },
     "localPlayer": {
-        "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
+        "description": { "en-US": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables." },
         "args": null,
         "return": "Player",
         "guid": "000000012BB1",
@@ -7050,21 +7050,21 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Local Player"
     },
     "localVector": {
-        "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
+        "description": { "en-US": "The vector in local coordinates corresponding to the provided vector in world coordinates." },
         "args": [
             {
                 "name": "worldVector",
-                "description": "The vector in world coordinates that will be converted to local coordinates.",
+                "description": { "en-US": "The vector in world coordinates that will be converted to local coordinates." },
                 "type": "Vector",
             },
             {
                 "name": "relativePlayer",
-                "description": "The player to whom the resulting vector will be relative.",
+                "description": { "en-US": "The player to whom the resulting vector will be relative." },
                 "type": "Player",
             },
             {
                 "name": "transformation",
-                "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+                "description": { "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)." },
                 "type": "Transform",
             }
         ],
@@ -7088,11 +7088,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Local Vector Of"
     },
     "magnitude": {
-        "description": "The magnitude (length) of the specified vector",
+        "description": { "en-US": "The magnitude (length) of the specified vector" },
         "args": [
             {
                 "name": "vector",
-                "description": "The vector to calculate the magnitude of.",
+                "description": { "en-US": "The vector to calculate the magnitude of." },
                 "type": "Vector",
             }
         ],
@@ -7117,18 +7117,18 @@ export const valueFuncKw: Record<string, Value> =
     },
     "max": {
         "guid": "00000000C418",
-        "description": "The maximum of two numbers. Note: this function can take an infinite amount of arguments.",
+        "description": { "en-US": "The maximum of two numbers. Note: this function can take an infinite amount of arguments." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -7154,18 +7154,18 @@ export const valueFuncKw: Record<string, Value> =
     },
     "min": {
         "guid": "00000000C416",
-        "description": "The minimum of two or more numbers. Note: this function can take an infinite amount of arguments.",
+        "description": { "en-US": "The minimum of two or more numbers. Note: this function can take an infinite amount of arguments." },
         "args": [
             {
                 "name": "value",
-                "description": "The left-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "value",
-                "description": "The right-hand operand. May be any value that results in a number.",
+                "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -7190,11 +7190,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Min"
     },
     "nearestWalkablePosition": {
-        "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
+        "description": { "en-US": "The position closest to the specified position that can be stood on and is accessible from a spawn point." },
         "args": [
             {
                 "name": "position",
-                "description": "The position from which to search for the nearest walkable position.",
+                "description": { "en-US": "The position from which to search for the nearest walkable position." },
                 "type": "Position",
             }
         ],
@@ -7218,11 +7218,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Nearest Walkable Position"
     },
     "normalize": {
-        "description": "The unit-length normalization of a vector.",
+        "description": { "en-US": "The unit-length normalization of a vector." },
         "args": [
             {
                 "name": "vector",
-                "description": "The vector to normalize.",
+                "description": { "en-US": "The vector to normalize." },
                 "type": "Vector",
             }
         ],
@@ -7247,7 +7247,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Normalize"
     },
     "null": {
-        "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
+        "description": { "en-US": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging." },
         "args": null,
         "isConstant": true,
         "canBePutInBoolean": false,
@@ -7270,11 +7270,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Null"
     },
     "random.choice": {
-        "description": "A random value from the specified array.",
+        "description": { "en-US": "A random value from the specified array." },
         "args": [
             {
                 "name": "array",
-                "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+                "description": { "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value." },
                 "type": "Array",
             }
         ],
@@ -7300,18 +7300,18 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Random Value In Array"
     },
     "random.randint": {
-        "description": "A random integer between the specified min and max, inclusive.",
+        "description": { "en-US": "A random integer between the specified min and max, inclusive." },
         "args": [
             {
                 "name": "min",
-                "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                "description": { "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "max",
-                "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                "description": { "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -7336,11 +7336,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Random Integer"
     },
     "random.shuffle": {
-        "description": "A copy of the specified array with the values in a random order.",
+        "description": { "en-US": "A copy of the specified array with the values in a random order." },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be randomized.",
+                "description": { "en-US": "The array whose copy will be randomized." },
                 "type": "Array",
             }
         ],
@@ -7363,16 +7363,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Randomized Array"
     },
     "random.uniform": {
-        "description": "A random real number between the specified min and max.",
+        "description": { "en-US": "A random real number between the specified min and max." },
         "args": [
             {
                 "name": "min",
-                "description": "The smallest real number allowed.",
+                "description": { "en-US": "The smallest real number allowed." },
                 "type": "float",
             },
             {
                 "name": "max",
-                "description": "The largest real number allowed.",
+                "description": { "en-US": "The largest real number allowed." },
                 "type": "float",
             }
         ],
@@ -7395,26 +7395,26 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Random Real"
     },
     "rgb": {
-        "description": "A custom color with the specified red, green, blue and alpha values.",
+        "description": { "en-US": "A custom color with the specified red, green, blue and alpha values." },
         "args": [
             {
                 "name": "red",
-                "description": "The red component of a color, from 0 to 255.",
+                "description": { "en-US": "The red component of a color, from 0 to 255." },
                 "type": "unsigned int",
             },
             {
                 "name": "green",
-                "description": "The green component of a color, from 0 to 255.",
+                "description": { "en-US": "The green component of a color, from 0 to 255." },
                 "type": "unsigned int",
             },
             {
                 "name": "blue",
-                "description": "The blue component of a color, from 0 to 255.",
+                "description": { "en-US": "The blue component of a color, from 0 to 255." },
                 "type": "unsigned int",
             },
             {
                 "name": "alpha",
-                "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+                "description": { "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible." },
                 "type": "unsigned int",
                 "default": 255
             }
@@ -7441,11 +7441,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Custom Color"
     },
     "sin": {
-        "description": "Sine of the specified angle in radians.",
+        "description": { "en-US": "Sine of the specified angle in radians." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in radians.",
+                "description": { "en-US": "Angle in radians." },
                 "type": "float",
             }
         ],
@@ -7469,11 +7469,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Sine From Radians"
     },
     "sinDeg": {
-        "description": "Sine of the specified angle in degrees.",
+        "description": { "en-US": "Sine of the specified angle in degrees." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in degrees.",
+                "description": { "en-US": "Angle in degrees." },
                 "type": "float",
             }
         ],
@@ -7497,11 +7497,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Sine From Degrees"
     },
     "sqrt": {
-        "description": "The square root of the specified value.",
+        "description": { "en-US": "The square root of the specified value." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number value whose square root will be computed. Negative values result in zero.",
+                "description": { "en-US": "The real number value whose square root will be computed. Negative values result in zero." },
                 "type": "unsigned float",
             }
         ],
@@ -7525,17 +7525,17 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Square Root"
     },
     "strContains": {
-        "description": "Whether the specified string contains the specified substring.",
+        "description": { "en-US": "Whether the specified string contains the specified substring." },
         "args": [
             {
                 "name": "string",
-                "description": "The string in which to search for the specified substring.",
+                "description": { "en-US": "The string in which to search for the specified substring." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             },
             {
                 "name": "substring",
-                "description": "The substring for which to search.",
+                "description": { "en-US": "The substring for which to search." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             }
@@ -7560,11 +7560,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "String Contains"
     },
     "strLen": {
-        "description": "The length in characters of the provided string.",
+        "description": { "en-US": "The length in characters of the provided string." },
         "args": [
             {
                 "name": "string",
-                "description": "The string whose characters to count.",
+                "description": { "en-US": "The string whose characters to count." },
                 "type": "String",
                 canReplaceEmptyStringByEmptyArray: true,
             }
@@ -7589,11 +7589,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "String Length"
     },
     "tan": {
-        "description": "Tangent of the specified angle in radians.",
+        "description": { "en-US": "Tangent of the specified angle in radians." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in radians.",
+                "description": { "en-US": "Angle in radians." },
                 "type": "float",
             }
         ],
@@ -7617,11 +7617,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Tangent From Radians"
     },
     "tanDeg": {
-        "description": "Tangent of the specified angle in degrees.",
+        "description": { "en-US": "Tangent of the specified angle in degrees." },
         "args": [
             {
                 "name": "angle",
-                "description": "Angle in degrees.",
+                "description": { "en-US": "Angle in degrees." },
                 "type": "float",
             }
         ],
@@ -7645,16 +7645,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Tangent From Degrees"
     },
     "isHeroBeingPlayed": {
-        "description": "Whether a specific hero is being played (either on a team or in the match).",
+        "description": { "en-US": "Whether a specific hero is being played (either on a team or in the match)." },
         "args": [
             {
                 "name": "hero",
-                "description": "The hero to check for play.",
+                "description": { "en-US": "The hero to check for play." },
                 "type": "Hero",
             },
             {
                 "name": "team",
-                "description": "The team or teams on which to check for the hero being played.",
+                "description": { "en-US": "The team or teams on which to check for the hero being played." },
                 "type": "Team",
             }
         ],
@@ -7678,11 +7678,11 @@ export const valueFuncKw: Record<string, Value> =
     },
     "teamScore": {
         "guid": "00000000B353",
-        "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
+        "description": { "en-US": "The current score for the specified team. Results in 0 in free-for-all game modes." },
         "args": [
             {
                 "name": "team",
-                "description": "The team whose score to acquire.",
+                "description": { "en-US": "The team whose score to acquire." },
                 "type": "Team",
             }
         ],
@@ -7704,7 +7704,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Team Score"
     },
     "true": {
-        "description": "The boolean value of true.",
+        "description": { "en-US": "The boolean value of true." },
         "args": null,
         "isConstant": true,
         "return": "BoolLiteral",
@@ -7726,11 +7726,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "True"
     },
     "updateEveryFrame": {
-        "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
+        "description": { "en-US": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate." },
         "args": [
             {
                 "name": "value",
-                "description": "The value that will be updated once per tick.",
+                "description": { "en-US": "The value that will be updated once per tick." },
                 "type": [
                     "Object",
                     "Array"
@@ -7761,25 +7761,25 @@ export const valueFuncKw: Record<string, Value> =
     },
     "vect": {
         "guid": "00000000B0F1",
-        "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
+        "description": { "en-US": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity." },
         "args": [
             {
                 "name": "x",
-                "description": "The x value of the vector.",
+                "description": { "en-US": "The x value of the vector." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "y",
-                "description": "The y value of the vector.",
+                "description": { "en-US": "The y value of the vector." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
             },
             {
                 "name": "z",
-                "description": "The z value of the vector.",
+                "description": { "en-US": "The z value of the vector." },
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
@@ -7806,16 +7806,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Vector"
     },
     "vectorTowards": {
-        "description": "The displacement vector from one position to another.",
+        "description": { "en-US": "The displacement vector from one position to another." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The position from which the resulting displacement vector begins.",
+                "description": { "en-US": "The position from which the resulting displacement vector begins." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The position at which the resulting displacement vector ends.",
+                "description": { "en-US": "The position at which the resulting displacement vector ends." },
                 "type": "Position",
             }
         ],
@@ -7840,11 +7840,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Vector Towards"
     },
     "verticalAngleOfDirection": {
-        "description": "The vertical angle in degrees corresponding to the specified direction vector.",
+        "description": { "en-US": "The vertical angle in degrees corresponding to the specified direction vector." },
         "args": [
             {
                 "name": "direction",
-                "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
+                "description": { "en-US": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins." },
                 "type": "Direction",
             }
         ],
@@ -7868,16 +7868,16 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Vertical Angle From Direction"
     },
     "verticalAngleTowards": {
-        "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
+        "description": { "en-US": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative." },
         "args": [
             {
                 "name": "player",
-                "description": "The player from whose current facing the angle begins.",
+                "description": { "en-US": "The player from whose current facing the angle begins." },
                 "type": "Player",
             },
             {
                 "name": "position",
-                "description": "The position in the world where the angle ends.",
+                "description": { "en-US": "The position in the world where the angle ends." },
                 "type": "Position",
             }
         ],
@@ -7901,7 +7901,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "victim": {
         "guid": "00000000B330",
-        "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
+        "description": { "en-US": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player." },
         "args": null,
         "canBePutInBoolean": false,
         "return": "Player",
@@ -7922,21 +7922,21 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Victim"
     },
     "worldVector": {
-        "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
+        "description": { "en-US": "The vector in world coordinates corresponding to the provided vector in local coordinates." },
         "args": [
             {
                 "name": "localVector",
-                "description": "The vector in local coordinates that will be converted to world coordinates.",
+                "description": { "en-US": "The vector in local coordinates that will be converted to world coordinates." },
                 "type": "Vector",
             },
             {
                 "name": "relativePlayer",
-                "description": "The player to whom the local vector is relative.",
+                "description": { "en-US": "The player to whom the local vector is relative." },
                 "type": "Player",
             },
             {
                 "name": "transformation",
-                "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+                "description": { "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)." },
                 "type": "Transform",
             }
         ],

@@ -7599,7 +7599,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "allowPlayersInQueue": {
                 "values": "__boolYesNo__",
                 "guid": "00000000F25B",
-                "description": "Whether to allow players in 'While you wait'.",
+                "description": { "en-US": "Whether to allow players in 'While you wait'." },
 
                 "en-US": "Allow Players Who Are In Queue",
                 "de-DE": "Spieler in der Spielsuche zulassen",
@@ -8502,7 +8502,7 @@ export type CustomGameSettingSchema = {
         }
     } & Partial<LocalizableString>,
     lobby: {
-        values: Record<string, CustomGameSetting & { description?: string }>
+        values: Record<string, CustomGameSetting & { description?: import("../types").LocalizableString }>
     } & Partial<LocalizableString>,
     main: {
         values: Record<string, LocalizableString & {

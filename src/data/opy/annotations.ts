@@ -20,73 +20,73 @@ import { eventKw, eventTeamKw, eventSlotKw } from "../other";
 import { heroKw } from "../heroes";
 
 export const opyAnnotations: Record<string, {
-    description: string,
+    description: import("../../types").LocalizableString,
     args: Array<{
         name: string,
-        description: string,
+        description: import("../../types").LocalizableString,
         values?: string[]
     }>
 }> = {
     "@Name": {
-        "description": "For subroutines, specifies the name of the rule.",
+        "description": { "en-US": "For subroutines, specifies the name of the rule." },
         args: [{
             "name": "name",
-            "description": "A string literal containing the name of the rule."
+            "description": { "en-US": "A string literal containing the name of the rule." }
         }]
     },
     "@Event": {
-        "description": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines.",
+        "description": { "en-US": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines." },
         args: [{
             "name": "type",
-            "description": "The type of the event.",
+            "description": { "en-US": "The type of the event." },
             "values": Object.keys(eventKw),
         }]
     },
     "@Team": {
-        "description": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines.",
+        "description": { "en-US": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines." },
         args: [{
             "name": "team",
-            "description": "The team of the event.",
+            "description": { "en-US": "The team of the event." },
             "values": Object.keys(eventTeamKw),
         }]
     },
     "@Slot": {
-        "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines.",
+        "description": { "en-US": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines." },
         args: [{
             "name": "slot",
-            "description": "The slot of the event.",
+            "description": { "en-US": "The slot of the event." },
             "values": Object.keys(eventSlotKw),
         }]
     },
     "@Hero": {
-        "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines.",
+        "description": { "en-US": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines." },
         args: [{
             "name": "hero",
-            "description": "The hero of the event.",
+            "description": { "en-US": "The hero of the event." },
             "values": Object.keys(heroKw),
         }]
     },
     "@Condition": {
-        "description": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines.",
+        "description": { "en-US": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines." },
         args: [{
             "name": "condition",
-            "description": "The condition that must be fulfilled.",
+            "description": { "en-US": "The condition that must be fulfilled." },
         }]
     },
     "@SuppressWarnings": {
-        "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+        "description": { "en-US": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces." },
         args: [],
     },
     "@Disabled": {
-        "description": "Generates the rule as disabled.",
+        "description": { "en-US": "Generates the rule as disabled." },
         args: [],
     },
     "@Delimiter": {
-        "description": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out.",
+        "description": { "en-US": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out." },
         args: [],
     },
     "@NewPage": {
-        "description": "Forces the rule to be on a new page. Pages are maximum 100 rules; note that each rule costs 1 element. You can specify a string argument that will be displayed on each of the filler rules.",
+        "description": { "en-US": "Forces the rule to be on a new page. Pages are maximum 100 rules; note that each rule costs 1 element. You can specify a string argument that will be displayed on each of the filler rules." },
         args: [],
     }
 };

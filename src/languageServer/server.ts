@@ -33,11 +33,13 @@ import { validateTextDocument } from "./validation";
 
 type OverpySettings = {
     workshopLanguage: OWLanguage;
+    documentationLanguage: OWLanguage;
     inlayHintsMinParameters: number;
 };
 
 const defaultSettings: OverpySettings = {
     workshopLanguage: "en-US",
+    documentationLanguage: "en-US",
     inlayHintsMinParameters: 1,
 };
 const supportedLanguages = [
@@ -67,12 +69,15 @@ const VALIDATION_DEBOUNCE_MS = 400;
 
 let hasConfigurationCapability = false;
 let hasSemanticTokensRefreshSupport = false;
+let clientDocumentationLanguage: OWLanguage = "en-US";
 let globalSettings = defaultSettings;
 let workspaceRoots: string[] = [];
 
 connection.onInitialize((params: InitializeParams) => {
     hasConfigurationCapability = params.capabilities.workspace?.configuration === true;
     hasSemanticTokensRefreshSupport = params.capabilities.workspace?.semanticTokens?.refreshSupport === true;
+    clientDocumentationLanguage = resolveDocumentationLanguage(params.locale);
+    globalSettings = { ...defaultSettings, documentationLanguage: clientDocumentationLanguage };
     workspaceRoots =
         params.workspaceFolders?.map((workspaceFolder) => URI.parse(workspaceFolder.uri).fsPath) ??
         (params.rootUri ? [URI.parse(params.rootUri).fsPath] : []);
@@ -157,31 +162,34 @@ documents.onDidClose((event) => {
     connection.sendDiagnostics({ uri: closedUri, diagnostics: [] });
 });
 
-connection.onCompletion((params): CompletionList | null => {
+connection.onCompletion(async (params): Promise<CompletionList | null> => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
     }
 
-    return getCompletionList(document, params.position, params.context?.triggerCharacter);
+    const settings = await getDocumentSettings(document.uri);
+    return getCompletionList(document, params.position, params.context?.triggerCharacter, settings.documentationLanguage);
 });
 
-connection.onSignatureHelp((params): SignatureHelp | null => {
+connection.onSignatureHelp(async (params): Promise<SignatureHelp | null> => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
     }
 
-    return getSignatureHelp(document, params.position, params.context?.triggerCharacter) ?? null;
+    const settings = await getDocumentSettings(document.uri);
+    return getSignatureHelp(document, params.position, params.context?.triggerCharacter, settings.documentationLanguage) ?? null;
 });
 
-connection.onHover((params) => {
+connection.onHover(async (params) => {
     const document = documents.get(params.textDocument.uri);
     if (!document) {
         return null;
     }
 
-    return getHover(document, params.position);
+    const settings = await getDocumentSettings(document.uri);
+    return getHover(document, params.position, settings.documentationLanguage);
 });
 
 connection.languages.inlayHint.on(async (params) => {
@@ -372,6 +380,7 @@ function getDocumentSettings(resource: string): Thenable<OverpySettings> {
 function normalizeSettings(settings: unknown): OverpySettings {
     const normalized: OverpySettings = {
         ...defaultSettings,
+        documentationLanguage: clientDocumentationLanguage,
     };
 
     if (typeof settings === "object" && settings !== null) {
@@ -379,6 +388,15 @@ function normalizeSettings(settings: unknown): OverpySettings {
             const configuredLanguage = settings.workshopLanguage;
             if (typeof configuredLanguage === "string" && supportedLanguages.includes(configuredLanguage as OWLanguage)) {
                 normalized.workshopLanguage = configuredLanguage as OWLanguage;
+            }
+        }
+
+        if ("documentationLanguage" in settings) {
+            const configuredLanguage = settings.documentationLanguage;
+            if (configuredLanguage === "auto") {
+                normalized.documentationLanguage = clientDocumentationLanguage;
+            } else if (typeof configuredLanguage === "string" && supportedLanguages.includes(configuredLanguage as OWLanguage)) {
+                normalized.documentationLanguage = configuredLanguage as OWLanguage;
             }
         }
 
@@ -392,6 +410,23 @@ function normalizeSettings(settings: unknown): OverpySettings {
     }
 
     return normalized;
+}
+
+function resolveDocumentationLanguage(locale: string | undefined): OWLanguage {
+    if (!locale) return "en-US";
+    if (supportedLanguages.includes(locale as OWLanguage)) return locale as OWLanguage;
+
+    const normalized = locale.toLowerCase().replaceAll("_", "-");
+    if (normalized.startsWith("zh")) {
+        return normalized.includes("hant") || normalized.includes("tw") || normalized.includes("hk") ? "zh-TW" : "zh-CN";
+    }
+    if (normalized.startsWith("es")) return normalized.includes("mx") ? "es-MX" : "es-ES";
+
+    const aliases: Record<string, OWLanguage> = {
+        de: "de-DE", en: "en-US", fr: "fr-FR", it: "it-IT", ja: "ja-JP",
+        ko: "ko-KR", pl: "pl-PL", pt: "pt-BR", ru: "ru-RU", th: "th-TH", tr: "tr-TR",
+    };
+    return aliases[normalized.split("-")[0]] ?? "en-US";
 }
 
 function getErrorMessage(error: unknown): string {
