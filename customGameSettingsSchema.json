@@ -37668,7 +37668,9 @@
                 },
                 "allowPlayersInQueue": {
                     "type": "boolean",
-                    "description": "Whether to allow players in 'While you wait'."
+                    "description": {
+                        "en-US": "Whether to allow players in 'While you wait'."
+                    }
                 },
                 "useExperimentalUpdate": {
                     "type": "boolean"
