@@ -77,6 +77,7 @@ import "./functions/.addToScore";
 import "./functions/__all__";
 import "./functions/__any__";
 import "./functions/.append";
+import "./functions/.applyImpulse";
 import "./functions/.charAt";
 import "./functions/.concat";
 import "./functions/.exclude";

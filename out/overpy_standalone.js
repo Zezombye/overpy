@@ -4572,49 +4572,49 @@ var mapKw = (
 var opyKeywords = {
   //Keywords
   "and": {
-    "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",
+    "description": { "en-US": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting." },
     "args": null,
     "snippet": "and $0"
   },
   "bool": {
-    "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
+    "description": { "en-US": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'." },
     "args": null,
     hideFromAutocomplete: true
   },
   "case": {
-    "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
+    "description": { "en-US": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction." },
     "args": null,
     "snippet": "case $0"
   },
   "def": {
-    "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
+    "description": { "en-US": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`" },
     "args": null,
     "snippet": "def $0"
   },
   "default": {
-    "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction.",
+    "description": { "en-US": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is not equal to any value specified in the `case` statements. Note that the execution will not jump to the end of the `switch` block after the end of the `default` block; if you want that to be the case, use the `break` instruction." },
     "args": null
   },
   "del": {
-    "description": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`",
+    "description": { "en-US": "Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs. Example: `del myVar[3]`" },
     "args": null,
     "snippet": "del $0"
   },
   "elif": {
-    "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
+    "description": { "en-US": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false." },
     "args": null,
     "snippet": "elif $0"
   },
   "else": {
-    "description": `Denotes either:
+    "description": { "en-US": `Denotes either:
 
 - If an instruction, the beginning of a block that will only execute if the previous \`if\` or \`elif\` block's condition was false.
 
-- If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
+- If a value, an inline "ternary" condition, such as \`A if B else C\`.` },
     "args": null
   },
   "enum": {
-    "description": `Declares an enum. For example:
+    "description": { "en-US": `Declares an enum. For example:
 \`\`\`c
 enum GameStatus:
     GAME_NOT_STARTED,
@@ -4631,64 +4631,64 @@ The enum can then be accessed like other enums: \`GameStatus.GAME_STARTED\`.
 If no value is specified, the value is the last specified value plus 1 (if the last specified value is a number), or 0 if it is the first enum member.
 
 An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
-`,
+` },
     "args": null,
     "snippet": "enum $0"
   },
   "float": {
-    "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float[-4.5:5.5]` denotes all numbers between -4.5 and 5.5, inclusive.",
+    "description": { "en-US": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float[-4.5:5.5]` denotes all numbers between -4.5 and 5.5, inclusive." },
     "args": null,
     hideFromAutocomplete: true
   },
   "for": {
-    "description": `Denotes either:
+    "description": { "en-US": `Denotes either:
 
 - If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
 
-- If within a list comprehension, a filtered or mapped array, such as \`[i for i in x if x == 3]\`.`,
+- If within a list comprehension, a filtered or mapped array, such as \`[i for i in x if x == 3]\`.` },
     "args": null,
     "snippet": "for $0"
   },
   "if": {
-    "description": `Denotes either:
+    "description": { "en-US": `Denotes either:
 
 - If an instruction, the beginning of a block that will only execute if the specified condition is true.
 
-- If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
+- If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.` },
     "args": null,
     "snippet": "if $0"
   },
   "in": {
     "args": null,
-    "description": "Whether comparing the first operand with any of the elements in the second operand returns true.\n\nFor example, `3 in [1,2,3]` will return true.\n\nBe aware that `3 in [1, true]` will return `true`, as 3 is truthy.\n\nTo check the presence of a string within another string, use `strContains`."
+    "description": { "en-US": "Whether comparing the first operand with any of the elements in the second operand returns true.\n\nFor example, `3 in [1,2,3]` will return true.\n\nBe aware that `3 in [1, true]` will return `true`, as 3 is truthy.\n\nTo check the presence of a string within another string, use `strContains`." }
   },
   "int": {
-    "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int[-4:5]` denotes all integers between -4 and 5, inclusive.",
+    "description": { "en-US": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int[-4:5]` denotes all integers between -4 and 5, inclusive." },
     "args": null,
     hideFromAutocomplete: true
   },
   "globalvar": {
-    "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
+    "description": { "en-US": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`" },
     "args": null,
     "snippet": "globalvar $0"
   },
   "goto": {
-    "description": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction.",
+    "description": { "en-US": "Goes to the specified label. Labels can only be placed after the `goto` statement, in the current rule. For example, `goto lbl_1` will continue execution from the `lbl_1:` instruction. Dynamic gotos, although not recommended, can be declared with the `loc+` keyword, such as `goto loc+A` which will move execution 3 actions after the `goto` instruction." },
     "args": null,
     "snippet": "goto $0"
   },
   "lambda": {
-    "description": "Denotes an inline function. Can only be used in the `sorted` function.",
+    "description": { "en-US": "Denotes an inline function. Can only be used in the `sorted` function." },
     "args": null,
     "snippet": "lambda $0"
   },
   "loc": {
-    "description": "Used to define a dynamic goto (see `goto`).",
+    "description": { "en-US": "Used to define a dynamic goto (see `goto`)." },
     "args": null,
     "snippet": "loc+$0"
   },
   "macro": {
-    "description": `Declares a macro, which is an inline function or constant. For example:
+    "description": { "en-US": `Declares a macro, which is an inline function or constant. For example:
 
 \`\`\`thon
 macro BOSS_HP = 1000+getNumberOfPlayers()*300
@@ -4731,42 +4731,42 @@ macro Player.setPowerLevel(powerLevel=1, damageDealt=null):
 rule "":
     A.setPowerLevel(damageDealt=3)
 \`\`\`
-`,
+` },
     "args": null,
     "snippet": "macro $0"
   },
   "not": {
-    "description": "Whether the given operand is false (or equivalent to false).",
+    "description": { "en-US": "Whether the given operand is false (or equivalent to false)." },
     "args": null,
     "snippet": "not $0"
   },
   "or": {
-    "description": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting.",
+    "description": { "en-US": "Whether either of the two operands are true (or equivalent to true). Does short-circuiting." },
     "args": null,
     "snippet": "or $0"
   },
   "playervar": {
-    "description": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`",
+    "description": { "en-US": "Declares a player variable. The index (0-127) can optionally be specified. Example: `playervar myVar 127`" },
     "args": null,
     "snippet": "playervar $0"
   },
   "rule": {
-    "description": "Declares a rule.",
+    "description": { "en-US": "Declares a rule." },
     "args": null,
     "snippet": 'rule "$0"'
   },
   "self": {
-    "description": `In a member macro, refers to the member itself. For example:
+    "description": { "en-US": `In a member macro, refers to the member itself. For example:
 \`\`\`
 macro Array.reverse():
     sorted(self, key=lambda _, i: -i)
 \`\`\`
 If calling \`A.reverse()\`, \`self\` will be replaced by \`A\`.
-`,
+` },
     "args": null
   },
   "settings": {
-    "description": `Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).
+    "description": { "en-US": `Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).
 
 The settings are parsed with OverPy's parser, meaning you can do things such as:
 
@@ -4802,32 +4802,32 @@ settings {
 Note that every value has to eventually resolve to a dict/array/string/number/boolean through the optimizer (you can't do \`200 * A\` where \`A\` is a variable).
 
 There are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch, then use the decompile command to convert to OverPy.
-        `,
+        ` },
     "args": null,
     "snippet": "settings $0"
   },
   "signed": {
-    "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
+    "description": { "en-US": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'." },
     "args": null,
     hideFromAutocomplete: true
   },
   "switch": {
-    "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
+    "description": { "en-US": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block." },
     "args": null,
     "snippet": "switch $0"
   },
   "subroutine": {
-    "description": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`",
+    "description": { "en-US": "Declares a subroutine. The index (0-127) can optionally be specified. Example: `subroutine mySubroutine 127`" },
     "args": null,
     "snippet": "subroutine $0"
   },
   "unsigned": {
-    "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
+    "description": { "en-US": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'." },
     "args": null,
     hideFromAutocomplete: true
   },
   "while": {
-    "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block.",
+    "description": { "en-US": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block." },
     "args": null,
     "snippet": "while $0"
   }
@@ -4980,7 +4980,7 @@ var constantValues = (
     "StartRuleBehavior": {
       "RESTART": {
         "guid": "000000010025",
-        "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
+        "description": { "en-US": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)." },
         "en-US": "Restart Rule",
         "es-MX": "Reiniciar regla",
         "fr-FR": "Relancer la r\xE8gle",
@@ -4999,7 +4999,7 @@ var constantValues = (
       },
       "NOOP": {
         "guid": "000000010026",
-        "description": "Allow the rule to finish executing without changing its contextual values.",
+        "description": { "en-US": "Allow the rule to finish executing without changing its contextual values." },
         "en-US": "Do Nothing",
         "es-MX": "Hacer nada",
         "fr-FR": "Ne rien faire",
@@ -5020,7 +5020,7 @@ var constantValues = (
     "BarrierLos": {
       "BLOCKED_BY_ENEMY_BARRIERS": {
         "guid": "00000000B1EE",
-        "description": "Line of sight is blocked by barriers created by the enemy team.",
+        "description": { "en-US": "Line of sight is blocked by barriers created by the enemy team." },
         "en-US": "Enemy Barriers Block LOS",
         "es-MX": "Las barreras enemigas bloquean la LDV",
         "fr-FR": "Les barri\xE8res ennemies bloquent la ligne de vue",
@@ -5039,7 +5039,7 @@ var constantValues = (
       },
       "BLOCKED_BY_ALL_BARRIERS": {
         "guid": "00000000B1EF",
-        "description": "Line of sight is blocked by all barriers.",
+        "description": { "en-US": "Line of sight is blocked by all barriers." },
         "en-US": "All Barriers Block LOS",
         "es-MX": "Todas las barreras bloquean la LDV",
         "fr-FR": "Toutes les barri\xE8res bloquent la ligne de vue",
@@ -5058,7 +5058,7 @@ var constantValues = (
       },
       "PASS_THROUGH_BARRIERS": {
         "guid": "00000000B1ED",
-        "description": "Line of sight is not blocked by any barriers.",
+        "description": { "en-US": "Line of sight is not blocked by any barriers." },
         "en-US": "Barriers Do Not Block LOS",
         "es-MX": "Las barreras no bloquean la LDV",
         "fr-FR": "Les barri\xE8res ne bloquent pas la ligne de vue",
@@ -5641,7 +5641,7 @@ var constantValues = (
     "Clip": {
       "SURFACES": {
         "guid": "00000000BAF5",
-        "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
+        "description": { "en-US": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects." },
         "en-US": "Clip Against Surfaces",
         "es-MX": "Atravesar las superficies",
         "fr-FR": "Masquer derri\xE8re les surfaces",
@@ -5660,7 +5660,7 @@ var constantValues = (
       },
       "NONE": {
         "guid": "00000000BAF4",
-        "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
+        "description": { "en-US": "The text will always be fully visible, even if it is behind a wall or solid object." },
         "en-US": "Do Not Clip",
         "es-MX": "No atravesar",
         "fr-FR": "Ne pas masquer",
@@ -10287,7 +10287,7 @@ var constantValues = (
     "HeroStat": {
       "DAMAGE_DEALT": {
         "guid": "0000000124B7",
-        "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+        "description": { "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)." },
         "en-US": "All Damage Dealt",
         "es-MX": "Todo el da\xF1o infligido",
         "fr-FR": "D\xE9g\xE2ts inflig\xE9s tous",
@@ -10540,7 +10540,7 @@ var constantValues = (
       },
       "HERO_DAMAGE_DEALT": {
         "guid": "0000000124D5",
-        "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+        "description": { "en-US": "Specifies damage dealt to heroes, but not barriers or pets." },
         "en-US": "Hero Damage Dealt",
         "es-MX": "Da\xF1o infligido a h\xE9roes",
         "fr-FR": "D\xE9g\xE2ts inflig\xE9s aux h\xE9ros",
@@ -10902,7 +10902,7 @@ var constantValues = (
         "zh-TW": "Left"
       },
       "ACTUALLY_LEFT": {
-        "description": "In OW2, HUDs are automatically centered. Specify this value if you actually want your HUD to be on the left of the screen.\n\nNote: this will make all other HUDs with a position of `HudPosition.LEFT` be centered on the screen.",
+        "description": { "en-US": "In OW2, HUDs are automatically centered. Specify this value if you actually want your HUD to be on the left of the screen.\n\nNote: this will make all other HUDs with a position of `HudPosition.LEFT` be centered on the screen." },
         "guid": "00000000BAF6",
         "en-US": "Left",
         "es-MX": "Izquierda",
@@ -11249,7 +11249,7 @@ var constantValues = (
     },
     "Icon": {
       "ARROW_DOWN": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2C9",
         "en-US": "Arrow: Down",
         "es-MX": "Flecha: Hacia abajo",
@@ -11268,7 +11268,7 @@ var constantValues = (
         "zh-TW": "Arrow: Down"
       },
       "ARROW_LEFT": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CA",
         "en-US": "Arrow: Left",
         "es-MX": "Flecha: Hacia la izquierda",
@@ -11287,7 +11287,7 @@ var constantValues = (
         "zh-TW": "Arrow: Left"
       },
       "ARROW_RIGHT": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CB",
         "en-US": "Arrow: Right",
         "es-MX": "Flecha: Hacia la derecha",
@@ -11306,7 +11306,7 @@ var constantValues = (
         "zh-TW": "Arrow: Right"
       },
       "ARROW_UP": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CC",
         "en-US": "Arrow: Up",
         "es-MX": "Flecha: Hacia arriba",
@@ -11325,7 +11325,7 @@ var constantValues = (
         "zh-TW": "Arrow: Up"
       },
       "ASTERISK": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CD",
         "en-US": "Asterisk",
         "es-MX": "Asterisco",
@@ -11344,7 +11344,7 @@ var constantValues = (
         "zh-TW": "Asterisk"
       },
       "BOLT": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CE",
         "en-US": "Bolt",
         "es-MX": "Rayo",
@@ -11363,7 +11363,7 @@ var constantValues = (
         "zh-TW": "Bolt"
       },
       "CHECKMARK": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2CF",
         "en-US": "Checkmark",
         "es-MX": "Marca de control",
@@ -11383,7 +11383,7 @@ var constantValues = (
       },
       "CIRCLE": {
         "guid": "00000000C2D0",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Circle",
         "es-MX": "C\xEDrculo",
         "fr-FR": "Cercle",
@@ -11402,7 +11402,7 @@ var constantValues = (
       },
       "CLUB": {
         "guid": "00000000C2D1",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Club",
         "es-MX": "Tr\xE9bol",
         "fr-FR": "Tr\xE8fle",
@@ -11421,7 +11421,7 @@ var constantValues = (
       },
       "DIAMOND": {
         "guid": "00000000C2D2",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Diamond",
         "es-MX": "Diamante",
         "fr-FR": "Carreau",
@@ -11440,7 +11440,7 @@ var constantValues = (
       },
       "DIZZY": {
         "guid": "00000000C2D3",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Dizzy",
         "es-MX": "Mareado",
         "fr-FR": "\xC9tourdi",
@@ -11458,7 +11458,7 @@ var constantValues = (
         "zh-TW": "Dizzy"
       },
       "EXCLAMATION_MARK": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2D4",
         "en-US": "Exclamation Mark",
         "es-MX": "Signo de exclamaci\xF3n",
@@ -11477,7 +11477,7 @@ var constantValues = (
         "zh-TW": "Exclamation Mark"
       },
       "EYE": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2D5",
         "en-US": "Eye",
         "es-MX": "Ojo",
@@ -11496,7 +11496,7 @@ var constantValues = (
         "zh-TW": "Eye"
       },
       "FIRE": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2D6",
         "en-US": "Fire",
         "es-MX": "Fuego",
@@ -11515,7 +11515,7 @@ var constantValues = (
         "zh-TW": "Fire"
       },
       "FLAG": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2F0",
         "en-US": "Flag",
         "es-MX": "Bandera",
@@ -11535,7 +11535,7 @@ var constantValues = (
       },
       "HALO": {
         "guid": "00000000C2D7",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Halo",
         "ja-JP": "\u5149\u8F2A",
         "pt-BR": "Aur\xE9ola",
@@ -11553,7 +11553,7 @@ var constantValues = (
         "zh-TW": "Halo"
       },
       "HAPPY": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2D8",
         "en-US": "Happy",
         "es-MX": "Feliz",
@@ -11573,7 +11573,7 @@ var constantValues = (
       },
       "HEART": {
         "guid": "00000000C2D9",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Heart",
         "es-MX": "Coraz\xF3n",
         "fr-FR": "C\u0153ur",
@@ -11592,7 +11592,7 @@ var constantValues = (
       },
       "MOON": {
         "guid": "00000000C2DA",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Moon",
         "es-MX": "Luna",
         "fr-FR": "Lune",
@@ -11611,7 +11611,7 @@ var constantValues = (
       },
       "NO": {
         "guid": "00000000C2DB",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "No",
         "fr-FR": "Interdit",
         "ja-JP": "\u3044\u3044\u3048",
@@ -11629,7 +11629,7 @@ var constantValues = (
         "zh-TW": "No"
       },
       "PLUS": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2DC",
         "en-US": "Plus",
         "es-MX": "Signo de suma",
@@ -11648,7 +11648,7 @@ var constantValues = (
         "zh-TW": "Plus"
       },
       "POISON": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2DD",
         "en-US": "Poison",
         "es-MX": "Veneno",
@@ -11667,7 +11667,7 @@ var constantValues = (
         "zh-TW": "Poison"
       },
       "POISON_2": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2DE",
         "en-US": "Poison 2",
         "es-MX": "Veneno 2",
@@ -11686,7 +11686,7 @@ var constantValues = (
         "zh-TW": "Poison 2"
       },
       "QUESTION_MARK": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2DF",
         "en-US": "Question Mark",
         "es-MX": "Signo de interrogaci\xF3n",
@@ -11705,7 +11705,7 @@ var constantValues = (
         "zh-TW": "Question Mark"
       },
       "RADIOACTIVE": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2E4",
         "en-US": "Radioactive",
         "es-MX": "Radiactivo",
@@ -11724,7 +11724,7 @@ var constantValues = (
         "zh-TW": "Radioactive"
       },
       "RECYCLE": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2E5",
         "en-US": "Recycle",
         "es-MX": "Reciclaje",
@@ -11743,7 +11743,7 @@ var constantValues = (
         "zh-TW": "Recycle"
       },
       "RING_THICK": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2E6",
         "en-US": "Ring Thick",
         "es-MX": "Anillo grueso",
@@ -11762,7 +11762,7 @@ var constantValues = (
         "zh-TW": "Ring Thick"
       },
       "RING_THIN": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2E7",
         "en-US": "Ring Thin",
         "es-MX": "Anillo delgado",
@@ -11781,7 +11781,7 @@ var constantValues = (
         "zh-TW": "Ring Thin"
       },
       "SAD": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2E8",
         "en-US": "Sad",
         "es-MX": "Triste",
@@ -11801,7 +11801,7 @@ var constantValues = (
       },
       "SKULL": {
         "guid": "00000000C2E9",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Skull",
         "es-MX": "Cr\xE1neo",
         "fr-FR": "Cr\xE2ne",
@@ -11820,7 +11820,7 @@ var constantValues = (
       },
       "SPADE": {
         "guid": "00000000C2EA",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Spade",
         "es-MX": "Pica",
         "fr-FR": "Pique",
@@ -11838,7 +11838,7 @@ var constantValues = (
         "zh-TW": "Spade"
       },
       "SPIRAL": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2EB",
         "en-US": "Spiral",
         "es-MX": "Espiral",
@@ -11858,7 +11858,7 @@ var constantValues = (
       },
       "STOP": {
         "guid": "00000000C2EC",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Stop",
         "es-MX": "Detener",
         "ja-JP": "\u505C\u6B62",
@@ -11876,7 +11876,7 @@ var constantValues = (
         "zh-TW": "Stop"
       },
       "TRASHCAN": {
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "guid": "00000000C2ED",
         "en-US": "Trashcan",
         "es-MX": "Tacho de basura",
@@ -11896,7 +11896,7 @@ var constantValues = (
       },
       "WARNING": {
         "guid": "00000000C2EE",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "Warning",
         "es-MX": "Advertencia",
         "fr-FR": "Avertissement",
@@ -11915,7 +11915,7 @@ var constantValues = (
       },
       "CROSS": {
         "guid": "00000000C2EF",
-        "description": "__iconDescription__",
+        "description": { "en-US": "__iconDescription__" },
         "en-US": "X",
         "fr-FR": "Croix",
         "de-DE": "X",
@@ -12082,7 +12082,7 @@ var constantValues = (
     "Impulse": {
       "CANCEL_CONTRARY_MOTION": {
         "guid": "00000000B520",
-        "description": "**Legacy, use `CANCEL_CONTRARY_MOTION_XYZ` instead.**\n\nIf the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+        "description": { "en-US": "**Legacy, use `CANCEL_CONTRARY_MOTION_XYZ` instead.**\n\nIf the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately." },
         "en-US": "Cancel Contrary Motion",
         "es-MX": "Cancelar movimiento contrario",
         "fr-FR": "Annuler le mouvement contraire",
@@ -12100,7 +12100,7 @@ var constantValues = (
         "zh-TW": "Cancel Contrary Motion"
       },
       "CANCEL_CONTRARY_MOTION_XYZ": {
-        "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
+        "description": { "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together." },
         "guid": "0000000125A5",
         "en-US": "Cancel Contrary Motion XYZ",
         "es-MX": "Cancelar movimiento contrario XYZ",
@@ -12120,7 +12120,7 @@ var constantValues = (
       },
       "INCORPORATE_CONTRARY_MOTION": {
         "guid": "00000000B521",
-        "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
+        "description": { "en-US": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect." },
         "en-US": "Incorporate Contrary Motion",
         "es-MX": "Incorporar movimiento contrario",
         "fr-FR": "Incorporer un mouvement contraire",
@@ -12197,7 +12197,7 @@ var constantValues = (
     "LosCheck": {
       "OFF": {
         "guid": "00000000B1E2",
-        "description": "Line of sight is never blocked, allowing results through walls.",
+        "description": { "en-US": "Line of sight is never blocked, allowing results through walls." },
         "en-US": "Off",
         "es-MX": "No",
         "fr-FR": "D\xE9sactiv\xE9",
@@ -12216,7 +12216,7 @@ var constantValues = (
       },
       "SURFACES": {
         "guid": "00000000B1E3",
-        "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
+        "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles." },
         "en-US": "Surfaces",
         "es-MX": "Superficies",
         "ja-JP": "\u8868\u9762",
@@ -12235,7 +12235,7 @@ var constantValues = (
       },
       "SURFACES_AND_ALL_BARRIERS": {
         "guid": "00000000B1E5",
-        "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
+        "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers." },
         "en-US": "Surfaces And All Barriers",
         "es-MX": "Superficies y todas las barreras",
         "fr-FR": "Surfaces et toutes les barri\xE8res",
@@ -12254,7 +12254,7 @@ var constantValues = (
       },
       "SURFACES_AND_ENEMY_BARRIERS": {
         "guid": "00000000B1E4",
-        "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
+        "description": { "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team." },
         "en-US": "Surfaces And Enemy Barriers",
         "es-MX": "Superficies y barreras enemigas",
         "fr-FR": "Surfaces et barri\xE8res ennemies",
@@ -12274,7 +12274,7 @@ var constantValues = (
     },
     "OutlineVisibility": {
       "DEFAULT": {
-        "description": "Outlines are visible based on the default game settings.",
+        "description": { "en-US": "Outlines are visible based on the default game settings." },
         "guid": "000000011C50",
         "en-US": "Default",
         "es-MX": "Predeterminado",
@@ -12293,7 +12293,7 @@ var constantValues = (
         "zh-TW": "Default"
       },
       "OCCLUDED": {
-        "description": "Outlines are visible when occluded by the environment.",
+        "description": { "en-US": "Outlines are visible when occluded by the environment." },
         "guid": "000000011C51",
         "en-US": "Occluded",
         "es-MX": "Ocluido",
@@ -12312,7 +12312,7 @@ var constantValues = (
         "zh-TW": "Occluded"
       },
       "ALWAYS": {
-        "description": "Outlines are always visible.",
+        "description": { "en-US": "Outlines are always visible." },
         "guid": "000000011C52",
         "en-US": "Always",
         "es-MX": "Siempre",
@@ -12770,7 +12770,7 @@ var constantValues = (
     "Relativity": {
       "TO_PLAYER": {
         "guid": "00000000B16F",
-        "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
+        "description": { "en-US": "Relative to the player's local coordinate system (which moves and rotates with the player)." },
         "en-US": "To Player",
         "es-MX": "Al jugador",
         "fr-FR": "Au joueur",
@@ -12789,7 +12789,7 @@ var constantValues = (
       },
       "TO_WORLD": {
         "guid": "00000000B170",
-        "description": "Relative to the world's coordinate system.",
+        "description": { "en-US": "Relative to the world's coordinate system." },
         "en-US": "To World",
         "es-MX": "Al mundo",
         "fr-FR": "Au monde",
@@ -12810,7 +12810,7 @@ var constantValues = (
     "SpecVisibility": {
       "DEFAULT": {
         "guid": "00000000CE55",
-        "description": "Non-team spectators can see text when all players can see it.",
+        "description": { "en-US": "Non-team spectators can see text when all players can see it." },
         "en-US": "Default Visibility",
         "es-MX": "Visibilidad predeterminada",
         "fr-FR": "Visibilit\xE9 par d\xE9faut",
@@ -12829,7 +12829,7 @@ var constantValues = (
       },
       "ALWAYS": {
         "guid": "00000000CE56",
-        "description": "Non-team spectators can always see text.",
+        "description": { "en-US": "Non-team spectators can always see text." },
         "en-US": "Visible Always",
         "es-MX": "Siempre visible",
         "fr-FR": "Toujours visible",
@@ -12848,7 +12848,7 @@ var constantValues = (
       },
       "NEVER": {
         "guid": "00000000CE57",
-        "description": "Non-team spectators can never see text.",
+        "description": { "en-US": "Non-team spectators can never see text." },
         "en-US": "Visible Never",
         "es-MX": "Nunca visible",
         "fr-FR": "Jamais visible",
@@ -12869,7 +12869,7 @@ var constantValues = (
     "Stat": {
       "DAMAGE_DEALT": {
         "guid": "0000000124B7",
-        "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+        "description": { "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)." },
         "en-US": "All Damage Dealt",
         "es-MX": "Todo el da\xF1o infligido",
         "fr-FR": "D\xE9g\xE2ts inflig\xE9s tous",
@@ -13050,7 +13050,7 @@ var constantValues = (
       },
       "HERO_DAMAGE_DEALT": {
         "guid": "0000000124D5",
-        "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+        "description": { "en-US": "Specifies damage dealt to heroes, but not barriers or pets." },
         "en-US": "Hero Damage Dealt",
         "es-MX": "Da\xF1o infligido a h\xE9roes",
         "fr-FR": "D\xE9g\xE2ts inflig\xE9s aux h\xE9ros",
@@ -13233,7 +13233,7 @@ var constantValues = (
     "Status": {
       "ASLEEP": {
         "guid": "00000000B36A",
-        "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
+        "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status." },
         "en-US": "Asleep",
         "es-MX": "Dormido",
         "fr-FR": "Endormi",
@@ -13252,7 +13252,7 @@ var constantValues = (
       },
       "BURNING": {
         "guid": "00000000B36C",
-        "description": "The player is burning. For example, Ashe's dynamite causes this status.",
+        "description": { "en-US": "The player is burning. For example, Ashe's dynamite causes this status." },
         "en-US": "Burning",
         "es-MX": "En llamas",
         "fr-FR": "Enflamm\xE9",
@@ -13271,7 +13271,7 @@ var constantValues = (
       },
       "FROZEN": {
         "guid": "00000000B369",
-        "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status.",
+        "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status." },
         "en-US": "Frozen",
         "es-MX": "Congelado",
         "fr-FR": "Gel\xE9",
@@ -13290,7 +13290,7 @@ var constantValues = (
       },
       "HACKED": {
         "guid": "00000000B36D",
-        "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.",
+        "description": { "en-US": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status." },
         "en-US": "Hacked",
         "es-MX": "Hackeado",
         "fr-FR": "Pirat\xE9",
@@ -13309,7 +13309,7 @@ var constantValues = (
       },
       "INVINCIBLE": {
         "guid": "00000000B367",
-        "description": "The player does not take damage.",
+        "description": { "en-US": "The player does not take damage." },
         "en-US": "Invincible",
         "es-MX": "Invencible",
         "ja-JP": "\u7121\u6575",
@@ -13328,7 +13328,7 @@ var constantValues = (
       },
       "KNOCKED_DOWN": {
         "guid": "00000000B36B",
-        "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.",
+        "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status." },
         "en-US": "Knocked Down",
         "es-MX": "Derribado",
         "fr-FR": "Renvers\xE9",
@@ -13347,7 +13347,7 @@ var constantValues = (
       },
       "PHASED_OUT": {
         "guid": "00000000B366",
-        "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status.",
+        "description": { "en-US": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status." },
         "en-US": "Phased Out",
         "es-MX": "Forma et\xE9rea",
         "fr-FR": "D\xE9phas\xE9",
@@ -13366,7 +13366,7 @@ var constantValues = (
       },
       "ROOTED": {
         "guid": "00000000B365",
-        "description": "The player cannot move unless moved by another player or object. Aiming is unaffected.",
+        "description": { "en-US": "The player cannot move unless moved by another player or object. Aiming is unaffected." },
         "en-US": "Rooted",
         "es-MX": "Arraigado",
         "fr-FR": "Immobilis\xE9",
@@ -13385,7 +13385,7 @@ var constantValues = (
       },
       "STUNNED": {
         "guid": "00000000B565",
-        "description": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status.",
+        "description": { "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status." },
         "en-US": "Stunned",
         "es-MX": "Aturdido",
         "fr-FR": "\xC9tourdi",
@@ -13404,7 +13404,7 @@ var constantValues = (
       },
       "UNKILLABLE": {
         "guid": "00000000B368",
-        "description": "The player's health will not drop below 1.",
+        "description": { "en-US": "The player's health will not drop below 1." },
         "en-US": "Unkillable",
         "es-MX": "Inmortal",
         "fr-FR": "Intuable",
@@ -13557,7 +13557,7 @@ var constantValues = (
     "Transform": {
       "ROTATION": {
         "guid": "00000000B33B",
-        "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
+        "description": { "en-US": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity." },
         "en-US": "Rotation",
         "es-MX": "Rotaci\xF3n",
         "ja-JP": "\u56DE\u8EE2",
@@ -13576,7 +13576,7 @@ var constantValues = (
       },
       "ROTATION_AND_TRANSLATION": {
         "guid": "00000000B33C",
-        "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position.",
+        "description": { "en-US": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position." },
         "en-US": "Rotation And Translation",
         "es-MX": "Rotaci\xF3n y traslaci\xF3n",
         "fr-FR": "Rotation et Translation",
@@ -13597,7 +13597,7 @@ var constantValues = (
     "Wait": {
       "ABORT_WHEN_FALSE": {
         "guid": "00000000787D",
-        "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
+        "description": { "en-US": "The execution of the action list is aborted if any condition on this rule becomes false." },
         "en-US": "Abort When False",
         "es-ES": "Abortar cuando sea falso",
         "es-MX": "Cancelar cuando es falso",
@@ -13616,7 +13616,7 @@ var constantValues = (
       },
       "IGNORE_CONDITION": {
         "guid": "00000000787C",
-        "description": "The execution of the action list is never interrupted.",
+        "description": { "en-US": "The execution of the action list is never interrupted." },
         "en-US": "Ignore Condition",
         "es-ES": "Ignorar condici\xF3n",
         "es-MX": "Ignorar condici\xF3n",
@@ -13635,7 +13635,7 @@ var constantValues = (
       },
       "RESTART_WHEN_TRUE": {
         "guid": "00000000787E",
-        "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
+        "description": { "en-US": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions." },
         "en-US": "Restart When True",
         "es-ES": "Reiniciar cuando sea verdadero",
         "es-MX": "Reiniciar cuando es verdadero",
@@ -19119,7 +19119,7 @@ var valueFuncKw = (
   {
     "Vector.BACKWARD": {
       "guid": "00000000B11B",
-      "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 0, -1), which points backward." },
       "args": null,
       "return": {
         "Direction": [
@@ -19148,7 +19148,7 @@ var valueFuncKw = (
     },
     "Vector.DOWN": {
       "guid": "00000000B119",
-      "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, -1, 0), which points downward." },
       "args": null,
       "return": {
         "Direction": [
@@ -19177,7 +19177,7 @@ var valueFuncKw = (
     },
     "Vector.FORWARD": {
       "guid": "00000000B11A",
-      "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 0, 1), which points forward." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -19206,7 +19206,7 @@ var valueFuncKw = (
     },
     "Vector.LEFT": {
       "guid": "00000000B116",
-      "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+      "description": { "en-US": "Shorthand for the directional vector(1, 0, 0), which points to the left." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -19235,7 +19235,7 @@ var valueFuncKw = (
     },
     "Vector.RIGHT": {
       "guid": "00000000B117",
-      "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+      "description": { "en-US": "Shorthand for the directional vector(-1, 0, 0), which points to the right." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -19264,7 +19264,7 @@ var valueFuncKw = (
     },
     "Vector.UP": {
       "guid": "00000000B118",
-      "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 1, 0), which points upward." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -19292,16 +19292,16 @@ var valueFuncKw = (
       "zh-TW": "Up"
     },
     ".getAbilityCharge": {
-      "description": "The ability charge count for a player associated by button.",
+      "description": { "en-US": "The ability charge count for a player associated by button." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ability to check.",
+          "description": { "en-US": "The player whose ability to check." },
           "type": "Player"
         },
         {
           "name": "button",
-          "description": "The ability to check associated by button.",
+          "description": { "en-US": "The ability to check associated by button." },
           "type": "Button"
         }
       ],
@@ -19324,16 +19324,16 @@ var valueFuncKw = (
       "zh-TW": "Ability Charge"
     },
     ".getAbilityCooldown": {
-      "description": "The ability cooldown time in seconds for a player associated by button.",
+      "description": { "en-US": "The ability cooldown time in seconds for a player associated by button." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ability to check.",
+          "description": { "en-US": "The player whose ability to check." },
           "type": "Player"
         },
         {
           "name": "button",
-          "description": "The ability to check associated by button.",
+          "description": { "en-US": "The ability to check associated by button." },
           "type": "Button"
         }
       ],
@@ -19356,16 +19356,16 @@ var valueFuncKw = (
       "zh-TW": "Ability Cooldown"
     },
     ".getAbilityResource": {
-      "description": "The ability resource percent for a player associated by button.",
+      "description": { "en-US": "The ability resource percent for a player associated by button." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ability to check.",
+          "description": { "en-US": "The player whose ability to check." },
           "type": "Player"
         },
         {
           "name": "button",
-          "description": "The ability to check associated by button.",
+          "description": { "en-US": "The ability to check associated by button." },
           "type": "Button"
         }
       ],
@@ -19388,11 +19388,11 @@ var valueFuncKw = (
       "zh-TW": "Ability Resource"
     },
     ".getAllowedHeroes": {
-      "description": "The array of heroes from which the specified player is currently allowed to select.",
+      "description": { "en-US": "The array of heroes from which the specified player is currently allowed to select." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose allowed heroes to acquire.",
+          "description": { "en-US": "The player whose allowed heroes to acquire." },
           "type": "Player"
         }
       ],
@@ -19418,11 +19418,11 @@ var valueFuncKw = (
       "zh-TW": "Allowed Heroes"
     },
     ".getAltitude": {
-      "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
+      "description": { "en-US": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose altitude to acquire.",
+          "description": { "en-US": "The player whose altitude to acquire." },
           "type": "Player"
         }
       ],
@@ -19445,16 +19445,16 @@ var valueFuncKw = (
       "zh-TW": "Altitude Of"
     },
     ".getAmmo": {
-      "description": "The current ammo of a player.",
+      "description": { "en-US": "The current ammo of a player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ammo to acquire.",
+          "description": { "en-US": "The player whose ammo to acquire." },
           "type": "Player"
         },
         {
           "name": "clip",
-          "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+          "description": { "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
@@ -19480,11 +19480,11 @@ var valueFuncKw = (
       "zh-TW": "Ammo"
     },
     ".getHero": {
-      "description": "The current hero of a player.",
+      "description": { "en-US": "The current hero of a player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose hero to acquire.",
+          "description": { "en-US": "The player whose hero to acquire." },
           "type": "Player"
         }
       ],
@@ -19508,11 +19508,11 @@ var valueFuncKw = (
       "zh-TW": "Hero Of"
     },
     ".getCurrentWeapon": {
-      "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
+      "description": { "en-US": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose weapon to acquire.",
+          "description": { "en-US": "The player whose weapon to acquire." },
           "type": "Player"
         }
       ],
@@ -19536,11 +19536,11 @@ var valueFuncKw = (
     },
     ".getEyePosition": {
       "guid": "00000000C595",
-      "description": "The position of a player's first person view (used for aiming)",
+      "description": { "en-US": "The position of a player's first person view (used for aiming)" },
       "args": [
         {
           "name": "player",
-          "description": "The position of a player's first person view (used for aiming)",
+          "description": { "en-US": "The position of a player's first person view (used for aiming)" },
           "type": "Player"
         }
       ],
@@ -19563,11 +19563,11 @@ var valueFuncKw = (
       "zh-TW": "Eye Position"
     },
     ".getFacingDirection": {
-      "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
+      "description": { "en-US": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose facing direction to acquire.",
+          "description": { "en-US": "The player whose facing direction to acquire." },
           "type": "Player"
         }
       ],
@@ -19592,11 +19592,11 @@ var valueFuncKw = (
     },
     ".getHealth": {
       "guid": "0000000081C2",
-      "description": "The current health of a player, including armor and shields.",
+      "description": { "en-US": "The current health of a player, including armor and shields." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose health to acquire.",
+          "description": { "en-US": "The player whose health to acquire." },
           "type": "Player"
         }
       ],
@@ -19618,16 +19618,16 @@ var valueFuncKw = (
       "zh-TW": "Health"
     },
     ".getHealthOfType": {
-      "description": "The current health of the specified player, filtered by the given health type.",
+      "description": { "en-US": "The current health of the specified player, filtered by the given health type." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose health to acquire.",
+          "description": { "en-US": "The player whose health to acquire." },
           "type": "Player"
         },
         {
           "name": "health",
-          "description": "The type of health to acquire.",
+          "description": { "en-US": "The type of health to acquire." },
           "type": "Health"
         }
       ],
@@ -19650,11 +19650,11 @@ var valueFuncKw = (
       "zh-TW": "Health Of Type"
     },
     ".getHeroOfDuplication": {
-      "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
+      "description": { "en-US": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0." },
       "args": [
         {
           "name": "player",
-          "description": "The player performing the duplication.",
+          "description": { "en-US": "The player performing the duplication." },
           "type": "Player"
         }
       ],
@@ -19678,21 +19678,21 @@ var valueFuncKw = (
       "zh-TW": "Hero Being Duplicated"
     },
     ".getHeroStatistic": {
-      "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+      "description": { "en-US": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics." },
       "args": [
         {
           "name": "player",
-          "description": "The Player whose statistic to acquire.",
+          "description": { "en-US": "The Player whose statistic to acquire." },
           "type": "Player"
         },
         {
           "name": "hero",
-          "description": "The hero whose statistic to acquire",
+          "description": { "en-US": "The hero whose statistic to acquire" },
           "type": "Hero"
         },
         {
           "name": "stat",
-          "description": "The statistic to acquire.",
+          "description": { "en-US": "The statistic to acquire." },
           "type": "HeroStat"
         }
       ],
@@ -19715,11 +19715,11 @@ var valueFuncKw = (
       "zh-TW": "Player Hero Stat"
     },
     ".getHorizontalFacingAngle": {
-      "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
+      "description": { "en-US": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose horizontal facing angle to acquire.",
+          "description": { "en-US": "The player whose horizontal facing angle to acquire." },
           "type": "Player"
         }
       ],
@@ -19742,11 +19742,11 @@ var valueFuncKw = (
       "zh-TW": "Horizontal Facing Angle Of"
     },
     ".getHorizontalSpeed": {
-      "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
+      "description": { "en-US": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose horizontal speed to acquire.",
+          "description": { "en-US": "The player whose horizontal speed to acquire." },
           "type": "Player"
         }
       ],
@@ -19769,16 +19769,16 @@ var valueFuncKw = (
       "zh-TW": "Horizontal Speed Of"
     },
     ".getMaxAmmo": {
-      "description": "The current max ammo of a player.",
+      "description": { "en-US": "The current max ammo of a player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose max ammo to acquire.",
+          "description": { "en-US": "The player whose max ammo to acquire." },
           "type": "Player"
         },
         {
           "name": "clip",
-          "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+          "description": { "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
@@ -19804,11 +19804,11 @@ var valueFuncKw = (
       "zh-TW": "Max Ammo"
     },
     ".getMaxHealth": {
-      "description": "The max health of a player, including armor and shields.",
+      "description": { "en-US": "The max health of a player, including armor and shields." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose max health to acquire.",
+          "description": { "en-US": "The player whose max health to acquire." },
           "type": "Player"
         }
       ],
@@ -19831,16 +19831,16 @@ var valueFuncKw = (
       "zh-TW": "Max Health"
     },
     ".getMaxHealthOfType": {
-      "description": "The max health of the specified player, filtered by the given health type.",
+      "description": { "en-US": "The max health of the specified player, filtered by the given health type." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose max health to acquire.",
+          "description": { "en-US": "The player whose max health to acquire." },
           "type": "Player"
         },
         {
           "name": "health",
-          "description": "The type of max health to acquire.",
+          "description": { "en-US": "The type of max health to acquire." },
           "type": "Health"
         }
       ],
@@ -19863,11 +19863,11 @@ var valueFuncKw = (
       "zh-TW": "Max Health Of Type"
     },
     ".getNormalizedHealth": {
-      "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
+      "description": { "en-US": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player whose normalized health to acquire.",
+          "description": { "en-US": "The player whose normalized health to acquire." },
           "type": "Player"
         }
       ],
@@ -19890,11 +19890,11 @@ var valueFuncKw = (
       "zh-TW": "Normalized Health"
     },
     ".getNumberOfDeaths": {
-      "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
+      "description": { "en-US": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose death count to acquire.",
+          "description": { "en-US": "The player whose death count to acquire." },
           "type": "Player"
         }
       ],
@@ -19917,11 +19917,11 @@ var valueFuncKw = (
       "zh-TW": "Number Of Deaths"
     },
     ".getNumberOfElims": {
-      "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
+      "description": { "en-US": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose elimination count to acquire.",
+          "description": { "en-US": "The player whose elimination count to acquire." },
           "type": "Player"
         }
       ],
@@ -19944,11 +19944,11 @@ var valueFuncKw = (
       "zh-TW": "Number Of Eliminations"
     },
     ".getNumberOfFinalBlows": {
-      "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
+      "description": { "en-US": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose final blow count to acquire.",
+          "description": { "en-US": "The player whose final blow count to acquire." },
           "type": "Player"
         }
       ],
@@ -19971,16 +19971,16 @@ var valueFuncKw = (
       "zh-TW": "Number Of Final Blows"
     },
     ".getPlayerClosestToReticle": {
-      "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
+      "description": { "en-US": "The player closest to the reticle of the specified player, optionally restricted by team." },
       "args": [
         {
           "name": "player",
-          "description": "The player from whose reticle to search for the closest player.",
+          "description": { "en-US": "The player from whose reticle to search for the closest player." },
           "type": "Player"
         },
         {
           "name": "team",
-          "description": "The team or teams on which to search for the closest player.",
+          "description": { "en-US": "The team or teams on which to search for the closest player." },
           "type": "Team"
         }
       ],
@@ -20004,21 +20004,21 @@ var valueFuncKw = (
       "zh-TW": "Player Closest To Reticle"
     },
     ".getPlayersInViewAngle": {
-      "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\n**Note**: This function picks up dead and unspawned players. Use `.getRealPlayersInViewAngle()` instead.",
+      "description": { "en-US": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\n**Note**: This function picks up dead and unspawned players. Use `.getRealPlayersInViewAngle()` instead." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose view to use for the check.",
+          "description": { "en-US": "The player whose view to use for the check." },
           "type": "Player"
         },
         {
           "name": "team",
-          "description": "The team or teams on which to consider players.",
+          "description": { "en-US": "The team or teams on which to consider players." },
           "type": "Team"
         },
         {
           "name": "viewAngle",
-          "description": "The view angle to compare against in degrees.",
+          "description": { "en-US": "The view angle to compare against in degrees." },
           "type": "float"
         }
       ],
@@ -20044,11 +20044,11 @@ var valueFuncKw = (
       "zh-TW": "Players in View Angle"
     },
     ".getPosition": {
-      "description": "The current position of a player as a vector.",
+      "description": { "en-US": "The current position of a player as a vector." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose position to acquire.",
+          "description": { "en-US": "The player whose position to acquire." },
           "type": "Player"
         }
       ],
@@ -20072,11 +20072,11 @@ var valueFuncKw = (
       "zh-TW": "Position Of"
     },
     ".getScore": {
-      "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
+      "description": { "en-US": "The current score of a player. Results in 0 if the game mode is not free-for-all." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose score to acquire.",
+          "description": { "en-US": "The player whose score to acquire." },
           "type": "Player"
         }
       ],
@@ -20099,11 +20099,11 @@ var valueFuncKw = (
       "zh-TW": "Score Of"
     },
     ".getSlot": {
-      "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+      "description": { "en-US": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose slot number to acquire.",
+          "description": { "en-US": "The player whose slot number to acquire." },
           "type": "Player"
         }
       ],
@@ -20126,11 +20126,11 @@ var valueFuncKw = (
       "zh-TW": "Slot Of"
     },
     ".getSpeed": {
-      "description": "The current speed of a player in meters per second.",
+      "description": { "en-US": "The current speed of a player in meters per second." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose speed to acquire.",
+          "description": { "en-US": "The player whose speed to acquire." },
           "type": "Player"
         }
       ],
@@ -20153,16 +20153,16 @@ var valueFuncKw = (
       "zh-TW": "Speed Of"
     },
     ".getSpeedInDirection": {
-      "description": "The current speed of a player in a specific direction in meters per second.",
+      "description": { "en-US": "The current speed of a player in a specific direction in meters per second." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose speed to acquire.",
+          "description": { "en-US": "The player whose speed to acquire." },
           "type": "Player"
         },
         {
           "name": "direction",
-          "description": "The direction of travel in which to measure the player's speed.",
+          "description": { "en-US": "The direction of travel in which to measure the player's speed." },
           "type": "Direction"
         }
       ],
@@ -20185,16 +20185,16 @@ var valueFuncKw = (
       "zh-TW": "Speed Of In Direction"
     },
     ".getStatistic": {
-      "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
+      "description": { "en-US": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics." },
       "args": [
         {
           "name": "player",
-          "description": "The Player whose statistic to acquire.",
+          "description": { "en-US": "The Player whose statistic to acquire." },
           "type": "Player"
         },
         {
           "name": "statistic",
-          "description": "The statistic to acquire.",
+          "description": { "en-US": "The statistic to acquire." },
           "type": "Stat"
         }
       ],
@@ -20217,11 +20217,11 @@ var valueFuncKw = (
       "zh-TW": "Player Stat"
     },
     ".getTeam": {
-      "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
+      "description": { "en-US": "The team of a player. If the game mode is free-for-all, the team is considered to be all." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose team to acquire.",
+          "description": { "en-US": "The player whose team to acquire." },
           "type": "Player"
         }
       ],
@@ -20245,11 +20245,11 @@ var valueFuncKw = (
       "zh-TW": "Team Of"
     },
     ".getThrottle": {
-      "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
+      "description": { "en-US": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose directional input to acquire.",
+          "description": { "en-US": "The player whose directional input to acquire." },
           "type": "Player"
         }
       ],
@@ -20273,11 +20273,11 @@ var valueFuncKw = (
       "zh-TW": "Throttle Of"
     },
     ".getUltCharge": {
-      "description": "The current ultimate ability charge percentage of a player.",
+      "description": { "en-US": "The current ultimate ability charge percentage of a player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ultimate charge percentage to acquire.",
+          "description": { "en-US": "The player whose ultimate charge percentage to acquire." },
           "type": "Player"
         }
       ],
@@ -20300,11 +20300,11 @@ var valueFuncKw = (
       "zh-TW": "Ultimate Charge Percent"
     },
     ".getVelocity": {
-      "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
+      "description": { "en-US": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose velocity to acquire.",
+          "description": { "en-US": "The player whose velocity to acquire." },
           "type": "Player"
         }
       ],
@@ -20328,11 +20328,11 @@ var valueFuncKw = (
       "zh-TW": "Velocity Of"
     },
     ".getVerticalFacingAngle": {
-      "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
+      "description": { "en-US": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose vertical facing angle to acquire.",
+          "description": { "en-US": "The player whose vertical facing angle to acquire." },
           "type": "Player"
         }
       ],
@@ -20355,11 +20355,11 @@ var valueFuncKw = (
       "zh-TW": "Vertical Facing Angle Of"
     },
     ".getVerticalSpeed": {
-      "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
+      "description": { "en-US": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose vertical speed to acquire.",
+          "description": { "en-US": "The player whose vertical speed to acquire." },
           "type": "Player"
         }
       ],
@@ -20382,11 +20382,11 @@ var valueFuncKw = (
       "zh-TW": "Vertical Speed Of"
     },
     ".hasSpawned": {
-      "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
+      "description": { "en-US": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet." },
       "args": [
         {
           "name": "entity",
-          "description": "The player, icon entity, or effect entity whose presence in world to check.",
+          "description": { "en-US": "The player, icon entity, or effect entity whose presence in world to check." },
           "type": "Player"
         }
       ],
@@ -20409,16 +20409,16 @@ var valueFuncKw = (
       "zh-TW": "Has Spawned"
     },
     ".hasStatus": {
-      "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
+      "description": { "en-US": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose status to check.",
+          "description": { "en-US": "The player whose status to check." },
           "type": "Player"
         },
         {
           "name": "status",
-          "description": "The status to check for.",
+          "description": { "en-US": "The status to check for." },
           "type": "Status"
         }
       ],
@@ -20441,11 +20441,11 @@ var valueFuncKw = (
       "zh-TW": "Has Status"
     },
     ".isAlive": {
-      "description": "Whether a player is alive.",
+      "description": { "en-US": "Whether a player is alive." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose life to check.",
+          "description": { "en-US": "The player whose life to check." },
           "type": "Player"
         }
       ],
@@ -20468,16 +20468,16 @@ var valueFuncKw = (
       "zh-TW": "Is Alive"
     },
     ".isCommunicating": {
-      "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.).",
+      "description": { "en-US": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose communication status to check.",
+          "description": { "en-US": "The player whose communication status to check." },
           "type": "Player"
         },
         {
           "name": "type",
-          "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
+          "description": { "en-US": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds." },
           "type": "Comms"
         }
       ],
@@ -20500,11 +20500,11 @@ var valueFuncKw = (
       "zh-TW": "Is Communicating"
     },
     ".isCommunicatingAnything": {
-      "description": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.).",
+      "description": { "en-US": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose communication status to check.",
+          "description": { "en-US": "The player whose communication status to check." },
           "type": "Player"
         }
       ],
@@ -20527,11 +20527,11 @@ var valueFuncKw = (
       "zh-TW": "Is Communicating Any"
     },
     ".isCommunicatingEmote": {
-      "description": "Whether a player is using an emote.",
+      "description": { "en-US": "Whether a player is using an emote." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose emoting status to check.",
+          "description": { "en-US": "The player whose emoting status to check." },
           "type": "Player"
         }
       ],
@@ -20554,11 +20554,11 @@ var valueFuncKw = (
       "zh-TW": "Is Communicating Any Emote"
     },
     ".isCommunicatingSpray": {
-      "description": "Whether a Player is using a spray.",
+      "description": { "en-US": "Whether a Player is using a spray." },
       "args": [
         {
           "name": "player",
-          "description": "The Player whose spray status to check.",
+          "description": { "en-US": "The Player whose spray status to check." },
           "type": "Player"
         }
       ],
@@ -20581,11 +20581,11 @@ var valueFuncKw = (
       "zh-TW": "Is Communicating Any Spray"
     },
     ".isCommunicatingVoiceline": {
-      "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
+      "description": { "en-US": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player whose voice line status to check.",
+          "description": { "en-US": "The player whose voice line status to check." },
           "type": "Player"
         }
       ],
@@ -20608,11 +20608,11 @@ var valueFuncKw = (
       "zh-TW": "Is Communicating Any Voice line"
     },
     ".isCrouching": {
-      "description": "Whether a player is crouching.",
+      "description": { "en-US": "Whether a player is crouching." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose crouching status to check.",
+          "description": { "en-US": "The player whose crouching status to check." },
           "type": "Player"
         }
       ],
@@ -20635,11 +20635,11 @@ var valueFuncKw = (
       "zh-TW": "Is Crouching"
     },
     ".isDead": {
-      "description": "Whether a player is dead.",
+      "description": { "en-US": "Whether a player is dead." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose death to check.",
+          "description": { "en-US": "The player whose death to check." },
           "type": "Player"
         }
       ],
@@ -20662,11 +20662,11 @@ var valueFuncKw = (
       "zh-TW": "Is Dead"
     },
     ".isDummy": {
-      "description": "Whether a player is a dummy bot.",
+      "description": { "en-US": "Whether a player is a dummy bot." },
       "args": [
         {
           "name": "player",
-          "description": "Player to consider.",
+          "description": { "en-US": "Player to consider." },
           "type": "Player"
         }
       ],
@@ -20689,11 +20689,11 @@ var valueFuncKw = (
       "zh-TW": "Is Dummy Bot"
     },
     ".isDuplicatingAHero": {
-      "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
+      "description": { "en-US": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose duplication status to check.",
+          "description": { "en-US": "The player whose duplication status to check." },
           "type": "Player"
         }
       ],
@@ -20716,11 +20716,11 @@ var valueFuncKw = (
       "zh-TW": "Is Duplicating"
     },
     ".isFiringPrimaryFire": {
-      "description": "Whether the specified player's primary weapon attack is being used.",
+      "description": { "en-US": "Whether the specified player's primary weapon attack is being used." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose primary weapon attack usage to check.",
+          "description": { "en-US": "The player whose primary weapon attack usage to check." },
           "type": "Player"
         }
       ],
@@ -20743,11 +20743,11 @@ var valueFuncKw = (
       "zh-TW": "Is Firing Primary"
     },
     ".isFiringSecondaryFire": {
-      "description": "Whether the specified player's secondary weapon attack is being used.",
+      "description": { "en-US": "Whether the specified player's secondary weapon attack is being used." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose secondary weapon attack usage to check.",
+          "description": { "en-US": "The player whose secondary weapon attack usage to check." },
           "type": "Player"
         }
       ],
@@ -20770,16 +20770,16 @@ var valueFuncKw = (
       "zh-TW": "Is Firing Secondary"
     },
     ".isHoldingButton": {
-      "description": "Whether a player is holding a specific button.",
+      "description": { "en-US": "Whether a player is holding a specific button." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose button to check.",
+          "description": { "en-US": "The player whose button to check." },
           "type": "Player"
         },
         {
           "name": "button",
-          "description": "The button to check.",
+          "description": { "en-US": "The button to check." },
           "type": "Button"
         }
       ],
@@ -20802,11 +20802,11 @@ var valueFuncKw = (
       "zh-TW": "Is Button Held"
     },
     ".isInAir": {
-      "description": "Whether a player is airborne.",
+      "description": { "en-US": "Whether a player is airborne." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose airborne status to check.",
+          "description": { "en-US": "The player whose airborne status to check." },
           "type": "Player"
         }
       ],
@@ -20829,11 +20829,11 @@ var valueFuncKw = (
       "zh-TW": "Is In Air"
     },
     ".isInAlternateForm": {
-      "description": "Whether the specified player is currently in an alternate form:\n        \n- Wrecking Ball's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
+      "description": { "en-US": "Whether the specified player is currently in an alternate form:\n        \n- Wrecking Ball's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose form to check.",
+          "description": { "en-US": "The player whose form to check." },
           "type": "Player"
         }
       ],
@@ -20856,11 +20856,11 @@ var valueFuncKw = (
       "zh-TW": "Is In Alternate Form"
     },
     ".isInSpawnRoom": {
-      "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
+      "description": { "en-US": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose spawn room status to check.",
+          "description": { "en-US": "The player whose spawn room status to check." },
           "type": "Player"
         }
       ],
@@ -20883,21 +20883,21 @@ var valueFuncKw = (
       "zh-TW": "Is In Spawn Room"
     },
     ".isInViewAngle": {
-      "description": "Whether a location is within view of a player.",
+      "description": { "en-US": "Whether a location is within view of a player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose view to use for the check.",
+          "description": { "en-US": "The player whose view to use for the check." },
           "type": "Player"
         },
         {
           "name": "location",
-          "description": "The location to test if it's within view.",
+          "description": { "en-US": "The location to test if it's within view." },
           "type": "Position"
         },
         {
           "name": "viewAngle",
-          "description": "The view angle to compare against in degrees.",
+          "description": { "en-US": "The view angle to compare against in degrees." },
           "type": "float"
         }
       ],
@@ -20920,11 +20920,11 @@ var valueFuncKw = (
       "zh-TW": "Is In View Angle"
     },
     ".isJumping": {
-      "description": "Whether the specified player is jumping.",
+      "description": { "en-US": "Whether the specified player is jumping." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose jump usage to check.",
+          "description": { "en-US": "The player whose jump usage to check." },
           "type": "Player"
         }
       ],
@@ -20947,11 +20947,11 @@ var valueFuncKw = (
       "zh-TW": "Is Jumping"
     },
     ".isMeleeing": {
-      "description": "Whether the specified player is meleeing.",
+      "description": { "en-US": "Whether the specified player is meleeing." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose melee usage to check.",
+          "description": { "en-US": "The player whose melee usage to check." },
           "type": "Player"
         }
       ],
@@ -20974,11 +20974,11 @@ var valueFuncKw = (
       "zh-TW": "Is Meleeing"
     },
     ".isMoving": {
-      "description": "Whether a player is moving (defined as having a non-zero current speed).",
+      "description": { "en-US": "Whether a player is moving (defined as having a non-zero current speed)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose moving status to check.",
+          "description": { "en-US": "The player whose moving status to check." },
           "type": "Player"
         }
       ],
@@ -21001,11 +21001,11 @@ var valueFuncKw = (
       "zh-TW": "Is Moving"
     },
     ".isOnFire": {
-      "description": "Whether a specific player's portrait is on fire.",
+      "description": { "en-US": "Whether a specific player's portrait is on fire." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose portrait to check.",
+          "description": { "en-US": "The player whose portrait to check." },
           "type": "Player"
         }
       ],
@@ -21028,11 +21028,11 @@ var valueFuncKw = (
       "zh-TW": "Is Portrait On Fire"
     },
     ".isOnGround": {
-      "description": "Whether a player is on the ground (or other walkable surface).",
+      "description": { "en-US": "Whether a player is on the ground (or other walkable surface)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ground status to check.",
+          "description": { "en-US": "The player whose ground status to check." },
           "type": "Player"
         }
       ],
@@ -21055,11 +21055,11 @@ var valueFuncKw = (
       "zh-TW": "Is On Ground"
     },
     ".isOnObjective": {
-      "description": "Whether a specific player is currently occupying a payload or capture point.",
+      "description": { "en-US": "Whether a specific player is currently occupying a payload or capture point." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose objective status to check.",
+          "description": { "en-US": "The player whose objective status to check." },
           "type": "Player"
         }
       ],
@@ -21082,11 +21082,11 @@ var valueFuncKw = (
       "zh-TW": "Is On Objective"
     },
     ".isOnWall": {
-      "description": "Whether a player is on a wall (climbing or riding).",
+      "description": { "en-US": "Whether a player is on a wall (climbing or riding)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose wall status to check.",
+          "description": { "en-US": "The player whose wall status to check." },
           "type": "Player"
         }
       ],
@@ -21109,11 +21109,11 @@ var valueFuncKw = (
       "zh-TW": "Is On Wall"
     },
     ".isReloading": {
-      "description": "Whether the specified player is reloading.",
+      "description": { "en-US": "Whether the specified player is reloading." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose reload usage to check.",
+          "description": { "en-US": "The player whose reload usage to check." },
           "type": "Player"
         }
       ],
@@ -21136,11 +21136,11 @@ var valueFuncKw = (
       "zh-TW": "Is Reloading"
     },
     ".isStanding": {
-      "description": "Whether a player is standing (defined as both not moving and not in the air).",
+      "description": { "en-US": "Whether a player is standing (defined as both not moving and not in the air)." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose standing status to check.",
+          "description": { "en-US": "The player whose standing status to check." },
           "type": "Player"
         }
       ],
@@ -21163,11 +21163,11 @@ var valueFuncKw = (
       "zh-TW": "Is Standing"
     },
     ".isUsingAbility1": {
-      "description": "Whether the specified player is using ability 1.",
+      "description": { "en-US": "Whether the specified player is using ability 1." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ability 1 usage to check.",
+          "description": { "en-US": "The player whose ability 1 usage to check." },
           "type": "Player"
         }
       ],
@@ -21190,11 +21190,11 @@ var valueFuncKw = (
       "zh-TW": "Is Using Ability 1"
     },
     ".isUsingAbility2": {
-      "description": "Whether the specified player is using ability 2.",
+      "description": { "en-US": "Whether the specified player is using ability 2." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ability 2 usage to check.",
+          "description": { "en-US": "The player whose ability 2 usage to check." },
           "type": "Player"
         }
       ],
@@ -21217,11 +21217,11 @@ var valueFuncKw = (
       "zh-TW": "Is Using Ability 2"
     },
     ".isUsingUltimate": {
-      "description": "Whether a player is using an ultimate ability.",
+      "description": { "en-US": "Whether a player is using an ultimate ability." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose ultimate ability usage to check.",
+          "description": { "en-US": "The player whose ultimate ability usage to check." },
           "type": "Player"
         }
       ],
@@ -21245,11 +21245,11 @@ var valueFuncKw = (
     },
     "__add__": {
       "guid": "00000000C408",
-      "description": "The sum of two numbers or vectors.",
+      "description": { "en-US": "The sum of two numbers or vectors." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -21258,7 +21258,7 @@ var valueFuncKw = (
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -21288,16 +21288,16 @@ var valueFuncKw = (
       "zh-TW": "Add"
     },
     "__all__": {
-      "description": "Whether the specified condition evaluates to true for every value in the specified array.",
+      "description": { "en-US": "Whether the specified condition evaluates to true for every value in the specified array." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose values will be considered.",
+          "description": { "en-US": "The array whose values will be considered." },
           "type": "Array"
         },
         {
           "name": "condition",
-          "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+          "description": { "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered." },
           "type": "bool"
         }
       ],
@@ -21321,16 +21321,16 @@ var valueFuncKw = (
       "zh-TW": "Is True For All"
     },
     "__and__": {
-      "description": "Whether both of the two inputs are true (or equivalent to true).",
+      "description": { "en-US": "Whether both of the two inputs are true (or equivalent to true)." },
       "args": [
         {
           "name": "value",
-          "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+          "description": { "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true." },
           "type": "bool"
         },
         {
           "name": "value",
-          "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
+          "description": { "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true." },
           "type": "bool"
         }
       ],
@@ -21354,16 +21354,16 @@ var valueFuncKw = (
       "zh-TW": "And"
     },
     "__any__": {
-      "description": "Whether the specified condition evaluates to true for any value in the specified array.",
+      "description": { "en-US": "Whether the specified condition evaluates to true for any value in the specified array." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose values will be considered.",
+          "description": { "en-US": "The array whose values will be considered." },
           "type": "Array"
         },
         {
           "name": "condition",
-          "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
+          "description": { "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered." },
           "type": "bool"
         }
       ],
@@ -21387,16 +21387,16 @@ var valueFuncKw = (
       "zh-TW": "Is True For Any"
     },
     "__arrayContains__": {
-      "description": "Whether the specified array contains the specified value.",
+      "description": { "en-US": "Whether the specified array contains the specified value." },
       "args": [
         {
           "name": "array",
-          "description": "The array in which to search for the specified value.",
+          "description": { "en-US": "The array in which to search for the specified value." },
           "type": "Array"
         },
         {
           "name": "value",
-          "description": "The value for which to search.",
+          "description": { "en-US": "The value for which to search." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -21421,25 +21421,25 @@ var valueFuncKw = (
       "zh-TW": "Array Contains"
     },
     ".slice": {
-      "description": "A copy of the specified array containing only values from a specified index range. **Does not support nested arrays.**",
+      "description": { "en-US": "A copy of the specified array containing only values from a specified index range. **Does not support nested arrays.**" },
       "args": [
         {
           "name": "array",
-          "description": "The array from which to make a copy.",
+          "description": { "en-US": "The array from which to make a copy." },
           "type": {
             "Array": "Object"
           }
         },
         {
           "name": "startIndex",
-          "description": "The first index of the range.",
+          "description": { "en-US": "The first index of the range." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "count",
-          "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+          "description": { "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
@@ -21469,11 +21469,11 @@ var valueFuncKw = (
       "zh-TW": "Array Slice"
     },
     "__array__": {
-      "description": "An array constructed from the listed values.",
+      "description": { "en-US": "An array constructed from the listed values." },
       "args": [
         {
           "name": "[0]",
-          "description": "The value that will be stored in the array at index [0].",
+          "description": { "en-US": "The value that will be stored in the array at index [0]." },
           "type": [
             "Object",
             "Array"
@@ -21501,11 +21501,11 @@ var valueFuncKw = (
       "zh-TW": "Array"
     },
     "__button__": {
-      "description": "A button constant.",
+      "description": { "en-US": "A button constant." },
       "args": [
         {
           "name": "button",
-          "description": "A button constant.",
+          "description": { "en-US": "A button constant." },
           "type": "ButtonLiteral"
         }
       ],
@@ -21531,11 +21531,11 @@ var valueFuncKw = (
       "zh-TW": "Button"
     },
     "__color__": {
-      "description": "A Color Constant",
+      "description": { "en-US": "A Color Constant" },
       "args": [
         {
           "name": "color",
-          "description": "A Color Constant",
+          "description": { "en-US": "A Color Constant" },
           "type": "ColorLiteral"
         }
       ],
@@ -21561,11 +21561,11 @@ var valueFuncKw = (
       "zh-TW": "Color"
     },
     "__compare__": {
-      "description": "Whether the comparison of the two inputs is true.",
+      "description": { "en-US": "Whether the comparison of the two inputs is true." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+          "description": { "en-US": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected." },
           "type": [
             "Object",
             "Array"
@@ -21573,12 +21573,12 @@ var valueFuncKw = (
         },
         {
           "name": "comparison",
-          "description": "",
+          "description": { "en-US": "" },
           "type": "__Operator__"
         },
         {
           "name": "value",
-          "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
+          "description": { "en-US": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected." },
           "type": [
             "Object",
             "Array"
@@ -21606,16 +21606,16 @@ var valueFuncKw = (
     },
     ".concat": {
       "guid": "00000000C41A",
-      "description": "A copy of an array with one or more values appended to the end.",
+      "description": { "en-US": "A copy of an array with one or more values appended to the end." },
       "args": [
         {
           "name": "array",
-          "description": "The array to which to append.",
+          "description": { "en-US": "The array to which to append." },
           "type": "Array"
         },
         {
           "name": "value",
-          "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+          "description": { "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended." },
           "type": [
             "Object",
             {
@@ -21645,7 +21645,7 @@ var valueFuncKw = (
       "zh-TW": "Append To Array"
     },
     "__currentArrayElement__": {
-      "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+      "description": { "en-US": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array." },
       "args": [],
       "isConstant": true,
       "return": [
@@ -21670,7 +21670,7 @@ var valueFuncKw = (
       "zh-TW": "Current Array Element"
     },
     "__currentArrayIndex__": {
-      "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
+      "description": { "en-US": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array." },
       "args": [],
       "isConstant": true,
       "return": [
@@ -21695,28 +21695,28 @@ var valueFuncKw = (
       "zh-TW": "Current Array Index"
     },
     "__customString__": {
-      "description": "ty magzie for adding that",
+      "description": { "en-US": "ty magzie for adding that" },
       "args": [
         {
           "name": "string",
-          "description": "",
+          "description": { "en-US": "" },
           "type": "CustomStringLiteral"
         },
         {
           "name": "{0}",
-          "description": "The value that will be converted to text and used to replace {0}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {0}." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "{1}",
-          "description": "The value that will be converted to text and used to replace {1}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {1}." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "{2}",
-          "description": "The value that will be converted to text and used to replace {2}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {2}." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -21743,11 +21743,11 @@ var valueFuncKw = (
     },
     "__divide__": {
       "guid": "00000000C40F",
-      "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
+      "description": { "en-US": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -21756,7 +21756,7 @@ var valueFuncKw = (
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -21785,7 +21785,7 @@ var valueFuncKw = (
       "zh-TW": "Divide"
     },
     "__emptyArray__": {
-      "description": "An array with no elements.",
+      "description": { "en-US": "An array with no elements." },
       "args": [],
       "isConstant": true,
       "return": "Array",
@@ -21807,16 +21807,16 @@ var valueFuncKw = (
       "zh-TW": "Empty Array"
     },
     "__filteredArray__": {
-      "description": "A copy of the specified array with any values that do not match the specified condition removed.",
+      "description": { "en-US": "A copy of the specified array with any values that do not match the specified condition removed." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose copy will be filtered.",
+          "description": { "en-US": "The array whose copy will be filtered." },
           "type": "Array"
         },
         {
           "name": "condition",
-          "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
+          "description": { "en-US": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered." },
           "type": "bool"
         }
       ],
@@ -21840,11 +21840,11 @@ var valueFuncKw = (
       "zh-TW": "Filtered Array"
     },
     "__firstOf__": {
-      "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
+      "description": { "en-US": "The value at the start of the specified array. Results in 0 if the specified array is empty." },
       "args": [
         {
           "name": "array",
-          "description": "The array from which the value is acquired.",
+          "description": { "en-US": "The array from which the value is acquired." },
           "type": "Array"
         }
       ],
@@ -21872,11 +21872,11 @@ var valueFuncKw = (
     },
     "__gamemode__": {
       "guid": "00000000F161",
-      "description": "A game mode constant.",
+      "description": { "en-US": "A game mode constant." },
       "args": [
         {
           "name": "gameMode",
-          "description": "A game mode constant.",
+          "description": { "en-US": "A game mode constant." },
           "type": "GamemodeLiteral"
         }
       ],
@@ -21901,11 +21901,11 @@ var valueFuncKw = (
       "zh-TW": "Game Mode"
     },
     "__globalVar__": {
-      "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
+      "description": { "en-US": "The current value of a global variable, which is a variable that belongs to the game itself." },
       "args": [
         {
           "name": "variable",
-          "description": "The variable whose value to acquire.",
+          "description": { "en-US": "The variable whose value to acquire." },
           "type": "GlobalVariable"
         }
       ],
@@ -21949,11 +21949,11 @@ var valueFuncKw = (
     },
     "__hero__": {
       "guid": "00000000ACAA",
-      "description": "A hero constant.",
+      "description": { "en-US": "A hero constant." },
       "args": [
         {
           "name": "hero",
-          "description": "A hero constant.",
+          "description": { "en-US": "A hero constant." },
           "type": "HeroLiteral"
         }
       ],
@@ -21978,16 +21978,16 @@ var valueFuncKw = (
       "zh-TW": "Hero"
     },
     "__ifThenElse__": {
-      "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
+      "description": { "en-US": "Results in the Then value when the If condition is true; otherwise, results in the Else value." },
       "args": [
         {
           "name": "if",
-          "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
+          "description": { "en-US": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else." },
           "type": "bool"
         },
         {
           "name": "then",
-          "description": "The result of the value when the if condition evaluates to true.",
+          "description": { "en-US": "The result of the value when the if condition evaluates to true." },
           "type": [
             "Object",
             "Array"
@@ -21996,7 +21996,7 @@ var valueFuncKw = (
         },
         {
           "name": "else",
-          "description": "The result of the value when the if condition evaluates to false.",
+          "description": { "en-US": "The result of the value when the if condition evaluates to false." },
           "type": [
             "Object",
             "Array"
@@ -22027,18 +22027,18 @@ var valueFuncKw = (
       "zh-TW": "If-Then-Else"
     },
     ".index": {
-      "description": "The index of a value within the array or -1 if no such value can be found. **Does not support nested arrays.**\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array.",
+      "description": { "en-US": "The index of a value within the array or -1 if no such value can be found. **Does not support nested arrays.**\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array." },
       "args": [
         {
           "name": "array",
-          "description": "The array in which to search for the specified value.",
+          "description": { "en-US": "The array in which to search for the specified value." },
           "type": {
             "Array": "Object"
           }
         },
         {
           "name": "value",
-          "description": "The value for which to search.",
+          "description": { "en-US": "The value for which to search." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -22064,11 +22064,11 @@ var valueFuncKw = (
       "zh-TW": "Index Of Array Value"
     },
     ".last": {
-      "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
+      "description": { "en-US": "The value at the end of the specified array. Results in 0 if the specified array is empty." },
       "args": [
         {
           "name": "array",
-          "description": "The array from which the value is acquired.",
+          "description": { "en-US": "The array from which the value is acquired." },
           "type": "Array"
         }
       ],
@@ -22097,28 +22097,28 @@ var valueFuncKw = (
     },
     "__localizedString__": {
       "guid": "00000000BA60",
-      "description": "Text formed from a selection of strings and specified values.",
+      "description": { "en-US": "Text formed from a selection of strings and specified values." },
       "args": [
         {
           "name": "string",
-          "description": "",
+          "description": { "en-US": "" },
           "type": "LocalizedStringLiteral"
         },
         {
           "name": "{0}",
-          "description": "The value that will be converted to text and used to replace {0}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {0}." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "{1}",
-          "description": "The value that will be converted to text and used to replace {1}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {1}." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "{2}",
-          "description": "The value that will be converted to text and used to replace {2}.",
+          "description": { "en-US": "The value that will be converted to text and used to replace {2}." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -22144,11 +22144,11 @@ var valueFuncKw = (
     },
     "__map__": {
       "guid": "00000000D415",
-      "description": "A map constant.",
+      "description": { "en-US": "A map constant." },
       "args": [
         {
           "name": "map",
-          "description": "A map constant.",
+          "description": { "en-US": "A map constant." },
           "type": "MapLiteral"
         }
       ],
@@ -22173,16 +22173,16 @@ var valueFuncKw = (
       "zh-TW": "Map"
     },
     "__mappedArray__": {
-      "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
+      "description": { "en-US": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose copy will be mapped.",
+          "description": { "en-US": "The array whose copy will be mapped." },
           "type": "Array"
         },
         {
           "name": "condition",
-          "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
+          "description": { "en-US": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered." },
           "type": [
             "Object",
             "Array"
@@ -22210,17 +22210,17 @@ var valueFuncKw = (
     },
     "__modulo__": {
       "guid": "00000000C410",
-      "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
+      "description": { "en-US": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
           "type": "float",
           "canReplace1ByTrue": true
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
           "type": "unsigned float",
           "canReplace1ByTrue": true
         }
@@ -22245,11 +22245,11 @@ var valueFuncKw = (
     },
     "__multiply__": {
       "guid": "00000000C40D",
-      "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
+      "description": { "en-US": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -22257,7 +22257,7 @@ var valueFuncKw = (
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -22287,11 +22287,11 @@ var valueFuncKw = (
     },
     "__not__": {
       "guid": "00000000B275",
-      "description": "Whether the input is false (or equivalent to false).",
+      "description": { "en-US": "Whether the input is false (or equivalent to false)." },
       "args": [
         {
           "name": "value",
-          "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
+          "description": { "en-US": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false." },
           "type": "bool"
         }
       ],
@@ -22342,16 +22342,16 @@ var valueFuncKw = (
     },
     "__or__": {
       "guid": "00000000B274",
-      "description": "Whether either of the two inputs are true (or equivalent to true).",
+      "description": { "en-US": "Whether either of the two inputs are true (or equivalent to true)." },
       "args": [
         {
           "name": "value",
-          "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+          "description": { "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true." },
           "type": "bool"
         },
         {
           "name": "value",
-          "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
+          "description": { "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true." },
           "type": "bool"
         }
       ],
@@ -22374,16 +22374,16 @@ var valueFuncKw = (
       "zh-TW": "Or"
     },
     "__playerVar__": {
-      "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
+      "description": { "en-US": "The current value of a player variable, which is a variable that belongs to a specific player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable value to acquire.",
+          "description": { "en-US": "The player whose variable value to acquire." },
           "type": "Player"
         },
         {
           "name": "variable",
-          "description": "The variable whose value to acquire.",
+          "description": { "en-US": "The variable whose value to acquire." },
           "type": "PlayerVariable"
         }
       ],
@@ -22407,16 +22407,16 @@ var valueFuncKw = (
     },
     "__raiseToPower__": {
       "guid": "00000000C414",
-      "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
+      "description": { "en-US": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
           "type": "unsigned float"
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
           "type": "float"
         }
       ],
@@ -22439,35 +22439,35 @@ var valueFuncKw = (
       "zh-TW": "Raise To Power"
     },
     "raycastHitNormal": {
-      "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
+      "description": { "en-US": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs)." },
       "args": [
         {
           "name": "startPos",
-          "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "playersToInclude",
-          "description": "Which players can be hit by this ray cast.",
+          "description": { "en-US": "Which players can be hit by this ray cast." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "playersToExclude",
-          "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+          "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "includePlayerOwnedObjects",
-          "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+          "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
           "type": "bool"
         }
       ],
@@ -22491,35 +22491,35 @@ var valueFuncKw = (
       "zh-TW": "Ray Cast Hit Normal"
     },
     "raycastHitPlayer": {
-      "description": "The player hit by the ray cast (or null if no player is hit).",
+      "description": { "en-US": "The player hit by the ray cast (or null if no player is hit)." },
       "args": [
         {
           "name": "startPos",
-          "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "playersToInclude",
-          "description": "Which players can be hit by this ray cast.",
+          "description": { "en-US": "Which players can be hit by this ray cast." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "playersToExclude",
-          "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+          "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "includePlayerOwnedObjects",
-          "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+          "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
           "type": "bool"
         }
       ],
@@ -22543,35 +22543,35 @@ var valueFuncKw = (
       "zh-TW": "Ray Cast Hit Player"
     },
     "raycastHitPosition": {
-      "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
+      "description": { "en-US": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs)." },
       "args": [
         {
           "name": "startPos",
-          "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": "Position"
         },
         {
           "name": "playersToInclude",
-          "description": "Which players can be hit by this ray cast.",
+          "description": { "en-US": "Which players can be hit by this ray cast." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "playersToExclude",
-          "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
+          "description": { "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include." },
           "type": {
             "Array": "Player"
           }
         },
         {
           "name": "includePlayerOwnedObjects",
-          "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+          "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast." },
           "type": "bool"
         }
       ],
@@ -22595,16 +22595,16 @@ var valueFuncKw = (
       "zh-TW": "Ray Cast Hit Position"
     },
     ".exclude": {
-      "description": "A copy of the array with one or more values removed (if found).",
+      "description": { "en-US": "A copy of the array with one or more values removed (if found)." },
       "args": [
         {
           "name": "array",
-          "description": "The array from which to remove values.",
+          "description": { "en-US": "The array from which to remove values." },
           "type": "Array"
         },
         {
           "name": "value",
-          "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
+          "description": { "en-US": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed." },
           "type": [
             "Object",
             "Array"
@@ -22633,16 +22633,16 @@ var valueFuncKw = (
       "zh-TW": "Remove From Array"
     },
     "__round__": {
-      "description": "The integer to which the specified value rounds.",
+      "description": { "en-US": "The integer to which the specified value rounds." },
       "args": [
         {
           "name": "value",
-          "description": "The real number to round.",
+          "description": { "en-US": "The real number to round." },
           "type": "float"
         },
         {
           "name": "roundingType",
-          "description": "Determines the direction in which the value will be rounded.",
+          "description": { "en-US": "Determines the direction in which the value will be rounded." },
           "type": "__Rounding__"
         }
       ],
@@ -22666,18 +22666,18 @@ var valueFuncKw = (
       "zh-TW": "Round To Integer"
     },
     "__sortedArray__": {
-      "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
+      "description": { "en-US": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose copy will be sorted.",
+          "description": { "en-US": "The array whose copy will be sorted." },
           "type": {
             "Array": "Object"
           }
         },
         {
           "name": "valueRank",
-          "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
+          "description": { "en-US": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered." },
           "type": "Object"
         }
       ],
@@ -22703,17 +22703,17 @@ var valueFuncKw = (
       "zh-TW": "Sorted Array"
     },
     ".charAt": {
-      "description": "The character found at a specified index of a String.",
+      "description": { "en-US": "The character found at a specified index of a String." },
       "args": [
         {
           "name": "string",
-          "description": "The String value whose character to acquire.",
+          "description": { "en-US": "The String value whose character to acquire." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "index",
-          "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+          "description": { "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.)." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -22740,17 +22740,17 @@ var valueFuncKw = (
       "zh-TW": "Char In String"
     },
     ".strIndex": {
-      "description": "The index of a character within a String or -1 if no such character can be found.",
+      "description": { "en-US": "The index of a character within a String or -1 if no such character can be found." },
       "args": [
         {
           "name": "string",
-          "description": "The String Value from which to search for the character.",
+          "description": { "en-US": "The String Value from which to search for the character." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "character",
-          "description": "The character for which to search",
+          "description": { "en-US": "The character for which to search" },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -22776,23 +22776,23 @@ var valueFuncKw = (
       "zh-TW": "Index Of String Char"
     },
     ".replace": {
-      "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.\n\n**WARNING**: This function clamps the string to 511 bytes (in UTF-8).",
+      "description": { "en-US": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.\n\n**WARNING**: This function clamps the string to 511 bytes (in UTF-8)." },
       "args": [
         {
           "name": "string",
-          "description": "The String Value with which to search for replacements.",
+          "description": { "en-US": "The String Value with which to search for replacements." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "pattern",
-          "description": "The String pattern to be replaced.",
+          "description": { "en-US": "The String pattern to be replaced." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "replacement",
-          "description": "The String Value with which to replace the pattern String",
+          "description": { "en-US": "The String Value with which to replace the pattern String" },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -22818,17 +22818,17 @@ var valueFuncKw = (
       "zh-TW": "String Replace"
     },
     ".split": {
-      "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
+      "description": { "en-US": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String." },
       "args": [
         {
           "name": "string",
-          "description": "The String Value to split.",
+          "description": { "en-US": "The String Value to split." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "separator",
-          "description": "The separator String with which to split the String Value.",
+          "description": { "en-US": "The separator String with which to split the String Value." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -22856,22 +22856,22 @@ var valueFuncKw = (
       "zh-TW": "String Split"
     },
     ".substring": {
-      "description": "The substring of the provided string.",
+      "description": { "en-US": "The substring of the provided string." },
       "args": [
         {
           "name": "string",
-          "description": "The string value from which to build the substring.",
+          "description": { "en-US": "The string value from which to build the substring." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "substringStartIndex",
-          "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+          "description": { "en-US": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.)." },
           "type": "unsigned int"
         },
         {
           "name": "substringLength",
-          "description": "Specifies the number of characters in the substring.",
+          "description": { "en-US": "Specifies the number of characters in the substring." },
           "type": "unsigned int",
           "default": "Math.INFINITY"
         }
@@ -22898,11 +22898,11 @@ var valueFuncKw = (
     },
     "__subtract__": {
       "guid": "00000000C40A",
-      "description": "The difference between two numbers or vectors.",
+      "description": { "en-US": "The difference between two numbers or vectors." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -22912,7 +22912,7 @@ var valueFuncKw = (
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number or a vector.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number or a vector." },
           "type": [
             "float",
             "Vector"
@@ -22946,7 +22946,7 @@ var valueFuncKw = (
         {
           "name": "team",
           "type": "TeamLiteral",
-          "description": "A Team constant."
+          "description": { "en-US": "A Team constant." }
         }
       ],
       "canBePutInBoolean": false,
@@ -22971,16 +22971,16 @@ var valueFuncKw = (
       "zh-TW": "Team"
     },
     "__valueInArray__": {
-      "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
+      "description": { "en-US": "The value found at a specific element of an array. Results in 0 if the element does not exist." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose element to acquire.",
+          "description": { "en-US": "The array whose element to acquire." },
           "type": "Array"
         },
         {
           "name": "index",
-          "description": "The index of the element to acquire.",
+          "description": { "en-US": "The index of the element to acquire." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -23009,33 +23009,33 @@ var valueFuncKw = (
       "zh-TW": "Value In Array"
     },
     "createWorkshopSettingEnum": {
-      "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
+      "description": { "en-US": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice." },
       "args": [
         {
           "name": "category",
-          "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "name",
-          "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "default",
-          "description": "The default value for this setting.",
+          "description": { "en-US": "The default value for this setting." },
           "type": "UnsignedIntLiteral"
         },
         {
           "name": "options",
-          "description": "The options for this setting.",
+          "description": { "en-US": "The options for this setting." },
           "type": {
             "Array": "CustomStringLiteral"
           }
         },
         {
           "name": "sortOrder",
-          "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+          "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
           "type": "IntLiteral",
           "default": 0
         }
@@ -23060,26 +23060,26 @@ var valueFuncKw = (
       "zh-TW": "Workshop Setting Combo"
     },
     "createWorkshopSettingHero": {
-      "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
+      "description": { "en-US": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list." },
       "args": [
         {
           "name": "category",
-          "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "name",
-          "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "default",
-          "description": "The default value for this setting.",
+          "description": { "en-US": "The default value for this setting." },
           "type": "HeroLiteral"
         },
         {
           "name": "sortOrder",
-          "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+          "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
           "type": "IntLiteral",
           "default": 0
         }
@@ -23104,36 +23104,36 @@ var valueFuncKw = (
       "zh-TW": "Workshop Setting Hero"
     },
     "createWorkshopSettingInt": {
-      "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
+      "description": { "en-US": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider." },
       "args": [
         {
           "name": "category",
-          "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "name",
-          "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "default",
-          "description": "The default value for this setting.",
+          "description": { "en-US": "The default value for this setting." },
           "type": "IntLiteral"
         },
         {
           "name": "min",
-          "description": "The minimum value for this setting.",
+          "description": { "en-US": "The minimum value for this setting." },
           "type": "IntLiteral"
         },
         {
           "name": "max",
-          "description": "The maximum value for this setting.",
+          "description": { "en-US": "The maximum value for this setting." },
           "type": "IntLiteral"
         },
         {
           "name": "sortOrder",
-          "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+          "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
           "type": "IntLiteral",
           "default": 0
         }
@@ -23158,36 +23158,36 @@ var valueFuncKw = (
       "zh-TW": "Workshop Setting Integer"
     },
     "createWorkshopSettingFloat": {
-      "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
+      "description": { "en-US": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider." },
       "args": [
         {
           "name": "category",
-          "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "name",
-          "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "default",
-          "description": "The default value for this setting.",
+          "description": { "en-US": "The default value for this setting." },
           "type": "FloatLiteral"
         },
         {
           "name": "min",
-          "description": "The minimum value for this setting.",
+          "description": { "en-US": "The minimum value for this setting." },
           "type": "FloatLiteral"
         },
         {
           "name": "max",
-          "description": "The maximum value for this setting.",
+          "description": { "en-US": "The maximum value for this setting." },
           "type": "FloatLiteral"
         },
         {
           "name": "sortOrder",
-          "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+          "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
           "type": "IntLiteral",
           "default": 0
         }
@@ -23212,26 +23212,26 @@ var valueFuncKw = (
       "zh-TW": "Workshop Setting Real"
     },
     "createWorkshopSettingBool": {
-      "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
+      "description": { "en-US": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox." },
       "args": [
         {
           "name": "category",
-          "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "name",
-          "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+          "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
           "type": "CustomStringLiteral"
         },
         {
           "name": "default",
-          "description": "The default value for this setting.",
+          "description": { "en-US": "The default value for this setting." },
           "type": "BoolLiteral"
         },
         {
           "name": "sortOrder",
-          "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
+          "description": { "en-US": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically." },
           "type": "IntLiteral",
           "default": 0
         }
@@ -23256,11 +23256,11 @@ var valueFuncKw = (
       "zh-TW": "Workshop Setting Toggle"
     },
     "__xComponentOf__": {
-      "description": "The x component of the specified vector, usually representing a leftward amount.",
+      "description": { "en-US": "The x component of the specified vector, usually representing a leftward amount." },
       "args": [
         {
           "name": "value",
-          "description": "The vector from which to acquire the x component.",
+          "description": { "en-US": "The vector from which to acquire the x component." },
           "type": "Vector"
         }
       ],
@@ -23284,11 +23284,11 @@ var valueFuncKw = (
       "zh-TW": "X Component Of"
     },
     "__yComponentOf__": {
-      "description": "The y component of the specified vector, usually representing an upward amount.",
+      "description": { "en-US": "The y component of the specified vector, usually representing an upward amount." },
       "args": [
         {
           "name": "value",
-          "description": "The vector from which to acquire the y component.",
+          "description": { "en-US": "The vector from which to acquire the y component." },
           "type": "Vector"
         }
       ],
@@ -23312,11 +23312,11 @@ var valueFuncKw = (
       "zh-TW": "Y Component Of"
     },
     "__zComponentOf__": {
-      "description": "The z component of the specified vector, usually representing a forward amount.",
+      "description": { "en-US": "The z component of the specified vector, usually representing a forward amount." },
       "args": [
         {
           "name": "value",
-          "description": "The vector from which to acquire the z component.",
+          "description": { "en-US": "The vector from which to acquire the z component." },
           "type": "Vector"
         }
       ],
@@ -23340,16 +23340,16 @@ var valueFuncKw = (
       "zh-TW": "Z Component Of"
     },
     "abilityIconString": {
-      "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
+      "description": { "en-US": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string)." },
       "args": [
         {
           "name": "hero",
-          "description": "The hero for the ability that will be converted to an icon.",
+          "description": { "en-US": "The hero for the ability that will be converted to an icon." },
           "type": "Hero"
         },
         {
           "name": "button",
-          "description": "The button for the ability that will be converted to an icon.",
+          "description": { "en-US": "The button for the ability that will be converted to an icon." },
           "type": "Button"
         }
       ],
@@ -23374,11 +23374,11 @@ var valueFuncKw = (
       "zh-TW": "Ability Icon String"
     },
     "abs": {
-      "description": "The absolute value of the specified value.",
+      "description": { "en-US": "The absolute value of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "The real number value whose absolute value will be computed.",
+          "description": { "en-US": "The real number value whose absolute value will be computed." },
           "type": "float"
         }
       ],
@@ -23402,11 +23402,11 @@ var valueFuncKw = (
       "zh-TW": "Absolute Value"
     },
     "acos": {
-      "description": "Arccosine in radians of the specified value.",
+      "description": { "en-US": "Arccosine in radians of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "Input value for the function.",
+          "description": { "en-US": "Input value for the function." },
           "type": "float"
         }
       ],
@@ -23430,11 +23430,11 @@ var valueFuncKw = (
       "zh-TW": "Arccosine In Radians"
     },
     "acosDeg": {
-      "description": "Arccosine in degrees of the specified value.",
+      "description": { "en-US": "Arccosine in degrees of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "Input value for the function.",
+          "description": { "en-US": "Input value for the function." },
           "type": "float"
         }
       ],
@@ -23458,16 +23458,16 @@ var valueFuncKw = (
       "zh-TW": "Arccosine In Degrees"
     },
     "angleBetweenVectors": {
-      "description": "The angle in degrees between two directional vectors (no normalization required).",
+      "description": { "en-US": "The angle in degrees between two directional vectors (no normalization required)." },
       "args": [
         {
           "name": "vector",
-          "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+          "description": { "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized." },
           "type": "Direction"
         },
         {
           "name": "vector",
-          "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+          "description": { "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized." },
           "type": "Direction"
         }
       ],
@@ -23491,16 +23491,16 @@ var valueFuncKw = (
       "zh-TW": "Angle Between Vectors"
     },
     "angleDifference": {
-      "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
+      "description": { "en-US": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative." },
       "args": [
         {
           "name": "angle",
-          "description": "One of the two angles between which to measure the resulting angle.",
+          "description": { "en-US": "One of the two angles between which to measure the resulting angle." },
           "type": "float"
         },
         {
           "name": "angle",
-          "description": "One of the two angles between which to measure the resulting angle.",
+          "description": { "en-US": "One of the two angles between which to measure the resulting angle." },
           "type": "float"
         }
       ],
@@ -23524,16 +23524,16 @@ var valueFuncKw = (
       "zh-TW": "Angle Difference"
     },
     "directionFromAngles": {
-      "description": "The unit-length direction vector corresponding to the specified angles.",
+      "description": { "en-US": "The unit-length direction vector corresponding to the specified angles." },
       "args": [
         {
           "name": "horizontalAngle",
-          "description": "The horizontal angle in degrees used to construct the resulting vector.",
+          "description": { "en-US": "The horizontal angle in degrees used to construct the resulting vector." },
           "type": "float"
         },
         {
           "name": "verticalAngle",
-          "description": "The vertical angle in degrees used to construct the resulting vector.",
+          "description": { "en-US": "The vertical angle in degrees used to construct the resulting vector." },
           "type": "float"
         }
       ],
@@ -23558,11 +23558,11 @@ var valueFuncKw = (
       "zh-TW": "Direction From Angles"
     },
     "asin": {
-      "description": "Arcsine in radians of the specified value.",
+      "description": { "en-US": "Arcsine in radians of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "Input value for the function.",
+          "description": { "en-US": "Input value for the function." },
           "type": "float"
         }
       ],
@@ -23586,11 +23586,11 @@ var valueFuncKw = (
       "zh-TW": "Arcsine In Radians"
     },
     "asinDeg": {
-      "description": "Arcsine in degrees of the specified value.",
+      "description": { "en-US": "Arcsine in degrees of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "Input value for the function.",
+          "description": { "en-US": "Input value for the function." },
           "type": "float"
         }
       ],
@@ -23614,16 +23614,16 @@ var valueFuncKw = (
       "zh-TW": "Arcsine In Degrees"
     },
     "atan2": {
-      "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
+      "description": { "en-US": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2)." },
       "args": [
         {
           "name": "numerator",
-          "description": "Numerator input for the function.",
+          "description": { "en-US": "Numerator input for the function." },
           "type": "float"
         },
         {
           "name": "denominator",
-          "description": "Denominator input for the function.",
+          "description": { "en-US": "Denominator input for the function." },
           "type": "float"
         }
       ],
@@ -23647,16 +23647,16 @@ var valueFuncKw = (
       "zh-TW": "Arctangent In Radians"
     },
     "atan2Deg": {
-      "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
+      "description": { "en-US": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2)." },
       "args": [
         {
           "name": "numerator",
-          "description": "Numerator input for the function.",
+          "description": { "en-US": "Numerator input for the function." },
           "type": "float"
         },
         {
           "name": "denominator",
-          "description": "Denominator input for the function.",
+          "description": { "en-US": "Denominator input for the function." },
           "type": "float"
         }
       ],
@@ -23681,7 +23681,7 @@ var valueFuncKw = (
     },
     "attacker": {
       "guid": "00000000B32F",
-      "description": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player.",
+      "description": { "en-US": "The player that dealt the damage for the event currently being processed by this rule. May be the same as the victim or the event player." },
       "args": null,
       "canBePutInBoolean": false,
       "return": "Player",
@@ -23702,11 +23702,11 @@ var valueFuncKw = (
       "zh-TW": "Attacker"
     },
     "inputBindingString": {
-      "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.\n\nNote: the `buttonToString()` macro performs a much nicer-looking conversion.",
+      "description": { "en-US": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.\n\nNote: the `buttonToString()` macro performs a much nicer-looking conversion." },
       "args": [
         {
           "name": "button",
-          "description": "The button for the input binding that will be converted to a string.",
+          "description": { "en-US": "The button for the input binding that will be converted to a string." },
           "type": "Button"
         }
       ],
@@ -23730,11 +23730,11 @@ var valueFuncKw = (
       "zh-TW": "Input Binding String"
     },
     "cos": {
-      "description": "Cosine of the specified angle in radians.",
+      "description": { "en-US": "Cosine of the specified angle in radians." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in radians.",
+          "description": { "en-US": "Angle in radians." },
           "type": "float"
         }
       ],
@@ -23758,11 +23758,11 @@ var valueFuncKw = (
       "zh-TW": "Cosine From Radians"
     },
     "cosDeg": {
-      "description": "Cosine of the specified angle in degrees.",
+      "description": { "en-US": "Cosine of the specified angle in degrees." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in degrees.",
+          "description": { "en-US": "Angle in degrees." },
           "type": "float"
         }
       ],
@@ -23786,16 +23786,16 @@ var valueFuncKw = (
       "zh-TW": "Cosine From Degrees"
     },
     "crossProduct": {
-      "description": "The cross product of the specified values. (Left cross up equals forward.)",
+      "description": { "en-US": "The cross product of the specified values. (Left cross up equals forward.)" },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand-side vector operand of the cross product.",
+          "description": { "en-US": "The left-hand-side vector operand of the cross product." },
           "type": "Vector"
         },
         {
           "name": "value",
-          "description": "The right-hand-side vector operand of the cross product.",
+          "description": { "en-US": "The right-hand-side vector operand of the cross product." },
           "type": "Vector"
         }
       ],
@@ -23820,16 +23820,16 @@ var valueFuncKw = (
       "zh-TW": "Cross Product"
     },
     "directionTowards": {
-      "description": "The unit-length direction vector from one position to another.",
+      "description": { "en-US": "The unit-length direction vector from one position to another." },
       "args": [
         {
           "name": "startPos",
-          "description": "The position from which the resulting direction vector will point.",
+          "description": { "en-US": "The position from which the resulting direction vector will point." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "The position to which the resulting direction vector will point.",
+          "description": { "en-US": "The position to which the resulting direction vector will point." },
           "type": "Position"
         }
       ],
@@ -23854,16 +23854,16 @@ var valueFuncKw = (
       "zh-TW": "Direction Towards"
     },
     "distance": {
-      "description": "The distance between two positions in meters.",
+      "description": { "en-US": "The distance between two positions in meters." },
       "args": [
         {
           "name": "startPos",
-          "description": "One of the two positions used in the distance measurement.",
+          "description": { "en-US": "One of the two positions used in the distance measurement." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "One of the two positions used in the distance measurement.",
+          "description": { "en-US": "One of the two positions used in the distance measurement." },
           "type": "Position"
         }
       ],
@@ -23887,16 +23887,16 @@ var valueFuncKw = (
       "zh-TW": "Distance Between"
     },
     "dotProduct": {
-      "description": "The dot product of the specified values.",
+      "description": { "en-US": "The dot product of the specified values." },
       "args": [
         {
           "name": "value",
-          "description": "One of two vector operands of the dot product.",
+          "description": { "en-US": "One of two vector operands of the dot product." },
           "type": "Vector"
         },
         {
           "name": "value",
-          "description": "One of two vector operands of the dot product.",
+          "description": { "en-US": "One of two vector operands of the dot product." },
           "type": "Vector"
         }
       ],
@@ -23920,11 +23920,11 @@ var valueFuncKw = (
       "zh-TW": "Dot Product"
     },
     "entityExists": {
-      "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
+      "description": { "en-US": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed." },
       "args": [
         {
           "name": "entity",
-          "description": "The player, icon entity, or effect entity whose existence to check.",
+          "description": { "en-US": "The player, icon entity, or effect entity whose existence to check." },
           "type": [
             "Player",
             "EntityId"
@@ -23950,11 +23950,11 @@ var valueFuncKw = (
       "zh-TW": "Entity Exists"
     },
     "evalOnce": {
-      "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
+      "description": { "en-US": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop." },
       "args": [
         {
           "name": "inputValue",
-          "description": "The value that will be only evaluated once.",
+          "description": { "en-US": "The value that will be only evaluated once." },
           "type": [
             "Object",
             "Array"
@@ -23984,7 +23984,7 @@ var valueFuncKw = (
       "zh-TW": "Evaluate Once"
     },
     "eventAbility": {
-      "description": "The ability for the event currently being processed by this rule associated by button.",
+      "description": { "en-US": "The ability for the event currently being processed by this rule associated by button." },
       "args": null,
       "canBePutInBoolean": false,
       "return": "Button",
@@ -24006,7 +24006,7 @@ var valueFuncKw = (
       "zh-TW": "Event Ability"
     },
     "eventDamage": {
-      "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
+      "description": { "en-US": "The amount of damage received by the victim for the event currently being processed by this rule." },
       "args": null,
       "return": "unsigned float",
       "guid": "00000000C635",
@@ -24027,7 +24027,7 @@ var valueFuncKw = (
       "zh-TW": "Event Damage"
     },
     "eventDirection": {
-      "description": "The incoming direction for the event currently being processed by this rule.",
+      "description": { "en-US": "The incoming direction for the event currently being processed by this rule." },
       "args": null,
       "canBePutInBoolean": false,
       "return": "Direction",
@@ -24049,7 +24049,7 @@ var valueFuncKw = (
       "zh-TW": "Event Direction"
     },
     "eventHealing": {
-      "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
+      "description": { "en-US": "The amount of healing received by the healee for the event currently being processed by this rule." },
       "args": null,
       "return": "unsigned float",
       "guid": "00000000CC33",
@@ -24070,7 +24070,7 @@ var valueFuncKw = (
       "zh-TW": "Event Healing"
     },
     "eventPlayer": {
-      "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
+      "description": { "en-US": "The player executing this rule, as specified by the event. May be the same as the attacker or victim." },
       "args": null,
       "canBePutInBoolean": false,
       "return": "Player",
@@ -24092,7 +24092,7 @@ var valueFuncKw = (
       "zh-TW": "Event Player"
     },
     "eventWasCriticalHit": {
-      "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
+      "description": { "en-US": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule." },
       "args": null,
       "return": "bool",
       "guid": "00000000C637",
@@ -24113,7 +24113,7 @@ var valueFuncKw = (
       "zh-TW": "Event Was Critical Hit"
     },
     "eventWasEnvironment": {
-      "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
+      "description": { "en-US": "Whether the elimination was due to the environment for the event currently being processed by this rule." },
       "args": null,
       "return": "bool",
       "guid": "00000001107C",
@@ -24134,7 +24134,7 @@ var valueFuncKw = (
       "zh-TW": "Event Was Environment"
     },
     "eventWasHealthPack": {
-      "description": "Whether the healing was from a health pack for the event currently being processed by this rule.",
+      "description": { "en-US": "Whether the healing was from a health pack for the event currently being processed by this rule." },
       "args": null,
       "return": "bool",
       "guid": "00000000FC80",
@@ -24155,7 +24155,7 @@ var valueFuncKw = (
       "zh-TW": "Event Was Health Pack"
     },
     "false": {
-      "description": "The boolean value of false.",
+      "description": { "en-US": "The boolean value of false." },
       "args": null,
       "isConstant": true,
       "return": "BoolLiteral",
@@ -24178,7 +24178,7 @@ var valueFuncKw = (
     },
     "getAllHeroes": {
       "guid": "00000000BF58",
-      "description": "The array of all heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+      "description": { "en-US": "The array of all heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
       "args": [],
       "isConstant": true,
       "return": {
@@ -24203,7 +24203,7 @@ var valueFuncKw = (
     },
     "getAverageServerLoad": {
       "guid": "00000000C997",
-      "description": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+      "description": { "en-US": "Provides a percentage representing the average CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
       "args": [],
       "return": "unsigned float",
       "en-US": "Server Load Average",
@@ -24223,7 +24223,7 @@ var valueFuncKw = (
       "zh-TW": "Server Load Average"
     },
     "getCapturePercentage": {
-      "description": "The current progress towards capture for the active control point (expressed as a percentage).",
+      "description": { "en-US": "The current progress towards capture for the active control point (expressed as a percentage)." },
       "args": [],
       "return": "float",
       "guid": "00000000B358",
@@ -24244,16 +24244,16 @@ var valueFuncKw = (
       "zh-TW": "Point Capture Percentage"
     },
     "getClosestPlayer": {
-      "description": "The player closest to a position, optionally restricted by team.",
+      "description": { "en-US": "The player closest to a position, optionally restricted by team." },
       "args": [
         {
           "name": "center",
-          "description": "The position from which to measure proximity.",
+          "description": { "en-US": "The position from which to measure proximity." },
           "type": "Position"
         },
         {
           "name": "team",
-          "description": "The team or teams from which the closest player will come.",
+          "description": { "en-US": "The team or teams from which the closest player will come." },
           "type": "Team"
         }
       ],
@@ -24278,11 +24278,11 @@ var valueFuncKw = (
       "zh-TW": "Closest Player To"
     },
     "getControlScorePercentage": {
-      "description": "The score percentage for the specified team in control mode.",
+      "description": { "en-US": "The score percentage for the specified team in control mode." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose score percentage to acquire.",
+          "description": { "en-US": "The team whose score percentage to acquire." },
           "type": "Team"
         }
       ],
@@ -24305,7 +24305,7 @@ var valueFuncKw = (
       "zh-TW": "Control Mode Scoring Percentage"
     },
     "getControlScoringTeam": {
-      "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
+      "description": { "en-US": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score." },
       "args": [],
       "canBePutInBoolean": false,
       "return": "Team",
@@ -24327,7 +24327,7 @@ var valueFuncKw = (
       "zh-TW": "Control Mode Scoring Team"
     },
     "getCurrentGamemode": {
-      "description": "The current game mode of the custom game.",
+      "description": { "en-US": "The current game mode of the custom game." },
       "args": [],
       "isConstant": true,
       "canBePutInBoolean": false,
@@ -24351,7 +24351,7 @@ var valueFuncKw = (
     },
     "__getCurrentMap__": {
       "guid": "00000000D418",
-      "description": "The current map of the custom game.",
+      "description": { "en-US": "The current map of the custom game." },
       "args": [],
       "isConstant": true,
       "canBePutInBoolean": false,
@@ -24373,7 +24373,7 @@ var valueFuncKw = (
       "zh-TW": "Current Map"
     },
     "getCurrentObjective": {
-      "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, hybrid, escort, and control.",
+      "description": { "en-US": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, hybrid, escort, and control." },
       "args": [],
       "return": "unsigned int",
       "guid": "00000000B37D",
@@ -24394,7 +24394,7 @@ var valueFuncKw = (
       "zh-TW": "Objective Index"
     },
     "getDamageHeroes": {
-      "description": "The array of all damage heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+      "description": { "en-US": "The array of all damage heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
       "args": [],
       "isConstant": true,
       "return": {
@@ -24419,11 +24419,11 @@ var valueFuncKw = (
       "zh-TW": "All Damage Heroes"
     },
     "getDeadPlayers": {
-      "description": "An array containing all dead players on a team or in the match.",
+      "description": { "en-US": "An array containing all dead players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams from which players may come.",
+          "description": { "en-US": "The team or teams from which players may come." },
           "type": "Team",
           "default": "ALL"
         }
@@ -24450,16 +24450,16 @@ var valueFuncKw = (
       "zh-TW": "All Dead Players"
     },
     "getFarthestPlayer": {
-      "description": "The player farthest from a position, optionally restricted by team.",
+      "description": { "en-US": "The player farthest from a position, optionally restricted by team." },
       "args": [
         {
           "name": "center",
-          "description": "The position from which to measure distance.",
+          "description": { "en-US": "The position from which to measure distance." },
           "type": "Position"
         },
         {
           "name": "team",
-          "description": "The team or teams from which the farthest player will come.",
+          "description": { "en-US": "The team or teams from which the farthest player will come." },
           "type": "Team"
         }
       ],
@@ -24484,11 +24484,11 @@ var valueFuncKw = (
       "zh-TW": "Farthest Player From"
     },
     "getFlagCarrier": {
-      "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
+      "description": { "en-US": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose flag to check.",
+          "description": { "en-US": "The team whose flag to check." },
           "type": "Team"
         }
       ],
@@ -24512,11 +24512,11 @@ var valueFuncKw = (
       "zh-TW": "Player Carrying Flag"
     },
     "getFlagPosition": {
-      "description": "The position of a specific team's flag in capture the flag.",
+      "description": { "en-US": "The position of a specific team's flag in capture the flag." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose flag position to acquire.",
+          "description": { "en-US": "The team whose flag position to acquire." },
           "type": "Team"
         }
       ],
@@ -24540,7 +24540,7 @@ var valueFuncKw = (
       "zh-TW": "Flag Position"
     },
     "getLastAssistId": {
-      "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
+      "description": { "en-US": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level)." },
       "args": [],
       "return": "AssistId",
       "guid": "0000000121F2",
@@ -24561,7 +24561,7 @@ var valueFuncKw = (
       "zh-TW": "Last Assist ID"
     },
     "getLastCreatedEntity": {
-      "description": "A reference to the last effect, icon entity, or dummy bot created by the event player (or created at the global level).",
+      "description": { "en-US": "A reference to the last effect, icon entity, or dummy bot created by the event player (or created at the global level)." },
       "args": [],
       "canBePutInBoolean": false,
       "return": "EntityId",
@@ -24583,7 +24583,7 @@ var valueFuncKw = (
       "zh-TW": "Last Created Entity"
     },
     "getLastCreatedHealthPool": {
-      "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
+      "description": { "en-US": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level)." },
       "args": [],
       "return": "HealthPoolId",
       "guid": "000000011439",
@@ -24604,7 +24604,7 @@ var valueFuncKw = (
       "zh-TW": "Last Created Health Pool"
     },
     "getLastCreatedText": {
-      "description": "A reference to the last piece of text created by the Event Player (or created at the Global level) via the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action.",
+      "description": { "en-US": "A reference to the last piece of text created by the Event Player (or created at the Global level) via the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action." },
       "args": [],
       "return": "TextId",
       "guid": "00000000BAFE",
@@ -24625,7 +24625,7 @@ var valueFuncKw = (
       "zh-TW": "Last Text ID"
     },
     "getLastDamageModification": {
-      "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
+      "description": { "en-US": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level)." },
       "args": [],
       "return": "DamageModificationId",
       "guid": "00000000C64A",
@@ -24646,7 +24646,7 @@ var valueFuncKw = (
       "zh-TW": "Last Damage Modification ID"
     },
     "getLastDamageOverTimeId": {
-      "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
+      "description": { "en-US": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level)." },
       "args": [],
       "return": "DotId",
       "guid": "00000000B263",
@@ -24667,7 +24667,7 @@ var valueFuncKw = (
       "zh-TW": "Last Damage Over Time ID"
     },
     "getLastHealingModification": {
-      "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
+      "description": { "en-US": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level)." },
       "args": [],
       "return": "HealingModificationId",
       "guid": "00000000FD2A",
@@ -24688,7 +24688,7 @@ var valueFuncKw = (
       "zh-TW": "Last Healing Modification ID"
     },
     "getLastHealingOverTimeId": {
-      "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
+      "description": { "en-US": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level)." },
       "args": [],
       "return": "HotId",
       "guid": "00000000B262",
@@ -24709,11 +24709,11 @@ var valueFuncKw = (
       "zh-TW": "Last Heal Over Time ID"
     },
     "getLivingPlayers": {
-      "description": "An array containing all living players on a team or in the match.",
+      "description": { "en-US": "An array containing all living players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams from which players may come.",
+          "description": { "en-US": "The team or teams from which players may come." },
           "type": "Team",
           "default": "ALL"
         }
@@ -24740,7 +24740,7 @@ var valueFuncKw = (
       "zh-TW": "All Living Players"
     },
     "getMatchRound": {
-      "description": "The current round of the match, counting up from 1.",
+      "description": { "en-US": "The current round of the match, counting up from 1." },
       "args": [],
       "return": "unsigned int",
       "guid": "00000000B375",
@@ -24761,7 +24761,7 @@ var valueFuncKw = (
       "zh-TW": "Match Round"
     },
     "getMatchTime": {
-      "description": "The amount of time in seconds remaining in the current game mode phase.",
+      "description": { "en-US": "The amount of time in seconds remaining in the current game mode phase." },
       "args": [],
       "return": "unsigned float",
       "guid": "00000000AD3B",
@@ -24782,7 +24782,7 @@ var valueFuncKw = (
       "zh-TW": "Match Time"
     },
     "getNumberOfAssistIds": {
-      "description": "The current number of Assist instances started from the Start Assist Action.",
+      "description": { "en-US": "The current number of Assist instances started from the Start Assist Action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9E",
@@ -24803,7 +24803,7 @@ var valueFuncKw = (
       "zh-TW": "Assist Count"
     },
     "getNumberOfDamageModificationIds": {
-      "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
+      "description": { "en-US": "The current number of Damage Modification instances started from the Start Damage Modification Action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9C",
@@ -24824,11 +24824,11 @@ var valueFuncKw = (
       "zh-TW": "Damage Modification Count"
     },
     "getNumberOfDeadPlayers": {
-      "description": "The number of dead players on a team or in the match.",
+      "description": { "en-US": "The number of dead players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams on which to count players.",
+          "description": { "en-US": "The team or teams on which to count players." },
           "type": "Team",
           "default": "ALL"
         }
@@ -24852,7 +24852,7 @@ var valueFuncKw = (
       "zh-TW": "Number Of Dead Players"
     },
     "getNumberOfDamageOverTimeIds": {
-      "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
+      "description": { "en-US": "The current number of Damage Over Time instances started from the Damage Over Time action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B99",
@@ -24873,7 +24873,7 @@ var valueFuncKw = (
       "zh-TW": "Damage Over Time Count"
     },
     "getNumberOfEntityIds": {
-      "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
+      "description": { "en-US": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9F",
@@ -24894,7 +24894,7 @@ var valueFuncKw = (
       "zh-TW": "Entity Count"
     },
     "getNumberOfHealingModificationIds": {
-      "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
+      "description": { "en-US": "The current number of Healing Modification instances started from the Start Healing Modification Action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9D",
@@ -24915,16 +24915,16 @@ var valueFuncKw = (
       "zh-TW": "Healing Modification Count"
     },
     "getNumberOfHeroes": {
-      "description": "The number of players playing a specific hero on a team or in the match.",
+      "description": { "en-US": "The number of players playing a specific hero on a team or in the match." },
       "args": [
         {
           "name": "hero",
-          "description": "The hero to check for play.",
+          "description": { "en-US": "The hero to check for play." },
           "type": "Hero"
         },
         {
           "name": "team",
-          "description": "The team or teams on which to check for the hero being played.",
+          "description": { "en-US": "The team or teams on which to check for the hero being played." },
           "type": "Team",
           "default": "TEAM"
         }
@@ -24948,7 +24948,7 @@ var valueFuncKw = (
       "zh-TW": "Number Of Heroes"
     },
     "getNumberOfHealingOverTimeIds": {
-      "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
+      "description": { "en-US": "The current number of Heal Over Time instances started from the Heal Over Time action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9A",
@@ -24969,11 +24969,11 @@ var valueFuncKw = (
       "zh-TW": "Heal Over Time Count"
     },
     "getNumberOfLivingPlayers": {
-      "description": "The number of living players on a team or in the match.",
+      "description": { "en-US": "The number of living players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams on which to count players.",
+          "description": { "en-US": "The team or teams on which to count players." },
           "type": "Team",
           "default": "ALL"
         }
@@ -24997,11 +24997,11 @@ var valueFuncKw = (
       "zh-TW": "Number Of Living Players"
     },
     "getNumberOfPlayers": {
-      "description": "The number of players on a team or in the match.",
+      "description": { "en-US": "The number of players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams on which to count players.",
+          "description": { "en-US": "The team or teams on which to count players." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25025,11 +25025,11 @@ var valueFuncKw = (
       "zh-TW": "Number Of Players"
     },
     "getNumberOfPlayersOnObjective": {
-      "description": "The number of players occupying a payload or control point (either on a team or in the match).",
+      "description": { "en-US": "The number of players occupying a payload or control point (either on a team or in the match)." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams on which to count players.",
+          "description": { "en-US": "The team or teams on which to count players." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25053,11 +25053,11 @@ var valueFuncKw = (
       "zh-TW": "Number Of Players On Objective"
     },
     "getNumberOfSlots": {
-      "description": "The number of slots on a team or in the match.",
+      "description": { "en-US": "The number of slots on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams on which to count slots.",
+          "description": { "en-US": "The team or teams on which to count slots." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25082,7 +25082,7 @@ var valueFuncKw = (
       "zh-TW": "Number Of Slots"
     },
     "getNumberOfTextIds": {
-      "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
+      "description": { "en-US": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action." },
       "args": [],
       "return": "unsigned int",
       "guid": "000000012B9B",
@@ -25103,11 +25103,11 @@ var valueFuncKw = (
       "zh-TW": "Text Count"
     },
     "getObjectivePosition": {
-      "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control.",
+      "description": { "en-US": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control." },
       "args": [
         {
           "name": "number",
-          "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+          "description": { "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -25133,11 +25133,11 @@ var valueFuncKw = (
       "zh-TW": "Objective Position"
     },
     "getOppositeTeam": {
-      "description": "The team opposite the specified team.",
+      "description": { "en-US": "The team opposite the specified team." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose opposite to acquire. If all, the result will be all.",
+          "description": { "en-US": "The team whose opposite to acquire. If all, the result will be all." },
           "type": "Team"
         }
       ],
@@ -25162,7 +25162,7 @@ var valueFuncKw = (
       "zh-TW": "Opposite Team Of"
     },
     "getPayloadPosition": {
-      "description": "The position in the world of the active payload.",
+      "description": { "en-US": "The position in the world of the active payload." },
       "args": [],
       "canBePutInBoolean": false,
       "return": "Position",
@@ -25184,7 +25184,7 @@ var valueFuncKw = (
       "zh-TW": "Payload Position"
     },
     "getPayloadProgressPercentage": {
-      "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
+      "description": { "en-US": "The current progress towards the destination for the active payload (expressed as a percentage)." },
       "args": [],
       "return": "unsigned float",
       "guid": "00000000B357",
@@ -25206,7 +25206,7 @@ var valueFuncKw = (
     },
     "getPeakServerLoad": {
       "guid": "00000000C996",
-      "description": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+      "description": { "en-US": "Provides a percentage representing the highest CPU load of the current game instance over the last two seconds. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
       "args": [],
       "return": "unsigned float",
       "en-US": "Server Load Peak",
@@ -25226,11 +25226,11 @@ var valueFuncKw = (
       "zh-TW": "Server Load Peak"
     },
     "getPlayers": {
-      "description": "An array containing all players on a team or in the match.",
+      "description": { "en-US": "An array containing all players on a team or in the match." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams from which players may come.",
+          "description": { "en-US": "The team or teams from which players may come." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25257,27 +25257,27 @@ var valueFuncKw = (
       "zh-TW": "All Players"
     },
     "getPlayersInRadius": {
-      "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\n**Note**: This function picks up dead players. Use `getRealPlayersInRadius()` instead.",
+      "description": { "en-US": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\n**Note**: This function picks up dead players. Use `getRealPlayersInRadius()` instead." },
       "args": [
         {
           "name": "center",
-          "description": "The center position from which to measure distance.",
+          "description": { "en-US": "The center position from which to measure distance." },
           "type": "Position"
         },
         {
           "name": "radius",
-          "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+          "description": { "en-US": "The radius in meters inside which players must be in order to be included in the resulting array." },
           "type": "unsigned float"
         },
         {
           "name": "team",
-          "description": "The team or teams to which a player must belong to be included in the resulting array.",
+          "description": { "en-US": "The team or teams to which a player must belong to be included in the resulting array." },
           "type": "Team",
           "default": "ALL"
         },
         {
           "name": "losCheck",
-          "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+          "description": { "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array." },
           "type": "LosCheck",
           "default": "OFF"
         }
@@ -25305,18 +25305,18 @@ var valueFuncKw = (
       "zh-TW": "Players Within Radius"
     },
     "getPlayersInSlot": {
-      "description": "The player or array of players who occupy a specific slot in the game.",
+      "description": { "en-US": "The player or array of players who occupy a specific slot in the game." },
       "args": [
         {
           "name": "slot",
-          "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
+          "description": { "en-US": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "team",
-          "description": "The team or teams from which to acquire a player or players.",
+          "description": { "en-US": "The team or teams from which to acquire a player or players." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25346,11 +25346,11 @@ var valueFuncKw = (
       "zh-TW": "Players In Slot"
     },
     "getPlayersNotOnObjective": {
-      "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
+      "description": { "en-US": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match)." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams from which players may come.",
+          "description": { "en-US": "The team or teams from which players may come." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25377,16 +25377,16 @@ var valueFuncKw = (
       "zh-TW": "All Players Not On Objective"
     },
     "getPlayersOnHero": {
-      "description": "The array of players playing a specific hero on a team or in the match.",
+      "description": { "en-US": "The array of players playing a specific hero on a team or in the match." },
       "args": [
         {
           "name": "hero",
-          "description": "The hero to check for play.",
+          "description": { "en-US": "The hero to check for play." },
           "type": "Hero"
         },
         {
           "name": "team",
-          "description": "The team or teams on which to check for the hero being played.",
+          "description": { "en-US": "The team or teams on which to check for the hero being played." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25413,11 +25413,11 @@ var valueFuncKw = (
       "zh-TW": "Players On Hero"
     },
     "getPlayersOnObjective": {
-      "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
+      "description": { "en-US": "An array containing all players occupying a payload or control point (either on a team or in the match)." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams from which players may come.",
+          "description": { "en-US": "The team or teams from which players may come." },
           "type": "Team",
           "default": "ALL"
         }
@@ -25445,7 +25445,7 @@ var valueFuncKw = (
     },
     "getServerLoad": {
       "guid": "00000000C961",
-      "description": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources.",
+      "description": { "en-US": "Provides a percentage representing the CPU load of the current game instance. As this number approaches or exceeds 100, it becomes increasingly likely that the instance will be shut down because it is consuming too many resources." },
       "args": [],
       "return": "unsigned float",
       "en-US": "Server Load",
@@ -25465,11 +25465,11 @@ var valueFuncKw = (
       "zh-TW": "Server Load"
     },
     "getSpawnPoints": {
-      "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
+      "description": { "en-US": "The active spawn points for a team or for the match, provided as an array of position vectors." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose spawn points to acquire.",
+          "description": { "en-US": "The team whose spawn points to acquire." },
           "type": "Team"
         }
       ],
@@ -25494,7 +25494,7 @@ var valueFuncKw = (
       "zh-TW": "Spawn Points"
     },
     "getSupportHeroes": {
-      "description": "The array of all support heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+      "description": { "en-US": "The array of all support heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
       "args": [],
       "isConstant": true,
       "return": {
@@ -25519,7 +25519,7 @@ var valueFuncKw = (
       "zh-TW": "All Support Heroes"
     },
     "getTankHeroes": {
-      "description": "The array of all tank heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
+      "description": { "en-US": "The array of all tank heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes." },
       "args": [],
       "isConstant": true,
       "return": {
@@ -25544,7 +25544,7 @@ var valueFuncKw = (
       "zh-TW": "All Tank Heroes"
     },
     "getTotalTimeElapsed": {
-      "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
+      "description": { "en-US": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions)." },
       "args": [],
       "return": "unsigned float",
       "guid": "00000000B361",
@@ -25565,7 +25565,7 @@ var valueFuncKw = (
       "zh-TW": "Total Time Elapsed"
     },
     "healee": {
-      "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
+      "description": { "en-US": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player." },
       "args": null,
       "return": "Player",
       "guid": "00000000CC1C",
@@ -25587,7 +25587,7 @@ var valueFuncKw = (
     },
     "healer": {
       "guid": "00000000CC1A",
-      "description": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player.",
+      "description": { "en-US": "The player that dealt the healing for the event currently being processed by this rule. May be the same as the healee or the event player." },
       "args": null,
       "return": "Player",
       "en-US": "Healer",
@@ -25607,11 +25607,11 @@ var valueFuncKw = (
       "zh-TW": "Healer"
     },
     "heroIcon": {
-      "description": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string).",
+      "description": { "en-US": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string)." },
       "args": [
         {
           "name": "value",
-          "description": "The hero that will be converted to an icon.",
+          "description": { "en-US": "The hero that will be converted to an icon." },
           "type": "Hero"
         }
       ],
@@ -25637,11 +25637,11 @@ var valueFuncKw = (
       "zh-TW": "Hero Icon String"
     },
     "horizontalAngleOfDirection": {
-      "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
+      "description": { "en-US": "The horizontal angle in degrees corresponding to the specified direction vector." },
       "args": [
         {
           "name": "direction",
-          "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
+          "description": { "en-US": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins." },
           "type": "Direction"
         }
       ],
@@ -25665,16 +25665,16 @@ var valueFuncKw = (
       "zh-TW": "Horizontal Angle From Direction"
     },
     "horizontalAngleTowards": {
-      "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
+      "description": { "en-US": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative." },
       "args": [
         {
           "name": "player",
-          "description": "The player from whose current facing the angle begins.",
+          "description": { "en-US": "The player from whose current facing the angle begins." },
           "type": "Player"
         },
         {
           "name": "position",
-          "description": "The position in the world where the angle ends.",
+          "description": { "en-US": "The position in the world where the angle ends." },
           "type": "Position"
         }
       ],
@@ -25697,7 +25697,7 @@ var valueFuncKw = (
       "zh-TW": "Horizontal Angle Towards"
     },
     "hostPlayer": {
-      "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
+      "description": { "en-US": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match." },
       "args": null,
       "return": "Player",
       "guid": "00000000CC1E",
@@ -25718,11 +25718,11 @@ var valueFuncKw = (
       "zh-TW": "Host Player"
     },
     "iconString": {
-      "description": "Allows you to use an icon inside of a string (up to 4 per string).",
+      "description": { "en-US": "Allows you to use an icon inside of a string (up to 4 per string)." },
       "args": [
         {
           "name": "icon",
-          "description": "The icon to display.",
+          "description": { "en-US": "The icon to display." },
           "type": "Icon"
         }
       ],
@@ -25748,7 +25748,7 @@ var valueFuncKw = (
       "zh-TW": "Icon String"
     },
     "isAssemblingHeroes": {
-      "description": "Whether the match is currently in its assemble heroes phase.",
+      "description": { "en-US": "Whether the match is currently in its assemble heroes phase." },
       "args": [],
       "return": "bool",
       "guid": "00000000B35C",
@@ -25769,7 +25769,7 @@ var valueFuncKw = (
       "zh-TW": "Is Assembling Heroes"
     },
     "isControlPointLocked": {
-      "description": "Whether the point is locked in control mode.",
+      "description": { "en-US": "Whether the point is locked in control mode." },
       "args": [],
       "return": "bool",
       "guid": "00000000B37B",
@@ -25790,11 +25790,11 @@ var valueFuncKw = (
       "zh-TW": "Is Control Mode Point Locked"
     },
     "isFlagAtBase": {
-      "description": "Whether a specific team's flag is at its base in capture the flag.",
+      "description": { "en-US": "Whether a specific team's flag is at its base in capture the flag." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose flag to check.",
+          "description": { "en-US": "The team whose flag to check." },
           "type": "Team"
         }
       ],
@@ -25817,11 +25817,11 @@ var valueFuncKw = (
       "zh-TW": "Is Flag At Base"
     },
     "isFlagBeingCarried": {
-      "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
+      "description": { "en-US": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose flag to check.",
+          "description": { "en-US": "The team whose flag to check." },
           "type": "Team"
         }
       ],
@@ -25844,7 +25844,7 @@ var valueFuncKw = (
       "zh-TW": "Is Flag Being Carried"
     },
     "isGameInProgress": {
-      "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
+      "description": { "en-US": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed)." },
       "args": [],
       "return": "bool",
       "guid": "00000000B35E",
@@ -25865,11 +25865,11 @@ var valueFuncKw = (
       "zh-TW": "Is Game In Progress"
     },
     "isInLoS": {
-      "description": "Whether two positions have line of sight with each other.",
+      "description": { "en-US": "Whether two positions have line of sight with each other." },
       "args": [
         {
           "name": "startPos",
-          "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": [
             "Position",
             "Player"
@@ -25877,7 +25877,7 @@ var valueFuncKw = (
         },
         {
           "name": "endPos",
-          "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
+          "description": { "en-US": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used." },
           "type": [
             "Position",
             "Player"
@@ -25885,7 +25885,7 @@ var valueFuncKw = (
         },
         {
           "name": "barriers",
-          "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
+          "description": { "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used." },
           "type": "BarrierLos",
           "default": "PASS_THROUGH_BARRIERS"
         }
@@ -25909,7 +25909,7 @@ var valueFuncKw = (
       "zh-TW": "Is In Line of Sight"
     },
     "isInSetup": {
-      "description": "Whether the match is currently in its setup phase.",
+      "description": { "en-US": "Whether the match is currently in its setup phase." },
       "args": [],
       "return": "bool",
       "guid": "00000000B35D",
@@ -25930,7 +25930,7 @@ var valueFuncKw = (
       "zh-TW": "Is In Setup"
     },
     "isInSuddenDeath": {
-      "description": "Whether the current game of capture the flag is in sudden death.",
+      "description": { "en-US": "Whether the current game of capture the flag is in sudden death." },
       "args": [],
       "return": "bool",
       "guid": "00000000B3A4",
@@ -25951,7 +25951,7 @@ var valueFuncKw = (
       "zh-TW": "Is CTF Mode In Sudden Death"
     },
     "isMatchBetweenRounds": {
-      "description": "Whether the match is between rounds.",
+      "description": { "en-US": "Whether the match is between rounds." },
       "args": [],
       "return": "bool",
       "guid": "00000000B35F",
@@ -25972,7 +25972,7 @@ var valueFuncKw = (
       "zh-TW": "Is Between Rounds"
     },
     "isMatchComplete": {
-      "description": "Whether the match has finished.",
+      "description": { "en-US": "Whether the match has finished." },
       "args": [],
       "return": "bool",
       "guid": "00000000B360",
@@ -25993,11 +25993,11 @@ var valueFuncKw = (
       "zh-TW": "Is Match Complete"
     },
     "isObjectiveComplete": {
-      "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid.",
+      "description": { "en-US": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid." },
       "args": [
         {
           "name": "number",
-          "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
+          "description": { "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -26022,11 +26022,11 @@ var valueFuncKw = (
       "zh-TW": "Is Objective Complete"
     },
     "isTeamOnDefense": {
-      "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid.",
+      "description": { "en-US": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose role to check.",
+          "description": { "en-US": "The team whose role to check." },
           "type": "Team"
         }
       ],
@@ -26049,11 +26049,11 @@ var valueFuncKw = (
       "zh-TW": "Is Team On Defense"
     },
     "isTeamOnOffense": {
-      "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid.",
+      "description": { "en-US": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose role to check.",
+          "description": { "en-US": "The team whose role to check." },
           "type": "Team"
         }
       ],
@@ -26076,7 +26076,7 @@ var valueFuncKw = (
       "zh-TW": "Is Team On Offense"
     },
     "isWaitingForPlayers": {
-      "description": "Whether the match is waiting for players to join before starting.",
+      "description": { "en-US": "Whether the match is waiting for players to join before starting." },
       "args": [],
       "return": "bool",
       "guid": "00000000B35B",
@@ -26097,11 +26097,11 @@ var valueFuncKw = (
       "zh-TW": "Is Waiting For Players"
     },
     "len": {
-      "description": "The number of elements in the specified array. For strings, use `strLen`.",
+      "description": { "en-US": "The number of elements in the specified array. For strings, use `strLen`." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose elements will be counted.",
+          "description": { "en-US": "The array whose elements will be counted." },
           "type": "Array"
         }
       ],
@@ -26125,7 +26125,7 @@ var valueFuncKw = (
       "zh-TW": "Count Of"
     },
     "localPlayer": {
-      "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
+      "description": { "en-US": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables." },
       "args": null,
       "return": "Player",
       "guid": "000000012BB1",
@@ -26146,21 +26146,21 @@ var valueFuncKw = (
       "zh-TW": "Local Player"
     },
     "localVector": {
-      "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
+      "description": { "en-US": "The vector in local coordinates corresponding to the provided vector in world coordinates." },
       "args": [
         {
           "name": "worldVector",
-          "description": "The vector in world coordinates that will be converted to local coordinates.",
+          "description": { "en-US": "The vector in world coordinates that will be converted to local coordinates." },
           "type": "Vector"
         },
         {
           "name": "relativePlayer",
-          "description": "The player to whom the resulting vector will be relative.",
+          "description": { "en-US": "The player to whom the resulting vector will be relative." },
           "type": "Player"
         },
         {
           "name": "transformation",
-          "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+          "description": { "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)." },
           "type": "Transform"
         }
       ],
@@ -26184,11 +26184,11 @@ var valueFuncKw = (
       "zh-TW": "Local Vector Of"
     },
     "magnitude": {
-      "description": "The magnitude (length) of the specified vector",
+      "description": { "en-US": "The magnitude (length) of the specified vector" },
       "args": [
         {
           "name": "vector",
-          "description": "The vector to calculate the magnitude of.",
+          "description": { "en-US": "The vector to calculate the magnitude of." },
           "type": "Vector"
         }
       ],
@@ -26213,18 +26213,18 @@ var valueFuncKw = (
     },
     "max": {
       "guid": "00000000C418",
-      "description": "The maximum of two numbers. Note: this function can take an infinite amount of arguments.",
+      "description": { "en-US": "The maximum of two numbers. Note: this function can take an infinite amount of arguments." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -26250,18 +26250,18 @@ var valueFuncKw = (
     },
     "min": {
       "guid": "00000000C416",
-      "description": "The minimum of two or more numbers. Note: this function can take an infinite amount of arguments.",
+      "description": { "en-US": "The minimum of two or more numbers. Note: this function can take an infinite amount of arguments." },
       "args": [
         {
           "name": "value",
-          "description": "The left-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The left-hand operand. May be any value that results in a number." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "value",
-          "description": "The right-hand operand. May be any value that results in a number.",
+          "description": { "en-US": "The right-hand operand. May be any value that results in a number." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -26286,11 +26286,11 @@ var valueFuncKw = (
       "zh-TW": "Min"
     },
     "nearestWalkablePosition": {
-      "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
+      "description": { "en-US": "The position closest to the specified position that can be stood on and is accessible from a spawn point." },
       "args": [
         {
           "name": "position",
-          "description": "The position from which to search for the nearest walkable position.",
+          "description": { "en-US": "The position from which to search for the nearest walkable position." },
           "type": "Position"
         }
       ],
@@ -26314,11 +26314,11 @@ var valueFuncKw = (
       "zh-TW": "Nearest Walkable Position"
     },
     "normalize": {
-      "description": "The unit-length normalization of a vector.",
+      "description": { "en-US": "The unit-length normalization of a vector." },
       "args": [
         {
           "name": "vector",
-          "description": "The vector to normalize.",
+          "description": { "en-US": "The vector to normalize." },
           "type": "Vector"
         }
       ],
@@ -26343,7 +26343,7 @@ var valueFuncKw = (
       "zh-TW": "Normalize"
     },
     "null": {
-      "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
+      "description": { "en-US": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging." },
       "args": null,
       "isConstant": true,
       "canBePutInBoolean": false,
@@ -26366,11 +26366,11 @@ var valueFuncKw = (
       "zh-TW": "Null"
     },
     "random.choice": {
-      "description": "A random value from the specified array.",
+      "description": { "en-US": "A random value from the specified array." },
       "args": [
         {
           "name": "array",
-          "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+          "description": { "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value." },
           "type": "Array"
         }
       ],
@@ -26396,18 +26396,18 @@ var valueFuncKw = (
       "zh-TW": "Random Value In Array"
     },
     "random.randint": {
-      "description": "A random integer between the specified min and max, inclusive.",
+      "description": { "en-US": "A random integer between the specified min and max, inclusive." },
       "args": [
         {
           "name": "min",
-          "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+          "description": { "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "max",
-          "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+          "description": { "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -26432,11 +26432,11 @@ var valueFuncKw = (
       "zh-TW": "Random Integer"
     },
     "random.shuffle": {
-      "description": "A copy of the specified array with the values in a random order.",
+      "description": { "en-US": "A copy of the specified array with the values in a random order." },
       "args": [
         {
           "name": "array",
-          "description": "The array whose copy will be randomized.",
+          "description": { "en-US": "The array whose copy will be randomized." },
           "type": "Array"
         }
       ],
@@ -26459,16 +26459,16 @@ var valueFuncKw = (
       "zh-TW": "Randomized Array"
     },
     "random.uniform": {
-      "description": "A random real number between the specified min and max.",
+      "description": { "en-US": "A random real number between the specified min and max." },
       "args": [
         {
           "name": "min",
-          "description": "The smallest real number allowed.",
+          "description": { "en-US": "The smallest real number allowed." },
           "type": "float"
         },
         {
           "name": "max",
-          "description": "The largest real number allowed.",
+          "description": { "en-US": "The largest real number allowed." },
           "type": "float"
         }
       ],
@@ -26491,26 +26491,26 @@ var valueFuncKw = (
       "zh-TW": "Random Real"
     },
     "rgb": {
-      "description": "A custom color with the specified red, green, blue and alpha values.",
+      "description": { "en-US": "A custom color with the specified red, green, blue and alpha values." },
       "args": [
         {
           "name": "red",
-          "description": "The red component of a color, from 0 to 255.",
+          "description": { "en-US": "The red component of a color, from 0 to 255." },
           "type": "unsigned int"
         },
         {
           "name": "green",
-          "description": "The green component of a color, from 0 to 255.",
+          "description": { "en-US": "The green component of a color, from 0 to 255." },
           "type": "unsigned int"
         },
         {
           "name": "blue",
-          "description": "The blue component of a color, from 0 to 255.",
+          "description": { "en-US": "The blue component of a color, from 0 to 255." },
           "type": "unsigned int"
         },
         {
           "name": "alpha",
-          "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+          "description": { "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible." },
           "type": "unsigned int",
           "default": 255
         }
@@ -26537,11 +26537,11 @@ var valueFuncKw = (
       "zh-TW": "Custom Color"
     },
     "sin": {
-      "description": "Sine of the specified angle in radians.",
+      "description": { "en-US": "Sine of the specified angle in radians." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in radians.",
+          "description": { "en-US": "Angle in radians." },
           "type": "float"
         }
       ],
@@ -26565,11 +26565,11 @@ var valueFuncKw = (
       "zh-TW": "Sine From Radians"
     },
     "sinDeg": {
-      "description": "Sine of the specified angle in degrees.",
+      "description": { "en-US": "Sine of the specified angle in degrees." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in degrees.",
+          "description": { "en-US": "Angle in degrees." },
           "type": "float"
         }
       ],
@@ -26593,11 +26593,11 @@ var valueFuncKw = (
       "zh-TW": "Sine From Degrees"
     },
     "sqrt": {
-      "description": "The square root of the specified value.",
+      "description": { "en-US": "The square root of the specified value." },
       "args": [
         {
           "name": "value",
-          "description": "The real number value whose square root will be computed. Negative values result in zero.",
+          "description": { "en-US": "The real number value whose square root will be computed. Negative values result in zero." },
           "type": "unsigned float"
         }
       ],
@@ -26621,17 +26621,17 @@ var valueFuncKw = (
       "zh-TW": "Square Root"
     },
     "strContains": {
-      "description": "Whether the specified string contains the specified substring.",
+      "description": { "en-US": "Whether the specified string contains the specified substring." },
       "args": [
         {
           "name": "string",
-          "description": "The string in which to search for the specified substring.",
+          "description": { "en-US": "The string in which to search for the specified substring." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "substring",
-          "description": "The substring for which to search.",
+          "description": { "en-US": "The substring for which to search." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -26656,11 +26656,11 @@ var valueFuncKw = (
       "zh-TW": "String Contains"
     },
     "strLen": {
-      "description": "The length in characters of the provided string.",
+      "description": { "en-US": "The length in characters of the provided string." },
       "args": [
         {
           "name": "string",
-          "description": "The string whose characters to count.",
+          "description": { "en-US": "The string whose characters to count." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -26685,11 +26685,11 @@ var valueFuncKw = (
       "zh-TW": "String Length"
     },
     "tan": {
-      "description": "Tangent of the specified angle in radians.",
+      "description": { "en-US": "Tangent of the specified angle in radians." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in radians.",
+          "description": { "en-US": "Angle in radians." },
           "type": "float"
         }
       ],
@@ -26713,11 +26713,11 @@ var valueFuncKw = (
       "zh-TW": "Tangent From Radians"
     },
     "tanDeg": {
-      "description": "Tangent of the specified angle in degrees.",
+      "description": { "en-US": "Tangent of the specified angle in degrees." },
       "args": [
         {
           "name": "angle",
-          "description": "Angle in degrees.",
+          "description": { "en-US": "Angle in degrees." },
           "type": "float"
         }
       ],
@@ -26741,16 +26741,16 @@ var valueFuncKw = (
       "zh-TW": "Tangent From Degrees"
     },
     "isHeroBeingPlayed": {
-      "description": "Whether a specific hero is being played (either on a team or in the match).",
+      "description": { "en-US": "Whether a specific hero is being played (either on a team or in the match)." },
       "args": [
         {
           "name": "hero",
-          "description": "The hero to check for play.",
+          "description": { "en-US": "The hero to check for play." },
           "type": "Hero"
         },
         {
           "name": "team",
-          "description": "The team or teams on which to check for the hero being played.",
+          "description": { "en-US": "The team or teams on which to check for the hero being played." },
           "type": "Team"
         }
       ],
@@ -26774,11 +26774,11 @@ var valueFuncKw = (
     },
     "teamScore": {
       "guid": "00000000B353",
-      "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
+      "description": { "en-US": "The current score for the specified team. Results in 0 in free-for-all game modes." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose score to acquire.",
+          "description": { "en-US": "The team whose score to acquire." },
           "type": "Team"
         }
       ],
@@ -26800,7 +26800,7 @@ var valueFuncKw = (
       "zh-TW": "Team Score"
     },
     "true": {
-      "description": "The boolean value of true.",
+      "description": { "en-US": "The boolean value of true." },
       "args": null,
       "isConstant": true,
       "return": "BoolLiteral",
@@ -26822,11 +26822,11 @@ var valueFuncKw = (
       "zh-TW": "True"
     },
     "updateEveryFrame": {
-      "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
+      "description": { "en-US": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate." },
       "args": [
         {
           "name": "value",
-          "description": "The value that will be updated once per tick.",
+          "description": { "en-US": "The value that will be updated once per tick." },
           "type": [
             "Object",
             "Array"
@@ -26857,25 +26857,25 @@ var valueFuncKw = (
     },
     "vect": {
       "guid": "00000000B0F1",
-      "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
+      "description": { "en-US": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity." },
       "args": [
         {
           "name": "x",
-          "description": "The x value of the vector.",
+          "description": { "en-US": "The x value of the vector." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "y",
-          "description": "The y value of the vector.",
+          "description": { "en-US": "The y value of the vector." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "z",
-          "description": "The z value of the vector.",
+          "description": { "en-US": "The z value of the vector." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -26902,16 +26902,16 @@ var valueFuncKw = (
       "zh-TW": "Vector"
     },
     "vectorTowards": {
-      "description": "The displacement vector from one position to another.",
+      "description": { "en-US": "The displacement vector from one position to another." },
       "args": [
         {
           "name": "startPos",
-          "description": "The position from which the resulting displacement vector begins.",
+          "description": { "en-US": "The position from which the resulting displacement vector begins." },
           "type": "Position"
         },
         {
           "name": "endPos",
-          "description": "The position at which the resulting displacement vector ends.",
+          "description": { "en-US": "The position at which the resulting displacement vector ends." },
           "type": "Position"
         }
       ],
@@ -26936,11 +26936,11 @@ var valueFuncKw = (
       "zh-TW": "Vector Towards"
     },
     "verticalAngleOfDirection": {
-      "description": "The vertical angle in degrees corresponding to the specified direction vector.",
+      "description": { "en-US": "The vertical angle in degrees corresponding to the specified direction vector." },
       "args": [
         {
           "name": "direction",
-          "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
+          "description": { "en-US": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins." },
           "type": "Direction"
         }
       ],
@@ -26964,16 +26964,16 @@ var valueFuncKw = (
       "zh-TW": "Vertical Angle From Direction"
     },
     "verticalAngleTowards": {
-      "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
+      "description": { "en-US": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative." },
       "args": [
         {
           "name": "player",
-          "description": "The player from whose current facing the angle begins.",
+          "description": { "en-US": "The player from whose current facing the angle begins." },
           "type": "Player"
         },
         {
           "name": "position",
-          "description": "The position in the world where the angle ends.",
+          "description": { "en-US": "The position in the world where the angle ends." },
           "type": "Position"
         }
       ],
@@ -26997,7 +26997,7 @@ var valueFuncKw = (
     },
     "victim": {
       "guid": "00000000B330",
-      "description": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player.",
+      "description": { "en-US": "The player that received the damage for the event currently being processed by this rule. May be the same as the attacker or the event player." },
       "args": null,
       "canBePutInBoolean": false,
       "return": "Player",
@@ -27018,21 +27018,21 @@ var valueFuncKw = (
       "zh-TW": "Victim"
     },
     "worldVector": {
-      "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
+      "description": { "en-US": "The vector in world coordinates corresponding to the provided vector in local coordinates." },
       "args": [
         {
           "name": "localVector",
-          "description": "The vector in local coordinates that will be converted to world coordinates.",
+          "description": { "en-US": "The vector in local coordinates that will be converted to world coordinates." },
           "type": "Vector"
         },
         {
           "name": "relativePlayer",
-          "description": "The player to whom the local vector is relative.",
+          "description": { "en-US": "The player to whom the local vector is relative." },
           "type": "Player"
         },
         {
           "name": "transformation",
-          "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
+          "description": { "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)." },
           "type": "Transform"
         }
       ],
@@ -27063,11 +27063,11 @@ var actionKw = (
   //begin-json
   {
     ".addHealthPool": {
-      "description": "Adds a temporary health pool to a player or players. This health pool can be referenced using the Last Created Health Pool value. Up to 16 health pools of a given health type (health, armor, or shields) may exist on a player (including base pools and pools generated by abilities).",
+      "description": { "en-US": "Adds a temporary health pool to a player or players. This health pool can be referenced using the Last Created Health Pool value. Up to 16 health pools of a given health type (health, armor, or shields) may exist on a player (including base pools and pools generated by abilities)." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement collision is affected.",
+          "description": { "en-US": "The player or players whose movement collision is affected." },
           "type": [
             "Player",
             {
@@ -27077,22 +27077,22 @@ var actionKw = (
         },
         {
           "name": "healthType",
-          "description": "Specifies the type of health (Armor or shields) contained in the Health Pool.",
+          "description": { "en-US": "Specifies the type of health (Armor or shields) contained in the Health Pool." },
           "type": "Health"
         },
         {
           "name": "maxHealth",
-          "description": "The size of the health pool",
+          "description": { "en-US": "The size of the health pool" },
           "type": "unsigned float"
         },
         {
           "name": "isRecoverable",
-          "description": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged.",
+          "description": { "en-US": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged." },
           "type": "bool"
         },
         {
           "name": "reevaluation",
-          "description": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes.",
+          "description": { "en-US": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes." },
           "type": "bool",
           "default": true
         }
@@ -27116,11 +27116,11 @@ var actionKw = (
       "zh-TW": "Add Health Pool To Player"
     },
     ".addToScore": {
-      "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
+      "description": { "en-US": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose score will change.",
+          "description": { "en-US": "The player or players whose score will change." },
           "type": [
             "Player",
             {
@@ -27130,7 +27130,7 @@ var actionKw = (
         },
         {
           "name": "score",
-          "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
+          "description": { "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -27155,11 +27155,11 @@ var actionKw = (
       "zh-TW": "Modify Player Score"
     },
     ".allowButton": {
-      "description": "Undoes the effect of the disallow button action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the disallow button action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose button is being reenabled.",
+          "description": { "en-US": "The player or players whose button is being reenabled." },
           "type": [
             "Player",
             {
@@ -27169,7 +27169,7 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button that is being reenabled.",
+          "description": { "en-US": "The logical button that is being reenabled." },
           "type": "Button"
         }
       ],
@@ -27192,11 +27192,11 @@ var actionKw = (
       "zh-TW": "Allow Button"
     },
     ".applyImpulse": {
-      "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
+      "description": { "en-US": "Applies an instantaneous change in velocity to the movement of one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose velocity will be changed.",
+          "description": { "en-US": "The player or players whose velocity will be changed." },
           "type": [
             "Player",
             {
@@ -27206,22 +27206,22 @@ var actionKw = (
         },
         {
           "name": "direction",
-          "description": "The unit direction in which the impulse will be applied. This value is normalized internally.",
+          "description": { "en-US": "The unit direction in which the impulse will be applied. This value is normalized internally." },
           "type": "Direction"
         },
         {
           "name": "speed",
-          "description": "The magnitude of the change to the velocities of the player or players.",
+          "description": { "en-US": "The magnitude of the change to the velocities of the player or players." },
           "type": "float"
         },
         {
           "name": "relativity",
-          "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+          "description": { "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players." },
           "type": "Relativity"
         },
         {
           "name": "motion",
-          "description": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse.",
+          "description": { "en-US": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse." },
           "type": "Impulse",
           "default": "CANCEL_CONTRARY_MOTION_XYZ"
         }
@@ -27245,21 +27245,21 @@ var actionKw = (
       "zh-TW": "Apply Impulse"
     },
     ".attachTo": {
-      "description": "Attaches the player (the 'child') to another player (the 'parent'). Once attached, the child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same parent, but not vice versa.",
+      "description": { "en-US": "Attaches the player (the 'child') to another player (the 'parent'). Once attached, the child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same parent, but not vice versa." },
       "args": [
         {
           "name": "child",
-          "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
+          "description": { "en-US": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away." },
           "type": "Player"
         },
         {
           "name": "parent",
-          "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
+          "description": { "en-US": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position." },
           "type": "Player"
         },
         {
           "name": "offset",
-          "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
+          "description": { "en-US": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head." },
           "type": "Position",
           "canReplaceNullVectorByNull": true
         }
@@ -27283,11 +27283,11 @@ var actionKw = (
       "zh-TW": "Attach Players"
     },
     ".cancelPrimaryAction": {
-      "description": "Cancels the active abilities for one or more players. Equivalent to a short stun.",
+      "description": { "en-US": "Cancels the active abilities for one or more players. Equivalent to a short stun." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to cancel active abilities for.",
+          "description": { "en-US": "The player or players to cancel active abilities for." },
           "type": [
             "Player",
             {
@@ -27315,11 +27315,11 @@ var actionKw = (
       "zh-TW": "Cancel Primary Action"
     },
     ".clearStatusEffect": {
-      "description": "Clears a status that was applied from a set status action from one or more players.",
+      "description": { "en-US": "Clears a status that was applied from a set status action from one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players from whom the status will be removed.",
+          "description": { "en-US": "The player or players from whom the status will be removed." },
           "type": [
             "Player",
             {
@@ -27329,7 +27329,7 @@ var actionKw = (
         },
         {
           "name": "status",
-          "description": "The status to be removed from the player or players.",
+          "description": { "en-US": "The status to be removed from the player or players." },
           "type": "Status"
         }
       ],
@@ -27352,11 +27352,11 @@ var actionKw = (
       "zh-TW": "Clear Status"
     },
     ".communicate": {
-      "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
+      "description": { "en-US": "Causes one or more players to use an emote, voice line, or other equipped communication." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to perform the communication.",
+          "description": { "en-US": "The player or players to perform the communication." },
           "type": [
             "Player",
             {
@@ -27366,7 +27366,7 @@ var actionKw = (
         },
         {
           "name": "type",
-          "description": "The type of communication.",
+          "description": { "en-US": "The type of communication." },
           "type": "Comms"
         }
       ],
@@ -27389,11 +27389,11 @@ var actionKw = (
       "zh-TW": "Communicate"
     },
     ".detach": {
-      "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
+      "description": { "en-US": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position." },
       "args": [
         {
           "name": "children",
-          "description": "The player or players that will become detached from their parent.",
+          "description": { "en-US": "The player or players that will become detached from their parent." },
           "type": [
             "Player",
             {
@@ -27421,11 +27421,11 @@ var actionKw = (
       "zh-TW": "Detach Players"
     },
     ".disableDeathSpectateAllPlayers": {
-      "description": "Undoes the effect of the enable death spectate all players action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the enable death spectate all players action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose default death spectate behavior is restored.",
+          "description": { "en-US": "The player or players whose default death spectate behavior is restored." },
           "type": [
             "Player",
             {
@@ -27453,11 +27453,11 @@ var actionKw = (
       "zh-TW": "Disable Death Spectate All Players"
     },
     ".disableDeathSpectateTargetHud": {
-      "description": "Undoes the effect of the enable death spectate target hud action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the enable death spectate target hud action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will revert to seeing their own hud while death spectating.",
+          "description": { "en-US": "The player or players who will revert to seeing their own hud while death spectating." },
           "type": [
             "Player",
             {
@@ -27485,11 +27485,11 @@ var actionKw = (
       "zh-TW": "Disable Death Spectate Target HUD"
     },
     ".disableEnvironmentCollision": {
-      "description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
+      "description": { "en-US": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement collision is affected.",
+          "description": { "en-US": "The player or players whose movement collision is affected." },
           "type": [
             "Player",
             {
@@ -27499,7 +27499,7 @@ var actionKw = (
         },
         {
           "name": "includeFloors",
-          "description": "If true, collision with the floors is also disabled.",
+          "description": { "en-US": "If true, collision with the floors is also disabled." },
           "type": "bool"
         }
       ],
@@ -27522,11 +27522,11 @@ var actionKw = (
       "zh-TW": "Disable Movement Collision With Environment"
     },
     ".disableGamemodeHud": {
-      "description": "Disables the game mode HUD for one or more players until reenabled.",
+      "description": { "en-US": "Disables the game mode HUD for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their game mode HUD disabled.",
+          "description": { "en-US": "The player or players who will have their game mode HUD disabled." },
           "type": [
             "Player",
             {
@@ -27554,11 +27554,11 @@ var actionKw = (
       "zh-TW": "Disable Game Mode HUD"
     },
     ".disableGamemodeInWorldUi": {
-      "description": "Disables the game mode In-World UI for one or more players until reenabled.",
+      "description": { "en-US": "Disables the game mode In-World UI for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their game mode in-world UI disabled.",
+          "description": { "en-US": "The player or players who will have their game mode in-world UI disabled." },
           "type": [
             "Player",
             {
@@ -27586,11 +27586,11 @@ var actionKw = (
       "zh-TW": "Disable Game Mode In-World UI"
     },
     ".disableHeroHud": {
-      "description": "Disables the Hero HUD for one or more players until reenabled.",
+      "description": { "en-US": "Disables the Hero HUD for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their hero HUD disabled.",
+          "description": { "en-US": "The player or players who will have their hero HUD disabled." },
           "type": [
             "Player",
             {
@@ -27618,11 +27618,11 @@ var actionKw = (
       "zh-TW": "Disable Hero HUD"
     },
     ".disableKillFeed": {
-      "description": "Disables the kill feed for one or more players until reenabled.",
+      "description": { "en-US": "Disables the kill feed for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their kill feed disabled.",
+          "description": { "en-US": "The player or players who will have their kill feed disabled." },
           "type": [
             "Player",
             {
@@ -27650,11 +27650,11 @@ var actionKw = (
       "zh-TW": "Disable Kill Feed"
     },
     ".disableMessages": {
-      "description": "Disables messages for one or more players until reenabled.",
+      "description": { "en-US": "Disables messages for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their messages disabled.",
+          "description": { "en-US": "The player or players who will have their messages disabled." },
           "type": [
             "Player",
             {
@@ -27682,11 +27682,11 @@ var actionKw = (
       "zh-TW": "Disable Messages"
     },
     ".disableNameplatesFor": {
-      "description": "Disables the nameplate on one or more viewed players from the perspective of one or more viewing players.",
+      "description": { "en-US": "Disables the nameplate on one or more viewed players from the perspective of one or more viewing players." },
       "args": [
         {
           "name": "viewedPlayers",
-          "description": "The player or players who will have their nameplates disabled.",
+          "description": { "en-US": "The player or players who will have their nameplates disabled." },
           "type": [
             "Player",
             {
@@ -27696,7 +27696,7 @@ var actionKw = (
         },
         {
           "name": "viewingPlayers",
-          "description": "The viewing player or players for whom the viewed player's nameplate will be disabled.",
+          "description": { "en-US": "The viewing player or players for whom the viewed player's nameplate will be disabled." },
           "type": [
             "Player",
             {
@@ -27724,11 +27724,11 @@ var actionKw = (
       "zh-TW": "Disable Nameplates"
     },
     ".disablePlayerCollision": {
-      "description": "Causes a player or players to stop colliding with other Players.",
+      "description": { "en-US": "Causes a player or players to stop colliding with other Players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement collision is affected.",
+          "description": { "en-US": "The player or players whose movement collision is affected." },
           "type": [
             "Player",
             {
@@ -27756,11 +27756,11 @@ var actionKw = (
       "zh-TW": "Disable Movement Collision With Players"
     },
     ".disableRespawn": {
-      "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
+      "description": { "en-US": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands." },
       "args": [
         {
           "name": "players",
-          "description": "The player or players whose respawning is affected.",
+          "description": { "en-US": "The player or players whose respawning is affected." },
           "type": [
             "Player",
             {
@@ -27788,11 +27788,11 @@ var actionKw = (
       "zh-TW": "Disable Built-In Game Mode Respawning"
     },
     ".disableScoreboard": {
-      "description": "Disables the scoreboard for one or more players until reenabled.",
+      "description": { "en-US": "Disables the scoreboard for one or more players until reenabled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their scoreboard disabled.",
+          "description": { "en-US": "The player or players who will have their scoreboard disabled." },
           "type": [
             "Player",
             {
@@ -27820,11 +27820,11 @@ var actionKw = (
       "zh-TW": "Disable Scoreboard"
     },
     ".disableTextChat": {
-      "description": "Disables Text Chat for one or more Players until reenabled",
+      "description": { "en-US": "Disables Text Chat for one or more Players until reenabled" },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their text chat disabled.",
+          "description": { "en-US": "The player or players who will have their text chat disabled." },
           "type": [
             "Player",
             {
@@ -27852,11 +27852,11 @@ var actionKw = (
       "zh-TW": "Disable Text Chat"
     },
     ".disableVoiceChat": {
-      "description": "Disables voice chat for one or more players until reenabled",
+      "description": { "en-US": "Disables voice chat for one or more players until reenabled" },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their text chat disabled.",
+          "description": { "en-US": "The player or players who will have their text chat disabled." },
           "type": [
             "Player",
             {
@@ -27866,17 +27866,17 @@ var actionKw = (
         },
         {
           "name": "teamVoiceChat",
-          "description": "Whether or not team voice chat will be disabled.",
+          "description": { "en-US": "Whether or not team voice chat will be disabled." },
           "type": "bool"
         },
         {
           "name": "matchVoiceChat",
-          "description": "Whether or not match voice chat will be disabled.",
+          "description": { "en-US": "Whether or not match voice chat will be disabled." },
           "type": "bool"
         },
         {
           "name": "groupVoiceChat",
-          "description": "Whether or not group voice chat will be disabled.",
+          "description": { "en-US": "Whether or not group voice chat will be disabled." },
           "type": "bool"
         }
       ],
@@ -27899,11 +27899,11 @@ var actionKw = (
       "zh-TW": "Disable Voice Chat"
     },
     ".disallowButton": {
-      "description": "Disables a logical button for one or more players such that pressing it has no effect.",
+      "description": { "en-US": "Disables a logical button for one or more players such that pressing it has no effect." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose button is being disabled.",
+          "description": { "en-US": "The player or players whose button is being disabled." },
           "type": [
             "Player",
             {
@@ -27913,7 +27913,7 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button that is being disabled.",
+          "description": { "en-US": "The logical button that is being disabled." },
           "type": "Button"
         }
       ],
@@ -27936,11 +27936,11 @@ var actionKw = (
       "zh-TW": "Disallow Button"
     },
     ".enableDeathSpectateAllPlayers": {
-      "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
+      "description": { "en-US": "Allows one or more players to spectate all players when dead, as opposed to only allies." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will be allowed to spectate all players.",
+          "description": { "en-US": "The player or players who will be allowed to spectate all players." },
           "type": [
             "Player",
             {
@@ -27968,11 +27968,11 @@ var actionKw = (
       "zh-TW": "Enable Death Spectate All Players"
     },
     ".enableDeathSpectateTargetHud": {
-      "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
+      "description": { "en-US": "Causes one or more players to see their spectate target's hud instead of their own while death spectating." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will begin seeing their spectate target's hud while death spectating.",
+          "description": { "en-US": "The player or players who will begin seeing their spectate target's hud while death spectating." },
           "type": [
             "Player",
             {
@@ -28000,11 +28000,11 @@ var actionKw = (
       "zh-TW": "Enable Death Spectate Target HUD"
     },
     ".enableEnvironmentCollision": {
-      "description": "Undoes the effect of the Disable Movement Collision With Environment action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Movement Collision With Environment action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement collision is affected.",
+          "description": { "en-US": "The player or players whose movement collision is affected." },
           "type": [
             "Player",
             {
@@ -28032,11 +28032,11 @@ var actionKw = (
       "zh-TW": "Enable Movement Collision With Environment"
     },
     ".enableGamemodeHud": {
-      "description": "Undoes the effect of the Disable Game Mode HUD Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Game Mode HUD Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their game mode HUD enabled.",
+          "description": { "en-US": "The player or players who will have their game mode HUD enabled." },
           "type": [
             "Player",
             {
@@ -28064,11 +28064,11 @@ var actionKw = (
       "zh-TW": "Enable Game Mode HUD"
     },
     ".enableGamemodeInWorldUi": {
-      "description": "Undoes the effect of the Disable Game Mode In-World UI Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Game Mode In-World UI Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their game mode in-world UI enabled.",
+          "description": { "en-US": "The player or players who will have their game mode in-world UI enabled." },
           "type": [
             "Player",
             {
@@ -28096,11 +28096,11 @@ var actionKw = (
       "zh-TW": "Enable Game Mode In-World UI"
     },
     ".enableHeroHud": {
-      "description": "Undoes the effect of the Disable Hero HUD Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Hero HUD Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their hero HUD enabled.",
+          "description": { "en-US": "The player or players who will have their hero HUD enabled." },
           "type": [
             "Player",
             {
@@ -28128,11 +28128,11 @@ var actionKw = (
       "zh-TW": "Enable Hero HUD"
     },
     ".enableKillFeed": {
-      "description": "Undoes the effect of the Disable Kill Feed Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Kill Feed Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their kill feed enabled.",
+          "description": { "en-US": "The player or players who will have their kill feed enabled." },
           "type": [
             "Player",
             {
@@ -28160,11 +28160,11 @@ var actionKw = (
       "zh-TW": "Enable Kill Feed"
     },
     ".enableMessages": {
-      "description": "Undoes the effect of the Disable Messages Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Messages Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their messages enabled.",
+          "description": { "en-US": "The player or players who will have their messages enabled." },
           "type": [
             "Player",
             {
@@ -28192,11 +28192,11 @@ var actionKw = (
       "zh-TW": "Enable Messages"
     },
     ".enableNameplatesFor": {
-      "description": "Undoes the effect of Disable Nameplates for one or more viewed players from the perspective of one or more viewing players.",
+      "description": { "en-US": "Undoes the effect of Disable Nameplates for one or more viewed players from the perspective of one or more viewing players." },
       "args": [
         {
           "name": "viewedPlayers",
-          "description": "The player or players who will have their nameplates enabled.",
+          "description": { "en-US": "The player or players who will have their nameplates enabled." },
           "type": [
             "Player",
             {
@@ -28206,7 +28206,7 @@ var actionKw = (
         },
         {
           "name": "viewingPlayers",
-          "description": "The viewing player or players for whom the viewed player's nameplate will be enabled.",
+          "description": { "en-US": "The viewing player or players for whom the viewed player's nameplate will be enabled." },
           "type": [
             "Player",
             {
@@ -28234,11 +28234,11 @@ var actionKw = (
       "zh-TW": "Enable Nameplates"
     },
     ".enablePlayerCollision": {
-      "description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Movement Collision With Players action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement collision is affected.",
+          "description": { "en-US": "The player or players whose movement collision is affected." },
           "type": [
             "Player",
             {
@@ -28266,11 +28266,11 @@ var actionKw = (
       "zh-TW": "Enable Movement Collision With Players"
     },
     ".enableRespawn": {
-      "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the disable built-in game mode respawning action for one or more players." },
       "args": [
         {
           "name": "players",
-          "description": "The player or players whose respawning is affected.",
+          "description": { "en-US": "The player or players whose respawning is affected." },
           "type": [
             "Player",
             {
@@ -28298,11 +28298,11 @@ var actionKw = (
       "zh-TW": "Enable Built-In Game Mode Respawning"
     },
     ".enableScoreboard": {
-      "description": "Undoes the effect of the Disable Scoreboard Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Scoreboard Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will have their scoreboard enabled.",
+          "description": { "en-US": "The player or players who will have their scoreboard enabled." },
           "type": [
             "Player",
             {
@@ -28330,11 +28330,11 @@ var actionKw = (
       "zh-TW": "Enable Scoreboard"
     },
     ".enableTextChat": {
-      "description": "Undoes the effect of the Disable Text Chat Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Text Chat Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The Player or Players who will have their Text Chat enabled.",
+          "description": { "en-US": "The Player or Players who will have their Text Chat enabled." },
           "type": [
             "Player",
             {
@@ -28362,11 +28362,11 @@ var actionKw = (
       "zh-TW": "Enable Text Chat"
     },
     ".enableVoiceChat": {
-      "description": "Undoes the effect of the Disable Voice Chat Action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Disable Voice Chat Action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The Player or Players who will have their Voice Chat enabled.",
+          "description": { "en-US": "The Player or Players who will have their Voice Chat enabled." },
           "type": [
             "Player",
             {
@@ -28394,11 +28394,11 @@ var actionKw = (
       "zh-TW": "Enable Voice Chat"
     },
     ".forceButtonPress": {
-      "description": "Forces one or more players to press a button virtually for a single frame.",
+      "description": { "en-US": "Forces one or more players to press a button virtually for a single frame." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players for whom the virtual button input will be forced.",
+          "description": { "en-US": "The player or players for whom the virtual button input will be forced." },
           "type": [
             "Player",
             {
@@ -28408,7 +28408,7 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The button to be pressed.",
+          "description": { "en-US": "The button to be pressed." },
           "type": "Button"
         }
       ],
@@ -28431,11 +28431,11 @@ var actionKw = (
       "zh-TW": "Press Button"
     },
     ".preloadHero": {
-      "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
+      "description": { "en-US": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player.",
+          "description": { "en-US": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player." },
           "type": [
             "Player",
             {
@@ -28445,7 +28445,7 @@ var actionKw = (
         },
         {
           "name": "hero",
-          "description": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized.",
+          "description": { "en-US": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized." },
           "type": [
             "Hero",
             {
@@ -28473,11 +28473,11 @@ var actionKw = (
       "zh-TW": "Preload Hero"
     },
     ".removeAllHealthPools": {
-      "description": "Removes all health pools that were added to a player or players via the Add Health Pool action.",
+      "description": { "en-US": "Removes all health pools that were added to a player or players via the Add Health Pool action." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose added health pools will be removed.",
+          "description": { "en-US": "The player or players whose added health pools will be removed." },
           "type": [
             "Player",
             {
@@ -28505,11 +28505,11 @@ var actionKw = (
       "zh-TW": "Remove All Health Pools From Player"
     },
     ".resetHeroAvailability": {
-      "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
+      "description": { "en-US": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose hero list is being reset.",
+          "description": { "en-US": "The player or players whose hero list is being reset." },
           "type": [
             "Player",
             {
@@ -28537,11 +28537,11 @@ var actionKw = (
       "zh-TW": "Reset Player Hero Availability"
     },
     ".respawn": {
-      "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
+      "description": { "en-US": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to respawn.",
+          "description": { "en-US": "The player or players to respawn." },
           "type": [
             "Player",
             {
@@ -28570,11 +28570,11 @@ var actionKw = (
     },
     ".resurrect": {
       "guid": "000000007878",
-      "description": "Instantly resurrects one or more players at the location they died with no transition.",
+      "description": { "en-US": "Instantly resurrects one or more players at the location they died with no transition." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will be resurrected.",
+          "description": { "en-US": "The player or players who will be resurrected." },
           "type": [
             "Player",
             {
@@ -28601,11 +28601,11 @@ var actionKw = (
       "zh-TW": "Resurrect"
     },
     ".setAbility1Enabled": {
-      "description": "Enables or disables ability 1 for one or more players.",
+      "description": { "en-US": "Enables or disables ability 1 for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to ability 1 is affected.",
+          "description": { "en-US": "The player or players whose access to ability 1 is affected." },
           "type": [
             "Player",
             {
@@ -28615,7 +28615,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -28638,11 +28638,11 @@ var actionKw = (
       "zh-TW": "Set Ability 1 Enabled"
     },
     ".setAbility2Enabled": {
-      "description": "Enables or disables ability 2 for one or more players.",
+      "description": { "en-US": "Enables or disables ability 2 for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to ability 2 is affected.",
+          "description": { "en-US": "The player or players whose access to ability 2 is affected." },
           "type": [
             "Player",
             {
@@ -28652,7 +28652,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -28675,11 +28675,11 @@ var actionKw = (
       "zh-TW": "Set Ability 2 Enabled"
     },
     ".setAbilityCharge": {
-      "description": "Set the ability charge count for one or more players. Affects abilities such as Tracer's Blink, Junkrat's Mines, etc.",
+      "description": { "en-US": "Set the ability charge count for one or more players. Affects abilities such as Tracer's Blink, Junkrat's Mines, etc." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose ability charge count will be modified.",
+          "description": { "en-US": "The player or players whose ability charge count will be modified." },
           "type": [
             "Player",
             {
@@ -28689,12 +28689,12 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button associated with the ability to be modified.",
+          "description": { "en-US": "The logical button associated with the ability to be modified." },
           "type": "Button"
         },
         {
           "name": "chargeCount",
-          "description": "The charge count that will be set.",
+          "description": { "en-US": "The charge count that will be set." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -28719,11 +28719,11 @@ var actionKw = (
       "zh-TW": "Set Ability Charge"
     },
     ".setAbilityCooldown": {
-      "description": "Set the ability cooldown time for one or more players.",
+      "description": { "en-US": "Set the ability cooldown time for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose ability cooldown time will be modified.",
+          "description": { "en-US": "The player or players whose ability cooldown time will be modified." },
           "type": [
             "Player",
             {
@@ -28733,12 +28733,12 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button associated with the ability to be modified.",
+          "description": { "en-US": "The logical button associated with the ability to be modified." },
           "type": "Button"
         },
         {
           "name": "cooldown",
-          "description": "The cooldown time that will be set in seconds. Max of 1000.",
+          "description": { "en-US": "The cooldown time that will be set in seconds. Max of 1000." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -28763,11 +28763,11 @@ var actionKw = (
       "zh-TW": "Set Ability Cooldown"
     },
     ".setAbilityResource": {
-      "description": "Set the ability resource percentage for one or more players. Affects abilities such as Dva's Defense Matrix, Pharah's Hover Jets, etc.",
+      "description": { "en-US": "Set the ability resource percentage for one or more players. Affects abilities such as Dva's Defense Matrix, Pharah's Hover Jets, etc." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose ability resource percentage will be modified.",
+          "description": { "en-US": "The player or players whose ability resource percentage will be modified." },
           "type": [
             "Player",
             {
@@ -28777,12 +28777,12 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button associated with the ability to be modified.",
+          "description": { "en-US": "The logical button associated with the ability to be modified." },
           "type": "Button"
         },
         {
           "name": "resourcePercent",
-          "description": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
+          "description": { "en-US": "The percentage of resource that will be set with respect to each player's ability resource capacity." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -28807,11 +28807,11 @@ var actionKw = (
       "zh-TW": "Set Ability Resource"
     },
     ".setAimSpeed": {
-      "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
+      "description": { "en-US": "Sets the aim speed of one or more players to a percentage of their normal aim speed." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose aim speed will be set.",
+          "description": { "en-US": "The player or players whose aim speed will be set." },
           "type": [
             "Player",
             {
@@ -28821,7 +28821,7 @@ var actionKw = (
         },
         {
           "name": "turnSpeedPercent",
-          "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
+          "description": { "en-US": "The percentage of normal aim speed to which the player or players will set their aim speed." },
           "type": "unsigned float"
         }
       ],
@@ -28844,11 +28844,11 @@ var actionKw = (
       "zh-TW": "Set Aim Speed"
     },
     ".setAllowedHeroes": {
-      "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
+      "description": { "en-US": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose hero list is being set.",
+          "description": { "en-US": "The player or players whose hero list is being set." },
           "type": [
             "Player",
             {
@@ -28858,7 +28858,7 @@ var actionKw = (
         },
         {
           "name": "hero",
-          "description": "The hero or heroes that will be available. If no heroes are provided, the action has no effect.",
+          "description": { "en-US": "The hero or heroes that will be available. If no heroes are provided, the action has no effect." },
           "type": [
             "Hero",
             {
@@ -28886,11 +28886,11 @@ var actionKw = (
       "zh-TW": "Set Player Allowed Heroes"
     },
     ".setAmmo": {
-      "description": "Sets the ammo of one or more players.",
+      "description": { "en-US": "Sets the ammo of one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose ammo will be set.",
+          "description": { "en-US": "The player or players whose ammo will be set." },
           "type": [
             "Player",
             {
@@ -28900,14 +28900,14 @@ var actionKw = (
         },
         {
           "name": "clip",
-          "description": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+          "description": { "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "ammo",
-          "description": "The ammo that will be set.",
+          "description": { "en-US": "The ammo that will be set." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -28932,11 +28932,11 @@ var actionKw = (
       "zh-TW": "Set Ammo"
     },
     ".setCrouchEnabled": {
-      "description": "Enables or disables crouch for one or more players.",
+      "description": { "en-US": "Enables or disables crouch for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to crouch is affected.",
+          "description": { "en-US": "The player or players whose access to crouch is affected." },
           "type": [
             "Player",
             {
@@ -28946,7 +28946,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -28969,11 +28969,11 @@ var actionKw = (
       "zh-TW": "Set Crouch Enabled"
     },
     ".setDamageDealt": {
-      "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
+      "description": { "en-US": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose damage dealt will be set.",
+          "description": { "en-US": "The player or players whose damage dealt will be set." },
           "type": [
             "Player",
             {
@@ -28983,7 +28983,7 @@ var actionKw = (
         },
         {
           "name": "damageDealtPercent",
-          "description": "The percentage of raw damage dealt to which the player or players will set their damage dealt.",
+          "description": { "en-US": "The percentage of raw damage dealt to which the player or players will set their damage dealt." },
           "type": "unsigned float",
           "min": 0,
           "max": 1e4,
@@ -29010,11 +29010,11 @@ var actionKw = (
       "zh-TW": "Set Damage Dealt"
     },
     ".setDamageReceived": {
-      "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
+      "description": { "en-US": "Sets the damage received of one or more players to a percentage of their raw damage received." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose damage received will be set.",
+          "description": { "en-US": "The player or players whose damage received will be set." },
           "type": [
             "Player",
             {
@@ -29024,7 +29024,7 @@ var actionKw = (
         },
         {
           "name": "damageReceivedPercent",
-          "description": "The percentage of raw damage received to which the player or players will set their damage received.",
+          "description": { "en-US": "The percentage of raw damage received to which the player or players will set their damage received." },
           "type": "unsigned float",
           "min": 0,
           "max": 1e4,
@@ -29051,11 +29051,11 @@ var actionKw = (
       "zh-TW": "Set Damage Received"
     },
     ".setEnvironmentalKillCreditor": {
-      "description": "Sets the player who will receive credit if the specified target player or players die to the environment before landing on the ground.",
+      "description": { "en-US": "Sets the player who will receive credit if the specified target player or players die to the environment before landing on the ground." },
       "args": [
         {
           "name": "target",
-          "description": "The target player or players whose death is being considered.",
+          "description": { "en-US": "The target player or players whose death is being considered." },
           "type": [
             "Player",
             {
@@ -29065,7 +29065,7 @@ var actionKw = (
         },
         {
           "name": "environmentCreditPlayer",
-          "description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
+          "description": { "en-US": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit." },
           "type": "Player"
         }
       ],
@@ -29088,11 +29088,11 @@ var actionKw = (
       "zh-TW": "Set Environment Credit Player"
     },
     ".setFacing": {
-      "description": "Sets the facing of one or more players to the specified direction.",
+      "description": { "en-US": "Sets the facing of one or more players to the specified direction." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose facing will be set.",
+          "description": { "en-US": "The player or players whose facing will be set." },
           "type": [
             "Player",
             {
@@ -29102,12 +29102,12 @@ var actionKw = (
         },
         {
           "name": "direction",
-          "description": "The unit direction in which the player or players will face. This value is normalized internally.",
+          "description": { "en-US": "The unit direction in which the player or players will face. This value is normalized internally." },
           "type": "Direction"
         },
         {
           "name": "relativity",
-          "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+          "description": { "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players." },
           "type": "Relativity"
         }
       ],
@@ -29130,11 +29130,11 @@ var actionKw = (
       "zh-TW": "Set Facing"
     },
     ".setGravity": {
-      "description": "Sets the movement gravity for one or more players to a percentage of regular movement gravity.",
+      "description": { "en-US": "Sets the movement gravity for one or more players to a percentage of regular movement gravity." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement gravity will be set.",
+          "description": { "en-US": "The player or players whose movement gravity will be set." },
           "type": [
             "Player",
             {
@@ -29144,7 +29144,7 @@ var actionKw = (
         },
         {
           "name": "gravityPercent",
-          "description": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity.",
+          "description": { "en-US": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29169,11 +29169,11 @@ var actionKw = (
       "zh-TW": "Set Gravity"
     },
     ".setHealingDealt": {
-      "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
+      "description": { "en-US": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose healing dealt will be set.",
+          "description": { "en-US": "The player or players whose healing dealt will be set." },
           "type": [
             "Player",
             {
@@ -29183,7 +29183,7 @@ var actionKw = (
         },
         {
           "name": "healingDealtPercent",
-          "description": "",
+          "description": { "en-US": "" },
           "type": "unsigned float",
           "min": 0,
           "max": 1e4,
@@ -29210,11 +29210,11 @@ var actionKw = (
       "zh-TW": "Set Healing Dealt"
     },
     ".setHealingReceived": {
-      "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
+      "description": { "en-US": "Sets the healing received of one or more players to a percentage of their raw healing received." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose healing received will be set.",
+          "description": { "en-US": "The player or players whose healing received will be set." },
           "type": [
             "Player",
             {
@@ -29224,7 +29224,7 @@ var actionKw = (
         },
         {
           "name": "healingReceivedPercent",
-          "description": "The percentage of raw healing received to which the player or players will set their healing received.",
+          "description": { "en-US": "The percentage of raw healing received to which the player or players will set their healing received." },
           "type": "unsigned float"
         }
       ],
@@ -29247,11 +29247,11 @@ var actionKw = (
       "zh-TW": "Set Healing Received"
     },
     ".setHealth": {
-      "description": "Sets the health of a player or players without affecting stats or granting damage/healing credit. This action only has an effect on living players. (For dead players, use the Resurrect Player action instead.)",
+      "description": { "en-US": "Sets the health of a player or players without affecting stats or granting damage/healing credit. This action only has an effect on living players. (For dead players, use the Resurrect Player action instead.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose health will be set.",
+          "description": { "en-US": "The player or players whose health will be set." },
           "type": [
             "Player",
             {
@@ -29261,7 +29261,7 @@ var actionKw = (
         },
         {
           "name": "amount",
-          "description": "How much health the player or players will have.",
+          "description": { "en-US": "How much health the player or players will have." },
           "type": "unsigned float"
         }
       ],
@@ -29284,11 +29284,11 @@ var actionKw = (
       "zh-TW": "Set Player Health"
     },
     ".setInvisibility": {
-      "description": "Causes one or more players to become invisible to either all other players or just enemies.",
+      "description": { "en-US": "Causes one or more players to become invisible to either all other players or just enemies." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will become invisible.",
+          "description": { "en-US": "The player or players who will become invisible." },
           "type": [
             "Player",
             {
@@ -29298,7 +29298,7 @@ var actionKw = (
         },
         {
           "name": "invisibleTo",
-          "description": "Specifies for whom the player or players will be invisible.",
+          "description": { "en-US": "Specifies for whom the player or players will be invisible." },
           "type": "Invis"
         }
       ],
@@ -29321,11 +29321,11 @@ var actionKw = (
       "zh-TW": "Set Invisible"
     },
     ".setJumpEnabled": {
-      "description": "Enables or disables jump for one or more players.",
+      "description": { "en-US": "Enables or disables jump for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to jump is affected.",
+          "description": { "en-US": "The player or players whose access to jump is affected." },
           "type": [
             "Player",
             {
@@ -29335,7 +29335,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -29358,11 +29358,11 @@ var actionKw = (
       "zh-TW": "Set Jump Enabled"
     },
     ".setJumpVerticalSpeed": {
-      "description": "Sets the jump vertical speed of one or more players to a percentage of their raw jump vertical speed.",
+      "description": { "en-US": "Sets the jump vertical speed of one or more players to a percentage of their raw jump vertical speed." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose jump vertical speed will be set.",
+          "description": { "en-US": "The player or players whose jump vertical speed will be set." },
           "type": [
             "Player",
             {
@@ -29372,7 +29372,7 @@ var actionKw = (
         },
         {
           "name": "jumpVerticalSpeedPercent",
-          "description": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed.",
+          "description": { "en-US": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed." },
           "type": "unsigned float"
         }
       ],
@@ -29395,11 +29395,11 @@ var actionKw = (
       "zh-TW": "Set Jump Vertical Speed"
     },
     ".setKnockbackDealt": {
-      "description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
+      "description": { "en-US": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose knockback dealt will be set.",
+          "description": { "en-US": "The player or players whose knockback dealt will be set." },
           "type": [
             "Player",
             {
@@ -29409,7 +29409,7 @@ var actionKw = (
         },
         {
           "name": "knockbackDealtPercent",
-          "description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
+          "description": { "en-US": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt." },
           "type": "unsigned float"
         }
       ],
@@ -29432,11 +29432,11 @@ var actionKw = (
       "zh-TW": "Set Knockback Dealt"
     },
     ".setKnockbackReceived": {
-      "description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
+      "description": { "en-US": "Sets the knockback received of one or more players to a percentage of their raw knockback received." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose knockback received will be set.",
+          "description": { "en-US": "The player or players whose knockback received will be set." },
           "type": [
             "Player",
             {
@@ -29446,7 +29446,7 @@ var actionKw = (
         },
         {
           "name": "knockbackReceivedPercent",
-          "description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
+          "description": { "en-US": "The percentage of raw knockback received to which the player or players will set their knockback received." },
           "type": "unsigned float"
         }
       ],
@@ -29469,11 +29469,11 @@ var actionKw = (
       "zh-TW": "Set Knockback Received"
     },
     ".setMaxAmmo": {
-      "description": "Sets the max ammo of one or more players.",
+      "description": { "en-US": "Sets the max ammo of one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose max ammo will be set.",
+          "description": { "en-US": "The player or players whose max ammo will be set." },
           "type": [
             "Player",
             {
@@ -29483,14 +29483,14 @@ var actionKw = (
         },
         {
           "name": "clip",
-          "description": "The index of the clip whose max ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+          "description": { "en-US": "The index of the clip whose max ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "ammo",
-          "description": "The max ammo that will be set.",
+          "description": { "en-US": "The max ammo that will be set." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29515,11 +29515,11 @@ var actionKw = (
       "zh-TW": "Set Max Ammo"
     },
     ".setMaxHealth": {
-      "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
+      "description": { "en-US": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose max health will be set.",
+          "description": { "en-US": "The player or players whose max health will be set." },
           "type": [
             "Player",
             {
@@ -29529,7 +29529,7 @@ var actionKw = (
         },
         {
           "name": "healthPercent",
-          "description": "The percentage of raw max health to which the player or players will set their max health.",
+          "description": { "en-US": "The percentage of raw max health to which the player or players will set their max health." },
           "type": "unsigned float",
           "min": 0,
           "max": 1e4,
@@ -29556,11 +29556,11 @@ var actionKw = (
       "zh-TW": "Set Max Health"
     },
     ".setMeleeEnabled": {
-      "description": "Enables or disables melee for one or more players.",
+      "description": { "en-US": "Enables or disables melee for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to melee is affected.",
+          "description": { "en-US": "The player or players whose access to melee is affected." },
           "type": [
             "Player",
             {
@@ -29570,7 +29570,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -29593,11 +29593,11 @@ var actionKw = (
       "zh-TW": "Set Melee Enabled"
     },
     ".setMoveSpeed": {
-      "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
+      "description": { "en-US": "Sets the move speed of one or more players to a percentage of their raw move speed." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose move speed will be set.",
+          "description": { "en-US": "The player or players whose move speed will be set." },
           "type": [
             "Player",
             {
@@ -29607,7 +29607,7 @@ var actionKw = (
         },
         {
           "name": "moveSpeedPercent",
-          "description": "The percentage of raw move speed to which the player or players will set their move speed.",
+          "description": { "en-US": "The percentage of raw move speed to which the player or players will set their move speed." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29632,11 +29632,11 @@ var actionKw = (
       "zh-TW": "Set Move Speed"
     },
     ".setPrimaryFireEnabled": {
-      "description": "Enables or disables primary fire for one or more players.",
+      "description": { "en-US": "Enables or disables primary fire for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to primary fire is affected.",
+          "description": { "en-US": "The player or players whose access to primary fire is affected." },
           "type": [
             "Player",
             {
@@ -29646,7 +29646,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -29669,11 +29669,11 @@ var actionKw = (
       "zh-TW": "Set Primary Fire Enabled"
     },
     ".setProjectileGravity": {
-      "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
+      "description": { "en-US": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose projectile gravity will be set.",
+          "description": { "en-US": "The player or players whose projectile gravity will be set." },
           "type": [
             "Player",
             {
@@ -29683,7 +29683,7 @@ var actionKw = (
         },
         {
           "name": "projectileGravityPercent",
-          "description": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity.",
+          "description": { "en-US": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29708,11 +29708,11 @@ var actionKw = (
       "zh-TW": "Set Projectile Gravity"
     },
     ".setProjectileSpeed": {
-      "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
+      "description": { "en-US": "Sets the projectile speed for one or more players to a percentage of projectile speed." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose projectile speed will be set.",
+          "description": { "en-US": "The player or players whose projectile speed will be set." },
           "type": [
             "Player",
             {
@@ -29722,7 +29722,7 @@ var actionKw = (
         },
         {
           "name": "projectileSpeedPercent",
-          "description": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed.",
+          "description": { "en-US": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29747,11 +29747,11 @@ var actionKw = (
       "zh-TW": "Set Projectile Speed"
     },
     ".setReloadEnabled": {
-      "description": "Enables or disables Reload for one or more players.",
+      "description": { "en-US": "Enables or disables Reload for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to reload is affected.",
+          "description": { "en-US": "The player or players whose access to reload is affected." },
           "type": [
             "Player",
             {
@@ -29761,7 +29761,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare." },
           "type": "bool"
         }
       ],
@@ -29784,11 +29784,11 @@ var actionKw = (
       "zh-TW": "Set Reload Enabled"
     },
     ".setRespawnTime": {
-      "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
+      "description": { "en-US": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose respawn max time is being defined.",
+          "description": { "en-US": "The player or players whose respawn max time is being defined." },
           "type": [
             "Player",
             {
@@ -29798,7 +29798,7 @@ var actionKw = (
         },
         {
           "name": "time",
-          "description": "The duration between death and respawn in seconds.",
+          "description": { "en-US": "The duration between death and respawn in seconds." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29823,11 +29823,11 @@ var actionKw = (
       "zh-TW": "Set Respawn Max Time"
     },
     ".setScore": {
-      "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
+      "description": { "en-US": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose score will be set.",
+          "description": { "en-US": "The player or players whose score will be set." },
           "type": [
             "Player",
             {
@@ -29837,7 +29837,7 @@ var actionKw = (
         },
         {
           "name": "score",
-          "description": "The score that will be set.",
+          "description": { "en-US": "The score that will be set." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29862,11 +29862,11 @@ var actionKw = (
       "zh-TW": "Set Player Score"
     },
     ".setSecondaryFireEnabled": {
-      "description": "Enables or disables secondary fire for one or more players.",
+      "description": { "en-US": "Enables or disables secondary fire for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to secondary fire is affected.",
+          "description": { "en-US": "The player or players whose access to secondary fire is affected." },
           "type": [
             "Player",
             {
@@ -29876,7 +29876,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -29899,11 +29899,11 @@ var actionKw = (
       "zh-TW": "Set Secondary Fire Enabled"
     },
     ".setStatusEffect": {
-      "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
+      "description": { "en-US": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to whom the status will be applied.",
+          "description": { "en-US": "The player or players to whom the status will be applied." },
           "type": [
             "Player",
             {
@@ -29913,17 +29913,17 @@ var actionKw = (
         },
         {
           "name": "assister",
-          "description": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit.",
+          "description": { "en-US": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit." },
           "type": "Player"
         },
         {
           "name": "status",
-          "description": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities.",
+          "description": { "en-US": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities." },
           "type": "Status"
         },
         {
           "name": "duration",
-          "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 99999.",
+          "description": { "en-US": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 99999." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29948,11 +29948,11 @@ var actionKw = (
       "zh-TW": "Set Status"
     },
     ".setUltCharge": {
-      "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
+      "description": { "en-US": "Sets the ultimate charge for one or more players as a percentage of maximum charge." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose ultimate charge will be set.",
+          "description": { "en-US": "The player or players whose ultimate charge will be set." },
           "type": [
             "Player",
             {
@@ -29962,7 +29962,7 @@ var actionKw = (
         },
         {
           "name": "chargePercent",
-          "description": "The percentage of maximum charge.",
+          "description": { "en-US": "The percentage of maximum charge." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -29987,11 +29987,11 @@ var actionKw = (
       "zh-TW": "Set Ultimate Charge"
     },
     ".setUltEnabled": {
-      "description": "Enables or disables the ultimate ability of one or more players.",
+      "description": { "en-US": "Enables or disables the ultimate ability of one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose access to their ultimate ability is affected.",
+          "description": { "en-US": "The player or players whose access to their ultimate ability is affected." },
           "type": [
             "Player",
             {
@@ -30001,7 +30001,7 @@ var actionKw = (
         },
         {
           "name": "enabled",
-          "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
+          "description": { "en-US": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare." },
           "type": "bool"
         }
       ],
@@ -30024,11 +30024,11 @@ var actionKw = (
       "zh-TW": "Set Ultimate Ability Enabled"
     },
     ".setWeapon": {
-      "description": "Sets the weapon of one or more players.",
+      "description": { "en-US": "Sets the weapon of one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose weapon will be set.",
+          "description": { "en-US": "The player or players whose weapon will be set." },
           "type": [
             "Player",
             {
@@ -30038,7 +30038,7 @@ var actionKw = (
         },
         {
           "name": "weapon",
-          "description": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon.",
+          "description": { "en-US": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -30063,11 +30063,11 @@ var actionKw = (
       "zh-TW": "Set Weapon"
     },
     ".startAcceleration": {
-      "description": "Starts accelerating one or more players in a specified direction.",
+      "description": { "en-US": "Starts accelerating one or more players in a specified direction." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players that will begin accelerating.",
+          "description": { "en-US": "The player or players that will begin accelerating." },
           "type": [
             "Player",
             {
@@ -30077,27 +30077,27 @@ var actionKw = (
         },
         {
           "name": "direction",
-          "description": "The unit direction in which the acceleration will be applied. This value is normalized internally.",
+          "description": { "en-US": "The unit direction in which the acceleration will be applied. This value is normalized internally." },
           "type": "Direction"
         },
         {
           "name": "rate",
-          "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
+          "description": { "en-US": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction." },
           "type": "unsigned float"
         },
         {
           "name": "maxSpeed",
-          "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
+          "description": { "en-US": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction." },
           "type": "unsigned float"
         },
         {
           "name": "relativity",
-          "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+          "description": { "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players." },
           "type": "Relativity"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "AccelReeval",
           "default": "DIRECTION_RATE_AND_MAX_SPEED"
         }
@@ -30121,11 +30121,11 @@ var actionKw = (
       "zh-TW": "Start Accelerating"
     },
     ".startCamera": {
-      "description": "Places your camera at a location, facing a direction.",
+      "description": { "en-US": "Places your camera at a location, facing a direction." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose cameras will be placed at the location.",
+          "description": { "en-US": "The player or players whose cameras will be placed at the location." },
           "type": [
             "Player",
             {
@@ -30135,17 +30135,17 @@ var actionKw = (
         },
         {
           "name": "eyePosition",
-          "description": "The position of the camera. Reevaluates continuously.",
+          "description": { "en-US": "The position of the camera. Reevaluates continuously." },
           "type": "Position"
         },
         {
           "name": "lookAtPosition",
-          "description": "Where the camera looks at. Reevaluates continuously.",
+          "description": { "en-US": "Where the camera looks at. Reevaluates continuously." },
           "type": "Position"
         },
         {
           "name": "blendSpeed",
-          "description": "How fast to blend the camera movement as positions change. 0 means do not blend at all, and just change positions instantly.",
+          "description": { "en-US": "How fast to blend the camera movement as positions change. 0 means do not blend at all, and just change positions instantly." },
           "type": "unsigned float",
           "default": 0
         }
@@ -30169,11 +30169,11 @@ var actionKw = (
       "zh-TW": "Start Camera"
     },
     ".startDamageOverTime": {
-      "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
+      "description": { "en-US": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value." },
       "args": [
         {
           "name": "player",
-          "description": "One or more players who will receive the damage over time.",
+          "description": { "en-US": "One or more players who will receive the damage over time." },
           "type": [
             "Player",
             {
@@ -30183,17 +30183,17 @@ var actionKw = (
         },
         {
           "name": "damager",
-          "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
+          "description": { "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit." },
           "type": "Player"
         },
         {
           "name": "duration",
-          "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 99999.",
+          "description": { "en-US": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 99999." },
           "type": "unsigned float"
         },
         {
           "name": "damagePerSecond",
-          "description": "The damage per second for the damage over time.",
+          "description": { "en-US": "The damage per second for the damage over time." },
           "type": "unsigned float"
         }
       ],
@@ -30216,11 +30216,11 @@ var actionKw = (
       "zh-TW": "Start Damage Over Time"
     },
     ".startFacing": {
-      "description": "Starts turning one or more players to face the specified direction.",
+      "description": { "en-US": "Starts turning one or more players to face the specified direction." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will start turning.",
+          "description": { "en-US": "The player or players who will start turning." },
           "type": [
             "Player",
             {
@@ -30230,24 +30230,24 @@ var actionKw = (
         },
         {
           "name": "direction",
-          "description": "The unit direction in which the player or players will eventually face. This value is normalized internally.",
+          "description": { "en-US": "The unit direction in which the player or players will eventually face. This value is normalized internally." },
           "type": "Direction"
         },
         {
           "name": "turnRate",
-          "description": "The turn rate in degrees per second.",
+          "description": { "en-US": "The turn rate in degrees per second." },
           "type": "unsigned float",
           "default": "Math.INFINITY"
         },
         {
           "name": "relativity",
-          "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+          "description": { "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players." },
           "type": "Relativity",
           "default": "TO_WORLD"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "FacingReeval",
           "default": "DIRECTION_AND_TURN_RATE"
         }
@@ -30271,11 +30271,11 @@ var actionKw = (
       "zh-TW": "Start Facing"
     },
     ".startForcingButton": {
-      "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
+      "description": { "en-US": "Forces one or more players to hold a button virtually until stopped by the stop holding button action." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who are holding a button virtually.",
+          "description": { "en-US": "The player or players who are holding a button virtually." },
           "type": [
             "Player",
             {
@@ -30285,7 +30285,7 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button that is being held virtually.",
+          "description": { "en-US": "The logical button that is being held virtually." },
           "type": "Button"
         }
       ],
@@ -30308,11 +30308,11 @@ var actionKw = (
       "zh-TW": "Start Holding Button"
     },
     ".startForcingHero": {
-      "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
+      "description": { "en-US": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will be forced to be a specific hero.",
+          "description": { "en-US": "The player or players who will be forced to be a specific hero." },
           "type": [
             "Player",
             {
@@ -30322,7 +30322,7 @@ var actionKw = (
         },
         {
           "name": "hero",
-          "description": "The hero that the player or players will be forced to be.",
+          "description": { "en-US": "The hero that the player or players will be forced to be." },
           "type": "Hero"
         }
       ],
@@ -30345,11 +30345,11 @@ var actionKw = (
       "zh-TW": "Start Forcing Player To Be Hero"
     },
     ".startForcingName": {
-      "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
+      "description": { "en-US": "Starts forcing the name for the specified player or players (only works with AI and dummy bots)." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose name will be forced.",
+          "description": { "en-US": "The player or players whose name will be forced." },
           "type": [
             "Player",
             {
@@ -30359,7 +30359,7 @@ var actionKw = (
         },
         {
           "name": "name",
-          "description": "The name to be forced.",
+          "description": { "en-US": "The name to be forced." },
           "type": "String",
           canReplaceEmptyStringByEmptyArray: true
         }
@@ -30383,11 +30383,11 @@ var actionKw = (
       "zh-TW": "Start Forcing Dummy Bot Name"
     },
     ".startForcingOutlineFor": {
-      "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
+      "description": { "en-US": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players." },
       "args": [
         {
           "name": "viewedPlayers",
-          "description": "The player or players who will have their outlines modified.",
+          "description": { "en-US": "The player or players who will have their outlines modified." },
           "type": [
             "Player",
             {
@@ -30397,7 +30397,7 @@ var actionKw = (
         },
         {
           "name": "viewingPlayers",
-          "description": "The viewing player or players for whom the viewed player's outlines will be modified.",
+          "description": { "en-US": "The viewing player or players for whom the viewed player's outlines will be modified." },
           "type": [
             "Player",
             {
@@ -30407,17 +30407,17 @@ var actionKw = (
         },
         {
           "name": "visible",
-          "description": "Whether or not the specified player outlines should be visible.",
+          "description": { "en-US": "Whether or not the specified player outlines should be visible." },
           "type": "bool"
         },
         {
           "name": "color",
-          "description": "The color of the specified player outlines, if they are visible.",
+          "description": { "en-US": "The color of the specified player outlines, if they are visible." },
           "type": "Color"
         },
         {
           "name": "visibility",
-          "description": "The visibility type of the specified player outlines, if they are visible.",
+          "description": { "en-US": "The visibility type of the specified player outlines, if they are visible." },
           "type": "OutlineVisibility",
           "default": "DEFAULT"
         }
@@ -30441,22 +30441,22 @@ var actionKw = (
       "zh-TW": "Start Forcing Player Outlines"
     },
     ".startForcingPosition": {
-      "description": "Starts forcing a player to be in a given position. If reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
+      "description": { "en-US": "Starts forcing a player to be in a given position. If reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
+          "description": { "en-US": "The player whose position will be forced. (The reevaluation option does not apply to this value.)" },
           "type": "Player"
         },
         {
           "name": "position",
-          "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
+          "description": { "en-US": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time." },
           "type": "Position",
           "canReplace0ByNull": true
         },
         {
           "name": "reevaluate",
-          "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the position is only evaluated once when the action begins.",
+          "description": { "en-US": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the position is only evaluated once when the action begins." },
           "type": "bool",
           "default": true
         }
@@ -30480,11 +30480,11 @@ var actionKw = (
       "zh-TW": "Start Forcing Player Position"
     },
     ".startForcingThrottle": {
-      "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
+      "description": { "en-US": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement will be forced or limited.",
+          "description": { "en-US": "The player or players whose movement will be forced or limited." },
           "type": [
             "Player",
             {
@@ -30494,42 +30494,42 @@ var actionKw = (
         },
         {
           "name": "minForward",
-          "description": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement.",
+          "description": { "en-US": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "maxForward",
-          "description": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement.",
+          "description": { "en-US": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "minBackward",
-          "description": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement.",
+          "description": { "en-US": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "maxBackward",
-          "description": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement.",
+          "description": { "en-US": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "minSideways",
-          "description": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
+          "description": { "en-US": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "maxSideways",
-          "description": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement.",
+          "description": { "en-US": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -30554,11 +30554,11 @@ var actionKw = (
       "zh-TW": "Start Forcing Throttle"
     },
     ".startGrantingAssistFor": {
-      "description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
+      "description": { "en-US": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started." },
       "args": [
         {
           "name": "assisters",
-          "description": "The target Player or Players who will receive assist credit.",
+          "description": { "en-US": "The target Player or Players who will receive assist credit." },
           "type": [
             "Player",
             {
@@ -30568,7 +30568,7 @@ var actionKw = (
         },
         {
           "name": "targets",
-          "description": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist.",
+          "description": { "en-US": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist." },
           "type": [
             "Player",
             {
@@ -30578,7 +30578,7 @@ var actionKw = (
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+          "description": { "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs." },
           "type": "AssistReeval",
           "default": "ASSISTERS_AND_TARGETS"
         }
@@ -30602,11 +30602,11 @@ var actionKw = (
       "zh-TW": "Start Assist"
     },
     ".startHealingOverTime": {
-      "description": "Starts an instance of heal over time. This healing will persist for the specified duration or until stopped by script. To obtain a reference to this healing, use the last heal over time id value.",
+      "description": { "en-US": "Starts an instance of heal over time. This healing will persist for the specified duration or until stopped by script. To obtain a reference to this healing, use the last heal over time id value." },
       "args": [
         {
           "name": "player",
-          "description": "One or more players who will receive the heal over time.",
+          "description": { "en-US": "One or more players who will receive the heal over time." },
           "type": [
             "Player",
             {
@@ -30616,17 +30616,17 @@ var actionKw = (
         },
         {
           "name": "healer",
-          "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
+          "description": { "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit." },
           "type": "Player"
         },
         {
           "name": "duration",
-          "description": "The duration of the heal over time in seconds. To have a healing that lasts until stopped by script, provide an arbitrarily long duration such as 99999.",
+          "description": { "en-US": "The duration of the heal over time in seconds. To have a healing that lasts until stopped by script, provide an arbitrarily long duration such as 99999." },
           "type": "unsigned float"
         },
         {
           "name": "healingPerSecond",
-          "description": "The healing per second for the heal over time.",
+          "description": { "en-US": "The healing per second for the heal over time." },
           "type": "unsigned float"
         }
       ],
@@ -30649,11 +30649,11 @@ var actionKw = (
       "zh-TW": "Start Heal Over Time"
     },
     ".startModifyingVoicelinePitch": {
-      "description": "Modifies the way hero voice lines sound for a player or players.",
+      "description": { "en-US": "Modifies the way hero voice lines sound for a player or players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose voice line sound will be modified.",
+          "description": { "en-US": "The player or players whose voice line sound will be modified." },
           "type": [
             "Player",
             {
@@ -30663,14 +30663,14 @@ var actionKw = (
         },
         {
           "name": "pitchScalar",
-          "description": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5).",
+          "description": { "en-US": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5)." },
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
           "type": "unsigned float"
         },
         {
           "name": "reevaluation",
-          "description": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the action executes.",
+          "description": { "en-US": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the action executes." },
           "type": "bool",
           "default": true
         }
@@ -30694,11 +30694,11 @@ var actionKw = (
       "zh-TW": "Start Modifying Hero Voice Lines"
     },
     ".startScalingBarriers": {
-      "description": "Starts modifying the size of barriers for a player or players.",
+      "description": { "en-US": "Starts modifying the size of barriers for a player or players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose barriers will have their size modified.",
+          "description": { "en-US": "The player or players whose barriers will have their size modified." },
           "type": [
             "Player",
             {
@@ -30708,14 +30708,14 @@ var actionKw = (
         },
         {
           "name": "scale",
-          "description": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
+          "description": { "en-US": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.)." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "reevaluation",
-          "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
+          "description": { "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins." },
           "type": "bool",
           "default": true
         }
@@ -30739,11 +30739,11 @@ var actionKw = (
       "zh-TW": "Start Scaling Barriers"
     },
     ".startScalingSize": {
-      "description": "Starts modifying the size of a player or players (including model, movement collision, hit detection, and certain abilities). Note that large players placed into complex environments will severely impact server load, so consider also applying the Disable Movement Collision With Environment action.",
+      "description": { "en-US": "Starts modifying the size of a player or players (including model, movement collision, hit detection, and certain abilities). Note that large players placed into complex environments will severely impact server load, so consider also applying the Disable Movement Collision With Environment action." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose size will be modified.",
+          "description": { "en-US": "The player or players whose size will be modified." },
           "type": [
             "Player",
             {
@@ -30753,14 +30753,14 @@ var actionKw = (
         },
         {
           "name": "scale",
-          "description": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
+          "description": { "en-US": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.)." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "reevaluation",
-          "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
+          "description": { "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins." },
           "type": "bool",
           "default": true
         }
@@ -30784,11 +30784,11 @@ var actionKw = (
       "zh-TW": "Start Scaling Player"
     },
     ".startThrottleInDirection": {
-      "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
+      "description": { "en-US": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose throttle will be set or added to.",
+          "description": { "en-US": "The player or players whose throttle will be set or added to." },
           "type": [
             "Player",
             {
@@ -30798,28 +30798,28 @@ var actionKw = (
         },
         {
           "name": "direction",
-          "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
+          "description": { "en-US": "The unit direction in which the throttle will be set or added to. This value is normalized internally." },
           "type": "Direction"
         },
         {
           "name": "magnitude",
-          "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
+          "description": { "en-US": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle." },
           "type": "unsigned float"
         },
         {
           "name": "relativity",
-          "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+          "description": { "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players." },
           "type": "Relativity"
         },
         {
           "name": "behavior",
-          "description": "Specifies whether preexisting throttle is replaced or added to.",
+          "description": { "en-US": "Specifies whether preexisting throttle is replaced or added to." },
           "type": "Throttle",
           "default": "REPLACE_EXISTING"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "ThrottleReeval",
           "default": "DIRECTION_AND_MAGNITUDE"
         }
@@ -30843,11 +30843,11 @@ var actionKw = (
       "zh-TW": "Start Throttle In Direction"
     },
     ".startTransformingThrottle": {
-      "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
+      "description": { "en-US": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose throttle will be transformed.",
+          "description": { "en-US": "The player or players whose throttle will be transformed." },
           "type": [
             "Player",
             {
@@ -30857,17 +30857,17 @@ var actionKw = (
         },
         {
           "name": "xAxisScalar",
-          "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
+          "description": { "en-US": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)." },
           "type": "unsigned float"
         },
         {
           "name": "yAxisScalar",
-          "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
+          "description": { "en-US": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)." },
           "type": "unsigned float"
         },
         {
           "name": "relativeDirection",
-          "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
+          "description": { "en-US": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally." },
           "type": "Direction"
         }
       ],
@@ -30890,11 +30890,11 @@ var actionKw = (
       "zh-TW": "Start Transforming Throttle"
     },
     ".stopAcceleration": {
-      "description": "Stops the acceleration started by the start accelerating action for one or more players.",
+      "description": { "en-US": "Stops the acceleration started by the start accelerating action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will stop accelerating.",
+          "description": { "en-US": "The player or players who will stop accelerating." },
           "type": [
             "Player",
             {
@@ -30922,11 +30922,11 @@ var actionKw = (
       "zh-TW": "Stop Accelerating"
     },
     ".stopAllDamageOverTime": {
-      "description": "Stops all damage over time started by start damage over time for one or more players.",
+      "description": { "en-US": "Stops all damage over time started by start damage over time for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose scripted damage over time will stop.",
+          "description": { "en-US": "The player or players whose scripted damage over time will stop." },
           "type": [
             "Player",
             {
@@ -30954,11 +30954,11 @@ var actionKw = (
       "zh-TW": "Stop All Damage Over Time"
     },
     ".stopAllHealingOverTime": {
-      "description": "Stops all heal over time started by start heal over time for one or more players.",
+      "description": { "en-US": "Stops all heal over time started by start heal over time for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose scripted heal over time will stop.",
+          "description": { "en-US": "The player or players whose scripted heal over time will stop." },
           "type": [
             "Player",
             {
@@ -30986,11 +30986,11 @@ var actionKw = (
       "zh-TW": "Stop All Heal Over Time"
     },
     ".stopCamera": {
-      "description": "Restores the camera to the default view.",
+      "description": { "en-US": "Restores the camera to the default view." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose cameras will be put back to the default view.",
+          "description": { "en-US": "The player or players whose cameras will be put back to the default view." },
           "type": [
             "Player",
             {
@@ -31018,11 +31018,11 @@ var actionKw = (
       "zh-TW": "Stop Camera"
     },
     ".stopFacing": {
-      "description": "Stops the turning started by the start facing action for one or more players.",
+      "description": { "en-US": "Stops the turning started by the start facing action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will stop turning.",
+          "description": { "en-US": "The player or players who will stop turning." },
           "type": [
             "Player",
             {
@@ -31050,11 +31050,11 @@ var actionKw = (
       "zh-TW": "Stop Facing"
     },
     ".stopForcingButton": {
-      "description": "Undoes the effect of the start holding button action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the start holding button action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who are no longer holding a button virtually.",
+          "description": { "en-US": "The player or players who are no longer holding a button virtually." },
           "type": [
             "Player",
             {
@@ -31064,7 +31064,7 @@ var actionKw = (
         },
         {
           "name": "button",
-          "description": "The logical button that is no longer being held virtually.",
+          "description": { "en-US": "The logical button that is no longer being held virtually." },
           "type": "Button"
         }
       ],
@@ -31087,11 +31087,11 @@ var actionKw = (
       "zh-TW": "Stop Holding Button"
     },
     ".stopForcingCurrentHero": {
-      "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
+      "description": { "en-US": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will no longer be forced to be a specific hero.",
+          "description": { "en-US": "The player or players who will no longer be forced to be a specific hero." },
           "type": [
             "Player",
             {
@@ -31119,11 +31119,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Player To Be Hero"
     },
     ".stopForcingName": {
-      "description": "Cancels the behavior of `startForcingName` for the specified player or players.",
+      "description": { "en-US": "Cancels the behavior of `startForcingName` for the specified player or players." },
       "args": [
         {
           "name": "player",
-          "description": "The Player or Players whose names will stop being forced",
+          "description": { "en-US": "The Player or Players whose names will stop being forced" },
           "type": [
             "Player",
             {
@@ -31151,11 +31151,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Dummy Bot Name"
     },
     ".stopForcingOutlineFor": {
-      "description": "Cancels the behavior of Start Forcing Player Outlines for the specified viewed player or players from the perspective of one or more viewing players.",
+      "description": { "en-US": "Cancels the behavior of Start Forcing Player Outlines for the specified viewed player or players from the perspective of one or more viewing players." },
       "args": [
         {
           "name": "viewedPlayers",
-          "description": "The player or players who will have their outlines reset.",
+          "description": { "en-US": "The player or players who will have their outlines reset." },
           "type": [
             "Player",
             {
@@ -31165,7 +31165,7 @@ var actionKw = (
         },
         {
           "name": "viewingPlayers",
-          "description": "The viewing player or players for whom the viewed player's outlines will be reset.",
+          "description": { "en-US": "The viewing player or players for whom the viewed player's outlines will be reset." },
           "type": [
             "Player",
             {
@@ -31193,11 +31193,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Player Outlines"
     },
     ".stopForcingPosition": {
-      "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
+      "description": { "en-US": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s)." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose positions will stop being forced.",
+          "description": { "en-US": "The player or players whose positions will stop being forced." },
           "type": [
             "Player",
             {
@@ -31225,11 +31225,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Player Position"
     },
     ".stopForcingThrottle": {
-      "description": "Undoes the effect of the start forcing throttle action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the start forcing throttle action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose movement input will be restored.",
+          "description": { "en-US": "The player or players whose movement input will be restored." },
           "type": [
             "Player",
             {
@@ -31257,11 +31257,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Throttle"
     },
     ".stopModifyingVoicelinePitch": {
-      "description": "Undoes the effect of the Start Modifying Hero Voice Lines action for one or more players.",
+      "description": { "en-US": "Undoes the effect of the Start Modifying Hero Voice Lines action for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose hero voice line sounds will stop being modified.",
+          "description": { "en-US": "The player or players whose hero voice line sounds will stop being modified." },
           "type": [
             "Player",
             {
@@ -31289,11 +31289,11 @@ var actionKw = (
       "zh-TW": "Stop Modifying Hero Voice Lines"
     },
     ".stopScalingBarriers": {
-      "description": "Stops overriding the size of the barriers of a Player or Players.",
+      "description": { "en-US": "Stops overriding the size of the barriers of a Player or Players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose barriers will stop having their size being overridden.",
+          "description": { "en-US": "The player or players whose barriers will stop having their size being overridden." },
           "type": [
             "Player",
             {
@@ -31321,11 +31321,11 @@ var actionKw = (
       "zh-TW": "Stop Scaling Barriers"
     },
     ".stopScalingSize": {
-      "description": "Stops overriding the size of a player or players.",
+      "description": { "en-US": "Stops overriding the size of a player or players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose size will stop being overridden.",
+          "description": { "en-US": "The player or players whose size will stop being overridden." },
           "type": [
             "Player",
             {
@@ -31353,11 +31353,11 @@ var actionKw = (
       "zh-TW": "Stop Scaling Player"
     },
     ".stopThrottleInDirection": {
-      "description": "Cancels the behavior caused by start throttle in direction.",
+      "description": { "en-US": "Cancels the behavior caused by start throttle in direction." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose default throttle control will be restored.",
+          "description": { "en-US": "The player or players whose default throttle control will be restored." },
           "type": [
             "Player",
             {
@@ -31385,11 +31385,11 @@ var actionKw = (
       "zh-TW": "Stop Throttle In Direction"
     },
     ".stopTransformingThrottle": {
-      "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
+      "description": { "en-US": "Stops the throttle transform started by start transforming throttle for one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose throttle will stop being transformed.",
+          "description": { "en-US": "The player or players whose throttle will stop being transformed." },
           "type": [
             "Player",
             {
@@ -31418,11 +31418,11 @@ var actionKw = (
     },
     ".teleport": {
       "guid": "00000000B9BA",
-      "description": "Teleports one or more players to the specified position.",
+      "description": { "en-US": "Teleports one or more players to the specified position." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to teleport.",
+          "description": { "en-US": "The player or players to teleport." },
           "type": [
             "Player",
             {
@@ -31432,7 +31432,7 @@ var actionKw = (
         },
         {
           "name": "position",
-          "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
+          "description": { "en-US": "The position to which the player or players will teleport. If a player is provided, the position of the player is used." },
           "type": "Position",
           "canReplace0ByNull": true
         }
@@ -31455,7 +31455,7 @@ var actionKw = (
       "zh-TW": "Teleport"
     },
     "__abortIfConditionIsFalse__": {
-      "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
+      "description": { "en-US": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action." },
       "args": [],
       "guid": "00000000BB02",
       "return": "void",
@@ -31476,7 +31476,7 @@ var actionKw = (
       "zh-TW": "Abort If Condition Is False"
     },
     "__abortIfConditionIsTrue__": {
-      "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
+      "description": { "en-US": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action." },
       "args": [],
       "guid": "00000000BB03",
       "return": "void",
@@ -31497,11 +31497,11 @@ var actionKw = (
       "zh-TW": "Abort If Condition Is True"
     },
     "__abortIf__": {
-      "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
+      "description": { "en-US": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action." },
       "args": [
         {
           "name": "condition",
-          "description": "Specifies whether the execution is stopped.",
+          "description": { "en-US": "Specifies whether the execution is stopped." },
           "type": "bool"
         }
       ],
@@ -31524,11 +31524,11 @@ var actionKw = (
       "zh-TW": "Abort If"
     },
     "__callSubroutine__": {
-      "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+      "description": { "en-US": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule." },
       "args": [
         {
           "name": "subroutine",
-          "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+          "description": { "en-US": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored." },
           "type": "Subroutine"
         }
       ],
@@ -31551,16 +31551,16 @@ var actionKw = (
       "zh-TW": "Call Subroutine"
     },
     "__chaseGlobalVariableAtRate__": {
-      "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
+      "description": { "en-US": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)" },
       "args": [
         {
           "name": "variable",
-          "description": "Specifies which global variable to modify gradually.",
+          "description": { "en-US": "Specifies which global variable to modify gradually." },
           "type": "GlobalVariable"
         },
         {
           "name": "destination",
-          "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+          "description": { "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
           "type": [
             "float",
             "Vector"
@@ -31568,12 +31568,12 @@ var actionKw = (
         },
         {
           "name": "rate",
-          "description": "The amount of change that will happen to the variable's value each second.",
+          "description": { "en-US": "The amount of change that will happen to the variable's value each second." },
           "type": "float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "ChaseRateReeval"
         }
       ],
@@ -31596,16 +31596,16 @@ var actionKw = (
       "zh-TW": "Chase Global Variable At Rate"
     },
     "__chaseGlobalVariableOverTime__": {
-      "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
+      "description": { "en-US": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)" },
       "args": [
         {
           "name": "variable",
-          "description": "Specifies which global variable to modify gradually.",
+          "description": { "en-US": "Specifies which global variable to modify gradually." },
           "type": "GlobalVariable"
         },
         {
           "name": "destination",
-          "description": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+          "description": { "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
           "type": [
             "float",
             "Vector"
@@ -31613,12 +31613,12 @@ var actionKw = (
         },
         {
           "name": "duration",
-          "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+          "description": { "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination." },
           "type": "float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "ChaseTimeReeval"
         }
       ],
@@ -31641,11 +31641,11 @@ var actionKw = (
       "zh-TW": "Chase Global Variable Over Time"
     },
     "__chasePlayerVariableAtRate__": {
-      "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
+      "description": { "en-US": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+          "description": { "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently." },
           "type": [
             "Player",
             {
@@ -31655,12 +31655,12 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to modify gradually.",
+          "description": { "en-US": "Specifies which of the player's variables to modify gradually." },
           "type": "PlayerVariable"
         },
         {
           "name": "destination",
-          "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+          "description": { "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
           "type": [
             "float",
             "Vector"
@@ -31668,12 +31668,12 @@ var actionKw = (
         },
         {
           "name": "rate",
-          "description": "The amount of change that will happen to the variable's value each second.",
+          "description": { "en-US": "The amount of change that will happen to the variable's value each second." },
           "type": "float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "ChaseRateReeval"
         }
       ],
@@ -31696,11 +31696,11 @@ var actionKw = (
       "zh-TW": "Chase Player Variable At Rate"
     },
     "__chasePlayerVariableOverTime__": {
-      "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
+      "description": { "en-US": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)" },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+          "description": { "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently." },
           "type": [
             "Player",
             {
@@ -31710,12 +31710,12 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to modify gradually.",
+          "description": { "en-US": "Specifies which of the player's variables to modify gradually." },
           "type": "PlayerVariable"
         },
         {
           "name": "destination",
-          "description": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+          "description": { "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
           "type": [
             "float",
             "Vector"
@@ -31723,12 +31723,12 @@ var actionKw = (
         },
         {
           "name": "duration",
-          "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+          "description": { "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination." },
           "type": "float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "ChaseTimeReeval"
         }
       ],
@@ -31751,11 +31751,11 @@ var actionKw = (
       "zh-TW": "Chase Player Variable Over Time"
     },
     "__elif__": {
-      "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false." },
       "args": [
         {
           "name": "condition",
-          "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+          "description": { "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level." },
           "type": "bool"
         }
       ],
@@ -31778,7 +31778,7 @@ var actionKw = (
       "zh-TW": "Else If"
     },
     "__else__": {
-      "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false." },
       "args": [],
       "guid": "00000000FB34",
       "return": "void",
@@ -31799,7 +31799,7 @@ var actionKw = (
       "zh-TW": "Else"
     },
     "__end__": {
-      "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
+      "description": { "en-US": "Denotes the end of a series of actions started by an if, else if, else, while, or for action." },
       "args": [],
       "guid": "00000000FB37",
       "return": "void",
@@ -31820,26 +31820,26 @@ var actionKw = (
       "zh-TW": "End"
     },
     "__forGlobalVariable__": {
-      "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action." },
       "args": [
         {
           "name": "controlVariable",
-          "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+          "description": { "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value." },
           "type": "GlobalVariable"
         },
         {
           "name": "rangeStart",
-          "description": "The control variable is set to this value when the loop begins.",
+          "description": { "en-US": "The control variable is set to this value when the loop begins." },
           "type": "float"
         },
         {
           "name": "rangeStop",
-          "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+          "description": { "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits." },
           "type": "float"
         },
         {
           "name": "step",
-          "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+          "description": { "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action." },
           "type": "float"
         }
       ],
@@ -31862,31 +31862,31 @@ var actionKw = (
       "zh-TW": "For Global Variable"
     },
     "__forPlayerVariable__": {
-      "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action." },
       "args": [
         {
           "name": "controlPlayer",
-          "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
+          "description": { "en-US": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used." },
           "type": "Player"
         },
         {
           "name": "controlVariable",
-          "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+          "description": { "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value." },
           "type": "PlayerVariable"
         },
         {
           "name": "rangeStart",
-          "description": "The control variable is set to this value when the loop begins.",
+          "description": { "en-US": "The control variable is set to this value when the loop begins." },
           "type": "float"
         },
         {
           "name": "rangeStop",
-          "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+          "description": { "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits." },
           "type": "float"
         },
         {
           "name": "step",
-          "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+          "description": { "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action." },
           "type": "float"
         }
       ],
@@ -31909,11 +31909,11 @@ var actionKw = (
       "zh-TW": "For Player Variable"
     },
     "hudText": {
-      "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
+      "description": { "en-US": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the hud text.",
+          "description": { "en-US": "One or more players who will see the hud text." },
           "type": [
             "Player",
             {
@@ -31924,34 +31924,34 @@ var actionKw = (
         },
         {
           "name": "header",
-          "description": "The text to be displayed (can be blank)",
+          "description": { "en-US": "The text to be displayed (can be blank)" },
           "type": "Object",
           "default": null,
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "subheader",
-          "description": "The subheader text to be displayed (can be blank)",
+          "description": { "en-US": "The subheader text to be displayed (can be blank)" },
           "type": "Object",
           "default": null,
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "text",
-          "description": "The body text to be displayed (can be blank)",
+          "description": { "en-US": "The body text to be displayed (can be blank)" },
           "type": "Object",
           "default": null,
           canReplaceEmptyStringByEmptyArray: true
         },
         {
           "name": "location",
-          "description": "The location on the screen where the text will appear.",
+          "description": { "en-US": "The location on the screen where the text will appear." },
           "type": "HudPosition",
           "default": "LEFT"
         },
         {
           "name": "sortOrder",
-          "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+          "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
@@ -31959,31 +31959,31 @@ var actionKw = (
         },
         {
           "name": "headerColor",
-          "description": "The color of the header.",
+          "description": { "en-US": "The color of the header." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "subheaderColor",
-          "description": "The color of the subheader.",
+          "description": { "en-US": "The color of the subheader." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "textColor",
-          "description": "The color of the text.",
+          "description": { "en-US": "The color of the text." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
           "type": "HudReeval",
           "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
         },
         {
           "name": "specVisibility",
-          "description": "Whether spectators can see the text or not.",
+          "description": { "en-US": "Whether spectators can see the text or not." },
           "type": "SpecVisibility",
           "default": "DEFAULT"
         }
@@ -32007,11 +32007,11 @@ var actionKw = (
       "zh-TW": "Create HUD Text"
     },
     "__if__": {
-      "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will only execute if the specified condition is true." },
       "args": [
         {
           "name": "condition",
-          "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+          "description": { "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level." },
           "type": "bool"
         }
       ],
@@ -32034,7 +32034,7 @@ var actionKw = (
       "zh-TW": "If"
     },
     "__loopIfConditionIsFalse__": {
-      "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
+      "description": { "en-US": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action." },
       "args": [],
       "guid": "00000000BB05",
       "return": "void",
@@ -32055,7 +32055,7 @@ var actionKw = (
       "zh-TW": "Loop If Condition Is False"
     },
     "__loopIfConditionIsTrue__": {
-      "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action.",
+      "description": { "en-US": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action." },
       "args": [],
       "guid": "000000007874",
       "return": "void",
@@ -32076,11 +32076,11 @@ var actionKw = (
       "zh-TW": "Loop If Condition Is True"
     },
     "__loopIf__": {
-      "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action.",
+      "description": { "en-US": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action." },
       "args": [
         {
           "name": "condition",
-          "description": "Specifies whether the loop will occur.",
+          "description": { "en-US": "Specifies whether the loop will occur." },
           "type": "bool"
         }
       ],
@@ -32104,7 +32104,7 @@ var actionKw = (
     },
     "loop": {
       "guid": "0000000078F5",
-      "description": "Restarts the action list from the beginning.",
+      "description": { "en-US": "Restarts the action list from the beginning." },
       "args": [],
       "return": "void",
       "en-US": "Loop",
@@ -32124,26 +32124,26 @@ var actionKw = (
       "zh-TW": "Loop"
     },
     "__modifyGlobalVariableAtIndex__": {
-      "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
+      "description": { "en-US": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself." },
       "args": [
         {
           "name": "variable",
-          "description": "The global variable to modify.",
+          "description": { "en-US": "The global variable to modify." },
           "type": "GlobalVariable"
         },
         {
           "name": "index",
-          "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+          "description": { "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero." },
           "type": "unsigned int"
         },
         {
           "name": "operation",
-          "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+          "description": { "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values." },
           "type": "__Operation__"
         },
         {
           "name": "value",
-          "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+          "description": { "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove." },
           "type": [
             "Object",
             "Array"
@@ -32169,21 +32169,21 @@ var actionKw = (
       "zh-TW": "Modify Global Variable At Index"
     },
     "__modifyGlobalVariable__": {
-      "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
+      "description": { "en-US": "Modifies the value of a global variable, which is a variable that belongs to the game itself." },
       "args": [
         {
           "name": "variable",
-          "description": "The global variable to modify.",
+          "description": { "en-US": "The global variable to modify." },
           "type": "GlobalVariable"
         },
         {
           "name": "operation",
-          "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+          "description": { "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values." },
           "type": "__Operation__"
         },
         {
           "name": "value",
-          "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+          "description": { "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove." },
           "type": [
             "Object",
             "Array"
@@ -32209,11 +32209,11 @@ var actionKw = (
       "zh-TW": "Modify Global Variable"
     },
     "__modifyPlayerVariableAtIndex__": {
-      "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
+      "description": { "en-US": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+          "description": { "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set." },
           "type": [
             "Player",
             {
@@ -32223,22 +32223,22 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to modify.",
+          "description": { "en-US": "Specifies which of the player's variables to modify." },
           "type": "PlayerVariable"
         },
         {
           "name": "index",
-          "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+          "description": { "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero." },
           "type": "unsigned int"
         },
         {
           "name": "operation",
-          "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+          "description": { "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values." },
           "type": "__Operation__"
         },
         {
           "name": "value",
-          "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+          "description": { "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove." },
           "type": [
             "Object",
             "Array"
@@ -32264,11 +32264,11 @@ var actionKw = (
       "zh-TW": "Modify Player Variable At Index"
     },
     "__modifyPlayerVariable__": {
-      "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
+      "description": { "en-US": "Modifies the value of a player variable, which is a variable that belongs to a specific player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+          "description": { "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set." },
           "type": [
             "Player",
             {
@@ -32278,17 +32278,17 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to modify.",
+          "description": { "en-US": "Specifies which of the player's variables to modify." },
           "type": "PlayerVariable"
         },
         {
           "name": "operation",
-          "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
+          "description": { "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values." },
           "type": "__Operation__"
         },
         {
           "name": "value",
-          "description": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+          "description": { "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove." },
           "type": [
             "Object",
             "Array"
@@ -32314,23 +32314,23 @@ var actionKw = (
       "zh-TW": "Modify Player Variable"
     },
     "__setGlobalVariableAtIndex__": {
-      "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
+      "description": { "en-US": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index." },
       "args": [
         {
           "name": "variable",
-          "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
+          "description": { "en-US": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array." },
           "type": "GlobalVariable"
         },
         {
           "name": "index",
-          "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+          "description": { "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "value",
-          "description": "The value that will be stored into the array.",
+          "description": { "en-US": "The value that will be stored into the array." },
           "type": [
             "Object",
             "Array"
@@ -32356,16 +32356,16 @@ var actionKw = (
       "zh-TW": "Set Global Variable At Index"
     },
     "__setGlobalVariable__": {
-      "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
+      "description": { "en-US": "Stores a value into a global variable, which is a variable that belongs to the game itself." },
       "args": [
         {
           "name": "variable",
-          "description": "Specifies which global variable to store the value into.",
+          "description": { "en-US": "Specifies which global variable to store the value into." },
           "type": "GlobalVariable"
         },
         {
           "name": "value",
-          "description": "The value that will be stored.",
+          "description": { "en-US": "The value that will be stored." },
           "type": [
             "Object",
             "Array"
@@ -32391,11 +32391,11 @@ var actionKw = (
       "zh-TW": "Set Global Variable"
     },
     "__setPlayerVariableAtIndex__": {
-      "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
+      "description": { "en-US": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+          "description": { "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set." },
           "type": [
             "Player",
             {
@@ -32405,19 +32405,19 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
+          "description": { "en-US": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array." },
           "type": "PlayerVariable"
         },
         {
           "name": "index",
-          "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+          "description": { "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "value",
-          "description": "The value that will be stored into the array.",
+          "description": { "en-US": "The value that will be stored into the array." },
           "type": [
             "Object",
             "Array"
@@ -32443,11 +32443,11 @@ var actionKw = (
       "zh-TW": "Set Player Variable At Index"
     },
     "__setPlayerVariable__": {
-      "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
+      "description": { "en-US": "Stores a value into a player variable, which is a variable that belongs to a specific player." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will be set. If multiple players are provided, each of their variables will be set.",
+          "description": { "en-US": "The player whose variable will be set. If multiple players are provided, each of their variables will be set." },
           "type": [
             "Player",
             {
@@ -32457,12 +32457,12 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to store the value into.",
+          "description": { "en-US": "Specifies which of the player's variables to store the value into." },
           "type": "PlayerVariable"
         },
         {
           "name": "value",
-          "description": "The value that will be stored.",
+          "description": { "en-US": "The value that will be stored." },
           "type": [
             "Object",
             "Array"
@@ -32488,16 +32488,16 @@ var actionKw = (
       "zh-TW": "Set Player Variable"
     },
     "__skipIf__": {
-      "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
+      "description": { "en-US": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action." },
       "args": [
         {
           "name": "condition",
-          "description": "Specifies whether the skip occurs.",
+          "description": { "en-US": "Specifies whether the skip occurs." },
           "type": "bool"
         },
         {
           "name": "numberOfActions",
-          "description": "The number of actions to skip, not including this action.",
+          "description": { "en-US": "The number of actions to skip, not including this action." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -32523,11 +32523,11 @@ var actionKw = (
     },
     "__skip__": {
       "guid": "00000000BB01",
-      "description": "Skips execution of a certain number of actions in the action list.",
+      "description": { "en-US": "Skips execution of a certain number of actions in the action list." },
       "args": [
         {
           "name": "numberOfActions",
-          "description": "The number of actions to skip, not including this action.",
+          "description": { "en-US": "The number of actions to skip, not including this action." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -32551,16 +32551,16 @@ var actionKw = (
       "zh-TW": "Skip"
     },
     "startRule": {
-      "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
+      "description": { "en-US": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule." },
       "args": [
         {
           "name": "subroutine",
-          "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
+          "description": { "en-US": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored." },
           "type": "Subroutine"
         },
         {
           "name": "ifAlreadyExecuting",
-          "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
+          "description": { "en-US": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity." },
           "type": "StartRuleBehavior",
           "default": "RESTART"
         }
@@ -32584,11 +32584,11 @@ var actionKw = (
       "zh-TW": "Start Rule"
     },
     "__stopChasingGlobalVariable__": {
-      "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
+      "description": { "en-US": "Stops an in-progress chase of a global variable, leaving it at its current value." },
       "args": [
         {
           "name": "variable",
-          "description": "Specifies which global variable to stop modifying.",
+          "description": { "en-US": "Specifies which global variable to stop modifying." },
           "type": "GlobalVariable"
         }
       ],
@@ -32611,11 +32611,11 @@ var actionKw = (
       "zh-TW": "Stop Chasing Global Variable"
     },
     "__stopChasingPlayerVariable__": {
-      "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
+      "description": { "en-US": "Stops an in-progress chase of a player variable, leaving it at its current value." },
       "args": [
         {
           "name": "player",
-          "description": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing.",
+          "description": { "en-US": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing." },
           "type": [
             "Player",
             {
@@ -32625,7 +32625,7 @@ var actionKw = (
         },
         {
           "name": "variable",
-          "description": "Specifies which of the player's variables to stop modifying.",
+          "description": { "en-US": "Specifies which of the player's variables to stop modifying." },
           "type": "PlayerVariable"
         }
       ],
@@ -32649,11 +32649,11 @@ var actionKw = (
     },
     "wait": {
       "guid": "000000007872",
-      "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
+      "description": { "en-US": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause." },
       "args": [
         {
           "name": "time",
-          "description": "The duration of the pause.",
+          "description": { "en-US": "The duration of the pause." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true,
@@ -32661,7 +32661,7 @@ var actionKw = (
         },
         {
           "name": "waitBehavior",
-          "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart.",
+          "description": { "en-US": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart." },
           "type": "Wait",
           "default": "IGNORE_CONDITION"
         }
@@ -32684,11 +32684,11 @@ var actionKw = (
       "zh-TW": "Wait"
     },
     "__while__": {
-      "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
+      "description": { "en-US": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action." },
       "args": [
         {
           "name": "condition",
-          "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
+          "description": { "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level." },
           "type": "bool"
         }
       ],
@@ -32711,16 +32711,16 @@ var actionKw = (
       "zh-TW": "While"
     },
     "addToTeamScore": {
-      "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
+      "description": { "en-US": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams whose score will be changed.",
+          "description": { "en-US": "The team or teams whose score will be changed." },
           "type": "Team"
         },
         {
           "name": "score",
-          "description": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease.",
+          "description": { "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -32745,11 +32745,11 @@ var actionKw = (
       "zh-TW": "Modify Team Score"
     },
     "bigMessage": {
-      "description": "Displays a large message above the reticle that is visible to specific players.",
+      "description": { "en-US": "Displays a large message above the reticle that is visible to specific players." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the message.",
+          "description": { "en-US": "One or more players who will see the message." },
           "type": [
             "Player",
             {
@@ -32760,7 +32760,7 @@ var actionKw = (
         },
         {
           "name": "text",
-          "description": "The message to be displayed.",
+          "description": { "en-US": "The message to be displayed." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -32784,7 +32784,7 @@ var actionKw = (
       "zh-TW": "Big Message"
     },
     "break": {
-      "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
+      "description": { "en-US": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop." },
       "args": null,
       "return": "void",
       "guid": "0000000105B6",
@@ -32805,7 +32805,7 @@ var actionKw = (
       "zh-TW": "Break"
     },
     "continue": {
-      "description": "Goes back to the start of the innermost loop.",
+      "description": { "en-US": "Goes back to the start of the innermost loop." },
       "args": null,
       "guid": "0000000105B7",
       "return": "void",
@@ -32826,11 +32826,11 @@ var actionKw = (
       "zh-TW": "Continue"
     },
     "createBeam": {
-      "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will be able to see the effect.",
+          "description": { "en-US": "One or more players who will be able to see the effect." },
           "type": [
             "Player",
             {
@@ -32840,28 +32840,28 @@ var actionKw = (
         },
         {
           "name": "type",
-          "description": "The type of effect to be created.",
+          "description": { "en-US": "The type of effect to be created." },
           "type": "Beam"
         },
         {
           "name": "startPosition",
-          "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world." },
           "type": "Position"
         },
         {
           "name": "endPosition",
-          "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world." },
           "type": "Position"
         },
         {
           "name": "color",
-          "description": 'The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the "good" and "bad" beam effects can have color applied.',
+          "description": { "en-US": 'The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the "good" and "bad" beam effects can have color applied.' },
           "type": "Color",
           default: null
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs." },
           "type": "EffectReeval",
           "default": "VISIBILITY_POSITION_RADIUS_AND_COLOR"
         }
@@ -32885,34 +32885,34 @@ var actionKw = (
       "zh-TW": "Create Beam Effect"
     },
     "createDummy": {
-      "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
+      "description": { "en-US": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions." },
       "args": [
         {
           "name": "hero",
-          "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
+          "description": { "en-US": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random." },
           "type": "Hero"
         },
         {
           "name": "team",
-          "description": 'The team on which to create the bot. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.',
+          "description": { "en-US": 'The team on which to create the bot. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.' },
           "type": "Team"
         },
         {
           "name": "slot",
-          "description": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.",
+          "description": { "en-US": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "position",
-          "description": "The initial position where the bot will appear.",
+          "description": { "en-US": "The initial position where the bot will appear." },
           "type": "Position",
           "canReplaceNullVectorByNull": true
         },
         {
           "name": "facing",
-          "description": "The initial direction that the bot will face.",
+          "description": { "en-US": "The initial direction that the bot will face." },
           "type": "Direction",
           "canReplaceNullVectorByNull": true,
           "default": "vect(0,0,0)"
@@ -32937,11 +32937,11 @@ var actionKw = (
       "zh-TW": "Create Dummy Bot"
     },
     "createEffect": {
-      "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will be able to see the effect.",
+          "description": { "en-US": "One or more players who will be able to see the effect." },
           "type": [
             "Player",
             {
@@ -32951,17 +32951,17 @@ var actionKw = (
         },
         {
           "name": "type",
-          "description": "The type of effect to be created.",
+          "description": { "en-US": "The type of effect to be created." },
           "type": "Effect"
         },
         {
           "name": "color",
-          "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Does not support Custom Color.",
+          "description": { "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Does not support Custom Color." },
           "type": "Color"
         },
         {
           "name": "position",
-          "description": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world." },
           "type": [
             "Position",
             "Player"
@@ -32969,14 +32969,14 @@ var actionKw = (
         },
         {
           "name": "radius",
-          "description": "The radius of this effect.",
+          "description": { "en-US": "The radius of this effect." },
           "type": "unsigned float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
           "type": "EffectReeval",
           "default": "VISIBILITY_POSITION_RADIUS_AND_COLOR"
         }
@@ -33000,11 +33000,11 @@ var actionKw = (
       "zh-TW": "Create Effect"
     },
     "createIcon": {
-      "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the getLastCreatedEntity() value. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the getLastCreatedEntity() value. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will be able to see the icon.",
+          "description": { "en-US": "One or more players who will be able to see the icon." },
           "type": [
             "Player",
             {
@@ -33014,7 +33014,7 @@ var actionKw = (
         },
         {
           "name": "position",
-          "description": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world." },
           "type": [
             "Position",
             "Player"
@@ -33022,24 +33022,24 @@ var actionKw = (
         },
         {
           "name": "icon",
-          "description": "The icon to be created.",
+          "description": { "en-US": "The icon to be created." },
           "type": "Icon"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs." },
           "type": "IconReeval",
           "default": "VISIBLE TO AND POSITION"
         },
         {
           "name": "color",
-          "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+          "description": { "en-US": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
           "type": "Color",
           "default": "VISIBILITY_POSITION_AND_COLOR"
         },
         {
           "name": "showWhenOffscreen",
-          "description": "Should this icon appear even when it is behind you?",
+          "description": { "en-US": "Should this icon appear even when it is behind you?" },
           "type": "bool",
           "default": true
         }
@@ -33063,11 +33063,11 @@ var actionKw = (
       "zh-TW": "Create Icon"
     },
     "createInWorldText": {
-      "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
+      "description": { "en-US": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the in-world text.",
+          "description": { "en-US": "One or more players who will see the in-world text." },
           "type": [
             "Player",
             {
@@ -33078,13 +33078,13 @@ var actionKw = (
         },
         {
           "name": "text",
-          "description": "The text to be displayed.",
+          "description": { "en-US": "The text to be displayed." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "position",
-          "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world." },
           "type": [
             "Position",
             "Player"
@@ -33093,32 +33093,32 @@ var actionKw = (
         },
         {
           "name": "scale",
-          "description": "The text's scale.",
+          "description": { "en-US": "The text's scale." },
           "type": "float",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
         },
         {
           "name": "clipping",
-          "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+          "description": { "en-US": "Specifies whether the text can be seen through walls or is instead clipped." },
           "type": "Clip",
           "default": "NONE"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs." },
           "type": "WorldTextReeval",
           "default": "VISIBILITY_POSITION_STRING_AND_COLOR"
         },
         {
           "name": "color",
-          "description": "Specifies the color of the in-world text to use.",
+          "description": { "en-US": "Specifies the color of the in-world text to use." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "specVisibility",
-          "description": "Whether spectators can see the text or not.",
+          "description": { "en-US": "Whether spectators can see the text or not." },
           "type": "SpecVisibility",
           "default": "DEFAULT"
         }
@@ -33142,11 +33142,11 @@ var actionKw = (
       "zh-TW": "Create In-World Text"
     },
     "createProgressBarInWorldText": {
-      "description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
+      "description": { "en-US": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the progress bar HUD text.",
+          "description": { "en-US": "One or more players who will see the progress bar HUD text." },
           "type": [
             "Player",
             {
@@ -33157,19 +33157,19 @@ var actionKw = (
         },
         {
           "name": "value",
-          "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+          "description": { "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100." },
           "type": "unsigned float",
           "default": 0
         },
         {
           "name": "text",
-          "description": "The text to be displayed (can be blank)",
+          "description": { "en-US": "The text to be displayed (can be blank)" },
           "type": "Object",
           "default": null
         },
         {
           "name": "position",
-          "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world." },
           "type": [
             "Position",
             "Player"
@@ -33177,37 +33177,37 @@ var actionKw = (
         },
         {
           "name": "scale",
-          "description": "The text's scale.",
+          "description": { "en-US": "The text's scale." },
           "type": "float",
           "default": 1
         },
         {
           "name": "clipping",
-          "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+          "description": { "en-US": "Specifies whether the text can be seen through walls or is instead clipped." },
           "type": "Clip",
           "default": "NONE"
         },
         {
           "name": "progressBarColor",
-          "description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+          "description": { "en-US": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "textColor",
-          "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+          "description": { "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs." },
           "type": "ProgressWorldTextReeval",
           "default": "VISIBILITY_POSITION_VALUES_AND_COLOR"
         },
         {
           "name": "specVisibility",
-          "description": "Whether spectators can see the text or not.",
+          "description": { "en-US": "Whether spectators can see the text or not." },
           "type": "SpecVisibility",
           "default": "DEFAULT"
         }
@@ -33232,11 +33232,11 @@ var actionKw = (
     },
     "damage": {
       "guid": "000000007876",
-      "description": "Applies instantaneous damage to one or more players, possibly killing the players.",
+      "description": { "en-US": "Applies instantaneous damage to one or more players, possibly killing the players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will receive damage.",
+          "description": { "en-US": "The player or players who will receive damage." },
           "type": [
             "Player",
             {
@@ -33246,13 +33246,13 @@ var actionKw = (
         },
         {
           "name": "damager",
-          "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
+          "description": { "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit." },
           "type": "Player",
           default: null
         },
         {
           "name": "amount",
-          "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
+          "description": { "en-US": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor." },
           "type": "float"
         }
       ],
@@ -33274,7 +33274,7 @@ var actionKw = (
       "zh-TW": "Damage"
     },
     "declareDraw": {
-      "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
+      "description": { "en-US": "Instantly ends the match in a draw. This action has no effect in free-for-all modes." },
       "args": [],
       "guid": "00000000B9F1",
       "return": "void",
@@ -33295,11 +33295,11 @@ var actionKw = (
       "zh-TW": "Declare Match Draw"
     },
     "declarePlayerVictory": {
-      "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
+      "description": { "en-US": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes." },
       "args": [
         {
           "name": "player",
-          "description": "The winning player.",
+          "description": { "en-US": "The winning player." },
           "type": "Player"
         }
       ],
@@ -33322,7 +33322,7 @@ var actionKw = (
       "zh-TW": "Declare Player Victory"
     },
     "declareRoundDraw": {
-      "description": "Declare a draw for the current round. This only works in the elimination game mode.",
+      "description": { "en-US": "Declare a draw for the current round. This only works in the elimination game mode." },
       "args": [],
       "return": "void",
       "guid": "00000001098F",
@@ -33343,11 +33343,11 @@ var actionKw = (
       "zh-TW": "Declare Round Draw"
     },
     "declareRoundVictory": {
-      "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
+      "description": { "en-US": "Declare a team as the current round winner. This only works in the control and elimination game modes." },
       "args": [
         {
           "name": "roundWinningTeam",
-          "description": "Round winning team",
+          "description": { "en-US": "Round winning team" },
           "type": "Team"
         }
       ],
@@ -33370,11 +33370,11 @@ var actionKw = (
       "zh-TW": "Declare Round Victory"
     },
     "declareTeamVictory": {
-      "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
+      "description": { "en-US": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes." },
       "args": [
         {
           "name": "team",
-          "description": "The winning team.",
+          "description": { "en-US": "The winning team." },
           "type": "Team"
         }
       ],
@@ -33397,7 +33397,7 @@ var actionKw = (
       "zh-TW": "Declare Team Victory"
     },
     "destroyAllDummies": {
-      "description": "Removes all dummy bots from the match.",
+      "description": { "en-US": "Removes all dummy bots from the match." },
       "args": [],
       "guid": "00000000D1D4",
       "return": "void",
@@ -33418,7 +33418,7 @@ var actionKw = (
       "zh-TW": "Destroy All Dummy Bots"
     },
     "destroyAllEffects": {
-      "description": "Destroys all effect entities created by create effect or Create Beam Effect.",
+      "description": { "en-US": "Destroys all effect entities created by create effect or Create Beam Effect." },
       "args": [],
       "guid": "00000000B8AD",
       "return": "void",
@@ -33439,7 +33439,7 @@ var actionKw = (
       "zh-TW": "Destroy All Effects"
     },
     "destroyAllHudTexts": {
-      "description": "Destroys all hud texts that were created by the create hud text action.",
+      "description": { "en-US": "Destroys all hud texts that were created by the create hud text action." },
       "args": [],
       "guid": "00000000BAD1",
       "return": "void",
@@ -33460,7 +33460,7 @@ var actionKw = (
       "zh-TW": "Destroy All HUD Text"
     },
     "destroyAllIcons": {
-      "description": "Destroys all icon entities created by create icon.",
+      "description": { "en-US": "Destroys all icon entities created by create icon." },
       "args": [],
       "guid": "00000000B8AC",
       "return": "void",
@@ -33481,7 +33481,7 @@ var actionKw = (
       "zh-TW": "Destroy All Icons"
     },
     "destroyAllInWorldTexts": {
-      "description": "Destroys all in-world text created by create in-world text.",
+      "description": { "en-US": "Destroys all in-world text created by create in-world text." },
       "args": [],
       "guid": "00000000B8AB",
       "return": "void",
@@ -33502,7 +33502,7 @@ var actionKw = (
       "zh-TW": "Destroy All In-World Text"
     },
     "destroyAllProgressBarHuds": {
-      "description": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.",
+      "description": { "en-US": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action." },
       "args": [],
       "return": "void",
       "guid": "0000000122E2",
@@ -33523,7 +33523,7 @@ var actionKw = (
       "zh-TW": "Destroy All Progress Bar HUD Text"
     },
     "destroyAllProgressBarInWorldTexts": {
-      "description": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action.",
+      "description": { "en-US": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action." },
       "args": [],
       "return": "void",
       "guid": "000000012334",
@@ -33544,16 +33544,16 @@ var actionKw = (
       "zh-TW": "Destroy All Progress Bar In-World Text"
     },
     "destroyDummy": {
-      "description": "Removes the specified dummy bot from the match.",
+      "description": { "en-US": "Removes the specified dummy bot from the match." },
       "args": [
         {
           "name": "team",
-          "description": 'The team to remove the dummy bot from. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.',
+          "description": { "en-US": 'The team to remove the dummy bot from. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.' },
           "type": "Team"
         },
         {
           "name": "slot",
-          "description": "The slot to remove the dummy bot from.",
+          "description": { "en-US": "The slot to remove the dummy bot from." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -33578,11 +33578,11 @@ var actionKw = (
       "zh-TW": "Destroy Dummy Bot"
     },
     "destroyEffect": {
-      "description": "Destroys an effect entity that was created by create effect or Create Beam Effect.",
+      "description": { "en-US": "Destroys an effect entity that was created by create effect or Create Beam Effect." },
       "args": [
         {
           "name": "entity",
-          "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
+          "description": { "en-US": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored." },
           "type": "EntityId"
         }
       ],
@@ -33605,11 +33605,11 @@ var actionKw = (
       "zh-TW": "Destroy Effect"
     },
     "destroyHudText": {
-      "description": "Destroys hud text that was created by create hud text.",
+      "description": { "en-US": "Destroys hud text that was created by create hud text." },
       "args": [
         {
           "name": "textId",
-          "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
+          "description": { "en-US": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored." },
           "type": "TextId"
         }
       ],
@@ -33632,11 +33632,11 @@ var actionKw = (
       "zh-TW": "Destroy HUD Text"
     },
     "destroyIcon": {
-      "description": "Destroys an icon entity that was created by create icon.",
+      "description": { "en-US": "Destroys an icon entity that was created by create icon." },
       "args": [
         {
           "name": "entity",
-          "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
+          "description": { "en-US": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored." },
           "type": "EntityId"
         }
       ],
@@ -33659,11 +33659,11 @@ var actionKw = (
       "zh-TW": "Destroy Icon"
     },
     "destroyInWorldText": {
-      "description": "Destroys in-world text that was created by create in-world text.",
+      "description": { "en-US": "Destroys in-world text that was created by create in-world text." },
       "args": [
         {
           "name": "textId",
-          "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
+          "description": { "en-US": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored." },
           "type": "TextId"
         }
       ],
@@ -33686,11 +33686,11 @@ var actionKw = (
       "zh-TW": "Destroy In-World Text"
     },
     "destroyProgressBarHud": {
-      "description": "Destroys the progress bar HUD text that was created by progressBarHud().",
+      "description": { "en-US": "Destroys the progress bar HUD text that was created by progressBarHud()." },
       "args": [
         {
           "name": "textId",
-          "description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+          "description": { "en-US": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored." },
           "type": "TextId"
         }
       ],
@@ -33713,11 +33713,11 @@ var actionKw = (
       "zh-TW": "Destroy Progress Bar HUD Text"
     },
     "destroyProgressBarInWorldText": {
-      "description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
+      "description": { "en-US": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText()." },
       "args": [
         {
           "name": "textId",
-          "description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
+          "description": { "en-US": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored." },
           "type": "TextId"
         }
       ],
@@ -33740,7 +33740,7 @@ var actionKw = (
       "zh-TW": "Destroy Progress Bar In-World Text"
     },
     "disableAnnouncer": {
-      "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
+      "description": { "en-US": "Disables game mode announcements from the announcer until reenabled or the match ends." },
       "args": [],
       "guid": "00000000C3F8",
       "return": "void",
@@ -33761,7 +33761,7 @@ var actionKw = (
       "zh-TW": "Disable Built-In Game Mode Announcer"
     },
     "disableGamemodeCompletion": {
-      "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
+      "description": { "en-US": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands." },
       "args": [],
       "guid": "00000000AD2D",
       "return": "void",
@@ -33782,7 +33782,7 @@ var actionKw = (
       "zh-TW": "Disable Built-In Game Mode Completion"
     },
     "disableInspector": {
-      "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
+      "description": { "en-US": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays." },
       "args": [],
       "guid": "00000000FB2F",
       "return": "void",
@@ -33803,7 +33803,7 @@ var actionKw = (
       "zh-TW": "Disable Inspector Recording"
     },
     "disableMusic": {
-      "description": "Disables all game mode music until reenabled or the match ends.",
+      "description": { "en-US": "Disables all game mode music until reenabled or the match ends." },
       "args": [],
       "guid": "00000000C3F4",
       "return": "void",
@@ -33824,7 +33824,7 @@ var actionKw = (
       "zh-TW": "Disable Built-In Game Mode Music"
     },
     "disableScoring": {
-      "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
+      "description": { "en-US": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands." },
       "args": [],
       "guid": "00000000ABFA",
       "return": "void",
@@ -33845,7 +33845,7 @@ var actionKw = (
       "zh-TW": "Disable Built-In Game Mode Scoring"
     },
     "enableAnnouncer": {
-      "description": "Undoes the effect of the disable built-in game mode announcer action.",
+      "description": { "en-US": "Undoes the effect of the disable built-in game mode announcer action." },
       "args": [],
       "guid": "00000000C3FA",
       "return": "void",
@@ -33866,7 +33866,7 @@ var actionKw = (
       "zh-TW": "Enable Built-In Game Mode Announcer"
     },
     "enableGamemodeCompletion": {
-      "description": "Undoes the effect of the disable built-in game mode completion action.",
+      "description": { "en-US": "Undoes the effect of the disable built-in game mode completion action." },
       "args": [],
       "guid": "00000000AD2F",
       "return": "void",
@@ -33887,7 +33887,7 @@ var actionKw = (
       "zh-TW": "Enable Built-In Game Mode Completion"
     },
     "enableInspector": {
-      "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
+      "description": { "en-US": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic." },
       "args": [],
       "guid": "00000000FB2E",
       "return": "void",
@@ -33908,7 +33908,7 @@ var actionKw = (
       "zh-TW": "Enable Inspector Recording"
     },
     "enableMusic": {
-      "description": "Undoes the effect of the disable built-in game mode music action.",
+      "description": { "en-US": "Undoes the effect of the disable built-in game mode music action." },
       "args": [],
       "guid": "00000000C3F6",
       "return": "void",
@@ -33929,7 +33929,7 @@ var actionKw = (
       "zh-TW": "Enable Built-In Game Mode Music"
     },
     "enableScoring": {
-      "description": "Undoes the effect of the disable built-in game mode scoring action.",
+      "description": { "en-US": "Undoes the effect of the disable built-in game mode scoring action." },
       "args": [],
       "guid": "00000000ABF8",
       "return": "void",
@@ -33950,7 +33950,7 @@ var actionKw = (
       "zh-TW": "Enable Built-In Game Mode Scoring"
     },
     "goToAssembleHeroes": {
-      "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
+      "description": { "en-US": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress." },
       "args": [],
       "guid": "00000000C5B5",
       "return": "void",
@@ -33972,11 +33972,11 @@ var actionKw = (
     },
     "heal": {
       "guid": "000000007875",
-      "description": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players.",
+      "description": { "en-US": "Provides an instantaneous heal to one or more players. This heal will not resurrect dead players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players whose health will be restored.",
+          "description": { "en-US": "The player or players whose health will be restored." },
           "type": [
             "Player",
             {
@@ -33986,13 +33986,13 @@ var actionKw = (
         },
         {
           "name": "healer",
-          "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
+          "description": { "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit." },
           "type": "Player",
           "default": null
         },
         {
           "name": "amount",
-          "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
+          "description": { "en-US": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health." },
           "type": "float"
         }
       ],
@@ -34015,11 +34015,11 @@ var actionKw = (
     },
     "kill": {
       "guid": "000000007877",
-      "description": "Instantly kills one or more players.",
+      "description": { "en-US": "Instantly kills one or more players." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players who will be killed.",
+          "description": { "en-US": "The player or players who will be killed." },
           "type": [
             "Player",
             {
@@ -34029,7 +34029,7 @@ var actionKw = (
         },
         {
           "name": "killer",
-          "description": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit.",
+          "description": { "en-US": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit." },
           "type": "Player",
           "default": null
         }
@@ -34052,11 +34052,11 @@ var actionKw = (
       "zh-TW": "Kill"
     },
     ".moveToTeam": {
-      "description": "Moves one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots.",
+      "description": { "en-US": "Moves one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to move.",
+          "description": { "en-US": "The player or players to move." },
           "type": [
             "Player",
             {
@@ -34066,12 +34066,12 @@ var actionKw = (
         },
         {
           "name": "team",
-          "description": 'The team on which to move the Player. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.',
+          "description": { "en-US": 'The team on which to move the Player. The "all" option only works in free-for-all game modes, while the "team" options only work in team-based game modes.' },
           "type": "Team"
         },
         {
           "name": "slot",
-          "description": "The player slot which will receive the player (-1 for first available slot).",
+          "description": { "en-US": "The player slot which will receive the player (-1 for first available slot)." },
           "type": "int",
           "default": -1
         }
@@ -34095,7 +34095,7 @@ var actionKw = (
       "zh-TW": "Move Player to Team"
     },
     "pauseMatchTime": {
-      "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
+      "description": { "en-US": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause." },
       "args": [],
       "guid": "00000000B9EF",
       "return": "void",
@@ -34116,11 +34116,11 @@ var actionKw = (
       "zh-TW": "Pause Match Time"
     },
     "playEffect": {
-      "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
+      "description": { "en-US": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will be able to see the effect.",
+          "description": { "en-US": "One or more players who will be able to see the effect." },
           "type": [
             "Player",
             {
@@ -34130,22 +34130,22 @@ var actionKw = (
         },
         {
           "name": "type",
-          "description": "The type of effect to be created.",
+          "description": { "en-US": "The type of effect to be created." },
           "type": "DynamicEffect"
         },
         {
           "name": "color",
-          "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not support Custom Color.",
+          "description": { "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not support Custom Color." },
           "type": "Color"
         },
         {
           "name": "position",
-          "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
+          "description": { "en-US": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world." },
           "type": "Position"
         },
         {
           "name": "radius",
-          "description": "The effect's radius in meters.",
+          "description": { "en-US": "The effect's radius in meters." },
           "type": "unsigned float"
         }
       ],
@@ -34168,11 +34168,11 @@ var actionKw = (
       "zh-TW": "Play Effect"
     },
     "logToInspector": {
-      "description": "Causes the workshop inspector to record a log entry.",
+      "description": { "en-US": "Causes the workshop inspector to record a log entry." },
       "args": [
         {
           "name": "text",
-          "description": "The string to be logged to the workshop inspector.",
+          "description": { "en-US": "The string to be logged to the workshop inspector." },
           "type": "Object"
         }
       ],
@@ -34195,11 +34195,11 @@ var actionKw = (
       "zh-TW": "Log To Inspector"
     },
     "progressBarHud": {
-      "description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
+      "description": { "en-US": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the Progress Bar HUD text.",
+          "description": { "en-US": "One or more players who will see the Progress Bar HUD text." },
           "type": [
             "Player",
             {
@@ -34209,49 +34209,49 @@ var actionKw = (
         },
         {
           "name": "value",
-          "description": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+          "description": { "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100." },
           "type": "unsigned float",
           "default": 0
         },
         {
           "name": "text",
-          "description": "The text to be displayed (can be blank)",
+          "description": { "en-US": "The text to be displayed (can be blank)" },
           "type": "Object",
           "default": null
         },
         {
           "name": "location",
-          "description": "The location on the screen where the text will appear.",
+          "description": { "en-US": "The location on the screen where the text will appear." },
           "type": "HudPosition",
           "default": "LEFT"
         },
         {
           "name": "sortOrder",
-          "description": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
+          "description": { "en-US": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order." },
           "type": "float",
           "default": 0
         },
         {
           "name": "progressBarColor",
-          "description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+          "description": { "en-US": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "textColor",
-          "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+          "description": { "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
           "type": "Color",
           "default": "WHITE"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs." },
           "type": "ProgressHudReeval",
           "default": "VISIBILITY_VALUES_AND_COLOR"
         },
         {
           "name": "specVisibility",
-          "description": "Whether spectators can see the text or not.",
+          "description": { "en-US": "Whether spectators can see the text or not." },
           "type": "SpecVisibility",
           "default": "DEFAULT"
         }
@@ -34275,11 +34275,11 @@ var actionKw = (
       "zh-TW": "Create Progress Bar HUD Text"
     },
     ".removeFromGame": {
-      "description": "Removes one or more players from the custom game. This action doesn't work on dummy bots.",
+      "description": { "en-US": "Removes one or more players from the custom game. This action doesn't work on dummy bots." },
       "args": [
         {
           "name": "player",
-          "description": "The player or players to remove.",
+          "description": { "en-US": "The player or players to remove." },
           "type": [
             "Player",
             {
@@ -34307,11 +34307,11 @@ var actionKw = (
       "zh-TW": "Remove Player"
     },
     "removeHealthPool": {
-      "description": "Removes a health pool that was added via the Add Health Pool action.",
+      "description": { "en-US": "Removes a health pool that was added via the Add Health Pool action." },
       "args": [
         {
           "name": "healthPoolId",
-          "description": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)",
+          "description": { "en-US": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)" },
           "type": "HealthPoolId"
         }
       ],
@@ -34334,7 +34334,7 @@ var actionKw = (
       "zh-TW": "Remove Health Pool From Player"
     },
     "restartMatch": {
-      "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
+      "description": { "en-US": "Restarts the match. This action only has an effect after the match has existed for 30 seconds." },
       "args": [],
       "return": "void",
       "guid": "000000012C22",
@@ -34355,7 +34355,7 @@ var actionKw = (
       "zh-TW": "Restart Match"
     },
     "return": {
-      "description": "Stops execution of the action list.",
+      "description": { "en-US": "Stops execution of the action list." },
       "args": null,
       "guid": "00000000BB09",
       "return": "void",
@@ -34376,7 +34376,7 @@ var actionKw = (
       "zh-TW": "Abort"
     },
     "returnToLobby": {
-      "description": "Returns the gamemode back to the custom game lobby.",
+      "description": { "en-US": "Returns the gamemode back to the custom game lobby." },
       "args": [],
       "return": "void",
       "guid": "000000002C4C",
@@ -34397,11 +34397,11 @@ var actionKw = (
       "zh-TW": "\u8FD4\u56DE\u5927\u5EF3"
     },
     "setMatchTime": {
-      "description": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup.",
+      "description": { "en-US": "Sets the current match time (which is visible at the top of the screen). This can be used to shorten or extend the duration of a match or to change the duration of assemble heroes or setup." },
       "args": [
         {
           "name": "time",
-          "description": "The match time in seconds.",
+          "description": { "en-US": "The match time in seconds." },
           "type": "unsigned int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -34426,11 +34426,11 @@ var actionKw = (
       "zh-TW": "Set Match Time"
     },
     "setObjectiveDescription": {
-      "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
+      "description": { "en-US": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the message.",
+          "description": { "en-US": "One or more players who will see the message." },
           "type": [
             "Player",
             {
@@ -34441,13 +34441,13 @@ var actionKw = (
         },
         {
           "name": "text",
-          "description": "The message to be displayed.",
+          "description": { "en-US": "The message to be displayed." },
           "type": "Object",
           "canReplace0ByNull": true
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs." },
           "type": "HudReeval",
           "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
         }
@@ -34471,11 +34471,11 @@ var actionKw = (
       "zh-TW": "Set Objective Description"
     },
     "setSlowMotion": {
-      "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
+      "description": { "en-US": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic." },
       "args": [
         {
           "name": "speedPercent",
-          "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
+          "description": { "en-US": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed." },
           "type": "unsigned float"
         }
       ],
@@ -34498,16 +34498,16 @@ var actionKw = (
       "zh-TW": "Set Slow Motion"
     },
     "setTeamScore": {
-      "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
+      "description": { "en-US": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score." },
       "args": [
         {
           "name": "team",
-          "description": "The team or teams whose score will be set.",
+          "description": { "en-US": "The team or teams whose score will be set." },
           "type": "Team"
         },
         {
           "name": "score",
-          "description": "The score that will be set.",
+          "description": { "en-US": "The score that will be set." },
           "type": "int",
           "canReplace0ByFalse": true,
           "canReplace1ByTrue": true
@@ -34532,11 +34532,11 @@ var actionKw = (
       "zh-TW": "Set Team Score"
     },
     "smallMessage": {
-      "description": "Displays a small message beneath the reticle that is visible to specific players.",
+      "description": { "en-US": "Displays a small message beneath the reticle that is visible to specific players." },
       "args": [
         {
           "name": "visibleTo",
-          "description": "One or more players who will see the message.",
+          "description": { "en-US": "One or more players who will see the message." },
           "type": [
             "Player",
             {
@@ -34547,7 +34547,7 @@ var actionKw = (
         },
         {
           "name": "text",
-          "description": "The message to be displayed.",
+          "description": { "en-US": "The message to be displayed." },
           "type": "Object",
           "canReplace0ByNull": true
         }
@@ -34571,11 +34571,11 @@ var actionKw = (
       "zh-TW": "Small Message"
     },
     "startDamageModification": {
-      "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
+      "description": { "en-US": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started." },
       "args": [
         {
           "name": "receivers",
-          "description": "The player or players whose incoming damage will be modified (when attacked by the damagers).",
+          "description": { "en-US": "The player or players whose incoming damage will be modified (when attacked by the damagers)." },
           "type": [
             "Player",
             {
@@ -34585,7 +34585,7 @@ var actionKw = (
         },
         {
           "name": "damagers",
-          "description": "The player or players whose outgoing damage will be modified (when attacking the receivers).",
+          "description": { "en-US": "The player or players whose outgoing damage will be modified (when attacking the receivers)." },
           "type": [
             "Player",
             {
@@ -34595,12 +34595,12 @@ var actionKw = (
         },
         {
           "name": "damagePercent",
-          "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
+          "description": { "en-US": "The percentage of damage that will apply to receivers when attacked by damagers." },
           "type": "unsigned float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "DamageReeval",
           "default": "RECEIVERS_DAMAGERS_AND_DMGPERCENT"
         }
@@ -34624,16 +34624,16 @@ var actionKw = (
       "zh-TW": "Start Damage Modification"
     },
     "startForcingSpawn": {
-      "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
+      "description": { "en-US": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps." },
       "args": [
         {
           "name": "team",
-          "description": "The team whose spawn room will be forced.",
+          "description": { "en-US": "The team whose spawn room will be forced." },
           "type": "Team"
         },
         {
           "name": "room",
-          "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
+          "description": { "en-US": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room." },
           "type": "unsigned int",
           "canReplace0ByFalse": true
         }
@@ -34657,7 +34657,7 @@ var actionKw = (
       "zh-TW": "Start Forcing Spawn Room"
     },
     "startGamemode": {
-      "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
+      "description": { "en-US": "Starts the gamemode. This action doesn't have an effect if the game is already in progress." },
       "args": [],
       "return": "void",
       "guid": "000000012C1F",
@@ -34678,11 +34678,11 @@ var actionKw = (
       "zh-TW": "Start Game Mode"
     },
     "startHealingModification": {
-      "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
+      "description": { "en-US": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started." },
       "args": [
         {
           "name": "receivers",
-          "description": "The player or players whose incoming healing will be modified (when healed by the healers).",
+          "description": { "en-US": "The player or players whose incoming healing will be modified (when healed by the healers)." },
           "type": [
             "Player",
             {
@@ -34692,7 +34692,7 @@ var actionKw = (
         },
         {
           "name": "healers",
-          "description": "The player or players whose outgoing healing will be modified (when healing the receivers).",
+          "description": { "en-US": "The player or players whose outgoing healing will be modified (when healing the receivers)." },
           "type": [
             "Player",
             {
@@ -34702,12 +34702,12 @@ var actionKw = (
         },
         {
           "name": "healingPercent",
-          "description": "The percentage of healing that will apply to receivers when healed by healers.",
+          "description": { "en-US": "The percentage of healing that will apply to receivers when healed by healers." },
           "type": "unsigned float"
         },
         {
           "name": "reevaluation",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
           "type": "HealingReeval",
           "default": "RECEIVERS_HEALERS_AND_HEALPERCENT"
         }
@@ -34731,7 +34731,7 @@ var actionKw = (
       "zh-TW": "Start Healing Modification"
     },
     "stopAllAssists": {
-      "description": "Stops all assists that were started using the Start Assist Action.",
+      "description": { "en-US": "Stops all assists that were started using the Start Assist Action." },
       "args": [],
       "return": "void",
       "guid": "0000000121FA",
@@ -34752,7 +34752,7 @@ var actionKw = (
       "zh-TW": "Stop All Assists"
     },
     "stopAllDamageModifications": {
-      "description": "Stops all damage modifications that were started using the start damage modification action.",
+      "description": { "en-US": "Stops all damage modifications that were started using the start damage modification action." },
       "args": [],
       "guid": "00000000C647",
       "return": "void",
@@ -34773,7 +34773,7 @@ var actionKw = (
       "zh-TW": "Stop All Damage Modifications"
     },
     "stopAllHealingModifications": {
-      "description": "Stops all healing modifications that were started using the start healing modification action.",
+      "description": { "en-US": "Stops all healing modifications that were started using the start healing modification action." },
       "args": [],
       "guid": "00000000FD3B",
       "return": "void",
@@ -34794,11 +34794,11 @@ var actionKw = (
       "zh-TW": "Stop All Healing Modifications"
     },
     "stopAssist": {
-      "description": "Stops an assist that was started by the Start Assist Action.",
+      "description": { "en-US": "Stops an assist that was started by the Start Assist Action." },
       "args": [
         {
           "name": "assistId",
-          "description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
+          "description": { "en-US": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored." },
           "type": "AssistId"
         }
       ],
@@ -34821,11 +34821,11 @@ var actionKw = (
       "zh-TW": "Stop Assist"
     },
     "stopDamageModification": {
-      "description": "Stops a damage modification that was started by the start damage modification action.",
+      "description": { "en-US": "Stops a damage modification that was started by the start damage modification action." },
       "args": [
         {
           "name": "damageModificationId",
-          "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
+          "description": { "en-US": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored." },
           "type": "DamageModificationId"
         }
       ],
@@ -34848,11 +34848,11 @@ var actionKw = (
       "zh-TW": "Stop Damage Modification"
     },
     "stopDamageOverTime": {
-      "description": "Stops an instance of damage over time started by the start damage over time action.",
+      "description": { "en-US": "Stops an instance of damage over time started by the start damage over time action." },
       "args": [
         {
           "name": "damageOverTimeId",
-          "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
+          "description": { "en-US": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored." },
           "type": "DotId"
         }
       ],
@@ -34875,11 +34875,11 @@ var actionKw = (
       "zh-TW": "Stop Damage Over Time"
     },
     "stopForcingSpawn": {
-      "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
+      "description": { "en-US": "Undoes the effect of the start forcing spawn room action for the specified team." },
       "args": [
         {
           "name": "team",
-          "description": "The team that will resume using their normal spawn room.",
+          "description": { "en-US": "The team that will resume using their normal spawn room." },
           "type": "Team"
         }
       ],
@@ -34902,11 +34902,11 @@ var actionKw = (
       "zh-TW": "Stop Forcing Spawn Room"
     },
     "stopHealingModification": {
-      "description": "Stops a healing modification that was started by the start healing modification action.",
+      "description": { "en-US": "Stops a healing modification that was started by the start healing modification action." },
       "args": [
         {
           "name": "healingModificationId",
-          "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
+          "description": { "en-US": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored." },
           "type": "HealingModificationId"
         }
       ],
@@ -34929,11 +34929,11 @@ var actionKw = (
       "zh-TW": "Stop Healing Modification"
     },
     "stopHealingOverTime": {
-      "description": "Stops an instance of heal over time started by the start heal over time action.",
+      "description": { "en-US": "Stops an instance of heal over time started by the start heal over time action." },
       "args": [
         {
           "name": "healOverTimeId",
-          "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
+          "description": { "en-US": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored." },
           "type": "HotId"
         }
       ],
@@ -34956,7 +34956,7 @@ var actionKw = (
       "zh-TW": "Stop Heal Over Time"
     },
     "unpauseMatchTime": {
-      "description": "Unpauses the match time.",
+      "description": { "en-US": "Unpauses the match time." },
       "args": [],
       "guid": "00000000B9F0",
       "return": "void",
@@ -34977,16 +34977,16 @@ var actionKw = (
       "zh-TW": "Unpause Match Time"
     },
     "waitUntil": {
-      "description": "Waits until the Continue Condition is true or Timeout seconds elapse. The rule conditions are ignored during this wait.",
+      "description": { "en-US": "Waits until the Continue Condition is true or Timeout seconds elapse. The rule conditions are ignored during this wait." },
       "args": [
         {
           "name": "continueCondition",
-          "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
+          "description": { "en-US": "If this value becomes true, the wait concludes, and the next action in the action list begins executing." },
           "type": "bool"
         },
         {
           "name": "timeout",
-          "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
+          "description": { "en-US": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing." },
           "type": "unsigned float",
           "default": "Math.INFINITY"
         }
@@ -35010,12 +35010,12 @@ var actionKw = (
       "zh-TW": "Wait Until"
     },
     "createProjectile": {
-      "description": "Creates a projectile entity that either heals or damages players and player-owned entities. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates a projectile entity that either heals or damages players and player-owned entities. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "type",
           "type": "Projectile",
-          "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension."
+          "description": { "en-US": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension." }
         },
         {
           "name": "player",
@@ -35025,67 +35025,67 @@ var actionKw = (
               "Array": "Player"
             }
           ],
-          "description": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+          "description": { "en-US": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner." },
           default: null
         },
         {
           "name": "startPosition",
           "type": "Position",
-          "description": "The start position of the projectile. If null, the player's eye position will be used.",
+          "description": { "en-US": "The start position of the projectile. If null, the player's eye position will be used." },
           "default": null
         },
         {
           "name": "direction",
           "type": "Direction",
-          "description": "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+          "description": { "en-US": "The direction for the projectile to travel. If null, the player's facing direction will be used." },
           "default": null
         },
         {
           "name": "relativity",
           "type": "Relativity",
           "default": "TO_WORLD",
-          "description": "Whether the projectile's start position and direction are relative to the player or to the world."
+          "description": { "en-US": "Whether the projectile's start position and direction are relative to the player or to the world." }
         },
         {
           "name": "modifyHealthType",
           "type": "ModifyHealth",
           "default": "DAMAGE",
-          "description": "Whether the projectile will heal or damage targets it collides with."
+          "description": { "en-US": "Whether the projectile will heal or damage targets it collides with." }
         },
         {
           "name": "affectedTeam",
           "type": "Team",
           "default": "ALL",
-          "description": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
+          "description": { "en-US": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team." }
         },
         {
           "name": "damage",
           "type": "unsigned float",
-          "description": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
+          "description": { "en-US": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center." }
         },
         {
           "name": "damageScalar",
           "type": "unsigned float",
           "default": 1,
-          "description": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
+          "description": { "en-US": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion." }
         },
         {
           "name": "explosionRadius",
           "type": "unsigned float",
           "default": 0,
-          "description": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
+          "description": { "en-US": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion." }
         },
         {
           "name": "explosionEffect",
           "type": "DynamicEffect",
           "default": "BAD_EXPLOSION",
-          "description": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+          "description": { "en-US": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created." }
         },
         {
           "name": "explosionSound",
           "type": "DynamicEffect",
           "default": "EXPLOSION_SOUND",
-          "description": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+          "description": { "en-US": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created." }
         },
         {
           "name": "oversize",
@@ -35093,14 +35093,14 @@ var actionKw = (
           "default": 0,
           "min": 0,
           "max": 1,
-          "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+          "description": { "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type." }
         },
         {
           "name": "speed",
           "type": "unsigned float",
           "min": 0.1,
           "max": 1e3,
-          "description": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)"
+          "description": { "en-US": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)" }
         },
         {
           "name": "lifetime",
@@ -35108,13 +35108,13 @@ var actionKw = (
           "default": "Math.INFINITY",
           "min": 0.1,
           "max": 100,
-          "description": "How long in seconds before the projectile expires."
+          "description": { "en-US": "How long in seconds before the projectile expires." }
         },
         {
           "name": "impulseStrength",
           "type": "unsigned float",
           "default": 0,
-          "description": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
+          "description": { "en-US": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion." }
         },
         {
           "name": "ricochetCount",
@@ -35122,13 +35122,13 @@ var actionKw = (
           "default": 0,
           "min": 0,
           "max": 20,
-          "description": "How many times the projectile will ricochet off the environment before expiring."
+          "description": { "en-US": "How many times the projectile will ricochet off the environment before expiring." }
         },
         {
           "name": "gravity",
           "type": "float",
           "default": 0,
-          "description": "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards."
+          "description": { "en-US": "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards." }
         }
       ],
       "return": "void",
@@ -35150,12 +35150,12 @@ var actionKw = (
       "it-IT": "Create Projectile"
     },
     "createHomingProjectile": {
-      "description": "Creates a projectile entity that either heals or damages players and player-owned entities. The projectile follows the provided target with variable strength. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates a projectile entity that either heals or damages players and player-owned entities. The projectile follows the provided target with variable strength. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "type",
           "type": "Projectile",
-          "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension."
+          "description": { "en-US": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension." }
         },
         {
           "name": "player",
@@ -35166,66 +35166,66 @@ var actionKw = (
             }
           ],
           default: null,
-          "description": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner."
+          "description": { "en-US": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner." }
         },
         {
           "name": "startPosition",
           "type": "Position",
           "default": null,
-          "description": "The start position of the projectile. If null, the player's eye position will be used."
+          "description": { "en-US": "The start position of the projectile. If null, the player's eye position will be used." }
         },
         {
           "name": "direction",
           "type": "Direction",
           "default": null,
-          "description": "The direction for the projectile to travel. If null, the player's facing direction will be used."
+          "description": { "en-US": "The direction for the projectile to travel. If null, the player's facing direction will be used." }
         },
         {
           "name": "relativity",
           "type": "Relativity",
           "default": "TO_WORLD",
-          "description": "Whether the projectile's start position and direction are relative to the player or to the world."
+          "description": { "en-US": "Whether the projectile's start position and direction are relative to the player or to the world." }
         },
         {
           "name": "modifyHealthType",
           "type": "ModifyHealth",
           "default": "DAMAGE",
-          "description": "Whether the projectile will heal or damage targets it collides with."
+          "description": { "en-US": "Whether the projectile will heal or damage targets it collides with." }
         },
         {
           "name": "affectedTeam",
           "type": "Team",
           "default": "ALL",
-          "description": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
+          "description": { "en-US": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team." }
         },
         {
           "name": "damage",
           "type": "unsigned float",
-          "description": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
+          "description": { "en-US": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center." }
         },
         {
           "name": "damageScalar",
           "type": "unsigned float",
           "default": 1,
-          "description": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
+          "description": { "en-US": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion." }
         },
         {
           "name": "explosionRadius",
           "type": "unsigned float",
           "default": 0,
-          "description": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
+          "description": { "en-US": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion." }
         },
         {
           "name": "explosionEffect",
           "type": "DynamicEffect",
           "default": "BAD_EXPLOSION",
-          "description": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+          "description": { "en-US": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created." }
         },
         {
           "name": "explosionSound",
           "type": "DynamicEffect",
           "default": "EXPLOSION_SOUND",
-          "description": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+          "description": { "en-US": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created." }
         },
         {
           "name": "oversize",
@@ -35233,14 +35233,14 @@ var actionKw = (
           "default": 0,
           "min": 0,
           "max": 1,
-          "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+          "description": { "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type." }
         },
         {
           "name": "speed",
           "type": "unsigned float",
           "min": 0.1,
           "max": 1e3,
-          "description": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)"
+          "description": { "en-US": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)" }
         },
         {
           "name": "lifetime",
@@ -35248,18 +35248,18 @@ var actionKw = (
           "default": "Math.INFINITY",
           "min": 0.1,
           "max": 100,
-          "description": "How long in seconds before the projectile expires."
+          "description": { "en-US": "How long in seconds before the projectile expires." }
         },
         {
           "name": "impulseStrength",
           "type": "unsigned float",
           "default": 0,
-          "description": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
+          "description": { "en-US": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion." }
         },
         {
           "name": "homingTarget",
           "type": "Player",
-          "description": "The homing target for the projectile. If null, the projectile will travel in a straight line."
+          "description": { "en-US": "The homing target for the projectile. If null, the projectile will travel in a straight line." }
         },
         {
           "name": "homingStrength",
@@ -35267,7 +35267,7 @@ var actionKw = (
           "default": 1,
           "min": 0,
           "max": 1,
-          "description": "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it."
+          "description": { "en-US": "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it." }
         }
       ],
       "return": "void",
@@ -35289,7 +35289,7 @@ var actionKw = (
       "pl-PL": "Create Homing Projectile"
     },
     "createProjectileEffect": {
-      "description": "Creates an in-world projectile effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+      "description": { "en-US": "Creates an in-world projectile effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created." },
       "args": [
         {
           "name": "visibleTo",
@@ -35299,12 +35299,12 @@ var actionKw = (
               "Array": "Player"
             }
           ],
-          "description": "One or more players who will be able to see the effect."
+          "description": { "en-US": "One or more players who will be able to see the effect." }
         },
         {
           "name": "type",
           "type": "Projectile",
-          "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension."
+          "description": { "en-US": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension." }
         },
         {
           "name": "friendlyTo",
@@ -35314,7 +35314,7 @@ var actionKw = (
               "Array": "Player"
             }
           ],
-          "description": "One or more players who the projectile will appear friendly to."
+          "description": { "en-US": "One or more players who the projectile will appear friendly to." }
         },
         {
           "name": "position",
@@ -35322,12 +35322,12 @@ var actionKw = (
             "Position",
             "Player"
           ],
-          "description": "The position of the effect."
+          "description": { "en-US": "The position of the effect." }
         },
         {
           "name": "direction",
           "type": "Direction",
-          "description": "The facing direction of the effect."
+          "description": { "en-US": "The facing direction of the effect." }
         },
         {
           "name": "oversize",
@@ -35335,13 +35335,13 @@ var actionKw = (
           "default": 0,
           "min": 0,
           "max": 1,
-          "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+          "description": { "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type." }
         },
         {
           "name": "reevaluation",
           "type": "ProjectileEffectReeval",
           "default": "VISIBILITY_FRIENDLINESS_POSITION_DIRECTION_AND_SIZE",
-          "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs."
+          "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs." }
         }
       ],
       "return": "void",
@@ -35400,16 +35400,16 @@ var opyInternalFuncs = {
     "return": "void"
   },
   "__chase__": {
-    "description": "Legacy way of chasing a variable.",
+    "description": { "en-US": "Legacy way of chasing a variable." },
     "args": [
       {
         "name": "variable",
-        "description": "Specifies which variable (global or player) to modify gradually.",
+        "description": { "en-US": "Specifies which variable (global or player) to modify gradually." },
         "type": "Variable"
       },
       {
         "name": "destination",
-        "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+        "description": { "en-US": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
         "type": [
           "float",
           "Vector"
@@ -35417,38 +35417,38 @@ var opyInternalFuncs = {
       },
       {
         "name": "rateOrDuration",
-        "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
+        "description": { "en-US": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument." },
         "type": "float"
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
         "type": "ChaseReeval"
       }
     ],
     "return": "void"
   },
   "__createWorkshopSetting__": {
-    "description": "Legacy way of creating workshop settings.",
+    "description": { "en-US": "Legacy way of creating workshop settings." },
     "args": [
       {
         "name": "type",
-        "description": 'The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum["First option", "Second option"]`\n',
+        "description": { "en-US": 'The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum["First option", "Second option"]`\n' },
         "type": "Type"
       },
       {
         "name": "category",
-        "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+        "description": { "en-US": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less." },
         "type": "CustomStringLiteral"
       },
       {
         "name": "name",
-        "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+        "description": { "en-US": "The name of this setting. Must be a custom string literal with 128 characters or less." },
         "type": "CustomStringLiteral"
       },
       {
         "name": "default",
-        "description": "The default value for this setting.",
+        "description": { "en-US": "The default value for this setting." },
         "type": [
           "BoolLiteral",
           "IntLiteral",
@@ -35458,7 +35458,7 @@ var opyInternalFuncs = {
       },
       {
         "name": "sortOrder",
-        "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. Can be from 0 to 63.",
+        "description": { "en-US": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. Can be from 0 to 63." },
         "type": "IntLiteral",
         "default": 0
       }
@@ -36547,16 +36547,16 @@ var eventPlayerKw = (
 // src/data/opy/functions.ts
 var opyFuncs = {
   "_": {
-    "description": "The translation function. If two arguments are specified, the first argument (a string literal) is used as the context to disambiguate strings that are the same but must be translated differently. Else, the first argument is the string to be translated (can be a variable, in which case this function has to be used directly in the display function such as `hudText()`).\n\nSee `#!translations` for more details.",
+    "description": { "en-US": "The translation function. If two arguments are specified, the first argument (a string literal) is used as the context to disambiguate strings that are the same but must be translated differently. Else, the first argument is the string to be translated (can be a variable, in which case this function has to be used directly in the display function such as `hudText()`).\n\nSee `#!translations` for more details." },
     "args": [
       {
         "name": "contextOrString",
-        "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+        "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
         "type": "String"
       },
       {
         "name": "string",
-        "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+        "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
         "type": "CustomStringLiteral",
         "default": null
       }
@@ -36564,16 +36564,16 @@ var opyFuncs = {
     "return": "String"
   },
   "__": {
-    "description": "Same as the `_` function, but if using `#!translateWithPlayerVar`, it will ignore that directive. Use this if you want a string to be translated for spectators.",
+    "description": { "en-US": "Same as the `_` function, but if using `#!translateWithPlayerVar`, it will ignore that directive. Use this if you want a string to be translated for spectators." },
     "args": [
       {
         "name": "contextOrString",
-        "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+        "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
         "type": "String"
       },
       {
         "name": "string",
-        "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+        "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
         "type": "CustomStringLiteral",
         "default": null
       }
@@ -36581,7 +36581,7 @@ var opyFuncs = {
     "return": "String"
   },
   "___": {
-    "description": `Same as the \`_\` function, but will never resolve the translation, even if in a display action. You must wrap it with the \`_\` function to resolve it.
+    "description": { "en-US": `Same as the \`_\` function, but will never resolve the translation, even if in a display action. You must wrap it with the \`_\` function to resolve it.
 
 This is useful when several strings are used in a single display action. For example:
 
@@ -36592,16 +36592,16 @@ This will add the code to resolve the translation twice, but it can be optimized
 \`bigMessage(text=_([___("Choice 1"), ___("Choice 2")][eventPlayer.choice]))\`
 
 Wrapping a string with \`___\` has the same caveats as putting a translated string in a variable: you must treat it as an opaque value and not do any operations on it, and display it with the \`_\` function. But, since it is still a value, array indexing is still possible.
-`,
+` },
     "args": [
       {
         "name": "contextOrString",
-        "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+        "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
         "type": "String"
       },
       {
         "name": "string",
-        "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+        "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
         "type": "CustomStringLiteral",
         "default": null
       }
@@ -36609,11 +36609,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "String"
   },
   "all": {
-    "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.all()` member function is preferred over this syntax: `getAllPlayers().all(lambda player: player.A == 2)`",
+    "description": { "en-US": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.all()` member function is preferred over this syntax: `getAllPlayers().all(lambda player: player.A == 2)`" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose values will be considered.",
+        "description": { "en-US": "The array whose values will be considered." },
         "type": {
           "Array": "bool"
         }
@@ -36624,11 +36624,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "hideFromAutocomplete": true
   },
   "any": {
-    "description": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.any()` member function is preferred over this syntax: `getAllPlayers().any(lambda player: player.A == 2)`",
+    "description": { "en-US": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.any()` member function is preferred over this syntax: `getAllPlayers().any(lambda player: player.A == 2)`" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose values will be considered.",
+        "description": { "en-US": "The array whose values will be considered." },
         "type": {
           "Array": "bool"
         }
@@ -36639,7 +36639,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "hideFromAutocomplete": true
   },
   ".append": {
-    "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
+    "description": { "en-US": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`" },
     "args": [
       {
         "name": "array",
@@ -36647,7 +36647,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       },
       {
         "name": "value",
-        "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+        "description": { "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended." },
         "type": ["Object", { Array: "Object" }]
       }
     ],
@@ -36655,18 +36655,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     return: "void"
   },
   ".all": {
-    "description": "Whether the lambda function evaluates to true for every element of the array. If no argument is provided, checks whether every element is truthy. Returns true for an empty array.\n\nExample: `getAllPlayers().all(lambda player: player.A == 2)`\n\nWith index: `array.all(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.all()` (equivalent to `array.all(lambda x: x)`)",
+    "description": { "en-US": "Whether the lambda function evaluates to true for every element of the array. If no argument is provided, checks whether every element is truthy. Returns true for an empty array.\n\nExample: `getAllPlayers().all(lambda player: player.A == 2)`\n\nWith index: `array.all(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.all()` (equivalent to `array.all(lambda x: x)`)" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose values will be considered.",
+        "description": { "en-US": "The array whose values will be considered." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "lambda",
-        "description": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself.",
+        "description": { "en-US": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself." },
         "type": "Lambda",
         "default": "<current array element>"
       }
@@ -36676,18 +36676,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "bool"
   },
   ".any": {
-    "description": "Whether the lambda function evaluates to true for any element of the array. If no lambda is provided, checks whether any element is truthy. Returns false for an empty array.\n\nExample: `getAllPlayers().any(lambda player: player.A == 2)`\n\nWith index: `array.any(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.any()` (equivalent to `array.any(lambda x: x)`)",
+    "description": { "en-US": "Whether the lambda function evaluates to true for any element of the array. If no lambda is provided, checks whether any element is truthy. Returns false for an empty array.\n\nExample: `getAllPlayers().any(lambda player: player.A == 2)`\n\nWith index: `array.any(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.any()` (equivalent to `array.any(lambda x: x)`)" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose values will be considered.",
+        "description": { "en-US": "The array whose values will be considered." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "lambda",
-        "description": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself.",
+        "description": { "en-US": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself." },
         "type": "Lambda",
         "default": "<current array element>"
       }
@@ -36697,18 +36697,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "bool"
   },
   ".filter": {
-    "description": "A copy of the specified array with any values that do not match the lambda condition removed.\n\nExample: `getAllPlayers().filter(lambda player: player.A == 2)`\n\nWith index: `array.filter(lambda elem, idx: elem > idx)`",
+    "description": { "en-US": "A copy of the specified array with any values that do not match the lambda condition removed.\n\nExample: `getAllPlayers().filter(lambda player: player.A == 2)`\n\nWith index: `array.filter(lambda elem, idx: elem > idx)`" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose copy will be filtered.",
+        "description": { "en-US": "The array whose copy will be filtered." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "lambda",
-        "description": "The lambda function that is evaluated for each element of the copied array. If it returns true, the element is kept; otherwise, it is removed.",
+        "description": { "en-US": "The lambda function that is evaluated for each element of the copied array. If it returns true, the element is kept; otherwise, it is removed." },
         "type": "Lambda"
       }
     ],
@@ -36719,18 +36719,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     }
   },
   ".map": {
-    "description": "A copy of the specified array with the values mapped according to the lambda function that is evaluated for each element.\n\nExample: `getAllPlayers().map(lambda player: player.A + 2)`\n\nWith index: `array.map(lambda elem, idx: elem + idx)`",
+    "description": { "en-US": "A copy of the specified array with the values mapped according to the lambda function that is evaluated for each element.\n\nExample: `getAllPlayers().map(lambda player: player.A + 2)`\n\nWith index: `array.map(lambda elem, idx: elem + idx)`" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose copy will be mapped.",
+        "description": { "en-US": "The array whose copy will be mapped." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "lambda",
-        "description": "The lambda function that is evaluated for each element. The return value is used as the new element.",
+        "description": { "en-US": "The lambda function that is evaluated for each element. The return value is used as the new element." },
         "type": "Lambda"
       }
     ],
@@ -36741,18 +36741,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     }
   },
   "arrayToString": {
-    "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed along with the amount of elements remaining.",
+    "description": { "en-US": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed along with the amount of elements remaining." },
     "args": [
       {
         "name": "array",
-        "description": "The array to be displayed. If not an array, it will be displayed normally.",
+        "description": { "en-US": "The array to be displayed. If not an array, it will be displayed normally." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "maxLength",
-        "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable.",
+        "description": { "en-US": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable." },
         "type": "IntLiteral",
         "default": 12
       }
@@ -36761,11 +36761,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "String"
   },
   "ceil": {
-    "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
+    "description": { "en-US": "The integer that is the ceiling of the specified value (equivalent to rounding up)." },
     "args": [
       {
         "name": "value",
-        "description": "The real number to get the ceiling of.",
+        "description": { "en-US": "The real number to get the ceiling of." },
         "type": "float"
       }
     ],
@@ -36773,16 +36773,16 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "int"
   },
   "chaseAtRate": {
-    description: "Gradually modifies the value of a variable at a specific rate.",
+    description: { "en-US": "Gradually modifies the value of a variable at a specific rate." },
     "args": [
       {
         "name": "variable",
-        "description": "The variable to chase.",
+        "description": { "en-US": "The variable to chase." },
         "type": "Variable"
       },
       {
         "name": "destination",
-        "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+        "description": { "en-US": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
         "type": [
           "float",
           "Vector"
@@ -36793,13 +36793,13 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       {
         "name": "rate",
         "type": "float",
-        "description": "The amount of change that will happen to the variable's value each second.",
+        "description": { "en-US": "The amount of change that will happen to the variable's value each second." },
         "canReplace0ByFalse": true,
         "canReplace1ByTrue": true
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
         "type": "ChaseRateReeval",
         default: "DESTINATION_AND_RATE"
       }
@@ -36807,16 +36807,16 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "void"
   },
   "chaseOverTime": {
-    description: "Gradually modifies the value of a variable over time.",
+    description: { "en-US": "Gradually modifies the value of a variable over time." },
     "args": [
       {
         "name": "variable",
-        "description": "Specifies which variable to modify gradually.",
+        "description": { "en-US": "Specifies which variable to modify gradually." },
         "type": "Variable"
       },
       {
         "name": "destination",
-        "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+        "description": { "en-US": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
         "type": [
           "float",
           "Vector"
@@ -36827,13 +36827,13 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       {
         "name": "duration",
         "type": "float",
-        "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+        "description": { "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination." },
         "canReplace0ByFalse": true,
         "canReplace1ByTrue": true
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
         "type": "ChaseTimeReeval",
         default: "DESTINATION_AND_DURATION"
       }
@@ -36841,61 +36841,61 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "void"
   },
   "compress": {
-    "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back.",
+    "description": { "en-US": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back." },
     "args": [
       {
         "name": "array",
-        "description": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable.",
+        "description": { "en-US": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable." },
         "type": "Array"
       }
     ],
     return: "String"
   },
   "compressed": {
-    "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use `#!debugElementCount` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+    "description": { "en-US": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use `#!debugElementCount` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive." },
     "args": [
       {
         "name": "array",
-        "description": "An array of literal numbers or vectors to be compressed and immediately decompressed. The array must be a literal array, not a variable.",
+        "description": { "en-US": "An array of literal numbers or vectors to be compressed and immediately decompressed. The array must be a literal array, not a variable." },
         "type": "Array"
       }
     ],
     return: "Array"
   },
   "decompressNumbers": {
-    "description": "Decompresses an array of numbers (see `compress()`).",
+    "description": { "en-US": "Decompresses an array of numbers (see `compress()`)." },
     "args": [
       {
         "name": "string",
-        "description": "The string which represents the compressed array to decompress.",
+        "description": { "en-US": "The string which represents the compressed array to decompress." },
         "type": "String"
       }
     ],
     return: "Array"
   },
   "decompressVectors": {
-    "description": "Decompresses an array of vectors (see `compress()`).",
+    "description": { "en-US": "Decompresses an array of vectors (see `compress()`)." },
     "args": [
       {
         "name": "string",
-        "description": "The string which represents the compressed array to decompress.",
+        "description": { "en-US": "The string which represents the compressed array to decompress." },
         "type": "String"
       }
     ],
     return: "Array"
   },
   "createCasedProgressBarIwt": {
-    "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
+    "description": { "en-US": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased." },
     "args": [
       {
         "name": "textCount",
-        "description": "The amount of texts used to overlay.",
+        "description": { "en-US": "The amount of texts used to overlay." },
         "type": "IntLiteral",
         default: 3
       },
       {
         "name": "visibleTo",
-        "description": "One or more players who will see the progress bar HUD text.",
+        "description": { "en-US": "One or more players who will see the progress bar HUD text." },
         "type": [
           "Player",
           {
@@ -36906,12 +36906,12 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       },
       {
         "name": "text",
-        "description": "The text to be displayed. Must be a literal custom string, not a variable.",
+        "description": { "en-US": "The text to be displayed. Must be a literal custom string, not a variable." },
         "type": "String"
       },
       {
         "name": "position",
-        "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+        "description": { "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world." },
         "type": [
           "Position",
           "Player"
@@ -36919,30 +36919,30 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       },
       {
         "name": "scale",
-        "description": "The text's scale.",
+        "description": { "en-US": "The text's scale." },
         "type": "float"
       },
       {
         "name": "clipping",
-        "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+        "description": { "en-US": "Specifies whether the text can be seen through walls or is instead clipped." },
         "type": "Clip",
         "default": "NONE"
       },
       {
         "name": "textColor",
-        "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+        "description": { "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
         "type": "Color",
         "default": "WHITE"
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs." },
         "type": "ProgressWorldTextReeval",
         "default": "VISIBILITY_POSITION_VALUES_AND_COLOR"
       },
       {
         "name": "nonTeamSpectators",
-        "description": "Whether non-team spectators can see the text or not.",
+        "description": { "en-US": "Whether non-team spectators can see the text or not." },
         "type": "SpecVisibility",
         "default": "DEFAULT"
       }
@@ -36950,11 +36950,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "void"
   },
   "debug": {
-    "description": "For quick debugging of a value. Displays both the value and the text of the function call. If the value is an array, it is automatically wrapped with `arrayToString()`.",
+    "description": { "en-US": "For quick debugging of a value. Displays both the value and the text of the function call. If the value is an array, it is automatically wrapped with `arrayToString()`." },
     "args": [
       {
         "name": "value",
-        "description": "The value to be displayed.",
+        "description": { "en-US": "The value to be displayed." },
         "type": [
           "Object",
           "Array"
@@ -36964,11 +36964,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "void"
   },
   "floor": {
-    "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
+    "description": { "en-US": "The integer that is the floor of the specified value (equivalent to rounding down)." },
     "args": [
       {
         "name": "value",
-        "description": "The real number to get the floor of.",
+        "description": { "en-US": "The real number to get the floor of." },
         "type": "float"
       }
     ],
@@ -36976,7 +36976,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "int"
   },
   ".format": {
-    "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
+    "description": { "en-US": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder." },
     "args": [
       {
         "name": "string",
@@ -36984,7 +36984,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       },
       {
         "name": "value",
-        "description": "The value used to replace the matching placeholder.",
+        "description": { "en-US": "The value used to replace the matching placeholder." },
         "type": "Object"
       }
     ],
@@ -36992,13 +36992,13 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     return: "String"
   },
   "getCurrentMap": {
-    "description": "The current map of the custom game.",
+    "description": { "en-US": "The current map of the custom game." },
     "args": [],
     "isConstant": true,
     "return": "Map"
   },
   ".getNormal": {
-    "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
+    "description": { "en-US": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs)." },
     "args": [
       {
         "name": "raycast",
@@ -37010,7 +37010,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     hideFromAutocomplete: true
   },
   ".getPlayerHit": {
-    "description": "The player hit by the raycast (or null if no player is hit).",
+    "description": { "en-US": "The player hit by the raycast (or null if no player is hit)." },
     "args": [
       {
         "name": "raycast",
@@ -37022,7 +37022,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     hideFromAutocomplete: true
   },
   ".getHitPosition": {
-    "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
+    "description": { "en-US": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs)." },
     "args": [
       {
         "name": "raycast",
@@ -37034,26 +37034,26 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     hideFromAutocomplete: true
   },
   "hsl": {
-    "description": "A custom color in HSL/HSLA format.",
+    "description": { "en-US": "A custom color in HSL/HSLA format." },
     "args": [
       {
         "name": "hue",
-        "description": "The hue of the color (0-360).",
+        "description": { "en-US": "The hue of the color (0-360)." },
         "type": "float"
       },
       {
         "name": "saturation",
-        "description": "The saturation of the color (0-1).",
+        "description": { "en-US": "The saturation of the color (0-1)." },
         "type": "float"
       },
       {
         "name": "lightness",
-        "description": "The lightness of the color (0-1).",
+        "description": { "en-US": "The lightness of the color (0-1)." },
         "type": "float"
       },
       {
         "name": "alpha",
-        "description": "The alpha of the color (0-255).",
+        "description": { "en-US": "The alpha of the color (0-255)." },
         "type": "float",
         default: 255
       }
@@ -37062,16 +37062,16 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "Color"
   },
   "log": {
-    "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+    "description": { "en-US": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4." },
     "args": [
       {
         "name": "number",
-        "description": "The number to get the logarithm of.",
+        "description": { "en-US": "The number to get the logarithm of." },
         "type": "unsigned float"
       },
       {
         "name": "base",
-        "description": "The base of the logarithm.",
+        "description": { "en-US": "The base of the logarithm." },
         "type": "unsigned float",
         default: "Math.E"
       }
@@ -37080,61 +37080,61 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "float"
   },
   "pass": {
-    "description": "Does nothing. Is parsed as an action for the purposes of runtime `goto`s.",
+    "description": { "en-US": "Does nothing. Is parsed as an action for the purposes of runtime `goto`s." },
     "args": null,
     "return": "void"
   },
   "range": {
-    "description": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`.",
+    "description": { "en-US": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`." },
     "args": [
       {
         "name": "start",
-        "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
+        "description": { "en-US": "The control variable is set to this value when the loop begins. If omitted, defaults to 0." },
         "type": "float"
       },
       {
         "name": "stop",
-        "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+        "description": { "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits." },
         "type": "float"
       },
       {
         "name": "step",
-        "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+        "description": { "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action." },
         "type": "float"
       }
     ],
     "return": "Iterator"
   },
   "raycast": {
-    "description": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`.",
+    "description": { "en-US": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`." },
     "args": [
       {
         "name": "startPos",
-        "description": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+        "description": { "en-US": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used." },
         "type": "Position"
       },
       {
         "name": "endPos",
-        "description": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+        "description": { "en-US": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used." },
         "type": "Position"
       },
       {
         "name": "playersToInclude",
-        "description": "Which players can be hit by this raycast.",
+        "description": { "en-US": "Which players can be hit by this raycast." },
         "type": {
           "Array": "Player"
         }
       },
       {
         "name": "playersToExclude",
-        "description": "Which players cannot be hit by this raycast. This list takes precedence over players to include.",
+        "description": { "en-US": "Which players cannot be hit by this raycast. This list takes precedence over players to include." },
         "type": {
           "Array": "Player"
         }
       },
       {
         "name": "includePlayerObjects",
-        "description": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast.",
+        "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast." },
         "type": "bool",
         "default": true
       }
@@ -37143,7 +37143,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     hideFromAutocomplete: true
   },
   ".remove": {
-    "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
+    "description": { "en-US": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs." },
     "args": [
       {
         "name": "array",
@@ -37151,7 +37151,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
       },
       {
         "name": "value",
-        "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
+        "description": { "en-US": "The value to remove from the array (if found). If an array is given, each value is removed from the array." },
         "type": ["Object", "Array"]
       }
     ],
@@ -37159,11 +37159,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     return: "void"
   },
   "round": {
-    "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
+    "description": { "en-US": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`." },
     "args": [
       {
         "name": "value",
-        "description": "The real number to get the nearest integer of.",
+        "description": { "en-US": "The real number to get the nearest integer of." },
         "type": "float"
       }
     ],
@@ -37171,23 +37171,23 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "int"
   },
   "ruleCondition": {
-    "description": "Equivalent to true if every rule condition is true. Can be used like a normal value, and optimizes to built-in workshop functions in some cases (for example, `if ruleCondition: loop()` compiles to `Loop If Condition Is True`).",
+    "description": { "en-US": "Equivalent to true if every rule condition is true. Can be used like a normal value, and optimizes to built-in workshop functions in some cases (for example, `if ruleCondition: loop()` compiles to `Loop If Condition Is True`)." },
     "args": null,
     "return": "bool"
   },
   "sorted": {
-    "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
+    "description": { "en-US": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`" },
     "args": [
       {
         "name": "array",
-        "description": "The array whose copy will be sorted.",
+        "description": { "en-US": "The array whose copy will be sorted." },
         "type": {
           "Array": "Object"
         }
       },
       {
         "name": "lambda",
-        "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
+        "description": { "en-US": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`)." },
         "type": "Lambda"
       }
     ],
@@ -37197,11 +37197,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     }
   },
   "spacesForString": {
-    "description": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`, however it can also be used with translated strings, in which case it will also return a translated string.",
+    "description": { "en-US": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`, however it can also be used with translated strings, in which case it will also return a translated string." },
     "args": [
       {
         "name": "text",
-        "description": "The text to get spaces of. Must be a literal custom string, not a variable.",
+        "description": { "en-US": "The text to get spaces of. Must be a literal custom string, not a variable." },
         "type": "String"
       }
     ],
@@ -37209,11 +37209,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "String"
   },
   "spacesForLength": {
-    "description": "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function.",
+    "description": { "en-US": "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function." },
     "args": [
       {
         "name": "length",
-        "description": "The length to get. Must be a literal integer, not a variable.",
+        "description": { "en-US": "The length to get. Must be a literal integer, not a variable." },
         "type": "IntLiteral"
       }
     ],
@@ -37221,7 +37221,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
     "return": "String"
   },
   "splitDictArray": {
-    "description": `
+    "description": { "en-US": `
 Maps an array of dictionaries to variables. For example:
 \`\`\`thon
 splitDictArray({
@@ -37244,23 +37244,23 @@ waveLengths = [3, 8, null]
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
 
 Also check the \`tabular\` function for a more concise syntax.
-        `,
+        ` },
     "args": [
       {
         "name": "variables",
-        "description": "A dictionary mapping the keys to the variables to be assigned to.",
+        "description": { "en-US": "A dictionary mapping the keys to the variables to be assigned to." },
         "type": "Dict"
       },
       {
         "name": "values",
-        "description": "An array of dictionaries describing the values to be assigned to the variables.",
+        "description": { "en-US": "An array of dictionaries describing the values to be assigned to the variables." },
         "type": {
           "Array": "Dict"
         }
       },
       {
         "name": "compress",
-        "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+        "description": { "en-US": "Set to true to compress the arrays if they are arrays of literal numbers or vectors." },
         "type": "bool",
         "default": false
       }
@@ -37268,22 +37268,22 @@ Also check the \`tabular\` function for a more concise syntax.
     "return": "void"
   },
   "stopChasing": {
-    "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
+    "description": { "en-US": "Stops an in-progress chase of a variable (global or player), leaving it at its current value." },
     "args": [
       {
         "name": "variable",
-        "description": "Specifies which variable (global or player) to stop modifying.",
+        "description": { "en-US": "Specifies which variable (global or player) to stop modifying." },
         "type": "Variable"
       }
     ],
     "return": "void"
   },
   "strVisualLength": {
-    "description": "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`.",
+    "description": { "en-US": "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`." },
     "args": [
       {
         "name": "text",
-        "description": "The text to calculate the length of. Must be a literal custom string, not a variable.",
+        "description": { "en-US": "The text to calculate the length of. Must be a literal custom string, not a variable." },
         "type": "String"
       }
     ],
@@ -37291,7 +37291,7 @@ Also check the \`tabular\` function for a more concise syntax.
     "return": "unsigned int"
   },
   "tabular": {
-    "description": `
+    "description": { "en-US": `
 Maps an array of arrays to variables (same as \`splitDictArray()\` with shorter syntax). For example:
 \`\`\`thon
 tabular([waveHeroes,waveLengths], [
@@ -37309,23 +37309,23 @@ waveLengths = [3, 8, null]
 \`\`\`
 
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
-        `,
+        ` },
     "args": [
       {
         "name": "variables",
-        "description": "A dictionary mapping the keys to the variables to be assigned to.",
+        "description": { "en-US": "A dictionary mapping the keys to the variables to be assigned to." },
         "type": "Dict"
       },
       {
         "name": "values",
-        "description": "An array of dictionaries describing the values to be assigned to the variables.",
+        "description": { "en-US": "An array of dictionaries describing the values to be assigned to the variables." },
         "type": {
           "Array": "Dict"
         }
       },
       {
         "name": "compress",
-        "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+        "description": { "en-US": "Set to true to compress the arrays if they are arrays of literal numbers or vectors." },
         "type": "bool",
         "default": false
       }
@@ -37333,11 +37333,11 @@ If the third argument is set to \`true\`, arrays will be compressed if they are 
     "return": "void"
   },
   ".toArray": {
-    "description": "Get an array of the values of an enum.",
+    "description": { "en-US": "Get an array of the values of an enum." },
     "args": [
       {
         "name": "__enumType__",
-        "description": "The enum to take the values from.",
+        "description": { "en-US": "The enum to take the values from." },
         "type": "Type"
       }
     ],
@@ -37349,11 +37349,11 @@ If the third argument is set to \`true\`, arrays will be compressed if they are 
 // src/data/opy/macros.ts
 var opyMacros = {
   "buttonToString": {
-    "description": "Displays a button with [ ] if not a texture, and replaces LSHIFT/LCONTROL/LALT by SHIFT/CTRL/ALT.\n\nYou will likely want to use this instead of `inputBindingString()`.",
+    "description": { "en-US": "Displays a button with [ ] if not a texture, and replaces LSHIFT/LCONTROL/LALT by SHIFT/CTRL/ALT.\n\nYou will likely want to use this instead of `inputBindingString()`." },
     "args": [
       {
         "name": "button",
-        "description": "The button to display.",
+        "description": { "en-US": "The button to display." },
         "type": "Button"
       }
     ],
@@ -37364,11 +37364,11 @@ var opyMacros = {
     return: "String"
   },
   ".getEffectiveHero": {
-    "description": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`.",
+    "description": { "en-US": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`." },
     "args": [
       {
         "name": "self",
-        "description": "The player whose effective hero you want to get.",
+        "description": { "en-US": "The player whose effective hero you want to get." },
         "type": "Player"
       }
     ],
@@ -37377,11 +37377,11 @@ var opyMacros = {
     return: "Hero"
   },
   ".getOppositeTeam": {
-    "description": "Gets the opposite team of the team of a player. If the team is `Team.ALL`, it returns `Team.ALL`.",
+    "description": { "en-US": "Gets the opposite team of the team of a player. If the team is `Team.ALL`, it returns `Team.ALL`." },
     "args": [
       {
         "name": "player",
-        "description": "The player whose opposite team you want to get.",
+        "description": { "en-US": "The player whose opposite team you want to get." },
         "type": "Player"
       }
     ],
@@ -37390,16 +37390,16 @@ var opyMacros = {
     "return": "Team"
   },
   "getRealClosestPlayer": {
-    "description": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+    "description": { "en-US": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
     "args": [
       {
         "name": "center",
-        "description": "The position from which to measure proximity.",
+        "description": { "en-US": "The position from which to measure proximity." },
         "type": "Position"
       },
       {
         "name": "team",
-        "description": "The team or teams from which the closest player will come.",
+        "description": { "en-US": "The team or teams from which the closest player will come." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37408,16 +37408,16 @@ var opyMacros = {
     "return": "Player"
   },
   "getRealClosestPlayers": {
-    "description": "The alive and spawned players closest to a position, optionally restricted by team and sorted by ascending distance.",
+    "description": { "en-US": "The alive and spawned players closest to a position, optionally restricted by team and sorted by ascending distance." },
     "args": [
       {
         "name": "center",
-        "description": "The position from which to measure proximity.",
+        "description": { "en-US": "The position from which to measure proximity." },
         "type": "Position"
       },
       {
         "name": "team",
-        "description": "The team or teams from which the closest player will come.",
+        "description": { "en-US": "The team or teams from which the closest player will come." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37426,16 +37426,16 @@ var opyMacros = {
     "return": "Player"
   },
   "getRealFarthestPlayer": {
-    "description": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+    "description": { "en-US": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
     "args": [
       {
         "name": "center",
-        "description": "The position from which to measure distance.",
+        "description": { "en-US": "The position from which to measure distance." },
         "type": "Position"
       },
       {
         "name": "team",
-        "description": "The team or teams from which the farthest player will come.",
+        "description": { "en-US": "The team or teams from which the farthest player will come." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37444,16 +37444,16 @@ var opyMacros = {
     "return": "Player"
   },
   "getRealFarthestPlayers": {
-    "description": "The alive and spawned players farthest from a position, optionally restricted by team and sorted by descending distance.",
+    "description": { "en-US": "The alive and spawned players farthest from a position, optionally restricted by team and sorted by descending distance." },
     "args": [
       {
         "name": "center",
-        "description": "The position from which to measure distance.",
+        "description": { "en-US": "The position from which to measure distance." },
         "type": "Position"
       },
       {
         "name": "team",
-        "description": "The team or teams from which the farthest player will come.",
+        "description": { "en-US": "The team or teams from which the farthest player will come." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37462,16 +37462,16 @@ var opyMacros = {
     "return": "Player"
   },
   ".getRealPlayerClosestToReticle": {
-    "description": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+    "description": { "en-US": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
     "args": [
       {
         "name": "self",
-        "description": "The player from whose reticle to search for the closest player.",
+        "description": { "en-US": "The player from whose reticle to search for the closest player." },
         "type": "Player"
       },
       {
         "name": "team",
-        "description": "The team or teams on which to search for the closest player.",
+        "description": { "en-US": "The team or teams on which to search for the closest player." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37480,16 +37480,16 @@ var opyMacros = {
     "return": "Player"
   },
   ".getRealPlayersClosestToReticle": {
-    "description": "The alive and spawned players closest to the reticle of the specified player, optionally restricted by team and sorted by ascending distance to reticle.",
+    "description": { "en-US": "The alive and spawned players closest to the reticle of the specified player, optionally restricted by team and sorted by ascending distance to reticle." },
     "args": [
       {
         "name": "self",
-        "description": "The player from whose reticle to search for the closest player.",
+        "description": { "en-US": "The player from whose reticle to search for the closest player." },
         "type": "Player"
       },
       {
         "name": "team",
-        "description": "The team or teams on which to search for the closest player.",
+        "description": { "en-US": "The team or teams on which to search for the closest player." },
         "type": "Team",
         "default": "ALL"
       }
@@ -37498,27 +37498,27 @@ var opyMacros = {
     "return": "Player"
   },
   "getRealPlayersInRadius": {
-    "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\nNote: the workshop `Players In Radius` function targets dead players. Use this function instead.",
+    "description": { "en-US": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\nNote: the workshop `Players In Radius` function targets dead players. Use this function instead." },
     "args": [
       {
         "name": "center",
-        "description": "The center position from which to measure distance.",
+        "description": { "en-US": "The center position from which to measure distance." },
         "type": "Position"
       },
       {
         "name": "radius",
-        "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+        "description": { "en-US": "The radius in meters inside which players must be in order to be included in the resulting array." },
         "type": "unsigned float"
       },
       {
         "name": "team",
-        "description": "The team or teams to which a player must belong to be included in the resulting array.",
+        "description": { "en-US": "The team or teams to which a player must belong to be included in the resulting array." },
         "type": "Team",
         "default": "ALL"
       },
       {
         "name": "losCheck",
-        "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+        "description": { "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array." },
         "type": "LosCheck",
         "default": "OFF"
       }
@@ -37529,21 +37529,21 @@ var opyMacros = {
     }
   },
   ".getRealPlayersInViewAngle": {
-    "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+    "description": { "en-US": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead." },
     "args": [
       {
         "name": "self",
-        "description": "The player whose view to use for the check.",
+        "description": { "en-US": "The player whose view to use for the check." },
         "type": "Player"
       },
       {
         "name": "team",
-        "description": "The team or teams on which to consider players.",
+        "description": { "en-US": "The team or teams on which to consider players." },
         "type": "Team"
       },
       {
         "name": "viewAngle",
-        "description": "The view angle to compare against in degrees.",
+        "description": { "en-US": "The view angle to compare against in degrees." },
         "type": "float"
       }
     ],
@@ -37553,11 +37553,11 @@ var opyMacros = {
     }
   },
   "getSign": {
-    "description": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1.",
+    "description": { "en-US": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1." },
     "args": [
       {
         "name": "number",
-        "description": "The number to calculate the sign of.",
+        "description": { "en-US": "The number to calculate the sign of." },
         "type": "float"
       }
     ],
@@ -37565,7 +37565,7 @@ var opyMacros = {
     "return": "int"
   },
   "getAllPlayers": {
-    "description": "Built-in macro for `getPlayers(Team.ALL)`.",
+    "description": { "en-US": "Built-in macro for `getPlayers(Team.ALL)`." },
     "args": [],
     macro: "getPlayers(Team.ALL)",
     "return": {
@@ -37573,11 +37573,11 @@ var opyMacros = {
     }
   },
   "hudHeader": {
-    "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+    "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
     "args": [
       {
         "name": "visibleTo",
-        "description": "One or more players who will see the hud text.",
+        "description": { "en-US": "One or more players who will see the hud text." },
         "type": [
           "Player",
           {
@@ -37588,18 +37588,18 @@ var opyMacros = {
       },
       {
         "name": "text",
-        "description": "The text to be displayed.",
+        "description": { "en-US": "The text to be displayed." },
         "type": "Object"
       },
       {
         "name": "location",
-        "description": "The location on the screen where the text will appear.",
+        "description": { "en-US": "The location on the screen where the text will appear." },
         "type": "HudPosition",
         "default": "LEFT"
       },
       {
         "name": "sortOrder",
-        "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+        "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
         "type": "float",
         "canReplace0ByFalse": true,
         "canReplace1ByTrue": true,
@@ -37607,19 +37607,19 @@ var opyMacros = {
       },
       {
         "name": "color",
-        "description": "The color of the header.",
+        "description": { "en-US": "The color of the header." },
         "type": "Color",
         "default": "WHITE"
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
         "type": "HudReeval",
         "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
       },
       {
         "name": "specVisibility",
-        "description": "Whether spectators can see the text or not. Optional argument.",
+        "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
         "type": "SpecVisibility",
         "default": "DEFAULT"
       }
@@ -37628,11 +37628,11 @@ var opyMacros = {
     "return": "void"
   },
   "hudSubheader": {
-    "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+    "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
     "args": [
       {
         "name": "visibleTo",
-        "description": "One or more players who will see the hud text.",
+        "description": { "en-US": "One or more players who will see the hud text." },
         "type": [
           "Player",
           {
@@ -37643,18 +37643,18 @@ var opyMacros = {
       },
       {
         "name": "text",
-        "description": "The subheader text to be displayed.",
+        "description": { "en-US": "The subheader text to be displayed." },
         "type": "Object"
       },
       {
         "name": "location",
-        "description": "The location on the screen where the text will appear.",
+        "description": { "en-US": "The location on the screen where the text will appear." },
         "type": "HudPosition",
         "default": "LEFT"
       },
       {
         "name": "sortOrder",
-        "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+        "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
         "type": "float",
         "canReplace0ByFalse": true,
         "canReplace1ByTrue": true,
@@ -37662,19 +37662,19 @@ var opyMacros = {
       },
       {
         "name": "color",
-        "description": "The color of the subheader.",
+        "description": { "en-US": "The color of the subheader." },
         "type": "Color",
         "default": "WHITE"
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
         "type": "HudReeval",
         "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
       },
       {
         "name": "specVisibility",
-        "description": "Whether spectators can see the text or not. Optional argument.",
+        "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
         "type": "SpecVisibility",
         "default": "DEFAULT"
       }
@@ -37683,11 +37683,11 @@ var opyMacros = {
     "return": "void"
   },
   "hudSubtext": {
-    "description": "Built-in macro for `hudText` to reduce the number of arguments.",
+    "description": { "en-US": "Built-in macro for `hudText` to reduce the number of arguments." },
     "args": [
       {
         "name": "visibleTo",
-        "description": "One or more players who will see the hud text.",
+        "description": { "en-US": "One or more players who will see the hud text." },
         "type": [
           "Player",
           {
@@ -37698,18 +37698,18 @@ var opyMacros = {
       },
       {
         "name": "text",
-        "description": "The text to be displayed.",
+        "description": { "en-US": "The text to be displayed." },
         "type": "Object"
       },
       {
         "name": "location",
-        "description": "The location on the screen where the text will appear.",
+        "description": { "en-US": "The location on the screen where the text will appear." },
         "type": "HudPosition",
         "default": "LEFT"
       },
       {
         "name": "sortOrder",
-        "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+        "description": { "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order." },
         "type": "float",
         "canReplace0ByFalse": true,
         "canReplace1ByTrue": true,
@@ -37717,19 +37717,19 @@ var opyMacros = {
       },
       {
         "name": "color",
-        "description": "The color of the text.",
+        "description": { "en-US": "The color of the text." },
         "type": "Color",
         "default": "WHITE"
       },
       {
         "name": "reevaluation",
-        "description": "Specifies which of this action's inputs will be continuously reevaluated.",
+        "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated." },
         "type": "HudReeval",
         "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
       },
       {
         "name": "specVisibility",
-        "description": "Whether spectators can see the text or not. Optional argument.",
+        "description": { "en-US": "Whether spectators can see the text or not. Optional argument." },
         "type": "SpecVisibility",
         "default": "DEFAULT"
       }
@@ -37738,21 +37738,21 @@ var opyMacros = {
     "return": "void"
   },
   "lerp": {
-    "description": "Built-in macro for linear interpolation between two values. The value of `t` must be between 0 and 1.",
+    "description": { "en-US": "Built-in macro for linear interpolation between two values. The value of `t` must be between 0 and 1." },
     "args": [
       {
         "name": "start",
-        "description": "The starting value.",
+        "description": { "en-US": "The starting value." },
         "type": "float"
       },
       {
         "name": "end",
-        "description": "The ending value.",
+        "description": { "en-US": "The ending value." },
         "type": "float"
       },
       {
         "name": "t",
-        "description": "The interpolation factor. Must be between 0 and 1.",
+        "description": { "en-US": "The interpolation factor. Must be between 0 and 1." },
         "type": "unsigned float"
       }
     ],
@@ -37760,26 +37760,26 @@ var opyMacros = {
     return: "float"
   },
   "lineIntersectsSphere": {
-    "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula.",
+    "description": { "en-US": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula." },
     "args": [
       {
         "name": "lineStart",
-        "description": "The starting position of the line. It must be outside the sphere for the function to work.",
+        "description": { "en-US": "The starting position of the line. It must be outside the sphere for the function to work." },
         "type": "Position"
       },
       {
         "name": "lineDirection",
-        "description": "The direction from the starting position to the ending position of the line.",
+        "description": { "en-US": "The direction from the starting position to the ending position of the line." },
         "type": "Direction"
       },
       {
         "name": "sphereCenter",
-        "description": "The center of the sphere.",
+        "description": { "en-US": "The center of the sphere." },
         "type": "Position"
       },
       {
         "name": "sphereRadius",
-        "description": "The radius of the sphere.",
+        "description": { "en-US": "The radius of the sphere." },
         "type": "unsigned float"
       }
     ],
@@ -37787,11 +37787,11 @@ var opyMacros = {
     return: "bool"
   },
   "print": {
-    "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
+    "description": { "en-US": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value." },
     "args": [
       {
         "name": "text",
-        "description": "The text to be displayed (can be blank)",
+        "description": { "en-US": "The text to be displayed (can be blank)" },
         "type": "Object"
       }
     ],
@@ -37799,11 +37799,11 @@ var opyMacros = {
     "return": "void"
   },
   ".reverse": {
-    "description": "Reverses the array.",
+    "description": { "en-US": "Reverses the array." },
     "args": [
       {
         "name": "self",
-        "description": "The array to reverse.",
+        "description": { "en-US": "The array to reverse." },
         "type": "Array"
       }
     ],
@@ -37812,11 +37812,11 @@ var opyMacros = {
     "return": "Array"
   },
   "timeToString": {
-    "description": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37.65)` will return `1:02:37.65`.",
+    "description": { "en-US": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37.65)` will return `1:02:37.65`." },
     "args": [
       {
         "name": "time",
-        "description": "The time in seconds to display.",
+        "description": { "en-US": "The time in seconds to display." },
         "type": "unsigned float"
       }
     ],
@@ -37829,11 +37829,11 @@ var opyMacros = {
     "return": "String"
   },
   ".unique": {
-    "description": "Returns a copy of the array with duplicate values removed (the first value is kept).\n\nThanks to LazyLion for the formula.",
+    "description": { "en-US": "Returns a copy of the array with duplicate values removed (the first value is kept).\n\nThanks to LazyLion for the formula." },
     "args": [
       {
         "name": "self",
-        "description": "The array to get the unique values from.",
+        "description": { "en-US": "The array to get the unique values from." },
         "type": "Array"
       }
     ],
@@ -45408,7 +45408,7 @@ var customGameSettingsSchema = (
         "allowPlayersInQueue": {
           "values": "__boolYesNo__",
           "guid": "00000000F25B",
-          "description": "Whether to allow players in 'While you wait'.",
+          "description": { "en-US": "Whether to allow players in 'While you wait'." },
           "en-US": "Allow Players Who Are In Queue",
           "de-DE": "Spieler in der Spielsuche zulassen",
           "es-ES": "Permitir jugadores que est\xE9n en cola",
@@ -46254,271 +46254,271 @@ var customGameSettingsSchema = (
 var opyStringEntities = {
   "copyright": {
     codepoint: 169,
-    description: "The copyright sign."
+    description: { "en-US": "The copyright sign." }
   },
   "registered": {
     codepoint: 174,
-    description: "The registered sign."
+    description: { "en-US": "The registered sign." }
   },
   "macron": {
     codepoint: 175,
-    description: 'A "macron" (overline).'
+    description: { "en-US": 'A "macron" (overline).' }
   },
   "middle_dot": {
     codepoint: 183,
-    description: "The middle dot."
+    description: { "en-US": "The middle dot." }
   },
   "zero_width_space": {
     codepoint: 173,
-    description: "A zero-width space."
+    description: { "en-US": "A zero-width space." }
   },
   "horizontal_bar": {
     codepoint: 8213,
-    description: "A horizontal bar."
+    description: { "en-US": "A horizontal bar." }
   },
   "reference_mark": {
     codepoint: 8251,
-    description: "The reference mark (used in Japanese)."
+    description: { "en-US": "The reference mark (used in Japanese)." }
   },
   "asterism": {
     codepoint: 8258,
-    description: "An asterism (used in typography)."
+    description: { "en-US": "An asterism (used in typography)." }
   },
   "left_arrow": {
     codepoint: 8592,
-    description: "A left-pointing arrow."
+    description: { "en-US": "A left-pointing arrow." }
   },
   "up_arrow": {
     codepoint: 8593,
-    description: "An up-pointing arrow."
+    description: { "en-US": "An up-pointing arrow." }
   },
   "right_arrow": {
     codepoint: 8594,
-    description: "A right-pointing arrow."
+    description: { "en-US": "A right-pointing arrow." }
   },
   "down_arrow": {
     codepoint: 8595,
-    description: "A down-pointing arrow."
+    description: { "en-US": "A down-pointing arrow." }
   },
   "horizontal_arrow": {
     codepoint: 8596,
-    description: "An arrow pointing left and right."
+    description: { "en-US": "An arrow pointing left and right." }
   },
   "vertical_arrow": {
     codepoint: 8597,
-    description: "An arrow pointing up and down."
+    description: { "en-US": "An arrow pointing up and down." }
   },
   "top_left_arrow": {
     codepoint: 8598,
-    description: "An arrow pointing to the top left."
+    description: { "en-US": "An arrow pointing to the top left." }
   },
   "top_right_arrow": {
     codepoint: 8599,
-    description: "An arrow pointing to the top right."
+    description: { "en-US": "An arrow pointing to the top right." }
   },
   "bottom_right_arrow": {
     codepoint: 8600,
-    description: "An arrow pointing to the bottom right."
+    description: { "en-US": "An arrow pointing to the bottom right." }
   },
   "bottom_left_arrow": {
     codepoint: 8601,
-    description: "An arrow pointing to the bottom left."
+    description: { "en-US": "An arrow pointing to the bottom left." }
   },
   "right_double_arrow": {
     codepoint: 8658,
-    description: "A right-pointing double arrow."
+    description: { "en-US": "A right-pointing double arrow." }
   },
   "horizontal_double_arrow": {
     codepoint: 8660,
-    description: "A double arrow pointing left and right."
+    description: { "en-US": "A double arrow pointing left and right." }
   },
   "infinity": {
     codepoint: 8734,
-    description: "The infinity symbol."
+    description: { "en-US": "The infinity symbol." }
   },
   "fullwidth_block": {
     codepoint: 9618,
-    description: "A fullwidth semi-transparent block (medium shade)."
+    description: { "en-US": "A fullwidth semi-transparent block (medium shade)." }
   },
   "black_square": {
     codepoint: 9632,
-    description: "A black square."
+    description: { "en-US": "A black square." }
   },
   "white_square": {
     codepoint: 9633,
-    description: "A white square."
+    description: { "en-US": "A white square." }
   },
   "square_in_square": {
     codepoint: 9635,
-    description: "A black square inside a white square."
+    description: { "en-US": "A black square inside a white square." }
   },
   "square_horizontal_lines": {
     codepoint: 9636,
-    description: "A square with horizontal lines."
+    description: { "en-US": "A square with horizontal lines." }
   },
   "square_vertical_lines": {
     codepoint: 9637,
-    description: "A square with vertical lines."
+    description: { "en-US": "A square with vertical lines." }
   },
   "square_grid_lines": {
     codepoint: 9638,
-    description: "A square with horizontal and vertical lines."
+    description: { "en-US": "A square with horizontal and vertical lines." }
   },
   "square_top_left_bottom_right_lines": {
     codepoint: 9639,
-    description: "A square with lines going from top left to bottom right."
+    description: { "en-US": "A square with lines going from top left to bottom right." }
   },
   "square_top_right_bottom_left_lines": {
     codepoint: 9640,
-    description: "A square with lines going from top right to bottom left."
+    description: { "en-US": "A square with lines going from top right to bottom left." }
   },
   "square_diagonal_lines": {
     codepoint: 9641,
-    description: "A square with diagonal lines."
+    description: { "en-US": "A square with diagonal lines." }
   },
   "up_black_triangle": {
     codepoint: 9650,
-    description: "A black triangle pointing up."
+    description: { "en-US": "A black triangle pointing up." }
   },
   "up_white_triangle": {
     codepoint: 9651,
-    description: "A white triangle pointing up."
+    description: { "en-US": "A white triangle pointing up." }
   },
   "right_black_triangle": {
     codepoint: 9654,
-    description: "A black triangle pointing right."
+    description: { "en-US": "A black triangle pointing right." }
   },
   "right_white_triangle": {
     codepoint: 9655,
-    description: "A white triangle pointing right."
+    description: { "en-US": "A white triangle pointing right." }
   },
   "down_black_triangle": {
     codepoint: 9660,
-    description: "A black triangle pointing down."
+    description: { "en-US": "A black triangle pointing down." }
   },
   "down_white_triangle": {
     codepoint: 9661,
-    description: "A white triangle pointing down."
+    description: { "en-US": "A white triangle pointing down." }
   },
   "left_black_triangle": {
     codepoint: 9664,
-    description: "A black triangle pointing left."
+    description: { "en-US": "A black triangle pointing left." }
   },
   "left_white_triangle": {
     codepoint: 9665,
-    description: "A white triangle pointing left."
+    description: { "en-US": "A white triangle pointing left." }
   },
   "black_diamond": {
     codepoint: 9670,
-    description: "A black diamond."
+    description: { "en-US": "A black diamond." }
   },
   "white_diamond": {
     codepoint: 9671,
-    description: "A white diamond."
+    description: { "en-US": "A white diamond." }
   },
   "diamond_in_diamond": {
     codepoint: 9672,
-    description: "A black diamond inside a white diamond."
+    description: { "en-US": "A black diamond inside a white diamond." }
   },
   "white_circle": {
     codepoint: 9675,
-    description: "A white circle."
+    description: { "en-US": "A white circle." }
   },
   "black_circle": {
     codepoint: 9679,
-    description: "A black circle."
+    description: { "en-US": "A black circle." }
   },
   "black_star": {
     codepoint: 9733,
-    description: "A black star."
+    description: { "en-US": "A black star." }
   },
   "white_star": {
     codepoint: 9734,
-    description: "A white star."
+    description: { "en-US": "A white star." }
   },
   "black_phone": {
     codepoint: 9742,
-    description: "A black phone."
+    description: { "en-US": "A black phone." }
   },
   "white_phone": {
     codepoint: 9743,
-    description: "A white phone."
+    description: { "en-US": "A white phone." }
   },
   "left_hand": {
     codepoint: 9756,
-    description: "A hand pointing left."
+    description: { "en-US": "A hand pointing left." }
   },
   "right_hand": {
     codepoint: 9758,
-    description: "A hand pointing right."
+    description: { "en-US": "A hand pointing right." }
   },
   "female": {
     codepoint: 9792,
-    description: "The female sign."
+    description: { "en-US": "The female sign." }
   },
   "male": {
     codepoint: 9794,
-    description: "The male sign."
+    description: { "en-US": "The male sign." }
   },
   "black_spades": {
     codepoint: 9824,
-    description: "The black 'spades' icon."
+    description: { "en-US": "The black 'spades' icon." }
   },
   "white_heart": {
     codepoint: 9825,
-    description: "A white heart."
+    description: { "en-US": "A white heart." }
   },
   "black_clubs": {
     codepoint: 9827,
-    description: "The black 'clubs' icon."
+    description: { "en-US": "The black 'clubs' icon." }
   },
   "white_spades": {
     codepoint: 9828,
-    description: "The white 'spades' icon."
+    description: { "en-US": "The white 'spades' icon." }
   },
   "black_heart": {
     codepoint: 9829,
-    description: "A black heart."
+    description: { "en-US": "A black heart." }
   },
   "white_clubs": {
     codepoint: 9831,
-    description: "The white 'clubs' icon."
+    description: { "en-US": "The white 'clubs' icon." }
   },
   "java": {
     codepoint: 9832,
-    description: "The java icon."
+    description: { "en-US": "The java icon." }
   },
   "quarter_note": {
     codepoint: 9833,
-    description: "A quarter music note."
+    description: { "en-US": "A quarter music note." }
   },
   "eighth_note": {
     codepoint: 9834,
-    description: "An eighth music note."
+    description: { "en-US": "An eighth music note." }
   },
   "sixteenth_double_note": {
     codepoint: 9836,
-    description: "Two sixteenth music notes."
+    description: { "en-US": "Two sixteenth music notes." }
   },
   "flat_note": {
     codepoint: 9837,
-    description: "A flat music note."
+    description: { "en-US": "A flat music note." }
   },
   "fullwidth_space": {
     codepoint: 12288,
-    description: "A fullwidth space."
+    description: { "en-US": "A fullwidth space." }
   },
   "industrial_symbol": {
     codepoint: 12292,
-    description: "The Japanese industrial standard symbol."
+    description: { "en-US": "The Japanese industrial standard symbol." }
   },
   "postal_face": {
     codepoint: 12320,
-    description: "The postal mark face."
+    description: { "en-US": "The postal mark face." }
   },
   "box_with_x": {
     codepoint: 12351,
-    description: "A box containing an X."
+    description: { "en-US": "A box containing an X." }
   }
 };
 
@@ -64035,9 +64035,9 @@ postLoadTasks.push({
     constantValues["__ChaseReeval__"] = Object.assign({}, constantValues["ChaseRateReeval"], constantValues["ChaseTimeReeval"]);
     for (var key in constantValues) {
       if (key.endsWith("Literal")) {
-        constantValues[key].description = "The built-in `" + key.substring(0, key.length - "Literal".length) + "` enum.";
+        constantValues[key].description = { "en-US": "The built-in `" + key.substring(0, key.length - "Literal".length) + "` enum." };
       } else {
-        constantValues[key].description = "The built-in `" + key + "` enum.";
+        constantValues[key].description = { "en-US": "The built-in `" + key + "` enum." };
       }
     }
   },
@@ -67884,6 +67884,14 @@ astParsingFunctions[".append"] = function(content, compiler) {
   return compiler.Ast("__modifyVar__", [content.args[0], compiler.Ast("__appendToArray__", [], [], "__Operation__"), content.args[1]]);
 };
 
+// src/compiler/functions/.applyImpulse.ts
+astParsingFunctions[".applyImpulse"] = function(content, compiler) {
+  if (content.args[4].name === "CANCEL_CONTRARY_MOTION") {
+    compiler.warn("w_cancel_contrary_motion", "Impulse.CANCEL_CONTRARY_MOTION is legacy and should not be used. Use CANCEL_CONTRARY_MOTION_XYZ instead.", content.args[3].fileStack);
+  }
+  return content;
+};
+
 // src/compiler/functions/.charAt.ts
 astParsingFunctions[".charAt"] = function(content, compiler) {
   if (compiler.enableOptimization) {
@@ -69054,13 +69062,14 @@ astParsingFunctions.rgb = function(content, compiler) {
       let [r, g, b, a] = content.args.map((arg) => numValue(arg));
       if ([r, g, b, a].every((num) => num !== null)) {
         for (let [key, value] of Object.entries(constantValues.ColorLiteral)) {
-          if (typeof value === "string") {
+          if (key === "description" || typeof value === "string") {
             continue;
           }
-          if (value.onlyInOverpy) {
+          const color = value;
+          if (color.onlyInOverpy) {
             continue;
           }
-          let [vr, vg, vb, va] = [value.red ?? 0, value.green ?? 0, value.blue ?? 0, value.alpha ?? 255];
+          let [vr, vg, vb, va] = [color.red ?? 0, color.green ?? 0, color.blue ?? 0, color.alpha ?? 255];
           if (r === vr && g === vg && b === vb && a === va) {
             return compiler.Ast("__color__", [compiler.Ast(key, [], [], "ColorLiteral")]);
           }
@@ -71431,65 +71440,65 @@ OverPyCompiler.prototype.compileCustomGameSettings = function(customGameSettings
 // src/data/opy/annotations.ts
 var opyAnnotations = {
   "@Name": {
-    "description": "For subroutines, specifies the name of the rule.",
+    "description": { "en-US": "For subroutines, specifies the name of the rule." },
     args: [{
       "name": "name",
-      "description": "A string literal containing the name of the rule."
+      "description": { "en-US": "A string literal containing the name of the rule." }
     }]
   },
   "@Event": {
-    "description": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines.",
+    "description": { "en-US": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines." },
     args: [{
       "name": "type",
-      "description": "The type of the event.",
+      "description": { "en-US": "The type of the event." },
       "values": Object.keys(eventKw)
     }]
   },
   "@Team": {
-    "description": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines.",
+    "description": { "en-US": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines." },
     args: [{
       "name": "team",
-      "description": "The team of the event.",
+      "description": { "en-US": "The team of the event." },
       "values": Object.keys(eventTeamKw)
     }]
   },
   "@Slot": {
-    "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines.",
+    "description": { "en-US": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines." },
     args: [{
       "name": "slot",
-      "description": "The slot of the event.",
+      "description": { "en-US": "The slot of the event." },
       "values": Object.keys(eventSlotKw)
     }]
   },
   "@Hero": {
-    "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines.",
+    "description": { "en-US": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines." },
     args: [{
       "name": "hero",
-      "description": "The hero of the event.",
+      "description": { "en-US": "The hero of the event." },
       "values": Object.keys(heroKw)
     }]
   },
   "@Condition": {
-    "description": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines.",
+    "description": { "en-US": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines." },
     args: [{
       "name": "condition",
-      "description": "The condition that must be fulfilled."
+      "description": { "en-US": "The condition that must be fulfilled." }
     }]
   },
   "@SuppressWarnings": {
-    "description": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces.",
+    "description": { "en-US": "Suppresses the specified warnings within the rule. Warnings must be separated by spaces." },
     args: []
   },
   "@Disabled": {
-    "description": "Generates the rule as disabled.",
+    "description": { "en-US": "Generates the rule as disabled." },
     args: []
   },
   "@Delimiter": {
-    "description": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out.",
+    "description": { "en-US": "Specifies that the rule is a delimiter for use in the workshop UI. As such, it will not be optimized out." },
     args: []
   },
   "@NewPage": {
-    "description": "Forces the rule to be on a new page. Pages are maximum 100 rules; note that each rule costs 1 element. You can specify a string argument that will be displayed on each of the filler rules.",
+    "description": { "en-US": "Forces the rule to be on a new page. Pages are maximum 100 rules; note that each rule costs 1 element. You can specify a string argument that will be displayed on each of the filler rules." },
     args: []
   }
 };
@@ -71498,7 +71507,7 @@ var opyAnnotations = {
 var opyConstants = {
   "Vector": {
     "UP": {
-      "description": "Shorthand for the directional vector(0, 1, 0), which points upward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 1, 0), which points upward." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -71510,7 +71519,7 @@ var opyConstants = {
       }
     },
     "DOWN": {
-      "description": "Shorthand for the directional vector(0, -1, 0), which points downward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, -1, 0), which points downward." },
       "args": null,
       "return": {
         "Direction": [
@@ -71521,7 +71530,7 @@ var opyConstants = {
       }
     },
     "LEFT": {
-      "description": "Shorthand for the directional vector(1, 0, 0), which points to the left.",
+      "description": { "en-US": "Shorthand for the directional vector(1, 0, 0), which points to the left." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -71533,7 +71542,7 @@ var opyConstants = {
       }
     },
     "RIGHT": {
-      "description": "Shorthand for the directional vector(-1, 0, 0), which points to the right.",
+      "description": { "en-US": "Shorthand for the directional vector(-1, 0, 0), which points to the right." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -71545,7 +71554,7 @@ var opyConstants = {
       }
     },
     "FORWARD": {
-      "description": "Shorthand for the directional vector(0, 0, 1), which points forward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 0, 1), which points forward." },
       "args": null,
       "isConstant": true,
       "return": {
@@ -71557,7 +71566,7 @@ var opyConstants = {
       }
     },
     "BACKWARD": {
-      "description": "Shorthand for the directional vector(0, 0, -1), which points backward.",
+      "description": { "en-US": "Shorthand for the directional vector(0, 0, -1), which points backward." },
       "args": null,
       "return": {
         "Direction": [
@@ -71567,105 +71576,105 @@ var opyConstants = {
         ]
       }
     },
-    description: "The `Vector` enum."
+    description: { "en-US": "The `Vector` enum." }
   },
   "Math": {
     "PI": {
-      "description": "The number pi = 3.14159265359.",
+      "description": { "en-US": "The number pi = 3.14159265359." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "E": {
-      "description": "The number e = 2.71828182846.",
+      "description": { "en-US": "The number e = 2.71828182846." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "FUCKTON_OF_SPACES": {
-      "description": "170 Em Spaces (U+2003). Add this to the end of a HUD text to ensure it will always be left-aligned.",
+      "description": { "en-US": "170 Em Spaces (U+2003). Add this to the end of a HUD text to ensure it will always be left-aligned." },
       "args": null,
       "isConstant": true,
       return: "string"
     },
     "FUCKTON_OF_NEWLINES": {
-      "description": "125 newlines ought to be enough for anybody",
+      "description": { "en-US": "125 newlines ought to be enough for anybody" },
       "args": null,
       "isConstant": true,
       return: "string"
     },
     "LOTS_OF_SPACES": {
-      "description": "170 Em Spaces (U+2003). Add this to the end of a HUD text to ensure it will always be left-aligned.",
+      "description": { "en-US": "170 Em Spaces (U+2003). Add this to the end of a HUD text to ensure it will always be left-aligned." },
       "args": null,
       "isConstant": true,
       return: "string"
     },
     "INFINITY": {
-      "description": "The number infinity = 9999999999999999999.\n\n**Warning**: Currently, the workshop clamps this value to 10 million, but you can have up to 100 million by using operations (addition/multiplication). Multiply infinity by itself to have true infinity.",
+      "description": { "en-US": "The number infinity = 9999999999999999999.\n\n**Warning**: Currently, the workshop clamps this value to 10 million, but you can have up to 100 million by using operations (addition/multiplication). Multiply infinity by itself to have true infinity." },
       "args": null,
       "isConstant": true,
       return: "unsigned int"
     },
     "EPSILON": {
-      "description": "The smallest number greater than 0 which still isn't considered equal to 0 when compared = 0.0000001192093.\n\nThanks LazyLion for finding this value.",
+      "description": { "en-US": "The smallest number greater than 0 which still isn't considered equal to 0 when compared = 0.0000001192093.\n\nThanks LazyLion for finding this value." },
       "args": null,
       "isConstant": true,
       "return": "unsigned float"
     },
     "SPHERE_HORIZONTAL_RADIUS_MULT": {
-      "description": "The visual horizontal radius of a sphere = 0.984724 of the radius.",
+      "description": { "en-US": "The visual horizontal radius of a sphere = 0.984724 of the radius." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "SPHERE_VERTICAL_RADIUS_MULT": {
-      "description": "The visual vertical radius of a sphere = 0.998959 of the radius.",
+      "description": { "en-US": "The visual vertical radius of a sphere = 0.998959 of the radius." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "INNER_RING_RADIUS_MULT": {
-      "description": "The visual inner radius of a ring or light shaft = 0.9415 of the radius.",
+      "description": { "en-US": "The visual inner radius of a ring or light shaft = 0.9415 of the radius." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "OUTER_RING_RADIUS_MULT": {
-      "description": "The visual outer radius of a ring or light shaft = 0.94965 of the radius.",
+      "description": { "en-US": "The visual outer radius of a ring or light shaft = 0.94965 of the radius." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
     "RING_EXPLOSION_RADIUS_MULT": {
-      "description": "The visual radius of a ring explosion = 0.48 of the radius (approximately).",
+      "description": { "en-US": "The visual radius of a ring explosion = 0.48 of the radius (approximately)." },
       "args": null,
       "isConstant": true,
       return: "unsigned float"
     },
-    description: "The `Math` enum."
+    description: { "en-US": "The `Math` enum." }
   },
   "Texture": {
-    description: "Custom textures. See #!setupTx and https://workshop.codes/wiki/articles/tx-reference-sheet for more information.",
-    ...Object.fromEntries(Object.entries(opyTextures).map(([k, v]) => [k, { description: v, args: null, isConstant: true, return: "string" }]))
+    description: { "en-US": "Custom textures. See #!setupTx and https://workshop.codes/wiki/articles/tx-reference-sheet for more information." },
+    ...Object.fromEntries(Object.entries(opyTextures).map(([k, v]) => [k, { description: { "en-US": v }, args: null, isConstant: true, return: "string" }]))
   }
 };
 
 // src/data/opy/memberFunctions.ts
 var opyMemberFuncs = {
   "x": {
-    description: "The x component of the specified vector, usually representing a leftward amount.",
+    description: { "en-US": "The x component of the specified vector, usually representing a leftward amount." },
     args: null,
     class: "Vector",
     return: "float"
   },
   "y": {
-    description: "The y component of the specified vector, usually representing an upward amount.",
+    description: { "en-US": "The y component of the specified vector, usually representing an upward amount." },
     args: null,
     class: "Vector",
     return: "float"
   },
   "z": {
-    description: "The z component of the specified vector, usually representing a forward amount.",
+    description: { "en-US": "The z component of the specified vector, usually representing a forward amount." },
     args: null,
     class: "Vector",
     return: "float"
@@ -71677,18 +71686,18 @@ var opyModules = {
   // @ts-expect-error - description will be added later
   "random": {
     "randint": {
-      "description": "A random integer between the specified min and max, inclusive.",
+      "description": { "en-US": "A random integer between the specified min and max, inclusive." },
       "args": [
         {
           "name": "MIN",
-          "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+          "description": { "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
           "type": "int",
           canReplace0ByFalse: true,
           canReplace1ByTrue: true
         },
         {
           "name": "MAX",
-          "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+          "description": { "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
           "type": "int",
           canReplace0ByFalse: true,
           canReplace1ByTrue: true
@@ -71697,27 +71706,27 @@ var opyModules = {
       "return": "int"
     },
     "uniform": {
-      "description": "A random real number between the specified min and max.",
+      "description": { "en-US": "A random real number between the specified min and max." },
       "args": [
         {
           "name": "MIN",
-          "description": "The smallest real number allowed.",
+          "description": { "en-US": "The smallest real number allowed." },
           "type": "float"
         },
         {
           "name": "MAX",
-          "description": "The largest real number allowed.",
+          "description": { "en-US": "The largest real number allowed." },
           "type": "float"
         }
       ],
       "return": "float"
     },
     "choice": {
-      "description": "A random value from the specified array.",
+      "description": { "en-US": "A random value from the specified array." },
       "args": [
         {
           "name": "ARRAY",
-          "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+          "description": { "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value." },
           "type": "Array"
         }
       ],
@@ -71727,11 +71736,11 @@ var opyModules = {
       ]
     },
     "shuffle": {
-      "description": "A copy of the specified array with the values in a random order.",
+      "description": { "en-US": "A copy of the specified array with the values in a random order." },
       "args": [
         {
           "name": "ARRAY",
-          "description": "The array whose copy will be randomized.",
+          "description": { "en-US": "The array whose copy will be randomized." },
           "type": "Array"
         }
       ],
@@ -71740,60 +71749,60 @@ var opyModules = {
   }
 };
 for (key in opyModules) {
-  opyModules[key]["description"] = "The `" + key + "` module.";
+  opyModules[key]["description"] = { "en-US": "The `" + key + "` module." };
 }
 var key;
 
 // src/data/opy/preprocessing.ts
 var preprocessingDirectives = {
   "allowMacroRedeclaration": {
-    "description": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes."
+    "description": { "en-US": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes." }
   },
   "define": {
-    "description": '**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__("addfive.js")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n',
+    "description": { "en-US": '**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__("addfive.js")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n' },
     "snippet": "define $0"
   },
   "debugElementCount": {
-    "description": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action."
+    "description": { "en-US": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action." }
   },
   "disableInspector": {
-    "description": "Adds a rule to disable the inspector at the very start of the gamemode."
+    "description": { "en-US": "Adds a rule to disable the inspector at the very start of the gamemode." }
   },
   "suppressWarnings": {
-    "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
+    "description": { "en-US": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space." },
     "snippet": "suppressWarnings $0"
   },
   "mainFile": {
-    "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
+    "description": { "en-US": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file." },
     "snippet": 'mainFile "$0"'
   },
   "include": {
-    "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
+    "description": { "en-US": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file." },
     "snippet": 'include "$0"'
   },
   "excludeVariablesInCompilation": {
-    "description": "Does not include the variables field in compilation. Use if you want to paste into another mode with mismatched variable indices."
+    "description": { "en-US": "Does not include the variables field in compilation. Use if you want to paste into another mode with mismatched variable indices." }
   },
   "setupTags": {
-    "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will)."
+    "description": { "en-US": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will)." }
   },
   "disableOptimizations": {
-    "description": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive."
+    "description": { "en-US": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive." }
   },
   "enableOptimizations": {
-    "description": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing."
+    "description": { "en-US": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing." }
   },
   "optimizeForSize": {
-    "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive."
+    "description": { "en-US": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive." }
   },
   "optimizeForSizeAggressive": {
-    "description": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect."
+    "description": { "en-US": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect." }
   },
   "disableOptimizeForSize": {
-    "description": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing."
+    "description": { "en-US": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing." }
   },
   "optimizeStrict": {
-    "description": `Disables some optimizations that may cause issues in extreme cases of type conversion. For example:
+    "description": { "en-US": `Disables some optimizations that may cause issues in extreme cases of type conversion. For example:
 
 - A*0 can return vect(0,0,0) instead of 0
 - A+0 and A*1 can return 0 if A is not a number
@@ -71803,13 +71812,13 @@ Those optimizations (and others) will be disabled so that the behavior of the ga
 
 This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
 
-This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.`
+This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.` }
   },
   "disableOptimizeStrict": {
-    "description": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing."
+    "description": { "en-US": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing." }
   },
   "replace0ByCapturePercentage": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
@@ -71821,10 +71830,10 @@ rule "Integrity check":
     @Condition getCapturePercentage()
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
   },
   "replace0ByPayloadProgressPercentage": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
@@ -71836,17 +71845,17 @@ rule "Integrity check":
     @Condition getPayloadProgressPercentage()
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
   },
   "replace0ByIsMatchComplete": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
-`
+` }
   },
   "replace1ByMatchRound": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
@@ -71858,10 +71867,10 @@ rule "Integrity check":
     @Condition getMatchRound() > 1
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
   },
   "replaceTeam1ByControlScoringTeam": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Control.
@@ -71873,20 +71882,20 @@ rule "Integrity check":
     @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
   },
   "replaceEmptyStringByEmptyArray": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of "" (empty string) by [] (empty array). WARNING: This might break your code in some cases (eg, \`.concat([])\` won't work because it unrolls the array)! Only use this if you are sure that it won't cause issues in your gamemode. Size optimizations must be enabled.
-`
+` }
   },
   "replaceEmptyStringByVariable": {
-    "description": `
+    "description": { "en-US": `
 Replaces all instances of "" (empty string) by a global variable \`__emptyString__\`. This takes one more element per empty string than \`#!replaceEmptyStringByEmptyArray\`. Size optimizations must be enabled.
-`
+` }
   },
   "translations": {
-    "description": `
+    "description": { "en-US": `
 Setups the translation system. Arguments are the language codes separated by spaces.
 
 For example:
@@ -71918,10 +71927,10 @@ You can also potentially save a lot of elements by using the #!translateWithPlay
 - \`(0.00, 0.00, 1.00)\` (\`Vector.FORWARD\`)
 - \`(0.00, 0.00, -1.00)\` (\`Vector.BACKWARD\`)
 - \`1876650.25\`, \`1876651.25\`, \`1876652.25\`, \`1876653.25\`, \`1876654.25\`, \`1876655.25\`, \`1876656.25\`, \`1876657.25\`, \`1876658.25\`, \`1876659.25\`
-        `
+        ` }
   },
   "translateWithPlayerVar": {
-    "description": `
+    "description": { "en-US": `
 Stores the player's language in a variable using a rule which uses the \`.startFacing()\` function when the player spawns (the language is determined based on the player's facing direction).
 
 If using translations, this can save a lot of elements. However, it will make translated strings not display correctly for spectators; you will have to wrap them with the \`__\` function (which behaves the same as the \`_\` function, except it will not use the \`__languageIndex__\` player variable).
@@ -71931,32 +71940,32 @@ If your gamemode changes the facing direction on spawn, you must modify it so th
 You can specify \`noDetectionRule\` to not create the rule which sets the variable to the player's language, in which case you'll have to define the rule yourself; the variable must be set to the language as defined in the order specified in the \`#!translations\` directive, where the first language is index 1, and must be set to 1 by default if no language could be determined.
 
 You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
-        `
+        ` }
   },
   "useVariableForCompressionAlphabet": {
-    "description": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.`
+    "description": { "en-US": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.` }
   },
   "extension": {
-    "description": "You shouldn't be reading this. Contact Zezombye if you can see this.",
+    "description": { "en-US": "You shouldn't be reading this. Contact Zezombye if you can see this." },
     "snippet": "You shouldn't be reading this. Contact Zezombye if you can see this."
   },
   "globalvarInitRuleName": {
-    "description": 'Sets the name of the autogenerated rule that initializes global variables.\n\nExample: `#!globalvarInitRuleName "Init global variables"`'
+    "description": { "en-US": 'Sets the name of the autogenerated rule that initializes global variables.\n\nExample: `#!globalvarInitRuleName "Init global variables"`' }
   },
   "playervarInitRuleName": {
-    "description": 'Sets the name of the autogenerated rule that initializes player variables.\n\nExample: `#!playervarInitRuleName "Init player variables"`'
+    "description": { "en-US": 'Sets the name of the autogenerated rule that initializes player variables.\n\nExample: `#!playervarInitRuleName "Init player variables"`' }
   },
   "keepUnusedTranslations": {
-    "description": "If set, unused translations will not be removed from the generated .po files."
+    "description": { "en-US": "If set, unused translations will not be removed from the generated .po files." }
   },
   "disableTranslationSourceLines": {
-    "description": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs."
+    "description": { "en-US": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs." }
   },
   "writeToOutputFile": {
-    "description": "If specified, the compiled code will also be written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`)."
+    "description": { "en-US": "If specified, the compiled code will also be written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`)." }
   },
   "postCompileHook": {
-    "description": `
+    "description": { "en-US": `
 Specifies a JavaScript file to be executed after compilation, with the compiled code as a \`content\` variable. The script must return the modified code.
 
 Please do not use this directive to work around OverPy bugs; instead, report the bugs so they can be fixed at the source.
@@ -71976,11 +71985,11 @@ content = content.replace(/abc/g, "def");
 // replace or match
 content.toString();
 \`\`\`
-        `,
+        ` },
     "snippet": 'postCompileHook "$0"'
   },
   "rulePrefix": {
-    "description": `
+    "description": { "en-US": `
 Sets a prefix for all subsequent rules in the current file and its included child files (unless overridden). The prefix is applied to the rule name using the rule prefix template.
 
 If a \`#!rulePrefix\` directive is in an included file, it only takes effect for the rules within that file (and its child includes, if they don't have their own \`#!rulePrefix\`), after the directive.
@@ -71999,11 +72008,11 @@ To clear the prefix for subsequent rules, use an empty string:
 \`\`\`hs
 #!rulePrefix ""
 \`\`\`
-        `,
+        ` },
     "snippet": 'rulePrefix "$0"'
   },
   "rulePrefixTemplate": {
-    "description": `
+    "description": { "en-US": `
 Defines a global template for how rule prefixes are applied to rule names. Can only be defined once. Has effect on all rules, even those declared before this directive.
 
 The template is an OverPy expression with the following variables:
@@ -72021,20 +72030,20 @@ Examples :
 - \`#!rulePrefixTemplate f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule\`": if you have an \`heroes/junker_queen.opy\` file, will yield rule names like "[Heroes/Junker Queen] Spawn particles". This is the default if the directive is specified without an expression (just \`#!rulePrefixTemplate\`).
 
 The expression has to evaluate to a string without arguments.
-        `,
+        ` },
     "snippet": "rulePrefixTemplate $0"
   }
 };
 postLoadTasks.push({
   task: () => {
     preprocessingDirectives["extension"] = {
-      "description": `
+      "description": { "en-US": `
 Activates a workshop extension. The following extensions are available:
 
 ${Object.keys(customGameSettingsSchema.extensions.values).map((x) => "- `" + x + "` (" + customGameSettingsSchema.extensions.values[x].points + " point" + (customGameSettingsSchema.extensions.values[x].points > 1 ? "s" : "") + ")").join("\n")}
 
 __extensionDescription__
-            `,
+            ` },
       "snippet": "extension ${1|" + Object.keys(customGameSettingsSchema.extensions.values).join(",") + "|}"
     };
   },
@@ -72081,3 +72090,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map
