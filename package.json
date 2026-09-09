@@ -98,6 +98,29 @@
                         "Chinese (Traditional) [zh-TW]"
                     ]
                 },
+                "overpy.documentationLanguage": {
+                    "type": "string",
+                    "description": "Specifies the language used for editor documentation. 'auto' follows the VS Code display language.",
+                    "default": "auto",
+                    "enum": [
+                        "auto",
+                        "de-DE",
+                        "en-US",
+                        "es-ES",
+                        "es-MX",
+                        "fr-FR",
+                        "it-IT",
+                        "ja-JP",
+                        "ko-KR",
+                        "pl-PL",
+                        "pt-BR",
+                        "ru-RU",
+                        "th-TH",
+                        "tr-TR",
+                        "zh-CN",
+                        "zh-TW"
+                    ]
+                },
                 "overpy.useLanguageServer": {
                     "type": "boolean",
                     "description": "Use the bundled OverPy language server for diagnostics, completions, signature help, hover, semantic tokens, inlay hints, go to definition, references, rename, symbols, folding, and code actions. Disable this to use the legacy in-extension providers.",

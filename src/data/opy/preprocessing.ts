@@ -20,57 +20,57 @@ import { postLoadTasks } from "../../globalVars";
 import { customGameSettingsSchema } from "../customGameSettings";
 
 export const preprocessingDirectives: Record<string, {
-    description: string,
+    description: import("../../types").LocalizableString,
     snippet?: string
 }> = {
     "allowMacroRedeclaration": {
-        "description": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes.",
+        "description": { "en-US": "If enabled, redefining a `macro`, `#!define` or `enum` member will not throw an error but will overwrite the previous definition. Can be useful for OOP-like projects where the same codebase is used for multiple different gamemodes." },
     },
     "define": {
-        "description": "**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "description": { "en-US": "**Warning**: This directive performs a text-based replacement! Use `macro` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n" },
         "snippet": "define $0",
     },
     "debugElementCount": {
-        "description": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action.",
+        "description": { "en-US": "Generates a summary of the number of elements used by each rule at the top of the compilation result (sorted by element count descending), and adds a comment with the element count before each rule and after each condition/action." },
     },
     "disableInspector": {
-        "description": "Adds a rule to disable the inspector at the very start of the gamemode.",
+        "description": { "en-US": "Adds a rule to disable the inspector at the very start of the gamemode." },
     },
     "suppressWarnings": {
-        "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
+        "description": { "en-US": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space." },
         "snippet": "suppressWarnings $0",
     },
     "mainFile": {
-        "description": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file.",
+        "description": { "en-US": "Specifies an .opy file as the main file (implying the current file is a module). This directive MUST be placed at the very beginning of the file." },
         "snippet": "mainFile \"$0\"",
     },
     "include": {
-        "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
+        "description": { "en-US": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file." },
         "snippet": "include \"$0\"",
     },
     "excludeVariablesInCompilation": {
-        "description": "Does not include the variables field in compilation. Use if you want to paste into another mode with mismatched variable indices.",
+        "description": { "en-US": "Does not include the variables field in compilation. Use if you want to paste into another mode with mismatched variable indices." },
     },
     "setupTags": {
-        "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will).",
+        "description": { "en-US": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will)." },
     },
     "disableOptimizations": {
-        "description": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive.",
+        "description": { "en-US": "Disables all optimizations done by the compiler for the current block, up until the end of the block or the next `#!enableOptimizations` directive." },
     },
     "enableOptimizations": {
-        "description": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing.",
+        "description": { "en-US": "Re-enables optimizations after a `#!disableOptimizations` directive. If no `#!disableOptimizations` directive was encountered, this directive does nothing." },
     },
     "optimizeForSize": {
-        "description": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive."
+        "description": { "en-US": "Prioritizes lowering the number of elements over optimizing the runtime. Effective for the current block, up until the end of the block or the next `#!disableOptimizeForSize` directive." }
     },
     "optimizeForSizeAggressive": {
-        "description": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect."
+        "description": { "en-US": "Enables aggressive optimizations for size, which may significantly lower the readability of the code (for now, replacing `if` by `skip if` in some cases and automatically compressing arrays).\n\n**NOTE:** This directive is applied for the whole codebase and MUST be used alongside `#!optimizeForSize` for it to have an effect." }
     },
     "disableOptimizeForSize": {
-        "description": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing."
+        "description": { "en-US": "Re-enables optimizations after a `#!optimizeForSize` directive. If no `#!optimizeForSize` directive was encountered, this directive does nothing." }
     },
     "optimizeStrict": {
-        "description": `Disables some optimizations that may cause issues in extreme cases of type conversion. For example:
+        "description": { "en-US": `Disables some optimizations that may cause issues in extreme cases of type conversion. For example:
 
 - A*0 can return vect(0,0,0) instead of 0
 - A+0 and A*1 can return 0 if A is not a number
@@ -80,13 +80,13 @@ Those optimizations (and others) will be disabled so that the behavior of the ga
 
 This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
 
-This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.`,
+This directive is effective for the current block, up until the end of the block or the next \`#!disableOptimizeStrict\` directive.` },
     },
     "disableOptimizeStrict": {
-        "description": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing."
+        "description": { "en-US": "Re-enables optimizations after a `#!optimizeStrict` directive. If no `#!optimizeStrict` directive was encountered, this directive does nothing." }
     },
     "replace0ByCapturePercentage": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
@@ -98,10 +98,10 @@ rule "Integrity check":
     @Condition getCapturePercentage()
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
     },
     "replace0ByPayloadProgressPercentage": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
@@ -113,17 +113,17 @@ rule "Integrity check":
     @Condition getPayloadProgressPercentage()
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
     },
     "replace0ByIsMatchComplete": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
-`
+` }
     },
     "replace1ByMatchRound": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
@@ -135,10 +135,10 @@ rule "Integrity check":
     @Condition getMatchRound() > 1
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
     },
     "replaceTeam1ByControlScoringTeam": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
 
 This directive should only be used if the gamemode cannot be played in Control.
@@ -150,20 +150,20 @@ rule "Integrity check":
     @Condition getControlScoringTeam() != Team.1
     print("This gamemode cannot be played!")
 \`\`\`
-`
+` }
     },
     "replaceEmptyStringByEmptyArray": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of "" (empty string) by [] (empty array). WARNING: This might break your code in some cases (eg, \`.concat([])\` won't work because it unrolls the array)! Only use this if you are sure that it won't cause issues in your gamemode. Size optimizations must be enabled.
-`
+` }
     },
     "replaceEmptyStringByVariable": {
-        "description": `
+        "description": { "en-US": `
 Replaces all instances of "" (empty string) by a global variable \`__emptyString__\`. This takes one more element per empty string than \`#!replaceEmptyStringByEmptyArray\`. Size optimizations must be enabled.
-`
+` }
     },
     "translations": {
-        "description": `
+        "description": { "en-US": `
 Setups the translation system. Arguments are the language codes separated by spaces.
 
 For example:
@@ -195,10 +195,10 @@ You can also potentially save a lot of elements by using the #!translateWithPlay
 - \`(0.00, 0.00, 1.00)\` (\`Vector.FORWARD\`)
 - \`(0.00, 0.00, -1.00)\` (\`Vector.BACKWARD\`)
 - \`1876650.25\`, \`1876651.25\`, \`1876652.25\`, \`1876653.25\`, \`1876654.25\`, \`1876655.25\`, \`1876656.25\`, \`1876657.25\`, \`1876658.25\`, \`1876659.25\`
-        `
+        ` }
     },
     "translateWithPlayerVar": {
-        "description": `
+        "description": { "en-US": `
 Stores the player's language in a variable using a rule which uses the \`.startFacing()\` function when the player spawns (the language is determined based on the player's facing direction).
 
 If using translations, this can save a lot of elements. However, it will make translated strings not display correctly for spectators; you will have to wrap them with the \`__\` function (which behaves the same as the \`_\` function, except it will not use the \`__languageIndex__\` player variable).
@@ -208,32 +208,32 @@ If your gamemode changes the facing direction on spawn, you must modify it so th
 You can specify \`noDetectionRule\` to not create the rule which sets the variable to the player's language, in which case you'll have to define the rule yourself; the variable must be set to the language as defined in the order specified in the \`#!translations\` directive, where the first language is index 1, and must be set to 1 by default if no language could be determined.
 
 You can also specify \`noTlErr\` to have spectators view the default language when viewing a translated string (the \`__languageIndex__\` variable is now 0-indexed instead of 1-indexed). Keep in mind that, if translations aren't used properly, you may not see it if you playtest with the default language.
-        `,
+        ` },
     },
     "useVariableForCompressionAlphabet": {
-        "description": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.`
+        "description": { "en-US": `If enabled, the compression functions will use a global variable \`__compressionAlphabet__\` instead of a hardcoded string for the alphabet, which will save further elements.` }
     },
     "extension": {
-        "description": "You shouldn't be reading this. Contact Zezombye if you can see this.",
+        "description": { "en-US": "You shouldn't be reading this. Contact Zezombye if you can see this." },
         "snippet": "You shouldn't be reading this. Contact Zezombye if you can see this.",
     },
     "globalvarInitRuleName": {
-        "description": "Sets the name of the autogenerated rule that initializes global variables.\n\nExample: `#!globalvarInitRuleName \"Init global variables\"`",
+        "description": { "en-US": "Sets the name of the autogenerated rule that initializes global variables.\n\nExample: `#!globalvarInitRuleName \"Init global variables\"`" },
     },
     "playervarInitRuleName": {
-        "description": "Sets the name of the autogenerated rule that initializes player variables.\n\nExample: `#!playervarInitRuleName \"Init player variables\"`",
+        "description": { "en-US": "Sets the name of the autogenerated rule that initializes player variables.\n\nExample: `#!playervarInitRuleName \"Init player variables\"`" },
     },
     "keepUnusedTranslations": {
-        "description": "If set, unused translations will not be removed from the generated .po files.",
+        "description": { "en-US": "If set, unused translations will not be removed from the generated .po files." },
     },
     "disableTranslationSourceLines": {
-        "description": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs."
+        "description": { "en-US": "If set, the source lines of the translations will not be included in the generated .po files. Use this if you are not actively translating your gamemode, to prevent cluttering git diffs." }
     },
     "writeToOutputFile": {
-        "description": "If specified, the compiled code will also be written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`)."
+        "description": { "en-US": "If specified, the compiled code will also be written to a file with the same name as the main file, but with a `.ws.txt` extension (eg `myGamemode.opy` will produce `myGamemode.ws.txt`)." }
     },
     "postCompileHook":{
-        "description": `
+        "description": { "en-US": `
 Specifies a JavaScript file to be executed after compilation, with the compiled code as a \`content\` variable. The script must return the modified code.
 
 Please do not use this directive to work around OverPy bugs; instead, report the bugs so they can be fixed at the source.
@@ -253,11 +253,11 @@ content = content.replace(/abc/g, "def");
 // replace or match
 content.toString();
 \`\`\`
-        `,
+        ` },
         "snippet": "postCompileHook \"$0\""
     },
     "rulePrefix": {
-        "description": `
+        "description": { "en-US": `
 Sets a prefix for all subsequent rules in the current file and its included child files (unless overridden). The prefix is applied to the rule name using the rule prefix template.
 
 If a \`#!rulePrefix\` directive is in an included file, it only takes effect for the rules within that file (and its child includes, if they don't have their own \`#!rulePrefix\`), after the directive.
@@ -276,11 +276,11 @@ To clear the prefix for subsequent rules, use an empty string:
 \`\`\`hs
 #!rulePrefix ""
 \`\`\`
-        `,
+        ` },
         "snippet": "rulePrefix \"$0\""
     },
     "rulePrefixTemplate": {
-        "description": `
+        "description": { "en-US": `
 Defines a global template for how rule prefixes are applied to rule names. Can only be defined once. Has effect on all rules, even those declared before this directive.
 
 The template is an OverPy expression with the following variables:
@@ -298,7 +298,7 @@ Examples :
 - \`#!rulePrefixTemplate f"[{$pathTitle.replace('_', ' ')}] {$rule}" if $rule and not $isDelimiter else $rule\`": if you have an \`heroes/junker_queen.opy\` file, will yield rule names like "[Heroes/Junker Queen] Spawn particles". This is the default if the directive is specified without an expression (just \`#!rulePrefixTemplate\`).
 
 The expression has to evaluate to a string without arguments.
-        `,
+        ` },
         "snippet": "rulePrefixTemplate $0"
     },
 };
@@ -306,13 +306,13 @@ The expression has to evaluate to a string without arguments.
 postLoadTasks.push({
     task: () => {
         preprocessingDirectives["extension"] = {
-            "description": `
+            "description": { "en-US": `
 Activates a workshop extension. The following extensions are available:
 
 ${Object.keys(customGameSettingsSchema.extensions.values).map(x => "- `"+x+"` ("+customGameSettingsSchema.extensions.values[x].points+" point" + (customGameSettingsSchema.extensions.values[x].points > 1 ? "s" : "")+")").join("\n")}
 
 __extensionDescription__
-            `,
+            ` },
             "snippet": "extension ${1|"+Object.keys(customGameSettingsSchema.extensions.values).join(",")+"|}",
         };
     },

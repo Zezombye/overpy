@@ -21,25 +21,25 @@ import { Argument, Type } from "../../types";
 
 //Only functions without parentheses, else they go in opyFuncs like the rest.
 export const opyMemberFuncs: Record<string, {
-    description: string,
+    description: import("../../types").LocalizableString,
     args: Argument[] | null,
     class: string,
     return: Type
 }> = {
     "x": {
-        description: "The x component of the specified vector, usually representing a leftward amount.",
+        description: { "en-US": "The x component of the specified vector, usually representing a leftward amount." },
         args: null,
         class: "Vector",
         return: "float",
     },
     "y": {
-        description: "The y component of the specified vector, usually representing an upward amount.",
+        description: { "en-US": "The y component of the specified vector, usually representing an upward amount." },
         args: null,
         class: "Vector",
         return: "float",
     },
     "z": {
-        description: "The z component of the specified vector, usually representing a forward amount.",
+        description: { "en-US": "The z component of the specified vector, usually representing a forward amount." },
         args: null,
         class: "Vector",
         return: "float",

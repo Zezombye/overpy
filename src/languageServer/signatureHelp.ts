@@ -1,4 +1,5 @@
 import { Position, SignatureHelp } from "vscode-languageserver/node";
+import type { OWLanguage } from "../types";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 import { getCompletionState, makeSignatureHelp } from "./completionState";
@@ -8,6 +9,7 @@ export function getSignatureHelp(
     document: TextDocument,
     position: Position,
     triggerCharacter?: string,
+    documentationLanguage: OWLanguage = "en-US",
 ): SignatureHelp | undefined {
     if (triggerCharacter === ")") {
         return undefined;
@@ -18,7 +20,7 @@ export function getSignatureHelp(
         return undefined;
     }
 
-    const functionData = getCompletionState(document.uri).functionRegistry[signatureContext.functionName];
+    const functionData = getCompletionState(document.uri, documentationLanguage).functionRegistry[signatureContext.functionName];
     if (!functionData) {
         return undefined;
     }
@@ -28,6 +30,7 @@ export function getSignatureHelp(
         functionData,
         signatureContext.activeParameter,
         signatureContext.keywordArgument,
+        documentationLanguage,
     );
 }
 

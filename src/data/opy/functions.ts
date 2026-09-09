@@ -22,7 +22,7 @@ import { Argument, Type } from "../../types";
 export const opyFuncs: Record<
     string,
     {
-        description: string;
+        description: import("../../types").LocalizableString;
         args: Argument[] | null;
         class?: string,
         return: Type;
@@ -31,15 +31,15 @@ export const opyFuncs: Record<
     }
 > = {
     "_": {
-        "description": "The translation function. If two arguments are specified, the first argument (a string literal) is used as the context to disambiguate strings that are the same but must be translated differently. Else, the first argument is the string to be translated (can be a variable, in which case this function has to be used directly in the display function such as `hudText()`).\n\nSee `#!translations` for more details.",
+        "description": { "en-US": "The translation function. If two arguments are specified, the first argument (a string literal) is used as the context to disambiguate strings that are the same but must be translated differently. Else, the first argument is the string to be translated (can be a variable, in which case this function has to be used directly in the display function such as `hudText()`).\n\nSee `#!translations` for more details." },
         "args": [
             {
                 "name": "contextOrString",
-                "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+                "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
                 "type": "String",
             }, {
                 "name": "string",
-                "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+                "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
                 "type": "CustomStringLiteral",
                 "default": null,
             }
@@ -47,15 +47,15 @@ export const opyFuncs: Record<
         "return": "String",
     },
     "__": {
-        "description": "Same as the `_` function, but if using `#!translateWithPlayerVar`, it will ignore that directive. Use this if you want a string to be translated for spectators.",
+        "description": { "en-US": "Same as the `_` function, but if using `#!translateWithPlayerVar`, it will ignore that directive. Use this if you want a string to be translated for spectators." },
         "args": [
             {
                 "name": "contextOrString",
-                "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+                "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
                 "type": "String",
             }, {
                 "name": "string",
-                "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+                "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
                 "type": "CustomStringLiteral",
                 "default": null,
             }
@@ -63,7 +63,7 @@ export const opyFuncs: Record<
         "return": "String",
     },
     "___": {
-        "description": `Same as the \`_\` function, but will never resolve the translation, even if in a display action. You must wrap it with the \`_\` function to resolve it.
+        "description": { "en-US": `Same as the \`_\` function, but will never resolve the translation, even if in a display action. You must wrap it with the \`_\` function to resolve it.
 
 This is useful when several strings are used in a single display action. For example:
 
@@ -74,15 +74,15 @@ This will add the code to resolve the translation twice, but it can be optimized
 \`bigMessage(text=_([___("Choice 1"), ___("Choice 2")][eventPlayer.choice]))\`
 
 Wrapping a string with \`___\` has the same caveats as putting a translated string in a variable: you must treat it as an opaque value and not do any operations on it, and display it with the \`_\` function. But, since it is still a value, array indexing is still possible.
-`,
+` },
         "args": [
             {
                 "name": "contextOrString",
-                "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+                "description": { "en-US": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable)." },
                 "type": "String",
             }, {
                 "name": "string",
-                "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+                "description": { "en-US": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified." },
                 "type": "CustomStringLiteral",
                 "default": null,
             }
@@ -90,11 +90,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "String",
     },
     "all": {
-        "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.all()` member function is preferred over this syntax: `getAllPlayers().all(lambda player: player.A == 2)`",
+        "description": { "en-US": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.all()` member function is preferred over this syntax: `getAllPlayers().all(lambda player: player.A == 2)`" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": {
                     "Array": "bool"
                 },
@@ -105,11 +105,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "hideFromAutocomplete": true
     },
     "any": {
-        "description": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.any()` member function is preferred over this syntax: `getAllPlayers().any(lambda player: player.A == 2)`",
+        "description": { "en-US": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`\n\n**Note**: The `.any()` member function is preferred over this syntax: `getAllPlayers().any(lambda player: player.A == 2)`" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": {
                     "Array": "bool"
                 },
@@ -120,7 +120,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "hideFromAutocomplete": true
     },
     ".append": {
-        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
+        "description": { "en-US": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`" },
         "args": [
             {
                 "name": "array",
@@ -128,7 +128,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             },
             {
                 "name": "value",
-                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "description": { "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended." },
                 "type": ["Object", { Array: "Object" }],
             }
         ],
@@ -136,18 +136,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         return: "void",
     },
     ".all": {
-        "description": "Whether the lambda function evaluates to true for every element of the array. If no argument is provided, checks whether every element is truthy. Returns true for an empty array.\n\nExample: `getAllPlayers().all(lambda player: player.A == 2)`\n\nWith index: `array.all(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.all()` (equivalent to `array.all(lambda x: x)`)",
+        "description": { "en-US": "Whether the lambda function evaluates to true for every element of the array. If no argument is provided, checks whether every element is truthy. Returns true for an empty array.\n\nExample: `getAllPlayers().all(lambda player: player.A == 2)`\n\nWith index: `array.all(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.all()` (equivalent to `array.all(lambda x: x)`)" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "lambda",
-                "description": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself.",
+                "description": { "en-US": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself." },
                 "type": "Lambda",
                 "default": "<current array element>"
             }
@@ -157,18 +157,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "bool"
     },
     ".any": {
-        "description": "Whether the lambda function evaluates to true for any element of the array. If no lambda is provided, checks whether any element is truthy. Returns false for an empty array.\n\nExample: `getAllPlayers().any(lambda player: player.A == 2)`\n\nWith index: `array.any(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.any()` (equivalent to `array.any(lambda x: x)`)",
+        "description": { "en-US": "Whether the lambda function evaluates to true for any element of the array. If no lambda is provided, checks whether any element is truthy. Returns false for an empty array.\n\nExample: `getAllPlayers().any(lambda player: player.A == 2)`\n\nWith index: `array.any(lambda elem, idx: elem > idx)`\n\nWithout lambda: `array.any()` (equivalent to `array.any(lambda x: x)`)" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose values will be considered.",
+                "description": { "en-US": "The array whose values will be considered." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "lambda",
-                "description": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself.",
+                "description": { "en-US": "The lambda function that is evaluated for each element of the array. Must return a boolean. If omitted, defaults to the element itself." },
                 "type": "Lambda",
                 "default": "<current array element>"
             }
@@ -178,18 +178,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "bool"
     },
     ".filter": {
-        "description": "A copy of the specified array with any values that do not match the lambda condition removed.\n\nExample: `getAllPlayers().filter(lambda player: player.A == 2)`\n\nWith index: `array.filter(lambda elem, idx: elem > idx)`",
+        "description": { "en-US": "A copy of the specified array with any values that do not match the lambda condition removed.\n\nExample: `getAllPlayers().filter(lambda player: player.A == 2)`\n\nWith index: `array.filter(lambda elem, idx: elem > idx)`" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be filtered.",
+                "description": { "en-US": "The array whose copy will be filtered." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "lambda",
-                "description": "The lambda function that is evaluated for each element of the copied array. If it returns true, the element is kept; otherwise, it is removed.",
+                "description": { "en-US": "The lambda function that is evaluated for each element of the copied array. If it returns true, the element is kept; otherwise, it is removed." },
                 "type": "Lambda",
             }
         ],
@@ -200,18 +200,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         }
     },
     ".map": {
-        "description": "A copy of the specified array with the values mapped according to the lambda function that is evaluated for each element.\n\nExample: `getAllPlayers().map(lambda player: player.A + 2)`\n\nWith index: `array.map(lambda elem, idx: elem + idx)`",
+        "description": { "en-US": "A copy of the specified array with the values mapped according to the lambda function that is evaluated for each element.\n\nExample: `getAllPlayers().map(lambda player: player.A + 2)`\n\nWith index: `array.map(lambda elem, idx: elem + idx)`" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be mapped.",
+                "description": { "en-US": "The array whose copy will be mapped." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "lambda",
-                "description": "The lambda function that is evaluated for each element. The return value is used as the new element.",
+                "description": { "en-US": "The lambda function that is evaluated for each element. The return value is used as the new element." },
                 "type": "Lambda",
             }
         ],
@@ -222,18 +222,18 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         }
     },
     "arrayToString": {
-        "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed along with the amount of elements remaining.",
+        "description": { "en-US": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed along with the amount of elements remaining." },
         "args": [
             {
                 "name": "array",
-                "description": "The array to be displayed. If not an array, it will be displayed normally.",
+                "description": { "en-US": "The array to be displayed. If not an array, it will be displayed normally." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "maxLength",
-                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable.",
+                "description": { "en-US": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable." },
                 "type": "IntLiteral",
                 "default": 12
             }
@@ -242,11 +242,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "String"
     },
     "ceil": {
-        "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
+        "description": { "en-US": "The integer that is the ceiling of the specified value (equivalent to rounding up)." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number to get the ceiling of.",
+                "description": { "en-US": "The real number to get the ceiling of." },
                 "type": "float",
             }
         ],
@@ -254,17 +254,17 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "int"
     },
     "chaseAtRate": {
-        description: "Gradually modifies the value of a variable at a specific rate.",
+        description: { "en-US": "Gradually modifies the value of a variable at a specific rate." },
         "args": [
             {
                 "name": "variable",
-                "description": "The variable to chase.",
+                "description": { "en-US": "The variable to chase." },
                 "type": "Variable",
 
             },
             {
                 "name": "destination",
-                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "description": { "en-US": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
                 "type": [
                     "float",
                     "Vector"
@@ -276,14 +276,14 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             {
                 "name": "rate",
                 "type": "float",
-                "description": "The amount of change that will happen to the variable's value each second.",
+                "description": { "en-US": "The amount of change that will happen to the variable's value each second." },
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
 
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
                 "type": "ChaseRateReeval",
                 default: "DESTINATION_AND_RATE"
 
@@ -292,17 +292,17 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "void"
     },
     "chaseOverTime": {
-        description: "Gradually modifies the value of a variable over time.",
+        description: { "en-US": "Gradually modifies the value of a variable over time." },
         "args": [
             {
                 "name": "variable",
-                "description": "Specifies which variable to modify gradually.",
+                "description": { "en-US": "Specifies which variable to modify gradually." },
                 "type": "Variable",
 
             },
             {
                 "name": "destination",
-                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "description": { "en-US": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins." },
                 "type": [
                     "float",
                     "Vector"
@@ -314,14 +314,14 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             {
                 "name": "duration",
                 "type": "float",
-                "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+                "description": { "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination." },
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
 
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs." },
                 "type": "ChaseTimeReeval",
                 default: "DESTINATION_AND_DURATION",
 
@@ -330,61 +330,61 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "void"
     },
     "compress": {
-        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back.",
+        "description": { "en-US": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompressNumbers()` or `decompressVectors()` function to get the original array back." },
         "args": [
             {
                 "name": "array",
-                "description": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable.",
+                "description": { "en-US": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable." },
                 "type": "Array",
             }
         ],
         return: "String",
     },
     "compressed": {
-        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use \`#!debugElementCount\` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+        "description": { "en-US": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 5 vectors or 7 numbers (depending on the complexity; use \`#!debugElementCount\` to compare).\n\nThis function can be more effective than `compress()` and `decompressNumbers()` / `decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive." },
         "args": [
             {
                 "name": "array",
-                "description": "An array of literal numbers or vectors to be compressed and immediately decompressed. The array must be a literal array, not a variable.",
+                "description": { "en-US": "An array of literal numbers or vectors to be compressed and immediately decompressed. The array must be a literal array, not a variable." },
                 "type": "Array",
             }
         ],
         return: "Array",
     },
     "decompressNumbers": {
-        "description": "Decompresses an array of numbers (see `compress()`).",
+        "description": { "en-US": "Decompresses an array of numbers (see `compress()`)." },
         "args": [
             {
                 "name": "string",
-                "description": "The string which represents the compressed array to decompress.",
+                "description": { "en-US": "The string which represents the compressed array to decompress." },
                 "type": "String",
             }
         ],
         return: "Array",
     },
     "decompressVectors": {
-        "description": "Decompresses an array of vectors (see `compress()`).",
+        "description": { "en-US": "Decompresses an array of vectors (see `compress()`)." },
         "args": [
             {
                 "name": "string",
-                "description": "The string which represents the compressed array to decompress.",
+                "description": { "en-US": "The string which represents the compressed array to decompress." },
                 "type": "String",
             }
         ],
         return: "Array",
     },
     "createCasedProgressBarIwt": {
-        "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
+        "description": { "en-US": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased." },
         "args": [
             {
                 "name": "textCount",
-                "description": "The amount of texts used to overlay.",
+                "description": { "en-US": "The amount of texts used to overlay." },
                 "type": "IntLiteral",
                 default: 3,
             },
             {
                 "name": "visibleTo",
-                "description": "One or more players who will see the progress bar HUD text.",
+                "description": { "en-US": "One or more players who will see the progress bar HUD text." },
                 "type": [
                     "Player",
                     {
@@ -395,12 +395,12 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             },
             {
                 "name": "text",
-                "description": "The text to be displayed. Must be a literal custom string, not a variable.",
+                "description": { "en-US": "The text to be displayed. Must be a literal custom string, not a variable." },
                 "type": "String",
             },
             {
                 "name": "position",
-                "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                "description": { "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world." },
                 "type": [
                     "Position",
                     "Player"
@@ -408,30 +408,30 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             },
             {
                 "name": "scale",
-                "description": "The text's scale.",
+                "description": { "en-US": "The text's scale." },
                 "type": "float",
             },
             {
                 "name": "clipping",
-                "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+                "description": { "en-US": "Specifies whether the text can be seen through walls or is instead clipped." },
                 "type": "Clip",
                 "default": "NONE"
             },
             {
                 "name": "textColor",
-                "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "description": { "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer." },
                 "type": "Color",
                 "default": "WHITE"
             },
             {
                 "name": "reevaluation",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+                "description": { "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs." },
                 "type": "ProgressWorldTextReeval",
                 "default": "VISIBILITY_POSITION_VALUES_AND_COLOR"
             },
             {
                 "name": "nonTeamSpectators",
-                "description": "Whether non-team spectators can see the text or not.",
+                "description": { "en-US": "Whether non-team spectators can see the text or not." },
                 "type": "SpecVisibility",
                 "default": "DEFAULT"
             }
@@ -439,11 +439,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "void"
     },
     "debug": {
-        "description": "For quick debugging of a value. Displays both the value and the text of the function call. If the value is an array, it is automatically wrapped with `arrayToString()`.",
+        "description": { "en-US": "For quick debugging of a value. Displays both the value and the text of the function call. If the value is an array, it is automatically wrapped with `arrayToString()`." },
         "args": [
             {
                 "name": "value",
-                "description": "The value to be displayed.",
+                "description": { "en-US": "The value to be displayed." },
                 "type": [
                     "Object",
                     "Array"
@@ -453,11 +453,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "void"
     },
     "floor": {
-        "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
+        "description": { "en-US": "The integer that is the floor of the specified value (equivalent to rounding down)." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number to get the floor of.",
+                "description": { "en-US": "The real number to get the floor of." },
                 "type": "float",
             }
         ],
@@ -465,7 +465,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "int"
     },
     ".format": {
-        "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
+        "description": { "en-US": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder." },
         "args": [
             {
                 "name": "string",
@@ -473,7 +473,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             },
             {
                 "name": "value",
-                "description": "The value used to replace the matching placeholder.",
+                "description": { "en-US": "The value used to replace the matching placeholder." },
                 "type": "Object",
             }
         ],
@@ -481,13 +481,13 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         return: "String",
     },
     "getCurrentMap": {
-        "description": "The current map of the custom game.",
+        "description": { "en-US": "The current map of the custom game." },
         "args": [],
         "isConstant": true,
         "return": "Map",
     },
     ".getNormal": {
-        "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
+        "description": { "en-US": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs)." },
         "args": [
             {
                 "name": "raycast",
@@ -499,7 +499,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         hideFromAutocomplete: true,
     },
     ".getPlayerHit": {
-        "description": "The player hit by the raycast (or null if no player is hit).",
+        "description": { "en-US": "The player hit by the raycast (or null if no player is hit)." },
         "args": [
             {
                 "name": "raycast",
@@ -511,7 +511,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         hideFromAutocomplete: true,
     },
     ".getHitPosition": {
-        "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
+        "description": { "en-US": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs)." },
         "args": [
             {
                 "name": "raycast",
@@ -523,26 +523,26 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         hideFromAutocomplete: true,
     },
     "hsl": {
-        "description": "A custom color in HSL/HSLA format.",
+        "description": { "en-US": "A custom color in HSL/HSLA format." },
         "args": [
             {
                 "name": "hue",
-                "description": "The hue of the color (0-360).",
+                "description": { "en-US": "The hue of the color (0-360)." },
                 "type": "float",
             },
             {
                 "name": "saturation",
-                "description": "The saturation of the color (0-1).",
+                "description": { "en-US": "The saturation of the color (0-1)." },
                 "type": "float",
             },
             {
                 "name": "lightness",
-                "description": "The lightness of the color (0-1).",
+                "description": { "en-US": "The lightness of the color (0-1)." },
                 "type": "float",
             },
             {
                 "name": "alpha",
-                "description": "The alpha of the color (0-255).",
+                "description": { "en-US": "The alpha of the color (0-255)." },
                 "type": "float",
                 default: 255,
             }
@@ -551,16 +551,16 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "Color"
     },
     "log": {
-        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+        "description": { "en-US": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4." },
         "args": [
             {
                 "name": "number",
-                "description": "The number to get the logarithm of.",
+                "description": { "en-US": "The number to get the logarithm of." },
                 "type": "unsigned float"
             },
             {
                 "name": "base",
-                "description": "The base of the logarithm.",
+                "description": { "en-US": "The base of the logarithm." },
                 "type": "unsigned float",
                 default: "Math.E",
             }
@@ -569,61 +569,61 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "float"
     },
     "pass": {
-        "description": "Does nothing. Is parsed as an action for the purposes of runtime `goto`s.",
+        "description": { "en-US": "Does nothing. Is parsed as an action for the purposes of runtime `goto`s." },
         "args": null,
         "return": "void"
     },
     "range": {
-        "description": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`.",
+        "description": { "en-US": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`." },
         "args": [
             {
                 "name": "start",
-                "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
+                "description": { "en-US": "The control variable is set to this value when the loop begins. If omitted, defaults to 0." },
                 "type": "float",
             },
             {
                 "name": "stop",
-                "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                "description": { "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits." },
                 "type": "float",
             },
             {
                 "name": "step",
-                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                "description": { "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action." },
                 "type": "float",
             }
         ],
         "return": "Iterator"
     },
     "raycast": {
-        "description": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`.",
+        "description": { "en-US": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`." },
         "args": [
             {
                 "name": "startPos",
-                "description": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "endPos",
-                "description": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
+                "description": { "en-US": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used." },
                 "type": "Position",
             },
             {
                 "name": "playersToInclude",
-                "description": "Which players can be hit by this raycast.",
+                "description": { "en-US": "Which players can be hit by this raycast." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "playersToExclude",
-                "description": "Which players cannot be hit by this raycast. This list takes precedence over players to include.",
+                "description": { "en-US": "Which players cannot be hit by this raycast. This list takes precedence over players to include." },
                 "type": {
                     "Array": "Player"
                 },
             },
             {
                 "name": "includePlayerObjects",
-                "description": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast.",
+                "description": { "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast." },
                 "type": "bool",
                 "default": true
             }
@@ -632,7 +632,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         hideFromAutocomplete: true,
     },
     ".remove": {
-        "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
+        "description": { "en-US": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs." },
         "args": [
             {
                 "name": "array",
@@ -640,7 +640,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
             },
             {
                 "name": "value",
-                "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
+                "description": { "en-US": "The value to remove from the array (if found). If an array is given, each value is removed from the array." },
                 "type": ["Object", "Array"],
             }
         ],
@@ -648,11 +648,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         return: "void",
     },
     "round": {
-        "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
+        "description": { "en-US": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`." },
         "args": [
             {
                 "name": "value",
-                "description": "The real number to get the nearest integer of.",
+                "description": { "en-US": "The real number to get the nearest integer of." },
                 "type": "float",
             }
         ],
@@ -660,23 +660,23 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "int"
     },
     "ruleCondition": {
-        "description": "Equivalent to true if every rule condition is true. Can be used like a normal value, and optimizes to built-in workshop functions in some cases (for example, `if ruleCondition: loop()` compiles to `Loop If Condition Is True`).",
+        "description": { "en-US": "Equivalent to true if every rule condition is true. Can be used like a normal value, and optimizes to built-in workshop functions in some cases (for example, `if ruleCondition: loop()` compiles to `Loop If Condition Is True`)." },
         "args": null,
         "return": "bool"
     },
     "sorted": {
-        "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
+        "description": { "en-US": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`" },
         "args": [
             {
                 "name": "array",
-                "description": "The array whose copy will be sorted.",
+                "description": { "en-US": "The array whose copy will be sorted." },
                 "type": {
                     "Array": "Object"
                 },
             },
             {
                 "name": "lambda",
-                "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
+                "description": { "en-US": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`)." },
                 "type": "Lambda",
             }
         ],
@@ -686,11 +686,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         }
     },
     "spacesForString": {
-        "description": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`, however it can also be used with translated strings, in which case it will also return a translated string.",
+        "description": { "en-US": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`, however it can also be used with translated strings, in which case it will also return a translated string." },
         "args": [
             {
                 "name": "text",
-                "description": "The text to get spaces of. Must be a literal custom string, not a variable.",
+                "description": { "en-US": "The text to get spaces of. Must be a literal custom string, not a variable." },
                 "type": "String",
             }
         ],
@@ -698,11 +698,11 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "String"
     },
     "spacesForLength": {
-        "description": "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function.",
+        "description": { "en-US": "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function." },
         "args": [
             {
                 "name": "length",
-                "description": "The length to get. Must be a literal integer, not a variable.",
+                "description": { "en-US": "The length to get. Must be a literal integer, not a variable." },
                 "type": "IntLiteral",
             }
         ],
@@ -710,7 +710,7 @@ Wrapping a string with \`___\` has the same caveats as putting a translated stri
         "return": "String"
     },
     "splitDictArray": {
-        "description": `
+        "description": { "en-US": `
 Maps an array of dictionaries to variables. For example:
 \`\`\`thon
 splitDictArray({
@@ -733,21 +733,21 @@ waveLengths = [3, 8, null]
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
 
 Also check the \`tabular\` function for a more concise syntax.
-        `,
+        ` },
         "args": [
             {
                 "name": "variables",
-                "description": "A dictionary mapping the keys to the variables to be assigned to.",
+                "description": { "en-US": "A dictionary mapping the keys to the variables to be assigned to." },
                 "type": "Dict",
             },{
                 "name": "values",
-                "description": "An array of dictionaries describing the values to be assigned to the variables.",
+                "description": { "en-US": "An array of dictionaries describing the values to be assigned to the variables." },
                 "type": {
                     "Array": "Dict"
                 },
             }, {
                 "name": "compress",
-                "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+                "description": { "en-US": "Set to true to compress the arrays if they are arrays of literal numbers or vectors." },
                 "type": "bool",
                 "default": false,
             }
@@ -755,22 +755,22 @@ Also check the \`tabular\` function for a more concise syntax.
         "return": "void",
     },
     "stopChasing": {
-        "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
+        "description": { "en-US": "Stops an in-progress chase of a variable (global or player), leaving it at its current value." },
         "args": [
             {
                 "name": "variable",
-                "description": "Specifies which variable (global or player) to stop modifying.",
+                "description": { "en-US": "Specifies which variable (global or player) to stop modifying." },
                 "type": "Variable",
             }
         ],
         "return": "void"
     },
     "strVisualLength": {
-        "description": "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`.",
+        "description": { "en-US": "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`." },
         "args": [
             {
                 "name": "text",
-                "description": "The text to calculate the length of. Must be a literal custom string, not a variable.",
+                "description": { "en-US": "The text to calculate the length of. Must be a literal custom string, not a variable." },
                 "type": "String",
             }
         ],
@@ -779,7 +779,7 @@ Also check the \`tabular\` function for a more concise syntax.
     },
     
     "tabular": {
-        "description": `
+        "description": { "en-US": `
 Maps an array of arrays to variables (same as \`splitDictArray()\` with shorter syntax). For example:
 \`\`\`thon
 tabular([waveHeroes,waveLengths], [
@@ -797,21 +797,21 @@ waveLengths = [3, 8, null]
 \`\`\`
 
 If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
-        `,
+        ` },
         "args": [
             {
                 "name": "variables",
-                "description": "A dictionary mapping the keys to the variables to be assigned to.",
+                "description": { "en-US": "A dictionary mapping the keys to the variables to be assigned to." },
                 "type": "Dict",
             },{
                 "name": "values",
-                "description": "An array of dictionaries describing the values to be assigned to the variables.",
+                "description": { "en-US": "An array of dictionaries describing the values to be assigned to the variables." },
                 "type": {
                     "Array": "Dict"
                 },
             }, {
                 "name": "compress",
-                "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+                "description": { "en-US": "Set to true to compress the arrays if they are arrays of literal numbers or vectors." },
                 "type": "bool",
                 "default": false,
             }
@@ -819,11 +819,11 @@ If the third argument is set to \`true\`, arrays will be compressed if they are 
         "return": "void",
     },
     ".toArray": {
-        "description": "Get an array of the values of an enum.",
+        "description": { "en-US": "Get an array of the values of an enum." },
         "args": [
             {
                 "name": "__enumType__",
-                "description": "The enum to take the values from.",
+                "description": { "en-US": "The enum to take the values from." },
                 "type": "Type"
             }
         ],

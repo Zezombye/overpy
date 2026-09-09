@@ -1,5 +1,7 @@
 import type {
     Argument,
+    LocalizableString,
+    OWLanguage,
     AstConstantData,
     AstMacroData,
     MacroData,
@@ -30,6 +32,7 @@ import { opyModules } from "../data/opy/modules";
 import { preprocessingDirectives } from "../data/opy/preprocessing";
 import { opyStringEntities } from "../data/opy/stringEntities";
 import { valueFuncKw } from "../data/values";
+import { formatDocumentation, getLocalizedString, localizableDocumentation } from "../data/opy/documentation";
 import { DeclarationDocs, emptyDeclarationDocs } from "./declarationDocs";
 import { builtInEnumNameToAstInfo } from "../compiler/parser";
 import type { Ast } from "../utils/ast";
@@ -39,7 +42,7 @@ import {OverPyCompiler, OverPyDecompiler} from "../godClasses";
 type CompletionData = {
     args?: Argument[] | null;
     class?: string;
-    description?: string;
+    description?: string | LocalizableString;
     extension?: string;
     hideFromAutocomplete?: boolean;
     isMember?: boolean;
@@ -147,10 +150,10 @@ export function initializeCompletionState(): void {
     initialized = true;
 }
 
-export function getCompletionState(uri?: string): CompletionState {
+export function getCompletionState(uri?: string, documentationLanguage: OWLanguage = "en-US"): CompletionState {
     initializeCompletionState();
     const dynamic = (uri !== undefined ? dynamicCompletionDataByUri.get(uri) : undefined) ?? dynamicCompletionData;
-    return buildCompletionState(dynamic);
+    return buildCompletionState(dynamic, documentationLanguage);
 }
 
 export function updateCompletionStateFromCompileResult(
@@ -195,6 +198,7 @@ export function makeSignatureHelp(
     func: CompletionData,
     activeParameter: number,
     keywordArgument: string | null,
+    documentationLanguage: OWLanguage = "en-US",
 ): SignatureHelp | undefined {
     if (!Array.isArray(func.args) || func.args.length === 0) {
         return undefined;
@@ -233,11 +237,12 @@ export function makeSignatureHelp(
 
         const start = signatureLabel.length;
         signatureLabel += argLabel;
+        const argDescription = getLocalizedString(arg.description, documentationLanguage);
         parameters.push({
             label: [start, signatureLabel.length],
             documentation: {
                 kind: MarkupKind.Markdown,
-                value: `${arg.description ? `${arg.description}\n\n` : ""}Type: \`${compiler.typeToString(arg.type)}\``,
+                value: `${argDescription ? `${argDescription}\n\n` : ""}${formatDocumentation("type", documentationLanguage)} \`${compiler.typeToString(arg.type)}\``,
             },
         });
 
@@ -426,10 +431,10 @@ function buildBaseCompletionData(): void {
         ),
     );
 
-    baseConstantValueCompletions = makeDefaultConstantValueCompletions();
+    baseConstantValueCompletions = makeDefaultConstantValueCompletions("en-US");
 
-    completionState.annotationCompletions = makeCompletionList(opyAnnotations, CompletionItemKind.Property);
-    completionState.preprocessingCompletions = makeCompletionList(preprocessingDirectives, CompletionItemKind.Property);
+    completionState.annotationCompletions = makeCompletionList(opyAnnotations, CompletionItemKind.Property, "en-US");
+    completionState.preprocessingCompletions = makeCompletionList(preprocessingDirectives, CompletionItemKind.Property, "en-US");
     completionState.stringEntityCompletions = makeCompletionList(
         Object.fromEntries(
             Object.entries(opyStringEntities).map(([entity, data]) => [
@@ -441,17 +446,21 @@ function buildBaseCompletionData(): void {
             ]),
         ),
         CompletionItemKind.Text,
+        "en-US",
     );
 }
 
-function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
+function buildCompletionState(dynamic: DynamicCompletionData, documentationLanguage: OWLanguage): CompletionState {
     // An `enum Foo:` block extends Foo rather than replacing it, so user-declared members must be
     // merged onto the built-in list (if any) for that enum, not spread over it — otherwise extending
     // a built-in enum like Hero would drop every built-in member from completions.
-    const constantValueCompletions: Record<string, CompletionList> = { ...baseConstantValueCompletions };
-    const userEnumCompletions = getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers);
+    const localizedBaseConstantValueCompletions = documentationLanguage === "en-US"
+        ? baseConstantValueCompletions
+        : makeDefaultConstantValueCompletions(documentationLanguage);
+    const constantValueCompletions: Record<string, CompletionList> = { ...localizedBaseConstantValueCompletions };
+    const userEnumCompletions = getUserEnumCompletionLists(dynamic.userEnums, dynamic.declarationDocs.enumMembers, documentationLanguage);
     for (const [enumName, userList] of Object.entries(userEnumCompletions)) {
-        constantValueCompletions[enumName] = mergeEnumCompletionLists(baseConstantValueCompletions[enumName], userList);
+        constantValueCompletions[enumName] = mergeEnumCompletionLists(localizedBaseConstantValueCompletions[enumName], userList);
     }
 
     for (const constType of ["Beam", "Effect", "DynamicEffect"]) {
@@ -476,7 +485,9 @@ function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
         ...Object.fromEntries(
             Object.keys(constantValueCompletions).map((key) => {
                 const doc = dynamic.declarationDocs.enums.get(key);
-                return [key, { description: doc ? `${doc}\n\nThe \`${key}\` enum.` : `The \`${key}\` enum.` }];
+                const enumDescription = localizableDocumentation("enum", key);
+                if (doc) enumDescription["en-US"] = `${doc}\n\n${enumDescription["en-US"]}`;
+                return [key, { description: enumDescription }];
             }),
         ),
         ...dynamic.normalAstConstants,
@@ -495,11 +506,11 @@ function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
     };
 
     return {
-        annotationCompletions: completionState.annotationCompletions,
-        preprocessingCompletions: completionState.preprocessingCompletions,
+        annotationCompletions: documentationLanguage === "en-US" ? completionState.annotationCompletions : makeCompletionList(opyAnnotations, CompletionItemKind.Property, documentationLanguage),
+        preprocessingCompletions: documentationLanguage === "en-US" ? completionState.preprocessingCompletions : makeCompletionList(preprocessingDirectives, CompletionItemKind.Property, documentationLanguage),
         stringEntityCompletions: completionState.stringEntityCompletions,
         constantValueCompletions,
-        defaultCompletions: makeCompletionList(defaultItems, CompletionItemKind.Function),
+        defaultCompletions: makeCompletionList(defaultItems, CompletionItemKind.Function, documentationLanguage),
         functionRegistry: {
             ...baseFunctionData,
             ...baseMemberFunctionData,
@@ -511,11 +522,11 @@ function buildCompletionState(dynamic: DynamicCompletionData): CompletionState {
             ...dynamic.memberMacros,
             ...dynamic.memberAstMacros,
         },
-        memberCompletions: makeCompletionList(memberItems, CompletionItemKind.Method),
+        memberCompletions: makeCompletionList(memberItems, CompletionItemKind.Method, documentationLanguage),
     };
 }
 
-function makeDefaultConstantValueCompletions(): Record<string, CompletionList> {
+function makeDefaultConstantValueCompletions(documentationLanguage: OWLanguage): Record<string, CompletionList> {
     const allConstants = { ...constantValues, ...opyConstants, ...opyModules };
     const completionLists: Record<string, CompletionList> = {};
 
@@ -529,7 +540,7 @@ function makeDefaultConstantValueCompletions(): Record<string, CompletionList> {
             continue;
         }
 
-        completionLists[normalizedKey] = makeCompletionList(filterOw2Values(value), CompletionItemKind.EnumMember);
+        completionLists[normalizedKey] = makeCompletionList(filterOw2Values(value), CompletionItemKind.EnumMember, documentationLanguage);
     }
 
     return completionLists;
@@ -555,6 +566,7 @@ function mergeEnumCompletionLists(baseList: CompletionList | undefined, userList
 function getUserEnumCompletionLists(
     userEnums: Record<string, Record<string, Ast>>,
     memberDocs: Map<string, Map<string, string>>,
+    documentationLanguage: OWLanguage,
 ): Record<string, CompletionList> {
     const result: Record<string, CompletionList> = {};
 
@@ -563,9 +575,9 @@ function getUserEnumCompletionLists(
         result[enumName] = {
             isIncomplete: false,
             items: Object.entries(members).map(([memberName, memberAst]) => {
-                let description = "A user-defined enum member.";
+                let description = formatDocumentation("userDefinedEnumMember", documentationLanguage);
                 try {
-                    description += `\n\nValue: \`${decompiler.astToOpy(memberAst)}\``;
+                    description += `\n\n${formatDocumentation("value", documentationLanguage)} \`${decompiler.astToOpy(memberAst)}\``;
                 } catch (error) {
                     debug(`astToOpy failed for enum member "${memberName}": ${error instanceof Error ? error.message : String(error)}`);
                 }
@@ -575,7 +587,7 @@ function getUserEnumCompletionLists(
                     description = `${doc}\n\n${description}`;
                 }
 
-                return makeCompletionItem(memberName, { description }, CompletionItemKind.EnumMember);
+                return makeCompletionItem(memberName, { description }, CompletionItemKind.EnumMember, documentationLanguage);
             }),
         };
     }
@@ -590,7 +602,9 @@ function fillMacroCompletions(target: DynamicCompletionData, macros: MacroData[]
     for (const macro of macros) {
         const convertedMacro: CompletionData = {
             args: macro.args ?? null,
-            description: macro.isFunction && macro.isScript ? `This macro executes the script:\n  \`${macro.scriptPath}\`` : `This macro resolves to:\n\n\`\`\`\n${macro.replacement}\n\`\`\``,
+            description: macro.isFunction && macro.isScript
+                ? localizableDocumentation("macroExecutesScript", macro.scriptPath)
+                : localizableDocumentation("macroResolvesTo", macro.replacement),
         };
 
         let macroName = macro.name;
@@ -616,7 +630,11 @@ function fillAstMacroCompletions(target: DynamicCompletionData, macros: AstMacro
         const convertedMacro: CompletionData = {
             args: [],
             class: macro.class_,
-            description: `${doc ? doc + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${macro.linesStr.map((line) => line.substring(minIndent)).join("\n")}\n\`\`\``,
+            description: (() => {
+                const localized = localizableDocumentation("macroResolvesTo", macro.linesStr.map((line) => line.substring(minIndent)).join("\n"));
+                if (doc) localized["en-US"] = `${doc}\n\n${localized["en-US"]}`;
+                return localized;
+            })(),
         };
         let macroName = macro.name;
 
@@ -649,7 +667,11 @@ function fillAstConstantCompletions(target: DynamicCompletionData, constants: As
         const convertedConstant: CompletionData = {
             args: null,
             class: constant.class_,
-            description: `${doc ? doc + "\n\n" : ""}This macro resolves to:\n\n\`\`\`\n${constant.valueStr}\n\`\`\``,
+            description: (() => {
+                const localized = localizableDocumentation("macroResolvesTo", constant.valueStr);
+                if (doc) localized["en-US"] = `${doc}\n\n${localized["en-US"]}`;
+                return localized;
+            })(),
         };
 
         if (constant.class_) {
@@ -667,9 +689,13 @@ function getVariableCompletions(
 ): Record<string, CompletionData> {
     return Object.fromEntries(
         variables.map((variable) => {
-            const base = variable.index !== -1 ? `A ${scope} variable. (index: ${variable.index})` : `A ${scope} variable.`;
+            const key = scope === "global"
+                ? (variable.index !== -1 ? "globalVariableIndex" : "globalVariable")
+                : (variable.index !== -1 ? "playerVariableIndex" : "playerVariable");
+            const base = variable.index !== -1 ? localizableDocumentation(key, variable.index) : localizableDocumentation(key);
             const doc = docs.get(variable.name);
-            return [variable.name, { description: doc ? `${doc}\n\n${base}` : base }];
+            if (doc) base["en-US"] = `${doc}\n\n${base["en-US"]}`;
+            return [variable.name, { description: base }];
         }),
     );
 }
@@ -680,36 +706,37 @@ function getSubroutineCompletions(
 ): Record<string, CompletionData> {
     return Object.fromEntries(
         subroutineNames.map((subroutine) => {
-            const base = subroutine.index ? `A subroutine. (index: ${subroutine.index})` : "A subroutine.";
+            const base = subroutine.index ? localizableDocumentation("subroutineIndex", subroutine.index) : localizableDocumentation("subroutine");
             const doc = docs.get(subroutine.name);
+            if (doc) base["en-US"] = `${doc}\n\n${base["en-US"]}`;
             return [
                 `${subroutine.name}()`,
                 {
                     args: [],
-                    description: doc ? `${doc}\n\n${base}` : base,
+                    description: base,
                 },
             ];
         }),
     );
 }
 
-function makeCompletionList(obj: Record<string, unknown>, defaultKind: CompletionItemKind): CompletionList {
+function makeCompletionList(obj: Record<string, unknown>, defaultKind: CompletionItemKind, documentationLanguage: OWLanguage): CompletionList {
     return {
         isIncomplete: false,
         items: Object.keys(obj)
             .filter((key) => typeof obj[key] === "object" && obj[key] !== null && !(key.startsWith("__") && key.endsWith("__")))
-            .map((key) => makeCompletionItem(key, obj[key] as CompletionData, getCompletionKind(key, obj[key] as CompletionData, defaultKind))),
+            .map((key) => makeCompletionItem(key, obj[key] as CompletionData, getCompletionKind(key, obj[key] as CompletionData, defaultKind), documentationLanguage)),
     };
 }
 
-function makeCompletionItem(itemName: string, item: CompletionData, kind: CompletionItemKind): CompletionItem {
+function makeCompletionItem(itemName: string, item: CompletionData, kind: CompletionItemKind, documentationLanguage: OWLanguage): CompletionItem {
     const label = itemName.endsWith("()") ? itemName.substring(0, itemName.length - 2) : itemName;
     const completionItem: CompletionItem = {
         label,
         kind,
     };
 
-    const documentation = generateDocumentation(itemName, item);
+    const documentation = generateDocumentation(itemName, item, documentationLanguage);
     if (documentation) {
         completionItem.documentation = {
             kind: MarkupKind.Markdown,
@@ -726,42 +753,43 @@ function makeCompletionItem(itemName: string, item: CompletionData, kind: Comple
     return completionItem;
 }
 
-function generateDocumentation(itemName: string, item: CompletionData): string {
-    let result = typeof item.description === "string" ? item.description : "";
+function generateDocumentation(itemName: string, item: CompletionData, documentationLanguage: OWLanguage): string {
+    let result = getLocalizedString(item.description, documentationLanguage);
     const info: string[] = [];
     const isMemberFunction = item.isMember === true;
 
     if (Array.isArray(item.args) && (item.args.length > 1 || (item.args.length > 0 && !isMemberFunction))) {
         const args = item.args.slice(isMemberFunction ? 1 : 0).map((arg) => {
-            const defaultText = arg.default !== undefined ? ` If omitted, defaults to \`${argDefaultToString(arg).replaceAll("_", "_\u200B")}\`.` : "";
-            return `- \`${arg.name}${arg.default !== undefined ? "?" : ""}\`${arg.description ? `: ${arg.description}${arg.description.endsWith(".") ? "" : "."}` : ""}${defaultText}`;
+            const argDescription = getLocalizedString(arg.description, documentationLanguage);
+            const defaultText = arg.default !== undefined ? ` ${formatDocumentation("defaultValue", documentationLanguage, argDefaultToString(arg).replaceAll("_", "_\u200B"))}` : "";
+            return `- \`${arg.name}${arg.default !== undefined ? "?" : ""}\`${argDescription ? `: ${argDescription}${argDescription.endsWith(".") ? "" : "."}` : ""}${defaultText}`;
         });
-        info.push(`Arguments:\n${args.join("\n")}`);
+        info.push(`${formatDocumentation("arguments", documentationLanguage)}\n${args.join("\n")}`);
     }
 
     if (isMemberFunction) {
-        info.push("Class: `Player`");
+        info.push(`${formatDocumentation("class", documentationLanguage)} \`Player\``);
     } else if (item.class) {
-        info.push(`Class: \`${item.class}\``);
+        info.push(`${formatDocumentation("class", documentationLanguage)} \`${item.class}\``);
     }
 
     if (item.return !== undefined) {
-        info.push(`Returns: \`${compiler.typeToString(item.return as Type)}\``);
+        info.push(`${formatDocumentation("returns", documentationLanguage)} \`${compiler.typeToString(item.return as Type)}\``);
     }
 
     if (item.extension) {
-        info.push(`Part of extension \`${item.extension}\`.`);
+        info.push(formatDocumentation("extension", documentationLanguage, item.extension));
     }
 
     if (item.macro) {
-        info.push(`This macro resolves to:\n\`${item.macro.trim().replaceAll("$", "")}\``);
+        info.push(formatDocumentation("macroResolvesInline", documentationLanguage, item.macro.trim().replaceAll("$", "")));
     }
 
     if (info.length > 0) {
         result += `${result ? "\n\n" : ""}${info.join("  \n")}`;
     }
 
-    return result || (itemName ? `<no documentation found for \`${itemName}\`>` : "");
+    return result || (itemName ? formatDocumentation("noDocumentation", documentationLanguage, itemName) : "");
 }
 
 function generateSnippet(itemName: string, item: CompletionData): string {
@@ -833,12 +861,13 @@ function isCompletionDataRecord(value: unknown): value is Record<string, Complet
 
 function filterOw2Values(value: Record<string, CompletionData>): Record<string, CompletionData> {
     return Object.fromEntries(
-        Object.entries(value).filter(([key, constant]) => key === "description" || !("onlyInOw1" in constant) || !constant.onlyInOw1),
+        Object.entries(value).filter(([key, constant]) => key !== "description" && (!("onlyInOw1" in constant) || !constant.onlyInOw1)),
     );
 }
 
 function isModuleFunctionEntry(
-    entry: [string, string | { description: string; args: Argument[]; return: Type }],
-): entry is [string, { description: string; args: Argument[]; return: Type }] {
-    return typeof entry[1] !== "string";
+    entry: [string, LocalizableString | { description: LocalizableString; args: Argument[]; return: Type }],
+): entry is [string, { description: LocalizableString; args: Argument[]; return: Type }] {
+    const value = entry[1];
+    return typeof value === "object" && value !== null && "args" in value && "return" in value;
 }

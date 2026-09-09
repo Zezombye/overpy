@@ -20,26 +20,26 @@
 import { Argument, Type } from "../../types";
 
 export const opyModules: Record<string, Record<string, {
-    description: string,
+    description: import("../../types").LocalizableString,
     args: Argument[],
     return: Type
-}> & { description: string }> = {
+}> & { description: import("../../types").LocalizableString }> = {
 
     // @ts-expect-error - description will be added later
     "random": {
         "randint": {
-            "description": "A random integer between the specified min and max, inclusive.",
+            "description": { "en-US": "A random integer between the specified min and max, inclusive." },
             "args": [
                 {
                     "name": "MIN",
-                    "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                    "description": { "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
                     "type": "int",
                     canReplace0ByFalse: true,
                     canReplace1ByTrue: true,
                 },
                 {
                     "name": "MAX",
-                    "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
+                    "description": { "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer." },
                     "type": "int",
                     canReplace0ByFalse: true,
                     canReplace1ByTrue: true,
@@ -48,27 +48,27 @@ export const opyModules: Record<string, Record<string, {
             "return": "int",
         },
         "uniform": {
-            "description": "A random real number between the specified min and max.",
+            "description": { "en-US": "A random real number between the specified min and max." },
             "args": [
                 {
                     "name": "MIN",
-                    "description": "The smallest real number allowed.",
+                    "description": { "en-US": "The smallest real number allowed." },
                     "type": "float",
                 },
                 {
                     "name": "MAX",
-                    "description": "The largest real number allowed.",
+                    "description": { "en-US": "The largest real number allowed." },
                     "type": "float",
                 }
             ],
             "return": "float",
         },
         "choice": {
-            "description": "A random value from the specified array.",
+            "description": { "en-US": "A random value from the specified array." },
             "args": [
                 {
                     "name": "ARRAY",
-                    "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
+                    "description": { "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value." },
                     "type": "Array",
                 }
             ],
@@ -78,11 +78,11 @@ export const opyModules: Record<string, Record<string, {
             ],
         },
         "shuffle": {
-            "description": "A copy of the specified array with the values in a random order.",
+            "description": { "en-US": "A copy of the specified array with the values in a random order." },
             "args": [
                 {
                     "name": "ARRAY",
-                    "description": "The array whose copy will be randomized.",
+                    "description": { "en-US": "The array whose copy will be randomized." },
                     "type": "Array",
                 }
             ],
@@ -92,5 +92,5 @@ export const opyModules: Record<string, Record<string, {
 };
 
 for (var key in opyModules) {
-    opyModules[key]["description"] = "The `"+key+"` module.";
+    opyModules[key]["description"] = { "en-US": "The `"+key+"` module." };
 }

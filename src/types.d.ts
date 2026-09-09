@@ -15,7 +15,7 @@ export enum ow_languages {
     zhCN = "zh-CN",
     zhTW = "zh-TW",
 }
-type OWLanguage = `${ow_languages}`;
+export type OWLanguage = `${ow_languages}`;
 
 export type Variable = {
     name: string;
@@ -45,7 +45,7 @@ export type LocalizableString = { guid?: string } & {
 
 export type Value = {
     guid: string;
-    description?: string;
+    description?: LocalizableString;
     args: Argument[] | null;
     return: ReturnType | ReturnType[];
     isConstant?: boolean;
@@ -59,7 +59,7 @@ export type Value = {
 
 export type Argument = {
     name: string;
-    description?: string;
+    description?: LocalizableString;
     type: any;
     default?: any;
 

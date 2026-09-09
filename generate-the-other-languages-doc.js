@@ -73,6 +73,10 @@ function objectIsEmpty(obj) {
 }
 
 function replaceJsonObjectsInFile(path) {
+    if (!fs.existsSync(path)) {
+        console.warn("Skipping missing data file: " + path);
+        return;
+    }
     console.log("Processing " + path);
     let content = "" + fs.readFileSync(path);
     let result = "";
@@ -97,12 +101,12 @@ function replaceJsonObjectsInFile(path) {
     fs.writeFileSync(path, result.substring(0, result.length - 1));
 }
 
-function iterateOnObject(content) {
+function iterateOnObject(content, isDescription = false) {
     if (content.onlyInOw1) {
         return content;
     }
     if ("guid" in content || "en-US" in content) {
-        content = addTranslations(content);
+        content = addTranslations(content, !isDescription);
     }
 
     for (var key of Object.keys(content)) {
@@ -110,7 +114,7 @@ function iterateOnObject(content) {
             //Skip the comparison operators as they must not be translated.
             if (key !== "__Operator__") {
                 fuzzyMatch = false;
-                content[key] = iterateOnObject(content[key]);
+                content[key] = iterateOnObject(content[key], key === "description");
             }
         }
     }
@@ -118,44 +122,43 @@ function iterateOnObject(content) {
     return content;
 }
 
-function addTranslations(content) {
-    if (!("guid" in content) || content.guid === "<unknown guid>") {
-        assert(Object.keys(content).includes("en-US"), "GUID-less content does not have an en-US key: " + JSON.stringify(content));
+function addTranslations(content, persistGuid = true) {
+    if (!persistGuid && "guid" in content) delete content.guid;
 
-        if (fuzzyMatch) {
-            content.guid = enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase());
-        } else {
-            content.guid = enUSToGuidMap.get(content["en-US"]);
-        }
+    let guid = content.guid;
+    if (guid === undefined || guid === "<unknown guid>") {
+        assert(Object.keys(content).includes("en-US"), "GUID-less content does not have an en-US key: " + JSON.stringify(content));
+        guid = fuzzyMatch
+            ? enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase())
+            : enUSToGuidMap.get(content["en-US"]);
+        if (persistGuid && guid !== undefined) content.guid = guid;
     }
 
-    if (content.guid === undefined) {
+    if (guid === undefined) {
         console.warn("GUID not found for content: " + JSON.stringify(content));
         return content;
     }
 
-    let guidGlob = guidToLocaleMap.get(content.guid);
+    let guidGlob = guidToLocaleMap.get(guid);
     if (!guidGlob) {
-        console.warn(`GUID ${content.guid} for ${JSON.stringify(content)} appears to have become invalid! Attempting to rectify by finding the GUID again...`);
-        if (fuzzyMatch) {
-            content.guid = enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase());
-        } else {
-            content.guid = enUSToGuidMap.get(content["en-US"]);
-        }
-        guidGlob = guidToLocaleMap.get(content.guid);
-
+        console.warn("GUID " + guid + " for " + JSON.stringify(content) + " appears to have become invalid! Attempting to rectify by finding the GUID again...");
+        guid = fuzzyMatch
+            ? enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase())
+            : enUSToGuidMap.get(content["en-US"]);
+        if (persistGuid && guid !== undefined) content.guid = guid;
+        guidGlob = guid === undefined ? undefined : guidToLocaleMap.get(guid);
         if (!guidGlob) {
-            console.error(`No valid GUID found for content ${JSON.stringify(content)}`);
+            console.error("No valid GUID found for content " + JSON.stringify(content));
             return content;
         }
-        console.log(`New GUID found: ${content.guid}, proceeding...`);
+        console.log("New GUID found: " + guid + ", proceeding...");
     }
+
     for (let localeEntry of Object.entries(guidGlob)) {
         localeEntry[1] = localeEntry[1].replace(/%%/g, "%");
         if (removeParentheses) localeEntry[1] = localeEntry[1].replace(/[,\(\)\/]/g, "");
         content[dataToolLocaleToOverPyLocale(localeEntry[0])] = localeEntry[1];
     }
-
     return content;
 }
 

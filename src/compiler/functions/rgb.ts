@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { constantValues } from "../../data/constants";
+import { Constant, constantValues } from "../../data/constants";
 import { Ast, astParsingFunctions, numValue } from "../../utils/ast";
 
 astParsingFunctions.rgb = function (content, compiler) {
@@ -27,13 +27,14 @@ astParsingFunctions.rgb = function (content, compiler) {
             let [r, g, b, a] = content.args.map(arg => numValue(arg));
             if ([r, g, b, a].every(num => num !== null)) {
                 for (let [key, value] of Object.entries(constantValues.ColorLiteral)) {
-                    if (typeof value === "string") {
+                    if (key === "description" || typeof value === "string") {
                         continue;
                     }
-                    if (value.onlyInOverpy) {
+                    const color = value as Constant;
+                    if (color.onlyInOverpy) {
                         continue;
                     }
-                    let [vr, vg, vb, va] = [value.red ?? 0, value.green ?? 0, value.blue ?? 0, value.alpha ?? 255];
+                    let [vr, vg, vb, va] = [color.red ?? 0, color.green ?? 0, color.blue ?? 0, color.alpha ?? 255];
                     if (r === vr && g === vg && b === vb && a === va) {
                         return compiler.Ast("__color__", [compiler.Ast(key, [], [], "ColorLiteral")]);
                     }

@@ -8,17 +8,19 @@ import {
     Range,
 } from "vscode-languageserver/node";
 import { TextDocument } from "vscode-languageserver-textdocument";
+import type { OWLanguage } from "../types";
+import { formatDocumentation, getLocalizedString } from "../data/opy/documentation";
 
 import { CompletionState, getCompletionState, makeFunctionSignatureLabel, makeSignatureHelp } from "./completionState";
 import { getIdentifierAtPosition, isOffsetInStringOrComment, maskStringsAndComments, PositionedText } from "./documentUtils";
 
-export function getHover(document: TextDocument, position: Position): Hover | null {
+export function getHover(document: TextDocument, position: Position, documentationLanguage: OWLanguage = "en-US"): Hover | null {
     const text = document.getText();
     if (isOffsetInStringOrComment(text, maskStringsAndComments(text), document.offsetAt(position))) {
         return null;
     }
 
-    const state = getCompletionState(document.uri);
+    const state = getCompletionState(document.uri, documentationLanguage);
 
     const qualifiedSymbol = getQualifiedSymbolAtPosition(document, position);
     if (qualifiedSymbol) {
@@ -30,7 +32,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         // right (or the `.`) describes the member.
         if (cursorInToken < dotIndex) {
             const enumName = qualifiedSymbol.text.slice(0, dotIndex);
-            const enumNameHover = getEnumNameHover(enumName, state);
+            const enumNameHover = getEnumNameHover(enumName, state, documentationLanguage);
             if (enumNameHover) {
                 return {
                     contents: enumNameHover,
@@ -56,7 +58,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     const normalizedName = normalizeSymbolName(document, symbol);
     const functionData = state.functionRegistry[normalizedName];
     if (functionData) {
-        const functionHover = getFunctionHover(normalizedName, state);
+        const functionHover = getFunctionHover(normalizedName, state, documentationLanguage);
         if (functionHover) {
             return {
                 contents: functionHover,
@@ -71,7 +73,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
         getCompletionHover(normalizedName, state.stringEntityCompletions) ??
         getCompletionHover(normalizedName, state.defaultCompletions) ??
         getCompletionHover(normalizedName, state.memberCompletions) ??
-        getEnumTypeHover(normalizedName, state);
+        getEnumTypeHover(normalizedName, state, documentationLanguage);
 
     if (!completionHover) {
         return null;
@@ -83,7 +85,7 @@ export function getHover(document: TextDocument, position: Position): Hover | nu
     };
 }
 
-function getFunctionHover(functionName: string, state: CompletionState): MarkupContent | null {
+function getFunctionHover(functionName: string, state: CompletionState, documentationLanguage: OWLanguage): MarkupContent | null {
     const functionData = state.functionRegistry[functionName];
     if (!functionData) {
         return null;
@@ -91,11 +93,12 @@ function getFunctionHover(functionName: string, state: CompletionState): MarkupC
 
     const sections = [`\`\`\`opy\n${makeFunctionSignatureLabel(functionName, functionData)}\n\`\`\``];
 
-    if (typeof functionData.description === "string" && functionData.description.trim().length > 0) {
-        sections.push(functionData.description.trim());
+    const functionDescription = getLocalizedString(functionData.description, documentationLanguage);
+    if (functionDescription.trim().length > 0) {
+        sections.push(functionDescription.trim());
     }
 
-    const signature = makeSignatureHelp(functionName, functionData, 0, null)?.signatures[0];
+    const signature = makeSignatureHelp(functionName, functionData, 0, null, documentationLanguage)?.signatures[0];
     if (signature?.parameters && signature.parameters.length > 0) {
         const parameterDocs = signature.parameters.map((parameter) => {
             const label = Array.isArray(parameter.label)
@@ -107,7 +110,7 @@ function getFunctionHover(functionName: string, state: CompletionState): MarkupC
                     : parameter.documentation?.value;
             return `- \`${label}\`${documentation ? `: ${documentation}` : ""}`;
         });
-        sections.push(`Arguments:\n${parameterDocs.join("\n")}`);
+        sections.push(`${formatDocumentation("arguments", documentationLanguage)}\n${parameterDocs.join("\n")}`);
     }
 
     return {
@@ -116,17 +119,17 @@ function getFunctionHover(functionName: string, state: CompletionState): MarkupC
     };
 }
 
-function getEnumNameHover(enumName: string, state: CompletionState): MarkupContent | null {
+function getEnumNameHover(enumName: string, state: CompletionState, documentationLanguage: OWLanguage): MarkupContent | null {
     if (!state.constantValueCompletions[enumName]) {
         return null;
     }
 
     // `defaultCompletions` carries the enum's own doc comment; fall back to the member-count
     // summary for built-in enums that have no doc comment entry.
-    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName, state);
+    return getCompletionHover(enumName, state.defaultCompletions) ?? getEnumTypeHover(enumName, state, documentationLanguage);
 }
 
-function getEnumTypeHover(symbolName: string, state: CompletionState): MarkupContent | null {
+function getEnumTypeHover(symbolName: string, state: CompletionState, documentationLanguage: OWLanguage): MarkupContent | null {
     const enumCompletions = state.constantValueCompletions[symbolName];
     if (!enumCompletions) {
         return null;
@@ -134,7 +137,7 @@ function getEnumTypeHover(symbolName: string, state: CompletionState): MarkupCon
 
     return {
         kind: MarkupKind.Markdown,
-        value: `**${symbolName}**\n\nEnum with ${enumCompletions.items.length} member${enumCompletions.items.length === 1 ? "" : "s"}.`,
+        value: `**${symbolName}**\n\n${formatDocumentation(enumCompletions.items.length === 1 ? "enumMember" : "enumMembers", documentationLanguage, enumCompletions.items.length)}`,
     };
 }
 
