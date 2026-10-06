@@ -19,13 +19,13 @@ import { LocalizableString } from "../types";
 
 export type Constant = LocalizableString & {
     extension?: string,
-    description?: import("../types").LocalizableString,
+    description?: LocalizableString,
     red?: number, green?: number, blue?: number, alpha?: number,
     onlyInOw1?: boolean,
     onlyInOverpy?: boolean,
 };
 
-export const constantValues: Record<string, { description?: import("../types").LocalizableString } & Record<string, Constant>> =
+export const constantValues: Record<string, { description?: LocalizableString } & Record<string, Constant>> =
 //begin-json
 {
     "AccelReeval": {

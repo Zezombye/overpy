@@ -360,7 +360,7 @@ export const ruleKw: Record<string, LocalizableString> =
 /**
  * Event keywords
  *
- * @type { { [key: string]: import("../types").LocalizableString } }*/
+ * @type { { [key: string]: LocalizableString } }*/
 export const eventKw =
 //begin-json
 {
@@ -620,7 +620,7 @@ export const eventKw =
 //end-json
 ;
 
-/** @type { { [key: string]: import("../types").LocalizableString } } */
+/** @type { { [key: string]: LocalizableString } } */
 export const eventTeamKw =
 //begin-json
 {

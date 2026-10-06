@@ -25,7 +25,10 @@ Ilios Ruins and Busan Downtown have several "centers" which make me believe the 
 Busan Meka Base: 2.32074 * x - 274.76433
 
 */
-export const mapKw: Record<string, import("../types").Map> =
+
+import {Map as MapType} from "../types";
+
+export const mapKw: Record<string, MapType> =
 //begin-json
 {
     "aatlis": {
@@ -713,6 +716,13 @@ export const mapKw: Record<string, import("../types").Map> =
         "ru-RU": "«Эстадиу ди Ранс»",
         "zh-CN": "弗格体育场",
         "zh-TW": "青蛙體育場"
+    },
+    "grimsvotn": {
+        "gamemodes": [
+            "escort",
+            "skirmish",
+        ],
+        "en-US": "Grímsvötn",
     },
     "hanamura": {
         "guid": "000000000138",

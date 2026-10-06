@@ -8502,7 +8502,7 @@ export type CustomGameSettingSchema = {
         }
     } & Partial<LocalizableString>,
     lobby: {
-        values: Record<string, CustomGameSetting & { description?: import("../types").LocalizableString }>
+        values: Record<string, CustomGameSetting & { description?: LocalizableString }>
     } & Partial<LocalizableString>,
     main: {
         values: Record<string, LocalizableString & {

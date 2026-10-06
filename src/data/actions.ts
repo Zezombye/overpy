@@ -19,7 +19,7 @@
 import type { LocalizableString, Argument } from "../types";
 
 export type Action = {
-    description: import("../types").LocalizableString,
+    description: LocalizableString,
     args: Argument[] | null,
     return: string,
     hasLiteralLimit?: boolean,

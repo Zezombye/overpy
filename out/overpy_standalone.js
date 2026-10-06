@@ -2834,6 +2834,13 @@ var mapKw = (
       "zh-CN": "\u5F17\u683C\u4F53\u80B2\u573A",
       "zh-TW": "\u9752\u86D9\u9AD4\u80B2\u5834"
     },
+    "grimsvotn": {
+      "gamemodes": [
+        "escort",
+        "skirmish"
+      ],
+      "en-US": "Gr\xEDmsv\xF6tn"
+    },
     "hanamura": {
       "guid": "000000000138",
       "gamemodes": [

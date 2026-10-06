@@ -133,6 +133,7 @@
                                             "eichenwaldeHalloween",
                                             "esperanca",
                                             "estadioDasRas",
+                                            "grimsvotn",
                                             "hanamura",
                                             "hanamuraWinter",
                                             "hanaoka",
@@ -590,6 +591,18 @@
                                             {
                                                 "properties": {
                                                     "estadioDasRas": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
                                                         "type": "array",
                                                         "items": {
                                                             "type": "string",
@@ -1511,6 +1524,7 @@
                                             "eichenwaldeHalloween",
                                             "esperanca",
                                             "estadioDasRas",
+                                            "grimsvotn",
                                             "hanamura",
                                             "hanamuraWinter",
                                             "hanaoka",
@@ -1968,6 +1982,18 @@
                                             {
                                                 "properties": {
                                                     "estadioDasRas": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
                                                         "type": "array",
                                                         "items": {
                                                             "type": "string",
@@ -4049,6 +4075,7 @@
                                         "enum": [
                                             "circuitRoyal",
                                             "dorado",
+                                            "grimsvotn",
                                             "havana",
                                             "junkertown",
                                             "rialto",
@@ -4085,6 +4112,18 @@
                                                                 "night",
                                                                 "evening"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -4192,6 +4231,7 @@
                                         "enum": [
                                             "circuitRoyal",
                                             "dorado",
+                                            "grimsvotn",
                                             "havana",
                                             "junkertown",
                                             "rialto",
@@ -4228,6 +4268,18 @@
                                                                 "night",
                                                                 "evening"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -10062,6 +10114,7 @@
                                             "eichenwalde",
                                             "eichenwaldeHalloween",
                                             "esperanca",
+                                            "grimsvotn",
                                             "hanamura",
                                             "hanamuraWinter",
                                             "hanaoka",
@@ -10262,6 +10315,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -10819,6 +10884,7 @@
                                             "eichenwalde",
                                             "eichenwaldeHalloween",
                                             "esperanca",
+                                            "grimsvotn",
                                             "hanamura",
                                             "hanamuraWinter",
                                             "hanaoka",
@@ -11019,6 +11085,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "grimsvotn": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
