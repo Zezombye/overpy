@@ -1,0 +1,5 @@
+# Cloudflare Workers static assets headers.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/lsp/*
+  Cache-Control: no-cache

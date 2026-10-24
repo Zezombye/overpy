@@ -1,0 +1,38 @@
+{
+    "name": "overpy-webide",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Online IDE for OverPy, hosted on Cloudflare Workers + D1.",
+    "type": "module",
+    "scripts": {
+        "dev": "node scripts/dev.mjs",
+        "build:lsp": "node scripts/build-lsp.mjs",
+        "build": "node scripts/build-lsp.mjs --production && vite build",
+        "check-types": "vue-tsc --noEmit -p tsconfig.json && tsc --noEmit -p server/tsconfig.json && tsc --noEmit -p lsp/tsconfig.json",
+        "db:migrate:local": "wrangler d1 migrations apply overpy-webide --local",
+        "db:migrate:remote": "wrangler d1 migrations apply overpy-webide --remote",
+        "deploy": "pnpm run build && wrangler deploy"
+    },
+    "engines": {
+        "npm": "please-use-pnpm",
+        "yarn": "please-use-pnpm",
+        "pnpm": ">= 10.0.0"
+    },
+    "dependencies": {
+        "monaco-editor": "^0.56.0",
+        "vscode-languageserver-protocol": "^3.18.3",
+        "vscode-oniguruma": "^2.0.1",
+        "vscode-textmate": "^9.3.2",
+        "vue": "^3.5.42"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.3.3",
+        "@vitejs/plugin-vue": "^6.0.8",
+        "esbuild": "^0.28.2",
+        "tailwindcss": "^4.3.3",
+        "typescript": "^6.0.3",
+        "vite": "^8.2.2",
+        "vue-tsc": "^3.3.11",
+        "wrangler": "^4.130.0"
+    }
+}

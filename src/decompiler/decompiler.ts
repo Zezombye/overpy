@@ -36,11 +36,14 @@ import "./astToOpy.ts";
 
 export function decompileAllRules(content: string, language: OWLanguage = "en-US", options: {
     ignoreVariableIndex?: boolean,
-    ignoreSubroutineIndex?: boolean
+    ignoreSubroutineIndex?: boolean,
+    /** Declare (without index) the variables and subroutines used without being declared, instead of throwing. For partial scripts, e.g. a single rule. */
+    declareUnknownNames?: boolean,
 } = {}) {
 
     const decompiler = new OverPyDecompiler();
     decompiler.currentLanguage = language;
+    decompiler.declareUnknownNames = options.declareUnknownNames ?? false;
 
     var result = decompiler.decompileAllRulesToAst(content);
 
@@ -63,9 +66,10 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         decompiler.globalVariables.sort((a, b) => a.index - b.index);
         var globalVariableDeclarations = "";
         for (var variable of decompiler.globalVariables) {
-            if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+            //Index -1: declared by declareUnknownNames, the index is unknown
+            if (variable.index === -1 || defaultVarNames.indexOf(variable.name) !== variable.index) {
                 globalVariableDeclarations += "globalvar " + variable.name;
-                if (!options.ignoreVariableIndex) {
+                if (!options.ignoreVariableIndex && variable.index !== -1) {
                     globalVariableDeclarations += " " + variable.index;
                 }
                 globalVariableDeclarations += "\n";
@@ -79,9 +83,9 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         decompiler.playerVariables.sort((a, b) => a.index - b.index);
         var playerVariableDeclarations = "";
         for (var variable of decompiler.playerVariables) {
-            if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+            if (variable.index === -1 || defaultVarNames.indexOf(variable.name) !== variable.index) {
                 playerVariableDeclarations += "playervar " + variable.name;
-                if (!options.ignoreVariableIndex) {
+                if (!options.ignoreVariableIndex && variable.index !== -1) {
                     playerVariableDeclarations += " " + variable.index;
                 }
                 playerVariableDeclarations += "\n";
@@ -96,9 +100,9 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
     if (decompiler.subroutines.length > 0) {
         decompiler.subroutines.sort((a, b) => a.index - b.index);
         for (var subroutine of decompiler.subroutines) {
-            if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+            if (subroutine.index === -1 || defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
                 subroutineDeclarations += "subroutine " + subroutine.name;
-                if (!options.ignoreSubroutineIndex) {
+                if (!options.ignoreSubroutineIndex && subroutine.index !== -1) {
                     subroutineDeclarations += " " + subroutine.index;
                 }
                 subroutineDeclarations += "\n";

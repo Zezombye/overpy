@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/*
+ * Colors of the VS Code "Dark Modern" and "Light Modern" themes, exposed as Tailwind colors
+ * (e.g. `bg-sidebar`, `text-fg-muted`, `border-border`).
+ */
+:root,
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --vsc-fg: #cccccc;
+    --vsc-fg-muted: #9d9d9d;
+    --vsc-fg-strong: #ffffff;
+    --vsc-border: #2b2b2b;
+    --vsc-focus: #0078d4;
+    --vsc-titlebar: #181818;
+    --vsc-activitybar: #181818;
+    --vsc-activitybar-fg: #d7d7d7;
+    --vsc-activitybar-inactive: #868686;
+    --vsc-sidebar: #181818;
+    --vsc-editor: #1f1f1f;
+    --vsc-tabs: #181818;
+    --vsc-tab-active: #1f1f1f;
+    --vsc-tab-inactive-fg: #9d9d9d;
+    --vsc-panel: #181818;
+    --vsc-statusbar: #181818;
+    --vsc-statusbar-hover: rgba(255, 255, 255, 0.12);
+    --vsc-accent: #0078d4;
+    --vsc-accent-fg: #ffffff;
+    --vsc-accent-hover: #026ec1;
+    --vsc-list-hover: #2a2d2e;
+    --vsc-list-active: #04395e;
+    --vsc-list-inactive: #37373d;
+    --vsc-input: #313131;
+    --vsc-input-border: #3c3c3c;
+    --vsc-placeholder: #989898;
+    --vsc-button-secondary: #313131;
+    --vsc-button-secondary-hover: #3c3c3c;
+    --vsc-widget: #202020;
+    --vsc-widget-border: #454545;
+    --vsc-menu: #1f1f1f;
+    --vsc-menu-selection: #0078d4;
+    --vsc-toolbar-hover: rgba(90, 93, 94, 0.31);
+    --vsc-badge: #616161;
+    --vsc-badge-fg: #f8f8f8;
+    --vsc-link: #4daafc;
+    --vsc-error: #f14c4c;
+    --vsc-warning: #cca700;
+    --vsc-info: #3794ff;
+    --vsc-match: rgba(234, 92, 0, 0.33);
+    --vsc-shadow: rgba(0, 0, 0, 0.36);
+    --vsc-scrollbar: rgba(121, 121, 121, 0.4);
+    --vsc-scrollbar-hover: rgba(100, 100, 100, 0.7);
+    --vsc-modified: #bb800966;
+    --vsc-tree-guide: #585858;
+    --vsc-error-bg: #5a1d1d;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --vsc-fg: #3b3b3b;
+    --vsc-fg-muted: #6f6f6f;
+    --vsc-fg-strong: #000000;
+    --vsc-border: #e5e5e5;
+    --vsc-focus: #005fb8;
+    --vsc-titlebar: #f8f8f8;
+    --vsc-activitybar: #f8f8f8;
+    --vsc-activitybar-fg: #1f1f1f;
+    --vsc-activitybar-inactive: #616161;
+    --vsc-sidebar: #f8f8f8;
+    --vsc-editor: #ffffff;
+    --vsc-tabs: #f8f8f8;
+    --vsc-tab-active: #ffffff;
+    --vsc-tab-inactive-fg: #868686;
+    --vsc-panel: #f8f8f8;
+    --vsc-statusbar: #f8f8f8;
+    --vsc-statusbar-hover: rgba(31, 31, 31, 0.11);
+    --vsc-accent: #005fb8;
+    --vsc-accent-fg: #ffffff;
+    --vsc-accent-hover: #0258a8;
+    --vsc-list-hover: #f2f2f2;
+    --vsc-list-active: #e4e6f1;
+    --vsc-list-inactive: #e4e6f1;
+    --vsc-input: #ffffff;
+    --vsc-input-border: #cecece;
+    --vsc-placeholder: #767676;
+    --vsc-button-secondary: #e5e5e5;
+    --vsc-button-secondary-hover: #cccccc;
+    --vsc-widget: #f8f8f8;
+    --vsc-widget-border: #cecece;
+    --vsc-menu: #ffffff;
+    --vsc-menu-selection: #005fb8;
+    --vsc-toolbar-hover: rgba(184, 184, 184, 0.31);
+    --vsc-badge: #cccccc;
+    --vsc-badge-fg: #3b3b3b;
+    --vsc-link: #005fb8;
+    --vsc-error: #e51400;
+    --vsc-warning: #bf8803;
+    --vsc-info: #1a85ff;
+    --vsc-match: rgba(234, 92, 0, 0.33);
+    --vsc-shadow: rgba(0, 0, 0, 0.16);
+    --vsc-scrollbar: rgba(100, 100, 100, 0.4);
+    --vsc-scrollbar-hover: rgba(100, 100, 100, 0.7);
+    --vsc-modified: #bb800966;
+    --vsc-tree-guide: #a9a9a9;
+    --vsc-error-bg: #f2dede;
+}
+
+@theme inline {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+    --font-mono: Consolas, "Courier New", ui-monospace, monospace;
+
+    --color-fg: var(--vsc-fg);
+    --color-fg-muted: var(--vsc-fg-muted);
+    --color-fg-strong: var(--vsc-fg-strong);
+    --color-border: var(--vsc-border);
+    --color-focus: var(--vsc-focus);
+    --color-titlebar: var(--vsc-titlebar);
+    --color-activitybar: var(--vsc-activitybar);
+    --color-activitybar-fg: var(--vsc-activitybar-fg);
+    --color-activitybar-inactive: var(--vsc-activitybar-inactive);
+    --color-sidebar: var(--vsc-sidebar);
+    --color-editor: var(--vsc-editor);
+    --color-tabs: var(--vsc-tabs);
+    --color-tab-active: var(--vsc-tab-active);
+    --color-tab-inactive-fg: var(--vsc-tab-inactive-fg);
+    --color-panel: var(--vsc-panel);
+    --color-statusbar: var(--vsc-statusbar);
+    --color-statusbar-hover: var(--vsc-statusbar-hover);
+    --color-accent: var(--vsc-accent);
+    --color-accent-fg: var(--vsc-accent-fg);
+    --color-accent-hover: var(--vsc-accent-hover);
+    --color-list-hover: var(--vsc-list-hover);
+    --color-list-active: var(--vsc-list-active);
+    --color-list-inactive: var(--vsc-list-inactive);
+    --color-input: var(--vsc-input);
+    --color-input-border: var(--vsc-input-border);
+    --color-placeholder: var(--vsc-placeholder);
+    --color-button-secondary: var(--vsc-button-secondary);
+    --color-button-secondary-hover: var(--vsc-button-secondary-hover);
+    --color-widget: var(--vsc-widget);
+    --color-widget-border: var(--vsc-widget-border);
+    --color-menu: var(--vsc-menu);
+    --color-menu-selection: var(--vsc-menu-selection);
+    --color-toolbar-hover: var(--vsc-toolbar-hover);
+    --color-badge: var(--vsc-badge);
+    --color-badge-fg: var(--vsc-badge-fg);
+    --color-link: var(--vsc-link);
+    --color-error: var(--vsc-error);
+    --color-warning: var(--vsc-warning);
+    --color-info: var(--vsc-info);
+    --color-match: var(--vsc-match);
+    --color-modified: var(--vsc-modified);
+    --color-tree-guide: var(--vsc-tree-guide);
+    --color-error-bg: var(--vsc-error-bg);
+}
+
+@layer base {
+    html,
+    body,
+    #app {
+        height: 100%;
+    }
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: var(--vsc-editor);
+        color: var(--vsc-fg);
+        font-family: var(--font-sans);
+        font-size: 13px;
+        -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+        background: color-mix(in srgb, var(--vsc-accent) 40%, transparent);
+    }
+    * {
+        scrollbar-color: var(--vsc-scrollbar) transparent;
+        scrollbar-width: thin;
+    }
+    button {
+        cursor: pointer;
+    }
+    button:disabled {
+        cursor: default;
+    }
+}
+
+@layer components {
+    /* VS Code-style form controls, used by the dialogs, settings editor and login pages. */
+    .vsc-input {
+        background: var(--vsc-input);
+        border: 1px solid var(--vsc-input-border);
+        color: var(--vsc-fg);
+        border-radius: 2px;
+        padding: 3px 6px;
+        outline: none;
+        line-height: 18px;
+    }
+    .vsc-input::placeholder {
+        color: var(--vsc-placeholder);
+    }
+    .vsc-input:focus {
+        border-color: var(--vsc-focus);
+    }
+    .vsc-button {
+        background: var(--vsc-accent);
+        color: var(--vsc-accent-fg);
+        border-radius: 2px;
+        padding: 4px 14px;
+        line-height: 18px;
+        outline-offset: 2px;
+    }
+    .vsc-button:hover:not(:disabled) {
+        background: var(--vsc-accent-hover);
+    }
+    .vsc-button:disabled {
+        opacity: 0.5;
+    }
+    .vsc-button-secondary {
+        background: var(--vsc-button-secondary);
+        color: var(--vsc-fg);
+        border-radius: 2px;
+        padding: 4px 14px;
+        line-height: 18px;
+    }
+    .vsc-button-secondary:hover:not(:disabled) {
+        background: var(--vsc-button-secondary-hover);
+    }
+    .vsc-toolbar-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        color: var(--vsc-fg);
+    }
+    .vsc-toolbar-button:hover {
+        background: var(--vsc-toolbar-hover);
+    }
+    .vsc-select {
+        background: var(--vsc-input);
+        border: 1px solid var(--vsc-input-border);
+        color: var(--vsc-fg);
+        border-radius: 2px;
+        padding: 2px 4px;
+        outline: none;
+    }
+    .vsc-select:focus {
+        border-color: var(--vsc-focus);
+    }
+    .vsc-checkbox {
+        accent-color: var(--vsc-accent);
+        width: 16px;
+        height: 16px;
+    }
+    .vsc-link {
+        color: var(--vsc-link);
+    }
+    .vsc-link:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Monaco's hovers and suggest widget are rendered in fixed overflow widgets; keep them above the workbench chrome. */
+.monaco-editor .overflowingContentWidgets,
+.monaco-editor .overflowingOverlayWidgets {
+    z-index: 40;
+}

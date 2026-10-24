@@ -35,6 +35,10 @@ OverPyDecompiler.prototype.translateSubroutineToPy = function(content: string, f
         this.addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
         return content;
     }
+    if (this.declareUnknownNames) {
+        this.addSubroutine(content, -1, fileStack);
+        return content;
+    }
     throw this.error("Unknown subroutine '" + content + "'");
 }
 
@@ -92,6 +96,9 @@ OverPyDecompiler.prototype.translateVarToPy = function(content: string, isGlobal
     } else if (defaultVarNames.includes(content)) {
         //Add the variable as it doesn't already exist (else it would've been caught by the first if)
         this.addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
+        return content;
+    } else if (this.declareUnknownNames) {
+        this.addVariable(content, isGlobalVariable, -1, fileStack);
         return content;
     } else {
         throw this.error("Unknown variable '" + content + "'");

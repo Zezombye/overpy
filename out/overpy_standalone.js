@@ -2116,6 +2116,8 @@ var OverPyDecompiler = class {
   playerVariables = [];
   subroutines = [];
   currentLanguage = "en-US";
+  /** Declare variables and subroutines that are used but not declared (index -1, left for the compiler to assign), instead of throwing. */
+  declareUnknownNames = false;
   currentArrayElementName = "";
   currentArrayIndexName = "";
   fileStack = [];
@@ -63623,6 +63625,10 @@ OverPyDecompiler.prototype.translateSubroutineToPy = function(content, fileStack
     this.addSubroutine(content, defaultSubroutineNames.indexOf(content), fileStack);
     return content;
   }
+  if (this.declareUnknownNames) {
+    this.addSubroutine(content, -1, fileStack);
+    return content;
+  }
   throw this.error("Unknown subroutine '" + content + "'");
 };
 OverPyCompiler.prototype.translateSubroutineToWs = function(content, fileStack) {
@@ -63669,6 +63675,9 @@ OverPyDecompiler.prototype.translateVarToPy = function(content, isGlobalVariable
     return content;
   } else if (defaultVarNames.includes(content)) {
     this.addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content), fileStack);
+    return content;
+  } else if (this.declareUnknownNames) {
+    this.addVariable(content, isGlobalVariable, -1, fileStack);
     return content;
   } else {
     throw this.error("Unknown variable '" + content + "'");
@@ -65305,6 +65314,7 @@ OverPyDecompiler.prototype.astToOpy = function(content) {
 function decompileAllRules(content, language = "en-US", options = {}) {
   const decompiler = new OverPyDecompiler();
   decompiler.currentLanguage = language;
+  decompiler.declareUnknownNames = options.declareUnknownNames ?? false;
   var result = decompiler.decompileAllRulesToAst(content);
   if (DEBUG_MODE) {
     console.log(result);
@@ -65320,9 +65330,9 @@ function decompileAllRules(content, language = "en-US", options = {}) {
     decompiler.globalVariables.sort((a, b) => a.index - b.index);
     var globalVariableDeclarations = "";
     for (var variable of decompiler.globalVariables) {
-      if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+      if (variable.index === -1 || defaultVarNames.indexOf(variable.name) !== variable.index) {
         globalVariableDeclarations += "globalvar " + variable.name;
-        if (!options.ignoreVariableIndex) {
+        if (!options.ignoreVariableIndex && variable.index !== -1) {
           globalVariableDeclarations += " " + variable.index;
         }
         globalVariableDeclarations += "\n";
@@ -65336,9 +65346,9 @@ function decompileAllRules(content, language = "en-US", options = {}) {
     decompiler.playerVariables.sort((a, b) => a.index - b.index);
     var playerVariableDeclarations = "";
     for (var variable of decompiler.playerVariables) {
-      if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+      if (variable.index === -1 || defaultVarNames.indexOf(variable.name) !== variable.index) {
         playerVariableDeclarations += "playervar " + variable.name;
-        if (!options.ignoreVariableIndex) {
+        if (!options.ignoreVariableIndex && variable.index !== -1) {
           playerVariableDeclarations += " " + variable.index;
         }
         playerVariableDeclarations += "\n";
@@ -65352,9 +65362,9 @@ function decompileAllRules(content, language = "en-US", options = {}) {
   if (decompiler.subroutines.length > 0) {
     decompiler.subroutines.sort((a, b) => a.index - b.index);
     for (var subroutine of decompiler.subroutines) {
-      if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+      if (subroutine.index === -1 || defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
         subroutineDeclarations += "subroutine " + subroutine.name;
-        if (!options.ignoreSubroutineIndex) {
+        if (!options.ignoreSubroutineIndex && subroutine.index !== -1) {
           subroutineDeclarations += " " + subroutine.index;
         }
         subroutineDeclarations += "\n";
@@ -72097,3 +72107,4 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
+//# sourceMappingURL=overpy_standalone.js.map

@@ -34,6 +34,7 @@ declare namespace overpy {
         options?: {
             ignoreVariableIndex?: boolean;
             ignoreSubroutineIndex?: boolean;
+            declareUnknownNames?: boolean;
         }
     ): string;
 

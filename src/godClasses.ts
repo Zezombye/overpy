@@ -312,6 +312,8 @@ export class OverPyDecompiler {
     playerVariables: Variable[] = [];
     subroutines: Subroutine[] = [];
     currentLanguage: OWLanguage = "en-US";
+    /** Declare variables and subroutines that are used but not declared (index -1, left for the compiler to assign), instead of throwing. */
+    declareUnknownNames: boolean = false;
 
     currentArrayElementName: string = "";
     currentArrayIndexName: string = "";

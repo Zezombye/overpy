@@ -1,0 +1,16 @@
+{
+    // Type-checks the worker entry and shims. The OverPy sources they import are checked with these
+    // options too, so they mirror ../../tsconfig.json.
+    "compilerOptions": {
+        "target": "ES2024",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "lib": ["ES2024", "DOM"],
+        "types": ["node"],
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "allowImportingTsExtensions": true
+    },
+    "include": ["./**/*.ts"]
+}
