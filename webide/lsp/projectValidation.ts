@@ -16,7 +16,8 @@ import { validateTextDocument as validateStandaloneDocument, type ValidationResu
 import type { OWLanguage } from "../../src/types.d";
 import { setFileContentOverlay } from "../../src/utils/file";
 import { OpyError } from "../../src/utils/logging";
-import { isProjectFile, prepareProjectCompilation, PROJECT_MAIN_FILE_NAME, ProjectFileError } from "./project";
+import { isProjectFile, prepareProjectCompilation, PROJECT_MAIN_FILE_NAME } from "./project";
+import { ProjectFileError } from "./projectErrors";
 import { existsSync, normalizePath, readFileSync } from "./shims/vfs";
 
 export type { ValidationResult };

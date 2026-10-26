@@ -7,9 +7,13 @@ export default defineConfig({
     server: {
         port: 5173,
         strictPort: true,
-        // The API is served by `wrangler dev` (see scripts/dev.mjs).
+        // The API is served by `wrangler dev` (see scripts/dev.mjs). The header tells it the origin of the
+        // page, for the OAuth redirect URIs (see publicOrigin() in server/http.ts).
         proxy: {
-            "/api": "http://127.0.0.1:8787",
+            "/api": {
+                target: "http://127.0.0.1:8787",
+                headers: { "X-Public-Origin": "http://localhost:5173" },
+            },
         },
         fs: {
             // The IDE imports the grammar, language configuration, icons and settings from the OverPy repository root.

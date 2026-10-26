@@ -1,8 +1,6 @@
 export interface Env {
     DB: D1Database;
     ASSETS: Fetcher;
-    /** Code that new users must provide when signing in for the first time. Registration is disabled if unset. */
-    REGISTRATION_CODE?: string;
     /** OAuth apps. A provider is offered only if both its client id and secret are set. */
     BATTLENET_CLIENT_ID?: string;
     BATTLENET_CLIENT_SECRET?: string;
@@ -10,8 +8,30 @@ export interface Env {
     DISCORD_CLIENT_SECRET?: string;
     GOOGLE_CLIENT_ID?: string;
     GOOGLE_CLIENT_SECRET?: string;
-    /** Origin used in OAuth redirect URIs (e.g. "http://localhost:5173" in development). Defaults to the request's origin. */
-    PUBLIC_URL?: string;
+}
+
+/**
+ * Header with the origin seen by the browser, set by the proxies in front of the Worker (the Netlify
+ * proxy of overpy.zez.dev, Vite in development): the request URL that the Worker receives is its own.
+ */
+const PUBLIC_ORIGIN_HEADER = "X-Public-Origin";
+
+/** Origin of the page the request comes from, e.g. "https://overpy.zez.dev". */
+export function publicOrigin(request: Request): string {
+    const forwarded = request.headers.get(PUBLIC_ORIGIN_HEADER);
+    if (forwarded === null) {
+        return new URL(request.url).origin;
+    }
+    let url: URL;
+    try {
+        url = new URL(forwarded);
+    } catch {
+        throw new HttpError(400, `Invalid ${PUBLIC_ORIGIN_HEADER} header.`);
+    }
+    if ((url.protocol !== "https:" && url.protocol !== "http:") || url.origin !== forwarded) {
+        throw new HttpError(400, `Invalid ${PUBLIC_ORIGIN_HEADER} header.`);
+    }
+    return url.origin;
 }
 
 export class HttpError extends Error {
@@ -97,14 +117,4 @@ export function toHex(bytes: Uint8Array): string {
 
 export async function sha256Hex(text: string): Promise<string> {
     return toHex(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text))));
-}
-
-export function timingSafeEqualStrings(a: string, b: string): boolean {
-    const encoder = new TextEncoder();
-    const aBytes = encoder.encode(a);
-    const bBytes = encoder.encode(b);
-    if (aBytes.length !== bBytes.length) {
-        return false;
-    }
-    return crypto.subtle.timingSafeEqual(aBytes, bBytes);
 }

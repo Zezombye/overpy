@@ -1003,8 +1003,8 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
     }
 
     if (name === "async" || name === "startRule") {
-        if (args.length !== 2) {
-            this.error("Function '"+name+"' takes 2 arguments, received " + args.length);
+        if (args.length !== 1 && args.length !== 2) {
+            this.error("Function '"+name+"' takes 1 or 2 arguments, received " + args.length);
         }
         //Check if first arg is indeed a subroutine
         var subroutineArg = args[0][0].text;
@@ -1012,7 +1012,7 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
             this.error("Expected subroutine name as first argument");
         }
 
-        let result = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
+        let result = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), args.length > 1 ? this.parse(args[1]) : this.Ast("RESTART", [], [], "StartRuleBehavior")]);
         result.fileStack = this.getFileStackRange(content);
         return result;
     }

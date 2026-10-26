@@ -8,7 +8,16 @@ import { api, oauthStartUrl } from "../lib/api";
 import { formatRelativeTime } from "../lib/format";
 import { ideUrl, navigate } from "../lib/router";
 import { linkableProviders, logout, session, takeAuthError } from "../lib/session";
-import { importIntoNewProject, parseWorkshopCodesExport, pickFile, projectNameForFile, type WorkshopCodesImport } from "../lib/workshopCodesImport";
+import { getSetting } from "../lib/settings";
+import {
+    importIntoNewProject,
+    type ImportResult,
+    notDecompiledMessage,
+    parseWorkshopCodesExport,
+    pickFile,
+    projectNameForFile,
+    type WorkshopCodesImport,
+} from "../lib/workshopCodesImport";
 
 const projects = ref<ProjectSummary[] | null>(null);
 const error = ref<string | null>(takeAuthError());
@@ -57,15 +66,18 @@ async function create(): Promise<void> {
 }
 
 // Import of a workshop.codes export: pick the file, then confirm the project name.
-const pendingImport = ref<{ imported: WorkshopCodesImport; name: string } | null>(null);
+const pendingImport = ref<{ imported: WorkshopCodesImport; name: string; decompile: boolean } | null>(null);
 const importProgress = ref<string | null>(null);
+// Shown after an import where some files could not be decompiled.
+const importReport = ref<ImportResult | null>(null);
 
 async function chooseImportFile(): Promise<void> {
     error.value = null;
+    importReport.value = null;
     try {
         const file = await pickFile(".json,application/json");
         if (file) {
-            pendingImport.value = { imported: parseWorkshopCodesExport(await file.text()), name: projectNameForFile(file) };
+            pendingImport.value = { imported: parseWorkshopCodesExport(await file.text()), name: projectNameForFile(file), decompile: false };
         }
     } catch (e) {
         showError(e);
@@ -81,14 +93,25 @@ async function confirmImport(): Promise<void> {
         return;
     }
     error.value = null;
-    importProgress.value = "Creating the project…";
     try {
-        const project = await importIntoNewProject(name, pending.imported, (done, total) => (importProgress.value = `Importing ${done} / ${total}…`));
-        open(project);
+        const result = await importIntoNewProject(
+            name,
+            pending.imported,
+            { decompile: pending.decompile, language: getSetting<string>("overpy.workshopLanguage") },
+            (message) => (importProgress.value = message),
+        );
+        if (result.notDecompiled.length === 0) {
+            open(result.project);
+            return;
+        }
+        importReport.value = result;
+        pendingImport.value = null;
+        await refresh();
     } catch (e) {
         showError(e);
-        importProgress.value = null;
         await refresh();
+    } finally {
+        importProgress.value = null;
     }
 }
 
@@ -189,6 +212,16 @@ onMounted(refresh);
                         project, in the workshop.codes order.
                         <template v-if="pendingImport.imported.hasTranslations"> Translations are not imported.</template>
                     </p>
+                    <label class="mb-3 flex cursor-pointer items-start gap-2">
+                        <input v-model="pendingImport.decompile" type="checkbox" class="vsc-checkbox mt-px shrink-0" :disabled="importProgress !== null" />
+                        <span>
+                            Decompile the workshop files into OverPy files
+                            <span class="block text-fg-muted">
+                                The workshop.codes syntax (mixins, @for, @if...) is expanded. Files that cannot be decompiled, and files that only define
+                                mixins, are kept as workshop files.
+                            </span>
+                        </span>
+                    </label>
                     <div class="flex gap-2">
                         <input v-model="pendingImport.name" class="vsc-input flex-1" placeholder="Project name" maxlength="64" :disabled="importProgress !== null" />
                         <button type="submit" class="vsc-button" :disabled="importProgress !== null || pendingImport.name.trim() === ''">
@@ -197,6 +230,21 @@ onMounted(refresh);
                         <button type="button" class="vsc-button-secondary" :disabled="importProgress !== null" @click="pendingImport = null">Cancel</button>
                     </div>
                 </form>
+
+                <div v-if="importReport" class="mb-6 rounded-md border border-warning bg-editor p-4">
+                    <p class="mb-2">
+                        <strong class="text-fg-strong">{{ importReport.project.name }}</strong> was imported, but
+                        {{ importReport.notDecompiled.length }} file{{ importReport.notDecompiled.length === 1 ? "" : "s" }} could not be decompiled and
+                        {{ importReport.notDecompiled.length === 1 ? "was" : "were" }} kept as workshop files (.ow):
+                    </p>
+                    <pre class="mb-3 max-h-60 overflow-auto rounded-sm bg-sidebar p-2 text-[12px] whitespace-pre-wrap select-text">{{
+                        notDecompiledMessage(importReport.notDecompiled)
+                    }}</pre>
+                    <div class="flex gap-2">
+                        <button class="vsc-button" @click="open(importReport.project)">Open project</button>
+                        <button class="vsc-button-secondary" @click="importReport = null">Close</button>
+                    </div>
+                </div>
 
                 <p v-if="error" class="mb-4 rounded-sm border border-error bg-error-bg px-3 py-2">{{ error }}</p>
 

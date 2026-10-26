@@ -1,7 +1,10 @@
 import {
     type ConflictResponse,
+    type ImportEntriesRequest,
     MAX_ENTRIES_PER_PROJECT,
     MAX_FILE_BYTES,
+    MAX_IMPORT_BYTES_PER_REQUEST,
+    MAX_IMPORT_ENTRIES_PER_REQUEST,
     MAX_PROJECTS_PER_USER,
     type ProjectEntry,
     type ProjectFilesResponse,
@@ -210,6 +213,85 @@ export async function handleCreateDirectory(request: Request, env: Env, session:
     await env.DB.batch([
         ...ancestorStatements,
         env.DB.prepare("INSERT INTO entries (project_id, path, type, content, mtime) VALUES (?, ?, 'dir', NULL, ?)").bind(projectId, path, now),
+        touchProject(env, projectId, now),
+    ]);
+    return json({ mtime: now });
+}
+
+export async function handleImportEntries(request: Request, env: Env, session: Session, projectId: string): Promise<Response> {
+    await getProject(env, session, projectId);
+    const body = await readJsonObject(request);
+    const rawEntries = body.entries;
+    if (!Array.isArray(rawEntries) || rawEntries.length === 0) {
+        throw new HttpError(400, "Field 'entries' must be a non-empty list.");
+    }
+    if (rawEntries.length > MAX_IMPORT_ENTRIES_PER_REQUEST) {
+        throw new HttpError(413, `Cannot import more than ${MAX_IMPORT_ENTRIES_PER_REQUEST} files and folders per request.`);
+    }
+
+    const encoder = new TextEncoder();
+    let totalBytes = 0;
+    const entries = new Map<string, ImportEntriesRequest["entries"][number]>();
+    for (const raw of rawEntries as unknown[]) {
+        if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+            throw new HttpError(400, "Each entry must be an object.");
+        }
+        const entry = raw as Record<string, unknown>;
+        const path = getString(entry, "path");
+        checkPath(path);
+        if (entries.has(path)) {
+            throw new HttpError(400, `'${path}' is imported twice.`);
+        }
+        if (entry.type === "dir") {
+            if (entry.content !== undefined) {
+                throw new HttpError(400, `The folder '${path}' cannot have content.`);
+            }
+            entries.set(path, { path, type: "dir" });
+        } else if (entry.type === "file") {
+            const content = getString(entry, "content");
+            const size = encoder.encode(content).length;
+            if (size > MAX_FILE_BYTES) {
+                throw new HttpError(413, `Files cannot be larger than ${MAX_FILE_BYTES / 1_000_000} MB ('${path}' is ${(size / 1_000_000).toFixed(2)} MB).`);
+            }
+            totalBytes += size;
+            entries.set(path, { path, type: "file", content });
+        } else {
+            throw new HttpError(400, `The type of '${path}' must be 'file' or 'dir'.`);
+        }
+    }
+    // A single file may exceed the limit of a request (but not the file size limit).
+    if (entries.size > 1 && totalBytes > MAX_IMPORT_BYTES_PER_REQUEST) {
+        throw new HttpError(413, `Cannot import more than ${MAX_IMPORT_BYTES_PER_REQUEST / 1000} KB per request.`);
+    }
+
+    const existing = await env.DB.prepare("SELECT path, type FROM entries WHERE project_id = ?").bind(projectId).all<{ path: string; type: "file" | "dir" }>();
+    const existingTypes = new Map(existing.results.map((row) => [row.path, row.type]));
+    const missingAncestors = new Set<string>();
+    for (const path of entries.keys()) {
+        if (existingTypes.has(path)) {
+            throw new HttpError(409, `'${path}' already exists.`);
+        }
+        for (const ancestor of ancestorsOf(path)) {
+            const type = existingTypes.get(ancestor) ?? entries.get(ancestor)?.type;
+            if (type === "file") {
+                throw new HttpError(409, `'${ancestor}' is a file, not a directory.`);
+            }
+            if (type === undefined) {
+                missingAncestors.add(ancestor);
+            }
+        }
+    }
+    const rows: ImportEntriesRequest["entries"] = [...[...missingAncestors].map((path) => ({ path, type: "dir" as const })), ...entries.values()];
+    if (existingTypes.size + rows.length > MAX_ENTRIES_PER_PROJECT) {
+        throw new HttpError(403, `Projects cannot have more than ${MAX_ENTRIES_PER_PROJECT} files and folders.`);
+    }
+
+    // One statement for all rows: a Worker can only make a few queries per request, and a query only has 100 parameters.
+    const now = Date.now();
+    await env.DB.batch([
+        env.DB.prepare(
+            "INSERT INTO entries (project_id, path, type, content, mtime) SELECT ?1, json_extract(value, '$.path'), json_extract(value, '$.type'), json_extract(value, '$.content'), ?2 FROM json_each(?3)",
+        ).bind(projectId, now, JSON.stringify(rows)),
         touchProject(env, projectId, now),
     ]);
     return json({ mtime: now });

@@ -8,8 +8,6 @@ import { api, oauthStartUrl } from "../lib/api";
 const query = new URLSearchParams(location.search);
 const error = ref<string | null>(query.get("error"));
 const config = ref<ProvidersResponse | null>(null);
-const registrationCode = ref("");
-const showRegistration = ref(false);
 
 const providerClasses: Record<AuthProvider, string> = {
     battlenet: "bg-[#148eff] text-white hover:bg-[#0074e0]",
@@ -23,7 +21,7 @@ function nextPath(): string {
 }
 
 function signIn(provider: AuthProvider): void {
-    location.assign(oauthStartUrl(provider, { next: nextPath(), registrationCode: registrationCode.value.trim() || undefined }));
+    location.assign(oauthStartUrl(provider, { next: nextPath() }));
 }
 
 onMounted(async () => {
@@ -32,10 +30,6 @@ onMounted(async () => {
     } catch (e) {
         console.error(e);
         error.value = e instanceof Error ? e.message : String(e);
-    }
-    // A failed first sign-in usually means that the registration code is missing.
-    if (error.value?.includes("registration code")) {
-        showRegistration.value = true;
     }
 });
 </script>
@@ -52,30 +46,19 @@ onMounted(async () => {
 
             <p v-if="config === null && !error" class="text-center text-fg-muted">Loading…</p>
             <p v-else-if="config && config.providers.length === 0" class="text-center text-fg-muted">
-                No sign-in method is configured on this server. Set the Discord and/or Google OAuth secrets (see webide/README.md).
+                No sign-in method is configured on this server. Set the Battle.net, Discord and/or Google OAuth secrets (see webide/README.md).
             </p>
-            <template v-else-if="config">
-                <div class="flex flex-col gap-2.5">
-                    <button
-                        v-for="provider in config.providers"
-                        :key="provider"
-                        class="h-10 rounded-[4px] text-[14px] font-medium"
-                        :class="providerClasses[provider]"
-                        @click="signIn(provider)"
-                    >
-                        Continue with {{ AUTH_PROVIDER_NAMES[provider] }}
-                    </button>
-                </div>
-
-                <div v-if="config.registrationEnabled" class="mt-6 border-t border-border pt-4">
-                    <button v-if="!showRegistration" class="vsc-link w-full text-center" @click="showRegistration = true">First time here?</button>
-                    <label v-else class="block">
-                        <span class="mb-1 block text-fg-muted">Registration code (only needed to create your account)</span>
-                        <input v-model="registrationCode" class="vsc-input w-full" autocomplete="off" spellcheck="false" />
-                        <span class="mt-1 block text-xs text-fg-muted">Ask the administrator of this IDE for the code, then continue with Discord or Google.</span>
-                    </label>
-                </div>
-            </template>
+            <div v-else-if="config" class="flex flex-col gap-2.5">
+                <button
+                    v-for="provider in config.providers"
+                    :key="provider"
+                    class="h-10 rounded-[4px] text-[14px] font-medium"
+                    :class="providerClasses[provider]"
+                    @click="signIn(provider)"
+                >
+                    Continue with {{ AUTH_PROVIDER_NAMES[provider] }}
+                </button>
+            </div>
         </div>
     </div>
 </template>

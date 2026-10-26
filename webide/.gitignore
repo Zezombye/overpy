@@ -4,3 +4,4 @@ dist
 .dev.vars
 # Built by scripts/build-lsp.mjs
 public/lsp
+wsc_export*.json

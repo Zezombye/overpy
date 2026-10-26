@@ -1,4 +1,4 @@
-import type { AuthProvider, MeResponse, ProjectFilesResponse, ProjectSummary, ProvidersResponse, WriteFileRequest } from "../../shared/api";
+import type { AuthProvider, ImportEntriesRequest, MeResponse, ProjectFilesResponse, ProjectSummary, ProvidersResponse, WriteFileRequest } from "../../shared/api";
 
 export class ApiError extends Error {
     constructor(
@@ -46,13 +46,10 @@ const projectPath = (projectId: string) => `/api/projects/${encodeURIComponent(p
  * URL of the Discord/Google sign-in (a page navigation, not a fetch).
  * `link`: add the provider to the signed-in account instead of signing in.
  */
-export function oauthStartUrl(provider: AuthProvider, options: { next: string; link?: boolean; registrationCode?: string }): string {
+export function oauthStartUrl(provider: AuthProvider, options: { next: string; link?: boolean }): string {
     const params = new URLSearchParams({ next: options.next });
     if (options.link) {
         params.set("link", "1");
-    }
-    if (options.registrationCode) {
-        params.set("registrationCode", options.registrationCode);
     }
     return `/api/auth/${provider}/start?${params}`;
 }
@@ -71,6 +68,7 @@ export const api = {
     getFiles: (projectId: string) => request<ProjectFilesResponse>("GET", `${projectPath(projectId)}/files`),
     writeFile: (projectId: string, body: WriteFileRequest) => request<{ mtime: number }>("PUT", `${projectPath(projectId)}/file`, body),
     createDirectory: (projectId: string, path: string) => request<{ mtime: number }>("POST", `${projectPath(projectId)}/mkdir`, { path }),
+    importEntries: (projectId: string, body: ImportEntriesRequest) => request<{ mtime: number }>("POST", `${projectPath(projectId)}/import`, body),
     deleteEntry: (projectId: string, path: string) => request<{ ok: true }>("POST", `${projectPath(projectId)}/delete`, { path }),
     renameEntry: (projectId: string, from: string, to: string, overwrite = false) =>
         request<{ ok: true }>("POST", `${projectPath(projectId)}/rename`, { from, to, overwrite }),

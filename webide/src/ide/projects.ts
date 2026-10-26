@@ -3,7 +3,8 @@ import { api, oauthStartUrl } from "../lib/api";
 import { formatRelativeTime } from "../lib/format";
 import { ideUrl } from "../lib/router";
 import { linkableProviders, logout, session } from "../lib/session";
-import { importIntoNewProject, parseWorkshopCodesExport, pickFile, projectNameForFile } from "../lib/workshopCodesImport";
+import { getSetting } from "../lib/settings";
+import { importIntoNewProject, notDecompiledMessage, parseWorkshopCodesExport, pickFile, projectNameForFile } from "../lib/workshopCodesImport";
 import { executeCommand, keybindingLabel } from "./commands";
 import type { MenuItem } from "./contextMenu";
 import { showDialog } from "./dialogs";
@@ -144,8 +145,28 @@ export async function importWorkshopCodesProject(): Promise<void> {
     if (!name) {
         return;
     }
-    const project = await withProgress(`Importing '${name}'...`, () => importIntoNewProject(name, imported, () => {}));
-    await leaveTo(ideUrl(project.id), "opening the imported project");
+    const mode = await showQuickPick(
+        [
+            { label: "Keep the workshop files", detail: "They are decompiled when the project is compiled.", decompile: false },
+            { label: "Decompile into OverPy files", detail: "Files that cannot be decompiled are kept as workshop files.", decompile: true },
+        ],
+        { title: "Import workshop.codes Project", placeholder: "Import the files as workshop files, or decompile them?" },
+    );
+    if (!mode) {
+        return;
+    }
+    const result = await withProgress(`Importing '${name}'...`, () =>
+        importIntoNewProject(name, imported, { decompile: mode.decompile, language: getSetting<string>("overpy.workshopLanguage") }, () => {}),
+    );
+    if (result.notDecompiled.length > 0) {
+        await showDialog({
+            message: `'${name}' was imported, but ${result.notDecompiled.length} file(s) could not be decompiled and were kept as workshop files (.ow).`,
+            detail: notDecompiledMessage(result.notDecompiled),
+            severity: "warning",
+            buttons: ["Open Project"],
+        });
+    }
+    await leaveTo(ideUrl(result.project.id), "opening the imported project");
 }
 
 /** Lets the user also sign in to this account with another provider (goes through the provider's page). */

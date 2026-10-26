@@ -16,6 +16,9 @@ import {
     CompileRequest,
     type CompileParams,
     type CompileResult,
+    type DecompileFilesParams,
+    DecompileFilesRequest,
+    type DecompileFilesResult,
     DecompileRequest,
     type DecompileParams,
     type DecompileResult,
@@ -28,9 +31,11 @@ import {
     TemplateRequest,
     type TemplateResult,
 } from "./protocol";
-import { prepareProjectCompilation, PROJECT_MAIN_FILE_NAME, ProjectError, setProjectFiles } from "./project";
+import { prepareProjectCompilation, PROJECT_MAIN_FILE_NAME, setProjectFiles } from "./project";
+import { ProjectError, ProjectFileError } from "./projectErrors";
 import { getCreatedConnection } from "./shims/languageserverNode";
 import { applyVfsChanges, normalizePath, setVfsWriteListener } from "./shims/vfs";
+import { decompileImportedFiles, scopeStrictOptimization } from "./workshopProject";
 
 export function registerWebHandlers(): void {
     const connection = getCreatedConnection();
@@ -71,7 +76,17 @@ export function registerWebHandlers(): void {
         const language = checkLanguage(params.language);
         await initializeLanguageServerRuntime();
         try {
-            return { result: decompileAllRules(params.text, language) };
+            return { result: scopeStrictOptimization(decompileAllRules(params.text, language)) };
+        } catch (error) {
+            throw toResponseError(error);
+        }
+    });
+
+    connection.onRequest(DecompileFilesRequest, async (params: DecompileFilesParams): Promise<DecompileFilesResult> => {
+        const language = checkLanguage(params.language);
+        await initializeLanguageServerRuntime();
+        try {
+            return decompileImportedFiles(params.files, language);
         } catch (error) {
             throw toResponseError(error);
         }
@@ -90,6 +105,10 @@ function checkLanguage(language: string): OWLanguage {
 }
 
 function toResponseError(error: unknown): ResponseError<void> {
+    if (error instanceof ProjectFileError) {
+        const { path, startLine } = error.fileStack[0];
+        return new ResponseError(ErrorCodes.InternalError, `${path}:${startLine}: ${error.message}`);
+    }
     if (error instanceof OpyError || error instanceof ProjectError) {
         // Errors in the user's code: shown to the user, nothing to log.
         return new ResponseError(ErrorCodes.InternalError, error.message);

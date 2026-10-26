@@ -6,6 +6,7 @@ import {
     handleDeleteEntry,
     handleDeleteProject,
     handleGetFiles,
+    handleImportEntries,
     handleListProjects,
     handleRenameEntry,
     handleRenameProject,
@@ -25,6 +26,7 @@ const routes: { method: string; pattern: RegExp; handler: Handler }[] = [
     { method: "GET", pattern: /^\/api\/projects\/([0-9a-f]+)\/files$/, handler: (_request, env, session, [id]) => handleGetFiles(env, session, id) },
     { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/file$/, handler: (request, env, session, [id]) => handleWriteFile(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/mkdir$/, handler: (request, env, session, [id]) => handleCreateDirectory(request, env, session, id) },
+    { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/import$/, handler: (request, env, session, [id]) => handleImportEntries(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/delete$/, handler: (request, env, session, [id]) => handleDeleteEntry(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/rename$/, handler: (request, env, session, [id]) => handleRenameEntry(request, env, session, id) },
 ];

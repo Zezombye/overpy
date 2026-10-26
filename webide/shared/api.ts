@@ -24,8 +24,6 @@ export interface MeResponse {
 
 export interface ProvidersResponse {
     providers: AuthProvider[];
-    /** Whether new accounts can be created (with the registration code). */
-    registrationEnabled: boolean;
 }
 
 export interface ProjectSummary {
@@ -58,6 +56,15 @@ export interface WriteFileRequest {
     /** If true, the write fails with a 409 conflict if the file already exists. */
     create?: boolean;
 }
+
+/** Creates many entries at once (e.g. a project import). Fails if any of them already exists. */
+export interface ImportEntriesRequest {
+    entries: { path: string; type: "file" | "dir"; content?: string }[];
+}
+
+/** Limits of one import request; clients split bigger imports. */
+export const MAX_IMPORT_ENTRIES_PER_REQUEST = 200;
+export const MAX_IMPORT_BYTES_PER_REQUEST = 512_000;
 
 export interface ConflictResponse {
     error: string;

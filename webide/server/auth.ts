@@ -1,9 +1,10 @@
 import { AUTH_PROVIDER_NAMES, type AuthProvider, MAX_SETTINGS_BYTES, type MeResponse, type ProvidersResponse, type User } from "../shared/api";
-import { type Env, HttpError, json, randomHex, readJsonObject, sha256Hex, timingSafeEqualStrings } from "./http";
+import { type Env, HttpError, json, publicOrigin, randomHex, readJsonObject, sha256Hex } from "./http";
 import { authorizeUrl, enabledProviders, fetchProviderProfile, parseProvider } from "./oauth";
 
 /*
- * Sign-in only goes through Discord or Google (OAuth authorization code flow): no password is stored.
+ * Accounts only exist through Battle.net, Discord or Google (OAuth authorization code flow): an account is
+ * created at the first sign-in, and no password is stored.
  * Sessions are random tokens in an HttpOnly, SameSite=Strict cookie; the database stores their hash.
  */
 
@@ -26,7 +27,6 @@ interface OAuthStateRow {
     provider: string;
     next: string;
     link_user_id: number | null;
-    registration_code: string | null;
     created_at: number;
 }
 
@@ -98,7 +98,7 @@ export async function requireSession(request: Request, env: Env): Promise<Sessio
 }
 
 export function handleProviders(env: Env): Response {
-    return json({ providers: enabledProviders(env), registrationEnabled: Boolean(env.REGISTRATION_CODE) } satisfies ProvidersResponse);
+    return json({ providers: enabledProviders(env) } satisfies ProvidersResponse);
 }
 
 export async function handleMe(env: Env, session: Session): Promise<Response> {
@@ -145,9 +145,13 @@ function safeNext(next: string | null): string {
     return next && next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") && !next.startsWith("/api/") ? next : "/";
 }
 
-function callbackUrl(request: Request, env: Env, provider: AuthProvider): string {
-    const origin = env.PUBLIC_URL ? env.PUBLIC_URL.replace(/\/+$/, "") : new URL(request.url).origin;
-    return `${origin}/api/auth/${provider}/callback`;
+/**
+ * The IDE is used from several origins (overpy.zez.dev, its workers.dev address, localhost): each one's
+ * redirect URI must be registered in the OAuth apps. Providers reject unregistered ones, so an origin
+ * header forged by a client cannot redirect a sign-in elsewhere.
+ */
+function callbackUrl(request: Request, provider: AuthProvider): string {
+    return `${publicOrigin(request)}/api/auth/${provider}/callback`;
 }
 
 function redirect(location: string, cookies: string[] = []): Response {
@@ -158,7 +162,7 @@ function redirect(location: string, cookies: string[] = []): Response {
     return new Response(null, { status: 302, headers });
 }
 
-/** Redirects to the provider. Query: `next` (path to return to), `link=1` (link to the current account), `registrationCode`. */
+/** Redirects to the provider. Query: `next` (path to return to), `link=1` (link to the current account). */
 export async function handleOAuthStart(request: Request, env: Env, providerName: string): Promise<Response> {
     const provider = parseProvider(providerName, env);
     const url = new URL(request.url);
@@ -167,16 +171,15 @@ export async function handleOAuthStart(request: Request, env: Env, providerName:
     const now = Date.now();
     await env.DB.batch([
         env.DB.prepare("DELETE FROM oauth_states WHERE created_at < ?").bind(now - OAUTH_STATE_TTL_MS),
-        env.DB.prepare("INSERT INTO oauth_states (state, provider, next, link_user_id, registration_code, created_at) VALUES (?, ?, ?, ?, ?, ?)").bind(
+        env.DB.prepare("INSERT INTO oauth_states (state, provider, next, link_user_id, created_at) VALUES (?, ?, ?, ?, ?)").bind(
             state,
             provider,
             safeNext(url.searchParams.get("next")),
             linkUserId,
-            url.searchParams.get("registrationCode") || null,
             now,
         ),
     ]);
-    return redirect(authorizeUrl(provider, env, callbackUrl(request, env, provider), state), [oauthStateCookie(state, OAUTH_STATE_TTL_MS / 1000)]);
+    return redirect(authorizeUrl(provider, env, callbackUrl(request, provider), state), [oauthStateCookie(state, OAUTH_STATE_TTL_MS / 1000)]);
 }
 
 class SignInError extends Error {}
@@ -209,7 +212,7 @@ export async function handleOAuthCallback(request: Request, env: Env, providerNa
             throw new SignInError(`${providerLabel} did not return an authorization code.`);
         }
 
-        const profile = await fetchProviderProfile(provider, env, callbackUrl(request, env, provider), code);
+        const profile = await fetchProviderProfile(provider, env, callbackUrl(request, provider), code);
         const identity = await env.DB.prepare("SELECT user_id FROM identities WHERE provider = ? AND provider_user_id = ?")
             .bind(provider, profile.id)
             .first<{ user_id: number }>();
@@ -236,15 +239,7 @@ export async function handleOAuthCallback(request: Request, env: Env, providerNa
             userId = identity.user_id;
             await env.DB.prepare("UPDATE users SET display_name = ?, avatar_url = ? WHERE id = ?").bind(profile.name, profile.avatarUrl, userId).run();
         } else {
-            if (!env.REGISTRATION_CODE) {
-                throw new SignInError("Creating new accounts is disabled on this server.");
-            }
-            if (!stateRow.registration_code || !timingSafeEqualStrings(stateRow.registration_code, env.REGISTRATION_CODE)) {
-                throw new SignInError(
-                    `This ${providerLabel} account has no OverPy IDE account yet. ${stateRow.registration_code ? "The registration code is invalid." : "Enter the registration code to create one."}`,
-                );
-            }
-            // One transaction, so that a user never exists without its identity.
+            // First sign-in: create the account. One transaction, so that a user never exists without its identity.
             await env.DB.batch([
                 env.DB.prepare("INSERT INTO users (display_name, avatar_url, created_at) VALUES (?, ?, ?)").bind(profile.name, profile.avatarUrl, now),
                 env.DB.prepare("INSERT INTO identities (provider, provider_user_id, user_id, created_at) VALUES (?, ?, last_insert_rowid(), ?)").bind(provider, profile.id, now),

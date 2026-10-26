@@ -1,26 +1,30 @@
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "overpy-webide",
-    "main": "server/index.ts",
-    "compatibility_date": "2026-09-01",
-    "assets": {
-        // Built by `vite build`.
-        "directory": "./dist",
-        "binding": "ASSETS",
-        "not_found_handling": "single-page-application",
-        "run_worker_first": ["/api/*"]
-    },
-    "d1_databases": [
-        {
-            "binding": "DB",
-            "database_name": "overpy-webide",
-            // Replace with the id printed by `pnpm exec wrangler d1 create overpy-webide` (see README.md).
-            // Local development works with the placeholder.
-            "database_id": "00000000-0000-0000-0000-000000000000",
-            "migrations_dir": "migrations"
-        }
-    ],
-    "observability": {
-        "enabled": true
-    }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "overpy-webide",
+	"main": "server/index.ts",
+	"compatibility_date": "2026-09-01",
+	// Deployed on https://overpy-webide.zezombye.workers.dev, also used through https://overpy.zez.dev, a Netlify proxy
+	// to it that sends the X-Public-Origin header (see README.md).
+	"workers_dev": true,
+	"preview_urls": false,
+	"assets": {
+		// Built by `vite build`.
+		"directory": "./dist",
+		"binding": "ASSETS",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "overpy-webide",
+			"database_id": "69f90a74-5d53-42f1-9a1c-3d3b254afd8f",
+			"migrations_dir": "migrations"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
 }

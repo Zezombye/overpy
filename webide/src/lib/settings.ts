@@ -139,7 +139,7 @@ export const settingDefinitions: SettingDefinition[] = [
         title: "Word Wrap",
         description: "Controls how lines should wrap.",
         type: "enum",
-        default: "off",
+        default: "on",
         enum: ["off", "on", "bounded"],
         enumDescriptions: ["Lines will never wrap.", "Lines will wrap at the viewport width.", "Lines will wrap at the minimum of viewport and 80 columns."],
     },

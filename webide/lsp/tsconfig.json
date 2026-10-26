@@ -10,7 +10,8 @@
         "strict": true,
         "noEmit": true,
         "skipLibCheck": true,
-        "allowImportingTsExtensions": true
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true
     },
     "include": ["./**/*.ts"]
 }

@@ -59,6 +59,22 @@ export interface DecompileResult {
     result: string;
 }
 
+/**
+ * Decompiles workshop files (with the workshop.codes syntax) into OverPy files meant to be compiled
+ * together: the variables, subroutines and extensions they use are declared in `declarations` (OverPy
+ * code), not in each file.
+ */
+export const DecompileFilesRequest = "overpy/decompileFiles";
+export interface DecompileFilesParams {
+    language: string;
+    files: { path: string; content: string }[];
+}
+export interface DecompileFilesResult {
+    /** Files that only define workshop.codes mixins are left out: they are kept as workshop files. */
+    files: ({ path: string; content: string } | { path: string; error: string })[];
+    declarations: string;
+}
+
 export const TemplateRequest = "overpy/template";
 export interface TemplateResult {
     template: string;

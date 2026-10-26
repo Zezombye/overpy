@@ -150,8 +150,8 @@ export function registerCommands(): void {
     registerCommand({ id: "files.download", title: "Download Active File", category: "File", enabled: hasActiveFile, run: () => downloadFile(requireActiveFile()) });
 
     // OverPy (the extension's commands)
-    registerCommand({ id: "overpy.compile", title: "Compile Project (OverPy -> Workshop)", category: "OverPy", keybinding: "mod+shift+b", icon: "play", run: compileProject });
-    registerCommand({ id: "overpy.decompile", title: "Decompile (Workshop -> OverPy)", category: "OverPy", run: () => (decompileDialog.visible = true) });
+    registerCommand({ id: "overpy.compile", title: "Compile Project", category: "OverPy", keybinding: "mod+shift+b", icon: "play", run: compileProject });
+    registerCommand({ id: "overpy.decompile", title: "Decompile", category: "OverPy", run: () => (decompileDialog.visible = true) });
     registerCommand({ id: "overpy.insertTemplate", title: "Insert Template", category: "OverPy", run: insertTemplate });
     registerCommand({ id: "overpy.selectWorkshopLanguage", title: "Select Workshop Language", category: "OverPy", run: selectWorkshopLanguage });
     registerCommand({ id: "overpy.copyLastCompilation", title: "Copy Last Compilation Result", category: "OverPy", run: copyLastCompilationResult });
@@ -162,7 +162,7 @@ export function registerCommands(): void {
     registerCommand({ id: "projects.rename", title: "Rename Current Project...", category: "Projects", run: renameCurrentProject });
     registerCommand({ id: "projects.manage", title: "Manage Projects...", category: "Projects", run: manageProjects });
     registerCommand({ id: "projects.download", title: "Download Project as .zip", category: "Projects", run: downloadProject });
-    registerCommand({ id: "projects.importWorkshopCodes", title: "Import workshop.codes Project...", category: "Projects", run: importWorkshopCodesProject });
+    registerCommand({ id: "projects.importWorkshopCodes", title: "Import workshop.codes project", category: "Projects", run: importWorkshopCodesProject });
     for (const provider of AUTH_PROVIDERS) {
         registerCommand({
             id: `account.link.${provider}`,

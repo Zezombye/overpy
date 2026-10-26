@@ -1,11 +1,13 @@
-import { MAX_ENTRIES_PER_PROJECT, MAX_FILE_BYTES, type ProjectSummary } from "../../shared/api";
+import { MAX_ENTRIES_PER_PROJECT, MAX_FILE_BYTES, MAX_IMPORT_BYTES_PER_REQUEST, MAX_IMPORT_ENTRIES_PER_REQUEST, type ProjectSummary } from "../../shared/api";
 import { api } from "./api";
 
 /*
  * Import of a workshop.codes project export (JSON). Its items become workshop (.ow) files, and its folders
  * become folders. Items are ordered by position in workshop.codes, and the IDE compiles files in name
  * order: names get a number prefix ("01 Settings.ow") that keeps the workshop.codes order.
- * workshop.codes' own syntax extensions (e.g. mixins) are not supported; translations are not imported.
+ * Optionally, the files are decompiled into OverPy (.opy) files, with their workshop.codes syntax expanded
+ * (see lsp/workshopProject.ts); the variables and subroutines they use are then declared in a first file,
+ * "00 Declarations.opy". Translations are not imported.
  */
 
 export interface ImportedEntry {
@@ -136,25 +138,99 @@ export function parseWorkshopCodesExport(text: string): WorkshopCodesImport {
     return { entries, fileCount: entries.filter((entry) => entry.type === "file").length, hasTranslations };
 }
 
-/** Creates a project with the imported files. */
-export async function importIntoNewProject(name: string, imported: WorkshopCodesImport, onProgress: (done: number, total: number) => void): Promise<ProjectSummary> {
+const DECLARATIONS_FILE = "00 Declarations.opy";
+
+export interface ImportResult {
+    project: ProjectSummary;
+    /** Files that could not be decompiled, kept as workshop files. */
+    notDecompiled: { path: string; error: string }[];
+}
+
+/** Replaces the workshop files by their decompilation, when it succeeds. */
+async function decompileEntries(imported: WorkshopCodesImport, language: string, notDecompiled: ImportResult["notDecompiled"]): Promise<ImportedEntry[]> {
+    // Only loaded when needed: it brings the language server protocol.
+    const { decompileFilesInWorker } = await import("./overpyWorker");
+    const result = await decompileFilesInWorker({
+        language,
+        files: imported.entries.filter((entry) => entry.type === "file").map((entry) => ({ path: entry.path, content: entry.content ?? "" })),
+    });
+    const decompiledByPath = new Map(result.files.map((file) => [file.path, file]));
+    const entries = imported.entries.map((entry): ImportedEntry => {
+        const decompiled = decompiledByPath.get(entry.path);
+        if (entry.type === "dir" || !decompiled) {
+            return entry;
+        }
+        if ("error" in decompiled) {
+            notDecompiled.push({ path: entry.path, error: decompiled.error });
+            return entry;
+        }
+        return { path: entry.path.slice(0, -WORKSHOP_FILE_EXTENSION.length) + ".opy", type: "file", content: decompiled.content };
+    });
+    if (result.declarations !== "") {
+        entries.unshift({
+            path: DECLARATIONS_FILE,
+            type: "file",
+            content: `# Variables, subroutines and extensions used by the decompiled files.\n\n${result.declarations}`,
+        });
+    }
+    return entries;
+}
+
+/** Splits entries into import requests within the server limits. */
+function importChunks(entries: ImportedEntry[]): ImportedEntry[][] {
+    const encoder = new TextEncoder();
+    const chunks: ImportedEntry[][] = [];
+    let chunk: ImportedEntry[] = [];
+    let chunkBytes = 0;
+    for (const entry of entries) {
+        const bytes = entry.type === "file" ? encoder.encode(entry.content ?? "").length : 0;
+        if (chunk.length > 0 && (chunk.length >= MAX_IMPORT_ENTRIES_PER_REQUEST || chunkBytes + bytes > MAX_IMPORT_BYTES_PER_REQUEST)) {
+            chunks.push(chunk);
+            chunk = [];
+            chunkBytes = 0;
+        }
+        chunk.push(entry);
+        chunkBytes += bytes;
+    }
+    if (chunk.length > 0) {
+        chunks.push(chunk);
+    }
+    return chunks;
+}
+
+/** Creates a project with the imported files, optionally decompiled. */
+export async function importIntoNewProject(
+    name: string,
+    imported: WorkshopCodesImport,
+    options: { decompile: boolean; language: string },
+    onProgress: (message: string) => void,
+): Promise<ImportResult> {
+    const notDecompiled: ImportResult["notDecompiled"] = [];
+    let entries = imported.entries;
+    if (options.decompile) {
+        onProgress("Decompiling…");
+        entries = await decompileEntries(imported, options.language, notDecompiled);
+    }
+    onProgress("Creating the project…");
     const { project } = await api.createProject(name);
     let done = 0;
     try {
-        for (const entry of imported.entries) {
-            if (entry.type === "dir") {
-                await api.createDirectory(project.id, entry.path);
-            } else {
-                await api.writeFile(project.id, { path: entry.path, content: entry.content ?? "", create: true });
-            }
-            onProgress(++done, imported.entries.length);
+        for (const chunk of importChunks(entries)) {
+            onProgress(`Importing ${done} / ${entries.length}…`);
+            await api.importEntries(project.id, { entries: chunk });
+            done += chunk.length;
         }
     } catch (error) {
         throw new Error(
-            `The import stopped after ${done} of ${imported.entries.length} files and folders (the project '${name}' contains those imported so far): ${error instanceof Error ? error.message : String(error)}`,
+            `The import stopped after ${done} of ${entries.length} files and folders (the project '${name}' contains those imported so far): ${error instanceof Error ? error.message : String(error)}`,
         );
     }
-    return project;
+    return { project, notDecompiled };
+}
+
+/** Message listing the files that could not be decompiled. */
+export function notDecompiledMessage(notDecompiled: ImportResult["notDecompiled"]): string {
+    return notDecompiled.map(({ path, error }) => `${path}: ${error.replace(/^Could not decompile the workshop file '[^']*': /, "")}`).join("\n");
 }
 
 /** Lets the user pick a file. Resolves to undefined if cancelled. */

@@ -48778,14 +48778,14 @@ OverPyCompiler.prototype.parse = function(content, kwargs = {}) {
     return result2;
   }
   if (name === "async" || name === "startRule") {
-    if (args.length !== 2) {
-      this.error("Function '" + name + "' takes 2 arguments, received " + args.length);
+    if (args.length !== 1 && args.length !== 2) {
+      this.error("Function '" + name + "' takes 1 or 2 arguments, received " + args.length);
     }
     var subroutineArg = args[0][0].text;
     if (!this.isSubroutineName(subroutineArg)) {
       this.error("Expected subroutine name as first argument");
     }
-    let result2 = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), this.parse(args[1])]);
+    let result2 = this.Ast("startRule", [this.Ast(subroutineArg, [], [], "Subroutine"), args.length > 1 ? this.parse(args[1]) : this.Ast("RESTART", [], [], "StartRuleBehavior")]);
     result2.fileStack = this.getFileStackRange(content);
     return result2;
   }

@@ -86,7 +86,7 @@ export function createCodeEditor(container: HTMLElement): monaco.editor.IStandal
         "semanticHighlighting.enabled": true,
         fixedOverflowWidgets: true,
         scrollBeyondLastLine: true,
-        guides: { bracketPairs: "active" },
+        guides: { bracketPairs: "active", bracketPairsHorizontal: false },
         smoothScrolling: false,
         padding: { top: 4 },
     });
