@@ -1,4 +1,15 @@
-import type { AuthProvider, ImportEntriesRequest, MeResponse, ProjectFilesResponse, ProjectSummary, ProvidersResponse, WriteFileRequest } from "../../shared/api";
+import type {
+    AuthProvider,
+    ImportEntriesRequest,
+    MeResponse,
+    PositionsResponse,
+    ProjectFilesResponse,
+    ProjectSummary,
+    ProvidersResponse,
+    WriteFileRequest,
+    WriteResponse,
+} from "../../shared/api";
+import type { ProjectSettings } from "../../shared/projectSettings";
 
 export class ApiError extends Error {
     constructor(
@@ -66,10 +77,14 @@ export const api = {
     deleteProject: (projectId: string) => request<{ ok: true }>("DELETE", projectPath(projectId)),
 
     getFiles: (projectId: string) => request<ProjectFilesResponse>("GET", `${projectPath(projectId)}/files`),
-    writeFile: (projectId: string, body: WriteFileRequest) => request<{ mtime: number }>("PUT", `${projectPath(projectId)}/file`, body),
-    createDirectory: (projectId: string, path: string) => request<{ mtime: number }>("POST", `${projectPath(projectId)}/mkdir`, { path }),
-    importEntries: (projectId: string, body: ImportEntriesRequest) => request<{ mtime: number }>("POST", `${projectPath(projectId)}/import`, body),
+    saveProjectSettings: (projectId: string, settings: ProjectSettings) => request<{ ok: true }>("PUT", `${projectPath(projectId)}/settings`, { settings }),
+    writeFile: (projectId: string, body: WriteFileRequest) => request<WriteResponse>("PUT", `${projectPath(projectId)}/file`, body),
+    createDirectory: (projectId: string, path: string) => request<WriteResponse>("POST", `${projectPath(projectId)}/mkdir`, { path }),
+    importEntries: (projectId: string, body: ImportEntriesRequest) => request<WriteResponse>("POST", `${projectPath(projectId)}/import`, body),
+    copyEntry: (projectId: string, from: string, to: string) => request<WriteResponse>("POST", `${projectPath(projectId)}/copy`, { from, to }),
     deleteEntry: (projectId: string, path: string) => request<{ ok: true }>("POST", `${projectPath(projectId)}/delete`, { path }),
     renameEntry: (projectId: string, from: string, to: string, overwrite = false) =>
-        request<{ ok: true }>("POST", `${projectPath(projectId)}/rename`, { from, to, overwrite }),
+        request<PositionsResponse>("POST", `${projectPath(projectId)}/rename`, { from, to, overwrite }),
+    orderEntries: (projectId: string, paths: string[]) => request<PositionsResponse>("POST", `${projectPath(projectId)}/order`, { paths }),
+    setDisabled: (projectId: string, path: string, disabled: boolean) => request<{ ok: true }>("POST", `${projectPath(projectId)}/disabled`, { path, disabled }),
 };

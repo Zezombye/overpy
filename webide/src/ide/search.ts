@@ -1,7 +1,8 @@
 import { reactive } from "vue";
 
 import { monaco } from "./monaco/setup";
-import { filePaths, getModel } from "./workspace";
+import { orderedEntries } from "./projectOrder";
+import { getModel, saveFile } from "./workspace";
 
 export interface SearchMatch {
     range: monaco.Range;
@@ -58,7 +59,7 @@ export function runSearch(): void {
     }
     const results: FileSearchResult[] = [];
     let total = 0;
-    for (const path of filePaths().sort()) {
+    for (const path of orderedEntries.value.filter((entry) => entry.type === "file").map((entry) => entry.path)) {
         const model = getModel(path);
         if (!model) {
             continue;
@@ -94,9 +95,10 @@ export function runSearch(): void {
     search.totalMatches = total;
 }
 
-/** Replaces every match in the given files (or all results). The files are left unsaved, like in VS Code. */
-export function replaceAll(paths?: string[]): number {
+/** Replaces every match in the given files (or all results), then saves the modified files. Resolves to the number of replacements. */
+export async function replaceAll(paths?: string[]): Promise<number> {
     let replaced = 0;
+    const modified: string[] = [];
     for (const result of search.results) {
         if (paths && !paths.includes(result.path)) {
             continue;
@@ -115,8 +117,17 @@ export function replaceAll(paths?: string[]): number {
             () => null,
         );
         replaced += matches.length;
+        if (matches.length > 0) {
+            modified.push(result.path);
+        }
     }
     runSearch();
+    // Like automatic saves: they do not trigger a compilation.
+    const saves = await Promise.allSettled(modified.map((path) => saveFile(path, { manual: false })));
+    const failures = saves.filter((save): save is PromiseRejectedResult => save.status === "rejected");
+    if (failures.length > 0) {
+        throw new Error(`The replacements were made, but ${failures.length} file(s) could not be saved:\n${failures.map((failure) => (failure.reason instanceof Error ? failure.reason.message : String(failure.reason))).join("\n")}`);
+    }
     return replaced;
 }
 

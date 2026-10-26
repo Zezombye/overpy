@@ -1,5 +1,7 @@
 import { reactive, watch } from "vue";
 
+import type { FileWrittenParams, SetProjectFilesParams } from "../../lsp/protocol";
+import { projectSettingsDirectives } from "../../shared/projectSettings";
 import { settings } from "../lib/settings";
 import { setLanguageClient } from "./editors";
 import { LanguageClient } from "./monaco/lspClient";
@@ -8,6 +10,21 @@ import { notify, reportError, showError, showWarning } from "./notifications";
 import { appendOutput, LANGUAGE_SERVER_CHANNEL } from "./output";
 import { orderedCodeFiles } from "./projectOrder";
 import { attachLanguageClient, fsPathOf, isCodeFile, onDidSaveFile, pathOfFsPath, rootFsPath, rootUri, workspace, writeFile } from "./workspace";
+
+/** The files to compile and the project settings, for the language server: see SetProjectFilesParams. */
+export function projectFilesParams(): SetProjectFilesParams {
+    return { root: rootFsPath(), files: orderedCodeFiles.value.map(fsPathOf), directives: projectSettingsDirectives(workspace.settings) };
+}
+
+/** Writes a file written by the compiler (e.g. .po translation files) into the project. */
+export function onCompilerFileWritten({ path, content }: FileWrittenParams): void {
+    const relativePath = pathOfFsPath(path);
+    if (relativePath === undefined) {
+        showWarning(`The compiler tried to write '${path}', which is outside of the project. The file was not written.`);
+        return;
+    }
+    writeFile(relativePath, content).catch((error) => reportError(error, `Could not write '${relativePath}'`));
+}
 
 export const languageServer = reactive({
     status: "starting" as "starting" | "running" | "stopped",
@@ -40,14 +57,7 @@ export async function startLanguageServer(): Promise<void> {
         getSettings: overpySettings,
         log: (message) => appendOutput(LANGUAGE_SERVER_CHANNEL, message),
         showMessage: (severity, message) => notify(severity, message),
-        onFileWritten: ({ path, content }) => {
-            const relativePath = pathOfFsPath(path);
-            if (relativePath === undefined) {
-                showWarning(`The compiler tried to write '${path}', which is outside of the project. The file was not written.`);
-                return;
-            }
-            writeFile(relativePath, content).catch((error) => reportError(error, `Could not write '${relativePath}'`));
-        },
+        onFileWritten: onCompilerFileWritten,
         onStopped: (reason) => {
             languageServer.status = "stopped";
             appendOutput(LANGUAGE_SERVER_CHANNEL, `The language server stopped: ${reason}`);
@@ -57,11 +67,7 @@ export async function startLanguageServer(): Promise<void> {
     const runningClient = client;
     attachLanguageClient(runningClient);
     // Before the documents are opened: they are validated as part of the project.
-    watch(
-        () => orderedCodeFiles.value.map(fsPathOf),
-        (files) => runningClient.setProjectFiles(rootFsPath(), files),
-        { immediate: true },
-    );
+    watch(projectFilesParams, (params) => runningClient.setProjectFiles(params), { immediate: true });
     setLanguageClient(runningClient);
     languageServer.status = "running";
     appendOutput(LANGUAGE_SERVER_CHANNEL, "The OverPy language server is running.");
@@ -80,5 +86,5 @@ export async function startLanguageServer(): Promise<void> {
             scheduleRevalidation();
         }
     });
-    watch(orderedCodeFiles, scheduleRevalidation);
+    watch(projectFilesParams, scheduleRevalidation);
 }

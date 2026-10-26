@@ -52,6 +52,12 @@ export function getCodeEditor(): monaco.editor.IStandaloneCodeEditor | undefined
     return codeEditor;
 }
 
+/** The "true" / "active" / "false" settings of the bracket pair guides. */
+function guideSetting(key: string): boolean | "active" {
+    const value = getSetting<"true" | "active" | "false">(key);
+    return value === "active" ? value : value === "true";
+}
+
 function editorOptions(): monaco.editor.IEditorOptions & monaco.editor.IGlobalEditorOptions {
     const fontFamily = getSetting<string>("editor.fontFamily");
     return {
@@ -67,6 +73,7 @@ function editorOptions(): monaco.editor.IEditorOptions & monaco.editor.IGlobalEd
         renderWhitespace: getSetting<"none" | "boundary" | "selection" | "trailing" | "all">("editor.renderWhitespace"),
         stickyScroll: { enabled: getSetting<boolean>("editor.stickyScroll.enabled") },
         bracketPairColorization: { enabled: getSetting<boolean>("editor.bracketPairColorization.enabled") },
+        guides: { bracketPairs: guideSetting("editor.guides.bracketPairs"), bracketPairsHorizontal: guideSetting("editor.guides.bracketPairsHorizontal") },
         inlayHints: { enabled: getSetting<"on" | "onUnlessPressed" | "offUnlessPressed" | "off">("editor.inlayHints.enabled") },
         cursorBlinking: getSetting<"blink" | "smooth" | "phase" | "expand" | "solid">("editor.cursorBlinking"),
         mouseWheelZoom: getSetting<boolean>("editor.mouseWheelZoom"),
@@ -86,7 +93,6 @@ export function createCodeEditor(container: HTMLElement): monaco.editor.IStandal
         "semanticHighlighting.enabled": true,
         fixedOverflowWidgets: true,
         scrollBeyondLastLine: true,
-        guides: { bracketPairs: "active", bracketPairsHorizontal: false },
         smoothScrolling: false,
         padding: { top: 4 },
     });

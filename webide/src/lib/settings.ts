@@ -64,17 +64,6 @@ export const settingDefinitions: SettingDefinition[] = [
         enum: ["Dark Modern", "Light Modern"],
     },
     {
-        key: "explorer.sortOrder",
-        section: "Explorer",
-        title: "Sort Order",
-        description:
-            "Controls the order of files and folders in the explorer, which is also the order in which they are compiled. Files are sorted by name, numbers in their natural order (e.g. '2 rules.opy' before '10 rules.opy').",
-        type: "enum",
-        default: "mixed",
-        enum: ["mixed", "default"],
-        enumDescriptions: ["Files and folders are sorted together by name.", "Folders are displayed before files."],
-    },
-    {
         key: "files.autoSave",
         section: "Files",
         title: "Auto Save",
@@ -177,6 +166,30 @@ export const settingDefinitions: SettingDefinition[] = [
         description: "Controls whether bracket pair colorization is enabled or not.",
         type: "boolean",
         default: true,
+    },
+    {
+        key: "editor.guides.bracketPairs",
+        section: "Editor",
+        title: "Guides: Bracket Pairs",
+        description: "Controls whether bracket pair guides are enabled or not.",
+        type: "enum",
+        default: "false",
+        enum: ["true", "active", "false"],
+        enumDescriptions: ["Enables bracket pair guides.", "Enables bracket pair guides only for the active bracket pair.", "Disables bracket pair guides."],
+    },
+    {
+        key: "editor.guides.bracketPairsHorizontal",
+        section: "Editor",
+        title: "Guides: Bracket Pairs Horizontal",
+        description: "Controls whether horizontal bracket pair guides are enabled or not (when bracket pair guides are enabled).",
+        type: "enum",
+        default: "false",
+        enum: ["true", "active", "false"],
+        enumDescriptions: [
+            "Enables horizontal guides as addition to vertical bracket pair guides.",
+            "Enables horizontal guides only for the active bracket pair.",
+            "Disables horizontal bracket pair guides.",
+        ],
     },
     {
         key: "editor.inlayHints.enabled",

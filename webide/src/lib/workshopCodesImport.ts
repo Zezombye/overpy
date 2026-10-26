@@ -1,19 +1,19 @@
-import { MAX_ENTRIES_PER_PROJECT, MAX_FILE_BYTES, MAX_IMPORT_BYTES_PER_REQUEST, MAX_IMPORT_ENTRIES_PER_REQUEST, type ProjectSummary } from "../../shared/api";
+import { MAX_ENTRIES_PER_PROJECT, MAX_FILE_BYTES, MAX_IMPORT_BYTES_PER_REQUEST, type ProjectSummary } from "../../shared/api";
 import { api } from "./api";
 
 /*
  * Import of a workshop.codes project export (JSON). Its items become workshop (.ow) files, and its folders
- * become folders. Items are ordered by position in workshop.codes, and the IDE compiles files in name
- * order: names get a number prefix ("01 Settings.ow") that keeps the workshop.codes order.
+ * become folders, in the same order. Hidden items (excluded from the compilation) become disabled entries.
  * Optionally, the files are decompiled into OverPy (.opy) files, with their workshop.codes syntax expanded
  * (see lsp/workshopProject.ts); the variables and subroutines they use are then declared in a first file,
- * "00 Declarations.opy". Translations are not imported.
+ * "Declarations.opy", with #!optimizeStrict. Translations are not imported.
  */
 
 export interface ImportedEntry {
     path: string;
     type: "file" | "dir";
     content?: string;
+    disabled?: boolean;
 }
 
 export interface WorkshopCodesImport {
@@ -30,6 +30,7 @@ interface WorkshopCodesItem {
     position: number;
     content: string;
     parent: string;
+    hidden: boolean;
 }
 
 const WORKSHOP_FILE_EXTENSION = ".ow";
@@ -47,7 +48,7 @@ function parseItem(raw: unknown, index: number): WorkshopCodesItem {
     if (!isObject(raw)) {
         invalid(`item #${index + 1} is not an object.`);
     }
-    const { name, id, type, position, content, parent } = raw;
+    const { name, id, type, position, content, parent, hidden } = raw;
     if (typeof name !== "string" || typeof id !== "string" || id === "") {
         invalid(`item #${index + 1} has no name or id.`);
     }
@@ -60,7 +61,28 @@ function parseItem(raw: unknown, index: number): WorkshopCodesItem {
     if (type === "item" && typeof content !== "string") {
         invalid(`item '${name}' has no content.`);
     }
-    return { name, id, type, position, content: typeof content === "string" ? content : "", parent: typeof parent === "string" ? parent : "" };
+    if (hidden !== undefined && typeof hidden !== "boolean") {
+        invalid(`item '${name}' has an invalid 'hidden' value.`);
+    }
+    return {
+        name,
+        id,
+        type,
+        position,
+        content: typeof content === "string" ? content : "",
+        parent: typeof parent === "string" ? parent : "",
+        hidden: hidden === true,
+    };
+}
+
+/** "name.ext", or "name (1).ext", "name (2).ext"... if a sibling already has this name (workshop.codes allows it). */
+function uniqueName(name: string, extension: string, usedNames: Set<string>): string {
+    let candidate = name + extension;
+    for (let i = 1; usedNames.has(candidate.toLowerCase()); i++) {
+        candidate = `${name} (${i})${extension}`;
+    }
+    usedNames.add(candidate.toLowerCase());
+    return candidate;
 }
 
 /** Makes a workshop.codes item name usable as a file or folder name. */
@@ -106,24 +128,24 @@ export function parseWorkshopCodesExport(text: string): WorkshopCodesImport {
     const visited = new Set<string>();
     const visit = (parentId: string, directory: string) => {
         const children = (childrenByParent.get(parentId) ?? []).sort((a, b) => a.position - b.position);
-        const width = Math.max(2, String(children.length).length);
-        children.forEach((item, index) => {
+        const usedNames = new Set<string>();
+        for (const item of children) {
             if (visited.has(item.id)) {
                 invalid(`'${item.name}' is in a folder cycle.`);
             }
             visited.add(item.id);
-            const name = `${String(index + 1).padStart(width, "0")} ${sanitizeName(item.name)}`;
+            const name = uniqueName(sanitizeName(item.name), item.type === "folder" ? "" : WORKSHOP_FILE_EXTENSION, usedNames);
             const path = directory === "" ? name : `${directory}/${name}`;
             if (item.type === "folder") {
-                entries.push({ path, type: "dir" });
+                entries.push({ path, type: "dir", disabled: item.hidden });
                 visit(item.id, path);
             } else {
                 if (new TextEncoder().encode(item.content).length > MAX_FILE_BYTES) {
                     throw new Error(`'${item.name}' is too large to be imported (the limit is ${MAX_FILE_BYTES / 1_000_000} MB per file).`);
                 }
-                entries.push({ path: path + WORKSHOP_FILE_EXTENSION, type: "file", content: item.content });
+                entries.push({ path, type: "file", content: item.content, disabled: item.hidden });
             }
-        });
+        }
     };
     visit("", "");
     if (visited.size !== items.length) {
@@ -138,7 +160,7 @@ export function parseWorkshopCodesExport(text: string): WorkshopCodesImport {
     return { entries, fileCount: entries.filter((entry) => entry.type === "file").length, hasTranslations };
 }
 
-const DECLARATIONS_FILE = "00 Declarations.opy";
+const DECLARATIONS_FILE_NAME = "Declarations";
 
 export interface ImportResult {
     project: ProjectSummary;
@@ -150,9 +172,16 @@ export interface ImportResult {
 async function decompileEntries(imported: WorkshopCodesImport, language: string, notDecompiled: ImportResult["notDecompiled"]): Promise<ImportedEntry[]> {
     // Only loaded when needed: it brings the language server protocol.
     const { decompileFilesInWorker } = await import("./overpyWorker");
+    const disabledFolders = imported.entries.filter((entry) => entry.type === "dir" && entry.disabled).map((entry) => entry.path);
     const result = await decompileFilesInWorker({
         language,
-        files: imported.entries.filter((entry) => entry.type === "file").map((entry) => ({ path: entry.path, content: entry.content ?? "" })),
+        files: imported.entries
+            .filter((entry) => entry.type === "file")
+            .map((entry) => ({
+                path: entry.path,
+                content: entry.content ?? "",
+                disabled: entry.disabled || disabledFolders.some((folder) => entry.path.startsWith(folder + "/")),
+            })),
     });
     const decompiledByPath = new Map(result.files.map((file) => [file.path, file]));
     const entries = imported.entries.map((entry): ImportedEntry => {
@@ -164,11 +193,12 @@ async function decompileEntries(imported: WorkshopCodesImport, language: string,
             notDecompiled.push({ path: entry.path, error: decompiled.error });
             return entry;
         }
-        return { path: entry.path.slice(0, -WORKSHOP_FILE_EXTENSION.length) + ".opy", type: "file", content: decompiled.content };
+        return { ...entry, path: entry.path.slice(0, -WORKSHOP_FILE_EXTENSION.length) + ".opy", content: decompiled.content };
     });
     if (result.declarations !== "") {
+        const rootNames = new Set(entries.filter((entry) => !entry.path.includes("/")).map((entry) => entry.path.toLowerCase()));
         entries.unshift({
-            path: DECLARATIONS_FILE,
+            path: uniqueName(DECLARATIONS_FILE_NAME, ".opy", rootNames),
             type: "file",
             content: `# Variables, subroutines and extensions used by the decompiled files.\n\n${result.declarations}`,
         });
@@ -184,7 +214,7 @@ function importChunks(entries: ImportedEntry[]): ImportedEntry[][] {
     let chunkBytes = 0;
     for (const entry of entries) {
         const bytes = entry.type === "file" ? encoder.encode(entry.content ?? "").length : 0;
-        if (chunk.length > 0 && (chunk.length >= MAX_IMPORT_ENTRIES_PER_REQUEST || chunkBytes + bytes > MAX_IMPORT_BYTES_PER_REQUEST)) {
+        if (chunk.length > 0 && (chunk.length >= MAX_ENTRIES_PER_PROJECT || chunkBytes + bytes > MAX_IMPORT_BYTES_PER_REQUEST)) {
             chunks.push(chunk);
             chunk = [];
             chunkBytes = 0;

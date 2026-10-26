@@ -1,11 +1,14 @@
 import { reactive } from "vue";
 
-import { type ProjectSummary, validateEntryPath } from "../../shared/api";
+import type { SyncFilesParams } from "../../lsp/protocol";
+import { type EntryPosition, type ProjectSummary, validateEntryPath } from "../../shared/api";
+import type { ProjectSettings } from "../../shared/projectSettings";
 import { api, ApiError } from "../lib/api";
 import { showDialog } from "./dialogs";
 import { EventEmitter } from "./events";
 import type { LanguageClient } from "./monaco/lspClient";
 import { monaco } from "./monaco/setup";
+import { reportError } from "./notifications";
 import { basename, dirname, extension, isSameOrChild, replacePrefix } from "./paths";
 
 /*
@@ -18,10 +21,16 @@ export interface EntryInfo {
     path: string;
     type: "file" | "dir";
     mtime: number;
+    /** Order in the folder (see ProjectEntry). */
+    position: number;
+    /** Excluded from the compilation (with its content, for a folder). */
+    disabled: boolean;
 }
 
 export const workspace = reactive({
     project: null as ProjectSummary | null,
+    /** See shared/projectSettings.ts. */
+    settings: {} as ProjectSettings,
     entries: new Map<string, EntryInfo>(),
     dirty: new Set<string>(),
     saving: new Set<string>(),
@@ -101,6 +110,16 @@ export function filePaths(): string[] {
     return [...workspace.entries.values()].filter((entry) => entry.type === "file").map((entry) => entry.path);
 }
 
+/** True if the entry or one of its folders is disabled (excluded from the compilation). */
+export function isEntryDisabled(path: string): boolean {
+    for (let current = path; current !== ""; current = dirname(current)) {
+        if (workspace.entries.get(current)?.disabled) {
+            return true;
+        }
+    }
+    return false;
+}
+
 export const OVERPY_EXTENSION = ".opy";
 /** Workshop files contain workshop code (as copied from Overwatch). They are decompiled when the project is compiled. */
 export const WORKSHOP_EXTENSION = ".ow";
@@ -147,28 +166,49 @@ function disposeModel(path: string): void {
     workspace.dirty.delete(path);
 }
 
-/** Adds the missing ancestor folders of `path`, returning their paths. */
+/** Adds the missing ancestor folders of `path`, returning their paths. Their positions come from the server (applyPositions). */
 function addParentEntries(path: string, mtime: number): string[] {
     const added: string[] = [];
     for (let parent = dirname(path); parent !== ""; parent = dirname(parent)) {
         if (workspace.entries.has(parent)) {
             break;
         }
-        workspace.entries.set(parent, { path: parent, type: "dir", mtime });
+        workspace.entries.set(parent, { path: parent, type: "dir", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
         added.push(parent);
     }
     return added;
 }
 
+function applyPositions(positions: EntryPosition[]): void {
+    for (const { path, position } of positions) {
+        const entry = workspace.entries.get(path);
+        if (entry) {
+            entry.position = position;
+        }
+    }
+}
+
+type FileMirror = (params: SyncFilesParams) => void;
+/** Workers that have a copy of the saved files (language server, compiler). */
+const fileMirrors = new Set<FileMirror>();
+
+function syncEntry(path: string): SyncFilesParams["upserts"][number] {
+    const entry = workspace.entries.get(path)!;
+    return entry.type === "dir" ? { path: fsPathOf(path), type: "dir" } : { path: fsPathOf(path), type: "file", content: savedContent.get(path)! };
+}
+
+/** Mirrors the saved files into a worker's file system: all the files now, then every change. Returns a function that stops mirroring. */
+export function mirrorFiles(mirror: FileMirror): () => void {
+    fileMirrors.add(mirror);
+    mirror({ reset: true, upserts: [...workspace.entries.keys()].map(syncEntry), deletes: [] });
+    return () => fileMirrors.delete(mirror);
+}
+
 function syncToLanguageServer(upsertPaths: string[], deletePaths: string[] = []): void {
-    languageClient?.syncFiles({
-        reset: false,
-        upserts: upsertPaths.map((path) => {
-            const entry = workspace.entries.get(path)!;
-            return entry.type === "dir" ? { path: fsPathOf(path), type: "dir" } : { path: fsPathOf(path), type: "file", content: savedContent.get(path)! };
-        }),
-        deletes: deletePaths.map(fsPathOf),
-    });
+    const params: SyncFilesParams = { reset: false, upserts: upsertPaths.map(syncEntry), deletes: deletePaths.map(fsPathOf) };
+    for (const mirror of fileMirrors) {
+        mirror(params);
+    }
 }
 
 function notifyWatchedFiles(created: string[], deleted: string[]): void {
@@ -182,10 +222,11 @@ function notifyWatchedFiles(created: string[], deleted: string[]): void {
 }
 
 export async function loadWorkspace(projectId: string): Promise<void> {
-    const { project, entries } = await api.getFiles(projectId);
+    const { project, entries, settings } = await api.getFiles(projectId);
     workspace.project = project;
+    workspace.settings = settings;
     for (const entry of entries) {
-        workspace.entries.set(entry.path, { path: entry.path, type: entry.type, mtime: entry.mtime });
+        workspace.entries.set(entry.path, { path: entry.path, type: entry.type, mtime: entry.mtime, position: entry.position, disabled: entry.disabled });
         if (entry.type === "file") {
             createModel(entry.path, entry.content ?? "");
         }
@@ -195,8 +236,7 @@ export async function loadWorkspace(projectId: string): Promise<void> {
 /** Connects the language server and mirrors the saved files into its file system. */
 export function attachLanguageClient(client: LanguageClient): void {
     languageClient = client;
-    client.syncFiles({ reset: true, upserts: [], deletes: [] });
-    syncToLanguageServer([...workspace.entries.keys()]);
+    mirrorFiles((params) => client.syncFiles(params));
 }
 
 async function doSave(path: string, manual: boolean): Promise<void> {
@@ -261,6 +301,13 @@ export function saveFile(path: string, options: { manual: boolean }): Promise<vo
     return next;
 }
 
+/** Resolves when no save is in progress (whether they succeed or not). */
+export async function savesSettled(): Promise<void> {
+    while (saveQueue.size > 0) {
+        await Promise.allSettled([...saveQueue.values()]);
+    }
+}
+
 export async function saveAll(): Promise<void> {
     const results = await Promise.allSettled([...workspace.dirty].map((path) => saveFile(path, { manual: true })));
     const failures = results.filter((result): result is PromiseRejectedResult => result.status === "rejected");
@@ -295,22 +342,81 @@ function checkNewPath(path: string): void {
     }
 }
 
+/** Creates a file, at the end of its folder. */
 export async function createFile(path: string, content = ""): Promise<void> {
     checkNewPath(path);
-    const { mtime } = await api.writeFile(currentProject().id, { path, content, create: true });
+    const { mtime, positions } = await api.writeFile(currentProject().id, { path, content, create: true });
     const addedParents = addParentEntries(path, mtime);
-    workspace.entries.set(path, { path, type: "file", mtime });
+    workspace.entries.set(path, { path, type: "file", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
+    applyPositions(positions);
     createModel(path, content);
     syncToLanguageServer([...addedParents.reverse(), path]);
     notifyWatchedFiles([path], []);
 }
 
+/** Creates a folder, at the end of its parent folder. */
 export async function createDirectory(path: string): Promise<void> {
     checkNewPath(path);
-    const { mtime } = await api.createDirectory(currentProject().id, path);
+    const { mtime, positions } = await api.createDirectory(currentProject().id, path);
     const addedParents = addParentEntries(path, mtime);
-    workspace.entries.set(path, { path, type: "dir", mtime });
+    workspace.entries.set(path, { path, type: "dir", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
+    applyPositions(positions);
     syncToLanguageServer([...addedParents.reverse(), path]);
+}
+
+/** Copies a file or folder with its saved content. In the same folder, the copy goes right after the original. */
+export async function copyEntry(from: string, to: string): Promise<void> {
+    checkNewPath(to);
+    if (isSameOrChild(to, from)) {
+        throw new Error(`Cannot copy '${from}' into itself.`);
+    }
+    const { mtime, positions } = await api.copyEntry(currentProject().id, from, to);
+    const addedParents = addParentEntries(to, mtime);
+    const copied = [...workspace.entries.values()].filter((entry) => isSameOrChild(entry.path, from)).map((entry) => ({ ...entry }));
+    for (const entry of copied) {
+        const newPath = replacePrefix(entry.path, from, to);
+        workspace.entries.set(newPath, { ...entry, path: newPath, mtime });
+        if (entry.type === "file") {
+            createModel(newPath, savedContent.get(entry.path)!);
+        }
+    }
+    applyPositions(positions);
+    // Folders before their content.
+    const newPaths = copied.map((entry) => replacePrefix(entry.path, from, to)).sort((a, b) => a.split("/").length - b.split("/").length);
+    syncToLanguageServer([...addedParents.reverse(), ...newPaths]);
+    notifyWatchedFiles(newPaths.filter(isFile), []);
+}
+
+/** Puts the entries of a folder in a new order. */
+export async function reorderEntries(paths: string[]): Promise<void> {
+    const { positions } = await api.orderEntries(currentProject().id, paths);
+    applyPositions(positions);
+}
+
+let settingsSaveTimer: ReturnType<typeof setTimeout> | undefined;
+let settingsSave: Promise<unknown> = Promise.resolve();
+
+/** Changes a project setting. It applies at once, and is saved shortly after (errors are reported). */
+export function setProjectSetting(key: string, value: boolean | string): void {
+    workspace.settings = { ...workspace.settings, [key]: value };
+    clearTimeout(settingsSaveTimer);
+    settingsSaveTimer = setTimeout(() => {
+        const settings = workspace.settings;
+        // Chained, so that the saves reach the server in order.
+        settingsSave = settingsSave
+            .then(() => api.saveProjectSettings(currentProject().id, settings))
+            .catch((error) => reportError(error, "Could not save the project settings"));
+    }, 500);
+}
+
+/** Disables (excludes from the compilation) or enables a file or folder. */
+export async function setEntryDisabled(path: string, disabled: boolean): Promise<void> {
+    const entry = workspace.entries.get(path);
+    if (!entry) {
+        throw new Error(`'${path}' does not exist.`);
+    }
+    await api.setDisabled(currentProject().id, path, disabled);
+    entry.disabled = disabled;
 }
 
 export async function deleteEntry(path: string): Promise<void> {
@@ -334,7 +440,7 @@ export async function renameEntry(from: string, to: string): Promise<void> {
     if (isSameOrChild(to, from)) {
         throw new Error(`Cannot move '${from}' into itself.`);
     }
-    await api.renameEntry(currentProject().id, from, to);
+    const { positions } = await api.renameEntry(currentProject().id, from, to);
 
     const moved = [...workspace.entries.values()].filter((entry) => isSameOrChild(entry.path, from)).map((entry) => ({ ...entry }));
     const addedParents = addParentEntries(to, Date.now());
@@ -351,6 +457,7 @@ export async function renameEntry(from: string, to: string): Promise<void> {
             }
         }
     }
+    applyPositions(positions);
     onDidRenameEntry.fire({ from, to });
     for (const entry of moved) {
         if (entry.type === "file") {
@@ -380,7 +487,7 @@ export async function writeFile(path: string, content: string): Promise<void> {
     if (!existing) {
         checkNewPath(path);
     }
-    const { mtime } = await api.writeFile(currentProject().id, { path, content });
+    const { mtime, positions } = await api.writeFile(currentProject().id, { path, content });
     if (existing) {
         existing.mtime = mtime;
         savedContent.set(path, content);
@@ -395,7 +502,8 @@ export async function writeFile(path: string, content: string): Promise<void> {
         syncToLanguageServer([path]);
     } else {
         const addedParents = addParentEntries(path, mtime);
-        workspace.entries.set(path, { path, type: "file", mtime });
+        workspace.entries.set(path, { path, type: "file", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
+        applyPositions(positions);
         createModel(path, content);
         syncToLanguageServer([...addedParents.reverse(), path]);
         notifyWatchedFiles([path], []);

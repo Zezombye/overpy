@@ -3,12 +3,20 @@
  * explorer's order. The workshop files are decompiled first (see workshopProject.ts). Rather than
  * concatenating the sources, a generated main file #!includes each file, so that the compiler reports
  * errors with the right file and line, and files that are already #!included by another file are not
- * compiled twice. The main file also holds the declarations of the workshop files' variables and subroutines.
+ * compiled twice. The main file also holds the compiler directives of the project settings, then the
+ * declarations of the workshop files' variables and subroutines.
  */
 import type { OWLanguage } from "../../src/types.d";
-import { ProjectError } from "./projectErrors";
+import { ProjectError, ProjectFileError } from "./projectErrors";
 import { normalizePath, readdirSync, readFileSync, statSync } from "./shims/vfs";
-import { decompileWorkshopProject, mergeWorkshopDeclarations } from "./workshopProject";
+import type { SetProjectFilesParams } from "./protocol";
+import {
+    decompileWorkshopFile,
+    decompileWorkshopProject,
+    expandFilesOneByOne,
+    mergeWorkshopDeclarations,
+    standaloneOverpyCode,
+} from "./workshopProject";
 
 /** Name given to the generated main file. Outputs are named after it (main.ws.txt, main.<language>.po). */
 export const PROJECT_MAIN_FILE_NAME = "main.opy";
@@ -16,10 +24,13 @@ export const PROJECT_MAIN_FILE_NAME = "main.opy";
 let projectRoot = "/";
 /** Code files, as absolute paths in explorer order. */
 let projectFiles: string[] = [];
+/** Compiler directives of the project settings, put at the top of the main file. */
+let projectDirectives = "";
 
-export function setProjectFiles(root: string, files: string[]): void {
-    projectRoot = normalizePath(root);
-    projectFiles = files.map(normalizePath);
+export function setProjectFiles(params: SetProjectFilesParams): void {
+    projectRoot = normalizePath(params.root);
+    projectFiles = params.files.map(normalizePath);
+    projectDirectives = params.directives;
 }
 
 export function isProjectFile(path: string): boolean {
@@ -91,12 +102,38 @@ export function prepareProjectCompilation(language: OWLanguage, unsavedFiles: Ma
         }
     }
     const included = findIncludedFiles(contents);
-    const overpyContents = [...contents].filter(([file]) => file.endsWith(".opy")).map(([, content]) => content);
+    const overpyContents = [...contents].filter(([file]) => file.endsWith(".opy") && (isProjectFile(file) || included.has(file))).map(([, content]) => content);
     const main =
+        projectDirectives +
         mergeWorkshopDeclarations(decompiled, overpyContents) +
         projectFiles
             .filter((file) => !included.has(file))
             .map((file) => `#!include "${file}"\n`)
             .join("");
     return { main, rootPath: projectRoot === "/" ? "/" : `${projectRoot}/`, contents };
+}
+
+/** OverPy code to replace a workshop file of the project by an OverPy file (see standaloneOverpyCode()). */
+export function decompileProjectFile(path: string, language: OWLanguage, unsavedFiles: Map<string, string>): string {
+    const target = normalizePath(path);
+    const read = (file: string) => unsavedFiles.get(file) ?? readFileSync(file);
+    if (/@mixin\b/.test(read(target))) {
+        throw new ProjectFileError("This file defines workshop.codes mixins, which OverPy files cannot define: it cannot be converted.", target);
+    }
+    const sources = projectFiles.map((file) => ({ path: file, isWorkshop: file.endsWith(".ow"), content: read(file) }));
+    const decompiled = decompileWorkshopProject(sources, language);
+    let file = decompiled.get(target);
+    if (file === undefined) {
+        // A disabled file: it is expanded on its own, with the mixins of the project.
+        const expanded = expandFilesOneByOne([...sources.filter((source) => source.isWorkshop), { path: target, content: read(target) }]).get(target)!;
+        if (typeof expanded !== "string") {
+            throw new ProjectFileError(expanded.error, target);
+        }
+        file = decompileWorkshopFile(target, expanded, language);
+    }
+    return standaloneOverpyCode(
+        file,
+        [...decompiled].filter(([other]) => other !== target).map(([, other]) => other),
+        sources.filter((source) => !source.isWorkshop).map((source) => source.content),
+    );
 }

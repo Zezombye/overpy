@@ -48,12 +48,12 @@ async function onReplaceAll(paths?: string[]): Promise<void> {
     }
     const confirmed = await confirm(
         `Replace ${count} occurrence${count === 1 ? "" : "s"} across ${results.length} file${results.length === 1 ? "" : "s"} with '${search.replacement}'?`,
-        "The files are modified in the editor; save them to keep the changes.",
+        "The modified files are saved.",
         "Replace",
     );
     if (confirmed) {
-        const replaced = replaceAll(paths);
-        showInfo(`Replaced ${replaced} occurrence${replaced === 1 ? "" : "s"}.`);
+        const replaced = await replaceAll(paths);
+        showInfo(`Replaced ${replaced} occurrence${replaced === 1 ? "" : "s"} and saved the file${results.length === 1 ? "" : "s"}.`);
     }
 }
 

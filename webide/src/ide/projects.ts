@@ -52,6 +52,13 @@ async function leaveTo(url: string, action: string): Promise<void> {
     location.assign(url);
 }
 
+/** Opens another project (the page is reloaded). */
+export async function openProject(projectId: string): Promise<void> {
+    if (projectId !== workspace.project?.id) {
+        await leaveTo(ideUrl(projectId), "switching projects");
+    }
+}
+
 export async function switchProject(): Promise<void> {
     const projectsPromise = api.listProjects().then(({ projects }) => [
         ...projects.map((project) => ({

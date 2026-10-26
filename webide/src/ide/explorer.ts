@@ -8,8 +8,10 @@ import { showSideBarView } from "./layout";
 import { showError, showInfo } from "./notifications";
 import { getTemplate } from "./overpy";
 import { basename, dirname, extension, isSameOrChild, joinPath, replacePrefix } from "./paths";
+import { childPaths } from "./projectOrder";
 import { readLocal, writeLocal } from "./storage";
 import {
+    copyEntry,
     createDirectory,
     createFile,
     deleteEntry,
@@ -22,6 +24,8 @@ import {
     onDidRenameEntry,
     OVERPY_EXTENSION,
     renameEntry,
+    reorderEntries,
+    setEntryDisabled,
     WORKSHOP_EXTENSION,
     workspace,
     writeFile,
@@ -205,21 +209,77 @@ export async function deleteWithConfirmation(path: string): Promise<void> {
     }
 }
 
-/** Moves a file or folder into another folder (drag and drop). */
-export async function moveInto(path: string, folder: string): Promise<void> {
-    if (dirname(path) === folder || isSameOrChild(folder, path)) {
+/**
+ * Moves a file or folder (drag and drop): into a folder, at its end (`anchor` null), or before or after an entry.
+ * The explorer order is also the compilation order.
+ */
+export async function moveEntry(path: string, folder: string, anchor: { path: string; side: "before" | "after" } | null): Promise<void> {
+    if (isSameOrChild(folder, path) || anchor?.path === path) {
         return;
     }
-    const target = joinPath(folder, basename(path));
-    if (workspace.entries.has(target)) {
-        showError(`A file or folder '${basename(path)}' already exists in the destination folder.`);
-        return;
-    }
-    await renameEntry(path, target);
-    if (folder !== "") {
-        explorer.expanded.add(folder);
+    let target = path;
+    if (dirname(path) !== folder) {
+        target = joinPath(folder, basename(path));
+        if (workspace.entries.has(target)) {
+            showError(`A file or folder '${basename(path)}' already exists in the destination folder.`);
+            return;
+        }
+        await renameEntry(path, target);
+        if (folder !== "") {
+            explorer.expanded.add(folder);
+        }
     }
     explorer.selected = target;
+    const current = childPaths(folder);
+    const order = current.filter((sibling) => sibling !== target);
+    const index = anchor === null ? order.length : order.indexOf(anchor.path) + (anchor.side === "after" ? 1 : 0);
+    order.splice(index, 0, target);
+    if (order.some((sibling, i) => sibling !== current[i])) {
+        await reorderEntries(order);
+    }
+}
+
+/** Moves an entry up or down in its folder. */
+export async function moveUpOrDown(path: string, offset: -1 | 1): Promise<void> {
+    const order = childPaths(dirname(path));
+    const index = order.indexOf(path);
+    const newIndex = index + offset;
+    if (newIndex < 0 || newIndex >= order.length) {
+        return;
+    }
+    [order[index], order[newIndex]] = [order[newIndex], order[index]];
+    await reorderEntries(order);
+    explorer.revealRequest++;
+}
+
+/** "rules.opy" -> "rules (Copy).opy", then "rules (Copy 2).opy"... (like workshop.codes). */
+function copyPath(path: string): string {
+    const name = basename(path);
+    const ext = isFile(path) ? name.substring(name.length - extension(name).length) : "";
+    const stem = name.substring(0, name.length - ext.length).replace(/ \(Copy(?: \d+)?\)$/, "");
+    for (let i = 1; ; i++) {
+        const candidate = joinPath(dirname(path), `${stem} (Copy${i === 1 ? "" : ` ${i}`})${ext}`);
+        if (!workspace.entries.has(candidate)) {
+            return candidate;
+        }
+    }
+}
+
+/** Duplicates a file or folder (its saved content) right after it. */
+export async function duplicateEntry(path: string): Promise<void> {
+    const target = copyPath(path);
+    await copyEntry(path, target);
+    explorer.selected = target;
+    explorer.revealRequest++;
+}
+
+/** Disables (excludes from the compilation) or enables a file or folder. */
+export async function toggleDisabled(path: string): Promise<void> {
+    const entry = workspace.entries.get(path);
+    if (!entry) {
+        throw new Error(`'${path}' does not exist.`);
+    }
+    await setEntryDisabled(path, !entry.disabled);
 }
 
 /** Uploads files from the user's computer (drag and drop, or the upload command). */

@@ -23,20 +23,14 @@ export function replacePrefix(path: string, from: string, to: string): string {
     return to + path.substring(from.length);
 }
 
+/** The extension in lower case (".opy"), or "". */
 export function extension(path: string): string {
     const name = basename(path);
     const index = name.lastIndexOf(".");
     return index <= 0 ? "" : name.substring(index).toLowerCase();
 }
 
-/**
- * Explorer order: natural, case-insensitive order of the names ("2 x" before "10 x"), with folders
- * either mixed with the files or first (VS Code's "mixed" and "default" sort orders).
- */
-const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
-export function compareEntries(a: { path: string; type: "file" | "dir" }, b: { path: string; type: "file" | "dir" }, foldersFirst: boolean): number {
-    if (foldersFirst && a.type !== b.type) {
-        return a.type === "dir" ? -1 : 1;
-    }
-    return collator.compare(basename(a.path), basename(b.path)) || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
+/** The path without its extension ("dir/rules.ow" -> "dir/rules"). */
+export function withoutExtension(path: string): string {
+    return path.substring(0, path.length - extension(path).length);
 }

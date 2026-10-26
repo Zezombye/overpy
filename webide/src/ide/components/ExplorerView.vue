@@ -10,43 +10,46 @@ import {
     deleteWithConfirmation,
     downloadFile,
     downloadProject,
+    duplicateEntry,
     editingTargetName,
     type ExplorerEdit,
     explorer,
-    moveInto,
+    moveEntry,
+    moveUpOrDown,
     pickFilesToUpload,
     startNewFile,
     startNewFolder,
     startRename,
+    toggleDisabled,
     uploadFiles,
     validateEditing,
 } from "../explorer";
-import { reportError } from "../notifications";
-import { compileProject } from "../overpy";
+import { reportError, withProgress } from "../notifications";
+import { compileProject, convertToOverpyFile } from "../overpy";
 import { basename, dirname, isSameOrChild } from "../paths";
 import { problemsByPath } from "../problems";
 import { childrenByParent } from "../projectOrder";
 import { fileIcon } from "../quickAccess";
-import { type EntryInfo, fsPathOf, isCodeFile, workspace } from "../workspace";
+import { type EntryInfo, fsPathOf, isCodeFile, isEntryDisabled, isWorkshopFile, workspace } from "../workspace";
 
 type Row =
     | { kind: "entry"; entry: EntryInfo; depth: number }
     | { kind: "edit"; edit: ExplorerEdit; depth: number; type: "file" | "dir" };
+
+/** Where a dragged entry (or uploaded files) would go. */
+type DropTarget = { kind: "into"; folder: string } | { kind: "before" | "after"; path: string };
 
 const DRAG_MIME = "application/x-overpy-path";
 
 const tree = ref<HTMLElement | null>(null);
 const editInput = ref<HTMLInputElement[]>([]);
 const focused = ref(false);
-const dropTarget = ref<string | null>(null);
+const dropTarget = ref<DropTarget | null>(null);
 
 const rows = computed(() => {
     const result: Row[] = [];
     const edit = explorer.editing;
     const visit = (directory: string, depth: number) => {
-        if (edit && edit.kind !== "rename" && edit.parent === directory) {
-            result.push({ kind: "edit", edit, depth, type: edit.kind === "newFolder" ? "dir" : "file" });
-        }
         for (const entry of childrenByParent.value.get(directory) ?? []) {
             if (edit?.kind === "rename" && edit.path === entry.path) {
                 result.push({ kind: "edit", edit, depth, type: entry.type });
@@ -56,6 +59,10 @@ const rows = computed(() => {
             if (entry.type === "dir" && explorer.expanded.has(entry.path)) {
                 visit(entry.path, depth + 1);
             }
+        }
+        // New entries go at the end of their folder.
+        if (edit && edit.kind !== "rename" && edit.parent === directory) {
+            result.push({ kind: "edit", edit, depth, type: edit.kind === "newFolder" ? "dir" : "file" });
         }
     };
     visit("", 0);
@@ -84,6 +91,7 @@ watch(
             return;
         }
         input.focus();
+        input.scrollIntoView({ block: "nearest" });
         // Select the name without the extension, like VS Code.
         const dot = explorer.editing?.kind === "rename" ? input.value.lastIndexOf(".") : -1;
         input.setSelectionRange(0, dot > 0 ? dot : input.value.length);
@@ -162,10 +170,22 @@ function onTreeKeyDown(event: KeyboardEvent): void {
     const handled = (() => {
         switch (event.key) {
             case "ArrowDown":
-                moveSelection(1);
+                if (event.altKey) {
+                    if (entry) {
+                        run(() => moveUpOrDown(entry.path, 1));
+                    }
+                } else {
+                    moveSelection(1);
+                }
                 return true;
             case "ArrowUp":
-                moveSelection(-1);
+                if (event.altKey) {
+                    if (entry) {
+                        run(() => moveUpOrDown(entry.path, -1));
+                    }
+                } else {
+                    moveSelection(-1);
+                }
                 return true;
             case "ArrowRight":
                 if (entry?.type === "dir") {
@@ -224,6 +244,10 @@ function copyText(text: string): void {
     run(() => navigator.clipboard.writeText(text));
 }
 
+function convert(path: string): void {
+    run(() => withProgress(`Converting '${basename(path)}' into an OverPy file...`, () => convertToOverpyFile(path)));
+}
+
 function onRowContextMenu(event: MouseEvent, entry: EntryInfo): void {
     explorer.selected = entry.path;
     const folder = entry.type === "dir" ? entry.path : dirname(entry.path);
@@ -239,9 +263,17 @@ function onRowContextMenu(event: MouseEvent, entry: EntryInfo): void {
         if (isCodeFile(entry.path)) {
             items.push({ label: "OverPy: Compile Project", run: () => run(compileProject) });
         }
+        if (isWorkshopFile(entry.path)) {
+            items.push({ label: "Decompile and Convert to OverPy File", run: () => convert(entry.path) });
+        }
         items.push({ label: "Download", run: () => run(() => downloadFile(entry.path)) }, { separator: true });
     }
     items.push(
+        { label: "Duplicate", run: () => run(() => duplicateEntry(entry.path)) },
+        { label: entry.disabled ? "Include in Compilation" : "Exclude from Compilation", run: () => run(() => toggleDisabled(entry.path)) },
+        { label: "Move Up", keybinding: "Alt+Up", run: () => run(() => moveUpOrDown(entry.path, -1)) },
+        { label: "Move Down", keybinding: "Alt+Down", run: () => run(() => moveUpOrDown(entry.path, 1)) },
+        { separator: true },
         { label: "Copy Path", run: () => copyText(fsPathOf(entry.path)) },
         { label: "Copy Relative Path", run: () => copyText(entry.path) },
         { separator: true },
@@ -269,40 +301,76 @@ function onDragStart(event: DragEvent, entry: EntryInfo): void {
     event.dataTransfer!.effectAllowed = "move";
 }
 
-function dropFolderFor(entry: EntryInfo | null): string {
+/**
+ * Entries are dropped before or after the entry under the cursor (in its upper or lower part), or into a folder
+ * (in the middle of its row). Uploaded files go into the folder under the cursor.
+ */
+function dropTargetAt(event: DragEvent, entry: EntryInfo | null, moving: boolean): DropTarget {
     if (!entry) {
-        return "";
+        return { kind: "into", folder: "" };
     }
-    return entry.type === "dir" ? entry.path : dirname(entry.path);
+    if (!moving) {
+        return { kind: "into", folder: entry.type === "dir" ? entry.path : dirname(entry.path) };
+    }
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const ratio = (event.clientY - rect.top) / rect.height;
+    if (entry.type === "dir") {
+        if (ratio < 0.25) {
+            return { kind: "before", path: entry.path };
+        }
+        // Below an expanded folder come its entries: dropping there puts the entry into the folder.
+        if (ratio > 0.75 && !explorer.expanded.has(entry.path)) {
+            return { kind: "after", path: entry.path };
+        }
+        return { kind: "into", folder: entry.path };
+    }
+    return { kind: ratio < 0.5 ? "before" : "after", path: entry.path };
 }
 
 function onDragOver(event: DragEvent, entry: EntryInfo | null): void {
     const types = event.dataTransfer?.types ?? [];
-    if (!types.includes(DRAG_MIME) && !types.includes("Files")) {
+    const moving = types.includes(DRAG_MIME);
+    if (!moving && !types.includes("Files")) {
         return;
     }
     event.preventDefault();
     event.stopPropagation();
-    event.dataTransfer!.dropEffect = types.includes(DRAG_MIME) ? "move" : "copy";
-    dropTarget.value = dropFolderFor(entry);
+    event.dataTransfer!.dropEffect = moving ? "move" : "copy";
+    dropTarget.value = dropTargetAt(event, entry, moving);
 }
 
 function onDrop(event: DragEvent, entry: EntryInfo | null): void {
     event.preventDefault();
     event.stopPropagation();
-    const folder = dropFolderFor(entry);
     dropTarget.value = null;
     const source = event.dataTransfer?.getData(DRAG_MIME);
+    const target = dropTargetAt(event, entry, Boolean(source));
     if (source) {
-        run(() => moveInto(source, folder));
-    } else if (event.dataTransfer?.files.length) {
+        if (target.kind === "into") {
+            if (dirname(source) !== target.folder) {
+                run(() => moveEntry(source, target.folder, null));
+            }
+        } else {
+            run(() => moveEntry(source, dirname(target.path), { path: target.path, side: target.kind }));
+        }
+    } else if (event.dataTransfer?.files.length && target.kind === "into") {
         const files = [...event.dataTransfer.files];
-        run(() => uploadFiles(folder, files));
+        run(() => uploadFiles(target.folder, files));
     }
 }
 
-function isInDropTarget(path: string): boolean {
-    return dropTarget.value !== null && dropTarget.value !== "" && isSameOrChild(path, dropTarget.value);
+function rowDropClass(path: string): string {
+    const target = dropTarget.value;
+    if (target === null) {
+        return "";
+    }
+    if (target.kind === "into") {
+        return target.folder !== "" && isSameOrChild(path, target.folder) ? "bg-list-hover" : "";
+    }
+    if (target.path !== path) {
+        return "";
+    }
+    return target.kind === "before" ? "shadow-[inset_0_2px_0_var(--color-focus)]" : "shadow-[inset_0_-2px_0_var(--color-focus)]";
 }
 
 function decoration(path: string): { class: string; count: number } {
@@ -338,7 +406,7 @@ function indent(depth: number): string {
         <div
             ref="tree"
             class="relative min-h-0 flex-1 overflow-x-hidden overflow-y-auto pb-6 outline-none"
-            :class="dropTarget === '' ? 'bg-list-hover' : ''"
+            :class="dropTarget?.kind === 'into' && dropTarget.folder === '' ? 'bg-list-hover' : ''"
             tabindex="0"
             @focusin="focused = true"
             @focusout="focused = false"
@@ -376,23 +444,19 @@ function indent(depth: number): string {
                 <div
                     v-else
                     :data-path="row.entry.path"
-                    class="flex h-[22px] cursor-pointer items-center pr-2"
+                    class="group flex h-[22px] cursor-pointer items-center pr-1"
                     :class="[
-                        explorer.selected === row.entry.path
-                            ? focused
-                                ? 'bg-list-active outline -outline-offset-1 outline-focus'
-                                : 'bg-list-inactive'
-                            : isInDropTarget(row.entry.path)
-                              ? 'bg-list-hover'
-                              : 'hover:bg-list-hover',
+                        explorer.selected === row.entry.path ? (focused ? 'bg-list-active outline -outline-offset-1 outline-focus' : 'bg-list-inactive') : 'hover:bg-list-hover',
+                        rowDropClass(row.entry.path),
                     ]"
                     :style="{ paddingLeft: indent(row.depth) }"
-                    :title="row.entry.path"
+                    :title="isEntryDisabled(row.entry.path) ? `${row.entry.path} (excluded from the compilation)` : row.entry.path"
                     draggable="true"
                     @click="onRowClick(row.entry)"
                     @dblclick="onRowDoubleClick(row.entry)"
                     @contextmenu.prevent.stop="onRowContextMenu($event, row.entry)"
                     @dragstart="onDragStart($event, row.entry)"
+                    @dragend="dropTarget = null"
                     @dragover="onDragOver($event, row.entry)"
                     @drop="onDrop($event, row.entry)"
                 >
@@ -400,11 +464,29 @@ function indent(depth: number): string {
                         class="codicon w-4 shrink-0 text-[16px]"
                         :class="row.entry.type === 'dir' ? (explorer.expanded.has(row.entry.path) ? 'codicon-chevron-down' : 'codicon-chevron-right') : ''"
                     />
-                    <span v-if="row.entry.type === 'file'" class="mr-1.5 flex w-4 shrink-0 justify-center">
+                    <span v-if="row.entry.type === 'file'" class="mr-1.5 flex w-4 shrink-0 justify-center" :class="isEntryDisabled(row.entry.path) ? 'opacity-50' : ''">
                         <img v-if="fileIcon(row.entry.path).iconUrl" :src="fileIcon(row.entry.path).iconUrl" alt="" class="h-4 w-4" />
                         <span v-else class="codicon" :class="`codicon-${fileIcon(row.entry.path).icon}`" />
                     </span>
-                    <span class="flex-1 truncate" :class="decoration(row.entry.path).class">{{ basename(row.entry.path) }}</span>
+                    <span class="flex-1 truncate" :class="[decoration(row.entry.path).class, isEntryDisabled(row.entry.path) ? 'opacity-50' : '']">
+                        {{ basename(row.entry.path) }}
+                    </span>
+                    <div class="ml-1 flex shrink-0 items-center" @click.stop @dblclick.stop>
+                        <button class="vsc-toolbar-button hidden !h-5 !w-5 group-hover:inline-flex" title="Duplicate" @click="run(() => duplicateEntry(row.entry.path))">
+                            <span class="codicon codicon-copy" />
+                        </button>
+                        <button
+                            class="vsc-toolbar-button !h-5 !w-5"
+                            :class="row.entry.disabled ? '' : 'hidden group-hover:inline-flex'"
+                            :title="row.entry.disabled ? 'Include in Compilation' : 'Exclude from Compilation'"
+                            @click="run(() => toggleDisabled(row.entry.path))"
+                        >
+                            <span class="codicon" :class="row.entry.disabled ? 'codicon-eye-closed' : 'codicon-eye'" />
+                        </button>
+                        <button class="vsc-toolbar-button hidden !h-5 !w-5 group-hover:inline-flex" title="Delete" @click="run(() => deleteWithConfirmation(row.entry.path))">
+                            <span class="codicon codicon-trash" />
+                        </button>
+                    </div>
                     <span v-if="decoration(row.entry.path).count > 0 && row.entry.type === 'file'" class="ml-1 text-[11px]" :class="decoration(row.entry.path).class">
                         {{ decoration(row.entry.path).count }}
                     </span>

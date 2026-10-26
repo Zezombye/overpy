@@ -1,14 +1,29 @@
 import { reactive } from "vue";
 
+import type { CompileResult } from "../../lsp/protocol";
 import { getSetting, setSetting, settingDefinitions } from "../lib/settings";
+import { CompilationCancelledError, compileInWorker, stopCompilation } from "./compileWorker";
 import { activeFilePath, getCodeEditor, openFile } from "./editors";
-import { getLanguageClient } from "./languageServer";
+import { getLanguageClient, onCompilerFileWritten, projectFilesParams } from "./languageServer";
 import { showError, showInfo, showWarning } from "./notifications";
 import { appendOutput, OVERPY_CHANNEL } from "./output";
-import { basename, dirname, extension, joinPath } from "./paths";
+import { basename, dirname, extension, joinPath, withoutExtension } from "./paths";
 import { showQuickPick } from "./quickInput";
 import { orderedCodeFiles } from "./projectOrder";
-import { createFile, fsPathOf, getModel, isCodeFile, onDidSaveFile, pathOfFsPath, workspace, writeFile } from "./workspace";
+import {
+    createFile,
+    fsPathOf,
+    getModel,
+    isCodeFile,
+    onDidSaveFile,
+    OVERPY_EXTENSION,
+    pathOfFsPath,
+    renameEntry,
+    saveFile,
+    savesSettled,
+    workspace,
+    writeFile,
+} from "./workspace";
 
 /* The commands of the OverPy extension (see ../src/extension.ts), adapted to the browser. */
 
@@ -53,29 +68,65 @@ async function copyCompilationResult(text: string, successMessage: string | null
     }
 }
 
+function unsavedCodeFiles(): { path: string; content: string }[] {
+    return [...workspace.dirty].filter(isCodeFile).map((path) => ({ path: fsPathOf(path), content: getModel(path)!.getValue() }));
+}
+
+let compilationId = 0;
+
 /**
- * Compiles the project: all OverPy and workshop files, in the explorer's order, workshop files being
- * decompiled first (see lsp/project.ts). Unsaved changes are included.
+ * Compiles the project: all OverPy and workshop files that are not disabled, in the explorer's order, workshop
+ * files being decompiled first (see lsp/project.ts). Unsaved changes are included. A compilation that is running
+ * is stopped. The errors and warnings of the compilation replace those shown in the editor.
  */
 export async function compileProject(): Promise<void> {
+    const id = ++compilationId;
+    stopCompilation();
     const client = getLanguageClient();
     const language = getSetting<string>("overpy.workshopLanguage");
     const showElementCount = getSetting<boolean>("overpy.showElementCountOnCompile");
-    const unsavedFiles = [...workspace.dirty].filter(isCodeFile).map((path) => ({ path: fsPathOf(path), content: getModel(path)!.getValue() }));
+    const files = orderedCodeFiles.value;
 
     compilation.running = true;
-    appendOutput(OVERPY_CHANNEL, `Compiling ${orderedCodeFiles.value.length} file(s) in this order (${language}):\n${orderedCodeFiles.value.map((path) => `  ${path}`).join("\n")}`);
+    appendOutput(OVERPY_CHANNEL, `Compiling ${files.length} file(s) in this order (${language}):\n${files.map((path) => `  ${path}`).join("\n")}`);
     const start = performance.now();
-    let result;
-    try {
-        result = await client.compile(language, unsavedFiles);
-    } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
+    const cancelled = () => {
+        appendOutput(OVERPY_CHANNEL, "Compilation cancelled: a new compilation was started.");
+    };
+    const failed = (message: string) => {
         appendOutput(OVERPY_CHANNEL, `Error: ${message}`);
         showError(`Error: ${message}`);
-        return;
+    };
+    let result: CompileResult;
+    try {
+        const prepared = await client.prepareCompilation({ language, unsavedFiles: unsavedCodeFiles(), project: projectFilesParams() });
+        if (id !== compilationId) {
+            cancelled();
+            return;
+        }
+        if (!prepared.ok) {
+            client.replaceAllDiagnostics(prepared.diagnostics);
+            failed(prepared.error);
+            return;
+        }
+        try {
+            result = await compileInWorker({ language, main: prepared.main, rootPath: prepared.rootPath, contents: prepared.contents }, onCompilerFileWritten);
+        } catch (error) {
+            if (error instanceof CompilationCancelledError) {
+                cancelled();
+                return;
+            }
+            throw error;
+        }
     } finally {
-        compilation.running = false;
+        if (id === compilationId) {
+            compilation.running = false;
+        }
+    }
+    client.replaceAllDiagnostics(result.diagnostics);
+    if (!result.ok) {
+        failed(result.error);
+        return;
     }
     compilation.lastResult = result.result;
     appendOutput(OVERPY_CHANNEL, `Compiled in ${Math.round(performance.now() - start)} ms: ${result.nbElements} elements, ${result.warnings.length} warning(s).`);
@@ -108,8 +159,12 @@ export async function copyLastCompilationResult(): Promise<void> {
     showInfo("Copied the last compilation result into the clipboard.");
 }
 
-/** Like the extension's compileOnSave: only explicit saves trigger a compilation. */
+/**
+ * Like the extension's compileOnSave: only explicit saves trigger a compilation. When several files are saved
+ * at once (Save All), the project is compiled once they are all saved.
+ */
 export function enableCompileOnSave(): void {
+    let compilePending = false;
     onDidSaveFile.on(({ path, manual }) => {
         if (!manual || !isCodeFile(path) || !getSetting<boolean>("overpy.compileOnSave")) {
             return;
@@ -118,8 +173,41 @@ export function enableCompileOnSave(): void {
         if (getSetting<boolean>("overpy.onlySaveOnMainFile") && text.startsWith("#!mainFile ")) {
             return;
         }
-        compileProject().catch((error) => showError(`Error: ${error instanceof Error ? error.message : String(error)}`));
+        if (compilePending) {
+            return;
+        }
+        compilePending = true;
+        savesSettled()
+            .then(() => {
+                compilePending = false;
+                return compileProject();
+            })
+            .catch((error) => showError(`Error: ${error instanceof Error ? error.message : String(error)}`));
     });
+}
+
+/**
+ * Converts a workshop file into an OverPy file with the same name: its decompiled code, with the declarations of
+ * the variables and subroutines that only it uses (the others stay declared for the other workshop files).
+ */
+export async function convertToOverpyFile(path: string): Promise<void> {
+    const target = withoutExtension(path) + OVERPY_EXTENSION;
+    if (workspace.entries.has(target)) {
+        throw new Error(`Cannot convert '${basename(path)}': '${basename(target)}' already exists.`);
+    }
+    const { content } = await getLanguageClient().decompileProjectFile({
+        language: getSetting<string>("overpy.workshopLanguage"),
+        unsavedFiles: unsavedCodeFiles(),
+        project: projectFilesParams(),
+        path: fsPathOf(path),
+    });
+    // The decompiled code includes the unsaved changes; the renamed file must not keep them over its new content.
+    if (workspace.dirty.has(path)) {
+        await saveFile(path, { manual: false });
+    }
+    await renameEntry(path, target);
+    await writeFile(target, content);
+    showInfo(`Converted '${basename(path)}' into '${basename(target)}'.`);
 }
 
 function uniquePath(directory: string, fileName: string): string {

@@ -19,12 +19,21 @@ export interface WorkshopProjectFile {
 
 type DeclarationKind = "globalvar" | "playervar" | "subroutine";
 
+interface Declaration {
+    kind: DeclarationKind;
+    name: string;
+    /** null if not set. */
+    index: number | null;
+}
+
 export interface DecompiledFile {
-    /** The decompiled code, without its declarations. */
+    /** The decompiled code, without its declarations and #!optimizeStrict. */
     body: string;
-    /** Declared names, with their index (null if not set). */
-    declarations: { kind: DeclarationKind; name: string; index: number | null }[];
+    /** Declared names: every variable and subroutine the file uses. */
+    declarations: Declaration[];
     extensions: string[];
+    /** The #!optimizeStrict directive (with its comment) that the decompiler put before the rules, if any. */
+    optimizeStrict: string | null;
 }
 
 const fileName = (path: string) => path.substring(path.lastIndexOf("/") + 1);
@@ -169,15 +178,8 @@ const decompilationCache = new Map<string, DecompiledFile | ProjectFileError>();
 const DECLARATION_LINE = /^(globalvar|playervar|subroutine) ([A-Za-z_]\w*)(?: (\d+))?$/;
 const EXTENSION_LINE = /^#!extension (\S+)$/;
 const SECTION_COMMENT_LINE = /^#(Global variables|Player variables|Subroutine names|Activated extensions)$/;
-const OPTIMIZE_STRICT_LINE = /^#!optimizeStrict\b/m;
-
-/**
- * The decompiler puts #!optimizeStrict at the top of the code it produces: disable it at the end, so that
- * it only applies to that code and not to the files compiled after it.
- */
-export function scopeStrictOptimization(decompiled: string): string {
-    return OPTIMIZE_STRICT_LINE.test(decompiled) ? `${decompiled.replace(/\s*$/, "")}\n\n#!disableOptimizeStrict\n` : decompiled;
-}
+const OPTIMIZE_STRICT_LINE = /^#!optimizeStrict\b/;
+const OPTIMIZE_STRICT_COMMENT_LINE = /^#Only remove the following directive\b/;
 
 /**
  * Decompiles a workshop file (in plain workshop code). A file usually holds a part of the script only (e.g.
@@ -186,7 +188,7 @@ export function scopeStrictOptimization(decompiled: string): string {
  */
 export function decompileWorkshopFile(path: string, workshopCode: string, language: OWLanguage): DecompiledFile {
     if (workshopCode.trim() === "") {
-        return { body: "", declarations: [], extensions: [] };
+        return { body: "", declarations: [], extensions: [], optimizeStrict: null };
     }
     const key = `${language}\u0000${path}\u0000${workshopCode}`;
     let cached = decompilationCache.get(key);
@@ -209,8 +211,9 @@ export function decompileWorkshopFile(path: string, workshopCode: string, langua
 
 function decompileWorkshopCode(workshopCode: string, language: OWLanguage): DecompiledFile {
     const decompiled = decompileAllRules(workshopCode, language, { declareUnknownNames: true });
-    const result: DecompiledFile = { body: "", declarations: [], extensions: [] };
+    const result: DecompiledFile = { body: "", declarations: [], extensions: [], optimizeStrict: null };
     const bodyLines: string[] = [];
+    let optimizeStrictComment = "";
     for (const line of decompiled.split("\n")) {
         const declaration = DECLARATION_LINE.exec(line);
         const extension = EXTENSION_LINE.exec(line);
@@ -218,11 +221,15 @@ function decompileWorkshopCode(workshopCode: string, language: OWLanguage): Deco
             result.declarations.push({ kind: declaration[1] as DeclarationKind, name: declaration[2], index: declaration[3] === undefined ? null : Number(declaration[3]) });
         } else if (extension) {
             result.extensions.push(extension[1]);
+        } else if (OPTIMIZE_STRICT_COMMENT_LINE.test(line)) {
+            optimizeStrictComment = `${line}\n`;
+        } else if (OPTIMIZE_STRICT_LINE.test(line)) {
+            result.optimizeStrict = optimizeStrictComment + line;
         } else if (!SECTION_COMMENT_LINE.test(line)) {
             bodyLines.push(line);
         }
     }
-    result.body = scopeStrictOptimization(bodyLines.join("\n").replace(/^\n+/, ""));
+    result.body = bodyLines.join("\n").replace(/^\n+/, "");
     return result;
 }
 
@@ -238,14 +245,33 @@ export function decompileWorkshopProject(files: WorkshopProjectFile[], language:
     return new Map([...expanded].map(([path, code]) => [path, decompileWorkshopFile(path, code, language)]));
 }
 
-/** The declarations and extensions of the workshop files, merged, as OverPy code. Names declared in OverPy files are left to them. */
-export function mergeWorkshopDeclarations(decompiledFiles: Map<string, DecompiledFile>, overpyContents: string[]): string {
-    const declaredInOverpy = new Set<string>();
+/** Names declared by OverPy code ("globalvar name"), and its extensions. */
+function overpyDeclarations(overpyContents: string[]): { names: Set<string>; extensions: Set<string> } {
+    const names = new Set<string>();
+    const extensions = new Set<string>();
     for (const content of overpyContents) {
         for (const match of content.matchAll(/^(globalvar|playervar|subroutine)[ \t]+([A-Za-z_]\w*)/gm)) {
-            declaredInOverpy.add(`${match[1]} ${match[2]}`);
+            names.add(`${match[1]} ${match[2]}`);
+        }
+        for (const match of content.matchAll(/^[ \t]*#!extension[ \t]+(\S+)/gm)) {
+            extensions.add(match[1]);
         }
     }
+    return { names, extensions };
+}
+
+function declarationLines(declarations: Declaration[], extensions: string[]): string {
+    return [
+        ...declarations.map(({ kind, name, index }) => (index === null ? `${kind} ${name}` : `${kind} ${name} ${index}`)),
+        ...extensions.map((extension) => `#!extension ${extension}`),
+    ]
+        .map((line) => `${line}\n`)
+        .join("");
+}
+
+/** The declarations and extensions of the workshop files, merged, as OverPy code. Names declared in OverPy files are left to them. */
+export function mergeWorkshopDeclarations(decompiledFiles: Map<string, DecompiledFile>, overpyContents: string[]): string {
+    const declaredInOverpy = overpyDeclarations(overpyContents).names;
     const merged = new Map<string, { index: number | null; path: string }>();
     const extensions = new Set<string>();
     for (const [path, file] of decompiledFiles) {
@@ -266,9 +292,25 @@ export function mergeWorkshopDeclarations(decompiledFiles: Map<string, Decompile
             extensions.add(extension);
         }
     }
-    return [...[...merged].map(([key, { index }]) => (index === null ? key : `${key} ${index}`)), ...[...extensions].map((extension) => `#!extension ${extension}`)]
-        .map((line) => `${line}\n`)
-        .join("");
+    return declarationLines(
+        [...merged].map(([key, { index }]) => ({ kind: key.split(" ")[0] as DeclarationKind, name: key.split(" ")[1], index })),
+        [...extensions],
+    );
+}
+
+/**
+ * OverPy code replacing a decompiled file that becomes an OverPy file: its code, with the declarations that only
+ * it needs. The names that the other workshop files use stay declared for them (by the generated main file).
+ */
+export function standaloneOverpyCode(file: DecompiledFile, otherFiles: DecompiledFile[], overpyContents: string[]): string {
+    const inOverpy = overpyDeclarations(overpyContents);
+    const usedElsewhere = new Set(otherFiles.flatMap((other) => other.declarations.map(({ kind, name }) => `${kind} ${name}`)));
+    const extensionsElsewhere = new Set(otherFiles.flatMap((other) => other.extensions));
+    const declarations = declarationLines(
+        file.declarations.filter(({ kind, name }) => !inOverpy.names.has(`${kind} ${name}`) && !usedElsewhere.has(`${kind} ${name}`)),
+        file.extensions.filter((extension) => !inOverpy.extensions.has(extension) && !extensionsElsewhere.has(extension)),
+    );
+    return declarations === "" ? file.body : `${declarations}\n${file.body}`;
 }
 
 // --- Import ---
@@ -278,27 +320,31 @@ const definesMixins = (content: string) => /@mixin\b/.test(content);
 
 /**
  * Decompiles workshop files into OverPy files that can be compiled together (e.g. when importing a
- * workshop.codes project): their declarations are merged into separate OverPy code. Files that cannot
- * be decompiled are reported with their error.
+ * workshop.codes project): the declarations of the enabled files are merged into separate OverPy code, with
+ * #!optimizeStrict. Disabled files are expanded and decompiled on their own, and declare what only they use.
+ * Files that cannot be decompiled are reported with their error.
  */
 export function decompileImportedFiles(
-    files: { path: string; content: string }[],
+    files: { path: string; content: string; disabled?: boolean }[],
     language: OWLanguage,
 ): { files: ({ path: string; content: string } | { path: string; error: string })[]; declarations: string } {
+    const enabledFiles = files.filter((file) => !file.disabled);
     let expanded: Map<string, string | { error: string }>;
     try {
-        expanded = expandWorkshopFiles(files.map((file) => ({ ...file, isWorkshop: true })));
+        expanded = expandWorkshopFiles(enabledFiles.map((file) => ({ ...file, isWorkshop: true })));
     } catch (error) {
         if (!(error instanceof ProjectError)) {
             throw error;
         }
-        expanded = expandFilesOneByOne(files);
+        expanded = new Map();
     }
+    // Disabled files (and enabled ones if they cannot be expanded together), with the mixins of all files.
+    const expandedOneByOne = expandFilesOneByOne(files);
 
     const results: ({ path: string; content: string } | { path: string; error: string })[] = [];
     const decompiledFiles = new Map<string, DecompiledFile>();
     for (const file of files) {
-        const code = expanded.get(file.path)!;
+        const code = expanded.get(file.path) ?? expandedOneByOne.get(file.path)!;
         if (typeof code !== "string") {
             results.push({ path: file.path, ...code });
             continue;
@@ -307,9 +353,7 @@ export function decompileImportedFiles(
             continue;
         }
         try {
-            const decompiled = decompileWorkshopFile(file.path, code, language);
-            decompiledFiles.set(file.path, decompiled);
-            results.push({ path: file.path, content: decompiled.body });
+            decompiledFiles.set(file.path, decompileWorkshopFile(file.path, code, language));
         } catch (error) {
             if (!(error instanceof ProjectFileError)) {
                 throw error;
@@ -317,11 +361,21 @@ export function decompileImportedFiles(
             results.push({ path: file.path, error: error.message });
         }
     }
-    return { files: results, declarations: mergeWorkshopDeclarations(decompiledFiles, []) };
+
+    const enabledDecompiled = new Map(enabledFiles.filter((file) => decompiledFiles.has(file.path)).map((file) => [file.path, decompiledFiles.get(file.path)!]));
+    for (const [path, decompiled] of decompiledFiles) {
+        results.push({
+            path,
+            content: enabledDecompiled.has(path) ? decompiled.body : standaloneOverpyCode(decompiled, [...enabledDecompiled.values()], []),
+        });
+    }
+    const optimizeStrict = [...enabledDecompiled.values()].find((decompiled) => decompiled.optimizeStrict !== null)?.optimizeStrict;
+    const declarations = mergeWorkshopDeclarations(enabledDecompiled, []);
+    return { files: results, declarations: optimizeStrict ? `${declarations}\n${optimizeStrict}\n` : declarations };
 }
 
-/** When the files cannot be expanded together: expands them one by one, with the mixins of all files. */
-function expandFilesOneByOne(files: { path: string; content: string }[]): Map<string, string | { error: string }> {
+/** Expands files one by one (e.g. when they cannot be expanded together), with the mixins of all files. */
+export function expandFilesOneByOne(files: { path: string; content: string }[]): Map<string, string | { error: string }> {
     const mixins: Mixins = {};
     const result = new Map<string, string | { error: string }>();
     for (const file of files) {

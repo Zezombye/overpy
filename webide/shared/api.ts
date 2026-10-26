@@ -41,11 +41,31 @@ export interface ProjectEntry {
     /** Only set for files. */
     content?: string;
     mtime: number;
+    /** The entries of a folder are ordered by position (explorer order, which is also the compilation order). */
+    position: number;
+    /** Excluded from the compilation (with its content, for a folder). */
+    disabled: boolean;
+}
+
+export interface EntryPosition {
+    path: string;
+    position: number;
+}
+
+/** Response of the requests that create or move entries: the positions of the entries that were created or moved. */
+export interface PositionsResponse {
+    positions: EntryPosition[];
+}
+
+export interface WriteResponse extends PositionsResponse {
+    mtime: number;
 }
 
 export interface ProjectFilesResponse {
     project: ProjectSummary;
     entries: ProjectEntry[];
+    /** See shared/projectSettings.ts. */
+    settings: Record<string, boolean | string>;
 }
 
 export interface WriteFileRequest {
@@ -57,14 +77,27 @@ export interface WriteFileRequest {
     create?: boolean;
 }
 
-/** Creates many entries at once (e.g. a project import). Fails if any of them already exists. */
+/** Creates many entries at once (e.g. a project import), after the existing ones, in this order. Fails if any of them already exists. */
 export interface ImportEntriesRequest {
-    entries: { path: string; type: "file" | "dir"; content?: string }[];
+    entries: { path: string; type: "file" | "dir"; content?: string; disabled?: boolean }[];
 }
 
-/** Limits of one import request; clients split bigger imports. */
-export const MAX_IMPORT_ENTRIES_PER_REQUEST = 200;
-export const MAX_IMPORT_BYTES_PER_REQUEST = 512_000;
+/** Reorders the entries of a folder. */
+export interface OrderEntriesRequest {
+    /** All the entries of the folder, in their new order. */
+    paths: string[];
+}
+
+/** Copies a file or folder (with its content). In the same folder, the copy is put right after the original. */
+export interface CopyEntryRequest {
+    from: string;
+    to: string;
+}
+
+export interface SetDisabledRequest {
+    path: string;
+    disabled: boolean;
+}
 
 export interface ConflictResponse {
     error: string;
@@ -75,6 +108,9 @@ export const MAX_PROJECTS_PER_USER = 50;
 export const MAX_ENTRIES_PER_PROJECT = 1000;
 /** D1 rows are limited to 2 MB. */
 export const MAX_FILE_BYTES = 1_000_000;
+
+/** Limit of the content of one import request (Workers have little CPU time per request): clients split bigger imports. */
+export const MAX_IMPORT_BYTES_PER_REQUEST = 512_000;
 export const MAX_SETTINGS_BYTES = 32_000;
 
 /** Returns an error message, or null if the name is valid. Project names are also used as the root folder name. */

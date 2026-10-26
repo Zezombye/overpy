@@ -11,6 +11,8 @@ import { runEditorAction } from "../registerCommands";
 import UserAvatar from "../../components/UserAvatar.vue";
 import { accountMenuItems } from "../projects";
 import { workspace } from "../workspace";
+import ProjectSettingsDropdown from "./ProjectSettingsDropdown.vue";
+import ProjectSwitcher from "./ProjectSwitcher.vue";
 
 const openMenu = ref<number | null>(null);
 const menuBar = ref<HTMLElement | null>(null);
@@ -143,15 +145,8 @@ function showAccountMenu(event: MouseEvent): void {
         </div>
 
         <div class="flex shrink-0 items-center gap-0.5 pr-2">
-            <button
-                class="flex h-[24px] items-center gap-1 rounded-[5px] px-1.5 hover:bg-toolbar-hover"
-                title="Switch Project"
-                @click="executeCommand('projects.switch')"
-            >
-                <span class="codicon codicon-folder-library text-[16px]" />
-                <span class="max-w-[160px] truncate">{{ workspace.project?.name }}</span>
-                <span class="codicon codicon-chevron-down text-[12px]" />
-            </button>
+            <ProjectSettingsDropdown />
+            <ProjectSwitcher />
             <button class="flex h-[24px] items-center gap-1.5 rounded-[5px] px-1.5 hover:bg-toolbar-hover" title="Account" @click="showAccountMenu">
                 <UserAvatar :user="session.user" :size="16" />
                 <span class="max-w-[120px] truncate">{{ session.user?.name }}</span>

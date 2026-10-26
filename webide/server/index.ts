@@ -1,6 +1,7 @@
 import { handleLogout, handleMe, handleOAuthCallback, handleOAuthStart, handleProviders, handleSaveSettings, requireSession, type Session } from "./auth";
 import { type Env, HttpError, json } from "./http";
 import {
+    handleCopyEntry,
     handleCreateDirectory,
     handleCreateProject,
     handleDeleteEntry,
@@ -8,8 +9,11 @@ import {
     handleGetFiles,
     handleImportEntries,
     handleListProjects,
+    handleOrderEntries,
     handleRenameEntry,
     handleRenameProject,
+    handleSaveProjectSettings,
+    handleSetDisabled,
     handleWriteFile,
 } from "./projects";
 
@@ -24,11 +28,15 @@ const routes: { method: string; pattern: RegExp; handler: Handler }[] = [
     { method: "PATCH", pattern: /^\/api\/projects\/([0-9a-f]+)$/, handler: (request, env, session, [id]) => handleRenameProject(request, env, session, id) },
     { method: "DELETE", pattern: /^\/api\/projects\/([0-9a-f]+)$/, handler: (_request, env, session, [id]) => handleDeleteProject(env, session, id) },
     { method: "GET", pattern: /^\/api\/projects\/([0-9a-f]+)\/files$/, handler: (_request, env, session, [id]) => handleGetFiles(env, session, id) },
+    { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/settings$/, handler: (request, env, session, [id]) => handleSaveProjectSettings(request, env, session, id) },
     { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/file$/, handler: (request, env, session, [id]) => handleWriteFile(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/mkdir$/, handler: (request, env, session, [id]) => handleCreateDirectory(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/import$/, handler: (request, env, session, [id]) => handleImportEntries(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/delete$/, handler: (request, env, session, [id]) => handleDeleteEntry(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/rename$/, handler: (request, env, session, [id]) => handleRenameEntry(request, env, session, id) },
+    { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/copy$/, handler: (request, env, session, [id]) => handleCopyEntry(request, env, session, id) },
+    { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/order$/, handler: (request, env, session, [id]) => handleOrderEntries(request, env, session, id) },
+    { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/disabled$/, handler: (request, env, session, [id]) => handleSetDisabled(request, env, session, id) },
 ];
 
 async function handleApi(request: Request, env: Env): Promise<Response> {

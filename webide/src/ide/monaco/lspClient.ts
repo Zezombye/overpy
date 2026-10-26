@@ -48,14 +48,18 @@ import {
 } from "vscode-languageserver-protocol/browser";
 
 import {
-    type CompileParams,
-    CompileRequest,
-    type CompileResult,
     type DecompileParams,
+    type DecompileProjectFileParams,
+    DecompileProjectFileRequest,
+    type DecompileProjectFileResult,
     DecompileRequest,
     type DecompileResult,
+    type FileDiagnostics,
     FileWrittenNotification,
     type FileWrittenParams,
+    type PrepareCompilationParams,
+    PrepareCompilationRequest,
+    type PrepareCompilationResult,
     SetProjectFilesNotification,
     type SetProjectFilesParams,
     SyncFilesNotification,
@@ -566,8 +570,8 @@ export class LanguageClient {
         void this.connection.sendNotification(SyncFilesNotification, params);
     }
 
-    setProjectFiles(root: string, files: string[]): void {
-        void this.connection.sendNotification(SetProjectFilesNotification, { root, files } satisfies SetProjectFilesParams);
+    setProjectFiles(params: SetProjectFilesParams): void {
+        void this.connection.sendNotification(SetProjectFilesNotification, params);
     }
 
     didChangeWatchedFiles(changes: FileEvent[]): void {
@@ -578,9 +582,29 @@ export class LanguageClient {
         void this.connection.sendNotification(DidChangeConfigurationNotification.type, { settings: null });
     }
 
-    /** Compiles the whole project (see lsp/project.ts). */
-    compile(language: string, unsavedFiles: { path: string; content: string }[]): Promise<CompileResult> {
-        return this.connection.sendRequest<CompileResult>(CompileRequest, { language, unsavedFiles } satisfies CompileParams);
+    /** Prepares the compilation of the whole project (see lsp/project.ts); the compilation itself runs in another worker (see compileWorker.ts). */
+    prepareCompilation(params: PrepareCompilationParams): Promise<PrepareCompilationResult> {
+        return this.connection.sendRequest<PrepareCompilationResult>(PrepareCompilationRequest, params);
+    }
+
+    decompileProjectFile(params: DecompileProjectFileParams): Promise<DecompileProjectFileResult> {
+        return this.connection.sendRequest<DecompileProjectFileResult>(DecompileProjectFileRequest, params);
+    }
+
+    /** Replaces all the diagnostics (e.g. by those of a compilation). The next validations update them again. */
+    replaceAllDiagnostics(fileDiagnostics: FileDiagnostics): void {
+        this.diagnostics.clear();
+        for (const model of monaco.editor.getModels()) {
+            monaco.editor.setModelMarkers(model, MARKER_OWNER, []);
+        }
+        for (const { uri, diagnostics } of fileDiagnostics) {
+            const monacoUri = toMonacoUri(uri);
+            this.diagnostics.set(monacoUri.toString(), diagnostics as Diagnostic[]);
+            const model = monaco.editor.getModel(monacoUri);
+            if (model) {
+                monaco.editor.setModelMarkers(model, MARKER_OWNER, (diagnostics as Diagnostic[]).map(toMarker));
+            }
+        }
     }
 
     decompile(text: string, language: string): Promise<DecompileResult> {
