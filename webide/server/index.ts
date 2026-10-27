@@ -1,4 +1,4 @@
-import { handleLogout, handleMe, handleOAuthCallback, handleOAuthStart, handleProviders, handleSaveSettings, requireSession, type Session } from "./auth";
+import { getSession, handleLogout, handleMe, handleOAuthCallback, handleOAuthStart, handleProviders, handleSaveSettings, requireSession, type Session } from "./auth";
 import { type Env, HttpError, json } from "./http";
 import {
     handleCopyEntry,
@@ -14,6 +14,7 @@ import {
     handleRenameProject,
     handleSaveProjectSettings,
     handleSetDisabled,
+    handleSetProjectPublic,
     handleWriteFile,
 } from "./projects";
 
@@ -27,8 +28,8 @@ const routes: { method: string; pattern: RegExp; handler: Handler }[] = [
     { method: "POST", pattern: /^\/api\/projects$/, handler: (request, env, session) => handleCreateProject(request, env, session) },
     { method: "PATCH", pattern: /^\/api\/projects\/([0-9a-f]+)$/, handler: (request, env, session, [id]) => handleRenameProject(request, env, session, id) },
     { method: "DELETE", pattern: /^\/api\/projects\/([0-9a-f]+)$/, handler: (_request, env, session, [id]) => handleDeleteProject(env, session, id) },
-    { method: "GET", pattern: /^\/api\/projects\/([0-9a-f]+)\/files$/, handler: (_request, env, session, [id]) => handleGetFiles(env, session, id) },
     { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/settings$/, handler: (request, env, session, [id]) => handleSaveProjectSettings(request, env, session, id) },
+    { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/public$/, handler: (request, env, session, [id]) => handleSetProjectPublic(request, env, session, id) },
     { method: "PUT", pattern: /^\/api\/projects\/([0-9a-f]+)\/file$/, handler: (request, env, session, [id]) => handleWriteFile(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/mkdir$/, handler: (request, env, session, [id]) => handleCreateDirectory(request, env, session, id) },
     { method: "POST", pattern: /^\/api\/projects\/([0-9a-f]+)\/import$/, handler: (request, env, session, [id]) => handleImportEntries(request, env, session, id) },
@@ -57,6 +58,16 @@ async function handleApi(request: Request, env: Env): Promise<Response> {
     }
     if (request.method === "POST" && pathname === "/api/logout") {
         return handleLogout(request, env);
+    }
+    // Public projects can be viewed without session.
+    const filesMatch = /^\/api\/projects\/([0-9a-f]+)\/files$/.exec(pathname);
+    if (request.method === "GET" && filesMatch) {
+        const session = await getSession(request, env);
+        const response = await handleGetFiles(env, session, filesMatch[1]);
+        if (session?.setCookie) {
+            response.headers.append("Set-Cookie", session.setCookie);
+        }
+        return response;
     }
 
     let pathMatched = false;

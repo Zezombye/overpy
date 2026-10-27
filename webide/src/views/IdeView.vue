@@ -4,6 +4,8 @@ import { onMounted } from "vue";
 import Workbench from "../ide/components/Workbench.vue";
 import { ide, startIde } from "../ide/ide";
 import { reportError } from "../ide/notifications";
+import { loginUrl } from "../lib/router";
+import { session } from "../lib/session";
 
 const props = defineProps<{ projectId: string }>();
 
@@ -18,7 +20,8 @@ onMounted(() => {
         <div v-if="ide.phase === 'error'" class="max-w-md text-center">
             <p class="mb-2 text-lg text-fg-strong">Could not open the project</p>
             <p class="mb-5 text-fg-muted">{{ ide.error }}</p>
-            <a class="vsc-button" href="/">Back to projects</a>
+            <a v-if="session.user" class="vsc-button" href="/">Back to projects</a>
+            <a v-else class="vsc-button" :href="loginUrl()">Sign In</a>
         </div>
         <div v-else class="flex flex-col items-center gap-3 text-fg-muted">
             <span class="codicon codicon-loading codicon-modifier-spin text-[24px]" />

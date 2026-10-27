@@ -256,9 +256,12 @@ function isValidValue(definition: SettingDefinition, value: unknown): boolean {
 }
 
 let loading = false;
+/** Settings are saved in the account, so only once signed in (else they only apply to the page). */
+let persisted = false;
 
 /** Replaces the current settings by the ones stored in the user's account. */
 export function loadUserSettings(userSettings: Record<string, unknown>): void {
+    persisted = true;
     loading = true;
     Object.assign(settings, defaultValues());
     for (const [key, value] of Object.entries(userSettings)) {
@@ -309,7 +312,7 @@ export function onSettingsSaveError(handler: (error: unknown) => void): void {
 watch(
     settings,
     () => {
-        if (loading) {
+        if (loading || !persisted) {
             return;
         }
         clearTimeout(saveTimer);

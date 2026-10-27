@@ -77,6 +77,8 @@ function editorOptions(): monaco.editor.IEditorOptions & monaco.editor.IGlobalEd
         inlayHints: { enabled: getSetting<"on" | "onUnlessPressed" | "offUnlessPressed" | "off">("editor.inlayHints.enabled") },
         cursorBlinking: getSetting<"blink" | "smooth" | "phase" | "expand" | "solid">("editor.cursorBlinking"),
         mouseWheelZoom: getSetting<boolean>("editor.mouseWheelZoom"),
+        readOnly: workspace.readOnly,
+        readOnlyMessage: { value: "This project belongs to another user: it is read only." },
     };
 }
 

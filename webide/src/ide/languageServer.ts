@@ -7,7 +7,7 @@ import { setLanguageClient } from "./editors";
 import { LanguageClient } from "./monaco/lspClient";
 import { OVERPY_LANGUAGE_ID } from "./monaco/overpyLanguage";
 import { notify, reportError, showError, showWarning } from "./notifications";
-import { appendOutput, LANGUAGE_SERVER_CHANNEL } from "./output";
+import { appendOutput, LANGUAGE_SERVER_CHANNEL, OVERPY_CHANNEL } from "./output";
 import { orderedCodeFiles } from "./projectOrder";
 import { attachLanguageClient, fsPathOf, isCodeFile, onDidSaveFile, pathOfFsPath, rootFsPath, rootUri, workspace, writeFile } from "./workspace";
 
@@ -21,6 +21,10 @@ export function onCompilerFileWritten({ path, content }: FileWrittenParams): voi
     const relativePath = pathOfFsPath(path);
     if (relativePath === undefined) {
         showWarning(`The compiler tried to write '${path}', which is outside of the project. The file was not written.`);
+        return;
+    }
+    if (workspace.readOnly) {
+        appendOutput(OVERPY_CHANNEL, `'${relativePath}' was not written: the project is read only.`);
         return;
     }
     writeFile(relativePath, content).catch((error) => reportError(error, `Could not write '${relativePath}'`));

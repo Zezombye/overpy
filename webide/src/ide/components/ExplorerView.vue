@@ -165,6 +165,9 @@ function onTreeKeyDown(event: KeyboardEvent): void {
     if (explorer.editing) {
         return;
     }
+    if (workspace.readOnly && (event.key === "F2" || event.key === "Delete" || event.altKey)) {
+        return;
+    }
     const selected = explorer.selected;
     const entry = selected !== null ? workspace.entries.get(selected) : undefined;
     const handled = (() => {
@@ -250,6 +253,21 @@ function convert(path: string): void {
 
 function onRowContextMenu(event: MouseEvent, entry: EntryInfo): void {
     explorer.selected = entry.path;
+    if (workspace.readOnly) {
+        showContextMenu({ x: event.clientX, y: event.clientY }, [
+            ...(entry.type === "file"
+                ? [
+                      { label: "Open", run: () => openFile(entry.path) },
+                      { label: "OverPy: Compile Project", run: () => run(compileProject) },
+                      { label: "Download", run: () => run(() => downloadFile(entry.path)) },
+                      { separator: true as const },
+                  ]
+                : []),
+            { label: "Copy Path", run: () => copyText(fsPathOf(entry.path)) },
+            { label: "Copy Relative Path", run: () => copyText(entry.path) },
+        ]);
+        return;
+    }
     const folder = entry.type === "dir" ? entry.path : dirname(entry.path);
     const items: MenuItem[] = [
         { label: "New File...", run: () => startNewFile(folder) },
@@ -286,11 +304,15 @@ function onRowContextMenu(event: MouseEvent, entry: EntryInfo): void {
 function onBackgroundContextMenu(event: MouseEvent): void {
     explorer.selected = null;
     showContextMenu({ x: event.clientX, y: event.clientY }, [
-        { label: "New File...", run: () => startNewFile("") },
-        { label: "New Workshop File...", run: () => startNewFile("", "workshop") },
-        { label: "New Folder...", run: () => startNewFolder("") },
-        { label: "Upload Files...", run: () => pickFilesToUpload("") },
-        { separator: true },
+        ...(workspace.readOnly
+            ? []
+            : [
+                  { label: "New File...", run: () => startNewFile("") },
+                  { label: "New Workshop File...", run: () => startNewFile("", "workshop") },
+                  { label: "New Folder...", run: () => startNewFolder("") },
+                  { label: "Upload Files...", run: () => pickFilesToUpload("") },
+                  { separator: true as const },
+              ]),
         { label: "Download Project as .zip", run: () => run(downloadProject) },
         { label: "Collapse Folders", run: collapseAll },
     ]);
@@ -328,6 +350,9 @@ function dropTargetAt(event: DragEvent, entry: EntryInfo | null, moving: boolean
 }
 
 function onDragOver(event: DragEvent, entry: EntryInfo | null): void {
+    if (workspace.readOnly) {
+        return;
+    }
     const types = event.dataTransfer?.types ?? [];
     const moving = types.includes(DRAG_MIME);
     if (!moving && !types.includes("Files")) {
@@ -394,11 +419,14 @@ function indent(depth: number): string {
         <div class="group flex h-[22px] shrink-0 items-center border-t border-transparent pr-1 pl-1 font-bold">
             <span class="codicon codicon-chevron-down mr-0.5 text-[16px]" />
             <span class="flex-1 truncate text-[11px] uppercase">{{ workspace.project?.name }}</span>
+            <span v-if="workspace.readOnly" class="mr-1 text-[11px] font-normal text-fg-muted" title="This project belongs to another user: it is read only.">read only</span>
             <div class="flex gap-0.5 opacity-0 group-hover:opacity-100 focus-within:opacity-100">
-                <button class="vsc-toolbar-button" title="New File..." @click="startNewFile()"><span class="codicon codicon-new-file" /></button>
-                <button class="vsc-toolbar-button" title="New Workshop File..." @click="startNewFile(undefined, 'workshop')"><span class="codicon codicon-file-code" /></button>
-                <button class="vsc-toolbar-button" title="New Folder..." @click="startNewFolder()"><span class="codicon codicon-new-folder" /></button>
-                <button class="vsc-toolbar-button" title="Upload Files..." @click="pickFilesToUpload()"><span class="codicon codicon-cloud-upload" /></button>
+                <template v-if="!workspace.readOnly">
+                    <button class="vsc-toolbar-button" title="New File..." @click="startNewFile()"><span class="codicon codicon-new-file" /></button>
+                    <button class="vsc-toolbar-button" title="New Workshop File..." @click="startNewFile(undefined, 'workshop')"><span class="codicon codicon-file-code" /></button>
+                    <button class="vsc-toolbar-button" title="New Folder..." @click="startNewFolder()"><span class="codicon codicon-new-folder" /></button>
+                    <button class="vsc-toolbar-button" title="Upload Files..." @click="pickFilesToUpload()"><span class="codicon codicon-cloud-upload" /></button>
+                </template>
                 <button class="vsc-toolbar-button" title="Collapse Folders in Explorer" @click="collapseAll"><span class="codicon codicon-collapse-all" /></button>
             </div>
         </div>
@@ -451,7 +479,7 @@ function indent(depth: number): string {
                     ]"
                     :style="{ paddingLeft: indent(row.depth) }"
                     :title="isEntryDisabled(row.entry.path) ? `${row.entry.path} (excluded from the compilation)` : row.entry.path"
-                    draggable="true"
+                    :draggable="!workspace.readOnly"
                     @click="onRowClick(row.entry)"
                     @dblclick="onRowDoubleClick(row.entry)"
                     @contextmenu.prevent.stop="onRowContextMenu($event, row.entry)"
@@ -471,7 +499,8 @@ function indent(depth: number): string {
                     <span class="flex-1 truncate" :class="[decoration(row.entry.path).class, isEntryDisabled(row.entry.path) ? 'opacity-50' : '']">
                         {{ basename(row.entry.path) }}
                     </span>
-                    <div class="ml-1 flex shrink-0 items-center" @click.stop @dblclick.stop>
+                    <span v-if="workspace.readOnly && row.entry.disabled" class="codicon codicon-eye-closed ml-1 shrink-0" title="Excluded from the compilation" />
+                    <div v-if="!workspace.readOnly" class="ml-1 flex shrink-0 items-center" @click.stop @dblclick.stop>
                         <button class="vsc-toolbar-button hidden !h-5 !w-5 group-hover:inline-flex" title="Duplicate" @click="run(() => duplicateEntry(row.entry.path))">
                             <span class="codicon codicon-copy" />
                         </button>
@@ -496,8 +525,10 @@ function indent(depth: number): string {
 
             <div v-if="workspace.entries.size === 0 && !explorer.editing" class="px-5 py-3 text-fg-muted">
                 <p class="mb-3">This project is empty.</p>
-                <button class="vsc-button mb-2 w-full" @click="executeCommand('explorer.newFile')">New File</button>
-                <button class="vsc-button-secondary w-full" @click="pickFilesToUpload('')">Upload Files</button>
+                <template v-if="!workspace.readOnly">
+                    <button class="vsc-button mb-2 w-full" @click="executeCommand('explorer.newFile')">New File</button>
+                    <button class="vsc-button-secondary w-full" @click="pickFilesToUpload('')">Upload Files</button>
+                </template>
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@ import {
     TemplateRequest,
     type TemplateResult,
 } from "./protocol";
-import { decompileProjectFile, prepareProjectCompilation, PROJECT_MAIN_FILE_NAME, setProjectFiles } from "./project";
+import { decompileProjectFile, prepareProjectCompilation, PROJECT_MAIN_FILE_NAME, projectRelativePath, setProjectFiles } from "./project";
 import { ProjectError, ProjectFileError } from "./projectErrors";
 import { getCreatedConnection } from "./shims/languageserverNode";
 import { applyVfsChanges, normalizePath, setVfsWriteListener } from "./shims/vfs";
@@ -159,8 +159,8 @@ function isUserCodeError(error: unknown): error is OpyError | ProjectError {
 
 function errorMessage(error: OpyError | ProjectError): string {
     if (error instanceof ProjectFileError) {
-        const { path, startLine } = error.fileStack[0];
-        return `${path}:${startLine}: ${error.message}`;
+        const { path, name, startLine } = error.fileStack[0];
+        return `${path === undefined ? name : projectRelativePath(path)}:${startLine}: ${error.message}`;
     }
     return error.message;
 }

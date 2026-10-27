@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 import overpyIconUrl from "../../../../img/overpy.png?url";
+import { loginUrl } from "../../lib/router";
 import { session } from "../../lib/session";
 import { commands, executeCommand, keybindingLabel } from "../commands";
 import { showContextMenu } from "../contextMenu";
@@ -146,12 +147,17 @@ function showAccountMenu(event: MouseEvent): void {
 
         <div class="flex shrink-0 items-center gap-0.5 pr-2">
             <ProjectSettingsDropdown />
-            <ProjectSwitcher />
-            <button class="flex h-[24px] items-center gap-1.5 rounded-[5px] px-1.5 hover:bg-toolbar-hover" title="Account" @click="showAccountMenu">
+            <ProjectSwitcher v-if="session.user" />
+            <span v-else class="flex h-[24px] items-center gap-1 px-1.5" title="This project belongs to another user: it is read only.">
+                <span class="codicon codicon-folder text-[16px]" />
+                <span class="max-w-[160px] truncate">{{ workspace.project?.name }}</span>
+            </span>
+            <button v-if="session.user" class="flex h-[24px] items-center gap-1.5 rounded-[5px] px-1.5 hover:bg-toolbar-hover" title="Account" @click="showAccountMenu">
                 <UserAvatar :user="session.user" :size="16" />
-                <span class="max-w-[120px] truncate">{{ session.user?.name }}</span>
+                <span class="max-w-[120px] truncate">{{ session.user.name }}</span>
                 <span class="codicon codicon-chevron-down text-[12px]" />
             </button>
+            <a v-else class="vsc-button flex h-[24px] items-center px-2" :href="loginUrl()">Sign In</a>
             <span class="mx-1 h-4 border-l border-border" />
             <button class="vsc-toolbar-button" :title="`Toggle Primary Side Bar (${keybindingLabel('mod+b')})`" @click="layout.sideBarVisible = !layout.sideBarVisible">
                 <span class="codicon" :class="layout.sideBarVisible ? 'codicon-layout-sidebar-left' : 'codicon-layout-sidebar-left-off'" />

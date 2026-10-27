@@ -200,7 +200,7 @@ async function decompileEntries(imported: WorkshopCodesImport, language: string,
         entries.unshift({
             path: uniqueName(DECLARATIONS_FILE_NAME, ".opy", rootNames),
             type: "file",
-            content: `# Variables, subroutines and extensions used by the decompiled files.\n\n${result.declarations}`,
+            content: `# Strict optimizations, variables, subroutines and extensions of the decompiled files.\n\n${result.declarations}`,
         });
     }
     return entries;

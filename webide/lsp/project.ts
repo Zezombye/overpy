@@ -33,6 +33,12 @@ export function setProjectFiles(params: SetProjectFilesParams): void {
     projectDirectives = params.directives;
 }
 
+/** "/My Project/dir/file.ow" -> "dir/file.ow" (paths outside of the project are unchanged). */
+export function projectRelativePath(path: string): string {
+    const prefix = projectRoot === "/" ? "/" : `${projectRoot}/`;
+    return path.startsWith(prefix) ? path.substring(prefix.length) : path;
+}
+
 export function isProjectFile(path: string): boolean {
     return projectFiles.includes(normalizePath(path));
 }

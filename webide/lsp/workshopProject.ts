@@ -260,13 +260,30 @@ function overpyDeclarations(overpyContents: string[]): { names: Set<string>; ext
     return { names, extensions };
 }
 
+const DECLARATION_SECTIONS: [DeclarationKind, string][] = [
+    ["globalvar", "Global variables"],
+    ["playervar", "Player variables"],
+    ["subroutine", "Subroutine names"],
+];
+
+/**
+ * Declarations and extensions as OverPy code, in sections like in decompiled code: global variables, player
+ * variables, subroutines, extensions. Names with an index come first, by index, then the others by name.
+ */
 function declarationLines(declarations: Declaration[], extensions: string[]): string {
-    return [
-        ...declarations.map(({ kind, name, index }) => (index === null ? `${kind} ${name}` : `${kind} ${name} ${index}`)),
-        ...extensions.map((extension) => `#!extension ${extension}`),
-    ]
-        .map((line) => `${line}\n`)
-        .join("");
+    const sections: string[] = [];
+    for (const [kind, title] of DECLARATION_SECTIONS) {
+        const ofKind = declarations
+            .filter((declaration) => declaration.kind === kind)
+            .sort((a, b) => (a.index ?? Infinity) - (b.index ?? Infinity) || a.name.localeCompare(b.name));
+        if (ofKind.length > 0) {
+            sections.push(`#${title}\n\n${ofKind.map(({ name, index }) => (index === null ? `${kind} ${name}` : `${kind} ${name} ${index}`)).join("\n")}\n`);
+        }
+    }
+    if (extensions.length > 0) {
+        sections.push(`#Activated extensions\n\n${[...new Set(extensions)].sort().map((extension) => `#!extension ${extension}`).join("\n")}\n`);
+    }
+    return sections.join("\n");
 }
 
 /** The declarations and extensions of the workshop files, merged, as OverPy code. Names declared in OverPy files are left to them. */
@@ -371,7 +388,7 @@ export function decompileImportedFiles(
     }
     const optimizeStrict = [...enabledDecompiled.values()].find((decompiled) => decompiled.optimizeStrict !== null)?.optimizeStrict;
     const declarations = mergeWorkshopDeclarations(enabledDecompiled, []);
-    return { files: results, declarations: optimizeStrict ? `${declarations}\n${optimizeStrict}\n` : declarations };
+    return { files: results, declarations: [optimizeStrict ? `${optimizeStrict}\n` : "", declarations].filter((part) => part !== "").join("\n") };
 }
 
 /** Expands files one by one (e.g. when they cannot be expanded together), with the mixins of all files. */

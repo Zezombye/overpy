@@ -78,6 +78,7 @@ export const api = {
 
     getFiles: (projectId: string) => request<ProjectFilesResponse>("GET", `${projectPath(projectId)}/files`),
     saveProjectSettings: (projectId: string, settings: ProjectSettings) => request<{ ok: true }>("PUT", `${projectPath(projectId)}/settings`, { settings }),
+    setProjectPublic: (projectId: string, isPublic: boolean) => request<{ ok: true }>("PUT", `${projectPath(projectId)}/public`, { public: isPublic }),
     writeFile: (projectId: string, body: WriteFileRequest) => request<WriteResponse>("PUT", `${projectPath(projectId)}/file`, body),
     createDirectory: (projectId: string, path: string) => request<WriteResponse>("POST", `${projectPath(projectId)}/mkdir`, { path }),
     importEntries: (projectId: string, body: ImportEntriesRequest) => request<WriteResponse>("POST", `${projectPath(projectId)}/import`, body),

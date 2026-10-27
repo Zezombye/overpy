@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 
+import { session } from "../../lib/session";
 import { isModified, resetSetting, type SettingDefinition, setSetting, settingDefinitions, settings } from "../../lib/settings";
 
 const query = ref("");
@@ -45,7 +46,9 @@ function reset(definition: SettingDefinition): void {
     <div class="flex flex-col overflow-hidden bg-editor select-text">
         <div class="mx-auto w-full max-w-[1000px] shrink-0 px-6 pt-3 pb-2">
             <input v-model="query" class="vsc-input h-[30px] w-full text-[14px]" placeholder="Search settings" spellcheck="false" />
-            <p class="mt-2 text-[12px] text-fg-muted">Settings are saved in your account and apply to all your projects.</p>
+            <p class="mt-2 text-[12px] text-fg-muted">
+                {{ session.user ? "Settings are saved in your account and apply to all your projects." : "Sign in to save your settings: without account, they only apply to this page." }}
+            </p>
         </div>
         <div class="min-h-0 flex-1 overflow-y-auto">
             <div class="mx-auto w-full max-w-[1000px] px-6 pb-10">

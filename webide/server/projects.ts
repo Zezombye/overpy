@@ -13,7 +13,7 @@ import {
     validateProjectName,
     type WriteResponse,
 } from "../shared/api";
-import { validateProjectSettings } from "../shared/projectSettings";
+import { knownProjectSettings, type ProjectSettings, validateProjectSettings } from "../shared/projectSettings";
 import type { Session } from "./auth";
 import { type Env, getOptionalBoolean, getOptionalNumber, getString, HttpError, json, randomHex, readJsonObject } from "./http";
 
@@ -254,9 +254,16 @@ export async function handleDeleteProject(env: Env, session: Session, projectId:
     return json({ ok: true });
 }
 
-export async function handleGetFiles(env: Env, session: Session, projectId: string): Promise<Response> {
-    const project = await getProject(env, session, projectId);
-    const settingsRow = await env.DB.prepare("SELECT settings FROM projects WHERE id = ?").bind(projectId).first<{ settings: string }>();
+/** Also for public projects of other users, and without session (read only). */
+export async function handleGetFiles(env: Env, session: Session | null, projectId: string): Promise<Response> {
+    const project = await env.DB.prepare(`SELECT ${PROJECT_COLUMNS}, user_id, settings, public FROM projects WHERE id = ?`)
+        .bind(projectId)
+        .first<ProjectRow & { user_id: number; settings: string; public: 0 | 1 }>();
+    const isOwner = project !== null && project.user_id === session?.user.id;
+    // Private projects of other users are reported as missing, like those that do not exist.
+    if (!project || (!isOwner && project.public !== 1)) {
+        throw new HttpError(404, "Project not found.");
+    }
     const rows = await env.DB.prepare("SELECT path, type, content, mtime, position, disabled FROM entries WHERE project_id = ? ORDER BY position").bind(projectId).all<EntryRow>();
     const entries: ProjectEntry[] = rows.results.map((row) => ({
         path: row.path,
@@ -266,7 +273,23 @@ export async function handleGetFiles(env: Env, session: Session, projectId: stri
         position: row.position,
         disabled: row.disabled === 1,
     }));
-    return json({ project: toSummary(project), entries, settings: JSON.parse(settingsRow!.settings) } satisfies ProjectFilesResponse);
+    return json({
+        project: toSummary(project),
+        entries,
+        settings: knownProjectSettings(JSON.parse(project.settings) as ProjectSettings),
+        public: project.public === 1,
+        readOnly: !isOwner,
+    } satisfies ProjectFilesResponse);
+}
+
+export async function handleSetProjectPublic(request: Request, env: Env, session: Session, projectId: string): Promise<Response> {
+    await getProject(env, session, projectId);
+    const body = await readJsonObject(request);
+    if (typeof body.public !== "boolean") {
+        throw new HttpError(400, "Field 'public' must be a boolean.");
+    }
+    await env.DB.prepare("UPDATE projects SET public = ? WHERE id = ?").bind(body.public ? 1 : 0, projectId).run();
+    return json({ ok: true });
 }
 
 export async function handleSaveProjectSettings(request: Request, env: Env, session: Session, projectId: string): Promise<Response> {

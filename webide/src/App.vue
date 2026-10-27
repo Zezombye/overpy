@@ -18,12 +18,14 @@ const systemDark = ref(prefersDark.matches);
 prefersDark.addEventListener("change", () => (systemDark.value = prefersDark.matches));
 
 watchEffect(() => {
-    const dark = session.user ? settings["workbench.colorTheme"] !== "Light Modern" : systemDark.value;
+    // The IDE has a color theme setting (not saved without account); the other pages follow the system without account.
+    const dark = session.user || route.value.name === "ide" ? settings["workbench.colorTheme"] !== "Light Modern" : systemDark.value;
     document.documentElement.dataset.theme = dark ? "dark" : "light";
 });
 
+// Without account, only public projects can be opened (in the IDE, read only).
 const view = computed(() => {
-    if (!session.user) {
+    if (!session.user && route.value.name !== "ide") {
         return "login";
     }
     return route.value.name;
@@ -36,7 +38,7 @@ function reload(): void {
 onMounted(async () => {
     try {
         const loggedIn = await loadSession();
-        if (!loggedIn && route.value.name !== "login") {
+        if (!loggedIn && route.value.name !== "login" && route.value.name !== "ide") {
             navigate(`/login?next=${encodeURIComponent(location.pathname)}`, { replace: true });
         } else if (loggedIn && route.value.name === "login") {
             navigate("/", { replace: true });

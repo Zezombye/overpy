@@ -7,6 +7,7 @@ import { reportError, showInfo } from "../notifications";
 import { basename, dirname } from "../paths";
 import { fileIcon } from "../quickAccess";
 import { replaceAll, runSearch, search } from "../search";
+import { workspace } from "../workspace";
 
 const queryInput = ref<HTMLTextAreaElement | null>(null);
 let searchTimer: ReturnType<typeof setTimeout> | undefined;
@@ -78,7 +79,7 @@ function onQueryKeyDown(event: KeyboardEvent): void {
 <template>
     <div class="flex min-h-0 flex-col">
         <div class="flex shrink-0 gap-0.5 pr-2 pb-2 pl-1">
-            <button class="vsc-toolbar-button mt-[3px] shrink-0" title="Toggle Replace" @click="search.showReplace = !search.showReplace">
+            <button v-if="!workspace.readOnly" class="vsc-toolbar-button mt-[3px] shrink-0" title="Toggle Replace" @click="search.showReplace = !search.showReplace">
                 <span class="codicon" :class="search.showReplace ? 'codicon-chevron-down' : 'codicon-chevron-right'" />
             </button>
             <div class="flex min-w-0 flex-1 flex-col gap-1.5">
@@ -102,7 +103,7 @@ function onQueryKeyDown(event: KeyboardEvent): void {
                         <span class="codicon codicon-regex" />
                     </button>
                 </div>
-                <div v-if="search.showReplace" class="flex items-center gap-1">
+                <div v-if="search.showReplace && !workspace.readOnly" class="flex items-center gap-1">
                     <input v-model="search.replacement" class="vsc-input h-[26px] min-w-0 flex-1" placeholder="Replace" spellcheck="false" />
                     <button class="vsc-toolbar-button shrink-0" title="Replace All" :disabled="search.totalMatches === 0" @click="onReplaceAllClick()">
                         <span class="codicon codicon-replace-all" />

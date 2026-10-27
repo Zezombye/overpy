@@ -1,3 +1,4 @@
+import workshopIconUrl from "../../../img/olliework.png?url";
 import overpyIconUrl from "../../../img/overpy.png?url";
 import { commandLabel, commands, executeCommand, keybindingLabel } from "./commands";
 import { editors, getCodeEditor, openFile } from "./editors";
@@ -19,7 +20,7 @@ export function fileIcon(path: string): { icon?: string; iconUrl?: string } {
         case ".opy":
             return { iconUrl: overpyIconUrl };
         case ".ow":
-            return { icon: "file-code" };
+            return { iconUrl: workshopIconUrl };
         case ".json":
             return { icon: "json" };
         case ".md":

@@ -11,6 +11,7 @@ import { basename, dirname, extension, isSameOrChild, joinPath, replacePrefix } 
 import { childPaths } from "./projectOrder";
 import { readLocal, writeLocal } from "./storage";
 import {
+    checkWritable,
     copyEntry,
     createDirectory,
     createFile,
@@ -102,6 +103,7 @@ function targetFolder(): string {
 }
 
 export function startNewFile(parent = targetFolder(), fileType: NewFileType = "overpy"): void {
+    checkWritable();
     showSideBarView("explorer");
     if (parent !== "") {
         revealInExplorer(parent);
@@ -110,6 +112,7 @@ export function startNewFile(parent = targetFolder(), fileType: NewFileType = "o
 }
 
 export function startNewFolder(parent = targetFolder()): void {
+    checkWritable();
     showSideBarView("explorer");
     if (parent !== "") {
         revealInExplorer(parent);
@@ -118,6 +121,7 @@ export function startNewFolder(parent = targetFolder()): void {
 }
 
 export function startRename(path: string): void {
+    checkWritable();
     revealInExplorer(path);
     explorer.editing = { kind: "rename", path, value: basename(path), error: null };
 }
@@ -315,6 +319,7 @@ export async function uploadFiles(folder: string, files: File[]): Promise<void> 
 }
 
 export function pickFilesToUpload(folder = targetFolder()): void {
+    checkWritable();
     const input = document.createElement("input");
     input.type = "file";
     input.multiple = true;

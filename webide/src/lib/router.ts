@@ -35,3 +35,8 @@ export function navigate(path: string, options: { replace?: boolean } = {}): voi
 export function ideUrl(projectId: string): string {
     return `/ide/${projectId}`;
 }
+
+/** The sign-in page, which comes back to the current page. */
+export function loginUrl(): string {
+    return `/login?next=${encodeURIComponent(location.pathname)}`;
+}

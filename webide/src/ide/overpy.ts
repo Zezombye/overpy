@@ -135,7 +135,8 @@ export async function compileProject(): Promise<void> {
         showWarning(`Warning: ${warning}`);
     }
 
-    if (result.writeToOutputFile) {
+    // In a read-only project (another user's public project), the compiled code is only copied.
+    if (result.writeToOutputFile && !workspace.readOnly) {
         const outputFsPath = normalizeFsPath(`${result.rootPath}/${result.mainFileName.replace(/\.opy$/, "")}.ws.txt`);
         const outputPath = pathOfFsPath(outputFsPath);
         if (outputPath === undefined) {

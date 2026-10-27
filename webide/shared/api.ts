@@ -66,6 +66,10 @@ export interface ProjectFilesResponse {
     entries: ProjectEntry[];
     /** See shared/projectSettings.ts. */
     settings: Record<string, boolean | string>;
+    /** Anyone with the link can view the project, even without an account. */
+    public: boolean;
+    /** The project belongs to another user (it is public): it can be viewed, not modified. */
+    readOnly: boolean;
 }
 
 export interface WriteFileRequest {

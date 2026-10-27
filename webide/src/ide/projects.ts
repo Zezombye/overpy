@@ -1,7 +1,7 @@
 import { AUTH_PROVIDER_NAMES, type AuthProvider, validateProjectName } from "../../shared/api";
 import { api, oauthStartUrl } from "../lib/api";
 import { formatRelativeTime } from "../lib/format";
-import { ideUrl } from "../lib/router";
+import { ideUrl, loginUrl } from "../lib/router";
 import { linkableProviders, logout, session } from "../lib/session";
 import { getSetting } from "../lib/settings";
 import { importIntoNewProject, notDecompiledMessage, parseWorkshopCodesExport, pickFile, projectNameForFile } from "../lib/workshopCodesImport";
@@ -123,6 +123,12 @@ export async function signOut(): Promise<void> {
 
 /** The account menu (title bar and activity bar). */
 export function accountMenuItems(): MenuItem[] {
+    if (!session.user) {
+        return [
+            { label: "Sign In...", run: () => leaveTo(loginUrl(), "signing in") },
+            { label: "Settings", keybinding: keybindingLabel("mod+,"), run: () => executeCommand("workbench.action.openSettings") },
+        ];
+    }
     const linked = session.identities.map((provider) => AUTH_PROVIDER_NAMES[provider]).join(" and ");
     return [
         { label: `${session.user?.name}${linked ? ` (${linked})` : ""}`, run: () => {}, disabled: true },

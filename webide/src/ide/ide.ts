@@ -1,7 +1,7 @@
 import { reactive, watch } from "vue";
 
 import { ApiError, onUnauthorized } from "../lib/api";
-import { takeAuthError } from "../lib/session";
+import { session, takeAuthError } from "../lib/session";
 import { onSettingsSaveError } from "../lib/settings";
 import { enableAutoSave } from "./autoSave";
 import { installKeybindings } from "./commands";
@@ -46,7 +46,12 @@ export async function startIde(projectId: string): Promise<void> {
     } catch (error) {
         console.error(error);
         ide.phase = "error";
-        ide.error = error instanceof ApiError && error.status === 404 ? "This project does not exist, or it belongs to another account." : error instanceof Error ? error.message : String(error);
+        ide.error =
+            error instanceof ApiError && error.status === 404
+                ? `This project does not exist, or it is private.${session.user ? "" : " Sign in to open your projects."}`
+                : error instanceof Error
+                  ? error.message
+                  : String(error);
         return;
     }
 
@@ -92,7 +97,7 @@ export async function startIde(projectId: string): Promise<void> {
     }
 
     // New projects start with the OverPy template, like the extension's "Insert Template" command.
-    if (filePaths().length === 0 && workspace.entries.size === 0) {
+    if (!workspace.readOnly && filePaths().length === 0 && workspace.entries.size === 0) {
         await createFile("main.opy", await getTemplate());
         openFile("main.opy");
     }

@@ -17,7 +17,7 @@ interface BaseDefinition {
 export type ProjectSettingDefinition = BaseDefinition &
     (
         | { type: "boolean"; directive: string }
-        | { type: "string"; directive: string; placeholder: string; quoted?: boolean }
+        | { type: "string"; directive: string; placeholder: string }
         | { type: "select"; options: { value: string; label: string; directive: string | null }[] }
     );
 
@@ -61,12 +61,37 @@ export const PROJECT_SETTINGS: ProjectSettingDefinition[] = [
         requires: "optimizeForSize",
     },
     {
-        key: "useVariableForCompressionAlphabet",
-        section: "Optimizations",
-        title: "Variable For Compression Alphabet",
-        description: "The compression functions use a global variable instead of a string for their alphabet, which saves elements. (#!useVariableForCompressionAlphabet)",
+        key: "translations",
+        section: "Translations",
+        title: "Languages",
+        description: "Enables the translation system for these languages, separated by spaces (e.g. en fr es_mx). (#!translations)",
+        type: "string",
+        directive: "translations",
+        placeholder: "None",
+    },
+    {
+        key: "translateWithPlayerVar",
+        section: "Translations",
+        title: "Translate With Player Variable",
+        description: "Stores the language of each player in a variable, which saves a lot of elements (see the directive's documentation). (#!translateWithPlayerVar)",
         type: "boolean",
-        directive: "useVariableForCompressionAlphabet",
+        directive: "translateWithPlayerVar",
+    },
+    {
+        key: "keepUnusedTranslations",
+        section: "Translations",
+        title: "Keep Unused Translations",
+        description: "Unused translations are not removed from the .po files. (#!keepUnusedTranslations)",
+        type: "boolean",
+        directive: "keepUnusedTranslations",
+    },
+    {
+        key: "disableTranslationSourceLines",
+        section: "Translations",
+        title: "No Source Lines In Translations",
+        description: "The .po files do not include the source lines of the strings. (#!disableTranslationSourceLines)",
+        type: "boolean",
+        directive: "disableTranslationSourceLines",
     },
     {
         key: "replace0By",
@@ -114,24 +139,8 @@ export const PROJECT_SETTINGS: ProjectSettingDefinition[] = [
         requires: "optimizeForSize",
     },
     {
-        key: "disableInspector",
-        section: "Workshop",
-        title: "Disable Inspector",
-        description: "Adds a rule that disables the inspector at the start of the gamemode. (#!disableInspector)",
-        type: "boolean",
-        directive: "disableInspector",
-    },
-    {
-        key: "excludeVariablesInCompilation",
-        section: "Workshop",
-        title: "Exclude Variables",
-        description: "Leaves the variables block out of the compiled code, to paste it into another gamemode with different variable indexes. (#!excludeVariablesInCompilation)",
-        type: "boolean",
-        directive: "excludeVariablesInCompilation",
-    },
-    {
         key: "setupTags",
-        section: "Workshop",
+        section: "Other",
         title: "Set Up Tags",
         description:
             "Adds a rule that obtains the '<' character for <tx> and <fg> tags. Warning: it creates and destroys a dummy bot, which triggers the each player rules. (#!setupTags)",
@@ -139,28 +148,8 @@ export const PROJECT_SETTINGS: ProjectSettingDefinition[] = [
         directive: "setupTags",
     },
     {
-        key: "globalvarInitRuleName",
-        section: "Workshop",
-        title: "Global Variables Init Rule Name",
-        description: "Name of the generated rule that initializes the global variables. (#!globalvarInitRuleName)",
-        type: "string",
-        directive: "globalvarInitRuleName",
-        placeholder: "Default name",
-        quoted: true,
-    },
-    {
-        key: "playervarInitRuleName",
-        section: "Workshop",
-        title: "Player Variables Init Rule Name",
-        description: "Name of the generated rule that initializes the player variables. (#!playervarInitRuleName)",
-        type: "string",
-        directive: "playervarInitRuleName",
-        placeholder: "Default name",
-        quoted: true,
-    },
-    {
         key: "suppressWarnings",
-        section: "Compilation",
+        section: "Other",
         title: "Suppress Warnings",
         description: "Warnings to suppress in the whole project, separated by spaces (e.g. w_wait_in_loop). (#!suppressWarnings)",
         type: "string",
@@ -169,60 +158,11 @@ export const PROJECT_SETTINGS: ProjectSettingDefinition[] = [
     },
     {
         key: "debugElementCount",
-        section: "Compilation",
+        section: "Other",
         title: "Debug Element Count",
         description: "Adds the number of elements of each rule, condition and action to the compiled code. (#!debugElementCount)",
         type: "boolean",
         directive: "debugElementCount",
-    },
-    {
-        key: "allowMacroRedeclaration",
-        section: "Compilation",
-        title: "Allow Macro Redeclaration",
-        description: "Redefining a macro, #!define or enum member overwrites the previous definition instead of being an error. (#!allowMacroRedeclaration)",
-        type: "boolean",
-        directive: "allowMacroRedeclaration",
-    },
-    {
-        key: "writeToOutputFile",
-        section: "Compilation",
-        title: "Write To Output File",
-        description: "Also writes the compiled code to main.ws.txt in the project. (#!writeToOutputFile)",
-        type: "boolean",
-        directive: "writeToOutputFile",
-    },
-    {
-        key: "translations",
-        section: "Translations",
-        title: "Languages",
-        description: "Enables the translation system for these languages, separated by spaces (e.g. en fr es_mx). (#!translations)",
-        type: "string",
-        directive: "translations",
-        placeholder: "None",
-    },
-    {
-        key: "translateWithPlayerVar",
-        section: "Translations",
-        title: "Translate With Player Variable",
-        description: "Stores the language of each player in a variable, which saves a lot of elements (see the directive's documentation). (#!translateWithPlayerVar)",
-        type: "boolean",
-        directive: "translateWithPlayerVar",
-    },
-    {
-        key: "keepUnusedTranslations",
-        section: "Translations",
-        title: "Keep Unused Translations",
-        description: "Unused translations are not removed from the .po files. (#!keepUnusedTranslations)",
-        type: "boolean",
-        directive: "keepUnusedTranslations",
-    },
-    {
-        key: "disableTranslationSourceLines",
-        section: "Translations",
-        title: "No Source Lines In Translations",
-        description: "The .po files do not include the source lines of the strings. (#!disableTranslationSourceLines)",
-        type: "boolean",
-        directive: "disableTranslationSourceLines",
     },
 ];
 
@@ -237,6 +177,11 @@ export function projectSettingValue(settings: ProjectSettings, definition: Proje
         return value;
     }
     return definition.type === "boolean" ? false : definition.type === "string" ? "" : "none";
+}
+
+/** The settings without those that do not exist anymore (stored settings can be older than the current definitions). */
+export function knownProjectSettings(settings: ProjectSettings): ProjectSettings {
+    return Object.fromEntries(Object.entries(settings).filter(([key]) => definitionsByKey.has(key)));
 }
 
 /** Returns an error message, or null if the settings are valid. */
@@ -273,8 +218,7 @@ export function projectSettingsDirectives(settings: ProjectSettings): string {
         if (definition.type === "boolean" && value === true) {
             lines.push(`#!${definition.directive}`);
         } else if (definition.type === "string" && typeof value === "string" && value.trim() !== "") {
-            const argument = definition.quoted ? `"${value.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"` : value.trim();
-            lines.push(`#!${definition.directive} ${argument}`);
+            lines.push(`#!${definition.directive} ${value.trim()}`);
         } else if (definition.type === "select") {
             const directive = definition.options.find((option) => option.value === value)?.directive;
             if (directive) {

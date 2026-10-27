@@ -75,9 +75,21 @@ async function createSession(env: Env, userId: number): Promise<string> {
 
 /** Returns the session of the request, or throws a 401. */
 export async function requireSession(request: Request, env: Env): Promise<Session> {
+    if (!getCookie(request, SESSION_COOKIE)) {
+        throw new HttpError(401, "Not logged in.");
+    }
+    const session = await getSession(request, env);
+    if (!session) {
+        throw new HttpError(401, "Session expired, please sign in again.");
+    }
+    return session;
+}
+
+/** Returns the session of the request, or null if not signed in (or if the session expired). */
+export async function getSession(request: Request, env: Env): Promise<Session | null> {
     const token = getCookie(request, SESSION_COOKIE);
     if (!token) {
-        throw new HttpError(401, "Not logged in.");
+        return null;
     }
     const tokenHash = await sha256Hex(token);
     const row = await env.DB.prepare(
@@ -87,7 +99,7 @@ export async function requireSession(request: Request, env: Env): Promise<Sessio
         .first<UserRow & { expires_at: number }>();
     const now = Date.now();
     if (!row || row.expires_at < now) {
-        throw new HttpError(401, "Session expired, please sign in again.");
+        return null;
     }
     const session: Session = { user: toUser(row) };
     if (row.expires_at - now < SESSION_DURATION_MS - SESSION_RENEW_AFTER_MS) {
