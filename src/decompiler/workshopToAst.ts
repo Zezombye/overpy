@@ -115,6 +115,7 @@ OverPyDecompiler.prototype.decompileRuleToAst = function(content: string): Ast {
 
         return astRule;
     } catch (e) {
+        throw e;
         throw this.error("In rule "+ruleName+": " + e);
     }
 
@@ -129,11 +130,11 @@ OverPyDecompiler.prototype.decompileConditions = function(content: string) {
 
         let currentConditionComment: string = "";
         let isCurrentConditionDisabled = false;
-        //Check if there is a comment
-        if (condition.startsWith('"')) {
-            var conditionComment = this.getPrefixString(condition);
+        //Check if there is a comment. Note: comments can be concatenated
+        while (condition.startsWith('"')) {
+            let conditionComment = this.getPrefixString(condition);
             condition = condition.substring(conditionComment.length).trim();
-            currentConditionComment = this.unescapeString(conditionComment, false);
+            currentConditionComment += this.unescapeString(conditionComment, false);
         }
 
         //Check if the condition is disabled
@@ -169,10 +170,10 @@ OverPyDecompiler.prototype.decompileAction = function(content: string) {
     var currentActionComment: string = "";
     content = content.trim();
 
-    if (content.startsWith('"')) {
-        var actionComment = this.getPrefixString(content);
+    while (content.startsWith('"')) {
+        let actionComment = this.getPrefixString(content);
         content = content.substring(actionComment.length).trim();
-        currentActionComment = this.unescapeString(actionComment, false);
+        currentActionComment += this.unescapeString(actionComment, false);
     }
     if (content.startsWith(this.tows("__disabled__", ruleKw) + " ")) {
         isCurrentActionDisabled = true;
@@ -420,6 +421,10 @@ OverPyDecompiler.prototype.decompile = function(content: string): Ast {
         args.push("__removed_from_ow2__");
     }
 
+    if (name === "__team__" && args.length === 1) {
+        return this.Ast(this.topy(args[0], eventTeamKw).toUpperCase(), [], [], "TeamLiteral")
+    }
+
     if (!(name in wsFuncKw)) {
         this.error("Function '" + name + "' is not in the function list");
     }
@@ -442,7 +447,16 @@ OverPyDecompiler.prototype.decompile = function(content: string): Ast {
     for (var i = 0; i < args.length; i++) {
         if (name !== "__array__") {
             if (wsFuncKw[name].args?.[i].type in constantValues) {
-                astArgs.push(this.Ast(args[i] === "__removed_from_ow2__" ? args[i] : this.topy(args[i], constantValues[wsFuncKw[name].args?.[i].type]), [], [], wsFuncKw[name].args?.[i].type));
+                try {
+                    astArgs.push(this.Ast(args[i] === "__removed_from_ow2__" ? args[i] : this.topy(args[i], constantValues[wsFuncKw[name].args?.[i].type]), [], [], wsFuncKw[name].args?.[i].type));
+                } catch (e) {
+                    //Allow unknown heroes/maps/gamemodes
+                    if (["HeroLiteral", "MapLiteral", "GamemodeLiteral"].includes(wsFuncKw[name].args?.[i].type)) {
+                        astArgs.push(this.Ast(args[i].toUpperCase().replaceAll(" ", "_"), [], [], wsFuncKw[name].args?.[i].type));
+                    } else {
+                        throw e;
+                    }
+                }
             } else if (wsFuncKw[name].args?.[i].type === "GlobalVariable") {
                 astArgs.push(this.Ast(this.translateVarToPy(args[i], true, getInternalFileStack()), [], [], "GlobalVariable"));
             } else if (wsFuncKw[name].args?.[i].type === "PlayerVariable") {

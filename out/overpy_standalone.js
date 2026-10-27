@@ -18653,6 +18653,18 @@ var heroKw = (
         "zh-CN": "\u65A9\u5730\u5DE8\u5251",
         "zh-TW": "\u788E\u88C2\u5200\u5203"
       }
+    },
+    "doctrine": {
+      "en-US": "Doctrine",
+      "ability1": {
+        "en-US": "Shrouded Momentum"
+      },
+      "ability2": {
+        "en-US": "Invigorating Drones"
+      },
+      "ultimate": {
+        "en-US": "Deliverance"
+      }
     }
   }
 );
@@ -46599,6 +46611,9 @@ OverPyCompiler.prototype.unescapeString = OverPyDecompiler.prototype.unescapeStr
         result += "\n";
       } else if (content[i + 1] === "r") {
         result += "\r";
+      } else if (!tows) {
+        result += "\\";
+        continue;
       } else if (content[i + 1] === "b") {
         result += "\b";
       } else if (content[i + 1] === "f") {
@@ -64393,6 +64408,7 @@ OverPyDecompiler.prototype.decompileRuleToAst = function(content) {
     astRule.ruleAttributes.isDisabled = currentRuleIsDisabled;
     return astRule;
   } catch (e) {
+    throw e;
     throw this.error("In rule " + ruleName + ": " + e);
   }
 };
@@ -64403,10 +64419,10 @@ OverPyDecompiler.prototype.decompileConditions = function(content) {
     condition = condition.trim();
     let currentConditionComment = "";
     let isCurrentConditionDisabled = false;
-    if (condition.startsWith('"')) {
-      var conditionComment = this.getPrefixString(condition);
+    while (condition.startsWith('"')) {
+      let conditionComment = this.getPrefixString(condition);
       condition = condition.substring(conditionComment.length).trim();
-      currentConditionComment = this.unescapeString(conditionComment, false);
+      currentConditionComment += this.unescapeString(conditionComment, false);
     }
     if (condition.startsWith(this.tows("__disabled__", ruleKw))) {
       isCurrentConditionDisabled = true;
@@ -64433,10 +64449,10 @@ OverPyDecompiler.prototype.decompileAction = function(content) {
   var isCurrentActionDisabled = false;
   var currentActionComment = "";
   content = content.trim();
-  if (content.startsWith('"')) {
-    var actionComment = this.getPrefixString(content);
+  while (content.startsWith('"')) {
+    let actionComment = this.getPrefixString(content);
     content = content.substring(actionComment.length).trim();
-    currentActionComment = this.unescapeString(actionComment, false);
+    currentActionComment += this.unescapeString(actionComment, false);
   }
   if (content.startsWith(this.tows("__disabled__", ruleKw) + " ")) {
     isCurrentActionDisabled = true;
@@ -64644,6 +64660,9 @@ OverPyDecompiler.prototype.decompile = function(content) {
   if ((name === "__map__" || name === "__gamemode__") && args.length === 0) {
     args.push("__removed_from_ow2__");
   }
+  if (name === "__team__" && args.length === 1) {
+    return this.Ast(this.topy(args[0], eventTeamKw).toUpperCase(), [], [], "TeamLiteral");
+  }
   if (!(name in wsFuncKw)) {
     this.error("Function '" + name + "' is not in the function list");
   }
@@ -64666,7 +64685,15 @@ OverPyDecompiler.prototype.decompile = function(content) {
   for (var i = 0; i < args.length; i++) {
     if (name !== "__array__") {
       if (wsFuncKw[name].args?.[i].type in constantValues) {
-        astArgs.push(this.Ast(args[i] === "__removed_from_ow2__" ? args[i] : this.topy(args[i], constantValues[wsFuncKw[name].args?.[i].type]), [], [], wsFuncKw[name].args?.[i].type));
+        try {
+          astArgs.push(this.Ast(args[i] === "__removed_from_ow2__" ? args[i] : this.topy(args[i], constantValues[wsFuncKw[name].args?.[i].type]), [], [], wsFuncKw[name].args?.[i].type));
+        } catch (e) {
+          if (["HeroLiteral", "MapLiteral", "GamemodeLiteral"].includes(wsFuncKw[name].args?.[i].type)) {
+            astArgs.push(this.Ast(args[i].toUpperCase().replaceAll(" ", "_"), [], [], wsFuncKw[name].args?.[i].type));
+          } else {
+            throw e;
+          }
+        }
       } else if (wsFuncKw[name].args?.[i].type === "GlobalVariable") {
         astArgs.push(this.Ast(this.translateVarToPy(args[i], true, getInternalFileStack2()), [], [], "GlobalVariable"));
       } else if (wsFuncKw[name].args?.[i].type === "PlayerVariable") {
@@ -66647,7 +66674,7 @@ astParsingFunctions.__for__ = function(content, compiler) {
 
 // src/compiler/functions/__gamemode__.ts
 astParsingFunctions.__gamemode__ = function(content, compiler) {
-  if (constantValues["GamemodeLiteral"][content.args[0].name].onlyInOw1) {
+  if (constantValues["GamemodeLiteral"]?.[content.args[0].name]?.onlyInOw1) {
     compiler.error("The gamemode '" + content.args[0].name + "' is not available in OW2", content.args[0].fileStack);
   }
   return content;
@@ -70556,9 +70583,14 @@ OverPyCompiler.prototype.astToWs = function(content) {
       this.nbHeroesInValue++;
     }
     if (!(content.name in constantValues[content.type])) {
-      this.error("Unknown " + content.type.replace("Literal", "").toLowerCase() + " '" + content.name + "'");
+      if (["HeroLiteral", "MapLiteral", "GamemodeLiteral"].includes(content.type)) {
+        result += content.name.toLowerCase().replaceAll("_", " ");
+      } else {
+        this.error("Unknown " + content.type.replace("Literal", "").toLowerCase() + " '" + content.name + "'");
+      }
+    } else {
+      result += this.tows(content.name, constantValues[content.type]);
     }
-    result += this.tows(content.name, constantValues[content.type]);
   } else {
     this.error("Unknown type '" + content.type + "' of '" + content.name + "'");
   }
@@ -72107,4 +72139,3 @@ if (typeof module !== "undefined") {
     overpyTemplate
   };
 }
-//# sourceMappingURL=overpy_standalone.js.map

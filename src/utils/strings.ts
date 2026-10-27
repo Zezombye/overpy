@@ -100,6 +100,10 @@ OverPyCompiler.prototype.unescapeString = OverPyDecompiler.prototype.unescapeStr
                 result += "\n";
             } else if (content[i + 1] === "r") {
                 result += "\r";
+            } else if (!tows) {
+                //Workshop accepts unknown escape sequences, so when decompiling, accept them
+                result += "\\";
+                continue;
             } else if (content[i + 1] === "b") {
                 result += "\b";
             } else if (content[i + 1] === "f") {

@@ -3875,7 +3875,19 @@ export const heroKw = (
             "zh-CN": "斩地巨剑",
             "zh-TW": "碎裂刀刃"
         }
-    }
+    },
+    "doctrine": {
+        "en-US": "Doctrine",
+        "ability1": {
+            "en-US": "Shrouded Momentum",
+        },
+        "ability2": {
+            "en-US": "Invigorating Drones",
+        },
+        "ultimate": {
+            "en-US": "Deliverance",
+        }
+    },
 }
 //end-json
 ) satisfies Record<string, HeroData>;

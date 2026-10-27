@@ -723,9 +723,15 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
             this.nbHeroesInValue++;
         }
         if (!(content.name in constantValues[content.type])) {
-            this.error("Unknown " + content.type.replace("Literal", "").toLowerCase() + " '" + content.name + "'");
+            if (["HeroLiteral", "MapLiteral", "GamemodeLiteral"].includes(content.type)) {
+                //Allow unknown heroes/maps/gamemodes to not have to update instantly with every new ow patch
+                result += content.name.toLowerCase().replaceAll("_", " ");
+            } else {
+                this.error("Unknown " + content.type.replace("Literal", "").toLowerCase() + " '" + content.name + "'");
+            }
+        } else {
+            result += this.tows(content.name, constantValues[content.type]);
         }
-        result += this.tows(content.name, constantValues[content.type]);
     } else {
         this.error("Unknown type '" + content.type + "' of '" + content.name + "'");
     }

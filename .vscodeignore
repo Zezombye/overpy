@@ -4,6 +4,7 @@ img/readme_*
 src
 strings
 webui
+webide
 codemirror.min.js
 out/overpy_standalone.js
 out/overpy_standalone.js.map

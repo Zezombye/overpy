@@ -21,7 +21,7 @@ import { constantValues } from "../../data/constants";
 import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__gamemode__ = function (content, compiler) {
-    if (constantValues["GamemodeLiteral"][content.args[0].name].onlyInOw1) {
+    if (constantValues["GamemodeLiteral"]?.[content.args[0].name]?.onlyInOw1) {
         compiler.error("The gamemode '" + content.args[0].name + "' is not available in OW2", content.args[0].fileStack);
     }
 
