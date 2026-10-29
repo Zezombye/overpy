@@ -108,6 +108,16 @@ export interface ConflictResponse {
     currentMtime: number | null;
 }
 
+/**
+ * New positions for the entries of a folder, given in their new order: they take the positions that the folder's
+ * entries already have, in ascending order (or new ones, after `maxPosition`, the last position of the project, if some are equal).
+ */
+export function reorderedPositions(entries: EntryPosition[], maxPosition: number): EntryPosition[] {
+    const sorted = entries.map((entry) => entry.position).sort((a, b) => a - b);
+    const distinct = sorted.every((position, index) => index === 0 || position !== sorted[index - 1]);
+    return entries.map((entry, index) => ({ path: entry.path, position: distinct ? sorted[index] : maxPosition + 1 + index }));
+}
+
 export const MAX_PROJECTS_PER_USER = 50;
 export const MAX_ENTRIES_PER_PROJECT = 1000;
 /** D1 rows are limited to 2 MB. */

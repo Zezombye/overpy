@@ -18,12 +18,12 @@ import { layout, showSideBarView, togglePanelView } from "./layout";
 import { clearNotifications, notifications, showInfo } from "./notifications";
 import { compileProject, copyLastCompilationResult, insertTemplate, selectWorkshopLanguage } from "./overpy";
 import { AUTH_PROVIDER_NAMES, AUTH_PROVIDERS } from "../../shared/api";
-import { linkableProviders } from "../lib/session";
-import { importWorkshopCodesProject, linkAccount, manageProjects, newProject, renameCurrentProject, signOut, switchProject } from "./projects";
+import { linkableProviders, session } from "../lib/session";
+import { importWorkshopCodesProject, linkAccount, manageProjects, newProject, renameCurrentProject, signIn, signOut, switchProject } from "./projects";
 import { showGoToSymbol, showQuickAccess } from "./quickAccess";
 import { showQuickPick } from "./quickInput";
 import { search } from "./search";
-import { revertFile, saveAll, saveFile } from "./workspace";
+import { revertFile, saveAll, saveFile, workspace } from "./workspace";
 
 export const DOCUMENTATION_URL = "https://github.com/Zezombye/overpy#readme";
 
@@ -157,12 +157,26 @@ export function registerCommands(): void {
     registerCommand({ id: "overpy.copyLastCompilation", title: "Copy Last Compilation Result", category: "OverPy", run: copyLastCompilationResult });
 
     // Projects and account
-    registerCommand({ id: "projects.switch", title: "Switch Project...", category: "Projects", run: switchProject });
-    registerCommand({ id: "projects.new", title: "New Project...", category: "Projects", run: newProject });
-    registerCommand({ id: "projects.rename", title: "Rename Current Project...", category: "Projects", run: renameCurrentProject });
-    registerCommand({ id: "projects.manage", title: "Manage Projects...", category: "Projects", run: manageProjects });
+    const signedIn = () => session.user !== null;
+    registerCommand({ id: "projects.switch", title: "Switch Project...", category: "Projects", enabled: signedIn, run: switchProject });
+    registerCommand({ id: "projects.new", title: "New Project...", category: "Projects", enabled: signedIn, run: newProject });
+    registerCommand({
+        id: "projects.rename",
+        title: "Rename Current Project...",
+        category: "Projects",
+        enabled: () => signedIn() && !workspace.readOnly && !workspace.local,
+        run: renameCurrentProject,
+    });
+    registerCommand({ id: "projects.manage", title: "Manage Projects...", category: "Projects", enabled: signedIn, run: manageProjects });
     registerCommand({ id: "projects.download", title: "Download Project as .zip", category: "Projects", run: downloadProject });
-    registerCommand({ id: "projects.importWorkshopCodes", title: "Import workshop.codes project", category: "Projects", run: importWorkshopCodesProject });
+    registerCommand({
+        id: "projects.importWorkshopCodes",
+        title: "Import workshop.codes project",
+        category: "Projects",
+        // Without account, the import replaces the local project.
+        enabled: () => signedIn() || workspace.local,
+        run: importWorkshopCodesProject,
+    });
     for (const provider of AUTH_PROVIDERS) {
         registerCommand({
             id: `account.link.${provider}`,
@@ -172,7 +186,8 @@ export function registerCommands(): void {
             run: () => linkAccount(provider),
         });
     }
-    registerCommand({ id: "account.signOut", title: "Sign Out", category: "Account", run: signOut });
+    registerCommand({ id: "account.signIn", title: "Sign In...", category: "Account", enabled: () => !signedIn(), run: signIn });
+    registerCommand({ id: "account.signOut", title: "Sign Out", category: "Account", enabled: signedIn, run: signOut });
 
     // Notifications and help
     registerCommand({ id: "notifications.clearAll", title: "Clear All Notifications", category: "Notifications", run: clearNotifications });

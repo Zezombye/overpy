@@ -52,6 +52,7 @@
     --vsc-scrollbar-hover: rgba(100, 100, 100, 0.7);
     --vsc-modified: #bb800966;
     --vsc-tree-guide: #585858;
+    --vsc-tree-guide-inactive: #39393a;
     --vsc-error-bg: #5a1d1d;
 }
 
@@ -102,6 +103,7 @@
     --vsc-scrollbar-hover: rgba(100, 100, 100, 0.7);
     --vsc-modified: #bb800966;
     --vsc-tree-guide: #a9a9a9;
+    --vsc-tree-guide-inactive: #d8d8d8;
     --vsc-error-bg: #f2dede;
 }
 
@@ -151,6 +153,7 @@
     --color-match: var(--vsc-match);
     --color-modified: var(--vsc-modified);
     --color-tree-guide: var(--vsc-tree-guide);
+    --color-tree-guide-inactive: var(--vsc-tree-guide-inactive);
     --color-error-bg: var(--vsc-error-bg);
 }
 

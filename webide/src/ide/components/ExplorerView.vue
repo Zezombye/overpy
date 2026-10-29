@@ -32,9 +32,10 @@ import { childrenByParent } from "../projectOrder";
 import { fileIcon } from "../quickAccess";
 import { type EntryInfo, fsPathOf, isCodeFile, isEntryDisabled, isWorkshopFile, workspace } from "../workspace";
 
+/** `guides`: the folders containing the row, outermost first (their indent guides go through the row). */
 type Row =
-    | { kind: "entry"; entry: EntryInfo; depth: number }
-    | { kind: "edit"; edit: ExplorerEdit; depth: number; type: "file" | "dir" };
+    | { kind: "entry"; entry: EntryInfo; depth: number; guides: string[] }
+    | { kind: "edit"; edit: ExplorerEdit; depth: number; guides: string[]; type: "file" | "dir" };
 
 /** Where a dragged entry (or uploaded files) would go. */
 type DropTarget = { kind: "into"; folder: string } | { kind: "before" | "after"; path: string };
@@ -49,24 +50,40 @@ const dropTarget = ref<DropTarget | null>(null);
 const rows = computed(() => {
     const result: Row[] = [];
     const edit = explorer.editing;
-    const visit = (directory: string, depth: number) => {
+    const visit = (directory: string, guides: string[]) => {
+        const depth = guides.length;
         for (const entry of childrenByParent.value.get(directory) ?? []) {
             if (edit?.kind === "rename" && edit.path === entry.path) {
-                result.push({ kind: "edit", edit, depth, type: entry.type });
+                result.push({ kind: "edit", edit, depth, guides, type: entry.type });
             } else {
-                result.push({ kind: "entry", entry, depth });
+                result.push({ kind: "entry", entry, depth, guides });
             }
             if (entry.type === "dir" && explorer.expanded.has(entry.path)) {
-                visit(entry.path, depth + 1);
+                visit(entry.path, [...guides, entry.path]);
             }
         }
         // New entries go at the end of their folder.
         if (edit && edit.kind !== "rename" && edit.parent === directory) {
-            result.push({ kind: "edit", edit, depth, type: edit.kind === "newFolder" ? "dir" : "file" });
+            result.push({ kind: "edit", edit, depth, guides, type: edit.kind === "newFolder" ? "dir" : "file" });
         }
     };
-    visit("", 0);
+    visit("", []);
     return result;
+});
+
+/**
+ * The folder whose indent guide is always shown (the others are shown while hovering the explorer), like VS Code:
+ * the selected folder if it is expanded and not empty, else the folder of the selected entry.
+ */
+const activeGuide = computed(() => {
+    const entry = explorer.selected === null ? undefined : workspace.entries.get(explorer.selected);
+    if (!entry) {
+        return null;
+    }
+    if (entry.type === "dir" && explorer.expanded.has(entry.path) && (childrenByParent.value.get(entry.path)?.length ?? 0) > 0) {
+        return entry.path;
+    }
+    return dirname(entry.path);
 });
 
 const entryRows = computed(() => rows.value.filter((row): row is Extract<Row, { kind: "entry" }> => row.kind === "entry"));
@@ -409,15 +426,26 @@ function decoration(path: string): { class: string; count: number } {
     return { class: "", count: 0 };
 }
 
+const indentPx = (depth: number) => 6 + depth * 22;
+
 function indent(depth: number): string {
-    return `${8 + depth * 8}px`;
+    return `${indentPx(depth)}px`;
+}
+
+/** The indent guide of a folder at `depth` goes down from the middle of its chevron (16px wide). */
+function guideOffset(depth: number): string {
+    return `${indentPx(depth) + 8}px`;
+}
+
+/** Where names start: after the 16px icon (or chevron) and its 4px margin. */
+function nameOffset(depth: number): string {
+    return `${indentPx(depth) + 20}px`;
 }
 </script>
 
 <template>
     <div class="flex min-h-0 flex-col">
-        <div class="group flex h-[22px] shrink-0 items-center border-t border-transparent pr-1 pl-1 font-bold">
-            <span class="codicon codicon-chevron-down mr-0.5 text-[16px]" />
+        <div class="group flex h-[35px] shrink-0 items-center pr-1 pl-5 font-bold">
             <span class="flex-1 truncate text-[11px] uppercase">{{ workspace.project?.name }}</span>
             <span v-if="workspace.readOnly" class="mr-1 text-[11px] font-normal text-fg-muted" title="This project belongs to another user: it is read only.">read only</span>
             <div class="flex gap-0.5 opacity-0 group-hover:opacity-100 focus-within:opacity-100">
@@ -433,7 +461,7 @@ function indent(depth: number): string {
 
         <div
             ref="tree"
-            class="relative min-h-0 flex-1 overflow-x-hidden overflow-y-auto pb-6 outline-none"
+            class="group/tree relative min-h-0 flex-1 overflow-x-hidden overflow-y-auto pb-6 outline-none"
             :class="dropTarget?.kind === 'into' && dropTarget.folder === '' ? 'bg-list-hover' : ''"
             tabindex="0"
             @focusin="focused = true"
@@ -446,8 +474,15 @@ function indent(depth: number): string {
         >
             <template v-for="row in rows" :key="row.kind === 'entry' ? row.entry.path : 'edit'">
                 <div v-if="row.kind === 'edit'" class="relative flex h-[22px] items-center pr-2" :style="{ paddingLeft: indent(row.depth) }">
-                    <span class="codicon w-4 shrink-0" :class="row.type === 'dir' ? 'codicon-chevron-right' : ''" />
-                    <span v-if="row.type === 'file'" class="mr-1.5 flex w-4 shrink-0 justify-center" :title="editingTargetName(row.edit)">
+                    <span
+                        v-for="(guide, depth) in row.guides"
+                        :key="guide"
+                        class="pointer-events-none absolute inset-y-0 w-px"
+                        :class="guide === activeGuide ? 'bg-tree-guide' : 'group-hover/tree:bg-tree-guide-inactive'"
+                        :style="{ left: guideOffset(depth) }"
+                    />
+                    <span v-if="row.type === 'dir'" class="codicon codicon-chevron-right mr-1 w-4 shrink-0 text-[16px]" />
+                    <span v-else class="mr-1 flex w-4 shrink-0 justify-center" :title="editingTargetName(row.edit)">
                         <img v-if="fileIcon(editingTargetName(row.edit)).iconUrl" :src="fileIcon(editingTargetName(row.edit)).iconUrl" alt="" class="h-4 w-4" />
                         <span v-else class="codicon" :class="`codicon-${fileIcon(editingTargetName(row.edit)).icon}`" />
                     </span>
@@ -464,7 +499,7 @@ function indent(depth: number): string {
                     <div
                         v-if="row.edit.error"
                         class="absolute top-[21px] right-2 z-10 border border-error bg-error-bg px-1.5 py-1 text-[12px] whitespace-normal text-fg"
-                        :style="{ left: indent(row.depth + 3) }"
+                        :style="{ left: nameOffset(row.depth) }"
                     >
                         {{ row.edit.error }}
                     </div>
@@ -472,7 +507,7 @@ function indent(depth: number): string {
                 <div
                     v-else
                     :data-path="row.entry.path"
-                    class="group flex h-[22px] cursor-pointer items-center pr-1"
+                    class="group relative flex h-[22px] cursor-pointer items-center pr-1"
                     :class="[
                         explorer.selected === row.entry.path ? (focused ? 'bg-list-active outline -outline-offset-1 outline-focus' : 'bg-list-inactive') : 'hover:bg-list-hover',
                         rowDropClass(row.entry.path),
@@ -489,10 +524,19 @@ function indent(depth: number): string {
                     @drop="onDrop($event, row.entry)"
                 >
                     <span
-                        class="codicon w-4 shrink-0 text-[16px]"
-                        :class="row.entry.type === 'dir' ? (explorer.expanded.has(row.entry.path) ? 'codicon-chevron-down' : 'codicon-chevron-right') : ''"
+                        v-for="(guide, depth) in row.guides"
+                        :key="guide"
+                        class="pointer-events-none absolute inset-y-0 w-px"
+                        :class="guide === activeGuide ? 'bg-tree-guide' : 'group-hover/tree:bg-tree-guide-inactive'"
+                        :style="{ left: guideOffset(depth) }"
                     />
-                    <span v-if="row.entry.type === 'file'" class="mr-1.5 flex w-4 shrink-0 justify-center" :class="isEntryDisabled(row.entry.path) ? 'opacity-50' : ''">
+                    <!-- Folder chevrons take the place of file icons, like VS Code with icon themes without folder icons. -->
+                    <span
+                        v-if="row.entry.type === 'dir'"
+                        class="codicon mr-1 w-4 shrink-0 text-[16px]"
+                        :class="explorer.expanded.has(row.entry.path) ? 'codicon-chevron-down' : 'codicon-chevron-right'"
+                    />
+                    <span v-else class="mr-1 flex w-4 shrink-0 justify-center" :class="isEntryDisabled(row.entry.path) ? 'opacity-50' : ''">
                         <img v-if="fileIcon(row.entry.path).iconUrl" :src="fileIcon(row.entry.path).iconUrl" alt="" class="h-4 w-4" />
                         <span v-else class="codicon" :class="`codicon-${fileIcon(row.entry.path).icon}`" />
                     </span>

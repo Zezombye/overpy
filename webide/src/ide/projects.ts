@@ -4,13 +4,22 @@ import { formatRelativeTime } from "../lib/format";
 import { ideUrl, loginUrl } from "../lib/router";
 import { linkableProviders, logout, session } from "../lib/session";
 import { getSetting } from "../lib/settings";
-import { importIntoNewProject, notDecompiledMessage, parseWorkshopCodesExport, pickFile, projectNameForFile } from "../lib/workshopCodesImport";
+import {
+    entriesToImport,
+    importIntoNewProject,
+    notDecompiledMessage,
+    parseWorkshopCodesExport,
+    pickFile,
+    projectNameForFile,
+    type WorkshopCodesImport,
+} from "../lib/workshopCodesImport";
 import { executeCommand, keybindingLabel } from "./commands";
 import type { MenuItem } from "./contextMenu";
 import { showDialog } from "./dialogs";
+import { showSideBarView } from "./layout";
 import { withProgress } from "./notifications";
 import { showInputBox, showQuickPick } from "./quickInput";
-import { saveAll, workspace } from "./workspace";
+import { replaceLocalProject, saveAll, workspace } from "./workspace";
 
 /* Project switching and account actions, available from the title bar. */
 
@@ -112,6 +121,10 @@ export async function manageProjects(): Promise<void> {
     await leaveTo("/", "leaving the project");
 }
 
+export async function signIn(): Promise<void> {
+    await leaveTo(loginUrl(), "signing in");
+}
+
 export async function signOut(): Promise<void> {
     if (!(await confirmUnsavedChanges("signing out"))) {
         return;
@@ -125,7 +138,7 @@ export async function signOut(): Promise<void> {
 export function accountMenuItems(): MenuItem[] {
     if (!session.user) {
         return [
-            { label: "Sign In...", run: () => leaveTo(loginUrl(), "signing in") },
+            { label: "Sign In...", run: signIn },
             { label: "Settings", keybinding: keybindingLabel("mod+,"), run: () => executeCommand("workbench.action.openSettings") },
         ];
     }
@@ -140,17 +153,37 @@ export function accountMenuItems(): MenuItem[] {
     ];
 }
 
-/** Imports a workshop.codes project export into a new project, then opens it. */
+const IMPORT_TITLE = "Import workshop.codes Project";
+
+const translationsNote = (imported: WorkshopCodesImport) => (imported.hasTranslations ? " Translations are not imported." : "");
+
+/** Asks whether to decompile the imported files. Resolves to undefined if the user cancels. */
+async function pickImportOptions(): Promise<{ decompile: boolean; language: string } | undefined> {
+    const mode = await showQuickPick(
+        [
+            { label: "Keep the workshop files", detail: "They are decompiled when the project is compiled.", decompile: false },
+            { label: "Decompile into OverPy files", detail: "Files that cannot be decompiled are kept as workshop files.", decompile: true },
+        ],
+        { title: IMPORT_TITLE, placeholder: "Import the files as workshop files, or decompile them?" },
+    );
+    return mode && { decompile: mode.decompile, language: getSetting<string>("overpy.workshopLanguage") };
+}
+
+/** Imports a workshop.codes project export into a new project, then opens it. Without account, it replaces the local project instead. */
 export async function importWorkshopCodesProject(): Promise<void> {
     const file = await pickFile(".json,application/json");
     if (!file) {
         return;
     }
     const imported = parseWorkshopCodesExport(await file.text());
+    if (workspace.local) {
+        await replaceLocalProjectByImport(imported);
+        return;
+    }
     const defaultName = projectNameForFile(file);
     const name = await showInputBox({
-        title: "Import workshop.codes Project",
-        prompt: `${imported.fileCount} workshop files will be imported into a new project.${imported.hasTranslations ? " Translations are not imported." : ""}`,
+        title: IMPORT_TITLE,
+        prompt: `${imported.fileCount} workshop files will be imported into a new project.${translationsNote(imported)}`,
         value: defaultName,
         valueSelection: [0, defaultName.length],
         validate: validateProjectName,
@@ -158,19 +191,11 @@ export async function importWorkshopCodesProject(): Promise<void> {
     if (!name) {
         return;
     }
-    const mode = await showQuickPick(
-        [
-            { label: "Keep the workshop files", detail: "They are decompiled when the project is compiled.", decompile: false },
-            { label: "Decompile into OverPy files", detail: "Files that cannot be decompiled are kept as workshop files.", decompile: true },
-        ],
-        { title: "Import workshop.codes Project", placeholder: "Import the files as workshop files, or decompile them?" },
-    );
-    if (!mode) {
+    const options = await pickImportOptions();
+    if (!options) {
         return;
     }
-    const result = await withProgress(`Importing '${name}'...`, () =>
-        importIntoNewProject(name, imported, { decompile: mode.decompile, language: getSetting<string>("overpy.workshopLanguage") }, () => {}),
-    );
+    const result = await withProgress(`Importing '${name}'...`, () => importIntoNewProject(name, imported, options, () => {}));
     if (result.notDecompiled.length > 0) {
         await showDialog({
             message: `'${name}' was imported, but ${result.notDecompiled.length} file(s) could not be decompiled and were kept as workshop files (.ow).`,
@@ -180,6 +205,39 @@ export async function importWorkshopCodesProject(): Promise<void> {
         });
     }
     await leaveTo(ideUrl(result.project.id), "opening the imported project");
+}
+
+/** Without account, an import replaces the local project (its files and settings). */
+async function replaceLocalProjectByImport(imported: WorkshopCodesImport): Promise<void> {
+    const options = await pickImportOptions();
+    if (!options) {
+        return;
+    }
+    const choice = await showDialog({
+        message: "Replace this project with the imported project?",
+        detail: `All the files of this project will be replaced by the ${imported.fileCount} workshop files of the import, and its settings reset.${translationsNote(imported)} Without account, you can only have one project: to keep the files of this one, cancel and download it (File > Download Project as .zip), or sign in.`,
+        severity: "warning",
+        buttons: ["Replace", "Cancel"],
+        cancelId: 1,
+    });
+    if (choice !== 0) {
+        return;
+    }
+    // Decompiled before anything is replaced, so that a failure leaves the project as it was.
+    const { notDecompiled } = await withProgress("Importing the project...", async () => {
+        const result = await entriesToImport(imported, options);
+        await replaceLocalProject(result.entries);
+        return result;
+    });
+    showSideBarView("explorer");
+    if (notDecompiled.length > 0) {
+        await showDialog({
+            message: `The project was imported, but ${notDecompiled.length} file(s) could not be decompiled and were kept as workshop files (.ow).`,
+            detail: notDecompiledMessage(notDecompiled),
+            severity: "warning",
+            buttons: ["OK"],
+        });
+    }
 }
 
 /** Lets the user also sign in to this account with another provider (goes through the provider's page). */

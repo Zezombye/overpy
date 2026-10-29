@@ -9,6 +9,7 @@ import {
     type ProjectEntry,
     type ProjectFilesResponse,
     type ProjectSummary,
+    reorderedPositions,
     validateEntryPath,
     validateProjectName,
     type WriteResponse,
@@ -188,16 +189,6 @@ function setPositionsStatement(env: Env, projectId: string, positions: EntryPosi
     return env.DB.prepare(
         "UPDATE entries SET position = (SELECT json_extract(value, '$.position') FROM json_each(?2) WHERE json_extract(value, '$.path') = entries.path) WHERE project_id = ?1 AND path IN (SELECT json_extract(value, '$.path') FROM json_each(?2))",
     ).bind(projectId, JSON.stringify(positions));
-}
-
-/**
- * New positions for the entries of a folder, given in their new order: they take the positions that the folder's
- * entries already have, in ascending order (or new ones, after every entry of the project, if some are equal).
- */
-function reorderedPositions(entries: { path: string; position: number }[], maxPosition: number): EntryPosition[] {
-    const sorted = entries.map((entry) => entry.position).sort((a, b) => a - b);
-    const distinct = sorted.every((position, index) => index === 0 || position !== sorted[index - 1]);
-    return entries.map((entry, index) => ({ path: entry.path, position: distinct ? sorted[index] : maxPosition + 1 + index }));
 }
 
 function touchProject(env: Env, projectId: string, now: number): D1PreparedStatement {

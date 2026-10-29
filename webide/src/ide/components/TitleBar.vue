@@ -2,11 +2,11 @@
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 import overpyIconUrl from "../../../../img/overpy.png?url";
-import { loginUrl } from "../../lib/router";
 import { session } from "../../lib/session";
 import { commands, executeCommand, keybindingLabel } from "../commands";
 import { showContextMenu } from "../contextMenu";
 import { layout } from "../layout";
+import { LOCAL_PROJECT_TITLE } from "../localProject";
 import { type MenuEntry, titleBarMenus } from "../menus";
 import { runEditorAction } from "../registerCommands";
 import UserAvatar from "../../components/UserAvatar.vue";
@@ -116,13 +116,13 @@ function showAccountMenu(event: MouseEvent): void {
                 </button>
                 <div
                     v-if="openMenu === index"
-                    class="absolute top-[33px] left-0 min-w-[240px] rounded-md border border-widget-border bg-menu py-1 shadow-[0_2px_8px_var(--vsc-shadow)]"
+                    class="absolute top-[33px] left-0 w-max min-w-[240px] rounded-md border border-widget-border bg-menu py-1 shadow-[0_2px_8px_var(--vsc-shadow)]"
                 >
                     <template v-for="(item, itemIndex) in resolvedItems" :key="itemIndex">
                         <div v-if="item.separator" class="mx-2.5 my-1 border-t border-widget-border" />
                         <button
                             v-else
-                            class="mx-1 flex h-[26px] w-[calc(100%-8px)] items-center rounded-[3px] px-3 text-left"
+                            class="mx-1 flex h-[26px] w-[calc(100%-8px)] items-center rounded-[3px] px-3 text-left whitespace-nowrap"
                             :class="item.enabled ? 'hover:bg-menu-selection hover:text-accent-fg' : 'cursor-default opacity-40'"
                             @click="runItem(item)"
                         >
@@ -148,7 +148,7 @@ function showAccountMenu(event: MouseEvent): void {
         <div class="flex shrink-0 items-center gap-0.5 pr-2">
             <ProjectSettingsDropdown />
             <ProjectSwitcher v-if="session.user" />
-            <span v-else class="flex h-[24px] items-center gap-1 px-1.5" title="This project belongs to another user: it is read only.">
+            <span v-else class="flex h-[24px] items-center gap-1 px-1.5" :title="workspace.local ? LOCAL_PROJECT_TITLE : 'This project belongs to another user: it is read only.'">
                 <span class="codicon codicon-folder text-[16px]" />
                 <span class="max-w-[160px] truncate">{{ workspace.project?.name }}</span>
             </span>
@@ -157,7 +157,7 @@ function showAccountMenu(event: MouseEvent): void {
                 <span class="max-w-[120px] truncate">{{ session.user.name }}</span>
                 <span class="codicon codicon-chevron-down text-[12px]" />
             </button>
-            <a v-else class="vsc-button flex h-[24px] items-center px-2" :href="loginUrl()">Sign In</a>
+            <button v-else class="vsc-button flex h-[24px] items-center px-2" @click="executeCommand('account.signIn')">Sign In</button>
             <span class="mx-1 h-4 border-l border-border" />
             <button class="vsc-toolbar-button" :title="`Toggle Primary Side Bar (${keybindingLabel('mod+b')})`" @click="layout.sideBarVisible = !layout.sideBarVisible">
                 <span class="codicon" :class="layout.sideBarVisible ? 'codicon-layout-sidebar-left' : 'codicon-layout-sidebar-left-off'" />

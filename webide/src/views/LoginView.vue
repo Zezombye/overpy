@@ -4,6 +4,7 @@ import { onMounted, ref } from "vue";
 import overpyIconUrl from "../../../img/overpy.png?url";
 import { AUTH_PROVIDER_NAMES, type AuthProvider, type ProvidersResponse } from "../../shared/api";
 import { api, oauthStartUrl } from "../lib/api";
+import { ideUrl, LOCAL_PROJECT_ID } from "../lib/router";
 
 const query = new URLSearchParams(location.search);
 const error = ref<string | null>(query.get("error"));
@@ -59,6 +60,15 @@ onMounted(async () => {
                     Continue with {{ AUTH_PROVIDER_NAMES[provider] }}
                 </button>
             </div>
+
+            <div class="my-5 flex items-center gap-3 text-fg-muted">
+                <span class="flex-1 border-t border-border" />
+                <span>or</span>
+                <span class="flex-1 border-t border-border" />
+            </div>
+            <!-- A page load: the IDE's state lives as long as the page. -->
+            <a class="vsc-button-secondary flex h-10 w-full items-center justify-center rounded-[4px] text-[14px]" :href="ideUrl(LOCAL_PROJECT_ID)">Use Without Account</a>
+            <p class="mt-2 text-center text-[12px] text-fg-muted">You get a single project, stored in this browser only.</p>
         </div>
     </div>
 </template>

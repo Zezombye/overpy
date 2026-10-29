@@ -162,14 +162,19 @@ export function parseWorkshopCodesExport(text: string): WorkshopCodesImport {
 
 const DECLARATIONS_FILE_NAME = "Declarations";
 
-export interface ImportResult {
-    project: ProjectSummary;
+export interface ImportedEntries {
+    entries: ImportedEntry[];
     /** Files that could not be decompiled, kept as workshop files. */
     notDecompiled: { path: string; error: string }[];
 }
 
+export interface ImportResult {
+    project: ProjectSummary;
+    notDecompiled: ImportedEntries["notDecompiled"];
+}
+
 /** Replaces the workshop files by their decompilation, when it succeeds. */
-async function decompileEntries(imported: WorkshopCodesImport, language: string, notDecompiled: ImportResult["notDecompiled"]): Promise<ImportedEntry[]> {
+async function decompileEntries(imported: WorkshopCodesImport, language: string, notDecompiled: ImportedEntries["notDecompiled"]): Promise<ImportedEntry[]> {
     // Only loaded when needed: it brings the language server protocol.
     const { decompileFilesInWorker } = await import("./overpyWorker");
     const disabledFolders = imported.entries.filter((entry) => entry.type === "dir" && entry.disabled).map((entry) => entry.path);
@@ -228,6 +233,13 @@ function importChunks(entries: ImportedEntry[]): ImportedEntry[][] {
     return chunks;
 }
 
+/** The entries to import: the workshop files, or optionally their decompilation. */
+export async function entriesToImport(imported: WorkshopCodesImport, options: { decompile: boolean; language: string }): Promise<ImportedEntries> {
+    const notDecompiled: ImportedEntries["notDecompiled"] = [];
+    const entries = options.decompile ? await decompileEntries(imported, options.language, notDecompiled) : imported.entries;
+    return { entries, notDecompiled };
+}
+
 /** Creates a project with the imported files, optionally decompiled. */
 export async function importIntoNewProject(
     name: string,
@@ -235,12 +247,10 @@ export async function importIntoNewProject(
     options: { decompile: boolean; language: string },
     onProgress: (message: string) => void,
 ): Promise<ImportResult> {
-    const notDecompiled: ImportResult["notDecompiled"] = [];
-    let entries = imported.entries;
     if (options.decompile) {
         onProgress("Decompiling…");
-        entries = await decompileEntries(imported, options.language, notDecompiled);
     }
+    const { entries, notDecompiled } = await entriesToImport(imported, options);
     onProgress("Creating the project…");
     const { project } = await api.createProject(name);
     let done = 0;
@@ -259,7 +269,7 @@ export async function importIntoNewProject(
 }
 
 /** Message listing the files that could not be decompiled. */
-export function notDecompiledMessage(notDecompiled: ImportResult["notDecompiled"]): string {
+export function notDecompiledMessage(notDecompiled: ImportedEntries["notDecompiled"]): string {
     return notDecompiled.map(({ path, error }) => `${path}: ${error.replace(/^Could not decompile the workshop file '[^']*': /, "")}`).join("\n");
 }
 

@@ -6,7 +6,8 @@ import type { ProjectSummary } from "../../../shared/api";
 import { api } from "../../lib/api";
 import { formatRelativeTime } from "../../lib/format";
 import { ideUrl } from "../../lib/router";
-import { executeCommand, keybindingLabel } from "../commands";
+import { session } from "../../lib/session";
+import { executeCommand, isCommandEnabled, keybindingLabel } from "../commands";
 import { reportError } from "../notifications";
 import { DOCUMENTATION_URL } from "../registerCommands";
 import { workspace } from "../workspace";
@@ -14,6 +15,9 @@ import { workspace } from "../workspace";
 const recentProjects = ref<ProjectSummary[]>([]);
 
 onMounted(async () => {
+    if (!session.user) {
+        return;
+    }
     try {
         recentProjects.value = (await api.listProjects()).projects.filter((project) => project.id !== workspace.project?.id).slice(0, 5);
     } catch (error) {
@@ -25,9 +29,10 @@ const startActions = [
     { icon: "new-file", label: "New File...", command: "explorer.newFile" },
     { icon: "folder-library", label: "Open Project...", command: "projects.switch" },
     { icon: "add", label: "New Project...", command: "projects.new" },
+    { icon: "cloud-download", label: "Import workshop.codes Project...", command: "projects.importWorkshopCodes" },
     { icon: "cloud-upload", label: "Upload Files...", command: "files.upload" },
     { icon: "arrow-swap", label: "Decompile Workshop Code...", command: "overpy.decompile" },
-];
+].filter((action) => isCommandEnabled(action.command));
 
 const shortcuts = [
     { label: "Compile the active file", keybinding: "mod+shift+b" },
@@ -60,7 +65,10 @@ const shortcuts = [
                         </li>
                     </ul>
                     <h2 class="mb-2 text-[18px] text-fg-strong">Recent Projects</h2>
-                    <ul v-if="recentProjects.length > 0" class="space-y-1.5">
+                    <p v-if="!session.user" class="text-fg-muted">
+                        <button class="vsc-link" @click="executeCommand('account.signIn')">Sign in</button> to save your projects in your account.
+                    </p>
+                    <ul v-else-if="recentProjects.length > 0" class="space-y-1.5">
                         <li v-for="project in recentProjects" :key="project.id" class="flex gap-3">
                             <a class="vsc-link" :href="ideUrl(project.id)">{{ project.name }}</a>
                             <span class="text-fg-muted">{{ formatRelativeTime(project.updatedAt) }}</span>

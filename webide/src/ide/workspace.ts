@@ -1,11 +1,13 @@
 import { reactive } from "vue";
 
 import type { SyncFilesParams } from "../../lsp/protocol";
-import { type EntryPosition, type ProjectSummary, validateEntryPath } from "../../shared/api";
+import { type EntryPosition, type ImportEntriesRequest, type ProjectSummary, validateEntryPath } from "../../shared/api";
 import type { ProjectSettings } from "../../shared/projectSettings";
 import { api, ApiError } from "../lib/api";
+import { LOCAL_PROJECT_ID } from "../lib/router";
 import { showDialog } from "./dialogs";
 import { EventEmitter } from "./events";
+import { loadLocalProject, localProjectBackend, replaceStoredLocalProject } from "./localProject";
 import type { LanguageClient } from "./monaco/lspClient";
 import { monaco } from "./monaco/setup";
 import { reportError } from "./notifications";
@@ -35,10 +37,19 @@ export const workspace = reactive({
     public: false,
     /** The project belongs to another user: it can be viewed, not modified. */
     readOnly: false,
+    /** The project is used without account: it is stored in this browser (see localProject.ts). */
+    local: false,
     entries: new Map<string, EntryInfo>(),
     dirty: new Set<string>(),
     saving: new Set<string>(),
 });
+
+/** The requests that modify the project. */
+export type ProjectBackend = Pick<
+    typeof api,
+    "writeFile" | "createDirectory" | "copyEntry" | "orderEntries" | "renameEntry" | "setDisabled" | "deleteEntry" | "saveProjectSettings" | "setProjectPublic"
+>;
+let backend: ProjectBackend = api;
 
 // Monaco objects must not be made reactive.
 const models = new Map<string, monaco.editor.ITextModel>();
@@ -78,7 +89,7 @@ function writableProject(): ProjectSummary {
 
 /** Makes the project viewable by anyone with its link (read only), or private. */
 export async function setProjectPublic(isPublic: boolean): Promise<void> {
-    await api.setProjectPublic(writableProject().id, isPublic);
+    await backend.setProjectPublic(writableProject().id, isPublic);
     workspace.public = isPublic;
 }
 
@@ -245,7 +256,12 @@ function notifyWatchedFiles(created: string[], deleted: string[]): void {
 }
 
 export async function loadWorkspace(projectId: string): Promise<void> {
-    const { project, entries, settings, public: isPublic, readOnly } = await api.getFiles(projectId);
+    const local = projectId === LOCAL_PROJECT_ID;
+    const { project, entries, settings, public: isPublic, readOnly } = local ? loadLocalProject() : await api.getFiles(projectId);
+    if (local) {
+        backend = localProjectBackend;
+    }
+    workspace.local = local;
     workspace.project = project;
     workspace.settings = settings;
     workspace.public = isPublic;
@@ -283,7 +299,7 @@ async function doSave(path: string, manual: boolean): Promise<void> {
     try {
         let mtime: number;
         try {
-            ({ mtime } = await api.writeFile(writableProject().id, { path, content, expectedMtime: entry.mtime }));
+            ({ mtime } = await backend.writeFile(writableProject().id, { path, content, expectedMtime: entry.mtime }));
         } catch (error) {
             if (!(error instanceof ApiError && error.status === 409 && "currentMtime" in error.body)) {
                 throw error;
@@ -297,7 +313,7 @@ async function doSave(path: string, manual: boolean): Promise<void> {
             if (choice !== 0) {
                 return;
             }
-            ({ mtime } = await api.writeFile(writableProject().id, { path, content }));
+            ({ mtime } = await backend.writeFile(writableProject().id, { path, content }));
         }
         entry.mtime = mtime;
         savedContent.set(path, content);
@@ -370,7 +386,7 @@ function checkNewPath(path: string): void {
 /** Creates a file, at the end of its folder. */
 export async function createFile(path: string, content = ""): Promise<void> {
     checkNewPath(path);
-    const { mtime, positions } = await api.writeFile(writableProject().id, { path, content, create: true });
+    const { mtime, positions } = await backend.writeFile(writableProject().id, { path, content, create: true });
     const addedParents = addParentEntries(path, mtime);
     workspace.entries.set(path, { path, type: "file", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
     applyPositions(positions);
@@ -382,7 +398,7 @@ export async function createFile(path: string, content = ""): Promise<void> {
 /** Creates a folder, at the end of its parent folder. */
 export async function createDirectory(path: string): Promise<void> {
     checkNewPath(path);
-    const { mtime, positions } = await api.createDirectory(writableProject().id, path);
+    const { mtime, positions } = await backend.createDirectory(writableProject().id, path);
     const addedParents = addParentEntries(path, mtime);
     workspace.entries.set(path, { path, type: "dir", mtime, position: Number.MAX_SAFE_INTEGER, disabled: false });
     applyPositions(positions);
@@ -395,7 +411,7 @@ export async function copyEntry(from: string, to: string): Promise<void> {
     if (isSameOrChild(to, from)) {
         throw new Error(`Cannot copy '${from}' into itself.`);
     }
-    const { mtime, positions } = await api.copyEntry(writableProject().id, from, to);
+    const { mtime, positions } = await backend.copyEntry(writableProject().id, from, to);
     const addedParents = addParentEntries(to, mtime);
     const copied = [...workspace.entries.values()].filter((entry) => isSameOrChild(entry.path, from)).map((entry) => ({ ...entry }));
     for (const entry of copied) {
@@ -414,7 +430,7 @@ export async function copyEntry(from: string, to: string): Promise<void> {
 
 /** Puts the entries of a folder in a new order. */
 export async function reorderEntries(paths: string[]): Promise<void> {
-    const { positions } = await api.orderEntries(writableProject().id, paths);
+    const { positions } = await backend.orderEntries(writableProject().id, paths);
     applyPositions(positions);
 }
 
@@ -430,7 +446,7 @@ export function setProjectSetting(key: string, value: boolean | string): void {
         const settings = workspace.settings;
         // Chained, so that the saves reach the server in order.
         settingsSave = settingsSave
-            .then(() => api.saveProjectSettings(writableProject().id, settings))
+            .then(() => backend.saveProjectSettings(writableProject().id, settings))
             .catch((error) => reportError(error, "Could not save the project settings"));
     }, 500);
 }
@@ -441,12 +457,12 @@ export async function setEntryDisabled(path: string, disabled: boolean): Promise
     if (!entry) {
         throw new Error(`'${path}' does not exist.`);
     }
-    await api.setDisabled(writableProject().id, path, disabled);
+    await backend.setDisabled(writableProject().id, path, disabled);
     entry.disabled = disabled;
 }
 
-export async function deleteEntry(path: string): Promise<void> {
-    await api.deleteEntry(writableProject().id, path);
+/** Removes an entry (with its content, for a folder) from the workspace, after it was deleted from the project. */
+function removeEntries(path: string): void {
     const removed = [...workspace.entries.keys()].filter((entryPath) => isSameOrChild(entryPath, path));
     onDidDeleteEntries.fire(removed);
     const removedFiles = removed.filter(isFile);
@@ -458,6 +474,38 @@ export async function deleteEntry(path: string): Promise<void> {
     notifyWatchedFiles([], removedFiles);
 }
 
+export async function deleteEntry(path: string): Promise<void> {
+    await backend.deleteEntry(writableProject().id, path);
+    removeEntries(path);
+}
+
+/**
+ * Replaces all the files and folders of the local project by the given ones (in this order, folders before their content),
+ * and resets its settings. Unsaved changes are lost. If the new files cannot be stored, the project is left unchanged.
+ */
+export async function replaceLocalProject(entries: ImportEntriesRequest["entries"]): Promise<void> {
+    if (!workspace.local) {
+        throw new Error("Only the project used without account can be replaced.");
+    }
+    await savesSettled();
+    const { mtime, positions } = replaceStoredLocalProject(entries);
+    for (const path of [...workspace.entries.keys()].filter((entryPath) => dirname(entryPath) === "")) {
+        removeEntries(path);
+    }
+    workspace.settings = {};
+    const added: string[] = [];
+    for (const entry of entries) {
+        added.push(...addParentEntries(entry.path, mtime).reverse(), entry.path);
+        workspace.entries.set(entry.path, { path: entry.path, type: entry.type, mtime, position: Number.MAX_SAFE_INTEGER, disabled: entry.disabled ?? false });
+        if (entry.type === "file") {
+            createModel(entry.path, entry.content ?? "");
+        }
+    }
+    applyPositions(positions);
+    syncToLanguageServer(added);
+    notifyWatchedFiles(added.filter(isFile), []);
+}
+
 export async function renameEntry(from: string, to: string): Promise<void> {
     if (from === to) {
         return;
@@ -466,7 +514,7 @@ export async function renameEntry(from: string, to: string): Promise<void> {
     if (isSameOrChild(to, from)) {
         throw new Error(`Cannot move '${from}' into itself.`);
     }
-    const { positions } = await api.renameEntry(writableProject().id, from, to);
+    const { positions } = await backend.renameEntry(writableProject().id, from, to);
 
     const moved = [...workspace.entries.values()].filter((entry) => isSameOrChild(entry.path, from)).map((entry) => ({ ...entry }));
     const addedParents = addParentEntries(to, Date.now());
@@ -513,7 +561,7 @@ export async function writeFile(path: string, content: string): Promise<void> {
     if (!existing) {
         checkNewPath(path);
     }
-    const { mtime, positions } = await api.writeFile(writableProject().id, { path, content });
+    const { mtime, positions } = await backend.writeFile(writableProject().id, { path, content });
     if (existing) {
         existing.mtime = mtime;
         savedContent.set(path, content);

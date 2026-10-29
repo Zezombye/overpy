@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 
 import { PROJECT_SETTINGS, type ProjectSettingDefinition, projectSettingValue } from "../../../shared/projectSettings";
 import { ideUrl } from "../../lib/router";
+import { LOCAL_PROJECT_TITLE } from "../localProject";
 import { reportError, showInfo } from "../notifications";
 import { setProjectPublic, setProjectSetting, workspace } from "../workspace";
 import TitleBarDropdown from "./TitleBarDropdown.vue";
@@ -52,6 +53,7 @@ function copyLink(): void {
         </template>
         <div class="border-b border-widget-border px-3 py-2.5">
             <p v-if="workspace.readOnly" class="text-fg-muted">This project belongs to another user: it is read only.</p>
+            <p v-else-if="workspace.local" class="text-fg-muted">{{ LOCAL_PROJECT_TITLE }} It cannot be shared: sign in to save and share your projects.</p>
             <template v-else>
                 <label class="flex cursor-pointer items-start gap-2">
                     <input type="checkbox" class="vsc-checkbox mt-px shrink-0" :checked="workspace.public" :disabled="changingPublic" @change="togglePublic(($event.target as HTMLInputElement).checked)" />
