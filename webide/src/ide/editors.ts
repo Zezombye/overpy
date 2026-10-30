@@ -102,7 +102,25 @@ export function createCodeEditor(container: HTMLElement): monaco.editor.IStandal
     codeEditor.onDidChangeModel(updateStatus);
     codeEditor.onDidChangeModelOptions(updateStatus);
     codeEditor.onDidChangeModelLanguage(updateStatus);
+    expandSuggestionDetails(codeEditor);
     return codeEditor;
+}
+
+/** The internals of Monaco's suggest widget used by expandSuggestionDetails (not part of the public API). */
+interface SuggestController extends monaco.editor.IEditorContribution {
+    widget: { value: { _setDetailsVisible(visible: boolean): void } };
+}
+
+/**
+ * Shows the documentation of the focused suggestion by default (Monaco hides it until the suggestion's arrow is
+ * clicked). This is a setting of Monaco's storage, which is shared by all editors and kept for the page's lifetime.
+ */
+function expandSuggestionDetails(editor: monaco.editor.IStandaloneCodeEditor): void {
+    const controller = editor.getContribution<SuggestController>("editor.contrib.suggestController");
+    if (!controller) {
+        throw new Error("Monaco's suggest controller is missing: cannot show suggestion details by default.");
+    }
+    controller.widget.value._setDetailsVisible(true);
 }
 
 watch(
