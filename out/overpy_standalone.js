@@ -65940,11 +65940,19 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings) {
   translatedStrings = translatedStrings.filter((x) => x.occurrences.length > 0 || this.keepUnusedTranslations).sort((a, b) => +(b.occurrences.length > 0) - +(a.occurrences.length > 0) || (a.occurrences[0] ?? "zzzzz").localeCompare(b.occurrences[0] ?? "zzzzz"));
   for (let language of this.translationLanguages.slice(1)) {
     let po = new import_pofile.default();
-    po.headers = {
+    let poFilePath = this.rootPath + "/" + this.mainFileName.replace(".opy", "." + language + ".po");
+    let existingHeaders = {};
+    if (fs.existsSync(poFilePath)) {
+      let existingPo = import_pofile.default.parse(fs.readFileSync(poFilePath, { encoding: "utf-8" }));
+      for (let key of existingPo.headerOrder) {
+        existingHeaders[key] = existingPo.headers[key] ?? "";
+      }
+    }
+    po.headers = Object.assign(existingHeaders, {
       "Content-Type": "text/plain; charset=UTF-8",
       "Language": language,
       "X-Generator": "OverPy"
-    };
+    });
     po.items = [];
     for (let translatedString of translatedStrings) {
       let item = new import_pofile.default.Item();
@@ -65972,7 +65980,7 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings) {
       }
       po.items.push(item);
     }
-    fs.writeFileSync(this.rootPath + "/" + this.mainFileName.replace(".opy", "." + language + ".po"), po.toString(), { encoding: "utf-8" });
+    fs.writeFileSync(poFilePath, po.toString(), { encoding: "utf-8" });
   }
 };
 OverPyCompiler.prototype.importFromPoFiles = function() {

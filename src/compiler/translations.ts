@@ -149,12 +149,22 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: Translate
     for (let language of this.translationLanguages.slice(1)) { //first language is default language
 
         let po = new PO();
+        let poFilePath = this.rootPath + "/" + this.mainFileName.replace(".opy", "." + language + ".po");
 
-        po.headers = {
+        //Keep the headers that other tools (such as Weblate or Poedit) added to the existing file, in their order
+        let existingHeaders: Record<string, string> = {};
+        if (fs.existsSync(poFilePath)) {
+            let existingPo = PO.parse(fs.readFileSync(poFilePath, { encoding: "utf-8" }));
+            for (let key of (existingPo as PO & { headerOrder: string[] }).headerOrder) {
+                existingHeaders[key] = (existingPo.headers as Record<string, string>)[key] ?? "";
+            }
+        }
+
+        po.headers = Object.assign(existingHeaders, {
             "Content-Type": "text/plain; charset=UTF-8",
             "Language": language,
             "X-Generator": "OverPy",
-        };
+        });
         po.items = [];
         for (let translatedString of translatedStrings) {
             let item = new PO.Item();
@@ -183,7 +193,7 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: Translate
             po.items.push(item);
         }
 
-        fs.writeFileSync(this.rootPath+"/"+this.mainFileName.replace(".opy", "."+language+".po"), po.toString(), { encoding: "utf-8" });
+        fs.writeFileSync(poFilePath, po.toString(), { encoding: "utf-8" });
     }
 }
 
