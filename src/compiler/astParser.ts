@@ -18,10 +18,10 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { funcKw, defaultSubroutineNames } from "../globalVars";
+import { funcKw, defaultSubroutineNames, DEBUG_MODE } from "../globalVars";
 import { OverPyCompiler } from "../godClasses";
 import { functionNameToString, debug } from "../utils/logging";
-import { Ast, astParsingFunctions } from "../utils/ast";
+import { Ast, astParsingFunctions, getLiteralTypes } from "../utils/ast";
 import { Argument, Value } from "../types";
 
 import "./functions/__add__.ts";
@@ -385,9 +385,15 @@ OverPyCompiler.prototype.parseAstRules = function(rules: Ast[]) {
     return rulesResult;
 }
 
+//Functions that take a variable number of arguments, and for which the type of each argument is checked against the first (or second for .format) declared argument.
+const variadicFunctions = new Set([".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"]);
+const variadicFunctionsWithFirstArgType = new Set(["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"]);
+
 OverPyCompiler.prototype.parseAst = function(content: Ast) {
     this.fileStack = content.fileStack;
-    debug("Parsing AST of '" + content.name + "'");
+    if (DEBUG_MODE) {
+        debug("Parsing AST of '" + content.name + "'");
+    }
 
     content.wasParsed = true;
 
@@ -403,10 +409,8 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
     }
 
     //Skip if it's a literal, a type literal, or a constant
-    if (typeof content.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
-        if (["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral", "StringLiteral", "CustomStringLiteral", "LocalizedStringLiteral"].concat(Object.keys(constantValues)).includes(content.type)) {
-            return content;
-        }
+    if (typeof content.type === "string" && getLiteralTypes().has(content.type)) {
+        return content;
     }
 
     //Skip if it's a type (but not an enum as we need to parse those ASTs)
@@ -454,7 +458,7 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
 
 
 
-    if (![".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
+    if (!variadicFunctions.has(content.name)) {
         if (content.name in this.astMacros) {
             let nbExpectedArgs = this.astMacros[content.name].args.length;
             if (content.args.length !== nbExpectedArgs) {
@@ -483,7 +487,7 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
 
     //Manually check types and arguments for the functions that can take an infinite number of arguments.
     if (content.name === ".format") {
-        if (content.args.length < 1) {
+        /*if (content.args.length < 1) {
             this.error("Function '.format' takes at least 1 argument, received " + content.args.length);
         }
         //Check types
@@ -494,14 +498,14 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
             if (!this.isTypeSuitable(funcKw[content.name]?.args?.[1].type, content.args[i].type)) {
                 this.warn("w_type_check", this.getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]), content.args[i].fileStack);
             }
-        }
-    } else if (["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"].includes(content.name)) {
+        }*/
+    } else if (variadicFunctionsWithFirstArgType.has(content.name)) {
         //Check types
-        for (var i = 0; i < content.args.length; i++) {
+        /*for (var i = 0; i < content.args.length; i++) {
             if (!this.isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
                 this.warn("w_type_check", this.getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]), content.args[i].fileStack);
             }
-        }
+        }*/
     } else if (content.name in this.astMacros) {
         //Do nothing, we cannot check types of a user-defined macro
     } else {
@@ -511,7 +515,7 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
             for (var i = 0; i < content.args.length; i++) {
                 if (!this.isTypeSuitable(args[i].type, content.args[i].type)) {
                     //Throw an error for when a literal is expected
-                    if (Object.keys(constantValues).includes(args[i].type)) {
+                    if (typeof args[i].type === "string" && args[i].type in constantValues) {
                         this.error(this.getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]), content.args[i].fileStack);
                     } else {
                         //this.warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
@@ -522,13 +526,13 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
     }
 
     //Set expected type
-    if (!["__rule__", "__settings__", "pass"].includes(content.name) && !content.parent) {
+    if (!content.parent && !["__rule__", "__settings__", "pass"].includes(content.name)) {
         this.error("No parent found for '" + content.name + "'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === ".format" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
-        } else if (["__array__", "__dict__", "__enumType__", "__customString__", "__localizedString__", "__translatedString__", "min", "max"].includes(content.parent.name)) {
+        } else if (variadicFunctionsWithFirstArgType.has(content.parent.name)) {
             content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
@@ -612,11 +616,8 @@ OverPyCompiler.prototype.parseAst = function(content: Ast) {
 }
 
 
-export function setClientSideReevaluatedArgIndexes(content: Ast) {
-
-    //This is not fully accurate, for now I only tested the string functions. Other reevaluated functions must be tested to check if they are reevaluated client side.
-
-    let reevaluationToArgNames: Record<string, string[]> = {
+//This is not fully accurate, for now I only tested the string functions. Other reevaluated functions must be tested to check if they are reevaluated client side.
+const reevaluationToArgNames: Record<string, string[]> = {
         "none": [],
 
         "position_and_radius": ["startPosition", "endPosition", "position", "radius"],
@@ -666,54 +667,75 @@ export function setClientSideReevaluatedArgIndexes(content: Ast) {
         "position_direction_and_size": ["position", "direction", "oversize"],
         "visibility_friendliness_position_direction_and_size": ["visibleTo", "friendlyTo", "position", "direction", "oversize"],
         "friendliness_position_direction_and_size": ["friendlyTo", "position", "direction", "oversize"],
-        "visibility_and_friendliness": ["visibleTo", "friendlyTo"],
-        "friendliness": ["friendlyTo"],
-    };
+    "visibility_and_friendliness": ["visibleTo", "friendlyTo"],
+    "friendliness": ["friendlyTo"],
+};
 
-    //Functions which have args that always reeval
-    let reevaluatedFunctionArgs: Record<string, string[]> = {
-        "debug": ["value"],
-        "print": ["text"],
-        "bigMessage": ["text"],
-        "smallMessage": ["text"],
-    };
+//Functions which have args that always reeval
+const reevaluatedFunctionArgs: Record<string, string[]> = {
+    "debug": ["value"],
+    "print": ["text"],
+    "bigMessage": ["text"],
+    "smallMessage": ["text"],
+};
 
-    //Functions which have an argument for reevaluation
-    let reevaluatedFunctions: String[] = [
-        "createCasedProgressBarIwt",
-        "hudHeader",
-        "hudSubtext",
-        "hudSubheader",
-        "hudText",
-        "createBeam",
-        "createEffect",
-        "createIcon",
-        "createInWorldText",
-        "createProgressBarInWorldText",
-        "progressBarHud",
-        "setObjectiveDescription",
-        "createProjectileEffect",
-        ".startFacing",
-        ".startThrottleInDirection",
-    ];
+//Functions which have an argument for reevaluation
+const reevaluatedFunctions = new Set([
+    "createCasedProgressBarIwt",
+    "hudHeader",
+    "hudSubtext",
+    "hudSubheader",
+    "hudText",
+    "createBeam",
+    "createEffect",
+    "createIcon",
+    "createInWorldText",
+    "createProgressBarInWorldText",
+    "progressBarHud",
+    "setObjectiveDescription",
+    "createProjectileEffect",
+    ".startFacing",
+    ".startThrottleInDirection",
+]);
+
+//Computed arg indexes, keyed by function name (and reevaluation value). This only depends on the built-in function definitions.
+const reevaluatedArgIndexesCache = new Map<string, number[]>();
+
+export function setClientSideReevaluatedArgIndexes(content: Ast) {
+
+    //All the functions concerned are actions
+    if (content.type !== "void") {
+        return;
+    }
 
     if (content.name in reevaluatedFunctionArgs) {
-        content.clientSideReevaluatedArgIndexes = reevaluatedFunctionArgs[content.name].map(x => {
-            let argIndex = funcKw[content.name].args?.findIndex(y => y.name === x);
-            if (argIndex === undefined || argIndex === -1) {
-                throw content.compiler.error("Could not find argument '" + x + "' in function '" + content.name + "'");
-            }
-            return argIndex;
-        });
+        let argIndexes = reevaluatedArgIndexesCache.get(content.name);
+        if (argIndexes === undefined) {
+            argIndexes = reevaluatedFunctionArgs[content.name].map(x => {
+                let argIndex = funcKw[content.name].args?.findIndex(y => y.name === x);
+                if (argIndex === undefined || argIndex === -1) {
+                    throw content.compiler.error("Could not find argument '" + x + "' in function '" + content.name + "'");
+                }
+                return argIndex;
+            });
+            reevaluatedArgIndexesCache.set(content.name, argIndexes);
+        }
+        content.clientSideReevaluatedArgIndexes = argIndexes;
         //console.log("Setting reevaluated args for '" + content.name + "' to " + content.clientSideReevaluatedArgIndexes);
 
-    } else if (reevaluatedFunctions.includes(content.name)) {
+    } else if (reevaluatedFunctions.has(content.name)) {
         let reevaluationValue = content.args[funcKw[content.name].args?.findIndex(x => x.name === "reevaluation") ?? content.compiler.error("Could not find reevaluation argument in function '" + content.name + "'")].name.toLowerCase();
         if (!(reevaluationValue in reevaluationToArgNames)) {
             throw content.compiler.error("Unknown reevaluation value '" + reevaluationValue + "' in function '" + content.name + "'");
         }
-        //Do not throw error if we cannot find the argument name, as for convenience the reevaluation args are merged among the different types, so some arg names may not exist
-        content.clientSideReevaluatedArgIndexes = reevaluationToArgNames[reevaluationValue].map(x => funcKw[content.name].args?.findIndex(y => y.name === x)).filter(x => x !== undefined && x !== -1) as number[];
+        let cacheKey = content.name + "|" + reevaluationValue;
+        let argIndexes = reevaluatedArgIndexesCache.get(cacheKey);
+        if (argIndexes === undefined) {
+            //Do not throw error if we cannot find the argument name, as for convenience the reevaluation args are merged among the different types, so some arg names may not exist
+            argIndexes = reevaluationToArgNames[reevaluationValue].map(x => funcKw[content.name].args?.findIndex(y => y.name === x)).filter(x => x !== undefined && x !== -1) as number[];
+            reevaluatedArgIndexesCache.set(cacheKey, argIndexes);
+        }
+        content.clientSideReevaluatedArgIndexes = argIndexes;
         //console.log("Setting reevaluated args for '" + content.name + "' to " + content.clientSideReevaluatedArgIndexes);
     }
 }

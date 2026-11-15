@@ -20,7 +20,7 @@
 
 import { blizzGlobalDefaultWidth, blizzGlobalWidths, spaces } from "../../data/opy/blizzardGlobal";
 import { astParsingFunctions } from "../../utils/ast";
-import { getBestSpaces } from "./createCasedProgressBarIwt";
+import { getBestSpaces, getSpaceCoins } from "./createCasedProgressBarIwt";
 
 astParsingFunctions.spacesForLength = function (content, compiler) {
     console.log(content);
@@ -30,7 +30,7 @@ astParsingFunctions.spacesForLength = function (content, compiler) {
     let length = content.args[0].args[0].numValue;
 
     return compiler.getAstForCustomString(
-        getBestSpaces(Object.keys(spaces).map(Number), length)
+        getBestSpaces(getSpaceCoins(), length)
             .map((j) => spaces[j])
             .join(""),
     );

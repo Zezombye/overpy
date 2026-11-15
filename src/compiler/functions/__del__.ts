@@ -50,7 +50,7 @@ astParsingFunctions.__del__ = function (content, compiler) {
                     .concat($arrayIdx1[$idx2].slice($idx3+1))
                 ])
                 .concat($arrayIdx1.slice($idx2+1))
-            )`, ["$arrayIdx1", "$idx2", "$idx3", "$value"], [content.args[0], index2, index3, value])]);
+            )`, ["$arrayIdx1", "$idx2", "$idx3", "$value"], [content.args[0], index2, index3, value], true)]);
 
 
         } else {
@@ -65,7 +65,7 @@ astParsingFunctions.__del__ = function (content, compiler) {
                 compiler.error("Cannot delete from 2d array with a random index");
             }
 
-            return compiler.Ast("__assignTo__", [content.args[0], compiler.parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([[elem for elem, i in $arrayIdx1[$idx2] if i != $value]]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value])]);
+            return compiler.Ast("__assignTo__", [content.args[0], compiler.parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([[elem for elem, i in $arrayIdx1[$idx2] if i != $value]]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value], true)]);
         }
     }
     return content;

@@ -57,6 +57,88 @@ export const builtInEnumNameToAstInfo: Record<string, {name: string, type: strin
     },
 };
 
+//Lazily initialized, as globalVars may not be evaluated yet when this module is (esbuild bundle order with circular imports).
+let operatorPrecedenceKeys: Set<string>;
+//Same as operatorPrecedence, but as a Map (faster lookups than an object with punctuation keys)
+let operatorPrecedenceMap: Map<string, number>;
+let maxOperatorPrecedence: number;
+let ifPrecedence: number;
+//Unary plus/minus are not in operatorPrecedence; their precedence is between "%" and "**"
+let unaryPlusMinusPrecedence: number;
+//Template for the per-precedence operator positions in parseRange (copied at each call)
+let noOperatorPositions: number[];
+function initOperatorTables() {
+    if (operatorPrecedenceKeys !== undefined) {
+        return;
+    }
+    operatorPrecedenceKeys = new Set(Object.keys(operatorPrecedence));
+    operatorPrecedenceMap = new Map(Object.entries(operatorPrecedence));
+    maxOperatorPrecedence = operatorPrecedence["**"];
+    noOperatorPositions = [];
+    for (let precedence = 0; precedence <= maxOperatorPrecedence; precedence++) {
+        noOperatorPositions.push(-1);
+    }
+    ifPrecedence = operatorPrecedence["if"];
+    unaryPlusMinusPrecedence = operatorPrecedence["%"] + 1;
+    if (unaryPlusMinusPrecedence >= maxOperatorPrecedence) {
+        throw new Error("Expected a free precedence level between '%' and '**' for unary plus/minus");
+    }
+}
+
+const tokenToFuncMapping: Record<string, string> = {
+    rule: "__rule__",
+    enum: "__enum__",
+    if: "__if__",
+    elif: "__elif__",
+    else: "__else__",
+    do: "__doWhile__",
+    for: "__for__",
+    def: "__def__",
+    while: "__while__",
+    switch: "__switch__",
+    case: "__case__",
+    default: "__default__",
+    macro: "__macro__",
+};
+
+//Old functions
+const functionAliases: Record<string, string> = {
+    "destroyAllInWorldText": "destroyAllInWorldTexts",
+    "disableEnvironmentCollision": ".disableEnvironmentCollision",
+    "enableEnvironmentCollision": ".enableEnvironmentCollision",
+    "enablePlayerCollision": ".enablePlayerCollision",
+    "horizontalAngleFromDirection": "horizontalAngleOfDirection",
+    "getLastAssistID": "getLastAssistId",
+    "getLastDoT": "getLastDamageOverTimeId",
+    "getLastHoT": "getLastHealingOverTimeId",
+    "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
+    "getNumberOfHoTIds": "getNumberOfHealingOverTimeIds",
+    "moveToTeam": ".moveToTeam",
+    "printLog": "logToInspector",
+    "rgba": "rgb",
+    "hsla": "hsl",
+    "updateEveryTick": "updateEveryFrame",
+    "angleToDirection": "directionFromAngles",
+    "buttonString": "inputBindingString",
+    "teamHasHero": "isHeroBeingPlayed",
+    "removeFromGame": ".removeFromGame",
+    "stopChasingVariable": "stopChasing",
+    "stopDoT": "stopDamageOverTime",
+    "stopHoT": "stopHealingOverTime",
+};
+
+//Old member functions
+const memberFunctionAliases: Record<string, string> = {
+    "setCamera": "startCamera",
+    "disableHeroHUD": "disableHeroHud",
+    "startDoT": "startDamageOverTime",
+    "startHoT": "startHealingOverTime",
+    "getCurrentHero": "getHero",
+    "hasStatusEffect": "hasStatus",
+    "stopAllDoT": "stopAllDamageOverTime",
+    "stopAllHoT": "stopAllHealingOverTime",
+};
+
 OverPyCompiler.prototype.parseLines = function(lines: LogicalLine[]): Ast[] {
     var result: Ast[] = [];
     let currentComments: string[] = [];
@@ -210,24 +292,8 @@ OverPyCompiler.prototype.parseLines = function(lines: LogicalLine[]): Ast[] {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
-        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default", "macro"].includes(currentLine.tokens[0].text)) {
-            var tokenToFuncMapping = {
-                rule: "__rule__",
-                enum: "__enum__",
-                if: "__if__",
-                elif: "__elif__",
-                else: "__else__",
-                do: "__doWhile__",
-                for: "__for__",
-                def: "__def__",
-                while: "__while__",
-                switch: "__switch__",
-                case: "__case__",
-                default: "__default__",
-                macro: "__macro__",
-            };
-
-            var funcName = tokenToFuncMapping[currentLine.tokens[0].text as keyof typeof tokenToFuncMapping];
+        } else if (currentLine.tokens[0].text in tokenToFuncMapping) {
+            var funcName = tokenToFuncMapping[currentLine.tokens[0].text];
             var args: string[] | Ast[] = [];
             var children = [];
             var instructionRuleAttributes: null | Record<string, string> = null;
@@ -525,6 +591,7 @@ export function commentArrayToString(comments: string[]) {
 }
 
 OverPyCompiler.prototype.getOperator = function(tokens: Token[], operators: string[], rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
+    initOperatorTables();
     var operatorFound = null;
     var operatorPosition = -1;
     var bracketsLevel = 0;
@@ -545,7 +612,7 @@ OverPyCompiler.prototype.getOperator = function(tokens: Token[], operators: stri
         } else if (tokens[i].text === ")" || tokens[i].text === "]" || tokens[i].text === "}") {
             bracketsLevel -= step;
         } else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
-            if (allowUnaryPlusOrMinus || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i - 1].text) || (tokens[i - 1].text === "not" && tokens[i].text === "in"))) || (i === 0 && tokens[i].text === "not")) {
+            if (allowUnaryPlusOrMinus || (i !== 0 && (!operatorPrecedenceKeys.has(tokens[i - 1].text) || (tokens[i - 1].text === "not" && tokens[i].text === "in"))) || (i === 0 && tokens[i].text === "not")) {
                 //Support "not in" operator
                 if (tokens[i].text === "not" && i < tokens.length - 1 && tokens[i + 1].text === "in") {
                     continue;
@@ -582,21 +649,33 @@ OverPyCompiler.prototype.parseArgs = function(funcName: string, args: Token[][])
         }
         return [];
     }
+    //Note: the argument arrays are built with push() rather than Array(n).fill()/map(), so that they are "packed" arrays like the array literals used elsewhere (mixing both kinds makes every args[i] access polymorphic).
     if ([".format", "__customString__", "__localizedString__", "__array__", "__dict__", "__enumType__", "range"].includes(funcName)) {
         //Those functions take infinite arguments or a wacky number of arguments
-        return args.map(x => this.parse(x));
+        let result: Ast[] = [];
+        for (let arg of args) {
+            result.push(this.parse(arg));
+        }
+        return result;
     }
 
-    let funcArgsDict = Object.fromEntries(funcInfo.args!.map((x, i) => [x.name, {index: i, ...x}]));
-    let positionalArgs: (Token[] | Ast)[] = Array(funcInfo.args!.length).fill(null);
+    //Only built if a keyword argument is encountered, as most calls only use positional arguments
+    let funcArgsDict: Record<string, number> | null = null;
+    let positionalArgs: (Token[] | Ast | null)[] = [];
+    for (let i = 0; i < funcInfo.args!.length; i++) {
+        positionalArgs.push(null);
+    }
     let hasKwArg = false;
     for (let [i, arg] of args.entries()) {
         if (arg.length > 2 && arg[1].text === "=") {
+            if (funcArgsDict === null) {
+                funcArgsDict = Object.fromEntries(funcInfo.args!.map((x, i) => [x.name, i]));
+            }
             if (!(arg[0].text in funcArgsDict)) {
                 this.error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'", arg[0].fileStack);
             }
             hasKwArg = true;
-            let argIndex = funcArgsDict[arg[0].text].index;
+            let argIndex = funcArgsDict[arg[0].text];
             if (positionalArgs[argIndex] !== null) {
                 this.error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice", arg[0].fileStack);
             }
@@ -620,63 +699,109 @@ OverPyCompiler.prototype.parseArgs = function(funcName: string, args: Token[][])
         }
     }
 
-    return positionalArgs.map(x => x instanceof Ast ? x : this.parse(x));
+    let result: Ast[] = [];
+    for (let positionalArg of positionalArgs) {
+        result.push(positionalArg instanceof Ast ? positionalArg : this.parse(positionalArg as Token[]));
+    }
+    return result;
 }
+
+const comparisonOpToFuncMapping: Record<string, string> = {
+    "==": "__equals__",
+    "!=": "__inequals__",
+    "<=": "__lessThanOrEquals__",
+    ">=": "__greaterThanOrEquals__",
+    "<": "__lessThan__",
+    ">": "__greaterThan__",
+};
+const modifyOpToFuncMapping: Record<string, string> = {
+    "+=": "__add__",
+    "-=": "__subtract__",
+    "*=": "__multiply__",
+    "/=": "__divide__",
+    "%=": "__modulo__",
+    "**=": "__raiseToPower__",
+    "min=": "min",
+    "max=": "max",
+};
+const arithmeticOpToFuncMapping: Record<string, string> = {
+    "/": "__divide__",
+    "*": "__multiply__",
+    "%": "__modulo__",
+    "**": "__raiseToPower__",
+};
 
 OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<string, any> = {}): Ast {
     if (content === undefined) {
         this.error("Content is undefined");
-    } else if (content.length === 0) {
+    }
+    return this.parseRange(content, 0, content.length, kwargs);
+}
+
+/**
+ * Parses the tokens in [start, end). This is the core of the parser: the expression is split on the operator with the lowest precedence, and the operands are parsed recursively.
+ *
+ * The operators are found with a single scan of the tokens. For each precedence level, the scan records the operator that would be selected for this level:
+ * - levels parsed left-to-right (most of them) select the rightmost operator, so the operand split is left-associative;
+ * - levels parsed right-to-left ("if", unary plus/minus, "**") select the leftmost one.
+ * An operator token only qualifies if it is at the top bracket level and is not immediately preceded by another operator (the "not in" and unary cases are handled specially).
+ */
+OverPyCompiler.prototype.parseRange = function(tokens: Token[], start: number, end: number, kwargs: Record<string, any> = {}): Ast {
+    if (end - start <= 0) {
         this.error("Content is empty (missing operand or argument?)");
     }
 
-    this.fileStack = content[0].fileStack;
-    debug("Parsing '" + dispTokens(content) + "'");
+    this.fileStack = tokens[start].fileStack;
+    if (DEBUG_MODE) {
+        debug("Parsing '" + dispTokens(tokens.slice(start, end)) + "'");
+    }
+
+    let firstText = tokens[start].text;
 
     //Handle the "del" directive.
-    if (content[0].text === "del") {
-        let result = this.Ast("__del__", [this.parse(content.slice(1))]);
-        result.fileStack = this.getFileStackRange(content);
+    if (firstText === "del") {
+        let result = this.Ast("__del__", [this.parseRange(tokens, start + 1, end)]);
+        result.fileStack = this.getFileStackRange(tokens, start, end);
         return result;
     }
 
     //Parse the "goto" directive.
-    if (content[0].text === "goto") {
-        if (content.length < 2) {
+    if (firstText === "goto") {
+        if (end - start < 2) {
             this.error("Expected a label or a formula after 'goto'");
         }
-        if (content.length === 2) {
+        if (end - start === 2) {
             //Check for the special "RULE_START" and convert to the "Loop" instruction.
-            if (content[1].text === "RULE_START") {
+            if (tokens[start + 1].text === "RULE_START") {
                 return this.Ast("loop");
             }
             //The goto goes to a label.
-            return this.Ast("__skip__", [this.Ast("__distanceTo__", [this.Ast(content[1].text, [], [], "Label")])]);
+            return this.Ast("__skip__", [this.Ast("__distanceTo__", [this.Ast(tokens[start + 1].text, [], [], "Label")])]);
         } else {
             //The goto should be of the format "loc+XXX".
-            if (content[1].text !== "loc" || content[2].text !== "+") {
+            if (tokens[start + 1].text !== "loc" || tokens[start + 2].text !== "+") {
                 this.error("Expected a label or 'loc+XXX' after 'goto'");
             }
-            let result = this.Ast("__skip__", [this.parse(content.slice(3))]);
-            result.fileStack = this.getFileStackRange(content);
+            let result = this.Ast("__skip__", [this.parseRange(tokens, start + 3, end)]);
+            result.fileStack = this.getFileStackRange(tokens, start, end);
             return result;
         }
     }
 
     //Parse labels. We do not need to care about 'else:' as they are already parsed in the parseLines function.
-    if (content.length === 2 && content[1].text === ":") {
-        return this.Ast(content[0].text, [], [], "Label");
+    if (end - start === 2 && tokens[start + 1].text === ":") {
+        return this.Ast(firstText, [], [], "Label");
     }
 
     //Check for ++/--.
-    if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
-        var op1 = this.parse(content.slice(0, content.length - 2));
-        this.fileStack = this.getFileStackRange(content);
+    if (end - start > 2 && tokens[end - 1].text === "+" && tokens[end - 2].text === "+") {
+        var op1 = this.parseRange(tokens, start, end - 2);
+        this.fileStack = this.getFileStackRange(tokens, start, end);
         return this.Ast("__assignTo__", [op1, this.Ast("__add__", [op1, this.getAstFor1()])]);
     }
-    if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
-        var op1 = this.parse(content.slice(0, content.length - 2));
-        this.fileStack = this.getFileStackRange(content);
+    if (end - start > 2 && tokens[end - 1].text === "-" && tokens[end - 2].text === "-") {
+        var op1 = this.parseRange(tokens, start, end - 2);
+        this.fileStack = this.getFileStackRange(tokens, start, end);
         return this.Ast("__assignTo__", [op1, this.Ast("__subtract__", [op1, this.getAstFor1()])]);
     }
 
@@ -684,100 +809,159 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
     if (kwargs.minOperatorPrecedence === undefined) {
         kwargs.minOperatorPrecedence = 1;
     }
-    for (var precedence = kwargs.minOperatorPrecedence; precedence <= operatorPrecedence["**"]; precedence++) {
-        var operatorsToCheck = Object.keys(operatorPrecedence).filter((x) => operatorPrecedence[x] === precedence);
-        //var allowUnary = (precedence === operatorPrecedence["not"]);
-        let allowUnary = false;
+    initOperatorTables();
 
-        //manually put the unary plus/minus
-        if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
-            operatorsToCheck = ["+", "-"];
-            allowUnary = true;
+    //Single scan of the tokens: for each precedence level, the position of the operator to split on (-1 if none).
+    //Also records the top-level brackets and the last top-level "." for the array/parentheses/member checks below.
+    let operatorPositions = noOperatorPositions.slice();
+    let lastTopLevelDotIndex = -1;
+    let nbTopLevelBracketPairs = 0;
+    let firstTopLevelOpenBracket = -1;
+    let lastTopLevelOpenBracket = -1;
+    let firstTopLevelCloseBracket = -1;
+    {
+        let bracketsLevel = 0;
+        for (let i = start; i < end; i++) {
+            let text = tokens[i].text;
+            if (text === "(" || text === "[" || text === "{") {
+                if (bracketsLevel === 0) {
+                    nbTopLevelBracketPairs++;
+                    if (firstTopLevelOpenBracket === -1) {
+                        firstTopLevelOpenBracket = i;
+                    }
+                    lastTopLevelOpenBracket = i;
+                }
+                bracketsLevel++;
+            } else if (text === ")" || text === "]" || text === "}") {
+                bracketsLevel--;
+                if (bracketsLevel === 0) {
+                    if (firstTopLevelCloseBracket === -1) {
+                        firstTopLevelCloseBracket = i;
+                    }
+                } else if (bracketsLevel < 0) {
+                    this.error("Lexer broke (bracket level is " + bracketsLevel + ")");
+                }
+            } else if (bracketsLevel === 0) {
+                if (text === ".") {
+                    lastTopLevelDotIndex = i;
+                    continue;
+                }
+                let precedence = operatorPrecedenceMap.get(text);
+                if (precedence === undefined) {
+                    continue;
+                }
+                let isPrecededByOperator = i > start && operatorPrecedenceKeys.has(tokens[i - 1].text);
+                if (text === "+" || text === "-") {
+                    //Unary plus/minus: parsed right to left, and any plus/minus qualifies
+                    if (operatorPositions[unaryPlusMinusPrecedence] === -1) {
+                        operatorPositions[unaryPlusMinusPrecedence] = i;
+                    }
+                    //Binary plus/minus: parsed left to right
+                    if (i > start && !isPrecededByOperator) {
+                        operatorPositions[precedence] = i;
+                    }
+                } else if (text === "not") {
+                    //"not in" is handled by the "in" operator
+                    if (i + 1 < end && tokens[i + 1].text === "in") {
+                        continue;
+                    }
+                    if (i === start || !isPrecededByOperator) {
+                        operatorPositions[precedence] = i;
+                    }
+                } else if (i > start && (!isPrecededByOperator || (text === "in" && tokens[i - 1].text === "not"))) {
+                    if (precedence === maxOperatorPrecedence || precedence === ifPrecedence) {
+                        //Parsed right to left: keep the leftmost operator
+                        if (operatorPositions[precedence] === -1) {
+                            operatorPositions[precedence] = i;
+                        }
+                    } else {
+                        operatorPositions[precedence] = i;
+                    }
+                }
+            }
         }
-        var rtlPrecedence = precedence === operatorPrecedence["**"] || precedence === operatorPrecedence["if"] || allowUnary === true;
+        if (bracketsLevel !== 0) {
+            this.error("Lexer broke (bracket level is " + bracketsLevel + ")");
+        }
+    }
 
-        var operatorCheck = this.getOperator(content, operatorsToCheck, rtlPrecedence, allowUnary);
-        if (operatorCheck.operatorFound === null) {
+    for (var precedence = kwargs.minOperatorPrecedence; precedence <= maxOperatorPrecedence; precedence++) {
+        let operatorPosition = operatorPositions[precedence];
+        if (operatorPosition === -1) {
             continue;
         }
 
-        //The operator is present; parse it
-        var operator = operatorCheck.operatorFound;
-        var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + 1, content.length)];
+        //The operator is present; parse it. The operands are [start, operatorPosition) and [operatorPosition+1, end).
+        var operator = tokens[operatorPosition].text;
 
         if (operator === "=") {
-            let result = this.Ast("__assignTo__", [this.parse(operands[0]), this.parse(operands[1])]);
-            result.fileStack = this.getFileStackRange(content);
+            let result = this.Ast("__assignTo__", [this.parseRange(tokens, start, operatorPosition), this.parseRange(tokens, operatorPosition + 1, end)]);
+            result.fileStack = this.getFileStackRange(tokens, start, end);
             return result;
         } else if (operator === "if") {
             //"true if condition else false"
 
-            var trueExpr = this.parse(operands[0]);
-            var elseOperands = this.splitTokens(operands[1], "else", false, false);
-            if (elseOperands.length !== 2) {
+            var trueExpr = this.parseRange(tokens, start, operatorPosition);
+            //Find the first top-level "else" in the right operand
+            let elsePosition = -1;
+            let bracketsLevel = 0;
+            for (let i = operatorPosition + 1; i < end; i++) {
+                let text = tokens[i].text;
+                if (text === "(" || text === "[" || text === "{") {
+                    bracketsLevel++;
+                } else if (text === ")" || text === "]" || text === "}") {
+                    bracketsLevel--;
+                } else if (text === "else" && bracketsLevel === 0) {
+                    elsePosition = i;
+                    break;
+                }
+            }
+            if (elsePosition === -1) {
                 this.error("Found 'if', but no 'else'");
             }
-            var falseExpr = this.parse(elseOperands[1]);
-            var condition = this.parse(elseOperands[0]);
+            var falseExpr = this.parseRange(tokens, elsePosition + 1, end);
+            var condition = this.parseRange(tokens, operatorPosition + 1, elsePosition);
 
-            this.fileStack = this.getFileStackRange(content);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             return this.Ast("__ifThenElse__", [condition, trueExpr, falseExpr]);
-        } else if (["or", "and"].includes(operator)) {
-            var op1 = this.parse(operands[0]);
-            var op2 = this.parse(operands[1]);
-            this.fileStack = this.getFileStackRange(content);
+        } else if (operator === "or" || operator === "and") {
+            var op1 = this.parseRange(tokens, start, operatorPosition);
+            var op2 = this.parseRange(tokens, operatorPosition + 1, end);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             return this.Ast("__" + operator + "__", [op1, op2]);
         } else if (operator === "not") {
-            var op1 = this.parse(operands[1]);
-            this.fileStack = this.getFileStackRange(content);
+            var op1 = this.parseRange(tokens, operatorPosition + 1, end);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             return this.Ast("__not__", [op1]);
         } else if (operator === "in") {
             var isNotInOperator = false;
-            if (operands[0].length > 1 && operands[0][operands[0].length - 1].text === "not") {
+            let valueEnd = operatorPosition;
+            if (operatorPosition - start > 1 && tokens[operatorPosition - 1].text === "not") {
                 isNotInOperator = true;
-                operands[0].pop();
+                valueEnd--;
             }
-            var value = this.parse(operands[0]);
-            var array = this.parse(operands[1]);
-            this.fileStack = this.getFileStackRange(content);
+            var value = this.parseRange(tokens, start, valueEnd);
+            var array = this.parseRange(tokens, operatorPosition + 1, end);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             if (isNotInOperator) {
                 return this.Ast("__not__", [this.Ast("__arrayContains__", [array, value])]);
             } else {
                 return this.Ast("__arrayContains__", [array, value]);
             }
-        } else if (["==", "!=", "<=", ">=", "<", ">"].includes(operator)) {
-            var op1 = this.parse(operands[0]);
-            var op2 = this.parse(operands[1]);
-            let opToFuncMapping = {
-                "==": "__equals__",
-                "!=": "__inequals__",
-                "<=": "__lessThanOrEquals__",
-                ">=": "__greaterThanOrEquals__",
-                "<": "__lessThan__",
-                ">": "__greaterThan__",
-            };
-            this.fileStack = this.getFileStackRange(content);
-            return this.Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
-        } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
+        } else if (operator in comparisonOpToFuncMapping) {
+            var op1 = this.parseRange(tokens, start, operatorPosition);
+            var op2 = this.parseRange(tokens, operatorPosition + 1, end);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
+            return this.Ast(comparisonOpToFuncMapping[operator], [op1, op2]);
+        } else if (operator in modifyOpToFuncMapping) {
             //Actually de-optimize so we can keep the logic in one place.
             //Transform "A += 1" to "A = A + 1".
 
-            let opToFuncMapping = {
-                "+=": "__add__",
-                "-=": "__subtract__",
-                "*=": "__multiply__",
-                "/=": "__divide__",
-                "%=": "__modulo__",
-                "**=": "__raiseToPower__",
-                "min=": "min",
-                "max=": "max",
-            };
+            const variable = this.parseRange(tokens, start, operatorPosition);
+            const opName = modifyOpToFuncMapping[operator];
+            const value = this.parseRange(tokens, operatorPosition + 1, end);
 
-            const variable = this.parse(operands[0]);
-            const opName = opToFuncMapping[operator as keyof typeof opToFuncMapping];
-            const value = this.parse(operands[1]);
-
-            this.fileStack = this.getFileStackRange(content);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
             if (!areAstsAlwaysEqual(variable, variable)) {
                 // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
@@ -785,83 +969,76 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
             }
 
             return this.Ast("__assignTo__", [variable, this.Ast(opName, [variable, value])]);
-        } else if (["+", "-"].includes(operator)) {
-            if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
+        } else if (operator === "+" || operator === "-") {
+            if (precedence === unaryPlusMinusPrecedence) {
                 //unary plus/minus
-                if (operands[0].length > 1 && operands[0][operands[0].length - 1].text === "**") {
+                if (operatorPosition - start > 1 && tokens[operatorPosition - 1].text === "**") {
                     //In case of things like "A ** -B", go to the next operator (which will be **)
                     continue;
                 }
                 if (operator === "+") {
-                    return this.parse(operands[1]);
+                    return this.parseRange(tokens, operatorPosition + 1, end);
                 } else {
-                    let result = this.Ast("__negate__", [this.parse(operands[1])]);
-                    result.fileStack = this.getFileStackRange(content);
+                    let result = this.Ast("__negate__", [this.parseRange(tokens, operatorPosition + 1, end)]);
+                    result.fileStack = this.getFileStackRange(tokens, start, end);
                     return result;
                 }
             } else {
                 if (operator === "+") {
-                    let result = this.Ast("__add__", [this.parse(operands[0]), this.parse(operands[1])]);
-                    result.fileStack = this.getFileStackRange(content);
+                    let result = this.Ast("__add__", [this.parseRange(tokens, start, operatorPosition), this.parseRange(tokens, operatorPosition + 1, end)]);
+                    result.fileStack = this.getFileStackRange(tokens, start, end);
                     return result;
                 } else {
-                    let result = this.Ast("__subtract__", [this.parse(operands[0]), this.parse(operands[1])]);
-                    result.fileStack = this.getFileStackRange(content);
+                    let result = this.Ast("__subtract__", [this.parseRange(tokens, start, operatorPosition), this.parseRange(tokens, operatorPosition + 1, end)]);
+                    result.fileStack = this.getFileStackRange(tokens, start, end);
                     return result;
                 }
             }
-        } else if (["/", "*", "%", "**"].includes(operator)) {
-            let opToFuncMapping = {
-                "/": "__divide__",
-                "*": "__multiply__",
-                "%": "__modulo__",
-                "**": "__raiseToPower__",
-            };
-            var op1 = this.parse(operands[0]);
-            var op2 = this.parse(operands[1]);
-            this.fileStack = this.getFileStackRange(content);
-            return this.Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
+        } else if (operator in arithmeticOpToFuncMapping) {
+            var op1 = this.parseRange(tokens, start, operatorPosition);
+            var op2 = this.parseRange(tokens, operatorPosition + 1, end);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
+            return this.Ast(arithmeticOpToFuncMapping[operator], [op1, op2]);
         }
         this.error("Unhandled operator " + operator);
     }
 
     //Parse array
-    if (content[content.length - 1].text === "]") {
-        var bracketPos = this.getTokenBracketPos(content);
-
-        if (bracketPos.length === 2 && bracketPos[0] === 0) {
+    if (tokens[end - 1].text === "]") {
+        if (nbTopLevelBracketPairs === 1 && firstTopLevelOpenBracket === start) {
             //It is a literal array such as [1,2,3] or [i for i in A if x].
-            return this.parseLiteralArray(content);
+            return this.parseLiteralArray(tokens.slice(start, end));
         } else {
-            var array = this.parse(content.slice(0, bracketPos[bracketPos.length - 2]));
-            var value = this.parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
-            this.fileStack = this.getFileStackRange(content);
+            var array = this.parseRange(tokens, start, lastTopLevelOpenBracket);
+            var value = this.parseRange(tokens, lastTopLevelOpenBracket + 1, end - 1);
+            this.fileStack = this.getFileStackRange(tokens, start, end);
             return this.Ast("__valueInArray__", [array, value]);
         }
     }
 
     //Parse dictionary
-    if (content[0].text === "{") {
-        return this.parseDictionary(content);
+    if (firstText === "{") {
+        return this.parseDictionary(tokens.slice(start, end));
     }
 
     //Check for "." operator, which has the highest precedence.
     //It must be parsed from right to left.
-    var operands = this.splitTokens(content, ".", false, true);
-    if (operands.length === 2) {
-        return this.parseMember(operands[0], operands[1]);
+    if (lastTopLevelDotIndex !== -1) {
+        return this.parseMember(tokens.slice(start, lastTopLevelDotIndex), tokens.slice(lastTopLevelDotIndex + 1, end));
     }
 
     //Check for parentheses
-    if (content[0].text === "(") {
-        var bracketPos = this.getTokenBracketPos(content);
-        if (bracketPos.length === 2 && bracketPos[1] === content.length - 1) {
+    if (firstText === "(") {
+        if (nbTopLevelBracketPairs === 1 && firstTopLevelCloseBracket === end - 1) {
             //All the expression is in parentheses; just remove them
-            return this.parse(content.slice(1, content.length - 1));
+            return this.parseRange(tokens, start + 1, end - 1);
         } else {
             this.error("Malformatted parentheses");
         }
     }
+
+    //The remaining cases are leaves of the expression (strings, function calls, names), handled on a copy of the range
+    let content = start === 0 && end === tokens.length ? tokens : tokens.slice(start, end);
 
     //Check for strings
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
@@ -928,8 +1105,9 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
         }
 
 
-        //Check for number
-        if (isNumber(name)) {
+        //Check for number. A word (letters, digits, "_", "@", "$") can only be a number if it starts with a digit or is "Infinity" (parseFloat accepts it), so skip the parseInt/parseFloat calls otherwise.
+        let firstCharCode = name.charCodeAt(0);
+        if (((firstCharCode >= 48 && firstCharCode <= 57) || name === "Infinity") && isNumber(name)) {
             //It is an int, else it would have a dot, and wouldn't be processed here.
             //It is also an unsigned int, as the negative sign is not part of the name.
             if (name.startsWith("0x")) {
@@ -959,7 +1137,9 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
     }
 
     this.fileStack = this.getFileStackRange(content);
-    debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
+    if (DEBUG_MODE) {
+        debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
+    }
 
     //Special functions
 
@@ -1075,7 +1255,8 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
     if (name === "sorted") {
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
         if (args.length === 3) {
-            args[1].push({ text: ",", fileStack: [] });
+            //Use a real Token so all tokens have the same shape (faster property accesses)
+            args[1].push(new Token(",", getInternalFileStack()));
             args[1].push(...args[2]);
             args = args.slice(0, 2);
         }
@@ -1130,7 +1311,7 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
             this.error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received " + args.length);
         }
         if (args.length === 4) {
-            args.push([{ text: "0", fileStack: [] }]);
+            args.push([new Token("0", getInternalFileStack())]);
         }
 
         let result = this.Ast("__createWorkshopSetting__", [this.parseType(args[0]), ...args.slice(1).map((x) => this.parse(x))]);
@@ -1144,32 +1325,6 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
             return this.Ast("__callSubroutine__", [this.Ast(name, [], [], "Subroutine")]);
         }
     }
-
-    //Old functions
-    let functionAliases: Record<string, string> = {
-        "destroyAllInWorldText": "destroyAllInWorldTexts",
-        "disableEnvironmentCollision": ".disableEnvironmentCollision",
-        "enableEnvironmentCollision": ".enableEnvironmentCollision",
-        "enablePlayerCollision": ".enablePlayerCollision",
-        "horizontalAngleFromDirection": "horizontalAngleOfDirection",
-        "getLastAssistID": "getLastAssistId",
-        "getLastDoT": "getLastDamageOverTimeId",
-        "getLastHoT": "getLastHealingOverTimeId",
-        "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
-        "getNumberOfHoTIds": "getNumberOfHealingOverTimeIds",
-        "moveToTeam": ".moveToTeam",
-        "printLog": "logToInspector",
-        "rgba": "rgb",
-        "hsla": "hsl",
-        "updateEveryTick": "updateEveryFrame",
-        "angleToDirection": "directionFromAngles",
-        "buttonString": "inputBindingString",
-        "teamHasHero": "isHeroBeingPlayed",
-        "removeFromGame": ".removeFromGame",
-        "stopChasingVariable": "stopChasing",
-        "stopDoT": "stopDamageOverTime",
-        "stopHoT": "stopHealingOverTime",
-    };
 
     if (name in functionAliases) {
         name = functionAliases[name];
@@ -1187,7 +1342,9 @@ OverPyCompiler.prototype.parse = function(content: Token[], kwargs: Record<strin
 }
 
 OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]) {
-    debug("Parsing member '" + dispTokens(member) + "' of object '" + dispTokens(object) + "'");
+    if (DEBUG_MODE) {
+        debug("Parsing member '" + dispTokens(member) + "' of object '" + dispTokens(object) + "'");
+    }
 
     if (member.length === 0) {
         this.error("Expected tokens after '.'");
@@ -1363,7 +1520,7 @@ OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]
             if (["map", "filter", "all", "any"].includes(name) && args !== null) {
                 //Lazy & dirty way of properly parsing ".map(lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
                 if (args.length === 2) {
-                    args[0].push({ text: ",", fileStack: [] });
+                    args[0].push(new Token(",", getInternalFileStack()));
                     args[0].push(...args[1]);
                     args = args.slice(0, 1);
                 }
@@ -1416,19 +1573,8 @@ OverPyCompiler.prototype.parseMember = function(object: Token[], member: Token[]
 
             //Assume it is a generic member function
 
-            //old functions
-            let functionAliases: Record<string, string> = {
-                "setCamera": "startCamera",
-                "disableHeroHUD": "disableHeroHud",
-                "startDoT": "startDamageOverTime",
-                "startHoT": "startHealingOverTime",
-                "getCurrentHero": "getHero",
-                "hasStatusEffect": "hasStatus",
-                "stopAllDoT": "stopAllDamageOverTime",
-                "stopAllHoT": "stopAllHealingOverTime",
-            };
-            if (name in functionAliases) {
-                name = functionAliases[name];
+            if (name in memberFunctionAliases) {
+                name = memberFunctionAliases[name];
             }
             let result = this.Ast("." + name, this.parseArgs("."+name, [object].concat(args)));
             result.fileStack = this.getFileStackRange(object.concat(...member));
@@ -1573,21 +1719,41 @@ OverPyCompiler.prototype.parseStringTokens = function(string: string, isFormatte
     let stringTokens: StringToken[] = [];
 
     let formatterPattern = isFormattedString ? "\\{([^}]*)\\}" : "\\{(\\d*)\\}";
-    let formatterRegex = new RegExp("^" + formatterPattern);
-    let tagRegex = new RegExp("^((<(tx\\s*|fg\\s*#?)([0-9a-fA-F]|(?<!\\{)"+formatterPattern+")+>)|(</fg>))", "i");
+    //Sticky regexes: match at lastIndex without having to create a substring (or a new regex) for each character.
+    let formatterEscapeRegex = new RegExp("\\{" + formatterPattern + "\\}", "y");
+    let formatterRegex = new RegExp(formatterPattern, "y");
+    let tagRegex = new RegExp("(<(tx\\s*|fg\\s*#?)([0-9a-fA-F]|(?<!\\{)"+formatterPattern+")+>)|(</fg>)", "iy");
 
-    for (let i = 0; i < string.length; i++) {
-        let formatterEscapeMatch = string.substring(i).match(new RegExp("^\\{"+formatterPattern+"\\}"));
-        if (formatterEscapeMatch) {
+    //Consecutive text characters are accumulated here instead of pushing one token per character
+    let currentText = "";
+    const flushText = () => {
+        if (currentText !== "") {
             stringTokens.push({
-                text: formatterEscapeMatch[0],
+                text: currentText,
                 type: "text",
             });
+            currentText = "";
+        }
+    };
+
+    for (let i = 0; i < string.length; i++) {
+        let char = string[i];
+        if (char !== "{" && char !== "<") {
+            //Fast path: cannot be the start of a formatter or a tag
+            currentText += char;
+            continue;
+        }
+        formatterEscapeRegex.lastIndex = i;
+        let formatterEscapeMatch = formatterEscapeRegex.exec(string);
+        if (formatterEscapeMatch) {
+            currentText += formatterEscapeMatch[0];
             i += formatterEscapeMatch[0].length - 1;
             continue;
         }
-        let formatterMatch = string.substring(i).match(formatterRegex);
+        formatterRegex.lastIndex = i;
+        let formatterMatch = formatterRegex.exec(string);
         if (formatterMatch) {
+            flushText();
             stringTokens.push({
                 text: formatterMatch[0],
                 type: "arg",
@@ -1596,12 +1762,15 @@ OverPyCompiler.prototype.parseStringTokens = function(string: string, isFormatte
             i += formatterMatch[0].length - 1;
             continue;
         }
-        let tagMatch = string.substring(i).match(tagRegex);
-        if (tagMatch && this.enableTagsSetup) {
+        tagRegex.lastIndex = i;
+        let tagMatch = this.enableTagsSetup ? tagRegex.exec(string) : null;
+        if (tagMatch) {
+            flushText();
             //There can be formatters inside a tag, so we need to re-parse
             for (let j = 0; j < tagMatch[0].length; j++) {
                 //Note: there cannot be escaped formatters inside a tag, as the regex would not match
-                let formatterMatch = tagMatch[0].substring(j).match(formatterRegex);
+                formatterRegex.lastIndex = j;
+                let formatterMatch = formatterRegex.exec(tagMatch[0]);
                 if (formatterMatch) {
                     stringTokens.push({
                         text: formatterMatch[0],
@@ -1626,12 +1795,10 @@ OverPyCompiler.prototype.parseStringTokens = function(string: string, isFormatte
             i += tagMatch[0].length - 1;
             continue;
         }
-        stringTokens.push({
-            text: string[i],
-            type: "text",
-        });
+        currentText += char;
     }
-    //Concatenate consecutive text/tag tokens
+    flushText();
+    //Concatenate consecutive tag tokens (text tokens are already concatenated)
     stringTokens = stringTokens.reduce((acc, token) => {
         if ((token.type === "text" || token.type === "tag") && acc.length > 0 && acc[acc.length - 1].type === token.type) {
             acc[acc.length - 1].text += token.text;
@@ -1702,7 +1869,9 @@ OverPyCompiler.prototype.parseString = function(content: Token[], kwargs: Record
 
     let stringTokens = this.parseStringTokens(string, isFormattedString);
 
-    debug("String tokens for '"+string+"': " + JSON.stringify(stringTokens));
+    if (DEBUG_MODE) {
+        debug("String tokens for '"+string+"': " + JSON.stringify(stringTokens));
+    }
 
 
     let formatArgs = [];

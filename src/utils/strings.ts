@@ -171,17 +171,12 @@ export function escapeString(content: string, tows: boolean) {
     var result = '"' + content.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r") + '"';
     if (!tows) {
         result = result.replace(/\u00AD/g, "\\z");
-
-        result = result.split("").map(c => {
-            if ("\u00A0\u0E00\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u200B\u200C\u200D\u200E\u200F\u2028\u2029\u202A\u202B\u202C\u202D\u202E\u202F\u205F\u206A\u206B\u206C\u206D\u206E\u206F\u3000\u3164".includes(c) || c.match(/\p{Other}/gu)) {
-                return "\\u" + c.codePointAt(0)?.toString(16).padStart(4, "0");
-            }
-            return c;
-        }).join("");
-
+        //Escape invisible characters. Note: this matches UTF-16 code units, like the previous split("") implementation (surrogate halves are in \p{Other} and are escaped individually).
+        result = result.replace(invisibleCharsRegex, (c) => "\\u" + c.codePointAt(0)?.toString(16).padStart(4, "0"));
     }
     return result;
 }
+const invisibleCharsRegex = /[\u00A0\u0E00\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u200B\u200C\u200D\u200E\u200F\u2028\u2029\u202A\u202B\u202C\u202D\u202E\u202F\u205F\u206A\u206B\u206C\u206D\u206E\u206F\u3000\u3164]|\p{Other}/gu;
 
 export function getUtf8Length(str: string) {
     //returns the char length of an utf8 string

@@ -23,10 +23,10 @@ import { areAstsAlwaysEqual, astParsingFunctions, numValue } from "../../utils/a
 astParsingFunctions.__subtract__ = function (content, compiler) {
     //Check if we are subtracting both numbers, or both vectors.
     //If not, throw a type warning.
-    if (!compiler.isTypeSuitable(content.args[0].type, content.args[1].type) && !compiler.isTypeSuitable(content.args[1].type, content.args[0].type)) {
+    /*if (!compiler.isTypeSuitable(content.args[0].type, content.args[1].type) && !compiler.isTypeSuitable(content.args[1].type, content.args[0].type)) {
         compiler.warn("w_type_check", compiler.getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
         //return content;
-    }
+    }*/
 
     if (compiler.enableOptimization) {
         //If both arguments are numbers, return their subtraction.

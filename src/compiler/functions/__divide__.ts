@@ -23,10 +23,10 @@ import { functionNameToString } from "../../utils/logging";
 
 astParsingFunctions.__divide__ = function (content, compiler) {
     //Check to throw a type warning if dividing a number by a vector
-    if (!compiler.isTypeSuitable("Vector", content.args[0].type) && !compiler.isTypeSuitable("float", content.args[1].type)) {
+    /*if (!compiler.isTypeSuitable("Vector", content.args[0].type) && !compiler.isTypeSuitable("float", content.args[1].type)) {
         compiler.warn("w_type_check", "Cannot divide " + functionNameToString(content.args[0]) + " of type '" + compiler.typeToString(content.args[0].type) + "' by " + functionNameToString(content.args[1]) + " of type '" + compiler.typeToString(content.args[1].type) + "'");
         return content;
-    }
+    }*/
 
     if (compiler.enableOptimization) {
         //If both arguments are numbers, return their quotient.

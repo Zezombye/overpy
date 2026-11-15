@@ -79,5 +79,6 @@ astParsingFunctions.arrayToString = function (content, compiler) {
 
     //console.log(macro);
 
-    return compiler.parseOpyMacro(macro, ["$array"], content.args);
+    //The macro text only depends on maxLength, so it is cacheable
+    return compiler.parseOpyMacro(macro, ["$array"], content.args, true);
 };

@@ -305,7 +305,7 @@ OverPyCompiler.prototype.getBracketPositions = OverPyDecompiler.prototype.getBra
     var currentPositionIsString = false;
     var currentStrDelimiter = "";
     for (var i = 0; i < content.length; i++) {
-        if (!currentPositionIsString && startsWithParenthesis(content.substring(i))) {
+        if (!currentPositionIsString && startsWithParenthesis(content.charAt(i))) {
             bracketsLevel++;
             if (bracketsLevel === 1) {
                 bracketsPos.push(i);

@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { funcKw } from "../globalVars";
+import { funcKw, typeMatrixSets } from "../globalVars";
 import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
 import { functionNameToString } from "./logging";
 import { Argument, FileStackMember, StringToken, Type } from "../types";
@@ -26,6 +26,8 @@ import { builtInEnumNameToAstInfo } from "../compiler/parser";
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
 export var astParsingFunctions: Record<string, (content: Ast, compiler: OverPyCompiler) => Ast> = {};
+
+const noClientSideReevaluatedArgIndexes: readonly number[] = Object.freeze([]);
 
 export class RuleAttributes {
     isDelimiter = false;
@@ -56,19 +58,31 @@ export class Ast {
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
-    ruleAttributes: Record<string, any> = {
-        isDelimiter: false,
-        isDisabled: false,
-        name: "",
-        event: "",
-    };
+    //Only rules have attributes, so the object is created on first access rather than for every node (see the ruleAttributes accessors)
+    private _ruleAttributes?: Record<string, any>;
     doNotReparse = false;
     originalName?: string;
     parent?: Ast;
     expectedType?: Type;
     comment?: string;
     isDisabled: boolean = false;
-    clientSideReevaluatedArgIndexes: number[] = [];
+    //Only ever reassigned (never pushed to), so all nodes share the same empty array by default
+    clientSideReevaluatedArgIndexes: readonly number[] = noClientSideReevaluatedArgIndexes;
+
+    get ruleAttributes(): Record<string, any> {
+        if (this._ruleAttributes === undefined) {
+            this._ruleAttributes = {
+                isDelimiter: false,
+                isDisabled: false,
+                name: "",
+                event: "",
+            };
+        }
+        return this._ruleAttributes;
+    }
+    set ruleAttributes(value: Record<string, any>) {
+        this._ruleAttributes = value;
+    }
 
     constructor(compiler: OverPyCompiler | OverPyDecompiler, name: string, args?: any[], children?: Ast[], type?: any) {
         if (name === null || name === undefined) {
@@ -93,17 +107,20 @@ export class Ast {
         } else {
             this.type = type;
         }
-        if (this.compiler.isTypeSuitable("FloatLiteral", this.type, false)) {
+        //Equivalent to isTypeSuitable("FloatLiteral", this.type, false), but faster for the common case of a string type (this constructor is called for every AST node)
+        if (typeof this.type === "string" ? typeMatrixSets["FloatLiteral"].has(this.type) : this.compiler.isTypeSuitable("FloatLiteral", this.type, false)) {
             this.numValue = Number(name);
         }
 
-        for (var arg of this.args) {
+        for (let i = 0; i < this.args.length; i++) {
+            let arg = this.args[i];
             if (!(arg instanceof Ast)) {
                 compiler.error("Arg '" + arg + "' of '" + name + "' is not an AST");
             }
             arg.parent = this;
         }
-        for (var child of this.children) {
+        for (let i = 0; i < this.children.length; i++) {
+            let child = this.children[i];
             if (!(child instanceof Ast)) {
                 compiler.error("Child '" + child + "' of '" + name + "' is not an AST");
             }
@@ -113,17 +130,22 @@ export class Ast {
     }
 
     clone() {
-        var clone: Ast = new Ast(
-            this.compiler,
-            this.name,
-            this.args.map((x) => x.clone()),
-            this.children.map((x) => x.clone()),
-            this.type,
-        );
+        //Built with push() rather than map() so the arrays are "packed" like array literals (see parseArgs)
+        let clonedArgs: Ast[] = [];
+        for (let i = 0; i < this.args.length; i++) {
+            clonedArgs.push(this.args[i].clone());
+        }
+        let clonedChildren: Ast[] = [];
+        for (let i = 0; i < this.children.length; i++) {
+            clonedChildren.push(this.children[i].clone());
+        }
+        var clone: Ast = new Ast(this.compiler, this.name, clonedArgs, clonedChildren, this.type);
         clone.argIndex = this.argIndex;
         clone.childIndex = this.childIndex;
         clone.wasParsed = this.wasParsed;
-        clone.ruleAttributes = structuredClone(this.ruleAttributes);
+        if (this._ruleAttributes !== undefined) {
+            clone._ruleAttributes = cloneRuleAttributes(this._ruleAttributes);
+        }
         clone.doNotReparse = this.doNotReparse;
         clone.originalName = this.originalName;
         clone.parent = this.parent;
@@ -133,12 +155,23 @@ export class Ast {
         clone.tokenArgsStr = this.tokenArgsStr;
         clone.fileStack = this.fileStack;
         clone.numValue = this.numValue;
-        clone.stringTokens = structuredClone(this.stringTokens);
+        clone.stringTokens = this.stringTokens === undefined ? undefined : this.stringTokens.map((t) => ({ ...t }));
         clone.isSpectatorTranslation = this.isSpectatorTranslation;
         clone.isGotoInSameScope = this.isGotoInSameScope;
         clone.isSwitchIf = this.isSwitchIf;
         return clone;
     }
+}
+
+//Rule attributes are a flat object, except for "conditions"/"conditionComments" which are arrays.
+//structuredClone was used before, but it is very slow and would have turned the condition ASTs into plain objects anyway (losing the Ast prototype), so it cannot have been relied upon for deep copies.
+function cloneRuleAttributes(ruleAttributes: Record<string, any>): Record<string, any> {
+    let result: Record<string, any> = {};
+    for (let key in ruleAttributes) {
+        let value = ruleAttributes[key];
+        result[key] = Array.isArray(value) ? value.slice() : value;
+    }
+    return result;
 }
 
 OverPyCompiler.prototype.Ast = OverPyDecompiler.prototype.Ast = function(name: string, args?: any[], children?: Ast[], type?: any) {
@@ -255,11 +288,13 @@ export function isDefinitelyTruthy(content: Ast): boolean {
  * @remarks This function will check for random value functions, and will return false if any are found.
  * @returns Whether AST A and AST B always evaluate to the same value.
  */
+const randomFunctions = new Set(["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
+
 export function areAstsAlwaysEqual(a: Ast, b: Ast) {
     if (a.name !== b.name) {
         return false;
     }
-    if (["random.randint", "random.uniform", "random.choice", "random.shuffle"].includes(a.name)) {
+    if (randomFunctions.has(a.name)) {
         return false;
     }
     if (a.args.length !== b.args.length) {
@@ -327,17 +362,28 @@ export function astIsInLambdaFunction(ast: Ast) {
     return astIsInLambdaFunction(ast.parent);
 }
 
+//Types that are "literally literals": the AST is a leaf and does not need to be parsed/optimized.
+//Computed on first use, as constantValues is completed by post-load tasks (HeroLiteral, MapLiteral, etc).
+let literalTypes: Set<string> | null = null;
+export function getLiteralTypes(): Set<string> {
+    if (literalTypes === null) {
+        literalTypes = new Set(["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral", "StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral"].concat(Object.keys(constantValues)));
+        for (let builtInEnum of ["Hero", "Map", "Gamemode", "Team", "Button", "Color"]) {
+            literalTypes.delete(builtInEnum);
+        }
+    }
+    return literalTypes;
+}
+
 //See globalvars.ts for the definition of "literal".
 export function astIsLiteral(ast: Ast) {
     //Check for literally literals
-    if (typeof ast.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(ast.type)) {
-        if (["IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral", "StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral"].concat(Object.keys(constantValues)).includes(ast.type)) {
-            return true;
-        }
+    if (typeof ast.type === "string" && getLiteralTypes().has(ast.type)) {
+        return true;
     }
 
     //Skip internal types, those are not literals
-    if (["Type", "Label", "DictKey"].includes(ast.type as string)) {
+    if (ast.type === "Type" || ast.type === "Label" || ast.type === "DictKey") {
         return false;
     }
 
@@ -502,7 +548,9 @@ OverPyCompiler.prototype.getAstForArgDefault = OverPyDecompiler.prototype.getAst
     } else if (arg.default instanceof Ast) {
         defaultAst = arg.default.clone();
     } else {
-        defaultAst = new OverPyCompiler().parseOpyMacro(arg.default, [], []);
+        //Argument defaults are internal data, so the parsed AST is cached by parseOpyMacro.
+        //A fresh compiler is used as "this" may be the decompiler, which has no parseOpyMacro.
+        defaultAst = new OverPyCompiler().parseOpyMacro(arg.default, [], [], true);
     }
     return defaultAst;
 }

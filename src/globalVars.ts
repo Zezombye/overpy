@@ -134,11 +134,14 @@ export const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 
 export const defaultVarNames = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BK", "BL", "BM", "BN", "BO", "BP", "BQ", "BR", "BS", "BT", "BU", "BV", "BW", "BX", "BY", "BZ", "CA", "CB", "CC", "CD", "CE", "CF", "CG", "CH", "CI", "CJ", "CK", "CL", "CM", "CN", "CO", "CP", "CQ", "CR", "CS", "CT", "CU", "CV", "CW", "CX", "CY", "CZ", "DA", "DB", "DC", "DD", "DE", "DF", "DG", "DH", "DI", "DJ", "DK", "DL", "DM", "DN", "DO", "DP", "DQ", "DR", "DS", "DT", "DU", "DV", "DW", "DX"];
 
+export const defaultVarNamesSet = new Set(defaultVarNames);
+
 //Sub0 to Sub127
 export const defaultSubroutineNames = Array(128)
     .fill("")
     .map((e, i) => i)
     .map((x) => "Sub" + x);
+export const defaultSubroutineNamesSet = new Set(defaultSubroutineNames);
 
 //Names that cannot be used for global variables or subroutines.
 export const reservedNames = Object.keys(opyKeywords).concat("AsyncBehavior");
@@ -333,6 +336,8 @@ export let typeTree: (string | Record<string, any>)[] = [
 //Which types are suitable for a given type.
 //For example, typeMatrix["float"] = ["float", "int", etc].
 export const typeMatrix: Record<string, string[]> = {};
+//Same as typeMatrix, but as sets for O(1) lookups in isTypeSuitable (which is called for every AST node).
+export const typeMatrixSets: Record<string, Set<string>> = {};
 
 /**
  * Allow other files to perform work after data has been loaded.
@@ -635,6 +640,10 @@ export function postInitialLoad() {
                 fillTypeMatrix(elem);
             }
             typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+            for (let type in typeMatrix) {
+                typeMatrixSets[type] = new Set(typeMatrix[type]);
+            }
 
             reservedNames.push(...Object.keys(typeMatrix));
 

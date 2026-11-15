@@ -62,8 +62,10 @@ OverPyCompiler.prototype.getFilePaths = function(pathStr: string, basePath: stri
 
     let matchingFiles: string[] = [];
     if (fs.lstatSync(pathStr).isDirectory()) {
-        matchingFiles = (fs.readdirSync(pathStr) as string[]).map((f) => pathStr + f);
-        matchingFiles = matchingFiles.filter((f) => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
+        //withFileTypes avoids a stat syscall per file
+        matchingFiles = (fs.readdirSync(pathStr, { withFileTypes: true }) as import("fs").Dirent[])
+            .filter((f) => f.name.toLowerCase().endsWith(".opy") && f.isFile())
+            .map((f) => pathStr + f.name);
         if (matchingFiles.length === 0) {
             this.error("The directory '" + pathStr + "' does not have any .opy files.");
         }

@@ -22,14 +22,113 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { funcKw, valueKw, STR_MAX_LENGTH, STR_MAX_ARGS } from "../globalVars";
+import { funcKw, valueKw, STR_MAX_LENGTH, STR_MAX_ARGS, typeMatrixSets } from "../globalVars";
 import { OverPyCompiler } from "../godClasses";
-import { StringToken } from "../types";
+import { StringToken, Type } from "../types";
 import { Ast, numValue, areAstsAlwaysEqual, astIsInLambdaFunction } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
 import { functionNameToString } from "../utils/logging";
 import { getRuleEventCategories, tabLevel, toTitleCase } from "../utils/other";
 import { escapeBadWords, escapeString, getUtf8Length } from "../utils/strings";
+
+const comparisonFuncToOpMapping: Record<string, string> = {
+    __equals__: "==",
+    __inequals__: "!=",
+    __lessThanOrEquals__: "<=",
+    __greaterThanOrEquals__: ">=",
+    __lessThan__: "<",
+    __greaterThan__: ">",
+};
+
+//vect(1,1,0) -> Vector.LEFT + Vector.UP and same for other combinations of two 1s or -1s
+const vectorPairMapping: Record<string, [string, string]> = {
+    "1,1,0": ["LEFT", "UP"],
+    "1,-1,0": ["LEFT", "DOWN"],
+    "1,0,1": ["LEFT", "FORWARD"],
+    "1,0,-1": ["LEFT", "BACKWARD"],
+    "-1,1,0": ["RIGHT", "UP"],
+    "-1,-1,0": ["RIGHT", "DOWN"],
+    "-1,0,1": ["RIGHT", "FORWARD"],
+    "-1,0,-1": ["RIGHT", "BACKWARD"],
+    "0,1,1": ["UP", "FORWARD"],
+    "0,1,-1": ["UP", "BACKWARD"],
+    "0,-1,1": ["DOWN", "FORWARD"],
+    "0,-1,-1": ["DOWN", "BACKWARD"],
+};
+
+//Functions whose value can be used directly in .replace() (for translations). Other values must be wrapped with updateEveryFrame().
+const functionsUsableInReplace = new Set([
+    "abilityIconString",
+    "__add__",
+    ".concat",
+    "__array__",
+    "__arrayContains__",
+    ".slice",
+    ".charAt",
+    "__color__",
+    "__currentArrayElement__",
+    "__currentArrayIndex__",
+    "rgb",
+    "__customString__",
+    "__divide__",
+    "__emptyArray__",
+    "evalOnce",
+    "__filteredArray__",
+    "__firstOf__",
+    "__globalVar__",
+    "healee",
+    "healer",
+    "heroIcon",
+    "hostPlayer",
+    "iconString",
+    "__ifThenElse__",
+    ".index",
+    "inputBindingString",
+    "__all__",
+    "__any__",
+    ".isUsingUltimate",
+    ".last",
+    "__mappedArray__",
+    "__multiply__",
+    ".getPlayerClosestToReticle",
+    ".getHeroStatistic",
+    "__playerVar__",
+    ".getPlayersInViewAngle",
+    "random.choice",
+    "random.shuffle",
+    ".exclude",
+    "__sortedArray__",
+    "getSpawnPoints",
+    "__localizedString__",
+    ".replace",
+    ".substring",
+    ".split",
+    "__subtract__",
+    "updateEveryFrame",
+    "__valueInArray__",
+]);
+
+const raycastMemberToFunction: Record<string, string> = {
+    ".getHitPosition": "raycastHitPosition",
+    ".getPlayerHit": "raycastHitPlayer",
+    ".getNormal": "raycastHitNormal",
+};
+
+/**
+ * Same as isTypeSuitable(["Object", "Array"], type), but with a fast path for string types (this is checked for every emitted value).
+ */
+OverPyCompiler.prototype.isObjectOrArrayType = function(type: Type | Type[]): boolean {
+    if (typeof type === "string") {
+        if (type === "Value") {
+            return this.isTypeSuitable(["Object", "Array"], type);
+        }
+        return typeMatrixSets["Object"].has(type) || typeMatrixSets["Array"].has(type);
+    }
+    if (type instanceof Array) {
+        return type.every((x) => this.isObjectOrArrayType(x));
+    }
+    return this.isTypeSuitable(["Object", "Array"], type);
+}
 
 OverPyCompiler.prototype.astRulesToWs = function(rules: Ast[]) {
     var compiledRules = [];
@@ -129,14 +228,7 @@ OverPyCompiler.prototype.astRulesToWs = function(rules: Ast[]) {
 }
 
 OverPyCompiler.prototype.astRuleConditionToWs = function(condition: Ast) {
-    var funcToOpMapping = {
-        __equals__: "==",
-        __inequals__: "!=",
-        __lessThanOrEquals__: "<=",
-        __greaterThanOrEquals__: ">=",
-        __lessThan__: "<",
-        __greaterThan__: ">",
-    };
+    var funcToOpMapping = comparisonFuncToOpMapping;
     var result = "";
     let nbElementsBefore = this.nbElements;
     if (condition.comment) {
@@ -249,14 +341,7 @@ OverPyCompiler.prototype.astActionToWs = function(action: Ast, nbTabs: number) {
 }
 
 OverPyCompiler.prototype.astToWs = function(content: Ast): string {
-    var equalityFuncToOpMapping = {
-        __equals__: "==",
-        __inequals__: "!=",
-        __lessThanOrEquals__: "<=",
-        __greaterThanOrEquals__: ">=",
-        __lessThan__: "<",
-        __greaterThan__: ">",
-    };
+    var equalityFuncToOpMapping = comparisonFuncToOpMapping;
 
     //debug("astToWs: "+content.name);
     this.fileStack = content.fileStack;
@@ -311,24 +396,9 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
 
             if (this.optimizeForSize && !(x === 0 && y === 0 && z === 0)) {
 
-                //vect(1,1,0) -> Vector.LEFT + Vector.UP and same for other combinations of two 1s or -1s
-                let vectorPairMapping: Record<string, [string, string]> = {
-                    "1,1,0": ["left", "up"],
-                    "1,-1,0": ["left", "down"],
-                    "1,0,1": ["left", "forward"],
-                    "1,0,-1": ["left", "backward"],
-                    "-1,1,0": ["right", "up"],
-                    "-1,-1,0": ["right", "down"],
-                    "-1,0,1": ["right", "forward"],
-                    "-1,0,-1": ["right", "backward"],
-                    "0,1,1": ["up", "forward"],
-                    "0,1,-1": ["up", "backward"],
-                    "0,-1,1": ["down", "forward"],
-                    "0,-1,-1": ["down", "backward"],
-                };
                 let vectorArgs = x + "," + y + "," + z;
                 if (vectorArgs in vectorPairMapping) {
-                    return this.astToWs(this.Ast("__add__", [this.Ast("Vector."+vectorPairMapping[vectorArgs][0].toUpperCase()), this.Ast("Vector."+vectorPairMapping[vectorArgs][1].toUpperCase())]));
+                    return this.astToWs(this.Ast("__add__", [this.Ast("Vector."+vectorPairMapping[vectorArgs][0]), this.Ast("Vector."+vectorPairMapping[vectorArgs][1])]));
                 }
 
                 //vect(0,A,0) -> A * Vector.UP and same for other vector constants
@@ -569,16 +639,12 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
             }
         }
 
-    } else if ([".getHitPosition", ".getPlayerHit", ".getNormal"].includes(content.name)) {
+    } else if (content.name in raycastMemberToFunction) {
         if (content.args[0].name !== "raycast") {
             this.error("Cannot use " + functionNameToString(content) + " with " + functionNameToString(content.args[0]));
         }
         content.args = content.args[0].args;
-        content.name = {
-            ".getHitPosition": "raycastHitPosition",
-            ".getPlayerHit": "raycastHitPlayer",
-            ".getNormal": "raycastHitNormal",
-        }[content.name as ".getHitPosition" | ".getPlayerHit" | ".getNormal"];
+        content.name = raycastMemberToFunction[content.name];
     } else if (content.name === "__for__") {
         var newName = "";
         if (content.args[0].name === "__globalVar__") {
@@ -620,56 +686,7 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
     } else if (content.name === ".replace") {
         //For translations, we use that as a workaround for .format(), except not all values can be used in .replace().
         //If they cannot be used, wrap them with updateEveryFrame(), as evalOnce() adds another element (and can cause side effects), and firstOf() returns 0 for some objects such as numbers
-        if (![
-            "abilityIconString",
-            "__add__",
-            ".concat",
-            "__array__",
-            "__arrayContains__",
-            ".slice",
-            ".charAt",
-            "__color__",
-            "__currentArrayElement__",
-            "__currentArrayIndex__",
-            "rgb",
-            "__customString__",
-            "__divide__",
-            "__emptyArray__",
-            "evalOnce",
-            "__filteredArray__",
-            "__firstOf__",
-            "__globalVar__",
-            "healee",
-            "healer",
-            "heroIcon",
-            "hostPlayer",
-            "iconString",
-            "__ifThenElse__",
-            ".index",
-            "inputBindingString",
-            "__all__",
-            "__any__",
-            ".isUsingUltimate",
-            ".last",
-            "__mappedArray__",
-            "__multiply__",
-            ".getPlayerClosestToReticle",
-            ".getHeroStatistic",
-            "__playerVar__",
-            ".getPlayersInViewAngle",
-            "random.choice",
-            "random.shuffle",
-            ".exclude",
-            "__sortedArray__",
-            "getSpawnPoints",
-            "__localizedString__",
-            ".replace",
-            ".substring",
-            ".split",
-            "__subtract__",
-            "updateEveryFrame",
-            "__valueInArray__",
-        ].includes(content.args[2].name)) {
+        if (!functionsUsableInReplace.has(content.args[2].name)) {
             content.args[2] = this.Ast("updateEveryFrame", [content.args[2]]);
         }
     } else if (content.name === "RULE_START") {
@@ -716,7 +733,7 @@ OverPyCompiler.prototype.astToWs = function(content: Ast): string {
 
     if (content.type === "void") {
         result += this.tows(content.name, actionKw);
-    } else if (this.isTypeSuitable(["Object", "Array"], content.type)) {
+    } else if (this.isObjectOrArrayType(content.type)) {
         result += this.tows(content.name, valueKw);
     } else if (typeof content.type !== "object" && content.type in constantValues) {
         if (content.type === "HeroLiteral") {
@@ -1007,7 +1024,8 @@ OverPyCompiler.prototype.applyRulePrefixTemplate = function(rule: Ast): string {
 
     let oldFileStack = this.getFileStackCopy();
     this.fileStack.push(...this.rulePrefixTemplateFilestack);
-    let resultAst = this.parseOpyMacro(template, argNames, argAsts);
+    //The template is user content, so it is only parsed once per compilation
+    let resultAst = this.parseOpyMacro(template, argNames, argAsts, "compilation");
     resultAst.parent = this.Ast("__rulePrefix__");
     resultAst = this.parseAst(resultAst);
     this.fileStack = oldFileStack;

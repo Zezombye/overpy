@@ -48,5 +48,5 @@ astParsingFunctions.hsl = function (content, compiler) {
     }
 
     let f = (n: number) => `(${l} - ${s}*min(${l}, 1-${l}) * max(min(min((${n}+${h}/30)%12 - 3, 9 - ((${n}+${h}/30)%12)), 1), -1))`;
-    return compiler.parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, ["$h", "$s", "$l", "$a"], content.args);
+    return compiler.parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, ["$h", "$s", "$l", "$a"], content.args, true);
 };

@@ -21,136 +21,165 @@ import { NUMBER_LIMIT } from "../../globalVars";
 import { StringToken } from "../../types";
 import { astParsingFunctions, Ast, numValue } from "../../utils/ast";
 
+//Functions for which tags must not be replaced in strings
+const workshopSettingFunctions = new Set(["__createWorkshopSetting__", "createWorkshopSettingBool", "createWorkshopSettingEnum", "createWorkshopSettingInt", "createWorkshopSettingFloat"]);
+const tagRegex = /<(tx\s*|fg\s*#?)([0-9a-fA-F]+>)|(<\/fg>)/;
+
 astParsingFunctions.__customString__ = function (content, compiler) {
 
-    if (!content.stringTokens) {
+    let tokens = content.stringTokens;
+    if (!tokens) {
         throw compiler.error("Custom string has no stringTokens, please report to Zezombye");
     }
-    if (content.stringTokens.some(t => t.type === "arg" && t.argIndex === null)) {
-        if (content.stringTokens.some(t => t.type === "arg" && t.argIndex !== null)) {
+
+    //Check the formatters
+    let nbArgTokens = 0;
+    let hasUnnumberedArgs = false;
+    let hasNumberedArgs = false;
+    for (let token of tokens) {
+        if (token.type === "arg") {
+            nbArgTokens++;
+            if (token.argIndex === null) {
+                hasUnnumberedArgs = true;
+            } else {
+                hasNumberedArgs = true;
+            }
+        }
+    }
+    if (hasUnnumberedArgs) {
+        if (hasNumberedArgs) {
             compiler.error("Cannot use both numbered and unnumbered formatters in a custom string");
         }
-        if (content.stringTokens.filter(t => t.type === "arg").length !== content.args.length - 1) {
-            compiler.error("Too few arguments in .format() function: expected " + (content.stringTokens.filter(t => t.type === "arg").length) + ", got " + (content.args.length - 1));
+        if (nbArgTokens !== content.args.length - 1) {
+            compiler.error("Too few arguments in .format() function: expected " + nbArgTokens + ", got " + (content.args.length - 1));
         }
     }
 
-
+    let parentName = content.parent?.name;
     //Don't replace tags in workshop settings
-    if ([content.parent?.name, content.parent?.parent?.name].some(x => ["__createWorkshopSetting__", "createWorkshopSettingBool", "createWorkshopSettingEnum", "createWorkshopSettingInt", "createWorkshopSettingFloat", "createWorkshopSettingBool"].includes(x as string))) {
-        content.stringTokens = content.stringTokens.map(token => {
+    let isInWorkshopSetting = (parentName !== undefined && workshopSettingFunctions.has(parentName)) || (content.parent?.parent?.name !== undefined && workshopSettingFunctions.has(content.parent.parent.name));
+    if (isInWorkshopSetting) {
+        for (let token of tokens) {
             if (token.type === "tag" || token.type === "holygrail") {
-                return {
-                    type: "text",
-                    text: token.text,
-                };
+                token.type = "text";
             }
-            return token;
-        });
-    } else {
-        if (!compiler.enableTagsSetup && content.args[0].name.match(/<(tx\s*|fg\s*#?)([0-9a-fA-F]+>)|(<\/fg>)/)) {
-            compiler.warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
         }
+    } else if (!compiler.enableTagsSetup && tagRegex.test(content.args[0].name)) {
+        compiler.warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
     }
+    //For createCasedProgressBarIwt, we still need to know the tags to not lowercase them
+    let isInCasedProgressBar = parentName === "createCasedProgressBarIwt";
 
-    //Rewrite formatters so that all args are unnumbered. They will later be deduplicated by the string splitting function.
-    //Also convert holygrail tokens to arg tokens, and tag tokens to text tokens. All string modifications that require the two to be distinguished (eg, fullwidth/lowercase which must ignore tags) are done in the parser stage.
-    let stringArgs = [];
-    let stringArgIndex = 1; //for unnumbered args
-    for (let token of content.stringTokens) {
+    //Single pass over the tokens, which:
+    //- rewrites formatters so that all args are unnumbered (they will later be deduplicated by the string splitting function), converts holygrail tokens to arg tokens and tag tokens to text tokens.
+    //  All string modifications that require the two to be distinguished (eg, fullwidth/lowercase which must ignore tags) are done in the parser stage;
+    //- when optimizing, converts the arguments to text when possible (literal numbers, null, string literals which are merged into this string);
+    //- concatenates consecutive text tokens.
+    let newTokens: StringToken[] = [];
+    let stringArgs: Ast[] = [];
+    let unnumberedArgIndex = 1; //index in content.args of the next unnumbered arg
+    const pushText = (text: string) => {
+        if (newTokens.length > 0 && newTokens[newTokens.length - 1].type === "text") {
+            //Text tokens in newTokens are always created here, so it is safe to mutate them
+            newTokens[newTokens.length - 1].text += text;
+        } else {
+            newTokens.push({ type: "text", text: text, argIndex: null });
+        }
+    };
+    const pushArg = (token: StringToken, arg: Ast) => {
+        newTokens.push(token);
+        stringArgs.push(arg);
+    };
+
+    for (let token of tokens) {
+        if (token.type === "text") {
+            pushText(token.text);
+            continue;
+        }
+        if (token.type === "tag") {
+            if (isInCasedProgressBar) {
+                newTokens.push(token);
+            } else {
+                token.type = "text";
+                pushText(token.text);
+            }
+            continue;
+        }
+
+        let arg: Ast;
         if (token.type === "holygrail") {
-            if (content.parent?.name === "createCasedProgressBarIwt") {
+            if (isInCasedProgressBar) {
                 //Transform to a tag, it will be converted in that function
                 token.type = "tag";
-            } else {
-                stringArgs.push(compiler.Ast("__globalVar__", [compiler.Ast("__holygrail__", [], [], "GlobalVariable")]));
-                token.type = "arg";
-                token.text = "{}";
-                token.argIndex = null;
+                newTokens.push(token);
+                continue;
             }
-        } else if (token.type === "arg") {
-            if (token.argIndex === null) {
-                stringArgs.push(content.args[stringArgIndex]);
-                stringArgIndex++;
+            arg = compiler.Ast("__globalVar__", [compiler.Ast("__holygrail__", [], [], "GlobalVariable")]);
+            token.type = "arg";
+            token.text = "{}";
+            token.argIndex = null;
+        } else {
+            //arg token
+            let argIndex = token.argIndex ?? null;
+            if (argIndex === null) {
+                arg = content.args[unnumberedArgIndex];
+                unnumberedArgIndex++;
             } else {
-                if (content.args.length-1 <= token.argIndex!) {
-                    compiler.error("Too few arguments in .format() function: expected " + (token.argIndex! + 1) + ", got " + (content.args.length-1));
+                if (content.args.length - 1 <= argIndex) {
+                    compiler.error("Too few arguments in .format() function: expected " + (argIndex + 1) + ", got " + (content.args.length - 1));
                 }
-                stringArgs.push(content.args[token.argIndex! + 1].clone()); // +1 because the first arg is the string itself
+                arg = content.args[argIndex + 1].clone(); // +1 because the first arg is the string itself
                 token.argIndex = null; //make it unnumbered
                 token.text = "{}";
             }
-        //For createCasedProgressBarIwt, we still need to know the tags to not lowercase them
-        } else if (token.type === "tag" && content.parent?.name !== "createCasedProgressBarIwt") {
-            token.type = "text";
         }
-    }
 
-    if (stringArgs.length !== content.stringTokens.filter(t => t.type === "arg").length) {
-        compiler.error("String args doesn't match stringTokens args length: " + stringArgs.length + " vs " + content.stringTokens.filter(t => t.type === "arg").length+", please report to Zezombye");
-    }
+        if (!compiler.enableOptimization) {
+            pushArg(token, arg);
+            continue;
+        }
 
-    if (compiler.enableOptimization) {
         //When possible, convert the arguments to text.
-        let argIndex = 0;
-        for (let i = 0; i < content.stringTokens.length; i++) {
-            let token = content.stringTokens[i];
-            if (token.type !== "arg") {
-                continue;
-            }
-            if (stringArgs[argIndex].name === "__customString__") {
-                //Merge the args and the tokens
-                content.stringTokens = content.stringTokens.slice(0, i).concat(stringArgs[argIndex].stringTokens!).concat(content.stringTokens.slice(i + 1));
-                i += stringArgs[argIndex].stringTokens!.length - 1;
-                let newArgs = stringArgs[argIndex].args.slice(1);
-                stringArgs = stringArgs.slice(0, argIndex).concat(newArgs).concat(stringArgs.slice(argIndex + 1));
-                argIndex += newArgs.length - 1;
-                argIndex++;
-                continue;
-            }
-            //The rest of the optimizations must convert directly to text, so that there is no duplicated code when replacing the arg token by a text token.
-            let text = null;
-            if (stringArgs[argIndex].name === "__array__") {
-                compiler.warn("w_array_in_string", "Cannot directly display an array in a string, as only the first value will be shown. Use the arrayToString() function.", stringArgs[argIndex].fileStack);
-                if (stringArgs[argIndex].args.length === 0) {
-                    text = "";
+        if (arg.name === "__customString__") {
+            //Merge the args and the tokens of the nested string. It was already processed by this function, so its tokens are only text and arg tokens, and its args are not converted again.
+            let nestedTokens = arg.stringTokens!;
+            let nestedArgIndex = 1;
+            for (let nestedToken of nestedTokens) {
+                if (nestedToken.type === "text") {
+                    pushText(nestedToken.text);
                 } else {
-                    stringArgs[argIndex] = stringArgs[argIndex].args[0];
+                    pushArg(nestedToken, arg.args[nestedArgIndex]);
+                    nestedArgIndex++;
                 }
             }
-            if (stringArgs[argIndex].name === "null") {
-                text = "0";
-            } else if (stringArgs[argIndex].name === "__number__") {
-                let number = numValue(stringArgs[argIndex]) as number;
-                if (Math.abs(number) <= NUMBER_LIMIT) {
-                    text = number.toFixed(2).replace(".00", "");
-                }
+            continue;
+        }
+        let text: string | null = null;
+        if (arg.name === "__array__") {
+            compiler.warn("w_array_in_string", "Cannot directly display an array in a string, as only the first value will be shown. Use the arrayToString() function.", arg.fileStack);
+            if (arg.args.length === 0) {
+                text = "";
+            } else {
+                arg = arg.args[0];
             }
-            if (text !== null) {
-                //Replace the arg token with a text token
-                content.stringTokens[i] = {
-                    type: "text",
-                    text: text,
-                    argIndex: null
-                };
-                //Remove the arg from the args list
-                stringArgs.splice(argIndex, 1);
-                argIndex--;
+        }
+        if (arg.name === "null") {
+            text = "0";
+        } else if (arg.name === "__number__") {
+            let number = numValue(arg) as number;
+            if (Math.abs(number) <= NUMBER_LIMIT) {
+                text = number.toFixed(2).replace(".00", "");
             }
-            argIndex++;
+        }
+        if (text !== null) {
+            //Replace the arg token with a text token
+            pushText(text);
+        } else {
+            pushArg(token, arg);
         }
     }
 
-    //Concatenate consecutive text tokens
-    content.stringTokens = content.stringTokens.reduce((acc, token) => {
-        if (token.type === "text" && acc.length > 0 && acc[acc.length - 1].type === token.type) {
-            acc[acc.length - 1].text += token.text;
-        } else {
-            acc.push(token);
-        }
-        return acc;
-    }, [] as StringToken[]);
-
+    content.stringTokens = newTokens;
 
     //texture tag autocorrect
     //we have to manually check the arg content to find what used to be holygrail tokens, as they are now arg tokens
@@ -177,7 +206,11 @@ astParsingFunctions.__customString__ = function (content, compiler) {
         }
     }
 
-    content.args[0].name = content.stringTokens.map(t => t.text).join("");
+    let name = "";
+    for (let token of content.stringTokens) {
+        name += token.text;
+    }
+    content.args[0].name = name;
     content.args = [content.args[0], ...stringArgs];
 
     return content;

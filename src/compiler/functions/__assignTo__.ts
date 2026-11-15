@@ -45,7 +45,7 @@ astParsingFunctions.__assignTo__ = function (content, compiler) {
                     .concat($arrayIdx1[$idx2].slice($idx3+1))
                 ])
                 .concat($arrayIdx1.slice($idx2+1))
-            )`, ["$arrayIdx1", "$idx2", "$idx3", "$value"], [content.args[0], index2, index3, value]);
+            )`, ["$arrayIdx1", "$idx2", "$idx3", "$value"], [content.args[0], index2, index3, value], true);
 
         } else {
 
@@ -60,7 +60,7 @@ astParsingFunctions.__assignTo__ = function (content, compiler) {
             }
 
             //Thanks to Mira for the formula
-            content.args[1] = compiler.parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([$value]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value]);
+            content.args[1] = compiler.parseOpyMacro("$arrayIdx1.slice(0, $idx2).concat([$value]).concat($arrayIdx1.slice($idx2+1))", ["$arrayIdx1", "$idx2", "$value"], [content.args[0], index2, value], true);
         }
     }
 

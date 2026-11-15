@@ -23,10 +23,10 @@ import { areAstsAlwaysEqual, astParsingFunctions, numValue } from "../../utils/a
 astParsingFunctions.__add__ = function (content, compiler) {
     //Check if we are adding both numbers, or both vectors.
     //If not, throw a type warning.
-    if (!compiler.isTypeSuitable(content.args[0].type, content.args[1].type) && !compiler.isTypeSuitable(content.args[1].type, content.args[0].type)) {
+    /*if (!compiler.isTypeSuitable(content.args[0].type, content.args[1].type) && !compiler.isTypeSuitable(content.args[1].type, content.args[0].type)) {
         compiler.warn("w_type_check", compiler.getTypeCheckFailedMessage(content, 1, content.args[0].type, content.args[1]));
         //return content;
-    }
+    }*/
     //The w_type_check warning is suppressed for now, so throw another warning if the user is attempting to concatenate strings with "+".
     if (compiler.isTypeSuitable("String", content.args[0].type, false) || compiler.isTypeSuitable("String", content.args[1].type, false)) {
         compiler.warn("w_string_concat", "The '+' operator cannot be used to concatenate strings. Use the .format() function or f-strings.");

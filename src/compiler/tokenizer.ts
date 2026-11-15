@@ -59,13 +59,58 @@ export class Token {
     constructor(text: string, fileStack: FileStackMember[]) {
         this.text = text;
         this.fileStack = fileStack;
-        this.fileStack[this.fileStack.length - 1].endCol = this.fileStack[this.fileStack.length-1].startCol as number + this.text.split("\n")[this.text.split("\n").length-1].length;
-        this.fileStack[this.fileStack.length - 1].endLine = this.fileStack[this.fileStack.length-1].startLine as number + this.text.split("\n").length - 1;
+        let lastMember = fileStack[fileStack.length - 1];
+        let nbNewlines = 0;
+        let lastNewlineIndex = -1;
+        for (let i = text.indexOf("\n"); i !== -1; i = text.indexOf("\n", i + 1)) {
+            nbNewlines++;
+            lastNewlineIndex = i;
+        }
+        lastMember.endCol = (lastMember.startCol as number) + (text.length - lastNewlineIndex - 1);
+        lastMember.endLine = (lastMember.startLine as number) + nbNewlines;
     }
 
     toString() {
         return this.text;
     }
+}
+
+//Not the full list of tokens; namely, brackets aren't in this list.
+//Sorted by longest first, for greediness.
+const operatorTokens = ["==", "!=", "<=", ">=", "+=", "-=", "*=", "/=", "%=", "**=", "<", ">", "=", "+", "-", ",", "/", "%", "**", "*", ".", ":", ";", "\\"];
+//Operator tokens grouped by their first character code, keeping the longest-first order
+const operatorTokensByFirstChar = new Map<number, string[]>();
+for (let operatorToken of operatorTokens) {
+    let firstChar = operatorToken.charCodeAt(0);
+    if (!operatorTokensByFirstChar.has(firstChar)) {
+        operatorTokensByFirstChar.set(firstChar, []);
+    }
+    operatorTokensByFirstChar.get(firstChar)!.push(operatorToken);
+}
+
+const CHAR_TAB = 9;
+const CHAR_NEWLINE = 10;
+const CHAR_CR = 13;
+const CHAR_SPACE = 32;
+const CHAR_EXCLAMATION = 33;
+const CHAR_DOUBLE_QUOTE = 34;
+const CHAR_HASH = 35;
+const CHAR_SINGLE_QUOTE = 39;
+const CHAR_OPEN_PAREN = 40;
+const CHAR_CLOSE_PAREN = 41;
+const CHAR_STAR = 42;
+const CHAR_SLASH = 47;
+const CHAR_OPEN_BRACKET = 91;
+const CHAR_BACKSLASH = 92;
+const CHAR_CLOSE_BRACKET = 93;
+const CHAR_OPEN_BRACE = 123;
+const CHAR_CLOSE_BRACE = 125;
+
+/**
+ * Same as isVarChar, but on a character code.
+ */
+function isVarCharCode(c: number): boolean {
+    return (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57) || c === 95 || c === 64 || c === 36;
 }
 
 /**
@@ -76,10 +121,6 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
     if (!content.endsWith("\n")) {
         content += "\n";
     }
-
-    //Not the full list of tokens; namely, brackets aren't in this list.
-    //Sorted by longest first, for greediness.
-    let tokens = ["==", "!=", "<=", ">=", "+=", "-=", "*=", "/=", "%=", "**=", "<", ">", "=", "+", "-", ",", "/", "%", "**", "*", ".", ":", ";", "\\"];
 
     let result: Array<LogicalLine> = [];
 
@@ -92,6 +133,29 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
     // This allows us to report accurate error locations instead of the current (modified) fileStack
     let unclosedBracketFileStack: FileStackMember[] | undefined = undefined;
 
+    //The file stack members other than the innermost one do not change while the innermost file/macro is being tokenized
+    //(the cursor only moves in the innermost member; the outer members are only updated when the innermost one is popped).
+    //So each token only needs its own copy of the innermost member, and can share a snapshot of the outer members.
+    //The snapshot is invalidated whenever the stack is pushed/popped (fileStackVersion).
+    let fileStackVersion = 0;
+    let outerMembersSnapshot: FileStackMember[] | null = null;
+    let outerMembersSnapshotVersion = -1;
+    let outerMembersSnapshotStack: FileStackMember[] | null = null;
+    const getTokenFileStack = (): FileStackMember[] => {
+        let stack = this.fileStack;
+        if (outerMembersSnapshot === null || outerMembersSnapshotVersion !== fileStackVersion || outerMembersSnapshotStack !== stack || outerMembersSnapshot.length !== stack.length - 1) {
+            outerMembersSnapshot = [];
+            for (let k = 0; k < stack.length - 1; k++) {
+                outerMembersSnapshot.push({ ...stack[k] });
+            }
+            outerMembersSnapshotVersion = fileStackVersion;
+            outerMembersSnapshotStack = stack;
+        }
+        let result = outerMembersSnapshot.slice();
+        result.push({ ...stack[stack.length - 1] });
+        return result;
+    }
+
     const addToken = (text: string) => {
         if (text.length === 0) {
             this.error("Token is empty, lexer broke");
@@ -99,7 +163,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
 
         //debug("Adding token '"+text+"' at "+currentLineNb+":"+currentColNb);
 
-        currentLine.tokens.push(new Token(text, this.getFileStackCopy()));
+        currentLine.tokens.push(new Token(text, getTokenFileStack()));
 
         moveCursor(text.length - 1);
     }
@@ -114,6 +178,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
      * @param startingLine the line of the macro start in the file it is declared
      */
     const addFile = (length: number, callNbChars: number, callCols: number, callLines: number, name: string, startingCol: number, startingLine: number) => {
+        fileStackVersion++;
         this.fileStack.push({
             name,
             remainingChars: length,
@@ -152,6 +217,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
                         (nextFile as MacroFileStackMember).remainingChars -= currentFile.callNbChars;
                     }
                     this.fileStack.pop();
+                    fileStackVersion++;
                 }
             }
 
@@ -403,7 +469,78 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
     }
 
     for (i = 0; i < content.length; moveCursor(1)) {
-        if (content[i] === "\n") {
+        //Dispatch on the character code rather than on 1-char strings
+        const c = content.charCodeAt(i);
+        if (isVarCharCode(c)) {
+            //Fast path: most characters are part of a word, and none of the special characters checked below are word characters.
+            //Increases j as long as there are characters that can compose a word
+            let j = i + 1;
+            for (; j < content.length && isVarCharCode(content.charCodeAt(j)); j++) {}
+
+            let macroWasFound = false;
+            let word = content.substring(i, j);
+
+            //Test each macro
+            for (var k = 0; k < this.macros.length; k++) {
+                if (word === this.macros[k].name) {
+                    let text;
+                    let replacement;
+                    let macroCols = 0;
+                    let macroLines = 0;
+
+                    if (this.macros[k].isFunction) {
+                        //debug("Resolving function macro "+this.macros[k].name);
+                        let bracketPos = this.getBracketPositions(content.substring(i), true, true);
+                        text = content.substring(i, i + bracketPos[1] + 1);
+                        let macroArgs = this.getArgs(content.substring(i + bracketPos[0] + 1, i + bracketPos[1]));
+                        replacement = this.resolveMacro(this.macros[k], macroArgs, currentLine.indentLevel);
+                    } else {
+                        //debug("Resolving normal macro "+this.macros[k].name);
+                        text = this.macros[k].name;
+                        //replacement = this.macros[k].replacement;
+                        replacement = this.resolveMacro(this.macros[k], [], currentLine.indentLevel);
+                    }
+
+                    content = content.substring(0, i) + replacement + content.substring(i + text.length);
+
+                    if (text.indexOf("\n") >= 0) {
+                        macroCols = text.length - text.lastIndexOf("\n");
+                        macroLines = text.split("\n").length - 1;
+                    } else {
+                        macroCols = text.length;
+                    }
+
+                    if (replacement === undefined) {
+                        this.error("Replacement is undefined");
+                    }
+
+                    addFile(replacement.length, text.length, macroCols, macroLines, this.macros[k].name, this.macros[k].startingCol, (this.macros[k].fileStack[this.macros[k].fileStack.length - 1] as BaseNormalFileStackMember).startLine as number);
+
+                    //debug("Text: "+text);
+                    //debug("Replacement: "+replacement);
+
+                    i--;
+                    let currentFile = this.fileStack[this.fileStack.length - 1];
+                    if (currentFile.staticMember === false) {
+                        currentFile.remainingChars++;
+                    }
+                    macroWasFound = true;
+                    //Macro names are unique, so no other macro can match. The replacement will be rescanned from the start on the next iteration of the main loop.
+                    break;
+                }
+            }
+
+            if (!macroWasFound) {
+                //Handle the special case of min= and max= operators
+                if ((word === "min" || word === "max") && content[i + "min".length] === "=") {
+                    j++;
+                    word = content.substring(i, j);
+                }
+                addToken(word);
+            }
+            continue;
+        }
+        if (c === CHAR_NEWLINE) {
             //Only end the logical line if the newline is not within brackets.
             if (bracketsLevel === 0) {
                 newLogicalLine();
@@ -411,23 +548,23 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             continue;
         }
 
-        if (content[i] === "\t") {
+        if (c === CHAR_TAB) {
             if (currentLine.tokens.length === 0) {
                 currentLine.indentLevel += 4;
             }
             continue;
         }
-        if (content[i] === " ") {
+        if (c === CHAR_SPACE) {
             //increase indentation if no token yet; else, do nothing
             if (currentLine.tokens.length === 0) {
                 currentLine.indentLevel++;
             }
             continue;
         }
-        if (content[i] === "\r") {
+        if (c === CHAR_CR) {
             continue;
         }
-        if (content[i] === "\\") {
+        if (c === CHAR_BACKSLASH) {
             let j = i + 1;
             for (; j < content.length; j++) {
                 if (content[j] === "\n") {
@@ -439,7 +576,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             moveCursor(j - i - 1 + "\n".length);
             continue;
         }
-        if (content[i] === "(" || content[i] === "[" || content[i] === "{") {
+        if (c === CHAR_OPEN_PAREN || c === CHAR_OPEN_BRACKET || c === CHAR_OPEN_BRACE) {
             bracketsLevel++;
             // Record the fileStack position when opening a bracket at level 0
             // This is used to report accurate error locations for unclosed brackets
@@ -449,7 +586,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             addToken(content[i]);
             continue;
         }
-        if (content[i] === ")" || content[i] === "]" || content[i] === "}") {
+        if (c === CHAR_CLOSE_PAREN || c === CHAR_CLOSE_BRACKET || c === CHAR_CLOSE_BRACE) {
             bracketsLevel--;
             if (bracketsLevel < 0) {
                 this.error("Brackets level below 0 (extraneous closing bracket)");
@@ -457,7 +594,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             addToken(content[i]);
             continue;
         }
-        if (content.startsWith("#!", i)) {
+        if (c === CHAR_HASH && content.charCodeAt(i + 1) === CHAR_EXCLAMATION) {
             let j = i;
             let isBackslashed = false;
             let preprocessingDirectiveContent = "";
@@ -502,12 +639,17 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
                         staticMember: true,
                         fileStackMemberType: "normal",
                     } as ScriptFileStackMember);
+                    fileStackVersion++;
                     let pushLine = new LogicalLine(0, [new Token("__pushRulePrefixStack__", this.getFileStackCopy())]);
                     let popLine = new LogicalLine(0, [new Token("__popRulePrefixStack__", this.getFileStackCopy())]);
                     result.push(pushLine);
-                    result.push(...this.tokenize(importedFileContent));
+                    //Not using push(...lines) as it would overflow the stack for big files
+                    for (let line of this.tokenize(importedFileContent)) {
+                        result.push(line);
+                    }
                     result.push(popLine);
                     this.fileStack.pop();
+                    fileStackVersion++;
                     moveCursor(j - i - 1);
                 }
             } else {
@@ -516,7 +658,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             }
             continue;
         }
-        if (content[i] === "#") {
+        if (c === CHAR_HASH) {
             //Get to the end of the comment. Note: backslashes don't work to continue a line comment.
             let j = i + 1;
             for (; j < content.length && content[j] !== "\n"; j++) {}
@@ -528,7 +670,7 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
                 addToken(content.substring(i, j));
             }
             continue;
-        } else if (content.startsWith("/*", i)) {
+        } else if (c === CHAR_SLASH && content.charCodeAt(i + 1) === CHAR_STAR) {
             //Get to the end of the multiline comment
             let j = i + "/*".length;
             let foundEndOfComment = false;
@@ -544,10 +686,10 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             }
             j += "*/".length;
             moveCursor(j - i - 1);
-        } else if (content.startsWith("*/", i)) {
+        } else if (c === CHAR_STAR && content.charCodeAt(i + 1) === CHAR_SLASH) {
             //All ends should be found when a multiline comment start is found.
             this.error("Found end of multiline comment, but no matching beginning");
-        } else if (content[i] === '"' || content[i] === "'") {
+        } else if (c === CHAR_DOUBLE_QUOTE || c === CHAR_SINGLE_QUOTE) {
             var strDelimiter = content[i];
             var foundEndOfString = false;
             var isBackslashed = false;
@@ -573,85 +715,22 @@ OverPyCompiler.prototype.tokenize = function(content: string): LogicalLine[] {
             j += strDelimiter.length; //account for closing delimiter
             addToken(content.substring(i, j));
         } else {
-            //Get token
-            var j = i;
-            //Increases j as long as there are characters that can compose a word
-            for (; j < content.length && isVarChar(content[j]); j++) {}
-
-            //If j > i, then there was a word, instead of an operator
-            if (j > i) {
-                let macroWasFound = false;
-
-                //Test each macro
-                for (var k = 0; k < this.macros.length; k++) {
-                    if (content.substring(i, j) === this.macros[k].name) {
-                        let text;
-                        let replacement;
-                        let macroCols = 0;
-                        let macroLines = 0;
-
-                        if (this.macros[k].isFunction) {
-                            //debug("Resolving function macro "+this.macros[k].name);
-                            let bracketPos = this.getBracketPositions(content.substring(i), true, true);
-                            text = content.substring(i, i + bracketPos[1] + 1);
-                            let macroArgs = this.getArgs(content.substring(i + bracketPos[0] + 1, i + bracketPos[1]));
-                            replacement = this.resolveMacro(this.macros[k], macroArgs, currentLine.indentLevel);
-                        } else {
-                            //debug("Resolving normal macro "+this.macros[k].name);
-                            text = this.macros[k].name;
-                            //replacement = this.macros[k].replacement;
-                            replacement = this.resolveMacro(this.macros[k], [], currentLine.indentLevel);
-                        }
-
-                        content = content.substring(0, i) + replacement + content.substring(i + text.length);
-
-                        if (text.indexOf("\n") >= 0) {
-                            macroCols = text.length - text.lastIndexOf("\n");
-                            macroLines = text.split("\n").length - 1;
-                        } else {
-                            macroCols = text.length;
-                        }
-
-                        if (replacement === undefined) {
-                            this.error("Replacement is undefined");
-                        }
-
-                        addFile(replacement.length, text.length, macroCols, macroLines, this.macros[k].name, this.macros[k].startingCol, (this.macros[k].fileStack[this.macros[k].fileStack.length - 1] as BaseNormalFileStackMember).startLine as number);
-
-                        //debug("Text: "+text);
-                        //debug("Replacement: "+replacement);
-
-                        k = 0;
-                        i--;
-                        let currentFile = this.fileStack[this.fileStack.length - 1];
-                        if (currentFile.staticMember === false) {
-                            currentFile.remainingChars++;
-                        }
-                        macroWasFound = true;
-                    }
-                }
-
-                if (!macroWasFound) {
-                    //Handle the special case of min= and max= operators
-                    if ((content.substring(i, j) === "min" || content.substring(i, j) === "max") && content[i + "min".length] === "=") {
-                        j++;
-                    }
-                    addToken(content.substring(i, j));
-                }
-            } else {
-                let hasTokenBeenFound = false;
-                //Test each remaining token
-                for (var h = 0; h < tokens.length; h++) {
-                    if (content.startsWith(tokens[h], i)) {
-                        addToken(content.substring(i, i + tokens[h].length));
+            //Not a word character (handled by the fast path at the top of the loop), so it must be an operator token
+            let hasTokenBeenFound = false;
+            //Test each remaining token starting with this character (longest first)
+            let candidateTokens = operatorTokensByFirstChar.get(c);
+            if (candidateTokens !== undefined) {
+                for (var h = 0; h < candidateTokens.length; h++) {
+                    if (content.startsWith(candidateTokens[h], i)) {
+                        addToken(candidateTokens[h]);
                         hasTokenBeenFound = true;
                         break;
                     }
                 }
+            }
 
-                if (!hasTokenBeenFound) {
-                    this.error("Unknown token '" + content[i] + "'");
-                }
+            if (!hasTokenBeenFound) {
+                this.error("Unknown token '" + content[i] + "'");
             }
         }
     }

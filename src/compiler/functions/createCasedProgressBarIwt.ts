@@ -24,11 +24,30 @@ import { Ast, astParsingFunctions } from "../../utils/ast";
 
 const alphabet: Record<string, any> = { a: { lower: "\uff41", width: 285, xmin: 21, lowerWidth: 512, lowerXmin: 130 }, b: { lower: "\uff42", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, c: { lower: "\uff43", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 142 }, d: { lower: "\uff44", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, e: { lower: "\uff45", width: 285, xmin: 20, lowerWidth: 512, lowerXmin: 135 }, f: { lower: "\uff46", width: 142, xmin: 9, lowerWidth: 512, lowerXmin: 195 }, g: { lower: "\uff47", width: 285, xmin: 15, lowerWidth: 512, lowerXmin: 138 }, h: { lower: "\uff48", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 150 }, i: { lower: "\u0456", width: 114, xmin: 34, lowerWidth: 115, lowerXmin: 36 }, j: { lower: "\u0458", width: 114, xmin: -9, lowerWidth: 115, lowerXmin: -9 }, k: { lower: "\uff4b", width: 256, xmin: 30, lowerWidth: 512, lowerXmin: 142 }, l: { lower: "I", width: 114, xmin: 35, lowerWidth: 142, lowerXmin: 51 }, m: { lower: "\uff4d", width: 426, xmin: 36, lowerWidth: 512, lowerXmin: 79 }, n: { lower: "\uff4e", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 149 }, o: { lower: "\uff4f", width: 285, xmin: 18, lowerWidth: 512, lowerXmin: 135 }, p: { lower: "\uff50", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, q: { lower: "\uff51", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, r: { lower: "\uff52", width: 170, xmin: 35, lowerWidth: 512, lowerXmin: 191 }, s: { lower: "\uff53", width: 256, xmin: 17, lowerWidth: 512, lowerXmin: 147 }, t: { lower: "\uff54", width: 142, xmin: 7, lowerWidth: 512, lowerXmin: 195 }, u: { lower: "\uff55", width: 285, xmin: 33, lowerWidth: 512, lowerXmin: 149 }, v: { lower: "\uff56", width: 256, xmin: 5, lowerWidth: 512, lowerXmin: 134 }, w: { lower: "\uff57", width: 370, xmin: 3, lowerWidth: 512, lowerXmin: 76 }, x: { lower: "\uff58", width: 256, xmin: 9, lowerWidth: 512, lowerXmin: 139 }, y: { lower: "\uff59", width: 256, xmin: 10, lowerWidth: 512, lowerXmin: 139 }, z: { lower: "\uff5a", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 147 } };
 
-export function getBestSpaces(coins: number[], target: number) {
-    let costs = [0];
-    let coins_used: number[] = [0];
+//The coin change tables, keyed by the coins used. The table for a target only depends on the smaller targets, so it is extended as needed and shared between calls
+//(this function is called once per letter when generating cased text, with the full DP recomputed each time before).
+const bestSpacesTables = new Map<string, { costs: number[]; coinsUsed: number[] }>();
 
-    for (let i = 1; i <= target; i++) {
+//Cached coins for the "spaces" table, which is what all the callers use
+let spaceCoins: number[] | null = null;
+export function getSpaceCoins(): number[] {
+    if (spaceCoins === null) {
+        spaceCoins = Object.keys(spaces).map(Number);
+    }
+    return spaceCoins;
+}
+
+export function getBestSpaces(coins: number[], target: number) {
+    let tableKey = coins.join(",");
+    let table = bestSpacesTables.get(tableKey);
+    if (table === undefined) {
+        table = { costs: [0], coinsUsed: [0] };
+        bestSpacesTables.set(tableKey, table);
+    }
+    let costs = table.costs;
+    let coins_used = table.coinsUsed;
+
+    for (let i = costs.length; i <= target; i++) {
         let bestCost = 999999999999999;
         let bestCoin = -1;
 
@@ -95,7 +114,7 @@ function generateCasedLine(text: string, nbTexts: number) {
 
             const widthToGet = Math.max(0, textWidth - texts[textIdx].width - alphabet[letter].lowerXmin + alphabet[letter].xmin);
 
-            const spacesToAdd = getBestSpaces(Object.keys(spaces).map(Number), widthToGet)
+            const spacesToAdd = getBestSpaces(getSpaceCoins(),widthToGet)
                 .map((j) => spaces[j])
                 .join("");
             texts[textIdx].content += spacesToAdd;
@@ -119,7 +138,7 @@ function generateCasedLine(text: string, nbTexts: number) {
 
                 const widthToGet = textWidth - texts[textIdx].width;
 
-                const spacesToAdd = getBestSpaces(Object.keys(spaces).map(Number), widthToGet)
+                const spacesToAdd = getBestSpaces(getSpaceCoins(),widthToGet)
                     .map((j) => spaces[j])
                     .join("");
                 texts[textIdx].content += spacesToAdd;
@@ -138,7 +157,7 @@ function generateCasedLine(text: string, nbTexts: number) {
 
     for (let i = 0; i < texts.length; i++) {
         const widthToGet = maxTextWidth - texts[i].width;
-        const spacesToAdd = getBestSpaces(Object.keys(spaces).map(Number), widthToGet).map((j) => spaces[j]).join("");
+        const spacesToAdd = getBestSpaces(getSpaceCoins(),widthToGet).map((j) => spaces[j]).join("");
         texts[i].content += spacesToAdd;
         texts[i].width += widthToGet;
     }

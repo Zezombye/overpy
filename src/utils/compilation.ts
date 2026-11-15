@@ -128,17 +128,61 @@ OverPyCompiler.prototype.parseOpyMacroAst = function(content: Ast): Ast {
 
     let macro = opyMacros[content.name].macro;
 
-    return this.parseOpyMacro(macro, (opyMacros[content.name].args || []).map(arg => "$"+arg.name), content.args);
+    return this.parseOpyMacro(macro, (opyMacros[content.name].args || []).map(arg => "$"+arg.name), content.args, true);
 }
 
-OverPyCompiler.prototype.parseOpyMacro = function(macro: string, argNames: string[], args: Ast[]) {
+/**
+ * Cache of the parsed ASTs of internal macros (the macros in data/opy/macros.ts, the constant macro strings used by the compiler, and argument defaults), keyed by the macro text.
+ * Those macros do not depend on the user's code, so they can be parsed once per process instead of being tokenized and parsed at every use.
+ * Macros built from user content (translated strings, rule prefix template...) must not use this cache.
+ */
+const internalMacroAstCache = new Map<string, Ast>();
 
-    let lines = this.tokenize(macro);
-    let astLines = this.parseLines(lines);
-    if (astLines.length !== 1) {
-        this.error("Macro '" + macro + "' should only have one line");
+function setAstCompilerAndFileStack(ast: Ast, compiler: OverPyCompiler, fileStack: FileStackMember[]) {
+    ast.compiler = compiler;
+    ast.fileStack = fileStack;
+    for (let arg of ast.args) {
+        setAstCompilerAndFileStack(arg, compiler, fileStack);
     }
-    let result = astLines[0];
+    for (let child of ast.children) {
+        setAstCompilerAndFileStack(child, compiler, fileStack);
+    }
+}
+
+/**
+ * @param cacheScope Whether the parsed AST of the macro text is cached:
+ * - `true`: the macro text is independent from the user's code, so it is cached for the whole process;
+ * - `"compilation"`: the macro text is user content that is used multiple times (eg the rule prefix template), so it is cached for this compilation only;
+ * - `false`: no caching.
+ */
+OverPyCompiler.prototype.parseOpyMacro = function(macro: string, argNames: string[], args: Ast[], cacheScope: boolean | "compilation" = false) {
+
+    let result: Ast;
+    if (cacheScope === true) {
+        let cachedAst = internalMacroAstCache.get(macro);
+        if (cachedAst === undefined) {
+            //Parse with a fresh compiler so the cached AST does not depend on the state of the current compilation (user variables, macros, etc)
+            cachedAst = new OverPyCompiler().parseOpyMacro(macro, [], [], false);
+            internalMacroAstCache.set(macro, cachedAst);
+        }
+        result = cachedAst.clone();
+        setAstCompilerAndFileStack(result, this, this.fileStack);
+    } else if (cacheScope === "compilation") {
+        let cachedAst = this.compilationMacroAstCache.get(macro);
+        if (cachedAst === undefined) {
+            cachedAst = this.parseOpyMacro(macro, [], [], false);
+            this.compilationMacroAstCache.set(macro, cachedAst);
+        }
+        result = cachedAst.clone();
+        setAstCompilerAndFileStack(result, this, this.fileStack);
+    } else {
+        let lines = this.tokenize(macro);
+        let astLines = this.parseLines(lines);
+        if (astLines.length !== 1) {
+            this.error("Macro '" + macro + "' should only have one line");
+        }
+        result = astLines[0];
+    }
     for (let [i, arg] of argNames.entries()) {
         result = replaceFunctionInAst(result, arg, args[i]);
     }

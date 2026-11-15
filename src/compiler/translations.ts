@@ -144,7 +144,9 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: Translate
         this.error("Cannot do translations in browsers (fs not found)");
     }
 
-    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || this.keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || (a.occurrences[0] ?? "zzzzz").localeCompare((b.occurrences[0] ?? "zzzzz")));
+    //Intl.Collator().compare gives the same ordering as localeCompare() with default options, but is much faster for sorting
+    const collator = new Intl.Collator();
+    translatedStrings = translatedStrings.filter(x => x.occurrences.length > 0 || this.keepUnusedTranslations).sort((a, b) => (+(b.occurrences.length > 0) - +(a.occurrences.length > 0)) || collator.compare(a.occurrences[0] ?? "zzzzz", b.occurrences[0] ?? "zzzzz"));
 
     for (let language of this.translationLanguages.slice(1)) { //first language is default language
 
@@ -152,11 +154,20 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: Translate
         let poFilePath = this.rootPath + "/" + this.mainFileName.replace(".opy", "." + language + ".po");
 
         //Keep the headers that other tools (such as Weblate or Poedit) added to the existing file, in their order
+        let existingPoFile = this.existingPoFiles[language];
+        if (existingPoFile === undefined && fs.existsSync(poFilePath)) {
+            let existingContent: string = fs.readFileSync(poFilePath, { encoding: "utf-8" });
+            let existingPo = PO.parse(existingContent);
+            existingPoFile = {
+                content: existingContent,
+                headerOrder: (existingPo as PO & { headerOrder: string[] }).headerOrder,
+                headers: existingPo.headers as Record<string, string>,
+            };
+        }
         let existingHeaders: Record<string, string> = {};
-        if (fs.existsSync(poFilePath)) {
-            let existingPo = PO.parse(fs.readFileSync(poFilePath, { encoding: "utf-8" }));
-            for (let key of (existingPo as PO & { headerOrder: string[] }).headerOrder) {
-                existingHeaders[key] = (existingPo.headers as Record<string, string>)[key] ?? "";
+        if (existingPoFile !== undefined) {
+            for (let key of existingPoFile.headerOrder) {
+                existingHeaders[key] = existingPoFile.headers[key] ?? "";
             }
         }
 
@@ -193,7 +204,11 @@ OverPyCompiler.prototype.exportToPoFiles = function(translatedStrings: Translate
             po.items.push(item);
         }
 
-        fs.writeFileSync(poFilePath, po.toString(), { encoding: "utf-8" });
+        let newContent = po.toString();
+        //Don't rewrite the file if nothing changed (the writes are synchronous and are a noticeable part of the compilation time)
+        if (existingPoFile === undefined || existingPoFile.content !== newContent) {
+            fs.writeFileSync(poFilePath, newContent, { encoding: "utf-8" });
+        }
     }
 }
 
@@ -221,6 +236,11 @@ OverPyCompiler.prototype.importFromPoFiles = function() {
             this.error("Could not read .po file at '"+poFilePath+"'");
         }
         let po = PO.parse(poFileContent);
+        this.existingPoFiles[language] = {
+            content: poFileContent,
+            headerOrder: (po as PO & { headerOrder: string[] }).headerOrder,
+            headers: po.headers as Record<string, string>,
+        };
 
         if (po.headers["Language"] !== language) {
             this.error("Language in PO file '" + poFilePath + "' does not match expected language '" + language + "'");

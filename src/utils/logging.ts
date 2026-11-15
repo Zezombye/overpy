@@ -55,7 +55,7 @@ OverPyCompiler.prototype.warn = OverPyDecompiler.prototype.warn = function(warnT
     warning += displayFileStack(fileStack_);
 
     if (this instanceof OverPyCompiler) {
-        if (this.suppressedWarningTypes.includes(warnType) || this.globallySuppressedWarningTypes.includes(warnType) || warnType === "w_type_check") {
+        if (this.suppressedWarningTypes.includes(warnType) || this.globallySuppressedWarningTypes.includes(warnType)) {
             this.hiddenWarnings.push(warning);
             return;
         }
@@ -202,14 +202,24 @@ export function astToString(ast: Ast, nbTabs = 0) {
     return result;
 }
 
-OverPyCompiler.prototype.getFileStackRange = function(tokens: Token[]): FileStackMember[] {
-    if (tokens.length === 0) {
+/**
+ * Returns the file stack spanning from the first to the last token. `start`/`end` optionally restrict the range to tokens[start, end).
+ */
+OverPyCompiler.prototype.getFileStackRange = function(tokens: Token[], start = 0, end = tokens.length): FileStackMember[] {
+    if (end - start <= 0) {
         this.error("Cannot get file stack range from an empty array of tokens, please report to Zezombye");
     }
-    let result = structuredClone(tokens[0].fileStack);
-    let lastTokenFilestack = tokens[tokens.length - 1].fileStack[tokens[tokens.length - 1].fileStack.length - 1];
-    result[result.length - 1].endLine = lastTokenFilestack.endLine;
-    result[result.length - 1].endCol = lastTokenFilestack.endCol;
+    //Only the last member is modified, so shallow copy the stack and only copy that member (structuredClone is very slow and this function is called for nearly every AST node).
+    let firstTokenFilestack = tokens[start].fileStack;
+    let lastIndex = firstTokenFilestack.length - 1;
+    //slice() keeps the array "packed" (new Array(n) would create a holey array, making accesses polymorphic)
+    let result = firstTokenFilestack.slice();
+    let lastTokenFilestack = tokens[end - 1].fileStack[tokens[end - 1].fileStack.length - 1];
+    result[lastIndex] = {
+        ...firstTokenFilestack[lastIndex],
+        endLine: lastTokenFilestack.endLine,
+        endCol: lastTokenFilestack.endCol,
+    };
     return result;
 }
 

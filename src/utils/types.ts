@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { typeMatrix } from "../globalVars";
+import { typeMatrix, typeMatrixSets } from "../globalVars";
 import { OverPyCompiler, OverPyDecompiler } from "../godClasses";
 import { Type } from "../types";
 import { Token } from "../compiler/tokenizer";
@@ -39,7 +39,14 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 The special "Value" type is suitable for any child type of object or array.
 */
 OverPyCompiler.prototype.isTypeSuitable = OverPyDecompiler.prototype.isTypeSuitable = function(expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable = true): boolean {
-    let receivedTypeName = typeof receivedType === "string" ? receivedType : Object.keys(receivedType)[0];
+    //Fast path for the most common case (both types are plain strings, and neither is the special "Value" type)
+    if (typeof expectedType === "string" && typeof receivedType === "string" && expectedType !== "Variable" && expectedType !== "Value" && receivedType !== "Value") {
+        let suitableTypes = typeMatrixSets[expectedType];
+        if (suitableTypes === undefined) {
+            this.error("Unhandled type '" + expectedType + "'");
+        }
+        return suitableTypes.has(receivedType);
+    }
 
     if (receivedType instanceof Array) {
         //Check if each of the received type is valid for the expected type.
@@ -59,15 +66,16 @@ OverPyCompiler.prototype.isTypeSuitable = OverPyDecompiler.prototype.isTypeSuita
             }
             //Handle the special "value" type.
             if (receivedType === "Value" && valueTypeIsSuitable) {
-                return expectedType === "Value" || expectedType === "Array" || typeMatrix["Object"].includes(expectedType);
+                return expectedType === "Value" || expectedType === "Array" || typeMatrixSets["Object"].has(expectedType);
             } else if (expectedType === "Value" && valueTypeIsSuitable) {
-                return receivedType === "Array" || typeMatrix["Object"].includes(receivedType);
+                return receivedType === "Array" || typeMatrixSets["Object"].has(receivedType);
             } else {
                 //The most simple case: both types are string. Simply use the type matrix to see if the received type is a child (or the type itself) of the expected type.
-                if (!(expectedType in typeMatrix)) {
+                let suitableTypes = typeMatrixSets[expectedType];
+                if (suitableTypes === undefined) {
                     this.error("Unhandled type '" + expectedType + "'");
                 }
-                return typeMatrix[expectedType].includes(receivedType);
+                return suitableTypes.has(receivedType);
             }
         } else if (typeof expectedType === "object") {
             var expectedTypeName = Object.keys(expectedType)[0];
@@ -79,6 +87,7 @@ OverPyCompiler.prototype.isTypeSuitable = OverPyDecompiler.prototype.isTypeSuita
             }
         }
     } else if (typeof receivedType === "object") {
+        let receivedTypeName = Object.keys(receivedType)[0];
         if (receivedTypeName === "Array") {
             if (typeof expectedType === "string") {
                 //The only string type that is suitable for an array is "Array".
@@ -121,19 +130,19 @@ OverPyCompiler.prototype.isTypeSuitable = OverPyDecompiler.prototype.isTypeSuita
         }
     }
 
-    throw this.error("Unhandled expected type '" + JSON.stringify(expectedType) + "' or received type '" + JSON.stringify(receivedTypeName) + "'");
+    throw this.error("Unhandled expected type '" + JSON.stringify(expectedType) + "' or received type '" + JSON.stringify(receivedType) + "'");
 }
 
 OverPyCompiler.prototype.parseType = function(tokens: Token[]): Ast {
     if (tokens.length === 0) {
         this.error("Content is empty (expected a type)");
     }
-    if (!Object.keys(typeMatrix).includes(tokens[0].text)) {
+    /*if (!Object.keys(typeMatrix).includes(tokens[0].text)) {
         // This used to be an error, but considering the above condition was previously
         // bugged to never fire, and doing the correct checking actually results in
         // Workshop setting enums
         this.warn("w_type_check", "Expected a type, but got '" + tokens[0].text + "'");
-    }
+    }*/
     if (tokens.length === 1) {
         return this.Ast(tokens[0].text, [], [], "Type");
     }

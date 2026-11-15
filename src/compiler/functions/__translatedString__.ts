@@ -22,7 +22,7 @@ import { STR_MAX_ARGS, STR_MAX_LENGTH } from "../../globalVars";
 import { OverPyCompiler } from "../../godClasses";
 import { Ast, astParsingFunctions } from "../../utils/ast";
 import { escapeString, getUtf8ByteLength, getUtf8Length } from "../../utils/strings";
-import { getBestSpaces } from "./createCasedProgressBarIwt";
+import { getBestSpaces, getSpaceCoins } from "./createCasedProgressBarIwt";
 
 OverPyCompiler.prototype.getAstForTranslatedString = function(content: Ast, replacements: Ast[] = []): Ast {
 
@@ -53,8 +53,11 @@ OverPyCompiler.prototype.getAstForTranslatedString = function(content: Ast, repl
     let replacementMacro = "";
 
     if (content.parent?.name === "spacesForString") {
-        opyMacro += escapeString((this.useTlErr ? "ＴＬＥｒｒ\uEC48" : "")+content.args.map(x => getBestSpaces(Object.keys(spaces).map(Number), this.getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"), false);
-        opyMacro += ".split(__overpyTranslationHelper__)";
+        //The string literal is not put in the macro text, but passed as the "$str" argument (see below)
+        let spacesString = ((this.useTlErr ?"ＴＬＥｒｒ\uEC48" : "")+content.args.map(x => getBestSpaces(getSpaceCoins(), this.getStrVisualLength(x.name)).map((j) => spaces[j]).join("") ).join("\uEC48"));
+        replacements = [this.getAstForCustomString(spacesString)];
+        replacementNames = ["$str"];
+        opyMacro = "$str.split(__overpyTranslationHelper__)";
     } else if (isTranslatedStringLiteral) {
 
         //Warning: if adding more separators, check in a print() function if there is no loss of precision (client-side values have low precision)
@@ -100,12 +103,18 @@ OverPyCompiler.prototype.getAstForTranslatedString = function(content: Ast, repl
             }
         }
 
-        opyMacro = escapeString(rawString, false);
+        let strAst: Ast;
         if (replacementMacro.startsWith(".format(")) {
-            opyMacro += replacementMacro;
+            //Equivalent to "rawString".format($arg0, ...) in the macro text
+            strAst = this.getAstForCustomString(rawString, replacements);
+            replacements = [strAst];
+            replacementNames = ["$str"];
+        } else {
+            strAst = this.getAstForCustomString(rawString);
+            replacementNames = ["$str", ...replacements.map((x,i) => "$arg" + i)];
+            replacements = [strAst, ...replacements];
         }
-        opyMacro += ".split(__overpyTranslationHelper__)";
-        replacementNames = replacements.map((x,i) => "$arg" + i);
+        opyMacro = "$str.split(__overpyTranslationHelper__)";
 
     } else {
         opyMacro = "$translatedString";
@@ -129,7 +138,9 @@ OverPyCompiler.prototype.getAstForTranslatedString = function(content: Ast, repl
         }
     }
 
-    return this.parseOpyMacro(opyMacro, replacementNames, replacements);
+    //The macro text only depends on the compilation options and the number of replacements, so its parsed AST is reused within the compilation.
+    //(It references variables declared by this compilation, so it cannot use the process-wide cache.)
+    return this.parseOpyMacro(opyMacro, replacementNames, replacements, "compilation");
 
 }
 

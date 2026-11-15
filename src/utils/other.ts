@@ -58,7 +58,7 @@ export function isNumber(x: unknown) {
 }
 
 OverPyCompiler.prototype.getFileStackCopy = OverPyDecompiler.prototype.getFileStackCopy = function() {
-    return this.fileStack.map((x) => Object.assign({}, x));
+    return this.fileStack.map((x) => ({ ...x }));
 }
 
 //Reverses the comparison operator.
@@ -114,8 +114,7 @@ OverPyCompiler.prototype.getUniqueNumber = function(): number {
     return this.uniqueNumber;
 }
 
-export function getRuleEventCategories(ruleEvent: string): ("player" | "damage" | "healing" | "damageOrHealing")[] {
-    return {
+const ruleEventCategories: Record<string, ("player" | "damage" | "healing" | "damageOrHealing")[]> = {
         global: [],
         eachPlayer: ["player"],
         playerDealtDamage: ["player", "damage", "damageOrHealing"],
@@ -130,5 +129,9 @@ export function getRuleEventCategories(ruleEvent: string): ("player" | "damage" 
         playerReceivedHealing: ["player", "healing", "damageOrHealing"],
         playerReceivedKnockback: ["player", "damageOrHealing", "damage", "healing"],
         __subroutine__: ["player", "damageOrHealing", "damage", "healing"],
-    }[ruleEvent] as ("player" | "damage" | "healing" | "damageOrHealing")[] || [];
+};
+const noRuleEventCategories: ("player" | "damage" | "healing" | "damageOrHealing")[] = [];
+
+export function getRuleEventCategories(ruleEvent: string): ("player" | "damage" | "healing" | "damageOrHealing")[] {
+    return ruleEventCategories[ruleEvent] || noRuleEventCategories;
 }

@@ -22,6 +22,7 @@ import { stringKw } from "../data/localizedStrings";
 import { Value } from "../types";
 import { Token } from "../compiler/tokenizer";
 import { debug } from "./logging";
+import { DEBUG_MODE } from "../globalVars";
 
 /**
  * Translates a keyword to Workshop from OverPy or vice versa.
@@ -48,7 +49,9 @@ OverPyCompiler.prototype.translate = OverPyDecompiler.prototype.translate = func
             keyword = "cassidyflashbangexplosioneffect";
         }
     }
-    debug("Translating keyword '" + keyword + "'");
+    if (DEBUG_MODE) {
+        debug("Translating keyword '" + keyword + "'");
+    }
 
     if (toWorkshop) {
         try {

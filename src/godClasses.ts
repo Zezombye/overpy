@@ -27,11 +27,12 @@ export interface OverPyCompiler {
     parseLines: (lines: LogicalLine[]) => Ast[];
     parseString: (content: Token[], kwargs?: Record<string, any>) => Ast;
     parse: (content: Token[], kwargs?: Record<string, any>) => Ast;
+    parseRange: (tokens: Token[], start: number, end: number, kwargs?: Record<string, any>) => Ast;
     parseArgs: (funcName: string, args: Token[][]) => any[];
     parseMember: (object: Token[], member: Token[]) => any;
     parseLiteralArray: (content: Token[]) => Ast;
     parseDictionary: (content: Token[]) => Ast;
-    parseOpyMacro: (macro: string, argNames: string[], args: Ast[]) => Ast;
+    parseOpyMacro: (macro: string, argNames: string[], args: Ast[], cacheScope?: boolean | "compilation") => Ast;
     parseOpyMacroAst: (content: Ast) => Ast;
     getAstForArgDefault: (arg: Argument) => any;
     parseAst: (content: Ast) => Ast;
@@ -91,12 +92,13 @@ export interface OverPyCompiler {
     debug: (data: string) => void;
     getTypeCheckFailedMessage: (content: Ast, argNb: number, expectedType: Type, received: Ast) => string;
     typeToString: (type: Type) => string;
-    getFileStackRange: (tokens: Token[]) => FileStackMember[];
+    getFileStackRange: (tokens: Token[], start?: number, end?: number) => FileStackMember[];
     compileCustomGameSettingsDict: (providedSettings: Record<string, any>, refDict: {[key: string]: {values: string | Record<string, any>;};}) => Record<string, any>;
     error: (str: string, fileStackOverride?: FileStackMember[]) => never;
     astContainsFunctions: (ast: Ast, functionNames: string[], errorOnTrue?: boolean, type?: Type | Type[]) => boolean;
     astContainsRandom: (ast: Ast) => boolean;
     isTypeSuitable: (expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable?: boolean) => boolean;
+    isObjectOrArrayType: (type: Type | Type[]) => boolean;
     generateVariablesField: () => string;
     generateSubroutinesField: () => string;
     prepareAstForCompression: (content: Ast, assumeDefaultValues?: boolean) => {strValues: string[]; minDecimalPlace: number; maxDecimalPlace: number; offset: number; arrayType: string | null;};
@@ -132,6 +134,10 @@ export class OverPyCompiler {
     globalVariables: Variable[] = [];
     playerVariables: Variable[] = [];
     subroutines: Subroutine[] = [];
+    /** Names of the declared variables/subroutines, for O(1) lookups (the arrays above are kept for ordering). Maintained by addVariable/addSubroutine. */
+    globalVariableNames: Set<string> = new Set();
+    playerVariableNames: Set<string> = new Set();
+    subroutineNames: Set<string> = new Set();
     currentLanguage: OWLanguage = "en-US";
     
     nbTabs: number = 0;
@@ -227,6 +233,10 @@ export class OverPyCompiler {
     useTlErr: boolean = true;
     /** List of translated strings encountered during compilation */
     translatedStrings: TranslatedString[] = [];
+    /** Parsed ASTs of user-content macros that are used several times in this compilation (eg the rule prefix template), keyed by macro text. See parseOpyMacro. */
+    compilationMacroAstCache: Map<string, Ast> = new Map();
+    /** The .po files read by importFromPoFiles, keyed by language. Used by exportToPoFiles to keep the existing headers and to not rewrite unchanged files. */
+    existingPoFiles: Record<string, { content: string; headerOrder: string[]; headers: Record<string, string> }> = {};
     /** The constant that will be used to determine the player's language */
     translationLanguageConstant: Constant | null = null;
     translationLanguageConstantOpy: string = "";
@@ -311,6 +321,10 @@ export class OverPyDecompiler {
     globalVariables: Variable[] = [];
     playerVariables: Variable[] = [];
     subroutines: Subroutine[] = [];
+    /** Names of the declared variables/subroutines, for O(1) lookups. Maintained by addVariable/addSubroutine. */
+    globalVariableNames: Set<string> = new Set();
+    playerVariableNames: Set<string> = new Set();
+    subroutineNames: Set<string> = new Set();
     currentLanguage: OWLanguage = "en-US";
     /** Declare variables and subroutines that are used but not declared (index -1, left for the compiler to assign), instead of throwing. */
     declareUnknownNames: boolean = false;
